@@ -1,4 +1,5 @@
 """Sphinx directive for building code from snippets."""
+
 from contextlib import redirect_stdout
 from io import StringIO
 
@@ -6,7 +7,6 @@ from docutils import nodes
 from matlab.engine import start_matlab, MatlabEngine
 
 from sphinx.application import Sphinx
-from sphinx.directives.code import CodeBlock
 from sphinx.util.docutils import SphinxDirective
 from sphinx.util.typing import ExtensionMetadata
 
@@ -19,17 +19,21 @@ class OutputDirective(SphinxDirective):
 
     def run(self) -> list[nodes.Node]:
         language = self.arguments[0]
-        if language == 'Python':
-            if not hasattr(self.state, 'snippets_env'):
+        if language == "Python":
+            if not hasattr(self.state, "snippets_env"):
                 self.state.snippets_env = {}
-            output_print = write_python_output('\n'.join(self.content), self.state.snippets_env)
-        if language == 'Matlab':
-            if not hasattr(self.state, 'matlab_engine'):
+            output_print = write_python_output(
+                "\n".join(self.content), self.state.snippets_env
+            )
+        if language == "Matlab":
+            if not hasattr(self.state, "matlab_engine"):
                 self.state.matlab_engine = start_matlab()
-            output_print = write_matlab_output('\n'.join(self.content), self.state.matlab_engine)
+            output_print = write_matlab_output(
+                "\n".join(self.content), self.state.matlab_engine
+            )
 
         output = nodes.literal_block(output_print, output_print)
-        output['language'] = 'text'
+        output["language"] = "text"
 
         return [output]
 
