@@ -20,16 +20,16 @@ class OutputDirective(SphinxDirective):
     def run(self) -> list[nodes.Node]:
         language = self.arguments[0]
         if language == "Python":
-            if not hasattr(self.state, "snippets_env"):
-                self.state.snippets_env = {}
+            if not hasattr(self.env, "snippets_env"):
+                self.env.snippets_env = {}
             output_print = write_python_output(
-                "\n".join(self.content), self.state.snippets_env
+                "\n".join(self.content), self.env.snippets_env
             )
         if language == "Matlab":
-            if not hasattr(self.state, "matlab_engine"):
-                self.state.matlab_engine = start_matlab()
+            if not hasattr(self.env, "matlab_engine"):
+                self.env.matlab_engine = start_matlab()
             output_print = write_matlab_output(
-                "\n".join(self.content), self.state.matlab_engine
+                "\n".join(self.content), self.env.matlab_engine
             )
 
         output = nodes.literal_block(output_print, output_print)
@@ -38,8 +38,38 @@ class OutputDirective(SphinxDirective):
         return [output]
 
 
+class SetupDirective(SphinxDirective):
+    """A directive which runs some code and saves it to the env."""
+
+    has_content = True
+    optional_arguments = 1
+
+    def run(self) -> list[nodes.Node]:
+        language = self.arguments[0]
+        if language == "Python":
+            if not hasattr(self.env, "snippets_env"):
+                self.env.snippets_env = {}
+            write_python_output("\n".join(self.content), self.env.snippets_env)
+        if language == "Matlab":
+            if not hasattr(self.env, "matlab_engine"):
+                self.env.matlab_engine = start_matlab()
+            write_matlab_output("\n".join(self.content), self.env.matlab_engine)
+
+        return []
+
+
 def setup(app: Sphinx) -> ExtensionMetadata:
     app.add_directive("output", OutputDirective)
+
+    def del_envs(*ignore):
+        """Delete Python/MATLAB environments from the build environment."""
+        if hasattr(app.env, "snippets_env"):
+            del app.env.snippets_env
+        if hasattr(app.env, "matlab_engine"):
+            app.env.matlab_engine.quit()
+            del app.env.matlab_engine
+
+    app.connect('doctree-read', del_envs)
 
 
 def write_python_output(code: str, env: dict | None) -> str:
