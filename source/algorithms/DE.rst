@@ -24,7 +24,7 @@ As with all the RAT algorithms, DE is selected using the 'procedure' attribute o
 
     .. code-block:: Python
     
-        controls = RAT.Controls('DE')
+        controls = RAT.Controls(procedure='DE')
 
 This reveals the DE specific parameters in controls:- 
 
@@ -35,14 +35,19 @@ This reveals the DE specific parameters in controls:-
     .. tab-item:: Matlab
         :sync: Matlab
 
-        .. raw:: html
-            :file: ../_outputs/matlab/controlDEDefaults.txt
+        .. output:: Matlab
+
+            controls = controlsClass();
+            controls.procedure = 'DE';
+            disp(controls)
 
     .. tab-item:: Python 
         :sync: Python
         
-        .. raw:: html
-            :file: ../_outputs/python/controlDEDefaults.txt
+        .. output:: Python
+
+            controls = RAT.Controls(procedure='DE')
+            print(controls)
 
 For all the algorithms in the RAT implementation of DE (see below), the parameters have the following meanings:-
 

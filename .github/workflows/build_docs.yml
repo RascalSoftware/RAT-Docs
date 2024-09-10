@@ -1,4 +1,4 @@
-name: Buld Docs
+name: Build Docs
 
 on:
   push:
@@ -21,21 +21,19 @@ jobs:
         path: _web
     - name: Set up MATLAB
       uses: matlab-actions/setup-matlab@v2
-    - name: Run script
-      uses: matlab-actions/run-command@v2
-      with:
-        command: generateOutputs
     - name: Set up Python 
       uses: actions/setup-python@v4
     - name: Install dependencies
       run: |
+        export LD_LIBRARY_PATH=/opt/hostedtoolcache/MATLAB/2024.1.999/x64/bin/glnxa64/:$LD_LIBARY_PATH
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install RATapi numpy
-    - name: Build docs
+    - name: Download MATLAB RAT
       run: |
-        python generate_output.py
-        python build_docs.py
+        wget https://github.com/RascalSoftware/RAT/releases/download/nightly/Linux.zip
+        unzip Linux.zip -d API/
+    - name: Build docs
+      run: python build_docs.py
     - name: Checkout gh-pages
       uses: actions/checkout@v4
       with:
