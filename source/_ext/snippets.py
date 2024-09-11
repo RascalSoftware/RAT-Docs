@@ -5,11 +5,11 @@ from io import StringIO
 
 from docutils import nodes
 from matlab.engine import start_matlab, MatlabEngine
+import RATapi
 
 from sphinx.application import Sphinx
 from sphinx.util.docutils import SphinxDirective
 from sphinx.util.typing import ExtensionMetadata
-
 
 class OutputDirective(SphinxDirective):
     """A directive for getting the output of some code."""
@@ -19,18 +19,18 @@ class OutputDirective(SphinxDirective):
 
     def run(self) -> list[nodes.Node]:
         language = self.arguments[0]
+        code = "\n".join(self.content)
+
         if language == "Python":
-            if not hasattr(self.env, "snippets_env"):
-                self.env.snippets_env = {}
-            output_print = write_python_output(
-                "\n".join(self.content), self.env.snippets_env
-            )
+            try:
+                output_print = write_python_output(code, self.env.snippets_env)
+            except Exception as err:
+                raise RuntimeError(f"Error running {code}: {err}")
         if language == "Matlab":
-            if not hasattr(self.env, "matlab_engine"):
-                self.env.matlab_engine = start_matlab()
-            output_print = write_matlab_output(
-                "\n".join(self.content), self.env.matlab_engine
-            )
+            try:
+                output_print = write_matlab_output(code, self.env.matlab_engine)
+            except Exception as err:
+                raise RuntimeError(f"Error running {code}: {err}")
 
         output = nodes.literal_block(output_print, output_print)
         output["language"] = "text"
@@ -38,38 +38,30 @@ class OutputDirective(SphinxDirective):
         return [output]
 
 
-class SetupDirective(SphinxDirective):
-    """A directive which runs some code and saves it to the env."""
-
-    has_content = True
-    optional_arguments = 1
-
-    def run(self) -> list[nodes.Node]:
-        language = self.arguments[0]
-        if language == "Python":
-            if not hasattr(self.env, "snippets_env"):
-                self.env.snippets_env = {}
-            write_python_output("\n".join(self.content), self.env.snippets_env)
-        if language == "Matlab":
-            if not hasattr(self.env, "matlab_engine"):
-                self.env.matlab_engine = start_matlab()
-            write_matlab_output("\n".join(self.content), self.env.matlab_engine)
-
-        return []
-
-
 def setup(app: Sphinx) -> ExtensionMetadata:
     app.add_directive("output", OutputDirective)
 
-    def del_envs(*ignore):
-        """Delete Python/MATLAB environments from the build environment."""
-        if hasattr(app.env, "snippets_env"):
-            del app.env.snippets_env
-        if hasattr(app.env, "matlab_engine"):
-            app.env.matlab_engine.quit()
-            del app.env.matlab_engine
+    def setup_envs(*ignore):
+        """Initialise Python/MATLAB environments."""
+        app.env.snippets_env = {'RAT': RATapi}
+        print("Starting up MATLAB Engine...")
+        app.env.matlab_engine = start_matlab()
+        app.env.matlab_engine.eval("cd('API'); addPaths; cd('..'); ratVars = who;",nargout=0)
 
-    app.connect('doctree-read', del_envs)
+    def clear_envs(*ignore):
+        """Clear Python/MATLAB environments from the build environment."""
+        app.env.snippets_env = {'RAT': RATapi}
+        app.env.matlab_engine.eval(r"clearvars('-except', 'ratVars', ratVars{:});", nargout=0)
+
+    def del_engine(*ignore):
+        """Stop and delete the MATLAB engine when building is finished."""
+        del app.env.snippets_env
+        app.env.matlab_engine.quit()
+        del app.env.matlab_engine
+
+    app.connect('builder-inited', setup_envs)
+    app.connect('doctree-read', clear_envs)
+    app.connect('env-updated', del_engine)
 
 
 def write_python_output(code: str, env: dict | None) -> str:
