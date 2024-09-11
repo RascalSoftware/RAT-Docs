@@ -29,7 +29,7 @@ To select the simplex in RAT, we use the 'procedure' attribute of the controls b
     
     .. code-block:: Python
     
-        controls = RAT.Controls('simplex')
+        controls = RAT.Controls(procedure='simplex')
 
 Then, a number of additional fields become visible in the controls block, which are the parameters
 for the simplex:-
@@ -41,14 +41,20 @@ for the simplex:-
     .. tab-item:: Matlab
         :sync: Matlab
 
-        .. raw:: html
-            :file: ../_outputs/matlab/controlSimplexDefaults.txt
+        .. output:: Matlab
+
+            controls = controlsClass();
+            controls.procedure = 'simplex';
+            disp(controls)
 
     .. tab-item:: Python 
         :sync: Python
         
-        .. raw:: html
-            :file: ../_outputs/python/controlSimplexDefaults.txt
+        .. output:: Python
+
+            controls = RAT.Controls(procedure='simplex')
+            print(controls)
+
 
 Many of these have been described in :ref:`controlsInfo`, but a few here are specific to the simplex:-
 

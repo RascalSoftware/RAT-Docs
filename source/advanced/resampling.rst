@@ -62,14 +62,27 @@ Using resampling on a contrast in RAT is very simple. For any contrast that you 
     .. tab-item:: Matlab
         :sync: Matlab
 
-        .. raw:: html
-            :file: ../_outputs/matlab/advancedResample.txt
+        .. output:: Matlab
+
+          problem = load('source/tutorial/data/monolayerExample.mat');
+          problem = problem.problem;
+          problem.setContrast(1, 'resample', true);
+          problem.contrasts.displayContrastsObject()
 
     .. tab-item:: Python 
         :sync: Python
         
-        .. raw:: html
-            :file: ../_outputs/python/advancedResample.txt
+        .. output:: Python
+
+            # replace with a better project reading method when we have one...
+            with open('source/tutorial/data/monolayer_example.py', "r") as f:
+                script = f.read()
+            locals = {}
+            exec(script, None, locals)
+            problem = locals['problem']
+            problem.contrasts.set_fields(0, resample=True)
+            print(problem.contrasts)
+
 
 The resampling itself is controlled by the 'resamPars' field in the controls block:
 
@@ -80,14 +93,18 @@ The resampling itself is controlled by the 'resamPars' field in the controls blo
     .. tab-item:: Matlab
         :sync: Matlab
 
-        .. raw:: html
-            :file: ../_outputs/matlab/controlDefaults.txt
+        .. output:: Matlab
+
+          controls = controlsClass();
+          disp(controls)
 
     .. tab-item:: Python 
         :sync: Python
         
-        .. raw:: html
-            :file: ../_outputs/python/controlDefaults.txt
+        .. output:: Python
+
+            controls = RAT.Controls()
+            print(controls)
 
 The resampPars field has two parameters in it, corresponding to the minimum angle and minimum points (resamPars = [minAngle minPoints]) which to use to resample the profiles.
 These have the following effects:

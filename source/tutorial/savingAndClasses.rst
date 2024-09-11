@@ -20,26 +20,11 @@ struct to a file to save all of your work:
 .. tab-set-code::
     .. code-block:: Matlab
 
-        myResults = struct('problem', problem, 'results', results, 'controls', controls)
+        myResults = struct('problem', problem, 'results', results, 'controls', controls);
         save('myResultsFile', 'myResults');
 
     .. code-block:: Python
 
-        TODO
-
-.. tab-set::
-    :class: tab-label-hidden
-    :sync-group: code
-
-    .. tab-item:: Matlab
-        :sync: Matlab
-
-        .. raw:: html
-            :file: ../_outputs/matlab/savingProject.txt
-
-    .. tab-item:: Python 
-        :sync: Python
-        
         TODO
 
 
@@ -62,8 +47,15 @@ At a later date, you only need to load back in your struct, split it up into it 
     .. tab-item:: Matlab
         :sync: Matlab
 
-        .. raw:: html
-            :file: ../_outputs/matlab/savingProject.txt
+        .. code-block:: text
+
+            myResults = 
+
+            struct with fields:
+
+                problem: [1x1 projectClass]
+                results: [1x1 struct]
+                controls: [1x1 controlsClass]
 
     .. tab-item:: Python 
         :sync: Python
