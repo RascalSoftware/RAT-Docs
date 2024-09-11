@@ -21,10 +21,6 @@ jobs:
         path: _web
     - name: Set up MATLAB
       uses: matlab-actions/setup-matlab@v2
-    - name: Run script
-      uses: matlab-actions/run-command@v2
-      with:
-        command: generateOutputs
     - name: Set up Python 
       uses: actions/setup-python@v4
     - name: Install dependencies
@@ -33,9 +29,7 @@ jobs:
         pip install -r requirements.txt
         pip install RATapi numpy
     - name: Build docs
-      run: |
-        python generate_output.py
-        python build_docs.py
+      run: python build_docs.py
     - name: Checkout gh-pages
       uses: actions/checkout@v4
       with:
