@@ -35,7 +35,11 @@ jobs:
     - name: Build docs
       run: |
         python generate_output.py
+        url=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.html_url')
+        echo -n ${url} > source/url.txt
         python build_docs.py
+      env:
+        GH_TOKEN: ${{ github.token }}
     - name: Checkout gh-pages
       uses: actions/checkout@v4
       with:
@@ -43,7 +47,6 @@ jobs:
         path: _web
     - name: Build and Deploy Docs
       run: |
-        make html
         python deploy.py ${{github.ref}}
         cd _web
         git config user.name github-actions
@@ -51,3 +54,4 @@ jobs:
         git add -A
         git commit -m "Publish Documentation" || true
         git push
+      

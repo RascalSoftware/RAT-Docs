@@ -40,7 +40,7 @@ function generateOutputs
 
     writeOutput(evalc('problem.parameters.displayTable()'), 'tutorialDefaultParameters.txt', outputDir);
 
-    problem.addParameter('My new param');
+    problem.addParameter('My new param', 1, 2, 3);
     problem.addParameter('My other new param',10,20,30,false);
     pGroup = {{'Layer thick', 10, 20, 30, true};
               {'Layer SLD', 1e-6, 3e-6 5e-6, true};
