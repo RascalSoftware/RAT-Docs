@@ -21,6 +21,8 @@ jobs:
         path: _web
     - name: Set up MATLAB
       uses: matlab-actions/setup-matlab@v2
+      with:
+        release: R2024a
     - name: Set up Python 
       uses: actions/setup-python@v4
     - name: Install dependencies
@@ -33,7 +35,12 @@ jobs:
         wget https://github.com/RascalSoftware/RAT/releases/download/nightly/Linux.zip
         unzip Linux.zip -d API/
     - name: Build docs
-      run: python build_docs.py
+      run: |
+        url=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.html_url')
+        echo -n ${url} > source/url.txt
+        python build_docs.py
+      env:
+        GH_TOKEN: ${{ github.token }}
     - name: Checkout gh-pages
       uses: actions/checkout@v4
       with:
@@ -41,10 +48,6 @@ jobs:
         path: _web
     - name: Build and Deploy Docs
       run: |
-        url=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.html_url')
-        echo $url
-        echo $url > source/url.txt
-        make html
         python deploy.py ${{github.ref}}
         cd _web
         git config user.name github-actions
@@ -52,5 +55,4 @@ jobs:
         git add -A
         git commit -m "Publish Documentation" || true
         git push
-      env:
-        GH_TOKEN: ${{ github.token }}
+      
