@@ -47,7 +47,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/matlab/parametersClass';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
-        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://rascalsoftware.github.io/RAT-Docs/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://rascalsoftware.github.io/RAT-Docs/
+/RAT-Docs/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
         DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
         </script>
@@ -521,8 +522,10 @@ for 8 inputs, all parameter properties are provided</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.displayTable">
-<span class="sig-name descname"><span class="pre">displayTable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.displayTable" title="Link to this definition">#</a></dt>
-<dd><p>Displays the parameter table</p>
+<span class="sig-name descname"><span class="pre">displayTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">showPriors</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.displayTable" title="Link to this definition">#</a></dt>
+<dd><p>Displays the parameter table. Optional showPriors to display
+the priors default is false</p>
+<p>params.displayTable(true);</p>
 </dd></dl>
 
 <dl class="mat method">
@@ -565,7 +568,7 @@ Expects index or name of parameter and new fit flag</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.setLimits">
-<span class="sig-name descname"><span class="pre">setLimits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">min</span></em>, <em class="sig-param"><span class="pre">max</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setLimits" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">setLimits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">minValue</span></em>, <em class="sig-param"><span class="pre">maxValue</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setLimits" title="Link to this definition">#</a></dt>
 <dd><p>Sets the limits of an existing parameter. Expects index
 or name of parameter and new min and max of the parameter’s
 value</p>
@@ -609,6 +612,18 @@ name of parameter and the new value</p>
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.toStruct">
 <span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.toStruct" title="Link to this definition">#</a></dt>
 <dd><p>Converts the class parameters into a structure array.</p>
+</dd></dl>
+
+<dl class="mat staticmethod">
+<dt class="sig sig-object mat" id="API.projectClass.parametersClass.validateLimits">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">validateLimits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">minLimit</span></em>, <em class="sig-param"><span class="pre">value</span></em>, <em class="sig-param"><span class="pre">maxLimit</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.validateLimits" title="Link to this definition">#</a></dt>
+<dd><p>Validate the value, lower and upper limit variables</p>
+</dd></dl>
+
+<dl class="mat staticmethod">
+<dt class="sig sig-object mat" id="API.projectClass.parametersClass.validatePriors">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">validatePriors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">priorType</span></em>, <em class="sig-param"><span class="pre">muValue</span></em>, <em class="sig-param"><span class="pre">sigmaValue</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.validatePriors" title="Link to this definition">#</a></dt>
+<dd><p>Validate the prior types, mu and sigma variables</p>
 </dd></dl>
 
 </dd></dl>
