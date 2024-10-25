@@ -21,6 +21,8 @@ exclude_patterns = []
 current_dir = os.path.dirname(os.path.abspath(__file__))
 matlab_src_dir = os.path.abspath(os.path.join(current_dir, '..', 'API'))
 sys.path.insert(0, matlab_src_dir)
+VERSION_FILE = os.path.join(matlab_src_dir, 'version.txt')
+URL_FILE = os.path.join(current_dir, 'url.txt')
 
 import RATapi
 sys.path.insert(0, os.path.dirname(os.path.abspath(RATapi.__file__)))
@@ -34,7 +36,6 @@ VERSION_REGEX = re.compile(r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)"
                            r"(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)"
                            r"(?:\.(?:0|[1-9]\d*|\d *[a-zA-Z-][0-9a-zA-Z-]*))*))?"
                            r"(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?")
-VERSION_FILE = os.path.join(matlab_src_dir, 'version.txt')
 
 doc_version = 'dev'
 with open(VERSION_FILE, 'r') as version_file:
@@ -69,13 +70,17 @@ bgcolor = 'white'
 html_favicon = "_static/logo.png"
 html_static_path = ['_static']
 html_css_files = ["custom.css"]
-
 html_logo = '_static/logo.png'
+
+url = ''
+with open(URL_FILE, 'r') as url_file:
+    url = url_file.read()    
+        
 html_theme_options = {'show_prev_next': False,
                       'pygment_light_style': 'tango',
                       'pygment_dark_style': 'monokai',
                       'navbar_start': ['navbar-logo', 'version-switcher'],
-                      'switcher': {'json_url': 'https://rascalsoftware.github.io/RAT-Docs/switcher.json', 
+                      'switcher': {'json_url': f'{url}/RAT-Docs/switcher.json', 
                                    'version_match': doc_version,
                                    "check_switcher": False,},
                      }

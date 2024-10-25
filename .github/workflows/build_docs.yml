@@ -41,6 +41,9 @@ jobs:
         path: _web
     - name: Build and Deploy Docs
       run: |
+        url=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.html_url')
+        echo $url
+        echo $url > source/url.txt
         make html
         python deploy.py ${{github.ref}}
         cd _web
@@ -49,3 +52,5 @@ jobs:
         git add -A
         git commit -m "Publish Documentation" || true
         git push
+      env:
+        GH_TOKEN: ${{ github.token }}
