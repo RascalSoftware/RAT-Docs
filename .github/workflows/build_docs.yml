@@ -1,4 +1,4 @@
-name: Buld Docs
+name: Build Docs
 
 on:
   push:

@@ -51,7 +51,7 @@ And if we take a look at it, we can see the class contains a series of sections,
 
         .. output:: Matlab
 
-            problem = createProject(name='my project')
+            problem = createProject(name='my project');
             disp(problem)
 
     .. tab-item:: Python 
@@ -83,7 +83,7 @@ containing the simulated reflectivities, SLD's and so on from whatever procedure
         .. output:: Matlab
 
             controls = controlsClass;
-            controlsClass.display = 'off';
+            controls.display = 'off';
             [~, ~, results] = evalc('RAT(problem, controls);');
             disp(results)
 
@@ -240,7 +240,7 @@ The resulting parameters block looks like this:
                     {'Layer SLD', 1e-6, 3e-6 5e-6, true};
                     {'Layer rough', 5, 7, 10, true}};
                 
-            problem.addParameterGroup(pGroup)
+            problem.addParameterGroup(pGroup);
             problem.parameters.displayTable()
 
     .. tab-item:: Python 
@@ -326,7 +326,7 @@ Alternatively, you can set a number of properties of a given parameter at once u
 
         .. output:: Matlab
 
-            problem.setParameter(4, 'name', 'thick', 'min', 5, 'max', 33, 'fit', false)
+            problem.setParameter(4, 'name', 'thick', 'min', 5, 'max', 33, 'fit', false);
             problem.parameters.displayTable()
 
     .. tab-item:: Python 
@@ -392,7 +392,7 @@ Also, if you try to remove the substrate roughness you will get an error:
             try
                 problem.removeParameter(1);
             catch ERROR
-                getReport(ERROR)
+                disp(getReport(ERROR))
             end
 
     .. tab-item:: Python 
@@ -497,13 +497,10 @@ Our two layers now appear in the Layers block of the project:
 
             problem = RAT.Project(name='Layers Example')
             
-            params = [RAT.models.Parameter(name='Layer Thickness', min=10, value=20, max=30, fit=False),
-                    RAT.models.Parameter(name='H SLD', min=-6e-6, value=-4e-6, max=-1e-6, fit=False),
-                    RAT.models.Parameter(name='D SLD', min=5e-6, value=7e-6, max=9e-6, fit=True),
-                    RAT.models.Parameter(name='Layer rough', min=3, value=5, max=7, fit=True),
-                    RAT.models.Parameter(name='Layer hydr', min=0, value=10, max=20, fit=True)] 
-    
-            problem.parameters.extend(params)
+            problem.layers.append(name='H Layer', thickness='Layer Thickness', SLD='H SLD',
+                              roughness='Layer rough', hydration='Layer hydr', hydrate_with='bulk out')
+            problem.layers.append(name='D Layer', thickness='Layer Thickness', SLD='D SLD',
+                              roughness='Layer rough', hydration='Layer hydr', hydrate_with='bulk out')
 
             print(problem.layers)
 
@@ -721,6 +718,7 @@ With this code snippet we've made a new background, with the value taken from th
 
             problem.background_parameters.append(name='My New BackPar', min=1e-8, value=1e-7, max=1e-6, fit=True)
             problem.backgrounds.append(name='My New Background', type='constant', value_1='My New BackPar')
+            print(problem.background_parameters)
             print(problem.backgrounds)
 
 
@@ -803,6 +801,7 @@ To define a resolution parameter, we use the addResolutionParam method:
 
         .. output:: Python
 
+            print(problem.resolution_parameters)
             print(problem.resolutions)
 
 
@@ -828,9 +827,9 @@ Then, we make the actual resolution referring to whichever one of the resolution
 
         .. output:: Matlab
 
-            problem.addResolutionParam('My Resolution Param', 0.02, 0.05, 0.08, true)
-            problem.addResolution('My new resolution','constant','My Resolution Param')
-            problem.addResolution('My Data Resolution','data')
+            problem.addResolutionParam('My Resolution Param', 0.02, 0.05, 0.08, true);
+            problem.addResolution('My new resolution','constant','My Resolution Param');
+            problem.addResolution('My Data Resolution','data');
             problem.resolution.displayResolutionsObject()
 
     .. tab-item:: Python 
@@ -1247,6 +1246,7 @@ Now we'll calculate this to check the agreement with the data. We need an instan
 
         .. output:: Matlab
 
+            controls.display = 'on';
             disp(controls)
 
     .. tab-item:: Python 
