@@ -45,7 +45,11 @@ with open(VERSION_FILE, 'r') as version_file:
         doc_version = f'{major}.{minor}'
     
 # -- General configuration ---------------------------------------------------
-extensions = ['sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary', 'sphinx_design', 'sphinx_copybutton']
+
+# add extensions path for snippets
+sys.path.append(os.path.abspath("./_ext"))
+
+extensions = ['sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary', 'sphinx_design', 'sphinx_copybutton', 'snippets']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

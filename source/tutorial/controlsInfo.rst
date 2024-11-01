@@ -28,14 +28,18 @@ This then creates an instance of controls class with a number of options defined
     .. tab-item:: Matlab
         :sync: Matlab
 
-        .. raw:: html
-            :file: ../_outputs/matlab/controlDefaults.txt
+        .. output:: Matlab
 
-    .. tab-item:: Python 
+            controls = controlsClass();
+            disp(controls)
+
+    .. tab-item:: Python
         :sync: Python
-        
-        .. raw:: html
-            :file: ../_outputs/python/controlDefaults.txt
+
+        .. output:: Python
+
+            controls = RAT.Controls()
+            print(controls)
 
 We will look at each of these in more detail below. Note that the options that are visible depend on
 the algorithm selected. So, at the moment the controls are set to 'calculate', which will simply calculate the reflectivity and 
@@ -48,7 +52,7 @@ SLD with any associated problem. If we select 'simplex' as the algorithm, a diff
 
     .. code-block:: Python
         
-        controls = RAT.Controls('simplex')
+        controls = RAT.Controls(procedure='simplex')
 
 
 .. tab-set::
@@ -58,14 +62,19 @@ SLD with any associated problem. If we select 'simplex' as the algorithm, a diff
     .. tab-item:: Matlab
         :sync: Matlab
 
-        .. raw:: html
-            :file: ../_outputs/matlab/controlSimplexDefaults.txt
+        .. output:: Matlab
 
-    .. tab-item:: Python 
+            controls = controlsClass();
+            controls.procedure = 'simplex';
+            disp(controls)
+
+    .. tab-item:: Python
         :sync: Python
-        
-        .. raw:: html
-            :file: ../_outputs/python/controlSimplexDefaults.txt
+
+        .. output:: Python
+
+            controls = RAT.Controls(procedure='simplex')
+            print(controls)
 
 which allow the user to set things such as tolerance targets and so on. There is a different set of options for each algorithm.
 We will now look at each of the available options in turn.

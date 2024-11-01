@@ -30,14 +30,26 @@ The imaginary refractive index appears as a new column in the 'Layers' block.
     .. tab-item:: Matlab
         :sync: Matlab
 
-        .. raw:: html
-            :file: ../_outputs/matlab/advancedAbsorption.txt
+        .. output:: Matlab
+
+          problem = load('source/tutorial/data/monolayerExample.mat');
+          problem = problem.problem;
+          problem.absorption = true;
+          problem.layers.displayTable()
 
     .. tab-item:: Python 
         :sync: Python
         
-        .. raw:: html
-            :file: ../_outputs/python/advancedAbsorption.txt
+        .. output:: Python
+
+            # replace with a better project reading method when we have one...
+            with open('source/tutorial/data/monolayer_example.py', "r") as f:
+                script = f.read()
+            locals = {}
+            exec(script, None, locals)
+            problem = locals['problem']
+            problem.absorption = True
+            print(problem.layers)
 
 Then, the value of this column are set (from the Parameters block) in the same way as all the other cells in the table.
 

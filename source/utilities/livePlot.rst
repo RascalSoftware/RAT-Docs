@@ -33,8 +33,8 @@ When the snippet above is run, a plot figure willed be opened and the plot will 
 
 **Frequency of events**
 
-To control how often the plot event is triggered, change the plot frequency parameter in the controls block as shown below, the default frequency is 20 which means the 
-plot event is triggered after every 20 iterations:
+To control how often the plot event is triggered, change the plot frequency parameter in the controls block as shown below. The default frequency is 20 which means the 
+plot event is triggered after every 20 iterations.
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -47,13 +47,9 @@ plot event is triggered after every 20 iterations:
         controls.updatePlotFreq = 35;
 
     .. code-block:: Python
-        
-        controls = RAT.ControlsClass();
-        controls.procedure = 'simplex'
-        
-        # change plot frequency to 35
-        controls.updatePlotFreq = 35
 
+        # set plot frequency to 35 in the Controls class parameters
+        controls = RAT.Controls(procedure='simplex', updatePlotFreq=35)
 
 .. tab-set::
     :class: tab-label-hidden
@@ -62,14 +58,23 @@ plot event is triggered after every 20 iterations:
     .. tab-item:: Matlab
         :sync: Matlab
 
-        .. raw:: html
-            :file: ../_outputs/matlab/controlSimplexPlotFreq.txt
+        .. output:: Matlab
+
+            controls = controlsClass();
+            controls.procedure = 'simplex'
+        
+            % change plot frequency to 35
+            controls.updatePlotFreq = 35;
+
+            disp(controls)
 
     .. tab-item:: Python 
         :sync: Python
         
-        .. raw:: html
-            :file: ../_outputs/python/controlSimplexPlotFreq.txt
+        .. output:: Python
+            
+            controls = RAT.Controls(procedure='simplex', updatePlotFreq=35)
+            print(controls)
 
 .. note::
     If you set the plot frequency too low (i.e. make the plot update too often), this will slow your fit as plotting takes time out of the analysis to update the figure.
