@@ -5,4 +5,4 @@ sphinx_design==0.6.0
 sphinx-copybutton==0.5.2
 RATapi
 numpy
-matlabengine==24.1.*
+matlabengine==23.2.*
