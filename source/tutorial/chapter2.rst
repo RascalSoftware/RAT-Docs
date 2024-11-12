@@ -196,7 +196,7 @@ To add a parameter, you can just specify a name, in which case the parameter tak
 .. tab-set-code::
     .. code-block:: Matlab
 
-        problem.addParameter('My new param');
+        problem.addParameter('My new param', 1, 2, 3);
         problem.addParameter('My other new param',10,20,30,false);
 
     .. code-block:: Python
@@ -234,7 +234,7 @@ The resulting parameters block looks like this:
 
         .. output:: Matlab
 
-            problem.addParameter('My new param');
+            problem.addParameter('My new param', 1, 2, 3);
             problem.addParameter('My other new param',10,20,30,false);
             pGroup = {{'Layer thick', 10, 20, 30, true};
                     {'Layer SLD', 1e-6, 3e-6 5e-6, true};
@@ -496,11 +496,17 @@ Our two layers now appear in the Layers block of the project:
         .. output:: Python
 
             problem = RAT.Project(name='Layers Example')
-            
+            params = [RAT.models.Parameter(name='Layer Thickness', min=10, value=20, max=30, fit=False),
+                    RAT.models.Parameter(name='H SLD', min=-6e-6, value=-4e-6, max=-1e-6, fit=False),
+                    RAT.models.Parameter(name='D SLD', min=5e-6, value=7e-6, max=9e-6, fit=True),
+                    RAT.models.Parameter(name='Layer rough', min=3, value=5, max=7, fit=True),
+                    RAT.models.Parameter(name='Layer hydr', min=0, value=10, max=20, fit=True)]
+            problem.parameters.extend(params)
+
             problem.layers.append(name='H Layer', thickness='Layer Thickness', SLD='H SLD',
-                              roughness='Layer rough', hydration='Layer hydr', hydrate_with='bulk out')
+                                roughness='Layer rough', hydration='Layer hydr', hydrate_with='bulk out')
             problem.layers.append(name='D Layer', thickness='Layer Thickness', SLD='D SLD',
-                              roughness='Layer rough', hydration='Layer hydr', hydrate_with='bulk out')
+                                roughness='Layer rough', hydration='Layer hydr', hydrate_with='bulk out')
 
             print(problem.layers)
 
@@ -1246,7 +1252,7 @@ Now we'll calculate this to check the agreement with the data. We need an instan
 
         .. output:: Matlab
 
-            controls.display = 'on';
+            controls.display = 'iter';
             disp(controls)
 
     .. tab-item:: Python 

@@ -12,6 +12,7 @@ import re
 import os
 import sys
 import datetime
+from urllib.parse import urljoin
 
 # -- Project information -----------------------------------------------------
 # Add any Sphinx extension module names here, as strings. They can be
@@ -80,7 +81,7 @@ html_theme_options = {'show_prev_next': False,
                       'pygment_light_style': 'tango',
                       'pygment_dark_style': 'monokai',
                       'navbar_start': ['navbar-logo', 'version-switcher'],
-                      'switcher': {'json_url': f'{url}/switcher.json', 
+                      'switcher': {'json_url': urljoin(url, 'switcher.json'), 
                                    'version_match': doc_version,
                                    "check_switcher": False,},
                      }

@@ -8,31 +8,16 @@ on:
 
 jobs: 
   build:
-    runs-on: ubuntu-latest
+    runs-on: Linux
 
     steps:
     - uses: actions/checkout@v4      
-      with:
-        submodules: true
-    - name: Checkout gh-pages
-      uses: actions/checkout@v4
-      with:
-        ref: gh-pages
-        path: _web
-    - name: Set up MATLAB
-      uses: matlab-actions/setup-matlab@v2
-      with:
-        release: R2023b
-        cache: true
-    - name: Run script
-      uses: matlab-actions/run-command@v2
-      with:
-        command: disp("Hello World")
     - name: Set up Python 
       uses: actions/setup-python@v4
+      with:
+        python-version: '3.11' 
     - name: Install dependencies
       run: |
-        export LD_LIBRARY_PATH=/opt/hostedtoolcache/MATLAB/2023.2.999/x64/bin/glnxa64/:$LD_LIBARY_PATH
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Download MATLAB RAT
@@ -41,17 +26,19 @@ jobs:
         unzip Linux.zip -d API/
     - name: Build docs
       run: |
-        url=$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.html_url')
+        url="https://rascalsoftware.github.io/RAT-Docs/"
         echo -n ${url} > source/url.txt
         python build_docs.py
       env:
         GH_TOKEN: ${{ github.token }}
     - name: Checkout gh-pages
+      if: github.ref == 'refs/heads/main'
       uses: actions/checkout@v4
       with:
         ref: gh-pages
         path: _web
-    - name: Build and Deploy Docs
+    - name: Deploy Docs
+      if: github.ref == 'refs/heads/main'
       run: |
         python deploy.py ${{github.ref}}
         cd _web
