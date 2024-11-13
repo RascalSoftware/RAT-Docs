@@ -500,37 +500,36 @@ PYTHON</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>             p                        1                          2            
+    ___________________    _______________________    ________________________
 
-             <strong>p</strong>                        <strong>1</strong>           
-    <strong>___________________</strong>    <strong>_______________________</strong>
-
-    "Name"                 "D-tail/H-Head/D2O"    
-    "Data"                 "D-tail / H-head / D2O"
-    "Background"           "Background D2O"       
-    "Background Action"    "add"                  
-    "Bulk in"              "SLD Air"              
-    "Bulk out"             "SLD D2O"              
-    "Scalefactor"          "Scalefactor 1"        
-    "Resolution"           "Resolution 1"         
-    "Resample"             "true"                 
-    "Model"                "Deuterated Tails"     
-    ""                     "Hydrogenated Heads"   
-
-</pre>
+    &quot;Name&quot;                 &quot;D-tail/H-Head/D2O&quot;        &quot;H-tail/D-Head/ACMW&quot;    
+    &quot;Data&quot;                 &quot;D-tail / H-head / D2O&quot;    &quot;H-tail / D-head / ACMW&quot;
+    &quot;Background&quot;           &quot;Background D2O&quot;           &quot;Background ACMW&quot;       
+    &quot;Background Action&quot;    &quot;add&quot;                      &quot;add&quot;                   
+    &quot;Bulk in&quot;              &quot;SLD Air&quot;                  &quot;SLD Air&quot;               
+    &quot;Bulk out&quot;             &quot;SLD D2O&quot;                  &quot;SLD ACMW&quot;              
+    &quot;Scalefactor&quot;          &quot;Scalefactor 1&quot;            &quot;Scalefactor 1&quot;         
+    &quot;Resolution&quot;           &quot;Resolution 1&quot;             &quot;Resolution 1&quot;          
+    &quot;Resample&quot;             &quot;true&quot;                     &quot;false&quot;                 
+    &quot;Model&quot;                &quot;Deuterated Tails&quot;         &quot;Hydrogenated Tails&quot;    
+    &quot;&quot;                     &quot;Hydrogenated Heads&quot;       &quot;Deuterated Heads&quot;      
+</pre></div>
+</div>
 </div>
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-+-------+-------------------+-----------------------+----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------+
-| index |        name       |          data         |   background   | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample |       model        |
-+-------+-------------------+-----------------------+----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------+
-|   0   | D-tail/H-Head/D2O | D-tail / H-head / D2O | Background D2O |        add        | SLD Air | SLD D2O  | Scalefactor 1 | Resolution 1 |   True   |  Deuterated Tails  |
-|       |                   |                       |                |                   |         |          |               |              |          | Hydrogenated Heads |
-+-------+-------------------+-----------------------+----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------+
-
-</pre>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------+
+| index |        name        |          data         |    background   | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample |       model        |
++-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------+
+|   0   | D-tail/H-Head/D2O  | D-tail / H-head / D2O |  Background D2O |        add        | SLD Air | SLD D2O  | Scalefactor 1 | Resolution 1 |   True   |  Deuterated Tails  |
+|       |                    |                       |                 |                   |         |          |               |              |          | Hydrogenated Heads |
+|   1   | H-tail/D-Head/ACMW | D-tail / H-head / D2O | Background ACMW |        add        | SLD Air | SLD ACMW | Scalefactor 1 | Resolution 1 |  False   | Hydrogenated Tails |
+|       |                    |                       |                 |                   |         |          |               |              |          |  Deuterated Heads  |
++-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------+
+</pre></div>
+</div>
 </div>
 </div>
 <p>The resampling itself is controlled by the ‘resamPars’ field in the controls block:</p>
@@ -538,24 +537,21 @@ Python</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  controlsClass with properties:
 
-  <span style="color:DodgerBlue;font-weight:bold;text-decoration:underline">controlsClass</span> with properties:
-
-            parallel: 'single'
-           procedure: 'calculate'
+            parallel: &#39;single&#39;
+           procedure: &#39;calculate&#39;
     calcSldDuringFit: 0
-             display: 'iter'
+             display: &#39;iter&#39;
     resampleMinAngle: 0.9000
      resampleNPoints: 50
-
-</pre>
+</pre></div>
+</div>
 </div>
 <input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-5">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-+------------------+-----------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------+-----------+
 |     Property     |   Value   |
 +------------------+-----------+
 |    procedure     | calculate |
@@ -565,8 +561,8 @@ Python</label><div class="sd-tab-content docutils">
 | resampleNPoints  |     50    |
 |     display      |    iter   |
 +------------------+-----------+
-
-</pre>
+</pre></div>
+</div>
 </div>
 </div>
 <p>The resampPars field has two parameters in it, corresponding to the minimum angle and minimum points (resamPars = [minAngle minPoints]) which to use to resample the profiles.

@@ -468,7 +468,7 @@ struct to a file to save all of your work:</p>
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
 MATLAB</label><div class="sd-tab-content docutils">
-<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">myResults</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">struct</span><span class="p">(</span><span class="s">&#39;problem&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;results&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;controls&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">controls</span><span class="p">)</span>
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">myResults</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">struct</span><span class="p">(</span><span class="s">&#39;problem&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;results&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;controls&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">controls</span><span class="p">);</span>
 <span class="nb">save</span><span class="p">(</span><span class="s">&#39;myResultsFile&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;myResults&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -481,41 +481,18 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
-Matlab</label><div class="sd-tab-content docutils">
-<pre>
-
-
-myResults = 
-
-  <span style="color:DodgerBlue;font-weight:bold;text-decoration:underline">struct</span> with fields:
-
-     problem: [1x1 projectClass]
-     results: [1x1 struct]
-    controls: [1x1 controlsClass]
-
-</pre>
-</div>
-<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
-Python</label><div class="sd-tab-content docutils">
-<p>TODO</p>
-</div>
-</div>
 <p>At a later date, you only need to load back in your struct, split it up into it is components and away you go:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">myWork</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">load</span><span class="p">(</span><span class="s">&#39;myResultsFile&#39;</span><span class="p">);</span>
 <span class="n">myWork</span><span class="p">.</span><span class="n">myResults</span>
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-5">
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">TODO</span>
 </pre></div>
@@ -523,24 +500,21 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-6">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>myResults =
 
+struct with fields:
 
-myResults = 
-
-  <span style="color:DodgerBlue;font-weight:bold;text-decoration:underline">struct</span> with fields:
-
-     problem: [1x1 projectClass]
-     results: [1x1 struct]
+    problem: [1x1 projectClass]
+    results: [1x1 struct]
     controls: [1x1 controlsClass]
-
-</pre>
+</pre></div>
 </div>
-<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-7">
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-5">
 Python</label><div class="sd-tab-content docutils">
 <p>TODO</p>
 </div>
@@ -553,8 +527,8 @@ to carry out some kind of comparison between them for example.
 In the example below, <em>problem1</em> and <em>problem1</em> are references to the same instance of project class so modifying
 <em>problem2</em> will also modify original object <em>problem1</em> which is not ideal.</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-8">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-6">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">problem1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">projectClass</span><span class="p">();</span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">problem2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">problem1</span><span class="p">;</span>
@@ -573,8 +547,8 @@ MATLAB</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-9">
+<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-7">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">problem1</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Project</span><span class="p">()</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">problem2</span> <span class="o">=</span> <span class="n">problem1</span>
@@ -592,8 +566,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 <p>The proper way to make a copy/clone of the project class is shown in the example below,</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-10" name="sd-tab-set-5" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-10">
+<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-8">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">problem1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">projectClass</span><span class="p">();</span>
 <span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">problem2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">problem1</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span><span class="w"> </span><span class="c">% Copy with clone method</span>
@@ -612,8 +586,8 @@ MATLAB</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-11" name="sd-tab-set-5" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-11">
+<input id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-9">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">copy</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">problem1</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Project</span><span class="p">()</span>
@@ -636,16 +610,16 @@ PYTHON</label><div class="sd-tab-content docutils">
 <h2>Exporting as a Script<a class="headerlink" href="#exporting-as-a-script" title="Link to this heading">#</a></h2>
 <p>Although saving a binary version of the class is useful, sometimes it would be better to have a script version which will reproduce the class. This can be done as shown below:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-12" name="sd-tab-set-6" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-12">
+<input checked="checked" id="sd-tab-item-10" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-10">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">projectClass</span><span class="p">();</span>
 <span class="n">problem</span><span class="p">.</span><span class="n">writeScript</span><span class="p">(</span><span class="n">script</span><span class="p">=</span><span class="s">&quot;myProjectScript&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-13" name="sd-tab-set-6" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-13">
+<input id="sd-tab-item-11" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-11">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Project</span><span class="p">()</span>
 <span class="n">problem</span><span class="o">.</span><span class="n">write_script</span><span class="p">(</span><span class="n">script</span><span class="o">=</span><span class="s1">&#39;myProjectScript&#39;</span><span class="p">)</span>
@@ -655,8 +629,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 <p>Then, RAT will create a file containing all the statements needed to re-create your project:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-14" name="sd-tab-set-7" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-14">
+<input checked="checked" id="sd-tab-item-12" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-12">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% THIS FILE IS GENERATED FROM RAT VIA THE &quot;WRITESCRIPT&quot; ROUTINE. IT IS NOT PART OF THE RAT CODE.</span>
 
@@ -699,8 +673,8 @@ MATLAB</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-15" name="sd-tab-set-7" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-15">
+<input id="sd-tab-item-13" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-13">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># THIS FILE IS GENERATED FROM RAT VIA THE &quot;WRITE_SCRIPT&quot; ROUTINE. IT IS NOT PART OF THE RAT CODE.</span>
 

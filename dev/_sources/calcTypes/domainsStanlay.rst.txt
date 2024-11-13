@@ -70,14 +70,25 @@ The example (in the examples folder), we define the layers as for conventional S
     .. tab-item:: Matlab
         :sync: Matlab
 
-        .. raw:: html
-            :file: ../_outputs/matlab/calcTypesDomainsLayers.txt
+        .. output:: Matlab
+
+            problem = load('source/calcTypes/data/domains_example.mat');
+            problem = problem.problem;
+            problem.layers.displayTable()
 
     .. tab-item:: Python 
         :sync: Python
-        
-        .. raw:: html
-            :file: ../_outputs/python/calcTypesDomainsLayers.txt
+
+        .. output:: Python
+            
+            # replace with a better project reading method when we have one...
+            with open('source/calcTypes/data/domains_example.py', "r") as f:
+                script = f.read()
+            locals = {}
+            exec(script, None, locals)
+            problem = locals['problem']
+            print(problem.layers)
+
 
 From this point, the model diverges from the usual Standard Layers case, in that these are grouped into 'domain contrasts', which appears in an additional table in the
 printout of the project class. Domains contrasts consist of only layers, with no bulk phases etc..
@@ -89,14 +100,17 @@ printout of the project class. Domains contrasts consist of only layers, with no
     .. tab-item:: Matlab
         :sync: Matlab
 
-        .. raw:: html
-            :file: ../_outputs/matlab/calcTypesDomainsDomainConstrasts.txt
+        .. output:: Matlab
 
-    .. tab-item:: Python 
+            problem.contrasts.displayContrastsObject()
+
+    .. tab-item:: Python
         :sync: Python
-        
-        .. raw:: html
-            :file: ../_outputs/python/calcTypesDomainsDomainConstrasts.txt
+
+        .. output:: Python
+
+            print(problem.contrasts)
+
 
 It is then these that are grouped into the final contrasts model. For each contrast, there must be two (*and only two*) domain contrasts. In addition, each contrast requires a
 Domain Ratio parameter. This is a fittable parameter between 0 and 1, that appears in the Domain Ratio table:
@@ -108,14 +122,17 @@ Domain Ratio parameter. This is a fittable parameter between 0 and 1, that appea
     .. tab-item:: Matlab
         :sync: Matlab
 
-        .. raw:: html
-            :file: ../_outputs/matlab/calcTypesDomainsDomainRatio.txt
+        .. output:: Matlab
 
-    .. tab-item:: Python 
+            problem.domainRatio.displayTable()
+
+    .. tab-item:: Python
         :sync: Python
-        
-        .. raw:: html
-            :file: ../_outputs/python/calcTypesDomainsDomainRatio.txt
+
+        .. output:: Python
+
+            print(problem.domain_ratios)
+
 
 leading to the final contrast structure of two domains, and one domain ratio:
 
@@ -126,13 +143,16 @@ leading to the final contrast structure of two domains, and one domain ratio:
     .. tab-item:: Matlab
         :sync: Matlab
 
-        .. raw:: html
-            :file: ../_outputs/matlab/calcTypesDomainsConstrasts.txt
+        .. output:: Matlab
 
-    .. tab-item:: Python 
+            problem.domainContrasts.displayContrastsObject()
+
+    .. tab-item:: Python
         :sync: Python
-        
-        .. raw:: html
-            :file: ../_outputs/python/calcTypesDomainsConstrasts.txt
+
+        .. output:: Python
+
+            print(problem.domain_contrasts)
+
 
 .. note:: For domain ratio, a ratio of 0 means 100% Domain 1, whilst conversely a ratio of 1 means 100% Domain 2.

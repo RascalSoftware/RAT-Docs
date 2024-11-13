@@ -480,25 +480,29 @@ PYTHON</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    p            Name                Thickness                  SLD                   Roughness            Hydration        Hydrate with
+    _    ____________________    _________________    ________________________    _________________    _________________    ____________
 
-    <strong>p</strong>            <strong>Name</strong>                <strong>Thickness</strong>                <strong>SLD Real</strong>            <strong>SLD Imaginary</strong>        <strong>Roughness</strong>            <strong>Hydration</strong>        <strong>Hydrate with</strong>
-    <strong>_</strong>    <strong>____________________</strong>    <strong>_________________</strong>    <strong>________________________</strong>    <strong>_____________</strong>    <strong>_________________</strong>    <strong>_________________</strong>    <strong>____________</strong>
-
-    1    "Hydrogenated Heads"    "Heads Thickness"    "Hydrogenated Heads SLD"         ""          "Heads Roughness"    "Heads Hydration"     "bulk out" 
-    2    "Deuterated Heads"      "Heads Thickness"    "Deuterated Heads SLD"           ""          "Heads Roughness"    "Heads Hydration"     "bulk out" 
-    3    "Hydrogenated Tails"    "Tails Thickness"    "Hydrogenated Tails SLD"         ""          "Tails Roughness"    ""                    "bulk out" 
-    4    "Deuterated Tails"      "Tails Thickness"    "Deuterated Tails SLD"           ""          "Tails Roughness"    ""                    "bulk out" 
-
-</pre>
+    1    &quot;Hydrogenated Heads&quot;    &quot;Heads Thickness&quot;    &quot;Hydrogenated Heads SLD&quot;    &quot;Heads Roughness&quot;    &quot;Heads Hydration&quot;     &quot;bulk out&quot; 
+    2    &quot;Deuterated Heads&quot;      &quot;Heads Thickness&quot;    &quot;Deuterated Heads SLD&quot;      &quot;Heads Roughness&quot;    &quot;Heads Hydration&quot;     &quot;bulk out&quot; 
+    3    &quot;Hydrogenated Tails&quot;    &quot;Tails Thickness&quot;    &quot;Hydrogenated Tails SLD&quot;    &quot;Tails Roughness&quot;    &quot;&quot;                    &quot;bulk out&quot; 
+    4    &quot;Deuterated Tails&quot;      &quot;Tails Thickness&quot;    &quot;Deuterated Tails SLD&quot;      &quot;Tails Roughness&quot;    &quot;&quot;                    &quot;bulk out&quot; 
+</pre></div>
+</div>
 </div>
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-problem.layers.displayTable()
-
-</pre>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------------+-----------------+------------------------+---------------+-----------------+-----------------+--------------+
+| index |        name        |    thickness    |        SLD real        | SLD imaginary |    roughness    |    hydration    | hydrate with |
++-------+--------------------+-----------------+------------------------+---------------+-----------------+-----------------+--------------+
+|   0   | Hydrogenated Heads | Heads Thickness | Hydrogenated Heads SLD |               | Heads Roughness | Heads Hydration |   bulk out   |
+|   1   |  Deuterated Heads  | Heads Thickness |  Deuterated Heads SLD  |               | Heads Roughness | Heads Hydration |   bulk out   |
+|   2   | Hydrogenated Tails | Tails Thickness | Hydrogenated Tails SLD |               | Tails Roughness |                 |   bulk out   |
+|   3   |  Deuterated Tails  | Tails Thickness |  Deuterated Tails SLD  |               | Tails Roughness |                 |   bulk out   |
++-------+--------------------+-----------------+------------------------+---------------+-----------------+-----------------+--------------+
+</pre></div>
+</div>
 </div>
 </div>
 <p>Then, the value of this column are set (from the Parameters block) in the same way as all the other cells in the table.</p>

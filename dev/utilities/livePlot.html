@@ -487,8 +487,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 <p>When the snippet above is run, a plot figure willed be opened and the plot will be updated every time a plot event is received.</p>
 <p><strong>Frequency of events</strong></p>
-<p>To control how often the plot event is triggered, change the plot frequency parameter in the controls block as shown below, the default frequency is 20 which means the
-plot event is triggered after every 20 iterations:</p>
+<p>To control how often the plot event is triggered, change the plot frequency parameter in the controls block as shown below. The default frequency is 20 which means the
+plot event is triggered after every 20 iterations.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
@@ -505,11 +505,8 @@ MATLAB</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">ControlsClass</span><span class="p">();</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">procedure</span> <span class="o">=</span> <span class="s1">&#39;simplex&#39;</span>
-
-<span class="c1"># change plot frequency to 35</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">updatePlotFreq</span> <span class="o">=</span> <span class="mi">35</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># set plot frequency to 35 in the Controls class parameters</span>
+<span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">(</span><span class="n">procedure</span><span class="o">=</span><span class="s1">&#39;simplex&#39;</span><span class="p">,</span> <span class="n">updatePlotFreq</span><span class="o">=</span><span class="mi">35</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -518,14 +515,29 @@ PYTHON</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>controls = 
 
-  <span style="color:DodgerBlue;font-weight:bold;text-decoration:underline">controlsClass</span> with properties:
+  controlsClass with properties:
 
-            parallel: 'single'
-           procedure: 'simplex'
+            parallel: &#39;single&#39;
+           procedure: &#39;simplex&#39;
     calcSldDuringFit: 0
-             display: 'iter'
+             display: &#39;iter&#39;
+          xTolerance: 1.0000e-06
+       funcTolerance: 1.0000e-06
+        maxFuncEvals: 10000
+       maxIterations: 1000
+          updateFreq: 1
+      updatePlotFreq: 20
+    resampleMinAngle: 0.9000
+     resampleNPoints: 50
+
+  controlsClass with properties:
+
+            parallel: &#39;single&#39;
+           procedure: &#39;simplex&#39;
+    calcSldDuringFit: 0
+             display: &#39;iter&#39;
           xTolerance: 1.0000e-06
        funcTolerance: 1.0000e-06
         maxFuncEvals: 10000
@@ -534,14 +546,13 @@ Matlab</label><div class="sd-tab-content docutils">
       updatePlotFreq: 35
     resampleMinAngle: 0.9000
      resampleNPoints: 50
-
-</pre>
+</pre></div>
+</div>
 </div>
 <input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-5">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-+------------------+---------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------+---------+
 |     Property     |  Value  |
 +------------------+---------+
 |    procedure     | simplex |
@@ -557,8 +568,8 @@ Python</label><div class="sd-tab-content docutils">
 |    updateFreq    |    1    |
 |  updatePlotFreq  |    35   |
 +------------------+---------+
-
-</pre>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="admonition note">

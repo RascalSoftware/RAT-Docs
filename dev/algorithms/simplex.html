@@ -479,7 +479,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-1">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">(</span><span class="s1">&#39;simplex&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">(</span><span class="n">procedure</span><span class="o">=</span><span class="s1">&#39;simplex&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -490,14 +490,12 @@ for the simplex:-</p>
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  controlsClass with properties:
 
-  <span style="color:DodgerBlue;font-weight:bold;text-decoration:underline">controlsClass</span> with properties:
-
-            parallel: 'single'
-           procedure: 'simplex'
+            parallel: &#39;single&#39;
+           procedure: &#39;simplex&#39;
     calcSldDuringFit: 0
-             display: 'iter'
+             display: &#39;iter&#39;
           xTolerance: 1.0000e-06
        funcTolerance: 1.0000e-06
         maxFuncEvals: 10000
@@ -506,14 +504,13 @@ Matlab</label><div class="sd-tab-content docutils">
       updatePlotFreq: 20
     resampleMinAngle: 0.9000
      resampleNPoints: 50
-
-</pre>
+</pre></div>
+</div>
 </div>
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-+------------------+---------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------+---------+
 |     Property     |  Value  |
 +------------------+---------+
 |    procedure     | simplex |
@@ -529,8 +526,8 @@ Python</label><div class="sd-tab-content docutils">
 |    updateFreq    |    1    |
 |  updatePlotFreq  |    20   |
 +------------------+---------+
-
-</pre>
+</pre></div>
+</div>
 </div>
 </div>
 <p>Many of these have been described in <a class="reference internal" href="../tutorial/controlsInfo.html#controlsinfo"><span class="std std-ref">A Closer Look at the Controls Class</span></a>, but a few here are specific to the simplex:-</p>

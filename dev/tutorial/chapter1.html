@@ -541,144 +541,141 @@ PYTHON</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
-
-         modelType: 'standard layers'
-    experimentName: 'DSPC monolayers'
-          geometry: 'air/substrate'
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>         modelType: &#39;standard layers&#39;
+    experimentName: &#39;DSPC monolayers&#39;
+          geometry: &#39;air/substrate&#39;
 
 
     Parameters: ---------------------------------------------------------------------------------------------- 
 
-    <strong>p</strong>               <strong>Name</strong>               <strong>Min</strong>       <strong>Value</strong>      <strong>Max</strong>     <strong>Fit?</strong> 
-    <strong>__</strong>    <strong>________________________</strong>    <strong>______</strong>    <strong>_______</strong>    <strong>_____</strong>    <strong>_____</strong>
+    p               Name               Min       Value      Max     Fit? 
+    __    ________________________    ______    _______    _____    _____
 
-     1    "Substrate Roughness"            1          3        5    true 
-     2    "Tails Thickness"               10         20       30    true 
-     3    "Heads Thickness"                3         11       16    true 
-     4    "Tails Roughness"                2          5        9    true 
-     5    "Heads Roughness"                2          5        9    true 
-     6    "Deuterated Tails SLD"       4e-06      6e-06    2e-05    true 
-     7    "Hydrogenated Tails SLD"    -6e-07     -4e-07        0    true 
-     8    "Deuterated Heads SLD"       1e-06      3e-06    8e-06    true 
-     9    "Hydrogenated Heads SLD"     1e-07    1.4e-06    3e-06    true 
-    10    "Heads Hydration"                0        0.3      0.5    true 
+     1    &quot;Substrate Roughness&quot;            1          3        5    true 
+     2    &quot;Tails Thickness&quot;               10         20       30    true 
+     3    &quot;Heads Thickness&quot;                3         11       16    true 
+     4    &quot;Tails Roughness&quot;                2          5        9    true 
+     5    &quot;Heads Roughness&quot;                2          5        9    true 
+     6    &quot;Deuterated Tails SLD&quot;       4e-06      6e-06    2e-05    true 
+     7    &quot;Hydrogenated Tails SLD&quot;    -6e-07     -4e-07        0    true 
+     8    &quot;Deuterated Heads SLD&quot;       1e-06      3e-06    8e-06    true 
+     9    &quot;Hydrogenated Heads SLD&quot;     1e-07    1.4e-06    3e-06    true 
+    10    &quot;Heads Hydration&quot;                0        0.3      0.5    true 
 
 
     Bulk In: -------------------------------------------------------------------------------------------------- 
 
-    <strong>p</strong>      <strong>Name</strong>       <strong>Min</strong>    <strong>Value</strong>    <strong>Max</strong>    <strong>Fit?</strong> 
-    <strong>_</strong>    <strong>_________</strong>    <strong>___</strong>    <strong>_____</strong>    <strong>___</strong>    <strong>_____</strong>
+    p      Name       Min    Value    Max    Fit? 
+    _    _________    ___    _____    ___    _____
 
-    1    "SLD Air"     0       0       0     false
+    1    &quot;SLD Air&quot;     0       0       0     false
 
 
     Bulk Out: ------------------------------------------------------------------------------------------------- 
 
-    <strong>p</strong>       <strong>Name</strong>         <strong>Min</strong>       <strong>Value</strong>        <strong>Max</strong>       <strong>Fit?</strong> 
-    <strong>_</strong>    <strong>__________</strong>    <strong>_______</strong>    <strong>________</strong>    <strong>________</strong>    <strong>_____</strong>
+    p       Name         Min       Value        Max       Fit? 
+    _    __________    _______    ________    ________    _____
 
-    1    "SLD D2O"     6.2e-06    6.35e-06    6.35e-06    true 
-    2    "SLD ACMW"     -1e-06           0       1e-06    true 
+    1    &quot;SLD D2O&quot;     6.2e-06    6.35e-06    6.35e-06    true 
+    2    &quot;SLD ACMW&quot;     -1e-06           0       1e-06    true 
 
 
     Scalefactors: ------------------------------------------------------------------------------------------------- 
 
-    <strong>p</strong>         <strong>Name</strong>          <strong>Min</strong>     <strong>Value</strong>    <strong>Max</strong>     <strong>Fit?</strong> 
-    <strong>_</strong>    <strong>_______________</strong>    <strong>____</strong>    <strong>_____</strong>    <strong>____</strong>    <strong>_____</strong>
+    p         Name          Min     Value    Max     Fit? 
+    _    _______________    ____    _____    ____    _____
 
-    1    "Scalefactor 1"    0.02    0.23     0.25    true 
+    1    &quot;Scalefactor 1&quot;    0.02    0.23     0.25    true 
 
 
     Backgrounds: ----------------------------------------------------------------------------------------------- 
 
     (a) Background Parameters: 
 
-    <strong>p</strong>           <strong>Name</strong>            <strong>Min</strong>      <strong>Value</strong>      <strong>Max</strong>     <strong>Fit?</strong> 
-    <strong>_</strong>    <strong>__________________</strong>    <strong>_____</strong>    <strong>_______</strong>    <strong>_____</strong>    <strong>_____</strong>
+    p           Name            Min      Value      Max     Fit? 
+    _    __________________    _____    _______    _____    _____
 
-    1    "Backs Value ACMW"    1e-07    5.5e-06    1e-05    true 
-    2    "Backs Value D2O"     1e-08    2.8e-06    1e-05    true 
+    1    &quot;Backs Value ACMW&quot;    1e-07    5.5e-06    1e-05    true 
+    2    &quot;Backs Value D2O&quot;     1e-08    2.8e-06    1e-05    true 
 
     (b) Backgrounds:  
 
-    <strong>p</strong>          <strong>Name</strong>              <strong>Type</strong>            <strong>Value 1</strong>          <strong>Value 2</strong>    <strong>Value 3</strong>    <strong>Value 4</strong>    <strong>Value 5</strong>
-    <strong>_</strong>    <strong>_________________</strong>    <strong>__________</strong>    <strong>__________________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>_______</strong>
+    p          Name              Type            Value 1          Value 2    Value 3    Value 4    Value 5
+    _    _________________    __________    __________________    _______    _______    _______    _______
 
-    1    "Background ACMW"    "constant"    "Backs Value ACMW"      ""         ""         ""         ""   
-    2    "Background D2O"     "constant"    "Backs Value D2O"       ""         ""         ""         ""   
+    1    &quot;Background ACMW&quot;    &quot;constant&quot;    &quot;Backs Value ACMW&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
+    2    &quot;Background D2O&quot;     &quot;constant&quot;    &quot;Backs Value D2O&quot;       &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
 
 
     Resolutions: --------------------------------------------------------------------------------------------- 
 
     (a) Resolutions Parameters: 
 
-    <strong>p</strong>           <strong>Name</strong>           <strong>Min</strong>     <strong>Value</strong>    <strong>Max</strong>     <strong>Fit?</strong> 
-    <strong>_</strong>    <strong>__________________</strong>    <strong>____</strong>    <strong>_____</strong>    <strong>____</strong>    <strong>_____</strong>
+    p           Name           Min     Value    Max     Fit? 
+    _    __________________    ____    _____    ____    _____
 
-    1    "Resolution par 1"    0.01    0.03     0.05    false
+    1    &quot;Resolution par 1&quot;    0.01    0.03     0.05    false
 
     (b) Resolutions:  
 
-    <strong>p</strong>         <strong>Name</strong>            <strong>Type</strong>            <strong>Value 1</strong>          <strong>Value 2</strong>    <strong>Value 3</strong>    <strong>Value 4</strong>    <strong>Value 5</strong>
-    <strong>_</strong>    <strong>______________</strong>    <strong>__________</strong>    <strong>__________________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>_______</strong>
+    p         Name            Type            Value 1          Value 2    Value 3    Value 4    Value 5
+    _    ______________    __________    __________________    _______    _______    _______    _______
 
-    1    "Resolution 1"    "constant"    "Resolution par 1"      ""         ""         ""         ""   
+    1    &quot;Resolution 1&quot;    &quot;constant&quot;    &quot;Resolution par 1&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
 
 
     Layers: -------------------------------------------------------------------------------------------------- 
 
-    <strong>p</strong>            <strong>Name</strong>                <strong>Thickness</strong>                  <strong>SLD</strong>                   <strong>Roughness</strong>            <strong>Hydration</strong>        <strong>Hydrate with</strong>
-    <strong>_</strong>    <strong>____________________</strong>    <strong>_________________</strong>    <strong>________________________</strong>    <strong>_________________</strong>    <strong>_________________</strong>    <strong>____________</strong>
+    p            Name                Thickness                  SLD                   Roughness            Hydration        Hydrate with
+    _    ____________________    _________________    ________________________    _________________    _________________    ____________
 
-    1    "Hydrogenated Heads"    "Heads Thickness"    "Hydrogenated Heads SLD"    "Heads Roughness"    "Heads Hydration"     "bulk out" 
-    2    "Deuterated Heads"      "Heads Thickness"    "Deuterated Heads SLD"      "Heads Roughness"    "Heads Hydration"     "bulk out" 
-    3    "Hydrogenated Tails"    "Tails Thickness"    "Hydrogenated Tails SLD"    "Tails Roughness"    ""                    "bulk out" 
-    4    "Deuterated Tails"      "Tails Thickness"    "Deuterated Tails SLD"      "Tails Roughness"    ""                    "bulk out" 
+    1    &quot;Hydrogenated Heads&quot;    &quot;Heads Thickness&quot;    &quot;Hydrogenated Heads SLD&quot;    &quot;Heads Roughness&quot;    &quot;Heads Hydration&quot;     &quot;bulk out&quot; 
+    2    &quot;Deuterated Heads&quot;      &quot;Heads Thickness&quot;    &quot;Deuterated Heads SLD&quot;      &quot;Heads Roughness&quot;    &quot;Heads Hydration&quot;     &quot;bulk out&quot; 
+    3    &quot;Hydrogenated Tails&quot;    &quot;Tails Thickness&quot;    &quot;Hydrogenated Tails SLD&quot;    &quot;Tails Roughness&quot;    &quot;&quot;                    &quot;bulk out&quot; 
+    4    &quot;Deuterated Tails&quot;      &quot;Tails Thickness&quot;    &quot;Deuterated Tails SLD&quot;      &quot;Tails Roughness&quot;    &quot;&quot;                    &quot;bulk out&quot; 
 
 
     Custom Files: ------------------------------------------------------------------------------------------------------ 
 
-    <strong>Name</strong>    <strong>Filename</strong>    <strong>Function Name</strong>    <strong>Language</strong>    <strong>Path</strong>
-    <strong>____</strong>    <strong>________</strong>    <strong>_____________</strong>    <strong>________</strong>    <strong>____</strong>
+    Name    Filename    Function Name    Language    Path
+    ____    ________    _____________    ________    ____
 
-     ""        ""            ""             ""        "" 
+     &quot;&quot;        &quot;&quot;            &quot;&quot;             &quot;&quot;        &quot;&quot; 
 
 
     Data: ------------------------------------------------------------------------------------------------------ 
 
-              <strong>Name</strong>                       <strong>Data</strong>                  <strong>Data Range</strong>            <strong>Simulation Range</strong>   
-    <strong>________________________</strong>    <strong>______________________</strong>    <strong>_____________________</strong>    <strong>_____________________</strong>
+              Name                       Data                  Data Range            Simulation Range   
+    ________________________    ______________________    _____________________    _____________________
 
-    "Simulation"                "No Data"                 "-"                      "[ 0.0050 , 0.7000 ]"
-    "H-tail / D-head / ACMW"    "Data array: [51 x 3]"    "[ 0.0518 , 0.5888 ]"    "[ 0.0518 , 0.5888 ]"
-    "D-tail / H-head / D2O"     "Data array: [51 x 3]"    "[ 0.0518 , 0.5888 ]"    "[ 0.0518 , 0.5888 ]"
+    &quot;Simulation&quot;                &quot;No Data&quot;                 &quot;-&quot;                      &quot;[ 0.0050 , 0.7000 ]&quot;
+    &quot;H-tail / D-head / ACMW&quot;    &quot;Data array: [51 x 3]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;
+    &quot;D-tail / H-head / D2O&quot;     &quot;Data array: [51 x 3]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;
 
 
    Contrasts: ----------------------------------------------------------------------------------------------- 
 
-             <strong>p</strong>                        <strong>1</strong>                          <strong>2</strong>            
-    <strong>___________________</strong>    <strong>_______________________</strong>    <strong>________________________</strong>
+             p                        1                          2            
+    ___________________    _______________________    ________________________
 
-    "Name"                 "D-tail/H-Head/D2O"        "H-tail/D-Head/ACMW"    
-    "Data"                 "D-tail / H-head / D2O"    "H-tail / D-head / ACMW"
-    "Background"           "Background D2O"           "Background ACMW"       
-    "Background Action"    "add"                      "add"                   
-    "Bulk in"              "SLD Air"                  "SLD Air"               
-    "Bulk out"             "SLD D2O"                  "SLD ACMW"              
-    "Scalefactor"          "Scalefactor 1"            "Scalefactor 1"         
-    "Resolution"           "Resolution 1"             "Resolution 1"          
-    "Resample"             "false"                    "false"                 
-    "Model"                "Deuterated Tails"         "Hydrogenated Tails"    
-    ""                     "Hydrogenated Heads"       "Deuterated Heads"      
-
-</pre>
+    &quot;Name&quot;                 &quot;D-tail/H-Head/D2O&quot;        &quot;H-tail/D-Head/ACMW&quot;    
+    &quot;Data&quot;                 &quot;D-tail / H-head / D2O&quot;    &quot;H-tail / D-head / ACMW&quot;
+    &quot;Background&quot;           &quot;Background D2O&quot;           &quot;Background ACMW&quot;       
+    &quot;Background Action&quot;    &quot;add&quot;                      &quot;add&quot;                   
+    &quot;Bulk in&quot;              &quot;SLD Air&quot;                  &quot;SLD Air&quot;               
+    &quot;Bulk out&quot;             &quot;SLD D2O&quot;                  &quot;SLD ACMW&quot;              
+    &quot;Scalefactor&quot;          &quot;Scalefactor 1&quot;            &quot;Scalefactor 1&quot;         
+    &quot;Resolution&quot;           &quot;Resolution 1&quot;             &quot;Resolution 1&quot;          
+    &quot;Resample&quot;             &quot;false&quot;                    &quot;false&quot;                 
+    &quot;Model&quot;                &quot;Deuterated Tails&quot;         &quot;Hydrogenated Tails&quot;    
+    &quot;&quot;                     &quot;Hydrogenated Heads&quot;       &quot;Deuterated Heads&quot;      
+</pre></div>
+</div>
 </div>
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-Name: ----------------------------------------------------------------------------------------------
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Name: ----------------------------------------------------------------------------------------------
 
 DSPC monolayers
 
@@ -801,10 +798,8 @@ Contrasts: ---------------------------------------------------------------------
 |   1   | H-tail/D-Head/ACMW | D-tail / H-head / D2O | Background ACMW |        add        | SLD Air | SLD ACMW | Scalefactor 1 | Resolution 1 |  False   | Hydrogenated Tails |
 |       |                    |                       |                 |                   |         |          |               |              |          |  Deuterated Heads  |
 +-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------+
-
-
-
-</pre>
+</pre></div>
+</div>
 </div>
 </div>
 <p>This may initially look quite complicated, but it is fairly self-explanatory in terms of representing a typical RasCAL
@@ -818,44 +813,41 @@ and their allowed ranges, and specify if they are included in the fit:-</p>
 <input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    p               Name               Min       Value      Max     Fit? 
+    __    ________________________    ______    _______    _____    _____
 
-    <strong>p</strong>               <strong>Name</strong>               <strong>Min</strong>         <strong>Value</strong>        <strong>Max</strong>     <strong>Fit?</strong> 
-    <strong>__</strong>    <strong>________________________</strong>    <strong>______</strong>    <strong>___________</strong>    <strong>_____</strong>    <strong>_____</strong>
-
-     1    "Substrate Roughness"            1         2.9517        5    true 
-     2    "Tails Thickness"               10         20.052       30    true 
-     3    "Heads Thickness"                3         6.8661       16    true 
-     4    "Tails Roughness"                2         3.3249        9    true 
-     5    "Heads Roughness"                2         5.4283        9    true 
-     6    "Deuterated Tails SLD"       4e-06     7.9567e-06    2e-05    true 
-     7    "Hydrogenated Tails SLD"    -6e-07    -1.8789e-07        0    true 
-     8    "Deuterated Heads SLD"       1e-06       6.04e-06    8e-06    true 
-     9    "Hydrogenated Heads SLD"     1e-07     1.3801e-06    3e-06    true 
-    10    "Heads Hydration"                0        0.34221      0.5    true 
-
-</pre>
+     1    &quot;Substrate Roughness&quot;            1          3        5    true 
+     2    &quot;Tails Thickness&quot;               10         20       30    true 
+     3    &quot;Heads Thickness&quot;                3         11       16    true 
+     4    &quot;Tails Roughness&quot;                2          5        9    true 
+     5    &quot;Heads Roughness&quot;                2          5        9    true 
+     6    &quot;Deuterated Tails SLD&quot;       4e-06      6e-06    2e-05    true 
+     7    &quot;Hydrogenated Tails SLD&quot;    -6e-07     -4e-07        0    true 
+     8    &quot;Deuterated Heads SLD&quot;       1e-06      3e-06    8e-06    true 
+     9    &quot;Hydrogenated Heads SLD&quot;     1e-07    1.4e-06    3e-06    true 
+    10    &quot;Heads Hydration&quot;                0        0.3      0.5    true 
+</pre></div>
+</div>
 </div>
 <input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-5">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-+-------+------------------------+--------+-------------------------+-------+------+------------+-----+-------+
-| index |          name          |  min   |          value          |  max  | fit  | prior type |  mu | sigma |
-+-------+------------------------+--------+-------------------------+-------+------+------------+-----+-------+
-|   0   |  Substrate Roughness   |  1.0   |    2.963994706925593    |  5.0  | True |  uniform   | 0.0 |  inf  |
-|   1   |    Tails Thickness     |  10.0  |    19.757228679964825   |  30.0 | True |  uniform   | 0.0 |  inf  |
-|   2   |    Heads Thickness     |  3.0   |    9.908566383481721    |  16.0 | True |  uniform   | 0.0 |  inf  |
-|   3   |    Tails Roughness     |  2.0   |    4.194440085202828    |  9.0  | True |  uniform   | 0.0 |  inf  |
-|   4   |    Heads Roughness     |  2.0   |    8.995718136309474    |  9.0  | True |  uniform   | 0.0 |  inf  |
-|   5   |  Deuterated Tails SLD  | 4e-06  |  8.332918249939726e-06  | 2e-05 | True |  uniform   | 0.0 |  inf  |
-|   6   | Hydrogenated Tails SLD | -6e-07 | -1.6809405805009223e-09 |  0.0  | True |  uniform   | 0.0 |  inf  |
-|   7   |  Deuterated Heads SLD  | 1e-06  |  7.992266899500626e-06  | 8e-06 | True |  uniform   | 0.0 |  inf  |
-|   8   | Hydrogenated Heads SLD | 1e-07  |  1.8508346482751718e-06 | 3e-06 | True |  uniform   | 0.0 |  inf  |
-|   9   |    Heads Hydration     |  0.0   |  0.0014961667431079573  |  0.5  | True |  uniform   | 0.0 |  inf  |
-+-------+------------------------+--------+-------------------------+-------+------+------------+-----+-------+
-
-</pre>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+------------------------+--------+---------+-------+------+------------+-----+-------+
+| index |          name          |  min   |  value  |  max  | fit  | prior type |  mu | sigma |
++-------+------------------------+--------+---------+-------+------+------------+-----+-------+
+|   0   |  Substrate Roughness   |  1.0   |   3.0   |  5.0  | True |  uniform   | 0.0 |  inf  |
+|   1   |    Tails Thickness     |  10.0  |   20.0  |  30.0 | True |  uniform   | 0.0 |  inf  |
+|   2   |    Heads Thickness     |  3.0   |   11.0  |  16.0 | True |  uniform   | 0.0 |  inf  |
+|   3   |    Tails Roughness     |  2.0   |   5.0   |  9.0  | True |  uniform   | 0.0 |  inf  |
+|   4   |    Heads Roughness     |  2.0   |   5.0   |  9.0  | True |  uniform   | 0.0 |  inf  |
+|   5   |  Deuterated Tails SLD  | 4e-06  |  6e-06  | 2e-05 | True |  uniform   | 0.0 |  inf  |
+|   6   | Hydrogenated Tails SLD | -6e-07 |  -4e-07 |  0.0  | True |  uniform   | 0.0 |  inf  |
+|   7   |  Deuterated Heads SLD  | 1e-06  |  3e-06  | 8e-06 | True |  uniform   | 0.0 |  inf  |
+|   8   | Hydrogenated Heads SLD | 1e-07  | 1.4e-06 | 3e-06 | True |  uniform   | 0.0 |  inf  |
+|   9   |    Heads Hydration     |  0.0   |   0.3   |  0.5  | True |  uniform   | 0.0 |  inf  |
++-------+------------------------+--------+---------+-------+------+------------+-----+-------+
+</pre></div>
+</div>
 </div>
 </div>
 <p>2. <strong>The Layers Group -</strong> Once we have our parameters, we then need to group these into layers, in traditional RasCAL style.
@@ -865,23 +857,20 @@ For our model, we always have two layers - a headgroup and the associated tails.
 <input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-6">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    p            Name                Thickness                  SLD                   Roughness            Hydration        Hydrate with
+    _    ____________________    _________________    ________________________    _________________    _________________    ____________
 
-    <strong>p</strong>            <strong>Name</strong>                <strong>Thickness</strong>                  <strong>SLD</strong>                   <strong>Roughness</strong>            <strong>Hydration</strong>        <strong>Hydrate with</strong>
-    <strong>_</strong>    <strong>____________________</strong>    <strong>_________________</strong>    <strong>________________________</strong>    <strong>_________________</strong>    <strong>_________________</strong>    <strong>____________</strong>
-
-    1    "Hydrogenated Heads"    "Heads Thickness"    "Hydrogenated Heads SLD"    "Heads Roughness"    "Heads Hydration"     "bulk out" 
-    2    "Deuterated Heads"      "Heads Thickness"    "Deuterated Heads SLD"      "Heads Roughness"    "Heads Hydration"     "bulk out" 
-    3    "Hydrogenated Tails"    "Tails Thickness"    "Hydrogenated Tails SLD"    "Tails Roughness"    ""                    "bulk out" 
-    4    "Deuterated Tails"      "Tails Thickness"    "Deuterated Tails SLD"      "Tails Roughness"    ""                    "bulk out" 
-
-</pre>
+    1    &quot;Hydrogenated Heads&quot;    &quot;Heads Thickness&quot;    &quot;Hydrogenated Heads SLD&quot;    &quot;Heads Roughness&quot;    &quot;Heads Hydration&quot;     &quot;bulk out&quot; 
+    2    &quot;Deuterated Heads&quot;      &quot;Heads Thickness&quot;    &quot;Deuterated Heads SLD&quot;      &quot;Heads Roughness&quot;    &quot;Heads Hydration&quot;     &quot;bulk out&quot; 
+    3    &quot;Hydrogenated Tails&quot;    &quot;Tails Thickness&quot;    &quot;Hydrogenated Tails SLD&quot;    &quot;Tails Roughness&quot;    &quot;&quot;                    &quot;bulk out&quot; 
+    4    &quot;Deuterated Tails&quot;      &quot;Tails Thickness&quot;    &quot;Deuterated Tails SLD&quot;      &quot;Tails Roughness&quot;    &quot;&quot;                    &quot;bulk out&quot; 
+</pre></div>
+</div>
 </div>
 <input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-7">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-+-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
 | index |        name        |    thickness    |          SLD           |    roughness    |    hydration    | hydrate with |
 +-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
 |   0   | Hydrogenated Heads | Heads Thickness | Hydrogenated Heads SLD | Heads Roughness | Heads Hydration |   bulk out   |
@@ -889,8 +878,8 @@ Python</label><div class="sd-tab-content docutils">
 |   2   | Hydrogenated Tails | Tails Thickness | Hydrogenated Tails SLD | Tails Roughness |                 |   bulk out   |
 |   3   |  Deuterated Tails  | Tails Thickness |  Deuterated Tails SLD  | Tails Roughness |                 |   bulk out   |
 +-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
-
-</pre>
+</pre></div>
+</div>
 </div>
 </div>
 <p>3. <strong>‘Instrument’ Parameters: (Backgrounds, scalefactors and resolutions) -</strong> These are necessary to specify our model, and are
@@ -905,30 +894,27 @@ will also be calculated. For our problem, we have two datasets and these are cod
 <input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-8">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>              Name                       Data                  Data Range            Simulation Range   
+    ________________________    ______________________    _____________________    _____________________
 
-              <strong>Name</strong>                       <strong>Data</strong>                  <strong>Data Range</strong>            <strong>Simulation Range</strong>   
-    <strong>________________________</strong>    <strong>______________________</strong>    <strong>_____________________</strong>    <strong>_____________________</strong>
-
-    "Simulation"                "No Data"                 "-"                      "[ 0.0050 , 0.7000 ]"
-    "H-tail / D-head / ACMW"    "Data array: [51 x 3]"    "[ 0.0518 , 0.5888 ]"    "[ 0.0518 , 0.5888 ]"
-    "D-tail / H-head / D2O"     "Data array: [51 x 3]"    "[ 0.0518 , 0.5888 ]"    "[ 0.0518 , 0.5888 ]"
-
-</pre>
+    &quot;Simulation&quot;                &quot;No Data&quot;                 &quot;-&quot;                      &quot;[ 0.0050 , 0.7000 ]&quot;
+    &quot;H-tail / D-head / ACMW&quot;    &quot;Data array: [51 x 3]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;
+    &quot;D-tail / H-head / D2O&quot;     &quot;Data array: [51 x 3]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;
+</pre></div>
+</div>
 </div>
 <input id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-9">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-+-------+------------------------+----------------------+---------------------+---------------------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+------------------------+----------------------+---------------------+---------------------+
 | index |          name          |         data         |      data range     |   simulation range  |
 +-------+------------------------+----------------------+---------------------+---------------------+
 |   0   |       Simulation       |          []          |          []         |     [0.005, 0.7]    |
 |   1   | H-tail / D-head / ACMW | Data array: [51 x 3] | [0.051793, 0.58877] | [0.051793, 0.58877] |
 |   2   | D-tail / H-head / D2O  | Data array: [51 x 3] | [0.051793, 0.58877] | [0.051793, 0.58877] |
 +-------+------------------------+----------------------+---------------------+---------------------+
-
-</pre>
+</pre></div>
+</div>
 </div>
 </div>
 <p>5. <strong>Contrasts -</strong> Once we have defined all the components of our model, we need to group them together into contrasts. We have two datasets
@@ -937,30 +923,27 @@ we want to consider, so two contrasts. We have the relevant instrument parameter
 <input checked="checked" id="sd-tab-item-10" name="sd-tab-set-5" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-10">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>             p                        1                          2            
+    ___________________    _______________________    ________________________
 
-             <strong>p</strong>                        <strong>1</strong>                          <strong>2</strong>            
-    <strong>___________________</strong>    <strong>_______________________</strong>    <strong>________________________</strong>
-
-    "Name"                 "D-tail/H-Head/D2O"        "H-tail/D-Head/ACMW"    
-    "Data"                 "D-tail / H-head / D2O"    "H-tail / D-head / ACMW"
-    "Background"           "Background D2O"           "Background ACMW"       
-    "Background Action"    "add"                      "add"                   
-    "Bulk in"              "SLD Air"                  "SLD Air"               
-    "Bulk out"             "SLD D2O"                  "SLD ACMW"              
-    "Scalefactor"          "Scalefactor 1"            "Scalefactor 1"         
-    "Resolution"           "Resolution 1"             "Resolution 1"          
-    "Resample"             "false"                    "false"                 
-    "Model"                "Deuterated Tails"         "Hydrogenated Tails"    
-    ""                     "Hydrogenated Heads"       "Deuterated Heads"      
-
-</pre>
+    &quot;Name&quot;                 &quot;D-tail/H-Head/D2O&quot;        &quot;H-tail/D-Head/ACMW&quot;    
+    &quot;Data&quot;                 &quot;D-tail / H-head / D2O&quot;    &quot;H-tail / D-head / ACMW&quot;
+    &quot;Background&quot;           &quot;Background D2O&quot;           &quot;Background ACMW&quot;       
+    &quot;Background Action&quot;    &quot;add&quot;                      &quot;add&quot;                   
+    &quot;Bulk in&quot;              &quot;SLD Air&quot;                  &quot;SLD Air&quot;               
+    &quot;Bulk out&quot;             &quot;SLD D2O&quot;                  &quot;SLD ACMW&quot;              
+    &quot;Scalefactor&quot;          &quot;Scalefactor 1&quot;            &quot;Scalefactor 1&quot;         
+    &quot;Resolution&quot;           &quot;Resolution 1&quot;             &quot;Resolution 1&quot;          
+    &quot;Resample&quot;             &quot;false&quot;                    &quot;false&quot;                 
+    &quot;Model&quot;                &quot;Deuterated Tails&quot;         &quot;Hydrogenated Tails&quot;    
+    &quot;&quot;                     &quot;Hydrogenated Heads&quot;       &quot;Deuterated Heads&quot;      
+</pre></div>
+</div>
 </div>
 <input id="sd-tab-item-11" name="sd-tab-set-5" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-11">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-+-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------+
 | index |        name        |          data         |    background   | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample |       model        |
 +-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------+
 |   0   | D-tail/H-Head/D2O  | D-tail / H-head / D2O |  Background D2O |        add        | SLD Air | SLD D2O  | Scalefactor 1 | Resolution 1 |  False   |  Deuterated Tails  |
@@ -968,8 +951,8 @@ Python</label><div class="sd-tab-content docutils">
 |   1   | H-tail/D-Head/ACMW | D-tail / H-head / D2O | Background ACMW |        add        | SLD Air | SLD ACMW | Scalefactor 1 | Resolution 1 |  False   | Hydrogenated Tails |
 |       |                    |                       |                 |                   |         |          |               |              |          |  Deuterated Heads  |
 +-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------+
-
-</pre>
+</pre></div>
+</div>
 </div>
 </div>
 <p><strong>(b) Running our Model.</strong></p>
@@ -1000,24 +983,21 @@ PYTHON</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-14" name="sd-tab-set-7" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-14">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  controlsClass with properties:
 
-  <span style="color:DodgerBlue;font-weight:bold;text-decoration:underline">controlsClass</span> with properties:
-
-            parallel: 'single'
-           procedure: 'calculate'
+            parallel: &#39;single&#39;
+           procedure: &#39;calculate&#39;
     calcSldDuringFit: 0
-             display: 'iter'
+             display: &#39;iter&#39;
     resampleMinAngle: 0.9000
      resampleNPoints: 50
-
-</pre>
+</pre></div>
+</div>
 </div>
 <input id="sd-tab-item-15" name="sd-tab-set-7" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-15">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-+------------------+-----------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------+-----------+
 |     Property     |   Value   |
 +------------------+-----------+
 |    procedure     | calculate |
@@ -1027,8 +1007,8 @@ Python</label><div class="sd-tab-content docutils">
 | resampleNPoints  |     50    |
 |     display      |    iter   |
 +------------------+-----------+
-
-</pre>
+</pre></div>
+</div>
 </div>
 </div>
 <p>This makes an instance of the controls Class we have called <strong>controls</strong>. The various properties of the class allow the type of calculation
@@ -1057,29 +1037,24 @@ PYTHON</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-18" name="sd-tab-set-9" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-18">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ________________________________________________________________________________________________
 
-Starting RAT ________________________________________________________________________________________________
-
-Elapsed time is 0.196066 seconds.
+Elapsed time is 0.160775 seconds.
 
 Finished RAT ______________________________________________________________________________________________ 
-
-</pre>
+</pre></div>
+</div>
 </div>
 <input id="sd-tab-item-19" name="sd-tab-set-9" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-19">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-Starting RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 Elapsed time is 0.001 seconds
 
 Finished RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
-
-
-
-</pre>
+</pre></div>
+</div>
 </div>
 </div>
 <p>It is worth noticing here that this is always the general format for calling RAT. There are two inputs - a problem definition and a controls block, and the result is two outputs - another copy of the problem, and a new, <em>results</em> block.</p>
@@ -1089,9 +1064,7 @@ Finished RAT ──────────────────────�
 <input checked="checked" id="sd-tab-item-20" name="sd-tab-set-10" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-20">
 Matlab</label><div class="sd-tab-content docutils">
-<pre>
-
-          reflectivity: {2x1 cell}
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>          reflectivity: {2x1 cell}
             simulation: {2x1 cell}
            shiftedData: {2x1 cell}
              layerSlds: {2x1 cell}
@@ -1101,37 +1074,35 @@ Matlab</label><div class="sd-tab-content docutils">
         contrastParams: [1x1 struct]
              fitParams: [15x1 double]
               fitNames: {15x1 cell}
-
-</pre>
+</pre></div>
+</div>
 </div>
 <input id="sd-tab-item-21" name="sd-tab-set-10" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-21">
 Python</label><div class="sd-tab-content docutils">
-<pre>
-reflectivity = [Data array: [51 x 2], Data array: [51 x 2]],
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>reflectivity = [Data array: [51 x 2], Data array: [51 x 2]],
 simulation = [Data array: [51 x 2], Data array: [51 x 2]],
 shiftedData = [Data array: [51 x 3], Data array: [51 x 3]],
 layerSlds = [[Data array: [2 x 3]], [Data array: [2 x 3]]],
-sldProfiles = [[Data array: [180 x 2]], [Data array: [180 x 2]]],
+sldProfiles = [[Data array: [182 x 2]], [Data array: [182 x 2]]],
 resampledLayers = [[Data array: [1 x 3]], [Data array: [1 x 3]]],
 calculationResults = CalculationResults(
-	chiValues = [ 1.43398455 51.33113219],
-	sumChi = 52.765116743847706,
+	chiValues = [278.31497186 463.11042095],
+	sumChi = 741.4253928160788,
 ),
 contrastParams = ContrastParams(
-	backgroundParams = [3.90942243e-06 4.41932180e-06],
-	scalefactors = [0.21565849 0.21565849],
+	backgroundParams = [2.8e-06 5.5e-06],
+	scalefactors = [0.23 0.23],
 	bulkIn = [0. 0.],
-	bulkOut = [ 6.34493481e-06 -3.14696921e-07],
+	bulkOut = [ 6.35e-06 -5.60e-07],
 	resolutionParams = [0.03 0.03],
-	subRoughs = [2.96399471 2.96399471],
+	subRoughs = [3. 3.],
 	resample = [0. 0.],
 ),
-fitParams = [2.96399471],
-fitNames = ['Substrate Roughness', 'Tails Thickness', 'Heads Thickness', 'Tails Roughness', 'Heads Roughness', 'Deuterated Tails SLD', 'Hydrogenated Tails SLD', 'Deuterated Heads SLD', 'Hydrogenated Heads SLD', 'Heads Hydration', 'Backs Value ACMW', 'Backs Value D2O', 'Scalefactor 1', 'SLD D2O', 'SLD ACMW'],
-
-
-</pre>
+fitParams = [3.],
+fitNames = [&#39;Substrate Roughness&#39;, &#39;Tails Thickness&#39;, &#39;Heads Thickness&#39;, &#39;Tails Roughness&#39;, &#39;Heads Roughness&#39;, &#39;Deuterated Tails SLD&#39;, &#39;Hydrogenated Tails SLD&#39;, &#39;Deuterated Heads SLD&#39;, &#39;Hydrogenated Heads SLD&#39;, &#39;Heads Hydration&#39;, &#39;Backs Value ACMW&#39;, &#39;Backs Value D2O&#39;, &#39;Scalefactor 1&#39;, &#39;SLD D2O&#39;, &#39;SLD ACMW&#39;],
+</pre></div>
+</div>
 </div>
 </div>
 <p>This contains the results of our calculations, so for us including the SLD profiles and reflectivities calculated from our <em>problemDef</em> class. We can now plot the output, either manually (by taking the relevant parts from the <em>results</em> array), or using one of the supplied plotting utilities:</p>
