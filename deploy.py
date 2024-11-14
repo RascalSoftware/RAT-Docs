@@ -1,29 +1,14 @@
 import json
 import os
-import re
 import shutil
 from urllib.parse import urljoin
+from .version import get_doc_version
 
 
-VERSION_REGEX = re.compile(r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)"
-                           r"(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)"
-                           r"(?:\.(?:0|[1-9]\d*|\d *[a-zA-Z-][0-9a-zA-Z-]*))*))?"
-                           r"(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?")
 DOCS_PATH = os.path.abspath(os.path.dirname(__file__))
-VERSION_FILE = os.path.join(DOCS_PATH, 'API', 'version.txt')
 
 url = os.environ.get('RAT_URL', '') 
-
-doc_version = 'dev'
-version = os.environ.get('RAT_VERSION')
-if version is None:
-    with open(VERSION_FILE, 'r') as version_file:
-        version = version_file.read()
-    
-release = version
-if version != 'main':    
-    major, minor, *other = list(VERSION_REGEX.match(version.replace(' ', '')).groups())
-    doc_version = f'{major}.{minor}'
+doc_version = get_doc_version()
 
 BUILD_PATH = os.path.join(DOCS_PATH, 'build', 'html')
 WEB_PATH = os.path.join(DOCS_PATH, '_web', doc_version)
