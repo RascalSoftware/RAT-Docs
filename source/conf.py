@@ -30,7 +30,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(RATapi.__file__)))
 
 project = 'RAT'
 copyright = u'2022-{}, ISIS Neutron and Muon Source'.format(datetime.date.today().year)
-author = 'Arwel Hughes, Sethu Pastula, Rabiya Farooq, Paul Sharp, Stephen Nneji'
+author = 'Arwel Hughes, Sethu Pastula, Alex Room, Rabiya Farooq, Paul Sharp, Stephen Nneji'
 
 # The full version, including alpha/beta/rc tags
 VERSION_REGEX = re.compile(r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)"
@@ -39,12 +39,15 @@ VERSION_REGEX = re.compile(r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)"
                            r"(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?")
 
 doc_version = 'dev'
-with open(VERSION_FILE, 'r') as version_file:
-    version = version_file.read()
-    release = version
-    if os.environ.get('github.ref', 'main') != 'main':
-        major, minor, *other = list(VERSION_REGEX.match(version.replace(' ', '')).groups())
-        doc_version = f'{major}.{minor}'
+version = os.environ.get('RAT_VERSION')
+if version is None:
+    with open(VERSION_FILE, 'r') as version_file:
+        version = version_file.read()
+    
+release = version
+if version != 'main':    
+    major, minor, *other = list(VERSION_REGEX.match(version.replace(' ', '')).groups())
+    doc_version = f'{major}.{minor}'
     
 # -- General configuration ---------------------------------------------------
 
@@ -72,10 +75,8 @@ html_favicon = "_static/logo.png"
 html_static_path = ['_static']
 html_css_files = ["custom.css"]
 html_logo = '_static/logo.png'
-
-url = ''
-with open(URL_FILE, 'r') as url_file:
-    url = url_file.read()    
+ 
+url = os.environ.get('RAT_URL', '') 
         
 html_theme_options = {'show_prev_next': False,
                       'pygment_light_style': 'tango',

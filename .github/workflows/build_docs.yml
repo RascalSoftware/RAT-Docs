@@ -26,11 +26,9 @@ jobs:
         unzip Linux.zip -d API/
     - name: Build docs
       run: |
-        url="https://rascalsoftware.github.io/RAT-Docs/"
-        echo -n ${url} > source/url.txt
+        export RAT_URL="https://rascalsoftware.github.io/RAT-Docs/"
+        export RAT_VERSION="dev"
         python build_docs.py
-      env:
-        GH_TOKEN: ${{ github.token }}
     - name: Checkout gh-pages
       if: github.ref == 'refs/heads/main'
       uses: actions/checkout@v4
@@ -40,7 +38,7 @@ jobs:
     - name: Deploy Docs
       if: github.ref == 'refs/heads/main'
       run: |
-        python deploy.py ${{github.ref}}
+        python deploy.py
         cd _web
         git config user.name github-actions
         git config user.email github-actions@github.com

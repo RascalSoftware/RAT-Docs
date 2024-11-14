@@ -2,7 +2,6 @@ import json
 import os
 import re
 import shutil
-import sys
 from urllib.parse import urljoin
 
 
@@ -12,24 +11,19 @@ VERSION_REGEX = re.compile(r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)"
                            r"(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?")
 DOCS_PATH = os.path.abspath(os.path.dirname(__file__))
 VERSION_FILE = os.path.join(DOCS_PATH, 'API', 'version.txt')
-URL_FILE = os.path.join(DOCS_PATH, 'source', 'url.txt')
 
-url = ''
-with open(URL_FILE, 'r') as url_file:
-    url = url_file.read() 
+url = os.environ.get('RAT_URL', '') 
 
 doc_version = 'dev'
-# if version is present in argv use that instead 
-if len(sys.argv) > 1:
-    version = sys.argv[1].strip()
-else:
+version = os.environ.get('RAT_VERSION')
+if version is None:
     with open(VERSION_FILE, 'r') as version_file:
         version = version_file.read()
-
-if version != 'main':
-    print(version)
+    
+release = version
+if version != 'main':    
     major, minor, *other = list(VERSION_REGEX.match(version.replace(' ', '')).groups())
-    doc_version = f'{version[0]}.{version[1]}'
+    doc_version = f'{major}.{minor}'
 
 BUILD_PATH = os.path.join(DOCS_PATH, 'build', 'html')
 WEB_PATH = os.path.join(DOCS_PATH, '_web', doc_version)
@@ -57,8 +51,6 @@ INDEX_FILE = os.path.join(DOCS_PATH, '_web', 'index.html')
 is_latest = (len(releases) > 1 and releases[-2] == doc_version)
 base_url = urljoin(url, f'{doc_version}/')
 index_url = urljoin(base_url, 'index.html')
-print(base_url)
-print(index_url)
 if not os.path.exists(INDEX_FILE) or is_latest:
     
     data = [
