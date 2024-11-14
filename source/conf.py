@@ -18,31 +18,14 @@ exclude_patterns = []
 current_dir = os.path.dirname(os.path.abspath(__file__))
 matlab_src_dir = os.path.abspath(os.path.join(current_dir, '..', 'API'))
 sys.path.insert(0, matlab_src_dir)
-VERSION_FILE = os.path.join(matlab_src_dir, 'version.txt')
-URL_FILE = os.path.join(current_dir, 'url.txt')
 
 import RATapi
 sys.path.insert(0, os.path.dirname(os.path.abspath(RATapi.__file__)))
 project = 'RAT'
 copyright = u'2022-{}, ISIS Neutron and Muon Source'.format(datetime.date.today().year)
 author = 'Arwel Hughes, Sethu Pastula, Alex Room, Rabiya Farooq, Paul Sharp, Stephen Nneji'
+
 # The full version, including alpha/beta/rc tags
-VERSION_REGEX = re.compile(r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)"
-                           r"(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)"
-                           r"(?:\.(?:0|[1-9]\d*|\d *[a-zA-Z-][0-9a-zA-Z-]*))*))?"
-                           r"(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?")
-# doc_version = 'dev'
-# version = os.environ.get('RAT_VERSION')
-# if version is None:
-#     with open(VERSION_FILE, 'r') as version_file:
-#         version = version_file.read()
-
-# release = version
-# tmp = VERSION_REGEX.match(version.replace(' ', ''))
-# if tmp is not None:
-#     major, minor, *other = list(tmp.groups())
-#     doc_version = f'{major}.{minor}'
-
 sys.path.insert(0, os.path.dirname(os.path.abspath("..")))
 from version import get_doc_version
 doc_version = get_doc_version()
