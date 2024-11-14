@@ -38,8 +38,6 @@ if version is None:
         version = version_file.read()
 
 release = version
-if version != 'main':    
-    major, minor, *other = list(VERSION_REGEX.match(version.replace(' ', '')).groups())
 tmp = VERSION_REGEX.match(version.replace(' ', ''))
 if tmp is not None:
     major, minor, *other = list(tmp.groups())
