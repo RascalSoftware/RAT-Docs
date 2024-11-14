@@ -28,9 +28,9 @@ project = 'RAT'
 copyright = u'2022-{}, ISIS Neutron and Muon Source'.format(datetime.date.today().year)
 author = 'Arwel Hughes, Sethu Pastula, Alex Room, Rabiya Farooq, Paul Sharp, Stephen Nneji'
 
-sys.path.insert(0, os.path.abspath(".."))
-from version import get_doc_version
-doc_version = get_doc_version()  
+#sys.path.insert(0, os.path.abspath(".."))
+# from version import get_doc_version
+doc_version = "dev"#get_doc_version()  
 release = doc_version
     
 # -- General configuration ---------------------------------------------------
