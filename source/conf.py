@@ -16,7 +16,8 @@ from urllib.parse import urljoin
 # ones.
 exclude_patterns = []
 current_dir = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.abspath(os.path.join(current_dir, '..', 'API'))) # matlab src dir
+matlab_src_dir = os.path.abspath(os.path.join(current_dir, '..', 'API'))
+sys.path.insert(0, matlab_src_dir)
 
 import RATapi
 sys.path.insert(0, os.path.dirname(os.path.abspath(RATapi.__file__)))
