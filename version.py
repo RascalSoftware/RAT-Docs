@@ -20,9 +20,10 @@ def get_doc_version():
         with open(VERSION_FILE, 'r') as version_file:
             version = version_file.read()
 
-    if version != 'main':    
-        major, minor, *other = list(VERSION_REGEX.match(version.replace(' ', '')).groups())
+    tmp = VERSION_REGEX.match(version.replace(' ', ''))
+    if tmp is not None:
+        major, minor, *other = list(tmp.groups())
         doc_version = f'{major}.{minor}'
-    
+        
     return doc_version
  

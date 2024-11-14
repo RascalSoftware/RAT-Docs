@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.abspath(".."))
 exclude_patterns = []
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
-sys.path.insert(0, os.path.abspath(os.path.join(current_dir, '..', 'API')))  # matlab_src_dir 
+sys.path.insert(0, os.path.abspath(os.path.join(current_dir, '..', 'API')))  # matlab src dir 
 sys.path.insert(0, os.path.dirname(os.path.abspath(RATapi.__file__)))
 
 project = 'RAT'
