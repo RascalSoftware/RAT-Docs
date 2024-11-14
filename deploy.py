@@ -2,7 +2,7 @@ import json
 import os
 import shutil
 from urllib.parse import urljoin
-from .version import get_doc_version
+from version import get_doc_version
 
 
 DOCS_PATH = os.path.abspath(os.path.dirname(__file__))

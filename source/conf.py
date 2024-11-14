@@ -13,8 +13,7 @@ import sys
 import datetime
 from urllib.parse import urljoin
 import RATapi
-from ..version import get_doc_version
-
+sys.path.insert(0, os.path.abspath(".."))
 # -- Project information -----------------------------------------------------
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -29,6 +28,7 @@ project = 'RAT'
 copyright = u'2022-{}, ISIS Neutron and Muon Source'.format(datetime.date.today().year)
 author = 'Arwel Hughes, Sethu Pastula, Alex Room, Rabiya Farooq, Paul Sharp, Stephen Nneji'
 
+from version import get_doc_version
 doc_version = get_doc_version()  
 release = doc_version
     
