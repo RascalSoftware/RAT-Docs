@@ -23,7 +23,6 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 matlab_src_dir = os.path.abspath(os.path.join(current_dir, '..', 'API'))
 sys.path.insert(0, matlab_src_dir)
 VERSION_FILE = os.path.join(matlab_src_dir, 'version.txt')
-URL_FILE = os.path.join(current_dir, 'url.txt')
 
 import RATapi
 sys.path.insert(0, os.path.dirname(os.path.abspath(RATapi.__file__)))
@@ -45,8 +44,9 @@ if version is None:
         version = version_file.read()
     
 release = version
-if version != 'main':    
-    major, minor, *other = list(VERSION_REGEX.match(version.replace(' ', '')).groups())
+tmp = VERSION_REGEX.match(version.replace(' ', ''))
+if tmp is not None:
+    major, minor, *other = list(tmp.groups())
     doc_version = f'{major}.{minor}'
     
 # -- General configuration ---------------------------------------------------
