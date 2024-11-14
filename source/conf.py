@@ -1,37 +1,49 @@
-# Configuration file for the Sphinx documentation builder.
-#
 # This file only contains a selection of the most common options. For a full
 # list see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
-
 # -- Path setup --------------------------------------------------------------
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
+import re
 import os
 import sys
 import datetime
 from urllib.parse import urljoin
-import RATapi
-
 # -- Project information -----------------------------------------------------
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 exclude_patterns = []
 current_dir = os.path.dirname(os.path.abspath(__file__))
+matlab_src_dir = os.path.abspath(os.path.join(current_dir, '..', 'API'))
+sys.path.insert(0, matlab_src_dir)
+VERSION_FILE = os.path.join(matlab_src_dir, 'version.txt')
+URL_FILE = os.path.join(current_dir, 'url.txt')
 
-sys.path.insert(0, os.path.abspath(os.path.join(current_dir, '..', 'API')))  # matlab src dir 
+import RATapi
 sys.path.insert(0, os.path.dirname(os.path.abspath(RATapi.__file__)))
-
 project = 'RAT'
 copyright = u'2022-{}, ISIS Neutron and Muon Source'.format(datetime.date.today().year)
 author = 'Arwel Hughes, Sethu Pastula, Alex Room, Rabiya Farooq, Paul Sharp, Stephen Nneji'
+# The full version, including alpha/beta/rc tags
+VERSION_REGEX = re.compile(r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)"
+                           r"(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)"
+                           r"(?:\.(?:0|[1-9]\d*|\d *[a-zA-Z-][0-9a-zA-Z-]*))*))?"
+                           r"(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?")
+doc_version = 'dev'
+version = os.environ.get('RAT_VERSION')
+if version is None:
+    with open(VERSION_FILE, 'r') as version_file:
+        version = version_file.read()
 
-#sys.path.insert(0, os.path.abspath(".."))
-# from version import get_doc_version
-doc_version = "dev"#get_doc_version()  
-release = doc_version
+release = version
+if version != 'main':    
+    major, minor, *other = list(VERSION_REGEX.match(version.replace(' ', '')).groups())
+tmp = VERSION_REGEX.match(version.replace(' ', ''))
+if tmp is not None:
+    major, minor, *other = list(tmp.groups())
+    doc_version = f'{major}.{minor}'
     
 # -- General configuration ---------------------------------------------------
 
