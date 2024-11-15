@@ -19,16 +19,13 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: '3.11' 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-    - name: Download MATLAB RAT
+    - name: Build docs
       run: |
         wget https://github.com/RascalSoftware/RAT/releases/download/nightly/Linux.zip
         unzip Linux.zip -d API/
-    - name: Build docs
-      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install RATapi
         python build_docs.py
     - name: Checkout gh-pages
       uses: actions/checkout@v4
@@ -44,4 +41,3 @@ jobs:
         git add -A
         git commit -m "Publish Documentation" || true
         git push
-      
