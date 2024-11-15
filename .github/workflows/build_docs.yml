@@ -8,6 +8,9 @@ on:
 
 jobs: 
   build:
+    env:
+      RAT_URL: "https://rascalsoftware.github.io/RAT-Docs/"
+      RAT_VERSION: "dev"
     runs-on: Linux
 
     steps:
@@ -26,8 +29,6 @@ jobs:
         unzip Linux.zip -d API/
     - name: Build docs
       run: |
-        export RAT_URL="https://rascalsoftware.github.io/RAT-Docs/"
-        export RAT_VERSION="dev"
         python build_docs.py
     - name: Checkout gh-pages
       uses: actions/checkout@v4
