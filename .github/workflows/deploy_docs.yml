@@ -1,16 +1,17 @@
-name: Build Docs
+name: Deploy Docs
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to build (default: dev)'
+        default: 'dev'
 
 jobs: 
   build:
     env:
-      RAT_URL: "https://rascalsoftware.github.io/RAT-Docs/"
-      RAT_VERSION: "dev"
+      RAT_URL: "https://rascalsoftware.github.io/RAT/"
+      RAT_VERSION: ${{ github.event.inputs.name }}"
     runs-on: Linux
 
     steps:
@@ -19,22 +20,25 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: '3.11' 
-    - name: Build docs
+    - name: Download MATLAB RAT
       run: |
-        wget https://github.com/RascalSoftware/RAT/releases/download/nightly/Linux.zip
-        unzip Linux.zip -d API/
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install RATapi
+        if [ ${{ github.event_name }} == 'dev' ]; then
+          wget https://github.com/RascalSoftware/RAT/releases/download/nightly/Linux.zip
+          pip install RATapi
+        else
+          wget "https://github.com/RascalSoftware/RAT/releases/download/${RAT_VERSION}/Linux.zip"
+          pip install RATapi==${RAT_VERSION}
+        fi
+        unzip Linux.zip -d API/
         python build_docs.py
     - name: Checkout gh-pages
-      if: github.ref == 'refs/heads/main'
       uses: actions/checkout@v4
       with:
         ref: gh-pages
         path: _web
-    - name: Deploy docs locally
-      if: github.ref == 'refs/heads/main'
+    - name: Deploy docs
       run: |
         python deploy.py
         cd _web
@@ -43,3 +47,4 @@ jobs:
         git add -A
         git commit -m "Publish Documentation" || true
         git push
+      
