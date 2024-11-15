@@ -7,7 +7,7 @@ from version import get_doc_version
 
 DOCS_PATH = os.path.abspath(os.path.dirname(__file__))
 
-url = os.environ.get('RAT_URL', '') 
+url = os.environ.get('RAT_URL', '')
 doc_version = get_doc_version()
 
 BUILD_PATH = os.path.join(DOCS_PATH, 'build', 'html')

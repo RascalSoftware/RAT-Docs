@@ -16,6 +16,7 @@ from urllib.parse import urljoin
 # ones.
 exclude_patterns = []
 current_dir = os.path.dirname(os.path.abspath(__file__))
+# matlab_src_dir is required for sphinxcontrib-matlabdomain
 matlab_src_dir = os.path.abspath(os.path.join(current_dir, '..', 'API'))
 sys.path.insert(0, matlab_src_dir)
 
