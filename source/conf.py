@@ -1,9 +1,6 @@
-# Configuration file for the Sphinx documentation builder.
-#
 # This file only contains a selection of the most common options. For a full
 # list see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
-
 # -- Path setup --------------------------------------------------------------
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -12,7 +9,7 @@ import re
 import os
 import sys
 import datetime
-
+from urllib.parse import urljoin
 # -- Project information -----------------------------------------------------
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -24,25 +21,14 @@ sys.path.insert(0, matlab_src_dir)
 
 import RATapi
 sys.path.insert(0, os.path.dirname(os.path.abspath(RATapi.__file__)))
-
 project = 'RAT'
 copyright = u'2022-{}, ISIS Neutron and Muon Source'.format(datetime.date.today().year)
-author = 'Arwel Hughes, Sethu Pastula, Rabiya Farooq, Paul Sharp, Stephen Nneji'
+author = 'Arwel Hughes, Sethu Pastula, Alex Room, Rabiya Farooq, Paul Sharp, Stephen Nneji'
 
 # The full version, including alpha/beta/rc tags
-VERSION_REGEX = re.compile(r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)"
-                           r"(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)"
-                           r"(?:\.(?:0|[1-9]\d*|\d *[a-zA-Z-][0-9a-zA-Z-]*))*))?"
-                           r"(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?")
-VERSION_FILE = os.path.join(matlab_src_dir, 'version.txt')
-
-doc_version = 'dev'
-with open(VERSION_FILE, 'r') as version_file:
-    version = version_file.read()
-    release = version
-    if os.environ.get('github.ref', 'main') != 'main':
-        major, minor, *other = list(VERSION_REGEX.match(version.replace(' ', '')).groups())
-        doc_version = f'{major}.{minor}'
+sys.path.insert(0, os.path.dirname(os.path.abspath("..")))
+from version import get_doc_version
+doc_version = get_doc_version()
     
 # -- General configuration ---------------------------------------------------
 
@@ -69,13 +55,15 @@ bgcolor = 'white'
 html_favicon = "_static/logo.png"
 html_static_path = ['_static']
 html_css_files = ["custom.css"]
-
 html_logo = '_static/logo.png'
+ 
+url = os.environ.get('RAT_URL', '') 
+        
 html_theme_options = {'show_prev_next': False,
                       'pygment_light_style': 'tango',
                       'pygment_dark_style': 'monokai',
                       'navbar_start': ['navbar-logo', 'version-switcher'],
-                      'switcher': {'json_url': 'https://rascalsoftware.github.io/RAT-Docs/switcher.json', 
+                      'switcher': {'json_url': urljoin(url, 'switcher.json'), 
                                    'version_match': doc_version,
                                    "check_switcher": False,},
                      }
