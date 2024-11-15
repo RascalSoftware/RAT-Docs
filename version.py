@@ -16,10 +16,11 @@ def get_doc_version():
     file in RAT if not set"""
     doc_version = 'dev'
     version = os.environ.get('RAT_VERSION')
+    print(1, version)
     if version is None:
         with open(VERSION_FILE, 'r') as version_file:
             version = version_file.read()
-
+    print(2, version)
     tmp = VERSION_REGEX.match(version.replace(' ', ''))
     if tmp is not None:
         major, minor, *other = list(tmp.groups())

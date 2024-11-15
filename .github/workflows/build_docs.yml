@@ -30,13 +30,11 @@ jobs:
         export RAT_VERSION="dev"
         python build_docs.py
     - name: Checkout gh-pages
-      if: github.ref == 'refs/heads/main'
       uses: actions/checkout@v4
       with:
         ref: gh-pages
         path: _web
     - name: Deploy Docs
-      if: github.ref == 'refs/heads/main'
       run: |
         python deploy.py
         cd _web
