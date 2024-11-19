@@ -1,15 +1,17 @@
 """Sphinx directive for building code from snippets."""
 
+import warnings
 from contextlib import redirect_stdout
 from io import StringIO
 
 from docutils import nodes
-from matlab.engine import start_matlab, MatlabEngine
+
 import RATapi
 
 from sphinx.application import Sphinx
 from sphinx.util.docutils import SphinxDirective
 from sphinx.util.typing import ExtensionMetadata
+
 
 class OutputDirective(SphinxDirective):
     """A directive for getting the output of some code."""
@@ -43,15 +45,19 @@ def setup(app: Sphinx) -> ExtensionMetadata:
 
     def setup_envs(*ignore):
         """Initialise Python/MATLAB environments."""
-        app.env.snippets_env = {'RAT': RATapi}
+        app.env.snippets_env = {"RAT": RATapi}
         print("Starting up MATLAB Engine...")
-        app.env.matlab_engine = start_matlab()
-        app.env.matlab_engine.eval("cd('API'); addPaths; cd('..'); ratVars = who;",nargout=0)
+        app.env.matlab_engine = setup_matlab()
+        app.env.matlab_engine.eval(
+            "cd('API'); addPaths; cd('..'); ratVars = who;", nargout=0
+        )
 
     def clear_envs(*ignore):
         """Clear Python/MATLAB environments from the build environment."""
-        app.env.snippets_env = {'RAT': RATapi}
-        app.env.matlab_engine.eval(r"clearvars('-except', 'ratVars', ratVars{:});", nargout=0)
+        app.env.snippets_env = {"RAT": RATapi}
+        app.env.matlab_engine.eval(
+            r"clearvars('-except', 'ratVars', ratVars{:});", nargout=0
+        )
 
     def del_engine(*ignore):
         """Stop and delete the MATLAB engine when building is finished."""
@@ -59,9 +65,30 @@ def setup(app: Sphinx) -> ExtensionMetadata:
         app.env.matlab_engine.quit()
         del app.env.matlab_engine
 
-    app.connect('builder-inited', setup_envs)
-    app.connect('doctree-read', clear_envs)
-    app.connect('env-updated', del_engine)
+    app.connect("builder-inited", setup_envs)
+    app.connect("doctree-read", clear_envs)
+    app.connect("env-updated", del_engine)
+
+
+class FallbackMatlabEngine:
+    """A fallback class that intercepts calls to MATLAB engine when the engine is not available."""
+
+    def eval(self, *args, **kwargs):
+        print("Could not create output as MATLAB engine not available!")
+        warnings.warn("Could not create output as MATLAB engine was not available.")
+
+    def quit(self):
+        pass
+
+
+def setup_matlab():
+    """Create a MATLAB engine, or a fallback if MATLAB engine is not available."""
+    try:
+        from matlab.engine import start_matlab
+    except ImportError:
+        return FallbackMatlabEngine()
+
+    return start_matlab()
 
 
 def write_python_output(code: str, env: dict | None) -> str:
@@ -89,7 +116,7 @@ def write_python_output(code: str, env: dict | None) -> str:
         return buf.getvalue()
 
 
-def write_matlab_output(code: str, engine: MatlabEngine) -> str:
+def write_matlab_output(code: str, engine) -> str:
     """Run arbitrary MATLAB code and return the output.
 
     Parameters
