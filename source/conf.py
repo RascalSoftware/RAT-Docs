@@ -66,8 +66,15 @@ html_theme_options = {'show_prev_next': False,
                       'navbar_start': ['navbar-logo', 'version-switcher'],
                       'switcher': {'json_url': urljoin(url, 'switcher.json'), 
                                    'version_match': doc_version,
-                                   "check_switcher": False,},
+                                   'check_switcher': False,},
+                      'secondary_sidebar_items': {
+                                '**': ['page-toc'],
+                                'index': [],
+                                'install': [],},
                      }
+html_sidebars = {
+    'install': []
+}
 
 copybutton_prompt_text = r">>> |>> "
 copybutton_prompt_is_regexp = True

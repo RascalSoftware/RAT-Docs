@@ -4,8 +4,8 @@
 Custom Models in Python or C++
 ==============================
 
-Custom models are usually written in Matlab, but RAT allows alternative languages to be used. You can write your custom models either in Python or C++.
-The reason for the Python functionality is mainly since this is the more natural choice when using RAT from Python with pythonRAT, but also because the user might choose to incorporate Python libraries into the custom models that are not available in Matlab.
+Custom models are usually written in MATLAB, but RAT allows alternative languages to be used. You can write your custom models either in Python or C++.
+The reason for the Python functionality is mainly since this is the more natural choice when using RAT from Python with pythonRAT, but also because the user might choose to incorporate Python libraries into the custom models that are not available in MATLAB.
 The reason for C++ if for pure speed, where very computationally demanding custom models calculations are required. Both options are easy to use in RAT.
 
 .. note::
@@ -15,10 +15,10 @@ The reason for C++ if for pure speed, where very computationally demanding custo
 Python Custom Models
 ********************
 .. note::
-    Before you use Python from your Matlab session, please ensure that Python is `configured correctly on your system. <https://uk.mathworks.com/help/matlab/matlab_external/create-object-from-python-class.html>`_
+    Before you use Python from your MATLAB session, please ensure that Python is `configured correctly on your system. <https://uk.mathworks.com/help/matlab/matlab_external/create-object-from-python-class.html>`_
 
 
-Custom models in Python and Matlab are very similar in structure as shown below:
+Custom models in Python and MATLAB are very similar in structure as shown below:
 
 .. tab-set-code::
     .. code-block:: MATLAB
@@ -179,12 +179,12 @@ To use a python custom model from RAT, you need to add it to the current project
 
         problem.custom_files.append(name='myModel', filename='customBilayer.py', language='python')
 
-You can then use this in your calculations in the same way as a normal, Matlab custom model.
+You can then use this in your calculations in the same way as a normal, MATLAB custom model.
 
 *****************
 C++ Custom Models
 *****************
-If Matlab or Python custom models are too slow, you also have the option of providing a C++ custom model. You then have to compile and build this into a shared library in order to use it with RAT.
+If MATLAB or Python custom models are too slow, you also have the option of providing a C++ custom model. You then have to compile and build this into a shared library in order to use it with RAT.
 
 Following on from our custom bilayer examples, the equivalent C++ custom model should follow this format.
 
@@ -324,7 +324,7 @@ Before you can use this file, you need to compile and build it into a shared lib
 
 This will create either customBilayer.dylib (OSX), customBilayer.dll (Windows) or customBilayer.so (Linux).
 
-To use this, we just add the relevant model to out project, in the same way as for Matlab and Python models:
+To use this, we just add the relevant model to out project, in the same way as for MATLAB and Python models:
 
 .. tab-set-code::
     .. code-block:: MATLAB

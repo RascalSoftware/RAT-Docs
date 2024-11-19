@@ -48,8 +48,8 @@ Within each problem class, there is the option of *Custom Layer* or *Custom XY* 
 In this section we'll look at the project definition class in more detail, we'll see how we can use the class methods to build and modify a model, and how to carry out the analysis.
 
 .. note::
-    If you are a RasCAL1 user, you probably have existing RasCAL models that you would like to analyse using RAT. If so, there is no need to re-make the model from scratch. Instead, there are
-    conversion utilities (:ref:`conversionFuncs`). In fact, for those who prefer a graphical model builder, using the RasCAL1 GUI to build a basic model and then converting to RAT is a viable workflow.
+    If you are a RasCAL-1 user, you probably have existing RasCAL models that you would like to analyse using RAT. If so, there is no need to re-make the model from scratch. Instead, there are
+    conversion utilities (:ref:`conversionFuncs`). In fact, for those who prefer a graphical model builder, using the RasCAL-1 GUI to build a basic model and then converting to RAT is a viable workflow.
 
 
 ********************************************
@@ -86,7 +86,8 @@ discussed in :ref:`next Section<chapter2>`, but for now, we'll look at a pre-pre
     .. code-block:: Matlab
 
         % Load in a pre-made problem Definition class
-        problem = load('twoContrastExample.mat');
+        root = getappdata(0, 'root');
+        problem  = load(fullfile(root, '/examples/tutorialFiles/twoContrastExample.mat'));
         problem = problem.problem;
 
         % Have a look at what we have

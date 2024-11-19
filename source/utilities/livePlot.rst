@@ -41,7 +41,7 @@ plot event is triggered after every 20 iterations.
         
         % Make simplex controls
         controls = controlsClass();
-        controls.procedure = 'simplex'
+        controls.procedure = 'simplex';
         
         % change plot frequency to 35
         controls.updatePlotFreq = 35;
@@ -61,7 +61,7 @@ plot event is triggered after every 20 iterations.
         .. output:: Matlab
 
             controls = controlsClass();
-            controls.procedure = 'simplex'
+            controls.procedure = 'simplex';
         
             % change plot frequency to 35
             controls.updatePlotFreq = 35;

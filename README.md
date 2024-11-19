@@ -1,6 +1,6 @@
 Documentation
 =============
-This is the documentation for the [Matlab](https://github.com/RascalSoftware/RAT) and [Python](https://github.com/RascalSoftware/python-RAT) version of the RAT project. 
+This is the documentation for the [MATLAB](https://github.com/RascalSoftware/RAT) and [Python](https://github.com/RascalSoftware/python-RAT) version of the RAT project. 
 
 Build docs
 ----------

@@ -1,10 +1,10 @@
 .. _conversionFuncs:
 
-===============================
-Convert between RAT and RasCAL1
-===============================
+================================
+Convert between RAT and RasCAL-1
+================================
 
-Two utilities are provided to convert between RasCAL1 and RAT projects:
+Two utilities are provided to convert between RasCAL-1 and RAT projects:
 
 * **Convert from R1 to RAT** : You can convert any R1 project directly to a projectClass and analyse using RAT
 * **Convert from RAT to R1** : You can also do the reverse and convert a projectClass back to an R1 project if you wish.
@@ -14,11 +14,11 @@ Two utilities are provided to convert between RasCAL1 and RAT projects:
 Convert R1 to RAT
 .................
 
-As an example, we can use the *'monolayer_8_contrasts* demo example shipped with RasCAl1:
+As an example, we can use the *'monolayer_8_contrasts* demo example shipped with RasCAL-1:
 
 .. image:: ../images/misc/rascal1.png
     :width: 800
-    :alt: rascal1
+    :alt: rascal-1
 
 
 To convert this, simply navigate to the project directory, and convert is as follows:
@@ -39,14 +39,14 @@ This produces a *projectClass* containing the R1 project, which can then be anal
 
 .. image:: ../images/misc/r1Converted.png
     :width: 800
-    :alt: rascal1 converted
+    :alt: rascal-1 converted
 
 
 
 .
 
-Convert RAT to a RasCAL1 Project
-................................
+Convert RAT to a RasCAL-1 Project
+.................................
 
 It is also possible to do the opposite conversion, and convert any *projectClass* back to an R1 project:
 
@@ -54,8 +54,8 @@ It is also possible to do the opposite conversion, and convert any *projectClass
 
     projectClassToR1(problem,'saveproject',true,'dirName','testProject','fileName','myConvertedProject')
 
-This will create the usual RasCAL1 project structure in a directory called *testProject*, with a filename called *myConvertedProject.mat*
-This can then be loaded into RasCAL1 as normal.
+This will create the usual RasCAL-1 project structure in a directory called *testProject*, with a filename called *myConvertedProject.mat*
+This can then be loaded into RasCAL-1 as normal.
 
 
 .

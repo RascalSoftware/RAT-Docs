@@ -4,7 +4,7 @@
 Adding the Imaginary Refractive Index
 =====================================
 
-In contrast to RasCAL1, RAT allows the inclusion of the imaginary part of the refractive index to the project. The exact method of doing this varies according to the calculation type,
+In contrast to RasCAL-1, RAT allows the inclusion of the imaginary part of the refractive index to the project. The exact method of doing this varies according to the calculation type,
 but at the project top-level, the method of enabling it is always the same. If the project is called 'problem', then:
 
 .. tab-set-code::
