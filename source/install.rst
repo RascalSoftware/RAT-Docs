@@ -1,3 +1,5 @@
+.. _install:
+
 ============
 Installation
 ============
@@ -48,7 +50,7 @@ This section provides more detailed information about installing RAT for Matlab 
 
             pip install RATapi
 
-        matlabengine is an optional dependency only required for Matlab related action such as running Matlab custom functions and converting RasCAL1 projects.
+        matlabengine is an optional dependency only required for Matlab related action such as running Matlab custom functions and converting RasCAL-1 projects.
         The version of matlabengine should match the version of Matlab installed on the computer. For example, if Matlab 2023a is installed on the computer, 
         matlabengine can be installed as shown below:
 
@@ -56,7 +58,17 @@ This section provides more detailed information about installing RAT for Matlab 
 
             pip install RATapi[Matlab-2023a]
 
+        .. note::
+            
+            Matlab does not support every version of Python so you have to ensure to use a Python version that is supported by your installed Matlab, 
+            for example, the maximum supported Python version for Matlab 2023a is 3.10 so you cannot install matlabengine for this Matlab on Python version 3.11 and above. 
+            You can check the |python_compatibility| on the Matlab website.
+
 
 .. |release| raw:: html
 
    <a href="https://github.com/RascalSoftware/RAT/releases/latest" target="_blank">Github Release</a>
+
+.. |python_compatibility| raw:: html
+
+   <a href="https://mathworks.com/support/requirements/python-compatibility.html" target="_blank">Python Compatibility</a>
