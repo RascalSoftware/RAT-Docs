@@ -8,11 +8,11 @@ reflectivity, SLD's and so on as the fit progresses. By writing functions that '
 In this section, we'll use this capability to build a live, updating plot of reflectivity and SLD, similar to that of the main RasCAL GUI.
 
 .. note::
-        The code in this section already exists in the repo (utilities/plotting), and you can activate the full updating plot at any time by just typing 'useLivePlot()' at the Matlab command window. But we detail it here to illustrate how to interact with events.
+        The code in this section already exists in the repo (utilities/plotting), and you can activate the full updating plot at any time by just typing 'useLivePlot()' at the MATLAB command window. But we detail it here to illustrate how to interact with events.
 
 **Registering Listeners**
 
-On the Matlab side, the interaction with RAT event is via the 'eventManager' class. To register a listener, we use the 'register' method to associate a function with the event.
+On the MATLAB side, the interaction with RAT event is via the 'eventManager' class. To register a listener, we use the 'register' method to associate a function with the event.
 
 .. code-block:: MATLAB
 

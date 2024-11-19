@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Convert between RAT and RasCAL1 &#8212; RAT  documentation</title>
+    <title>Convert between RAT and RasCAL-1 &#8212; RAT  documentation</title>
   
   
   
@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7138875e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9deae167" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -199,13 +199,6 @@ document.write(`
                       </a>
                     </li>
                 
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../support.html">
-                        Support
-                      </a>
-                    </li>
-                
   </ul>
 </nav></div>
       
@@ -315,13 +308,6 @@ document.write(`
                       </a>
                     </li>
                 
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../support.html">
-                        Support
-                      </a>
-                    </li>
-                
   </ul>
 </nav></div>
         
@@ -389,7 +375,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="plotFuns.html">Basic Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plotFunsBayes.html">Plotting Bayesian Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="livePlot.html">Live Updating Plots</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Convert between RAT and RasCAL1</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Convert between RAT and RasCAL-1</a></li>
 </ul>
 </li>
 </ul>
@@ -452,17 +438,17 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="convert-between-rat-and-rascal1">
-<span id="conversionfuncs"></span><h1>Convert between RAT and RasCAL1<a class="headerlink" href="#convert-between-rat-and-rascal1" title="Link to this heading">#</a></h1>
-<p>Two utilities are provided to convert between RasCAL1 and RAT projects:</p>
+  <section id="convert-between-rat-and-rascal-1">
+<span id="conversionfuncs"></span><h1>Convert between RAT and RasCAL-1<a class="headerlink" href="#convert-between-rat-and-rascal-1" title="Link to this heading">#</a></h1>
+<p>Two utilities are provided to convert between RasCAL-1 and RAT projects:</p>
 <ul class="simple">
 <li><p><strong>Convert from R1 to RAT</strong> : You can convert any R1 project directly to a projectClass and analyse using RAT</p></li>
 <li><p><strong>Convert from RAT to R1</strong> : You can also do the reverse and convert a projectClass back to an R1 project if you wish.</p></li>
 </ul>
 <section id="convert-r1-to-rat">
 <h2>Convert R1 to RAT<a class="headerlink" href="#convert-r1-to-rat" title="Link to this heading">#</a></h2>
-<p>As an example, we can use the <em>‘monolayer_8_contrasts</em> demo example shipped with RasCAl1:</p>
-<a class="reference internal image-reference" href="../_images/rascal1.png"><img alt="rascal1" src="../_images/rascal1.png" style="width: 800px;" />
+<p>As an example, we can use the <em>‘monolayer_8_contrasts</em> demo example shipped with RasCAL-1:</p>
+<a class="reference internal image-reference" href="../_images/rascal1.png"><img alt="rascal-1" src="../_images/rascal1.png" style="width: 800px;" />
 </a>
 <p>To convert this, simply navigate to the project directory, and convert is as follows:</p>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">r1ToProjectClass</span><span class="p">(</span><span class="s">&#39;monolayer_8_contrasts.mat&#39;</span><span class="p">)</span>
@@ -476,18 +462,18 @@ document.write(`
 <span class="n">plotRefSLD</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="n">results</span><span class="p">);</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/r1Converted.png"><img alt="rascal1 converted" src="../_images/r1Converted.png" style="width: 800px;" />
+<a class="reference internal image-reference" href="../_images/r1Converted.png"><img alt="rascal-1 converted" src="../_images/r1Converted.png" style="width: 800px;" />
 </a>
 <p>.</p>
 </section>
-<section id="convert-rat-to-a-rascal1-project">
-<h2>Convert RAT to a RasCAL1 Project<a class="headerlink" href="#convert-rat-to-a-rascal1-project" title="Link to this heading">#</a></h2>
+<section id="convert-rat-to-a-rascal-1-project">
+<h2>Convert RAT to a RasCAL-1 Project<a class="headerlink" href="#convert-rat-to-a-rascal-1-project" title="Link to this heading">#</a></h2>
 <p>It is also possible to do the opposite conversion, and convert any <em>projectClass</em> back to an R1 project:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">projectClassToR1</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="s1">&#39;saveproject&#39;</span><span class="p">,</span><span class="n">true</span><span class="p">,</span><span class="s1">&#39;dirName&#39;</span><span class="p">,</span><span class="s1">&#39;testProject&#39;</span><span class="p">,</span><span class="s1">&#39;fileName&#39;</span><span class="p">,</span><span class="s1">&#39;myConvertedProject&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This will create the usual RasCAL1 project structure in a directory called <em>testProject</em>, with a filename called <em>myConvertedProject.mat</em>
-This can then be loaded into RasCAL1 as normal.</p>
+<p>This will create the usual RasCAL-1 project structure in a directory called <em>testProject</em>, with a filename called <em>myConvertedProject.mat</em>
+This can then be loaded into RasCAL-1 as normal.</p>
 <p>.</p>
 </section>
 </section>
@@ -515,18 +501,9 @@ This can then be loaded into RasCAL1 as normal.</p>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-r1-to-rat">Convert R1 to RAT</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-rat-to-a-rascal1-project">Convert RAT to a RasCAL1 Project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-rat-to-a-rascal-1-project">Convert RAT to a RasCAL-1 Project</a></li>
 </ul>
   </nav></div>
-
-  <div class="sidebar-secondary-item">
-
-  <div class="tocsection sourcelink">
-    <a href="../_sources/utilities/conversionFuncs.rst.txt">
-      <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-  </div>
-</div>
 
 </div></div>
               

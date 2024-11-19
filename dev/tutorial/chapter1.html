@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7138875e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9deae167" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -199,13 +199,6 @@ document.write(`
                       </a>
                     </li>
                 
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../support.html">
-                        Support
-                      </a>
-                    </li>
-                
   </ul>
 </nav></div>
       
@@ -315,13 +308,6 @@ document.write(`
                       </a>
                     </li>
                 
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../support.html">
-                        Support
-                      </a>
-                    </li>
-                
   </ul>
 </nav></div>
         
@@ -389,7 +375,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../utilities/plotFuns.html">Basic Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/plotFunsBayes.html">Plotting Bayesian Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Live Updating Plots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/conversionFuncs.html">Convert between RAT and RasCAL1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/conversionFuncs.html">Convert between RAT and RasCAL-1</a></li>
 </ul>
 </li>
 </ul>
@@ -491,8 +477,8 @@ We will discuss more about these in <a class="reference internal" href="chapter2
 <p>In this section we’ll look at the project definition class in more detail, we’ll see how we can use the class methods to build and modify a model, and how to carry out the analysis.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you are a RasCAL1 user, you probably have existing RasCAL models that you would like to analyse using RAT. If so, there is no need to re-make the model from scratch. Instead, there are
-conversion utilities (<a class="reference internal" href="../utilities/conversionFuncs.html#conversionfuncs"><span class="std std-ref">Convert between RAT and RasCAL1</span></a>). In fact, for those who prefer a graphical model builder, using the RasCAL1 GUI to build a basic model and then converting to RAT is a viable workflow.</p>
+<p>If you are a RasCAL-1 user, you probably have existing RasCAL models that you would like to analyse using RAT. If so, there is no need to re-make the model from scratch. Instead, there are
+conversion utilities (<a class="reference internal" href="../utilities/conversionFuncs.html#conversionfuncs"><span class="std std-ref">Convert between RAT and RasCAL-1</span></a>). In fact, for those who prefer a graphical model builder, using the RasCAL-1 GUI to build a basic model and then converting to RAT is a viable workflow.</p>
 </div>
 <section id="an-example-a-simple-model-of-a-lipid-layer">
 <h2>An example - A simple model of a lipid layer<a class="headerlink" href="#an-example-a-simple-model-of-a-lipid-layer" title="Link to this heading">#</a></h2>
@@ -519,7 +505,8 @@ discussed in <a class="reference internal" href="chapter2.html#chapter2"><span c
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Load in a pre-made problem Definition class</span>
-<span class="n">problem</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">load</span><span class="p">(</span><span class="s">&#39;twoContrastExample.mat&#39;</span><span class="p">);</span>
+<span class="n">root</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">getappdata</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;root&#39;</span><span class="p">);</span>
+<span class="n">problem</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="nb">load</span><span class="p">(</span><span class="nb">fullfile</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;/examples/tutorialFiles/twoContrastExample.mat&#39;</span><span class="p">));</span>
 <span class="n">problem</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">problem</span><span class="p">.</span><span class="n">problem</span><span class="p">;</span>
 
 <span class="c">% Have a look at what we have</span>
@@ -1039,7 +1026,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ________________________________________________________________________________________________
 
-Elapsed time is 0.160419 seconds.
+Elapsed time is 0.161569 seconds.
 
 Finished RAT ______________________________________________________________________________________________ 
 </pre></div>
@@ -1153,15 +1140,6 @@ PYTHON</label><div class="sd-tab-content docutils">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-a-simple-model-of-a-lipid-layer">An example - A simple model of a lipid layer</a></li>
 </ul>
   </nav></div>
-
-  <div class="sidebar-secondary-item">
-
-  <div class="tocsection sourcelink">
-    <a href="../_sources/tutorial/chapter1.rst.txt">
-      <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-  </div>
-</div>
 
 </div></div>
               

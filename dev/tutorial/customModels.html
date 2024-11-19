@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7138875e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9deae167" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -200,13 +200,6 @@ document.write(`
                       </a>
                     </li>
                 
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../support.html">
-                        Support
-                      </a>
-                    </li>
-                
   </ul>
 </nav></div>
       
@@ -316,13 +309,6 @@ document.write(`
                       </a>
                     </li>
                 
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../support.html">
-                        Support
-                      </a>
-                    </li>
-                
   </ul>
 </nav></div>
         
@@ -390,7 +376,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../utilities/plotFuns.html">Basic Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/plotFunsBayes.html">Plotting Bayesian Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Live Updating Plots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/conversionFuncs.html">Convert between RAT and RasCAL1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/conversionFuncs.html">Convert between RAT and RasCAL-1</a></li>
 </ul>
 </li>
 </ul>
@@ -614,7 +600,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 <ul class="simple">
 <li><p><strong>Name</strong> - This is any name we choose for this custom file. This is the name we use later to add this to the contrasts.</p></li>
 <li><p><strong>Filename</strong> - This is the actual filename of the custom file, including its file extension (MATLAB extension is ‘.m’)</p></li>
-<li><p><strong>Function name</strong> - This is the name of the function to call from the specified file. For Matlab, the function name is always the same as the filename but for python and dynamic library functions the function name can be different from filename.</p></li>
+<li><p><strong>Function name</strong> - This is the name of the function to call from the specified file. For MATLAB, the function name is always the same as the filename but for python and dynamic library functions the function name can be different from filename.</p></li>
 <li><p><strong>Language</strong> - The language which we are going to use to process the file. We are choosing MATLAB, which means that the native MATLAB interpreter (i.e. the one we are using to call the project in this example) will be used to process the script. There is further discussion on the languages available and their merits in chapter 6.</p></li>
 <li><p><strong>Path</strong> - The path to our custom file. In this case it is in the same directory as the model script (pwd).</p></li>
 </ul>
@@ -986,7 +972,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>Note the use of semicolons. In Matlab syntax, this concatenates arrays column-wise. So if you take an array a = [a1, a2, a3], and another b = [b1, b2, b3], then [a ; b] produces an array that looks like this:</p>
+<p>Note the use of semicolons. In MATLAB syntax, this concatenates arrays column-wise. So if you take an array a = [a1, a2, a3], and another b = [b1, b2, b3], then [a ; b] produces an array that looks like this:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{bmatrix} a_\mathrm{1} &amp; a_\mathrm{2} &amp; a_\mathrm{3} \\ b_\mathrm{1} &amp; b_\mathrm{2} &amp; b_\mathrm{3} \end{bmatrix}\end{split}\]</div>
 <p>In other words, the entire purpose of our custom layer file is to take our parameters in a scientifically useful form (e.g. Area per Lipid in our case), and to translate these into a list of thick, SLD, rough layers for the whole interface.
@@ -1514,15 +1500,6 @@ PYTHON</label><div class="sd-tab-content docutils">
 </li>
 </ul>
   </nav></div>
-
-  <div class="sidebar-secondary-item">
-
-  <div class="tocsection sourcelink">
-    <a href="../_sources/tutorial/customModels.rst.txt">
-      <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-  </div>
-</div>
 
 </div></div>
               

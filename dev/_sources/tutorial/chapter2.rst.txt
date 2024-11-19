@@ -258,7 +258,7 @@ The resulting parameters block looks like this:
             print(problem.parameters)
 
 .. note::
-    Parameters can't have duplicate names. Attempting to duplicate a name will throw an error. This can cause problems when loading in RasCAL1 projects
+    Parameters can't have duplicate names. Attempting to duplicate a name will throw an error. This can cause problems when loading in RasCAL-1 projects
     where duplicate names are allowed.
 
 To subsequently change the values of the parameters (including names), there are a few methods you can use. For each of the methods, you can refer to the parameter by its index number. In Matlab, you can refer to a parameter by name:
@@ -688,7 +688,7 @@ The backgrounds can be one of three types: 'constant', 'function' or 'data'. The
 .. note::
     Only 'constant' and 'data' are allowed in phase 1, and 'function' will be introduced in phase 2.
 
-* **Constant** - This is the normal background type from RasCAL1. Each background requires one *and only one* Background Parameter associated with it, as follows:
+* **Constant** - This is the normal background type from RasCAL-1. Each background requires one *and only one* Background Parameter associated with it, as follows:
 
 .. tab-set-code::
     .. code-block:: Matlab

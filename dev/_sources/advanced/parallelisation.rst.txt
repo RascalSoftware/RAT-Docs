@@ -1,4 +1,4 @@
-.. _Parallelisation:
+.. _parallelisation:
 
 ==========================
 Parallelising Calculations

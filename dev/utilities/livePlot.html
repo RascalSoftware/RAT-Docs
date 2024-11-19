@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7138875e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9deae167" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -54,7 +54,7 @@
     <link rel="icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Convert between RAT and RasCAL1" href="conversionFuncs.html" />
+    <link rel="next" title="Convert between RAT and RasCAL-1" href="conversionFuncs.html" />
     <link rel="prev" title="Plotting Bayesian Analysis" href="plotFunsBayes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -199,13 +199,6 @@ document.write(`
                       </a>
                     </li>
                 
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../support.html">
-                        Support
-                      </a>
-                    </li>
-                
   </ul>
 </nav></div>
       
@@ -261,10 +254,6 @@ document.write(`
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
-      <span class="fa-solid fa-outdent"></span>
-    </label>
-  
 </div>
 
     </header>
@@ -312,13 +301,6 @@ document.write(`
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../reference/matlab/index.html">
                         MATLAB API Reference
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../support.html">
-                        Support
                       </a>
                     </li>
                 
@@ -389,7 +371,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="plotFuns.html">Basic Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plotFunsBayes.html">Plotting Bayesian Analysis</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Live Updating Plots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="conversionFuncs.html">Convert between RAT and RasCAL1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conversionFuncs.html">Convert between RAT and RasCAL-1</a></li>
 </ul>
 </li>
 </ul>
@@ -495,7 +477,7 @@ plot event is triggered after every 20 iterations.</p>
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Make simplex controls</span>
 <span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">();</span>
-<span class="n">controls</span><span class="p">.</span><span class="n">procedure</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;simplex&#39;</span>
+<span class="n">controls</span><span class="p">.</span><span class="n">procedure</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;simplex&#39;</span><span class="p">;</span>
 
 <span class="c">% change plot frequency to 35</span>
 <span class="n">controls</span><span class="p">.</span><span class="n">updatePlotFreq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">35</span><span class="p">;</span>
@@ -515,24 +497,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
 Matlab</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>controls = 
-
-  controlsClass with properties:
-
-            parallel: &#39;single&#39;
-           procedure: &#39;simplex&#39;
-    calcSldDuringFit: 0
-             display: &#39;iter&#39;
-          xTolerance: 1.0000e-06
-       funcTolerance: 1.0000e-06
-        maxFuncEvals: 10000
-       maxIterations: 1000
-          updateFreq: 1
-      updatePlotFreq: 20
-    resampleMinAngle: 0.9000
-     resampleNPoints: 50
-
-  controlsClass with properties:
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  controlsClass with properties:
 
             parallel: &#39;single&#39;
            procedure: &#39;simplex&#39;
@@ -591,19 +556,7 @@ plot will never be updated.</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-
-  <div class="tocsection sourcelink">
-    <a href="../_sources/utilities/livePlot.rst.txt">
-      <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-  </div>
-</div>
-
-</div></div>
+                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>

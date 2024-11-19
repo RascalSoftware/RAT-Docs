@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=7138875e" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9deae167" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -199,13 +199,6 @@ document.write(`
                       </a>
                     </li>
                 
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../support.html">
-                        Support
-                      </a>
-                    </li>
-                
   </ul>
 </nav></div>
       
@@ -315,13 +308,6 @@ document.write(`
                       </a>
                     </li>
                 
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../support.html">
-                        Support
-                      </a>
-                    </li>
-                
   </ul>
 </nav></div>
         
@@ -389,7 +375,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../utilities/plotFuns.html">Basic Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/plotFunsBayes.html">Plotting Bayesian Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Live Updating Plots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/conversionFuncs.html">Convert between RAT and RasCAL1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/conversionFuncs.html">Convert between RAT and RasCAL-1</a></li>
 </ul>
 </li>
 </ul>
@@ -454,8 +440,8 @@ document.write(`
                   
   <section id="custom-models-in-python-or-c">
 <span id="customlanguages"></span><h1>Custom Models in Python or C++<a class="headerlink" href="#custom-models-in-python-or-c" title="Link to this heading">#</a></h1>
-<p>Custom models are usually written in Matlab, but RAT allows alternative languages to be used. You can write your custom models either in Python or C++.
-The reason for the Python functionality is mainly since this is the more natural choice when using RAT from Python with pythonRAT, but also because the user might choose to incorporate Python libraries into the custom models that are not available in Matlab.
+<p>Custom models are usually written in MATLAB, but RAT allows alternative languages to be used. You can write your custom models either in Python or C++.
+The reason for the Python functionality is mainly since this is the more natural choice when using RAT from Python with pythonRAT, but also because the user might choose to incorporate Python libraries into the custom models that are not available in MATLAB.
 The reason for C++ if for pure speed, where very computationally demanding custom models calculations are required. Both options are easy to use in RAT.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -465,9 +451,9 @@ The reason for C++ if for pure speed, where very computationally demanding custo
 <h2>Python Custom Models<a class="headerlink" href="#python-custom-models" title="Link to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Before you use Python from your Matlab session, please ensure that Python is <a class="reference external" href="https://uk.mathworks.com/help/matlab/matlab_external/create-object-from-python-class.html">configured correctly on your system.</a></p>
+<p>Before you use Python from your MATLAB session, please ensure that Python is <a class="reference external" href="https://uk.mathworks.com/help/matlab/matlab_external/create-object-from-python-class.html">configured correctly on your system.</a></p>
 </div>
-<p>Custom models in Python and Matlab are very similar in structure as shown below:</p>
+<p>Custom models in Python and MATLAB are very similar in structure as shown below:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="MATLAB" for="sd-tab-item-0">
@@ -640,11 +626,11 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>You can then use this in your calculations in the same way as a normal, Matlab custom model.</p>
+<p>You can then use this in your calculations in the same way as a normal, MATLAB custom model.</p>
 </section>
 <section id="c-custom-models">
 <h2>C++ Custom Models<a class="headerlink" href="#c-custom-models" title="Link to this heading">#</a></h2>
-<p>If Matlab or Python custom models are too slow, you also have the option of providing a C++ custom model. You then have to compile and build this into a shared library in order to use it with RAT.</p>
+<p>If MATLAB or Python custom models are too slow, you also have the option of providing a C++ custom model. You then have to compile and build this into a shared library in order to use it with RAT.</p>
 <p>Following on from our custom bilayer examples, the equivalent C++ custom model should follow this format.</p>
 <div class="highlight-C++ notranslate"><div class="highlight"><pre><span></span><span class="c1">//customBilayer.cpp</span>
 
@@ -783,7 +769,7 @@ g++<span class="w"> </span>-shared<span class="w"> </span>customBilayer.o<span c
 </li>
 </ul>
 <p>This will create either customBilayer.dylib (OSX), customBilayer.dll (Windows) or customBilayer.so (Linux).</p>
-<p>To use this, we just add the relevant model to out project, in the same way as for Matlab and Python models:</p>
+<p>To use this, we just add the relevant model to out project, in the same way as for MATLAB and Python models:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="MATLAB" for="sd-tab-item-4">
@@ -834,15 +820,6 @@ PYTHON</label><div class="sd-tab-content docutils">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-comparisons">Performance Comparisons</a></li>
 </ul>
   </nav></div>
-
-  <div class="sidebar-secondary-item">
-
-  <div class="tocsection sourcelink">
-    <a href="../_sources/advanced/customLanguages.rst.txt">
-      <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-  </div>
-</div>
 
 </div></div>
               

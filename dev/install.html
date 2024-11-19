@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=7138875e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=9deae167" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -55,7 +55,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="User Guide" href="guide.html" />
-    <link rel="prev" title="Home" href="index.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -199,13 +199,6 @@ document.write(`
                       </a>
                     </li>
                 
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="support.html">
-                        Support
-                      </a>
-                    </li>
-                
   </ul>
 </nav></div>
       
@@ -261,10 +254,6 @@ document.write(`
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
-      <span class="fa-solid fa-outdent"></span>
-    </label>
-  
 </div>
 
     </header>
@@ -275,7 +264,7 @@ document.write(`
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
 
   
@@ -315,13 +304,6 @@ document.write(`
                       </a>
                     </li>
                 
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="support.html">
-                        Support
-                      </a>
-                    </li>
-                
   </ul>
 </nav></div>
         
@@ -346,15 +328,6 @@ document.write(`
       </div>
     
   </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-<nav class="bd-docs-nav bd-links"
-     aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"></div>
-</nav></div>
-    </div>
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
@@ -406,12 +379,12 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h1>
-<p>This section provides more detailed information about installing RAT for Matlab and Python users</p>
+<span id="install"></span><h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h1>
+<p>This section provides more detailed information about installing RAT for MATLAB and Python users</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
-For Matlab</label><div class="sd-tab-content docutils">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="MATLAB" for="sd-tab-item-0">
+For MATLAB</label><div class="sd-tab-content docutils">
 <p>RAT can be used either by running the m-files directly or using a compiled mex file.
 RAT ships with a pre-compiled MEX file which is available to download from the <a href="https://github.com/RascalSoftware/RAT/releases/latest" target="_blank">Github Release</a> page.
 To use the mex do the following:</p>
@@ -447,11 +420,17 @@ For Python</label><div class="sd-tab-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install RATapi</span>
 </pre></div>
 </div>
-<p>matlabengine is an optional dependency only required for Matlab related action such as running Matlab custom functions and converting RasCAL1 projects.
-The version of matlabengine should match the version of Matlab installed on the computer. For example, if Matlab 2023a is installed on the computer,
+<p>matlabengine is an optional dependency only required for MATLAB related action such as running MATLAB custom functions and converting RasCAL-1 projects.
+The version of matlabengine should match the version of MATLAB installed on the computer. For example, if MATLAB 2023a is installed on the computer,
 matlabengine can be installed as shown below:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install RATapi[Matlab-2023a]</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>MATLAB does not support every version of Python so you have to ensure to use a Python version that is supported by your installed MATLAB,
+for example, the maximum supported Python version for MATLAB 2023a is 3.10 so you cannot install matlabengine for this MATLAB on Python version 3.11 and above.
+You can check the <a href="https://mathworks.com/support/requirements/python-compatibility.html" target="_blank">Python Compatibility</a> on the MATLAB website.</p>
 </div>
 </div>
 </div>
@@ -468,19 +447,7 @@ matlabengine can be installed as shown below:</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-
-  <div class="tocsection sourcelink">
-    <a href="_sources/install.rst.txt">
-      <i class="fa-solid fa-file-lines"></i> Show Source
-    </a>
-  </div>
-</div>
-
-</div></div>
+                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>
