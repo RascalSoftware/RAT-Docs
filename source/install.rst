@@ -3,13 +3,13 @@
 ============
 Installation
 ============
-This section provides more detailed information about installing RAT for Matlab and Python users
+This section provides more detailed information about installing RAT for MATLAB and Python users
 
 .. tab-set::
     :sync-group: code
 
-    .. tab-item:: For Matlab
-        :sync: Matlab
+    .. tab-item:: For MATLAB
+        :sync: MATLAB
 
         RAT can be used either by running the m-files directly or using a compiled mex file. 
         RAT ships with a pre-compiled MEX file which is available to download from the |release| page. 
@@ -50,8 +50,8 @@ This section provides more detailed information about installing RAT for Matlab 
 
             pip install RATapi
 
-        matlabengine is an optional dependency only required for Matlab related action such as running Matlab custom functions and converting RasCAL-1 projects.
-        The version of matlabengine should match the version of Matlab installed on the computer. For example, if Matlab 2023a is installed on the computer, 
+        matlabengine is an optional dependency only required for MATLAB related action such as running MATLAB custom functions and converting RasCAL-1 projects.
+        The version of matlabengine should match the version of MATLAB installed on the computer. For example, if MATLAB 2023a is installed on the computer, 
         matlabengine can be installed as shown below:
 
         .. code-block:: console
@@ -60,9 +60,9 @@ This section provides more detailed information about installing RAT for Matlab 
 
         .. note::
             
-            Matlab does not support every version of Python so you have to ensure to use a Python version that is supported by your installed Matlab, 
-            for example, the maximum supported Python version for Matlab 2023a is 3.10 so you cannot install matlabengine for this Matlab on Python version 3.11 and above. 
-            You can check the |python_compatibility| on the Matlab website.
+            MATLAB does not support every version of Python so you have to ensure to use a Python version that is supported by your installed MATLAB, 
+            for example, the maximum supported Python version for MATLAB 2023a is 3.10 so you cannot install matlabengine for this MATLAB on Python version 3.11 and above. 
+            You can check the |python_compatibility| on the MATLAB website.
 
 
 .. |release| raw:: html

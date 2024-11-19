@@ -147,7 +147,7 @@ The custom files are in exactly the same format at those in RasCAL. To add it to
 
 * **Filename** - This is the actual filename of the custom file, including its file extension (MATLAB extension is '.m')
 
-* **Function name** - This is the name of the function to call from the specified file. For Matlab, the function name is always the same as the filename but for python and dynamic library functions the function name can be different from filename.
+* **Function name** - This is the name of the function to call from the specified file. For MATLAB, the function name is always the same as the filename but for python and dynamic library functions the function name can be different from filename.
 
 * **Language** - The language which we are going to use to process the file. We are choosing MATLAB, which means that the native MATLAB interpreter (i.e. the one we are using to call the project in this example) will be used to process the script. There is further discussion on the languages available and their merits in chapter 6.
 
@@ -484,7 +484,7 @@ This gives us all the parameters we need to define our layers. In other words, w
             
         output = np.array([oxide, water, head, tail, tail, head])
 
-Note the use of semicolons. In Matlab syntax, this concatenates arrays column-wise. So if you take an array a = [a1, a2, a3], and another b = [b1, b2, b3], then [a ; b] produces an array that looks like this:
+Note the use of semicolons. In MATLAB syntax, this concatenates arrays column-wise. So if you take an array a = [a1, a2, a3], and another b = [b1, b2, b3], then [a ; b] produces an array that looks like this:
 
 .. math::
 
