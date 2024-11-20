@@ -4,17 +4,15 @@
 Convert between RAT and RasCAL-1
 ================================
 
-Two utilities are provided to convert between RasCAL-1 and RAT projects:
-
-* **Convert from R1 to RAT** : You can convert any R1 project directly to a projectClass and analyse using RAT
-* **Convert from RAT to R1** : You can also do the reverse and convert a projectClass back to an R1 project if you wish.
-
+RAT is backwards-compatible with RasCAL-1; any RasCAL-1 project can be converted to a RAT project and analysed using RAT, and
+it is also possible to convert RAT projects back into RasCAL-1 projects 
+(although you will lose any data from features of RAT which are not in RasCAL-1!)
 
 
 Convert R1 to RAT
 .................
 
-As an example, we can use the *'monolayer_8_contrasts* demo example shipped with RasCAL-1:
+As an example, we can use the *'monolayer_8_contrasts'* demo example shipped with RasCAL-1:
 
 .. image:: ../images/misc/rascal1.png
     :width: 800
@@ -23,39 +21,57 @@ As an example, we can use the *'monolayer_8_contrasts* demo example shipped with
 
 To convert this, simply navigate to the project directory, and convert is as follows:
 
-.. code-block:: MATLAB
+.. tab-set-code::
+    .. code-block:: MATLAB
 
-    problem = r1ToProjectClass('monolayer_8_contrasts.mat')
+        problem = r1ToProjectClass('monolayer_8_contrasts.mat')
+
+    .. code-block:: Python
+
+        from RATapi.utils.convert import r1_to_project_class
+
+        problem = r1_to_project_class('monolayer_8_contrasts.mat')
 
 This produces a *projectClass* containing the R1 project, which can then be analysed as normal:
 
-.. code-block::
+.. tab-set-code:: 
+    .. code-block:: MATLAB
 
-    controls = controlsClass();
-    controls.procedure = 'de';
-    controls.parallel = 'contrasts';
-    [problem,results] = RAT(problem,controls);
-    plotRefSLD(problem,results);
+        controls = controlsClass();
+        controls.procedure = 'de';
+        controls.parallel = 'contrasts';
+        [problem,results] = RAT(problem,controls);
+        plotRefSLD(problem,results);
+
+    .. code-block:: Python
+        
+        import RATapi as RAT
+
+        controls = RAT.Controls(procedure='de', parallel='contrasts')
+        problem, results = RAT.run(problem, controls)
+        RAT.plotting.plot_ref_sld(problem, results) 
 
 .. image:: ../images/misc/r1Converted.png
     :width: 800
     :alt: rascal-1 converted
 
 
-
-.
-
 Convert RAT to a RasCAL-1 Project
 .................................
 
 It is also possible to do the opposite conversion, and convert any *projectClass* back to an R1 project:
 
-.. code-block::
+.. tab-set-code::
+    .. code-block:: MATLAB
 
-    projectClassToR1(problem,'saveproject',true,'dirName','testProject','fileName','myConvertedProject')
+        projectClassToR1(problem,'saveproject',true,'dirName','testProject','fileName','myConvertedProject')
+
+    .. code-block:: Python
+
+        from RATapi.utils.convert import project_class_to_r1
+
+        project_class_to_r1(problem, "./testProject/myConvertedProject") 
 
 This will create the usual RasCAL-1 project structure in a directory called *testProject*, with a filename called *myConvertedProject.mat*
 This can then be loaded into RasCAL-1 as normal.
 
-
-.
