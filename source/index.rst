@@ -46,7 +46,9 @@ RAT contains a number of improvements over legacy RasCAL, including:
 
         * :ref:`install`: Learn how to install RAT.
 
-        * :ref:`guide`: Learn the core principles of RAT with examples.
+        * :ref:`guide`: Learn the core principles of RAT with code snippets.
+
+        * :ref:`examples`: Jump into some practical examples.
 
 
     .. grid-item-card::

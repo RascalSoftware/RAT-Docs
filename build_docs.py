@@ -1,16 +1,15 @@
-import os
+from pathlib import Path
 import sys
 import tempfile
 from sphinx.application import Sphinx
 
-
-cur_dir = os.path.dirname(os.path.realpath(__file__))
-src_dir = os.path.join(cur_dir, "source") 
-build_dir = os.path.join(cur_dir, "build", "html")
-doctree_dir = os.path.join(cur_dir, "build", "doctrees")
+cur_dir = Path(__file__).resolve().parent
+src_dir = cur_dir / "source" 
+build_dir = cur_dir / "build" / "html"
+doctree_dir = cur_dir / "build" / "doctrees"
 builder = "html"
 
-with tempfile.TemporaryDirectory() as tmp_dir, open(os.path.join(tmp_dir, "doc.txt"), "w+") as warning:
+with tempfile.TemporaryDirectory() as tmp_dir, open(Path(tmp_dir) / "doc.txt", "w+") as warning:
     app = Sphinx(src_dir, src_dir, build_dir, doctree_dir, builder, 
                  warning=warning, freshenv=True)
 
