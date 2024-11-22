@@ -12,6 +12,9 @@ Again in common with RasCAL, there are two main options for custom modelling:
 
 * **Custom XY Profile** - In this method the input parameters are used to create a z (in Angstroms) versus SLD curve, from which the reflectivity is calculated. 
 
+
+.. _customLayers:
+
 ********************
 Custom Layers Models
 ********************
@@ -674,9 +677,11 @@ To run this, we make a controls block as before, and pass this to RAT. This time
         controls = RAT.Controls(parallel='contrasts')
         problem, results = RAT.run(problem, controls)
 
+.. _customXYProfile:
 
+************************
 Custom XY Profile Models
-========================
+************************
 
 Although many systems can be well described by layers, sometimes these are not the most appropriate. So for example, we may want to incorporate SLD profiles from molecular simulations, or use interfaces that are not error functions. In these cases, a second type of custom model can be used, where instead of the custom model function outputting a list of layers, it builds a continuous SLD profile, which is then automatically microsliced by RAT to calculate the reflectivity. This gives a high degree of flexibility for the type of model that can be generated.
 The inputs into customXY are the same as for Custom Layers, but the output is now always an [n x 2] array defining a continuous SLD:
