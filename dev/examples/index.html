@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Parallelising Calculations &#8212; RAT  documentation</title>
+    <title>Examples &#8212; RAT  documentation</title>
   
   
   
@@ -44,7 +44,8 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=881e7dcd"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'advanced/parallelisation';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/index';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://rascalsoftware.github.io/RAT-Docs/switcher.json';
@@ -54,8 +55,8 @@
     <link rel="icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Custom Models in Python or C++" href="customLanguages.html" />
-    <link rel="prev" title="Profile Resampling (‘microslicing’)" href="resampling.html" />
+    <link rel="next" title="DSPC Standard Layers" href="DSPC_standard_layers.html" />
+    <link rel="prev" title="Saving Your Work (working with classes)" href="../tutorial/savingAndClasses.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -347,16 +348,16 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/savingAndClasses.html">Saving Your Work (working with classes)</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../examples/index.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../examples/DSPC_standard_layers.html">DSPC Standard Layers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/DSPC_custom_layers.html">DSPC Custom Layers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/DSPC_custom_XY.html">DSPC Custom XY</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/domains_standard_layers.html">Incoherent Summing with Standard Layers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/domains_custom_layers.html">Incoherent Summing with Custom Layers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/domains_custom_XY.html">Incoherent Summing with Custom XY</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/imaginary.html">Absorption (Imaginary SLD) Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/convert_r1_project.html">Converting a RasCAL-1 Project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../examples/custom_model_languages.html">Alternative Custom Model Languages</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="DSPC_standard_layers.html">DSPC Standard Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DSPC_custom_layers.html">DSPC Custom Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DSPC_custom_XY.html">DSPC Custom XY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domains_standard_layers.html">Incoherent Summing with Standard Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domains_custom_layers.html">Incoherent Summing with Custom Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domains_custom_XY.html">Incoherent Summing with Custom XY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imaginary.html">Absorption (Imaginary SLD) Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert_r1_project.html">Converting a RasCAL-1 Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_model_languages.html">Alternative Custom Model Languages</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../algorithms/index.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -367,11 +368,11 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../algorithms/paramonte.html">The Paramonte Sampler</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Advanced Topics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="resampling.html">Profile Resampling (‘microslicing’)</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Parallelising Calculations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customLanguages.html">Custom Models in Python or C++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="events.html">Handling Events During Calculations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/index.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/resampling.html">Profile Resampling (‘microslicing’)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/parallelisation.html">Parallelising Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/customLanguages.html">Custom Models in Python or C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/events.html">Handling Events During Calculations</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../calcTypes/index.html">Different Calculation Types</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -430,10 +431,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../guide.html" class="nav-link">User Guide</a></li>
     
-    
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Advanced Topics</a></li>
-    
-    <li class="breadcrumb-item active" aria-current="page">Parallelisin...</li>
+    <li class="breadcrumb-item active" aria-current="page">Examples</li>
   </ul>
 </nav>
 </div>
@@ -450,57 +448,38 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="parallelising-calculations">
-<span id="parallelisation"></span><h1>Parallelising Calculations<a class="headerlink" href="#parallelising-calculations" title="Link to this heading">#</a></h1>
-<p>RAT has in-built parallelisation for speeding up calculations. It will either parallelise over points and this is easily selectable from the controls class. In addition, it is possible to use the external Paramonte sampler
-to run Bayesian analysis in parallel using ‘mpiexcec’</p>
-<section id="internal-parallelisation">
-<h2>Internal Parallelisation<a class="headerlink" href="#internal-parallelisation" title="Link to this heading">#</a></h2>
-<p>The controls class allows selection of parallel calculations for all algorithms. The parallelisation can be either over ‘contrasts’ or ‘points’…</p>
-<ul class="simple">
-<li><p><strong>points</strong>: In this case, each reflectivity curve is split into a number of sections, and the reflectivity for each set of points is calculated by an individual thread. Only the reflectivity calculation itself is parallelised, and the rest runs sequentially on a single thread.</p></li>
-<li><p><strong>contrasts</strong>: Each contrast <em>in its entirety</em> gets its own calculation thread.</p></li>
+  <section id="examples">
+<span id="id1"></span><h1>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h1>
+<p>A number of examples are provided to demonstrate the functionality available in the MATLAB and Python interface of RAT.</p>
+<section id="normal-calculation">
+<h2>Normal Calculation<a class="headerlink" href="#normal-calculation" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="DSPC_standard_layers.html">DSPC Standard Layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DSPC_custom_layers.html">DSPC Custom Layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DSPC_custom_XY.html">DSPC Custom XY</a></li>
 </ul>
-<p>The parallelisation scheme is chosen from the controls class:</p>
-<div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
-MATLAB</label><div class="sd-tab-content docutils">
-<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">()</span>
-
-<span class="c">% Choose no parallelisation</span>
-<span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;single&#39;</span><span class="p">;</span>
-
-<span class="c">% Parallelise over points</span>
-<span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;points&#39;</span>
-
-<span class="c">% Parallelise over contrasts</span>
-<span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;contrasts&#39;</span>
-</pre></div>
 </div>
-</div>
-<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-1">
-PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">()</span>
-
-<span class="c1"># Choose no parallelisation</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">parallel</span> <span class="o">=</span> <span class="s1">&#39;single&#39;</span>
-
-<span class="c1"># Parallelise over points</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">parallel</span> <span class="o">=</span> <span class="s1">&#39;points&#39;</span>
-
-<span class="c1"># Parallelise over contrasts</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">parallel</span> <span class="o">=</span> <span class="s1">&#39;contrasts&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Generally speaking, unless you have an inordinate amount of points in your datafiles, the greatest speed increase always results from parallelising over contrasts. In fact, if the number of points in your data
-is relatively small, parallelising over points can even slow things down because of the extra calculation overhead! It is a good idea to verify which is fastest for a give problem at the start of an analysis.</p>
 </section>
-<section id="parallel-bayes-with-mipexcec-and-paramonte">
-<h2>Parallel Bayes with MIPEXCEC and Paramonte<a class="headerlink" href="#parallel-bayes-with-mipexcec-and-paramonte" title="Link to this heading">#</a></h2>
+<section id="domain-calculation">
+<h2>Domain Calculation<a class="headerlink" href="#domain-calculation" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="domains_standard_layers.html">Incoherent Summing with Standard Layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domains_custom_layers.html">Incoherent Summing with Custom Layers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="domains_custom_XY.html">Incoherent Summing with Custom XY</a></li>
+</ul>
+</div>
+</section>
+<section id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Link to this heading">#</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="imaginary.html">Absorption (Imaginary SLD) Example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="convert_r1_project.html">Converting a RasCAL-1 Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom_model_languages.html">Alternative Custom Model Languages</a></li>
+</ul>
+</div>
 </section>
 </section>
 
@@ -526,8 +505,9 @@ is relatively small, parallelising over points can even slow things down because
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-parallelisation">Internal Parallelisation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-bayes-with-mipexcec-and-paramonte">Parallel Bayes with MIPEXCEC and Paramonte</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-calculation">Normal Calculation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#domain-calculation">Domain Calculation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#miscellaneous">Miscellaneous</a></li>
 </ul>
   </nav></div>
 

@@ -304,14 +304,14 @@ Before you can use this file, you need to compile and build it into a shared lib
 
 * Clang on Apple (OSX)
 
-    .. code-block:: Bash
+    .. code-block:: console
 
         clang -c customBilayer.cpp -o customBilayer.o -std=c++11 -arch x86_64
         clang -shared customBilayer.o -o customBilayer.dylib -arch x86_64 -lc++
 
 * GCC on Linux:
 
-    .. code-block:: Bash
+    .. code-block:: console
 
         g++ -fPIC -c customBilayer.cpp -o customBilayer.o -std=c++11
         g++ -shared customBilayer.o -o customBilayer.so
@@ -336,7 +336,3 @@ To use this, we just add the relevant model to out project, in the same way as f
         problem.custom_files.append(name='DSPC Model', filename='customBilayer.dylib', language='cpp')
 
 You can then use your C++ custom model in your project as normal.
-
-***********************
-Performance Comparisons
-***********************
