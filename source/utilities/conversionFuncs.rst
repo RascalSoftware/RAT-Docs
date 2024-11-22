@@ -19,7 +19,7 @@ As an example, we can use the *'monolayer_8_contrasts'* demo example shipped wit
     :alt: rascal-1
 
 
-To convert this, simply navigate to the project directory, and convert is as follows:
+To convert this, simply navigate to the project directory, and run the following:
 
 .. tab-set-code::
     .. code-block:: MATLAB
@@ -51,9 +51,24 @@ This produces a *projectClass* containing the R1 project, which can then be anal
         problem, results = RAT.run(problem, controls)
         RAT.plotting.plot_ref_sld(problem, results) 
 
-.. image:: ../images/misc/r1Converted.png
-    :width: 800
-    :alt: rascal-1 converted
+
+.. tab-set::
+    :class: tab-label-hidden
+    :sync-group: code
+
+    .. tab-item:: MATLAB
+        :sync: MATLAB
+
+        .. image:: ../images/misc/r1Converted.png
+            :width: 800
+            :alt: The MATLAB plot from running the converted RasCAL-1 example.
+
+    .. tab-item:: Python
+        :sync: Python
+
+        .. image:: ../images/misc/r1python.png
+            :width: 800
+            :alt: The Python plot from running the converted RasCAL-1 example.
 
 
 Convert RAT to a RasCAL-1 Project
