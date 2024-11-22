@@ -440,41 +440,96 @@ document.write(`
                   
   <section id="convert-between-rat-and-rascal-1">
 <span id="conversionfuncs"></span><h1>Convert between RAT and RasCAL-1<a class="headerlink" href="#convert-between-rat-and-rascal-1" title="Link to this heading">#</a></h1>
-<p>Two utilities are provided to convert between RasCAL-1 and RAT projects:</p>
-<ul class="simple">
-<li><p><strong>Convert from R1 to RAT</strong> : You can convert any R1 project directly to a projectClass and analyse using RAT</p></li>
-<li><p><strong>Convert from RAT to R1</strong> : You can also do the reverse and convert a projectClass back to an R1 project if you wish.</p></li>
-</ul>
+<p>RAT is backwards-compatible with RasCAL-1; any RasCAL-1 project can be converted to a RAT project and analysed using RAT, and
+it is also possible to convert RAT projects back into RasCAL-1 projects
+(although you will lose any data from features of RAT which are not in RasCAL-1!)</p>
 <section id="convert-r1-to-rat">
 <h2>Convert R1 to RAT<a class="headerlink" href="#convert-r1-to-rat" title="Link to this heading">#</a></h2>
-<p>As an example, we can use the <em>‘monolayer_8_contrasts</em> demo example shipped with RasCAL-1:</p>
+<p>As an example, we can use the <em>‘monolayer_8_contrasts’</em> demo example shipped with RasCAL-1:</p>
 <a class="reference internal image-reference" href="../_images/rascal1.png"><img alt="rascal-1" src="../_images/rascal1.png" style="width: 800px;" />
 </a>
-<p>To convert this, simply navigate to the project directory, and convert is as follows:</p>
+<p>To convert this, simply navigate to the project directory, and run the following:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="MATLAB" for="sd-tab-item-0">
+MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">r1ToProjectClass</span><span class="p">(</span><span class="s">&#39;monolayer_8_contrasts.mat&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-1">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">RATapi.utils.convert</span> <span class="kn">import</span> <span class="n">r1_to_project_class</span>
+
+<span class="n">problem</span> <span class="o">=</span> <span class="n">r1_to_project_class</span><span class="p">(</span><span class="s1">&#39;monolayer_8_contrasts.mat&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>This produces a <em>projectClass</em> containing the R1 project, which can then be analysed as normal:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">controlsClass</span><span class="p">();</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">procedure</span> <span class="o">=</span> <span class="s1">&#39;de&#39;</span><span class="p">;</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">parallel</span> <span class="o">=</span> <span class="s1">&#39;contrasts&#39;</span><span class="p">;</span>
-<span class="p">[</span><span class="n">problem</span><span class="p">,</span><span class="n">results</span><span class="p">]</span> <span class="o">=</span> <span class="n">RAT</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="n">controls</span><span class="p">);</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="MATLAB" for="sd-tab-item-2">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">();</span>
+<span class="n">controls</span><span class="p">.</span><span class="n">procedure</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;de&#39;</span><span class="p">;</span>
+<span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;contrasts&#39;</span><span class="p">;</span>
+<span class="p">[</span><span class="n">problem</span><span class="p">,</span><span class="n">results</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RAT</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="n">controls</span><span class="p">);</span>
 <span class="n">plotRefSLD</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="n">results</span><span class="p">);</span>
 </pre></div>
 </div>
-<a class="reference internal image-reference" href="../_images/r1Converted.png"><img alt="rascal-1 converted" src="../_images/r1Converted.png" style="width: 800px;" />
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">RATapi</span> <span class="k">as</span> <span class="nn">RAT</span>
+
+<span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">(</span><span class="n">procedure</span><span class="o">=</span><span class="s1">&#39;de&#39;</span><span class="p">,</span> <span class="n">parallel</span><span class="o">=</span><span class="s1">&#39;contrasts&#39;</span><span class="p">)</span>
+<span class="n">problem</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">controls</span><span class="p">)</span>
+<span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_ref_sld</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="sd-tab-set tab-label-hidden docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="MATLAB" for="sd-tab-item-4">
+MATLAB</label><div class="sd-tab-content docutils">
+<a class="reference internal image-reference" href="../_images/r1Converted.png"><img alt="The MATLAB plot from running the converted RasCAL-1 example." src="../_images/r1Converted.png" style="width: 800px;" />
 </a>
-<p>.</p>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-5">
+Python</label><div class="sd-tab-content docutils">
+<a class="reference internal image-reference" href="../_images/r1python.png"><img alt="The Python plot from running the converted RasCAL-1 example." src="../_images/r1python.png" style="width: 800px;" />
+</a>
+</div>
+</div>
 </section>
 <section id="convert-rat-to-a-rascal-1-project">
 <h2>Convert RAT to a RasCAL-1 Project<a class="headerlink" href="#convert-rat-to-a-rascal-1-project" title="Link to this heading">#</a></h2>
 <p>It is also possible to do the opposite conversion, and convert any <em>projectClass</em> back to an R1 project:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">projectClassToR1</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="s1">&#39;saveproject&#39;</span><span class="p">,</span><span class="n">true</span><span class="p">,</span><span class="s1">&#39;dirName&#39;</span><span class="p">,</span><span class="s1">&#39;testProject&#39;</span><span class="p">,</span><span class="s1">&#39;fileName&#39;</span><span class="p">,</span><span class="s1">&#39;myConvertedProject&#39;</span><span class="p">)</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="MATLAB" for="sd-tab-item-6">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="n">projectClassToR1</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="s">&#39;saveproject&#39;</span><span class="p">,</span><span class="nb">true</span><span class="p">,</span><span class="s">&#39;dirName&#39;</span><span class="p">,</span><span class="s">&#39;testProject&#39;</span><span class="p">,</span><span class="s">&#39;fileName&#39;</span><span class="p">,</span><span class="s">&#39;myConvertedProject&#39;</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-7">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">RATapi.utils.convert</span> <span class="kn">import</span> <span class="n">project_class_to_r1</span>
+
+<span class="n">project_class_to_r1</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="s2">&quot;./testProject/myConvertedProject&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <p>This will create the usual RasCAL-1 project structure in a directory called <em>testProject</em>, with a filename called <em>myConvertedProject.mat</em>
 This can then be loaded into RasCAL-1 as normal.</p>
-<p>.</p>
 </section>
 </section>
 
