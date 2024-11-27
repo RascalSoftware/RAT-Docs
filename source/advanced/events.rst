@@ -87,7 +87,7 @@ The message event contains text output from the calculation, which can inform th
 
 Plot Event
 ==========
-The plot event contains data for plotting the intermediate results from the calculation. The frequency of the plot events can be controlled from the controls class, see :ref:`frequencyLivePlot` from more information. 
+The plot event contains intermediate results from the calculation. As shown in the example above, a good use case for this data is live plotting while the simulation is running. The frequency of the plot events can be controlled from the controls class, see :ref:`frequencyLivePlot` from more information.
 This event is supported by Simplex and DE algorithms. The event data is a structure with the fields described below
 
 Fields in plot event
