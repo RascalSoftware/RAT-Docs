@@ -131,7 +131,7 @@ Fields in plot event
 
 Progress Event
 ==============
-The progress event gives the percentage completion for the calculation, and a title text for the event. This event is only supported by the Dream algorithm. The event data is a structure with the fields described below
+The progress event gives the percentage completion for the calculation, and a title text for the event. This event is only supported by the DREAM algorithm. The event data is a structure with the fields described below:
 
 Fields in progress event
 ************************
