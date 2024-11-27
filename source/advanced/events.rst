@@ -49,7 +49,7 @@ The event listener function is also shown below, it uses one of the plot functio
             RAT.plotting.plot_ref_sld_helper(event_data, figure)  
 
 .. note::
-    A utility function already exist to do live plotting, see :ref:`livePlot` for more information. This section is illustrative for users that want to do more advanced stuff with events.
+    A utility function already exists to do live plotting, see :ref:`livePlot` for more information. This section is illustrative for users that want to write more advanced handlers for events.
 
 ***********
 Event Types
