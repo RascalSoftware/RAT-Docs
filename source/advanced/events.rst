@@ -3,8 +3,8 @@
 ===================================
 Handling Events During Calculations
 ===================================
-Sometimes it is useful to be able to monitor the progress or success of a fit in real time for long simulations. RAT can send out 'events', which contain different data about the 
-calculation and by writing functions that 'listen' to these events, you can use this information to build various kinds of graphical updates to suit your needs. 
+Sometimes, it is useful to be able to monitor the progress or success of a fit in real time for long simulations. RAT can send out 'events', which contain different data about the 
+calculation. By writing functions that 'listen' to these events, you can use this information to build various kinds of updates. 
 
 ***************************
 Registering Event Listeners
