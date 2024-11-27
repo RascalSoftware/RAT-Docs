@@ -111,7 +111,7 @@ The resampling operation is controlled by the parameters ``resampleMinAngle`` an
 * **resampleMinAngle**: The algorithm refines near the points which form, together with their left and right neighbours, a triangle with central angle smaller than the given value. So, a larger value of *resampleMinAngle* results in a finer resampling. 
 ``resampleMinAngle`` is defined in the units of 'radians divided by pi', i.e. ``resampleMinAngle = 0.9`` refines where the adjacent points form an angle greater than :math:`0.9 \pi` radians.
 
-* **resampleNPoints**: The initial number of domain points (layers). The algorithm will start from this number of layers, and refine until all the *resampleMinAngle* criteria are satisfied.
+* ``resampleNPoints``: The initial number of domain points (layers) sampled by the algorithm at the start.
 
 .. note::
         Generally, ``resampleMinAngle`` has a larger effect on the eventual resampling than ``resampleNPoints``.
