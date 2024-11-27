@@ -114,4 +114,4 @@ The resampling operation is controlled by the parameters ``resampleMinAngle`` an
 * **resampleNPoints**: The initial number of domain points (layers). The algorithm will start from this number of layers, and refine until all the *resampleMinAngle* criteria are satisfied.
 
 .. note::
-        Generally, **resampleMinAngle** has a larger effect on the eventual resampling than **resampleNPoints**.
+        Generally, ``resampleMinAngle`` has a larger effect on the eventual resampling than ``resampleNPoints``.
