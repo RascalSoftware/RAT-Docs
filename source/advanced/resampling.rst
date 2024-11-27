@@ -37,14 +37,16 @@ distance between neighbouring points. So, for an SLD profile of a floating bilay
      :width: 700
      :alt: sld and dots...
 
-..which are then converted into a set of zero roughness layers:
+which are then converted into a set of zero roughness layers:
 
 .. image:: ../images/advanced/layersPic.png
      :width: 700
      :alt: sld and dots...
 
-**Using Resampling in RAT**
-Using resampling on a contrast in RAT is very simple. For any contrast that you want to reample, then simply set the 'resample' flag for that contrast to 'true'
+***********************
+Using Resampling in RAT
+***********************
+Using resampling on a contrast in RAT is very simple. For any contrast that you want to resample, then simply set the 'resample' flag for that contrast to 'true'
 
 .. tab-set-code::
      .. code-block:: Matlab
@@ -84,7 +86,7 @@ Using resampling on a contrast in RAT is very simple. For any contrast that you 
             print(problem.contrasts)
 
 
-The resampling itself is controlled by the 'resamPars' field in the controls block:
+The resampling operation is controlled by the parameters 'resampleMinAngle' and 'resampleNPoints' in the controls object:
 
 .. tab-set::
     :class: tab-label-hidden
@@ -106,12 +108,10 @@ The resampling itself is controlled by the 'resamPars' field in the controls blo
             controls = RAT.Controls()
             print(controls)
 
-The resampPars field has two parameters in it, corresponding to the minimum angle and minimum points (resamPars = [minAngle minPoints]) which to use to resample the profiles.
-These have the following effects:
+* **resampleMinAngle**: The algorithm refines near the points which form, together with their left and right neighbours, a triangle with central angle smaller than the given value. So, a larger value of *resampleMinAngle* results in a finer resampling. 
+  *resampleMinAngle* is defined as a multiple of pi (i.e. resampleMinAngle = 0.9 refines where the adjacent points form an angle greater than 0.9 * pi)
 
-* **minAngle**: The algorithm refines near the points which form, together with their left and right neighbours, a triangle with central angle smaller than the given value.  So, a larger value of minAngle results in a finer resampling. minAngle is defined as a multiple of pi (i.e. minAngle = 0.9 refines where the adjacent points form an angle greater than 0.9 * pi)
-
-* **nPoints**: The initial number of domain points (layers). The algorithm will start from this number of layers, and refine until all the *minAngle* criteria are satisfied.
+* **resampleNPoints**: The initial number of domain points (layers). The algorithm will start from this number of layers, and refine until all the *resampleMinAngle* criteria are satisfied.
 
 .. note::
-        Generally, *minAngle* has a larger effect on the eventual resampling than *nPoints*.
+        Generally, **resampleMinAngle** has a larger effect on the eventual resampling than **resampleNPoints**.

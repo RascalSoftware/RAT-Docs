@@ -32,10 +32,6 @@ RAT contains a number of improvements over legacy RasCAL, including:
 * :ref:`Plotting routines<simplePlotting>` for easy visualisation of data and fits
 * and more!
 
-.. As well as this documentation, there are extensive examples in the RAT/examples folder
-   TODO Add a link to the examples in the grid when the example pages are created.
-
-
 .. grid:: 1 1 3 3
 
     .. grid-item-card::
