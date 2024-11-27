@@ -10,7 +10,7 @@ calculation. By writing functions that 'listen' to these events, you can use thi
 Registering Event Listeners
 ***************************
 When an event is triggered, the event data will be passed to any function that is registered for that specific event type. The event listener function (also called an event handler) should recieve a single argument which will be different depending on the event type.
-The example below registers a function to listen for the plot event:
+The example below registers a function to listen for the ``Plot`` event:
 
 .. tab-set-code::
     .. code-block:: Matlab
