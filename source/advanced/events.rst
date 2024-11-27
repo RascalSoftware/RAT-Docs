@@ -54,7 +54,7 @@ The event listener function is also shown below, it uses one of the plot functio
 ***********
 Event Types
 ***********
-There are a few event types that can be emitted by RAT and each type provides different data as argument to the listener function. The following events are emmitted by RAT:
+There are a few event types that are emitted by RAT and each type provides different data as its argument to the listener function. The following events are emitted by RAT:
 
 1. :ref:`message_event`
 2. :ref:`plot_event`
