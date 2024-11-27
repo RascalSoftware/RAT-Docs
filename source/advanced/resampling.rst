@@ -86,7 +86,7 @@ Using resampling on a contrast in RAT is very simple. For any contrast that you 
             print(problem.contrasts)
 
 
-The resampling operation is controlled by the parameters 'resampleMinAngle' and 'resampleNPoints' in the controls object:
+The resampling operation is controlled by the parameters ``resampleMinAngle`` and ``resampleNPoints`` in the controls object:
 
 .. tab-set::
     :class: tab-label-hidden
