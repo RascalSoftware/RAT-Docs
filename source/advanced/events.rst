@@ -60,7 +60,7 @@ There are a few event types that can be emitted by RAT and each type provides di
 2. :ref:`plot_event`
 3. :ref:`progress_event`
 
-Register for an event by providing the event type and the listener function to the *register* function as shown below. 
+Register a function as an event listener by providing the event type and the listener function to the ``register`` function, as shown below.
 
 .. tab-set-code::
     .. code-block:: Matlab
