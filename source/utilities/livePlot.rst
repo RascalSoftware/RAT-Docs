@@ -31,7 +31,11 @@ reflectivity, SLD's and more as the fit progresses. To visualize the plot event 
 When the snippet above is run, a plot figure willed be opened and the plot will be updated every time a plot event is received. 
 
 
-**Frequency of events**
+.. _frequencyLivePlot:
+
+************************
+Frequency of Plot Events
+************************
 
 To control how often the plot event is triggered, change the plot frequency parameter in the controls block as shown below. The default frequency is 20 which means the 
 plot event is triggered after every 20 iterations.
