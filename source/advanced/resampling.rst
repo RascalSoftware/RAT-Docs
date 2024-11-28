@@ -15,17 +15,17 @@ is circumvented:
 However, this kind of 'dumb microslicing' causes the creation of a large number of layers, which may not all be necessary and will significantly slow down the calculation.
 
 This problem of finding the lowest number of individual points that will completely describe a waveform is a common problem in signal processing. RAT uses a technique
-borrowed from SP called Adaptive Resampling (AR).
+borrowed from signal processing called Adaptive Resampling (AR).
 
 AR is an interactive process which aims to find the lowest number of points that will best describe a curve. It does this by adding points where the angle between neighbouring
-points becomes greater than a threshold value. So, it adds more points where the signal is changing most strongly (in order to capture all details of the curvature). So, for a
+points becomes smaller than a threshold value. So, it adds more points where the signal is changing most strongly (in order to capture all details of the curvature). So, for a
 cosine wave, the resampled points cluster at the regions of the largest curvature:
 
 .. image:: ../images/advanced/adaptiveSpPic.png
      :width: 700
      :alt: adaptive cosine
 
-So, for the continuous cosine curve show in blue, the AR algorithm has chosen the red points as being most representative. In other words, if the red points were
+For the continuous cosine curve show in blue, the AR algorithm has chosen the red points as being most representative. In other words, if the red points were
 joined with straight lines, the resulting curve would be very similar to the original signal. The salient point is that more points are required where the gradient
 of the signal is changing quickly, and those where the gradient is constant can be represented by fewer points.
 
@@ -108,10 +108,26 @@ The resampling operation is controlled by the parameters ``resampleMinAngle`` an
             controls = RAT.Controls()
             print(controls)
 
-* ``resampleMinAngle``: The algorithm refines near the points which form, together with their left and right neighbours, a triangle with central angle smaller than the given value. So, a larger value of ``resampleMinAngle`` results in a finer resampling. 
-  ``resampleMinAngle`` is defined in the units of 'radians divided by pi', i.e. ``resampleMinAngle = 0.9`` refines where the adjacent points form an angle greater than :math:`0.9 \pi` radians.
+* ``resampleMinAngle``: For each data point, the algorithm draws two lines from that data point to its neighbouring points on either side. 
+  If the angle between those lines is smaller than ``resampleMinAngle``, then the algorithm will refine over that point. 
+
+  In practice, this means that resampling happens for points which are significantly higher or lower than their neighbours
+  (i.e. the gradient of the function has changed rapidly)
+  and ``resampleMinAngle`` controls the sensitivity of this.
+  
+  ``resampleMinAngle`` is defined in the units of 'radians divided by pi', i.e. ``resampleMinAngle = 0.9`` refines where the adjacent points form an angle smaller than :math:`0.9 \pi` radians.
 
 * ``resampleNPoints``: The initial number of domain points (layers) sampled by the algorithm at the start.
 
 .. note::
         Generally, ``resampleMinAngle`` has a larger effect on the eventual resampling than ``resampleNPoints``.
+
+.. figure:: ../images/advanced/resample_angles.png
+   :width: 700
+
+   A simple example of how resampling calculates angles, with ``resampleNPoints`` = 5. 
+   If ``resampleMinAngle`` were set to its default value of 0.9, 
+   then resampling would occur around :math:`x_1` and :math:`x_3`, but not :math:`x_2`.
+
+
+
