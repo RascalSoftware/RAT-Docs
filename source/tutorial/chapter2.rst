@@ -84,7 +84,7 @@ containing the simulated reflectivities, SLD's and so on from whatever procedure
 
             controls = controlsClass;
             controls.display = 'off';
-            [~, ~, results] = evalc('RAT(problem, controls);');
+            [~, ~, results] = evalc('RAT(load("source/tutorial/data/monolayerExample.mat").problem, controls);');
             disp(results)
 
     .. tab-item:: Python 
