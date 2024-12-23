@@ -235,7 +235,9 @@ we want to consider, so two contrasts. We have the relevant instrument parameter
 Running the Model
 -----------------
 
-As we discussed at the beginning of the chapter, 
+As we discussed at the beginning of the chapter, the other input to RAT is a controls object,
+which describes the data analysis operation to use and any relevant settings such as 
+algorithm hyperparameters, parallelism, and display settings.
 More detail on the controls object is available at :ref:`controlsInfo`, 
 but for this demo we will just make an instance of the controls object:
 
