@@ -66,7 +66,7 @@ Using resampling on a contrast in RAT is very simple. For any contrast that you 
 
         .. output:: Matlab
 
-          problem = load('source/tutorial/data/monolayerExample.mat');
+          problem = load('source/tutorial/data/twoContrastExample.mat');
           problem = problem.problem;
           problem.setContrast(1, 'resample', true);
           problem.contrasts.displayContrastsObject()
@@ -77,7 +77,7 @@ Using resampling on a contrast in RAT is very simple. For any contrast that you 
         .. output:: Python
 
             # replace with a better project reading method when we have one...
-            with open('source/tutorial/data/monolayer_example.py', "r") as f:
+            with open('source/tutorial/data/two_contrast_example.py', "r") as f:
                 script = f.read()
             locals = {}
             exec(script, None, locals)

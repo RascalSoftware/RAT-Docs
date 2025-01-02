@@ -32,7 +32,7 @@ The imaginary refractive index appears as a new column in the 'Layers' block.
 
         .. output:: Matlab
 
-          problem = load('source/tutorial/data/monolayerExample.mat');
+          problem = load('source/tutorial/data/twoContrastExample.mat');
           problem = problem.problem;
           problem.absorption = true;
           problem.layers.displayTable()
@@ -43,7 +43,7 @@ The imaginary refractive index appears as a new column in the 'Layers' block.
         .. output:: Python
 
             # replace with a better project reading method when we have one...
-            with open('source/tutorial/data/monolayer_example.py', "r") as f:
+            with open('source/tutorial/data/two_contrast_example.py', "r") as f:
                 script = f.read()
             locals = {}
             exec(script, None, locals)
