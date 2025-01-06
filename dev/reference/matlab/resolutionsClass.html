@@ -485,7 +485,7 @@ resolution.removeResolution([1, 3]);</p>
 an instance of the parameter class with the resolution parameters and a
 cell array with the first resolution entry</p>
 <p>params = parametersClass({‘Resolution Param 1’, 0.01, 0.03, 0.05, false});
-resolution = resolutionsClass(params , {‘Resolution 1’, ‘constant’, ‘Tails’});</p>
+resolution = resolutionsClass(params, {‘Resolution 1’, ‘constant’, ‘Tails’});</p>
 </dd></dl>
 
 <dl class="mat method">
@@ -493,7 +493,7 @@ resolution = resolutionsClass(params , {‘Resolution 1’, ‘constant’, ‘T
 <span class="sig-name descname"><span class="pre">setResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.resolutionsClass.setResolution" title="Link to this definition">#</a></dt>
 <dd><p>Changes the value of a given resolution in the table. Expects the 
 index or name of resolution and keyword/value pairs to set.</p>
-<p>resolution.setResolution(1, ‘name’, ‘resolution 1’, ‘type’, ‘constant’, ‘value1’, ‘param_name’);</p>
+<p>resolution.setResolution(1, ‘name’, ‘resolution 1’, ‘type’, ‘constant’, ‘source’, ‘param_name’);</p>
 </dd></dl>
 
 <dl class="mat method">
@@ -566,7 +566,7 @@ an index and the new name.</p>
 
   <p class="copyright">
     
-      © Copyright 2022-2024, ISIS Neutron and Muon Source.
+      © Copyright 2022-2025, ISIS Neutron and Muon Source.
       <br/>
     
   </p>

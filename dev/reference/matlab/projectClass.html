@@ -488,7 +488,7 @@ model type, which is a modelTypes enum; the geometry, which is a
 geometryOptions enum; and a logical to state whether or not
 absorption terms are included in the refractive index.
 All of the arguments are optional.</p>
-<p>project = createProject(name=’New experiment’, calc=’non polarised’);</p>
+<p>project = createProject(name=’New experiment’, calc=’normal’);</p>
 </dd></dl>
 
 <dl class="mat class">
@@ -673,6 +673,15 @@ to recreate the project</p>
 <span class="sig-name descname"><span class="pre">getAllAllowedNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.getAllAllowedNames" title="Link to this definition">#</a></dt>
 <dd><p>Returns a cell array of all currently
 set parameter names for the project.</p>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="API.projectClass.projectClass.getDataAndFunctionNames">
+<span class="sig-name descname"><span class="pre">getDataAndFunctionNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.getDataAndFunctionNames" title="Link to this definition">#</a></dt>
+<dd><p>Returns a cell array of all currently
+set data and custom file names for the project.
+These are used to check backgrounds and resolutions of the
+Data and Function types.</p>
 </dd></dl>
 
 <dl class="mat attribute">
@@ -891,8 +900,11 @@ inputs are name / value pairs for the parts involved</p>
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.setContrastModel">
 <span class="sig-name descname"><span class="pre">setContrastModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setContrastModel" title="Link to this definition">#</a></dt>
 <dd><p>Edits the model of an existing contrast parameter. Expects
-the index of contrast parameter and cell array of layer names</p>
-<p>project.setContrastModel(1, {‘layer 1’})</p>
+the index of contrast parameter and cell array of layer
+names. Multiple models can be set simultaneously by using 
+an 1D array of indices or cell of strings</p>
+<p>project.setContrastModel(1, {‘layer 1’})
+project.setContrastModel(1:3, {‘layer 1’})</p>
 </dd></dl>
 
 <dl class="mat method">
@@ -1193,9 +1205,9 @@ permitted.</p>
 <dd><p>Alias of the converter routine from domainsClass to
 projectClass.
 This routine takes the currently defined project and
-converts it to a nonPolarised calculation, preserving all
+converts it to a normal calculation, preserving all
 currently defined properties.</p>
-<p>nonPolarisedProject = project.toProjectClass();</p>
+<p>normalProject = project.toProjectClass();</p>
 </dd></dl>
 
 <dl class="mat method">
@@ -1262,7 +1274,7 @@ for input into the RAT toolbox</p>
 
   <p class="copyright">
     
-      © Copyright 2022-2024, ISIS Neutron and Muon Source.
+      © Copyright 2022-2025, ISIS Neutron and Muon Source.
       <br/>
     
   </p>

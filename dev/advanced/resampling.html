@@ -44,6 +44,7 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=881e7dcd"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'advanced/resampling';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -254,6 +255,10 @@ document.write(`
   
 
   
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
 </div>
 
     </header>
@@ -455,13 +460,13 @@ is circumvented:</p>
 </a>
 <p>However, this kind of ‘dumb microslicing’ causes the creation of a large number of layers, which may not all be necessary and will significantly slow down the calculation.</p>
 <p>This problem of finding the lowest number of individual points that will completely describe a waveform is a common problem in signal processing. RAT uses a technique
-borrowed from SP called Adaptive Resampling (AR).</p>
+borrowed from signal processing called Adaptive Resampling (AR).</p>
 <p>AR is an interactive process which aims to find the lowest number of points that will best describe a curve. It does this by adding points where the angle between neighbouring
-points becomes greater than a threshold value. So, it adds more points where the signal is changing most strongly (in order to capture all details of the curvature). So, for a
+points becomes smaller than a threshold value. So, it adds more points where the signal is changing most strongly (in order to capture all details of the curvature). So, for a
 cosine wave, the resampled points cluster at the regions of the largest curvature:</p>
 <a class="reference internal image-reference" href="../_images/adaptiveSpPic.png"><img alt="adaptive cosine" src="../_images/adaptiveSpPic.png" style="width: 700px;" />
 </a>
-<p>So, for the continuous cosine curve show in blue, the AR algorithm has chosen the red points as being most representative. In other words, if the red points were
+<p>For the continuous cosine curve show in blue, the AR algorithm has chosen the red points as being most representative. In other words, if the red points were
 joined with straight lines, the resulting curve would be very similar to the original signal. The salient point is that more points are required where the gradient
 of the signal is changing quickly, and those where the gradient is constant can be represented by fewer points.</p>
 <p>RAT borrows the AR trick from the signal processors, and uses this method to resample the SLD profiles. The AR algorithm is used to find the best series of points
@@ -469,11 +474,12 @@ that will represent the profile most accurately, and then each of these points i
 distance between neighbouring points. So, for an SLD profile of a floating bilayer (blue line), AR selects the red points:</p>
 <a class="reference internal image-reference" href="../_images/dotsSLD.png"><img alt="sld and dots..." src="../_images/dotsSLD.png" style="width: 700px;" />
 </a>
-<p>..which are then converted into a set of zero roughness layers:</p>
+<p>which are then converted into a set of zero roughness layers:</p>
 <a class="reference internal image-reference" href="../_images/layersPic.png"><img alt="sld and dots..." src="../_images/layersPic.png" style="width: 700px;" />
 </a>
-<p><strong>Using Resampling in RAT</strong>
-Using resampling on a contrast in RAT is very simple. For any contrast that you want to reample, then simply set the ‘resample’ flag for that contrast to ‘true’</p>
+<section id="using-resampling-in-rat">
+<h2>Using Resampling in RAT<a class="headerlink" href="#using-resampling-in-rat" title="Link to this heading">#</a></h2>
+<p>Using resampling on a contrast in RAT is very simple. For any contrast that you want to resample, simply set the <code class="docutils literal notranslate"><span class="pre">resample</span></code> flag for that contrast as shown below:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
@@ -526,7 +532,7 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>The resampling itself is controlled by the ‘resamPars’ field in the controls block:</p>
+<p>The resampling operation is controlled by the parameters <code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code> and <code class="docutils literal notranslate"><span class="pre">resampleNPoints</span></code> in the controls object:</p>
 <div class="sd-tab-set tab-label-hidden docutils">
 <input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
@@ -559,16 +565,30 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>The resampPars field has two parameters in it, corresponding to the minimum angle and minimum points (resamPars = [minAngle minPoints]) which to use to resample the profiles.
-These have the following effects:</p>
-<ul class="simple">
-<li><p><strong>minAngle</strong>: The algorithm refines near the points which form, together with their left and right neighbours, a triangle with central angle smaller than the given value.  So, a larger value of minAngle results in a finer resampling. minAngle is defined as a multiple of pi (i.e. minAngle = 0.9 refines where the adjacent points form an angle greater than 0.9 * pi)</p></li>
-<li><p><strong>nPoints</strong>: The initial number of domain points (layers). The algorithm will start from this number of layers, and refine until all the <em>minAngle</em> criteria are satisfied.</p></li>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code>: For each data point, the algorithm draws two lines from that data point to its neighbouring points on either side.
+If the angle between those lines is smaller than <code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code>, then the algorithm will refine over that point.</p>
+<p>In practice, this means that resampling happens for points which are significantly higher or lower than their neighbours
+(i.e. the gradient of the function has changed rapidly)
+and <code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code> controls the sensitivity of this.</p>
+<p><code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code> is defined in the units of ‘radians divided by pi’, i.e. <code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span> <span class="pre">=</span> <span class="pre">0.9</span></code> refines where the adjacent points form an angle smaller than <span class="math notranslate nohighlight">\(0.9 \pi\)</span> radians.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resampleNPoints</span></code>: The initial number of domain points (layers) sampled by the algorithm at the start.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Generally, <em>minAngle</em> has a larger effect on the eventual resampling than <em>nPoints</em>.</p>
+<p>Generally, <code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code> has a larger effect on the eventual resampling than <code class="docutils literal notranslate"><span class="pre">resampleNPoints</span></code>.</p>
 </div>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/resample_angles.png"><img alt="../_images/resample_angles.png" src="../_images/resample_angles.png" style="width: 700px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A simple example of how resampling calculates angles, with <code class="docutils literal notranslate"><span class="pre">resampleNPoints</span></code> = 5.
+If <code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code> were set to its default value of 0.9,
+then resampling would occur around <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_3\)</span>, but not <span class="math notranslate nohighlight">\(x_2\)</span>.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
 </section>
 
 
@@ -582,7 +602,22 @@ These have the following effects:</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-resampling-in-rat">Using Resampling in RAT</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
@@ -607,7 +642,7 @@ These have the following effects:</p>
 
   <p class="copyright">
     
-      © Copyright 2022-2024, ISIS Neutron and Muon Source.
+      © Copyright 2022-2025, ISIS Neutron and Muon Source.
       <br/>
     
   </p>

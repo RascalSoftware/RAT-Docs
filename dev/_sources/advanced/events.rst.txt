@@ -3,49 +3,148 @@
 ===================================
 Handling Events During Calculations
 ===================================
-Sometimes it is useful to be able to monitor the progress / success of a fit in real time for long simulations. For Simplex and DE fits, RAT sends out 'events', which send out data concerning the
-reflectivity, SLD's and so on as the fit progresses. By writing functions that 'listen' to these events, you can use this information to build various kinds of graphical updates to suit your needs.
-In this section, we'll use this capability to build a live, updating plot of reflectivity and SLD, similar to that of the main RasCAL GUI.
+Sometimes, it is useful to be able to monitor the progress or success of a fit in real time for long simulations. RAT can send out 'events', which contain different data about the 
+calculation. By writing functions that 'listen' to these events, you can use this information to build various kinds of updates. 
 
-.. note::
-        The code in this section already exists in the repo (utilities/plotting), and you can activate the full updating plot at any time by just typing 'useLivePlot()' at the MATLAB command window. But we detail it here to illustrate how to interact with events.
+***************************
+Registering Event Listeners
+***************************
+When an event is triggered, the event data will be passed to any function that is registered for that specific event type. The event listener function (also called an event handler) should recieve a single argument which will be different depending on the event type.
+The example below registers a function to listen for the ``Plot`` event:
 
-**Registering Listeners**
-
-On the MATLAB side, the interaction with RAT event is via the 'eventManager' class. To register a listener, we use the 'register' method to associate a function with the event.
-
-.. code-block:: MATLAB
+.. tab-set-code::
+    .. code-block:: Matlab
 
         eventManager.register(eventTypes.Plot, 'updatePlot');
+    
+    .. code-block:: Python
 
-In this line, we've done two things: we've registered a 'listener' for 'Plot' events, and defined the function 'updatePlot' as the function that runs when the event is triggered (known as a 'handler')
-We need to define the handler function:
+        import RATapi as RAT
+        RAT.events.register(RAT.events.EventTypes.Plot, update_plot)      
 
-.. code-block:: MATLAB
+The event listener function is also shown below, it uses one of the plot functions provided by RAT to display the event data. The plot event data contains the current state of the reflectivity and SLD's, along with a number of other items which is detailed below.
 
-        function updatePlot(varargin)
+.. tab-set-code::
+    .. code-block:: Matlab
 
-            h = figure(1000);                   % Select / open the figure
+        function updatePlot(eventData)
 
-            subplot(1,2,1); cla                 % Reflectivity plot panel
-            subplot(1,2,2); cla                 % SLD plot panel
-            plotRefSLDHelper(varargin{:});      % Use the standard RAT reflectivity plot
-            drawnow limitrate                   % Make sure it updates
+            h = figure(1000);             % Select / open the figure
+
+            subplot(1,2,1); cla           % Reflectivity plot panel
+            subplot(1,2,2); cla           % SLD plot panel
+            plotRefSLDHelper(eventData);      % Use the standard RAT reflectivity plot
+            drawnow limitrate             % Make sure it updates
 
         end
 
+    .. code-block:: Python
 
-We can put a breakpoint in our function to examine the contents of varargin
+        import matplotlib.pyplot as plt 
+        
+        def update_plot(event_data):
+            figure = plt.figure(num=1) 
+            
+            # Use the standard RAT reflectivity plot
+            RAT.plotting.plot_ref_sld_helper(event_data, figure)  
 
-.. image:: ../images/misc/updateBreakPoint.png
-    :width: 300
-    :alt: breakpoint in update function
+.. note::
+    A utility function already exists to do live plotting, see :ref:`livePlot` for more information. This section is illustrative for users that want to write more advanced handlers for events.
 
-We see that it is a struct containing everything needed to make our custom plot:
+***********
+Event Types
+***********
+There are a few event types that are emitted by RAT and each type provides different data as its argument to the listener function. The following events are emitted by RAT:
 
-.. image:: ../images/misc/eventContents.png
-    :width: 300
-    :alt: contents of events
+1. :ref:`message_event`
+2. :ref:`plot_event`
+3. :ref:`progress_event`
 
-In other words, RAT has packaged the current state of the reflectivity and SLD's, along with a number of other items that you can use to make a plot however you like.
-For these purposes, we just make use of the existing RAT plot routine to make our plot. The result is the updating plot routine bundled with RAT.
+Register a function as an event listener by providing the event type and the listener function to the ``register`` function, as shown below.
+
+.. tab-set-code::
+    .. code-block:: Matlab
+
+        eventManager.register(eventTypes.Message, handleEvent);   % Message Event
+        eventManager.register(eventTypes.Plot, handleEvent);      % Plot Event
+        eventManager.register(eventTypes.Progress, handleEvent);  % Progress Event
+    
+    .. code-block:: Python
+
+        import RATapi as RAT
+
+        RAT.events.register(RAT.events.EventTypes.Message, handle_event)   # Message Event
+        RAT.events.register(RAT.events.EventTypes.Plot, handle_event)      # Plot Event
+        RAT.events.register(RAT.events.EventTypes.Progress, handle_event)  # Progress Event     
+
+.. _message_event:
+
+Message Event
+=============
+The message event contains text output from the calculation, which can inform the users about the current step or convergence of the calculation. This event is supported by all algorithms. The event data is a simple string. 
+
+.. _plot_event:
+
+Plot Event
+==========
+The plot event contains intermediate results from the calculation. As shown in the example above, a good use case for this data is live plotting while the simulation is running. The frequency of the plot events can be controlled from the controls class, see :ref:`frequencyLivePlot` from more information.
+This event is supported by the Simplex and DE algorithms. The event data is a structure with the fields described below:
+
+Fields in plot event
+********************
+
+.. list-table::
+    :header-rows: 1
+    
+    * - Field
+      - Type
+      - Description
+    * - reflectivity
+      - array of double arrays
+      - The calculated reflectivities
+    * - shiftedData
+      - array of double arrays
+      - The data corrected with the scalefactor
+    * - sldProfiles
+      - array of double arrays
+      - The calculated SLD profiles
+    * - resampledLayers
+      - array of double arrays
+      - The resampled layers
+    * - subRoughs
+      - array of doubles
+      - The substrate roughness
+    * - dataPresent
+      - array of boolean/logical values
+      - flags indicating which contrast contains data
+    * - resample
+      - array of boolean/logical values
+      - flags indicating which contrast was resampled  
+    * - modelType
+      - string
+      - The model type used for the calculation
+    * - contrastNames
+      - array of strings
+      - The name for each contrast which can be used to add a plot legend
+    
+.. _progress_event:
+
+Progress Event
+==============
+The progress event gives the percentage completion for the calculation, and a title text for the event. This event is only supported by the DREAM algorithm. The event data is a structure with the fields described below:
+
+Fields in progress event
+************************
+
+.. list-table::
+    :header-rows: 1
+    
+    * - Field
+      - Type
+      - Description
+    * - message
+      - string
+      - The title text for the event
+    * - percent
+      - float
+      - The percentage of the calculation completed

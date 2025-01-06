@@ -412,18 +412,19 @@ document.write(`
 <h1>Target Functions (Low Level API)<a class="headerlink" href="#target-functions-low-level-api" title="Link to this heading">#</a></h1>
 <dl class="mat function" id="module-targetFunctions">
 <dt class="sig sig-object mat" id="targetFunctions.reflectivityCalculation">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.</span></span><span class="sig-name descname"><span class="pre">reflectivityCalculation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">problemStruct</span></em>, <em class="sig-param"><span class="pre">problemCells</span></em>, <em class="sig-param"><span class="pre">problemLimits</span></em>, <em class="sig-param"><span class="pre">controls</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.reflectivityCalculation" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">targetFunctions.</span></span><span class="sig-name descname"><span class="pre">reflectivityCalculation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">problemStruct</span></em>, <em class="sig-param"><span class="pre">controls</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.reflectivityCalculation" title="Link to this definition">#</a></dt>
 <dd><p>Main entry point into the reflectivity calculation for the toolbox.
 This is the main function that is called by any of the minimisers or
 analysis tools from the rest of the toolbox.</p>
-<p><em>The main job of this function is to decide which type of calculation
-(i.e. ‘Target function’ is required, and call the relevant routines.
-The types of available target functions are:</em></p>
+<p>The main job of this function is to decide which type of calculation
+(i.e. ‘Target function’) is required, and call the relevant routines.
+Different model types are specified in sub functions.
+The types of available target functions are:</p>
 <ul class="simple">
-<li><p>non polarised  - The main basic target function type, for non polarised neutrons (or x-rays) with non-absorbing samples. Different model types are specified in sub functions from here.</p></li>
-<li><p>oil water      - Target function for oil-water samples</p></li>
-<li><p>domains        - Target function for samples consisting of domains which are larger than the beam lateral coherence length.</p></li>
-<li><p>magnetic       - Target function for cases for polarised neutrons with polarisation analysis.</p></li>
+<li><p>normal    - The main basic target function type, for non polarised neutrons (or x-rays) with non-absorbing samples.</p></li>
+<li><p>oil water - Target function for oil-water samples</p></li>
+<li><p>domains   - Target function for samples consisting of domains which are larger than the beam lateral coherence length.</p></li>
+<li><p>magnetic  - Target function for cases for polarised neutrons with polarisation analysis.</p></li>
 </ul>
 </dd></dl>
 
@@ -431,21 +432,15 @@ The types of available target functions are:</em></p>
 <span id="commonfunctions"></span><h2>Common Functions<a class="headerlink" href="#common-functions" title="Link to this heading">#</a></h2>
 <dl class="mat function" id="module-targetFunctions.common">
 <dt class="sig sig-object mat" id="targetFunctions.common.backSort">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">backSort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrastBackgroundParams</span></em>, <em class="sig-param"><span class="pre">contrastQzshifts</span></em>, <em class="sig-param"><span class="pre">contrastScalefactors</span></em>, <em class="sig-param"><span class="pre">contrastBulkIns</span></em>, <em class="sig-param"><span class="pre">contrastBulkOuts</span></em>, <em class="sig-param"><span class="pre">contrastResolutionParams</span></em>, <em class="sig-param"><span class="pre">backgroundParams</span></em>, <em class="sig-param"><span class="pre">qzshifts</span></em>, <em class="sig-param"><span class="pre">scalefactors</span></em>, <em class="sig-param"><span class="pre">bulkIn</span></em>, <em class="sig-param"><span class="pre">bulkOut</span></em>, <em class="sig-param"><span class="pre">resolutionParams</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.backSort" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">backSort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrastQzshifts</span></em>, <em class="sig-param"><span class="pre">contrastScalefactors</span></em>, <em class="sig-param"><span class="pre">contrastBulkIns</span></em>, <em class="sig-param"><span class="pre">contrastBulkOuts</span></em>, <em class="sig-param"><span class="pre">contrastResolutionParams</span></em>, <em class="sig-param"><span class="pre">qzshifts</span></em>, <em class="sig-param"><span class="pre">scalefactors</span></em>, <em class="sig-param"><span class="pre">bulkIn</span></em>, <em class="sig-param"><span class="pre">bulkOut</span></em>, <em class="sig-param"><span class="pre">resolutionParams</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.backSort" title="Link to this definition">#</a></dt>
 <dd><p>Distributes the background and shift values among the different contrasts</p>
-<p>USAGE:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">backgroundParams</span><span class="p">,</span><span class="n">qzshift</span><span class="p">,</span><span class="n">scalefactor</span><span class="p">,</span><span class="n">bulkIn</span><span class="p">,</span><span class="n">bulkOut</span><span class="p">,</span><span class="n">resolutionParams</span><span class="p">]</span> <span class="o">=</span> <span class="n">backsort</span><span class="p">(</span><span class="n">contrastBackgrounds</span><span class="p">,</span><span class="n">contrastQzshifts</span><span class="p">,</span><span class="n">contrastScalefactors</span><span class="p">,</span><span class="n">contrastBulkIns</span><span class="p">,</span><span class="n">contrastBulkOuts</span><span class="p">,</span><span class="n">contrastResolutions</span><span class="p">,</span><span class="n">backs</span><span class="p">,</span><span class="n">qzshifts</span><span class="p">,</span><span class="n">scalefactor</span><span class="p">,</span><span class="n">bulkIn</span><span class="p">,</span><span class="n">bulkOut</span><span class="p">,</span><span class="n">res</span><span class="p">)</span>
-</pre></div>
-</div>
 <dl class="simple">
 <dt>INPUTS:</dt><dd><ul class="simple">
-<li><p>contrastBackgroundParams: Which background value is associated with each contrast</p></li>
 <li><p>contrastQzshifts: Which qz_shift value is associated with each contrast</p></li>
 <li><p>contrastScalefactors: Which scalefactor value is associated with each contrast</p></li>
 <li><p>contrastBulkIns: Which BulkIn value is associated with each contrast</p></li>
 <li><p>contrastBulkOuts: Which BulkOut value is associated with each contrast</p></li>
 <li><p>contrastResolutionParams: Which resolution value is associated with each contrast</p></li>
-<li><p>backgroundParams: List of all background parameter values.</p></li>
 <li><p>qzshifts: List of all qzshift values</p></li>
 <li><p>scalefactors: List of all scalefactor values</p></li>
 <li><p>bulkIn: List of all bulkIn values</p></li>
@@ -454,7 +449,6 @@ The types of available target functions are:</em></p>
 </ul>
 </dd>
 <dt>OUTPUTS:</dt><dd><ul class="simple">
-<li><p>outBackground: list of actual background parameter values for each contrast</p></li>
 <li><p>outQzshift: list of actual qzshift values for each contrast</p></li>
 <li><p>outScalefactor: list of actual scalefactor values for each contrast</p></li>
 <li><p>outBulkIn: list of actual bulkIn values for each contrast</p></li>
@@ -466,31 +460,27 @@ The types of available target functions are:</em></p>
 </dd></dl>
 
 <dl class="mat function">
-<dt class="sig sig-object mat" id="targetFunctions.common.extractProblemParams">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">extractProblemParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">problemStruct</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.extractProblemParams" title="Link to this definition">#</a></dt>
-<dd><p>Extract individual parameters from problem</p>
+<dt class="sig sig-object mat" id="targetFunctions.common.constructBackground">
+<span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">constructBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">backgroundType</span></em>, <em class="sig-param"><span class="pre">backgroundParamIndices</span></em>, <em class="sig-param"><span class="pre">shiftedData</span></em>, <em class="sig-param"><span class="pre">customFiles</span></em>, <em class="sig-param"><span class="pre">backgroundParamArray</span></em>, <em class="sig-param"><span class="pre">simLimits</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.constructBackground" title="Link to this definition">#</a></dt>
+<dd><p>Apply background parameters to the background.</p>
+<p>For function backgrounds, this means running the function using the
+defined parameters. For data and constant backgrounds, this means taking
+any predefined background data and adding any supplied poarameters.</p>
 </dd></dl>
 
 <dl class="mat function">
-<dt class="sig sig-object mat" id="targetFunctions.common.parseCells">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">parseCells</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">problemCells</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.parseCells" title="Link to this definition">#</a></dt>
-<dd><p>Splits up the master input list of all arrays into separate arrays</p>
-<dl class="simple">
-<dt>INPUTS:</dt><dd><ul class="simple">
-<li><p>problemCells: cell array where all the project data is grouped together.</p></li>
-</ul>
-</dd>
-<dt>OUTPUTS:</dt><dd><ul class="simple">
-<li><p>repeatLayers: controls repeating of the layers stack.</p></li>
-<li><p>data: Array of all the data arrays.</p></li>
-<li><p>dataLimits: Min max limits in q for the data arrays.</p></li>
-<li><p>simLimits: Limits in Q for the reflectivity simulations.</p></li>
-<li><p>layersDetails: Master array of all available layers.</p></li>
-<li><p>contrastLayers: Which specific combination of arrays are needed for each contrast.</p></li>
-<li><p>customFiles:Filenames and path for any custom files used.</p></li>
-</ul>
-</dd>
-</dl>
+<dt class="sig sig-object mat" id="targetFunctions.common.getFitNames">
+<span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">getFitNames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">problemStruct</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.getFitNames" title="Link to this definition">#</a></dt>
+<dd><p>Note that this order of parameters fields is hard-coded by this
+routine, packParams, and packParamsPriors</p>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="targetFunctions.common.makeSimulationRange">
+<span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">makeSimulationRange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">data</span></em>, <em class="sig-param"><span class="pre">simulationLimits</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.makeSimulationRange" title="Link to this definition">#</a></dt>
+<dd><p>Construct the x data for the simulation. This consists of the x data from
+the supplied data, plus additional points above and below the data range
+as necessary.</p>
 </dd></dl>
 
 <dl class="mat function">
@@ -606,17 +596,17 @@ z,rho,rough stack, and the parameter ‘ssub’ in callParatt is the final rough
 </dl>
 </dd></dl>
 
-<p id="nonpolarisedtf">Non-Polarised Target Functions (nonPolarisedTF)</p>
-<dl class="mat function" id="module-targetFunctions.+nonPolarisedTF.+customLayers">
-<dt class="sig sig-object mat" id="targetFunctions.+nonPolarisedTF.+customLayers.processCustomFunction">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.nonPolarisedTF.customLayers.</span></span><span class="sig-name descname"><span class="pre">processCustomFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrastBulkIns</span></em>, <em class="sig-param"><span class="pre">contrastBulkOuts</span></em>, <em class="sig-param"><span class="pre">bulkInArray</span></em>, <em class="sig-param"><span class="pre">bulkOutArray</span></em>, <em class="sig-param"><span class="pre">cCustFiles</span></em>, <em class="sig-param"><span class="pre">numberOfContrasts</span></em>, <em class="sig-param"><span class="pre">customFiles</span></em>, <em class="sig-param"><span class="pre">params</span></em>, <em class="sig-param"><span class="pre">useImaginary</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.+nonPolarisedTF.+customLayers.processCustomFunction" title="Link to this definition">#</a></dt>
+<p id="nonpolarisedtf">Normal Target Functions (normalTF)</p>
+<dl class="mat function" id="module-targetFunctions.+normalTF.+customLayers">
+<dt class="sig sig-object mat" id="targetFunctions.+normalTF.+customLayers.processCustomFunction">
+<span class="sig-prename descclassname"><span class="pre">targetFunctions.normalTF.customLayers.</span></span><span class="sig-name descname"><span class="pre">processCustomFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrastBulkIns</span></em>, <em class="sig-param"><span class="pre">contrastBulkOuts</span></em>, <em class="sig-param"><span class="pre">bulkInArray</span></em>, <em class="sig-param"><span class="pre">bulkOutArray</span></em>, <em class="sig-param"><span class="pre">cCustFiles</span></em>, <em class="sig-param"><span class="pre">numberOfContrasts</span></em>, <em class="sig-param"><span class="pre">customFiles</span></em>, <em class="sig-param"><span class="pre">params</span></em>, <em class="sig-param"><span class="pre">useImaginary</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.+normalTF.+customLayers.processCustomFunction" title="Link to this definition">#</a></dt>
 <dd><p>Top-level function for processing custom layers for all the
 contrasts.</p>
 </dd></dl>
 
-<dl class="mat function" id="module-targetFunctions.+nonPolarisedTF.+customXY">
-<dt class="sig sig-object mat" id="targetFunctions.+nonPolarisedTF.+customXY.processCustomFunction">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.nonPolarisedTF.customXY.</span></span><span class="sig-name descname"><span class="pre">processCustomFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrastBulkIns</span></em>, <em class="sig-param"><span class="pre">contrastBulkOuts</span></em>, <em class="sig-param"><span class="pre">bulkInArray</span></em>, <em class="sig-param"><span class="pre">bulkOutArray</span></em>, <em class="sig-param"><span class="pre">cCustFiles</span></em>, <em class="sig-param"><span class="pre">numberOfContrasts</span></em>, <em class="sig-param"><span class="pre">customFiles</span></em>, <em class="sig-param"><span class="pre">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.+nonPolarisedTF.+customXY.processCustomFunction" title="Link to this definition">#</a></dt>
+<dl class="mat function" id="module-targetFunctions.+normalTF.+customXY">
+<dt class="sig sig-object mat" id="targetFunctions.+normalTF.+customXY.processCustomFunction">
+<span class="sig-prename descclassname"><span class="pre">targetFunctions.normalTF.customXY.</span></span><span class="sig-name descname"><span class="pre">processCustomFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrastBulkIns</span></em>, <em class="sig-param"><span class="pre">contrastBulkOuts</span></em>, <em class="sig-param"><span class="pre">bulkInArray</span></em>, <em class="sig-param"><span class="pre">bulkOutArray</span></em>, <em class="sig-param"><span class="pre">cCustFiles</span></em>, <em class="sig-param"><span class="pre">numberOfContrasts</span></em>, <em class="sig-param"><span class="pre">customFiles</span></em>, <em class="sig-param"><span class="pre">params</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.+normalTF.+customXY.processCustomFunction" title="Link to this definition">#</a></dt>
 <dd><p>Top-level function for processing custom XY profiles for all the
 contrasts.</p>
 </dd></dl>
@@ -693,7 +683,7 @@ contrasts.</p>
 
   <p class="copyright">
     
-      © Copyright 2022-2024, ISIS Neutron and Muon Source.
+      © Copyright 2022-2025, ISIS Neutron and Muon Source.
       <br/>
     
   </p>

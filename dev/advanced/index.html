@@ -44,6 +44,7 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=881e7dcd"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'advanced/index';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -448,7 +449,10 @@ document.write(`
 <p>In this section we discuss some advanced features of the toolbox:-</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="resampling.html">Profile Resampling (‘microslicing’)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resampling.html">Profile Resampling (‘microslicing’)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resampling.html#using-resampling-in-rat">Using Resampling in RAT</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="parallelisation.html">Parallelising Calculations</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="parallelisation.html#internal-parallelisation">Internal Parallelisation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parallelisation.html#parallel-bayes-with-mipexcec-and-paramonte">Parallel Bayes with MIPEXCEC and Paramonte</a></li>
@@ -459,7 +463,11 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="customLanguages.html#c-custom-models">C++ Custom Models</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="events.html">Handling Events During Calculations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Handling Events During Calculations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="events.html#registering-event-listeners">Registering Event Listeners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html#event-types">Event Types</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -500,7 +508,7 @@ document.write(`
 
   <p class="copyright">
     
-      © Copyright 2022-2024, ISIS Neutron and Muon Source.
+      © Copyright 2022-2025, ISIS Neutron and Muon Source.
       <br/>
     
   </p>

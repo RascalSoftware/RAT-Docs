@@ -551,10 +551,10 @@ Matlab</label><div class="sd-tab-content docutils">
 
     (b) Backgrounds:  
 
-    p         Name            Type             Value 1           Value 2    Value 3    Value 4    Value 5
-    _    ______________    __________    ____________________    _______    _______    _______    _______
+    p         Name            Type              Source           Value 1    Value 2    Value 3    Value 4    Value 5
+    _    ______________    __________    ____________________    _______    _______    _______    _______    _______
 
-    1    &quot;Background 1&quot;    &quot;constant&quot;    &quot;Background Param 1&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
+    1    &quot;Background 1&quot;    &quot;constant&quot;    &quot;Background Param 1&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
 
 
     Resolutions: --------------------------------------------------------------------------------------------- 
@@ -568,10 +568,10 @@ Matlab</label><div class="sd-tab-content docutils">
 
     (b) Resolutions:  
 
-    p         Name            Type            Value 1          Value 2    Value 3    Value 4    Value 5
-    _    ______________    __________    __________________    _______    _______    _______    _______
+    p         Name            Type             Source          Value 1    Value 2    Value 3    Value 4    Value 5
+    _    ______________    __________    __________________    _______    _______    _______    _______    _______
 
-    1    &quot;Resolution 1&quot;    &quot;constant&quot;    &quot;Resolution par 1&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
+    1    &quot;Resolution 1&quot;    &quot;constant&quot;    &quot;Resolution par 1&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
 
 
     Layers: -------------------------------------------------------------------------------------------------- 
@@ -722,16 +722,17 @@ containing the simulated reflectivities, SLD’s and so on from whatever procedu
 <input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-6">
 Matlab</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>          reflectivity: {0x1 cell}
-            simulation: {0x1 cell}
-           shiftedData: {0x1 cell}
-             layerSlds: {0x1 cell}
-           sldProfiles: {0x1 cell}
-       resampledLayers: {0x1 cell}
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>          reflectivity: {2x1 cell}
+            simulation: {2x1 cell}
+           shiftedData: {2x1 cell}
+           backgrounds: {2x1 cell}
+             layerSlds: {2x1 cell}
+           sldProfiles: {2x1 cell}
+       resampledLayers: {2x1 cell}
     calculationResults: [1x1 struct]
         contrastParams: [1x1 struct]
-             fitParams: 3
-              fitNames: {&#39;Substrate Roughness&#39;}
+             fitParams: [3 20 11 5 5 6.0000e-06 -4.0000e-07 ... ] (1x15 double)
+              fitNames: {15x1 cell}
 </pre></div>
 </div>
 </div>
@@ -1127,7 +1128,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-36" name="sd-tab-set-18" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-36">
 Matlab</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Error using projectClass/removeParameter (line 281)
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Error using projectClass/removeParameter (line 290)
 Can&#39;t remove protected parameters
 </pre></div>
 </div>
@@ -1448,10 +1449,10 @@ Matlab</label><div class="sd-tab-content docutils">
 
     (b) Backgrounds:  
 
-    p         Name            Type             Value 1           Value 2    Value 3    Value 4    Value 5
-    _    ______________    __________    ____________________    _______    _______    _______    _______
+    p         Name            Type              Source           Value 1    Value 2    Value 3    Value 4    Value 5
+    _    ______________    __________    ____________________    _______    _______    _______    _______    _______
 
-    1    &quot;Background 1&quot;    &quot;constant&quot;    &quot;Background Param 1&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
+    1    &quot;Background 1&quot;    &quot;constant&quot;    &quot;Background Param 1&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
 </pre></div>
 </div>
 </div>
@@ -1509,11 +1510,11 @@ Matlab</label><div class="sd-tab-content docutils">
 
     (b) Backgrounds:  
 
-    p           Name               Type             Value 1           Value 2    Value 3    Value 4    Value 5
-    _    ___________________    __________    ____________________    _______    _______    _______    _______
+    p           Name               Type              Source           Value 1    Value 2    Value 3    Value 4    Value 5
+    _    ___________________    __________    ____________________    _______    _______    _______    _______    _______
 
-    1    &quot;Background 1&quot;         &quot;constant&quot;    &quot;Background Param 1&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
-    2    &quot;My New Background&quot;    &quot;constant&quot;    &quot;My New BackPar&quot;          &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
+    1    &quot;Background 1&quot;         &quot;constant&quot;    &quot;Background Param 1&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
+    2    &quot;My New Background&quot;    &quot;constant&quot;    &quot;My New BackPar&quot;          &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
 </pre></div>
 </div>
 </div>
@@ -1605,10 +1606,10 @@ Matlab</label><div class="sd-tab-content docutils">
 
     (b) Resolutions:  
 
-    p         Name            Type            Value 1          Value 2    Value 3    Value 4    Value 5
-    _    ______________    __________    __________________    _______    _______    _______    _______
+    p         Name            Type             Source          Value 1    Value 2    Value 3    Value 4    Value 5
+    _    ______________    __________    __________________    _______    _______    _______    _______    _______
 
-    1    &quot;Resolution 1&quot;    &quot;constant&quot;    &quot;Resolution par 1&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
+    1    &quot;Resolution 1&quot;    &quot;constant&quot;    &quot;Resolution par 1&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
 </pre></div>
 </div>
 </div>
@@ -1662,12 +1663,12 @@ Matlab</label><div class="sd-tab-content docutils">
 
     (b) Resolutions:  
 
-    p            Name               Type              Value 1           Value 2    Value 3    Value 4    Value 5
-    _    ____________________    __________    _____________________    _______    _______    _______    _______
+    p            Name               Type              Source            Value 1    Value 2    Value 3    Value 4    Value 5
+    _    ____________________    __________    _____________________    _______    _______    _______    _______    _______
 
-    1    &quot;Resolution 1&quot;          &quot;constant&quot;    &quot;Resolution par 1&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
-    2    &quot;My new resolution&quot;     &quot;constant&quot;    &quot;My Resolution Param&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
-    3    &quot;My Data Resolution&quot;    &quot;data&quot;        &quot;&quot;                         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
+    1    &quot;Resolution 1&quot;          &quot;constant&quot;    &quot;Resolution par 1&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
+    2    &quot;My new resolution&quot;     &quot;constant&quot;    &quot;My Resolution Param&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
+    3    &quot;My Data Resolution&quot;    &quot;data&quot;        &quot;&quot;                         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
 </pre></div>
 </div>
 </div>
@@ -2195,11 +2196,11 @@ Matlab</label><div class="sd-tab-content docutils">
 
     (b) Backgrounds:  
 
-    p          Name              Type            Value 1          Value 2    Value 3    Value 4    Value 5
-    _    _________________    __________    __________________    _______    _______    _______    _______
+    p          Name              Type             Source          Value 1    Value 2    Value 3    Value 4    Value 5
+    _    _________________    __________    __________________    _______    _______    _______    _______    _______
 
-    1    &quot;Background ACMW&quot;    &quot;constant&quot;    &quot;Backs Value ACMW&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
-    2    &quot;Background D2O&quot;     &quot;constant&quot;    &quot;Backs Value D2O&quot;       &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
+    1    &quot;Background ACMW&quot;    &quot;constant&quot;    &quot;Backs Value ACMW&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
+    2    &quot;Background D2O&quot;     &quot;constant&quot;    &quot;Backs Value D2O&quot;       &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
 
 
     Resolutions: --------------------------------------------------------------------------------------------- 
@@ -2213,10 +2214,10 @@ Matlab</label><div class="sd-tab-content docutils">
 
     (b) Resolutions:  
 
-    p         Name            Type            Value 1          Value 2    Value 3    Value 4    Value 5
-    _    ______________    __________    __________________    _______    _______    _______    _______
+    p         Name            Type             Source          Value 1    Value 2    Value 3    Value 4    Value 5
+    _    ______________    __________    __________________    _______    _______    _______    _______    _______
 
-    1    &quot;Resolution 1&quot;    &quot;constant&quot;    &quot;Resolution par 1&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
+    1    &quot;Resolution 1&quot;    &quot;constant&quot;    &quot;Resolution par 1&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
 
 
     Layers: -------------------------------------------------------------------------------------------------- 
@@ -2471,7 +2472,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ________________________________________________________________________________________________
 
-Elapsed time is 0.005719 seconds.
+Elapsed time is 0.001506 seconds.
 
 Finished RAT ______________________________________________________________________________________________ 
 </pre></div>
@@ -2536,7 +2537,7 @@ Running simplex
 
 
 Exiting: Max iterations reached
-Elapsed time is 0.210978 seconds.
+Elapsed time is 0.203569 seconds.
 
 Finished RAT ______________________________________________________________________________________________ 
 </pre></div>
@@ -2552,7 +2553,7 @@ Running simplex
 
 
 Exiting: Max iterations reached
-Elapsed time is 0.281 seconds
+Elapsed time is 0.272 seconds
 
 Finished RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 </pre></div>
@@ -2582,12 +2583,13 @@ Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>          reflectivity: {2x1 cell}
             simulation: {2x1 cell}
            shiftedData: {2x1 cell}
+           backgrounds: {2x1 cell}
              layerSlds: {2x1 cell}
            sldProfiles: {2x1 cell}
        resampledLayers: {2x1 cell}
     calculationResults: [1x1 struct]
         contrastParams: [1x1 struct]
-             fitParams: [15x1 double]
+             fitParams: [2.9848 20.0738 7.3800 4.8074 ... ] (1x15 double)
               fitNames: {15x1 cell}
 </pre></div>
 </div>
@@ -2705,7 +2707,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 
   <p class="copyright">
     
-      © Copyright 2022-2024, ISIS Neutron and Muon Source.
+      © Copyright 2022-2025, ISIS Neutron and Muon Source.
       <br/>
     
   </p>

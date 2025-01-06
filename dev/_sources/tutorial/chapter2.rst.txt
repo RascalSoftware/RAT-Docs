@@ -84,7 +84,7 @@ containing the simulated reflectivities, SLD's and so on from whatever procedure
 
             controls = controlsClass;
             controls.display = 'off';
-            [~, ~, results] = evalc('RAT(problem, controls);');
+            [~, ~, results] = evalc('RAT(load("source/tutorial/data/twoContrastExample.mat").problem, controls);');
             disp(results)
 
     .. tab-item:: Python 
@@ -1214,7 +1214,7 @@ Now have a look at our project, to make sure it all looks reasonable
 
         .. output:: Matlab
 
-            problem = load('source/tutorial/data/monolayerExample.mat');
+            problem = load('source/tutorial/data/twoContrastExample.mat');
             problem = problem.problem;
             disp(problem)
 
@@ -1224,7 +1224,7 @@ Now have a look at our project, to make sure it all looks reasonable
         .. output:: Python
 
             # replace with a better project reading method when we have one...
-            with open('source/tutorial/data/monolayer_example.py', "r") as f:
+            with open('source/tutorial/data/two_contrast_example.py', "r") as f:
                 script = f.read()
             locals = {}
             exec(script, None, locals)

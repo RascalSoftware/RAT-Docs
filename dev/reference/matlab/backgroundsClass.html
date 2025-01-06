@@ -470,37 +470,39 @@ calculate the background.</p></li>
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
 <dl class="mat class">
 <dt class="sig sig-object mat" id="API.projectClass.backgroundsClass">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">backgroundsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">parameters</span></em>, <em class="sig-param"><span class="pre">startBackground</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">backgroundsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">parameters</span></em>, <em class="sig-param"><span class="pre">startBackground</span></em>, <em class="sig-param"><span class="pre">allowedNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass" title="Link to this definition">#</a></dt>
 <dd><p>Backgrounds are defined in a two stage process. Firstly we define the
-actual fitted parameters. These are held in a ‘ParametersClass’
+actual fitted parameters. These are held in a ‘Parameters’
 table. Then, we group these into the backgrounds themselves using a
 multiTypeTable. So, we can then use the background parameters to
-either define background as  constant, data or a function.</p>
-<p>For constant only one parameter is supplied to multi type table.</p>
-<p>For data only the itself is supplied as a cell.</p>
-<p>For function, the function name is supplied, along with up to three 
-parameters (from the parameters table) which are then supplied to the 
-function to calculate the background.</p>
+either define background as constant, data or a function.</p>
+<p>For constant only one background parameter is supplied to multi type table.</p>
+<p>For data an entry in the data table and an optional offset is
+required</p>
+<p>For function, the function name is supplied, along with up to five
+parameters (from the background parameters table) which are then
+passed to the function to calculate the background.</p>
 <p>In each case, the background can either be added to the simulation or
 subtracted from the data.</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.backgroundsClass.addBackground">
-<span class="sig-name descname"><span class="pre">addBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.addBackground" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">addBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">allowedNames</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.addBackground" title="Link to this definition">#</a></dt>
 <dd><p>Adds a new entry to the background table.</p>
-<p>background.addBackground(‘New Row’);
-background.addBackground(‘New Row’, ‘constant’, ‘param_name’);
-background.addBackground(‘New Row’, ‘function’, ‘function_name’, ‘param_name’);
-background.addBackground(‘New Row’, ‘data’);</p>
+<p>background.addBackground(allowedNames, ‘New Row’);
+background.addBackground(allowedNames, ‘New Row’, ‘constant’, ‘param_name’);
+background.addBackground(allowedNames, ‘New Row’, ‘function’, ‘function_name’, ‘param_name’, ‘param_name’);
+background.addBackground(allowedNames, ‘New Row’, ‘data’, ‘data_name’, ‘param_name’);</p>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.backgroundsClass.backgroundsClass">
-<span class="sig-name descname"><span class="pre">backgroundsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">parameters</span></em>, <em class="sig-param"><span class="pre">startBackground</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.backgroundsClass" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">backgroundsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">parameters</span></em>, <em class="sig-param"><span class="pre">startBackground</span></em>, <em class="sig-param"><span class="pre">allowedNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.backgroundsClass" title="Link to this definition">#</a></dt>
 <dd><p>Creates a background object. The arguments should be 
-an instance of the parameter class with the background parameters
-and a cell array of  backgrounds</p>
+an instance of the parameter class with the background
+parameters, a cell array of  backgrounds and the struct of
+allowed data and function names.</p>
 <p>params = parametersClass({‘Background Param 1’, 1e-7, 1e-6, 1e-5, false, ‘uniform’, 0, Inf});
-% background = backgroundClass(params, {‘Background 1’, ‘constant’, ‘Background Param 1’});</p>
+background = backgroundClass(params, {‘Background 1’, ‘constant’, ‘Background Param 1’}, allowedNames);</p>
 </dd></dl>
 
 <dl class="mat method">
@@ -530,10 +532,11 @@ background.removeBackground([1, 3]);</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.backgroundsClass.setBackground">
-<span class="sig-name descname"><span class="pre">setBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.setBackground" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">setBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">allowedNames</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.setBackground" title="Link to this definition">#</a></dt>
 <dd><p>Changes the value of a given background in the table. Expects the 
-index or name of background and keyword/value pairs to set.</p>
-<p>background.setBackground(1, ‘name’, ‘back 1’, ‘type’, ‘constant’, ‘value1’, ‘param_name’);</p>
+index or name of background, the struct of allowed data and
+function names, and keyword/value pairs to set.</p>
+<p>background.setBackground(1, allowedNames, ‘name’, ‘back 1’, ‘type’, ‘constant’, ‘source’, ‘param_name’);</p>
 </dd></dl>
 
 <dl class="mat method">
@@ -606,7 +609,7 @@ an index and the new name.</p>
 
   <p class="copyright">
     
-      © Copyright 2022-2024, ISIS Neutron and Muon Source.
+      © Copyright 2022-2025, ISIS Neutron and Muon Source.
       <br/>
     
   </p>
