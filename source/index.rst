@@ -1,5 +1,7 @@
 .. _RAT: 
 
+.. title:: Home
+
 .. image:: _static/banner.png
     :alt: RAT banner
 

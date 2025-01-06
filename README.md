@@ -14,4 +14,4 @@ in the requirements.txt.
 
 In the terminal with access to the python executable 
 
-    python build_docs.py
+    make html
