@@ -10,11 +10,11 @@ we can use RAT for the calculation, estimation, and fitting of quantities of int
 
 The central RAT workflow centres around two objects:
 
-* A **Definition** object (called a ``projectClass`` in MATLAB, ``Project`` in Python), which
+* A **Project** object, which
   describes our data, our models, the various parameters we may have along with their limits or priors,
   and other quantities such as bulk SLD's or backgrounds.
 
-* A **Controls** object (``controlsClass`` in MATLAB, ``Controls`` in Python), which 
+* A **Controls** object, which 
   summarises the actions which we want to do with our model. It specifies which algorithm we
   want to apply to improve our model fit, along with algorithm parameters such as maximum function evaluations, gradients, and parallelism options.
 
@@ -23,7 +23,7 @@ one will define a single model and then run it with several different controls o
 our parameter values for our model using a genetic algorithm, and then run a Bayesian analysis to obtain the posterior distributions
 for each parameter.
 
-These inputs are passed into RAT (using the function ``RAT(project, controls)`` in MATLAB and ``run(project, controls)`` in Python) to produce
+These inputs are passed into RAT to produce
 two outputs. The first is a results object which contains the results of the calculations, such as simulated reflectivities, SLD profiles or parameter distributions.
 The second is another model definition, which describes the same experiment as the input definition but with updated best-fit parameter values for parameters which
 we have chosen to optimise.
@@ -37,6 +37,31 @@ We will discuss these further in :ref:`the next chapter<chapter2>`, where we loo
           An arrow points from each of these boxes to a central box labeled 'RAT', which represents passing these input objects into
           the main RAT program. Two arrows point from this central RAT box to a pair of boxes on the right labelled Problem (Output)
           and Results, indicating the output produced by RAT after the program runs.
+
+
+The below code block gives the name of each object for each language, as well as how to run a calculation.
+
+.. tab-set-code::
+    .. code-block:: Matlab
+
+        % to create a project and controls:
+        project = projectClass();
+        controls = controlsClass();
+        
+        % to run:
+        [project, results] = RAT(project, controls);
+
+    .. code-block:: Python
+
+        import RATapi as RAT
+
+        # to create a project and controls:
+        project = RAT.Project()
+        controls = RAT.Controls()
+
+        # to run:
+        project, results = RAT.run(project, controls)
+
 
 .. note::
     If you are a RasCAL-1 user, you probably have existing RasCAL models that you would like to analyse using RAT. If so, there is no need to re-make the model from scratch. Instead, there are
@@ -237,7 +262,7 @@ Running the Model
 
 As we discussed at the beginning of the chapter, the other input to RAT is a controls object,
 which describes the data analysis operation to use and any relevant settings such as 
-algorithm hyperparameters, parallelism, and display settings.
+algorithm-specific parameters, parallelism, and display settings.
 More detail on the controls object is available at :ref:`controlsInfo`, 
 but for this demo we will just make an instance of the controls object:
 
