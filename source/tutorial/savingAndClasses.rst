@@ -159,7 +159,7 @@ Then, RAT will create a file containing all the statements needed to re-create y
 
         % THIS FILE IS GENERATED FROM RAT VIA THE "WRITESCRIPT" ROUTINE. IT IS NOT PART OF THE RAT CODE.
 
-        project = createProject(name='', calcType='non polarised', model='standard layers', geometry='air/substrate', absorption=false);
+        project = createProject(name='', calcType='normal', model='standard layers', geometry='air/substrate', absorption=false);
 
         project.setParameterValue(1, 20);
         project.setParameterLimits(1, 1, 5);

@@ -27,6 +27,7 @@ copyright = u'2022-{}, ISIS Neutron and Muon Source'.format(datetime.date.today(
 author = 'Arwel Hughes, Sethu Pastula, Alex Room, Rabiya Farooq, Paul Sharp, Stephen Nneji'
 
 # The full version, including alpha/beta/rc tags
+sys.path.insert(0, os.path.dirname(os.path.abspath(".")))
 sys.path.insert(0, os.path.dirname(os.path.abspath("..")))
 from version import get_doc_version
 doc_version = get_doc_version()
