@@ -19,7 +19,7 @@ This example can be run using the instructions below.
             **examples/miscellaneous/languages/alloyDomains.m**, 
             **examples/miscellaneous/languages/alloyDomains.m**. 
         
-        .. warning:: For Python custom functions, you will need to setup the python environment for MATLAB, see |PyEnv|
+        .. warning:: For Python custom functions, you will need to setup the python environment for MATLAB, see `Setup MATLAB to use Python <https://uk.mathworks.com/help/matlab/matlab_external/install-supported-python-implementation.html>`_
         
         **Run Script**: 
 
@@ -54,7 +54,3 @@ This example can be run using the instructions below.
             
             python RATapi.examples.languages.run_custom_file_languages.py
 
-
-.. |PyEnv| raw:: html
-
-   <a href="https://uk.mathworks.com/help/matlab/matlab_external/install-supported-python-implementation.html" target="_blank">Setup MATLAB to use Python</a>
