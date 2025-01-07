@@ -5,7 +5,7 @@ Introduction
 ============
 
 RAT is used to analyse reduced data; after an experiment has been performed and the raw data simplified into a more usable format
-(using a data reduction software such as `Mantid <https://docs.mantidproject.org/v4.2.0/techniques/ISIS_Reflectometry.html>`),
+(using a data reduction software such as `Mantid <https://docs.mantidproject.org/v4.2.0/techniques/ISIS_Reflectometry.html>`_),
 we can use RAT for the calculation, estimation, and fitting of quantities of interest. 
 
 The central RAT workflow centres around two objects:
@@ -90,7 +90,7 @@ In our example, the layers can be either deuterated or hydrogenated, and the bul
     :width: 300
     :alt: The lipid monolayer example
 
-We are going to analyze our monolayer data using a standard `slab model <https://www.reflectometry.org/learn/3_reflectometry_slab_models/the_slab_model.html>`.
+We are going to analyze our monolayer data using a standard `slab model <https://www.reflectometry.org/learn/3_reflectometry_slab_models/the_slab_model.html>`_.
 In this model, we approximate our experimental model as a series of layers with a known thickness, roughness, SLD and hydration.
 The way that this is represented in the RAT model definition is by a list of 'parameter' objects which represent a given quantity (such as a thickness or SLD),
 and then a list of 'layer' objects which group together these parameters to describe each layer. Layers are then grouped together in a 'contrast' object which
@@ -299,7 +299,7 @@ but for this demo we will just make an instance of the controls object:
             controls = RAT.Controls()
             print(controls)
 
-By default, the Controls object specifies to run an `Abelès calculation <https://www.reflectometry.org/learn/3_reflectometry_slab_models/how_we_calculate_the_reflectivity_of_a_slab_model.html>`
+By default, the Controls object specifies to run an `Abelès calculation <https://www.reflectometry.org/learn/3_reflectometry_slab_models/how_we_calculate_the_reflectivity_of_a_slab_model.html>`_
 of the reflectivity for the model, and then uses that to calculate SLD profiles. In other words we are not asking RAT to do any kind of fit with our parameters. 
 We can now pass our problem definition and controls classes to the RAT toolbox to run the calculation:
 
