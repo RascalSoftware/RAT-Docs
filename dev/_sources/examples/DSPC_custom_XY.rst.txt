@@ -7,7 +7,7 @@ This shows an example of using a :ref:`custom XY<customXYProfile>` model to anal
 Similar to :ref:`DSPC_Custom_Layers`, we can make use of the fact that the volumes, and of course the atomistic composition are known. So, 
 for lipid tails for example, then we can take a literature value for the tails volume, have a fittable parameter for the lipid area per molecule, and then the tail thickness will simply be 
 
-.. math:: Tail Thick = Tail Volume / Lipid APM.
+.. math:: \text{Tail Thick} = \frac{\text{Tail Volume}}{\text{Lipid APM}}.
 
 Since the volume is known, then the SLD of the tails is also obviously easily calculable.
 
@@ -75,11 +75,5 @@ This example can be run as a script or interactively using the instructions belo
 
 .. _ref_1:
 
-[1]  Sheker et al, J. Appl. Phys, 100, 102216 (2011) [|DOI|]
+[1]  Sheker et al, J. Appl. Phys, 100, 102216 (2011) [`DOI 10.1063/1.3661986 <https://doi.org/10.1063/1.3661986>`_]
 
-
-
-
-.. |DOI| raw:: html
-
-   <a href="https://doi.org/10.1063/1.3661986" target="_blank">DOI</a>

@@ -452,41 +452,57 @@ document.write(`
                   
   <section id="introduction">
 <span id="chapter1"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
-<p>When we are at the calculations point our data analysis - that the data has been properly reduced, and we have some idea of a
-modelling strategy, we can still then split the problem specification into two parts.</p>
+<p>RAT is used to analyse reduced data; after an experiment has been performed and the raw data simplified into a more usable format
+(using a data reduction software such as <a class="reference external" href="https://docs.mantidproject.org/v4.2.0/techniques/ISIS_Reflectometry.html">Mantid</a>),
+we can use RAT for the calculation, estimation, and fitting of quantities of interest.</p>
+<p>The central RAT workflow centres around two objects:</p>
 <ul class="simple">
-<li><p>The <strong>Model Definition</strong> describes our data, our model, the various parameters we may have along with their limits or priors,
+<li><p>A <strong>Project</strong> object, which
+describes our data, our models, the various parameters we may have along with their limits or priors,
 and other quantities such as bulk SLD’s or backgrounds.</p></li>
-<li><p>The <strong>Controls Block</strong> summarises the actions which we want to do with our model. So it specifies which algorithm we
-might want to apply to improve our model fit, along with algorithm parameters such as maximum function evaluations or gradients etc.</p></li>
+<li><p>A <strong>Controls</strong> object, which
+summarises the actions which we want to do with our model. It specifies which algorithm we
+want to apply to improve our model fit, along with algorithm parameters such as maximum function evaluations, gradients, and parallelism options.</p></li>
 </ul>
-<p>Keeping these two separate gives a high degree of flexibility as to how we can approach a data analysis problem. For example,
-suppose we have defined a Model Definition block which contains the data and model details for a given fitting problem, we
-then decide that we would like to optimise this first using a genetic algorithm, and then run a Bayesian analysis to
-obtain the parameter posterior distributions. To do all this we only need to define our model once, and run it twice
-whilst simply modifying the Controls Block to tweak the algorithm that is run in each case. Also, once we are satisfied with
-our model, we can save it or export it, and re-use this basic pattern for subsequent analysis with different,
-related data sets. Keeping the Model and Controls separate gives a high degree of flexibility as to how tasks can be
-formulated and run.</p>
-<p>So, an input into RAT always conforms to this picture: a model definition class to specify the problem, and a controls definition class that tells RAT what analysis task you would like to do:</p>
-<img alt="RAT input model" src="../_images/ratInput.png" />
-<p>The outputs are always another <em>problemDef</em> class, and a results block. The new <em>problemDef</em> class is identical to the inputted one, except with updated values of the fitted parameters (e.g. after running a fit). The results block as a set of arrays containing the results of the calculations, such as simulated reflectivities, SLD profiles or parameter distributions.
-We will discuss more about these in <a class="reference internal" href="chapter2.html#chapter2"><span class="std std-ref">next Section</span></a> where we look at the inputs and outputs in more detail.</p>
-<p>In the next section, we will look at an example calculation, in order to introduce the basics of the RAT toolbox. Before we proceed, it is useful to keep a couple of things in mind:</p>
-<ul class="simple">
-<li><dl class="simple">
-<dt><strong>Different model types</strong> - There are many possible types of model, and this is done by having more than one version of</dt><dd><p>the <em>problemDef</em> class:</p>
-<ul>
-<li><p>Standard Problem: Problem types which are well described by a non-polarised beam, with no absorption (i.e., real refractive index only).</p></li>
-<li><p>Standard Problem with imaginary refractive index.</p></li>
-<li><p>Domains Problem Type (‘incoherent summing’).</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-<p>Within each problem class, there is the option of <em>Custom Layer</em> or <em>Custom XY</em> model definitions. These will be discussed in more detail in a later section.</p>
-<p>In this section we’ll look at the project definition class in more detail, we’ll see how we can use the class methods to build and modify a model, and how to carry out the analysis.</p>
+<p>This decoupling is useful as it keeps the experimental model separate from the data analysis being performed upon it. Generally,
+one will define a single model and then run it with several different controls objects. For example, we may want to first optimise
+our parameter values for our model using a genetic algorithm, and then run a Bayesian analysis to obtain the posterior distributions
+for each parameter.</p>
+<p>These inputs are passed into RAT to produce
+two outputs. The first is a results object which contains the results of the calculations, such as simulated reflectivities, SLD profiles or parameter distributions.
+The second is another model definition, which describes the same experiment as the input definition but with updated best-fit parameter values for parameters which
+we have chosen to optimise.</p>
+<p>We will discuss these further in <a class="reference internal" href="chapter2.html#chapter2"><span class="std std-ref">the next chapter</span></a>, where we look at the inputs and outputs in more detail.</p>
+<img alt="A flowchart depicting the RAT workflow model described above. On the left, we have two boxes labeled Problem (Input) and Controls, representing the required inputs used by RAT. An arrow points from each of these boxes to a central box labeled 'RAT', which represents passing these input objects into the main RAT program. Two arrows point from this central RAT box to a pair of boxes on the right labelled Problem (Output) and Results, indicating the output produced by RAT after the program runs." src="../_images/ratInput.png" />
+<p>The below code block gives the name of each object for each language, as well as how to run a calculation.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% to create a project and controls:</span>
+<span class="n">project</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">projectClass</span><span class="p">();</span>
+<span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">();</span>
+
+<span class="c">% to run:</span>
+<span class="p">[</span><span class="n">project</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RAT</span><span class="p">(</span><span class="n">project</span><span class="p">,</span><span class="w"> </span><span class="n">controls</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-1">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">RATapi</span> <span class="k">as</span> <span class="nn">RAT</span>
+
+<span class="c1"># to create a project and controls:</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Project</span><span class="p">()</span>
+<span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">()</span>
+
+<span class="c1"># to run:</span>
+<span class="n">project</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">controls</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you are a RasCAL-1 user, you probably have existing RasCAL models that you would like to analyse using RAT. If so, there is no need to re-make the model from scratch. Instead, there are
@@ -494,27 +510,29 @@ conversion utilities (<a class="reference internal" href="../utilities/conversio
 </div>
 <section id="an-example-a-simple-model-of-a-lipid-layer">
 <h2>An example - A simple model of a lipid layer<a class="headerlink" href="#an-example-a-simple-model-of-a-lipid-layer" title="Link to this heading">#</a></h2>
-<p><strong>(a) Specifying the Model.</strong></p>
-<p>In the next section, we’ll look in detail how to set up the problem definition for a given situation. Initially though, it is
-useful to take a pre-prepared problem definition, and to see how this is then used in RAT. As an example, we’ll use some
-neutron reflectivity data for a lipid monolayer, collected at various deuterations, which we want to analyse simultaneously.</p>
+<section id="specifying-the-model">
+<h3>Specifying the Model<a class="headerlink" href="#specifying-the-model" title="Link to this heading">#</a></h3>
+<p>In <a class="reference internal" href="chapter2.html#chapter2"><span class="std std-ref">the next chapter</span></a>, we’ll look in detail how to set up the problem definition for a given situation.
+Here we will just use an existing example model to introduce how these objects are used in RAT.
+Our example data is neutron reflectivity data for a lipid monolayer (see image below), collected at various deuterations,
+which we want to analyse simultaneously.</p>
 <p>In terms of reflectivity, the interface we want to model (i.e. a monolayer at an air-water interface) is usually well modelled
-by two layers: the hydrophobic tail regions of the lipids, which locate outside the bulk water interface, and the hydrophilic
+by two layers: the hydrophobic tail regions of the lipids, which are outside the bulk water interface, and the hydrophilic
 heads which are adjacent (or embedded) in the bulk aqueous phase.</p>
-<p>In our example, the layers can be either deuterated of hydrogenated, and the bulk water can either be D2O or ACMW.</p>
+<p>In our example, the layers can be either deuterated or hydrogenated, and the bulk water can either be D2O or ACMW.</p>
 <a class="reference internal image-reference" href="../_images/lipidMonolayer.png"><img alt="The lipid monolayer example" src="../_images/lipidMonolayer.png" style="width: 300px;" />
 </a>
-<p>We are going to analyze our monolayer data using a RasCAL type <em>standard layers</em> model, in that we identify which parameters we
-need to describe the model, group these into layers (which are defined as a thickness, roughness, SLD and hydration), and then
-group the layers along with data into contrasts. The advantage of this approach is that it is simple to share parameters between
-layers, so a layer representing deuterated headgroups should share the same thickness and roughness parameters as a
-layer representing hydrogenated heads, but they should differ from each other in their SLD.</p>
-<p>The problem definition in RAT is done by making an instance of a project class object, and then using the class methods to
-set up the parameters, layers and so on this instance. The details of setting up a <em>projectClass</em> object is
-discussed in <a class="reference internal" href="chapter2.html#chapter2"><span class="std std-ref">next Section</span></a>, but for now, we’ll look at a pre-prepared example.</p>
+<p>We are going to analyze our monolayer data using a standard <a class="reference external" href="https://www.reflectometry.org/learn/3_reflectometry_slab_models/the_slab_model.html">slab model</a>.
+In this model, we approximate our experimental model as a series of layers with a known thickness, roughness, SLD and hydration.
+The way that this is represented in the RAT model definition is by a list of ‘parameter’ objects which represent a given quantity (such as a thickness or SLD),
+and then a list of ‘layer’ objects which group together these parameters to describe each layer. Layers are then grouped together in a ‘contrast’ object which
+describes the slab model and matches it up to the experimental data to which the model will be compared. In this project we have two contrasts representing
+two slab models (one for our deuterated experiment, one for our hydrogenated experiment).</p>
+<p>The code output below gives the full contents of a model definition for our experiment. After seeing it in full, we will break down each section of this
+definition and explain what it describes.</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Load in a pre-made problem Definition class</span>
 <span class="n">root</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">getappdata</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;root&#39;</span><span class="p">);</span>
@@ -526,8 +544,8 @@ MATLAB</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-1">
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO update with data</span>
 <span class="n">problem</span> <span class="o">=</span> <span class="n">get_problem</span><span class="p">()</span>
@@ -537,8 +555,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>         modelType: &#39;standard layers&#39;
     experimentName: &#39;DSPC monolayers&#39;
@@ -671,8 +689,8 @@ Matlab</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-5">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Name: ----------------------------------------------------------------------------------------------
 
@@ -801,16 +819,11 @@ Contrasts: ---------------------------------------------------------------------
 </div>
 </div>
 </div>
-<p>This may initially look quite complicated, but it is fairly self-explanatory in terms of representing a typical RasCAL
-model (and should make sense to anyone familiar to the RasCAL gui, with some thought). The various aspects of the model
-definition are grouped together, then eventually combined to make our contrasts. These groups are:</p>
-<p>1. <strong>The Parameters Group -</strong> This block defines all the parameters that we need to specify our model. In our layers case, we
-need 10 parameters to define our system: A bulk interface roughness, thickness and roughness for the headgroups and tails, and
-SLD values for the layers, depending on whether they are deuterated or not. In this block we also define the parameter values
-and their allowed ranges, and specify if they are included in the fit:-</p>
+<section id="the-parameters-group">
+<h4>1. The Parameters Group<a class="headerlink" href="#the-parameters-group" title="Link to this heading">#</a></h4>
 <div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-6">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    p               Name               Min       Value      Max     Fit? 
     __    ________________________    ______    _______    _____    _____
@@ -828,8 +841,8 @@ Matlab</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-5">
+<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-7">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+------------------------+--------+---------+-------+------+------------+-----+-------+
 | index |          name          |  min   |  value  |  max  | fit  | prior type |  mu | sigma |
@@ -849,12 +862,18 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>2. <strong>The Layers Group -</strong> Once we have our parameters, we then need to group these into layers, in traditional RasCAL style.
-For our model, we always have two layers - a headgroup and the associated tails. Each of which can be deuterated, so we set up
-4 layers in total, sharing the parameters between the layers as necessary:</p>
+<p>This block defines all the parameters that we need to specify our slab models. In our layers case, we
+need 10 parameters to define our system: A bulk interface roughness, thickness and roughness for the headgroups and tails, and
+SLD values for the layers, depending on whether they are deuterated or not. Each parameter has a given <code class="docutils literal notranslate"><span class="pre">value</span></code>, a <code class="docutils literal notranslate"><span class="pre">fit</span></code> field
+which specifies whether they are included in the fitting algorithm, and <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> values indicating the minimum and maximum
+value they can take in a fit respectively. There are also <code class="docutils literal notranslate"><span class="pre">prior_type</span></code>, <code class="docutils literal notranslate"><span class="pre">mu</span></code>, and <code class="docutils literal notranslate"><span class="pre">sigma</span></code> fields which are used in Bayesian algorithms
+to leverage prior knowledge about the model, but for non-Bayesian algorithms these fields are ignored. We will not use them here.</p>
+</section>
+<section id="the-layers-group">
+<h4>2. The Layers Group<a class="headerlink" href="#the-layers-group" title="Link to this heading">#</a></h4>
 <div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-6">
+<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-8">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    p            Name                Thickness                  SLD                   Roughness            Hydration        Hydrate with
     _    ____________________    _________________    ________________________    _________________    _________________    ____________
@@ -866,8 +885,8 @@ Matlab</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-7">
+<input id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-9">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
 | index |        name        |    thickness    |          SLD           |    roughness    |    hydration    | hydrate with |
@@ -881,17 +900,23 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>3. <strong>‘Instrument’ Parameters: (Backgrounds, scalefactors and resolutions) -</strong> These are necessary to specify our model, and are
-specified in much the same way as the parameters. The background and resolutions blocks have a more complicated format to allow
-flexibility in how these are specified, which will be discussed further in a later section. These are the parameters that appear
-in the <em>experimental Parameters</em> tab of the RasCAL model builder, and are subsequently included in the definitions of the contrasts
-at the end of the worksheet.</p>
-<p>4. <strong>Data -</strong> Each contrast has to have a dataset associated with it, whether or not it contains data or not. An empty data object
-(i.e. containing no data and just simulation ranges), means RAT will calculate the reflectivity only. When data is present, chi-squared
-will also be calculated. For our problem, we have two datasets and these are coded in to the data block ready to be incorporated into contrasts:</p>
+<p>Once we have our parameters, we then need to group these into layers. We have two slab models, each of which consists of a head
+and a tail at different deuteration levels. This means we require 4 layers total.</p>
+</section>
+<section id="instrument-parameters-backgrounds-scalefactors-and-resolutions">
+<h4>3. ‘Instrument’ Parameters: (Backgrounds, scalefactors and resolutions)<a class="headerlink" href="#instrument-parameters-backgrounds-scalefactors-and-resolutions" title="Link to this heading">#</a></h4>
+<p>The tables for scalefactors, backgrounds, resolutions and parameters thereof describe
+parameters which are not directly part of our model, but part of our experiment, such as
+the background or resolution of the instrument, or scale factors to fix systemic errors in scaling
+(with respect to absolute reflectivity). We will not discuss these in detail here, but we will note
+that background parameters, resolution parameters and scalefactors are parameters just like the ones above,
+and can be fit in the same way as part of our analysis (e.g. if the scalefactor is unknown and we would like to optimise it)!</p>
+</section>
+<section id="data">
+<h4>4. Data<a class="headerlink" href="#data" title="Link to this heading">#</a></h4>
 <div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-8">
+<input checked="checked" id="sd-tab-item-10" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-10">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>              Name                       Data                  Data Range            Simulation Range   
     ________________________    ______________________    _____________________    _____________________
@@ -902,8 +927,8 @@ Matlab</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-9">
+<input id="sd-tab-item-11" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-11">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+------------------------+----------------------+---------------------+---------------------+
 | index |          name          |         data         |      data range     |   simulation range  |
@@ -916,11 +941,17 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>5. <strong>Contrasts -</strong> Once we have defined all the components of our model, we need to group them together into contrasts. We have two datasets
+<p>Each contrast must have a dataset associated with it, whether or not it contains data or not. An empty data object
+(i.e. containing no data and just simulation ranges) means RAT will calculate the reflectivity only. When data is present, chi-squared goodness of fit
+will also be calculated. For our problem, we have two datasets and these are passed to the data block ready to be incorporated into contrasts:</p>
+</section>
+<section id="contrasts">
+<h4>5. Contrasts<a class="headerlink" href="#contrasts" title="Link to this heading">#</a></h4>
+<p>Once we have defined all the components of our model, we need to group them together into contrasts. We have two datasets
 we want to consider, so two contrasts. We have the relevant instrument parameters, and also we specify which layers are included in each contrast (<em>model</em>).</p>
 <div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-10" name="sd-tab-set-5" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-10">
+<input checked="checked" id="sd-tab-item-12" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-12">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>             p                        1                          2            
     ___________________    _______________________    ________________________
@@ -939,8 +970,8 @@ Matlab</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-11" name="sd-tab-set-5" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-11">
+<input id="sd-tab-item-13" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-13">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------+
 | index |        name        |          data         |    background   | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample |       model        |
@@ -954,13 +985,18 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p><strong>(b) Running our Model.</strong></p>
-<p>As implied from figure (1), running RAT requires not only our input model specification, but also a controls block telling RAT what to do. We
-will discuss the controls block in more detail in <a class="reference internal" href="controlsInfo.html#controlsinfo"><span class="std std-ref">A Closer Look at the Controls Class</span></a>, but for this demo we will just make an instance
-of the controls block and modify a few parameters to run the demo:</p>
+</section>
+</section>
+<section id="running-the-model">
+<h3>Running the Model<a class="headerlink" href="#running-the-model" title="Link to this heading">#</a></h3>
+<p>As we discussed at the beginning of the chapter, the other input to RAT is a controls object,
+which describes the data analysis operation to use and any relevant settings such as
+algorithm-specific parameters, parallelism, and display settings.
+More detail on the controls object is available at <a class="reference internal" href="controlsInfo.html#controlsinfo"><span class="std std-ref">A Closer Look at the Controls Class</span></a>,
+but for this demo we will just make an instance of the controls object:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-12" name="sd-tab-set-6" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-12">
+<input checked="checked" id="sd-tab-item-14" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-14">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Make an instance of controls class</span>
 <span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">();</span>
@@ -968,8 +1004,8 @@ MATLAB</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-13" name="sd-tab-set-6" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-13">
+<input id="sd-tab-item-15" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-15">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an instance of controls class</span>
 <span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">()</span>
@@ -979,8 +1015,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-14" name="sd-tab-set-7" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-14">
+<input checked="checked" id="sd-tab-item-16" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-16">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  controlsClass with properties:
 
@@ -993,8 +1029,8 @@ Matlab</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-15" name="sd-tab-set-7" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-15">
+<input id="sd-tab-item-17" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-17">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------+-----------+
 |     Property     |   Value   |
@@ -1010,21 +1046,20 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>This makes an instance of the controls Class we have called <strong>controls</strong>. The various properties of the class allow the type of calculation
-to be specified, in terms of parallelisation, choice of algorithm to be applied and so on. Here we are specifying a single threaded calculation
-of our reflectivities only (the default) - in other words we are not asking RAT to do any kind of fit with our parameters. We can now send our
-problem definition and controls classes to the RAT toolbox:</p>
+<p>By default, the Controls object specifies to run an <a class="reference external" href="https://www.reflectometry.org/learn/3_reflectometry_slab_models/how_we_calculate_the_reflectivity_of_a_slab_model.html">Abelès calculation</a>
+of the reflectivity for the model, and then uses that to calculate SLD profiles. In other words we are not asking RAT to do any kind of fit with our parameters.
+We can now pass our problem definition and controls classes to the RAT toolbox to run the calculation:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-16" name="sd-tab-set-8" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-16">
+<input checked="checked" id="sd-tab-item-18" name="sd-tab-set-9" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-18">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RAT</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">controls</span><span class="p">);</span>
 <span class="nb">disp</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-17" name="sd-tab-set-8" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-17">
+<input id="sd-tab-item-19" name="sd-tab-set-9" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-19">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">controls</span><span class="p">);</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
@@ -1033,19 +1068,19 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-18" name="sd-tab-set-9" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-18">
+<input checked="checked" id="sd-tab-item-20" name="sd-tab-set-10" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-20">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ________________________________________________________________________________________________
 
-Elapsed time is 0.168212 seconds.
+Elapsed time is 0.164585 seconds.
 
 Finished RAT ______________________________________________________________________________________________ 
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-19" name="sd-tab-set-9" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-19">
+<input id="sd-tab-item-21" name="sd-tab-set-10" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-21">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -1056,12 +1091,13 @@ Finished RAT ──────────────────────�
 </div>
 </div>
 </div>
-<p>It is worth noticing here that this is always the general format for calling RAT. There are two inputs - a problem definition and a controls block, and the result is two outputs - another copy of the problem, and a new, <em>results</em> block.</p>
-<p>The problem that returns is a copy of our input, except that the parameter values will be changed by any procedure done. So, if we run a simple fit, then the output <em>problemDef</em> will have the values of the best-fit parameters. Here, we are not doing any fitting yet, and so the output is an exact copy. Also, we overwrite our original input class with the output by using the same name (‘problem’) as an input and an output, but you don’t have to do it this way.</p>
-<p>Once we’ve run our model through RAT, then the second output (we call <em>results</em> here) is an array which contains the output of the calculation :</p>
+<p>Here, we overwrite our original input class with the output by using the same variable name (<code class="docutils literal notranslate"><span class="pre">problem</span></code>) as an input and an output,
+but you don’t have to do it this way.</p>
+<p>As discussed above, the output of this run is an updated model definition (which in this case is completely identical to the input
+definition as we did not perform any fitting) as well as the results from our calculation. The results contain various output arrays:</p>
 <div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-20" name="sd-tab-set-10" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-20">
+<input checked="checked" id="sd-tab-item-22" name="sd-tab-set-11" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-22">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>          reflectivity: {2x1 cell}
             simulation: {2x1 cell}
@@ -1077,8 +1113,8 @@ Matlab</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-21" name="sd-tab-set-10" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-21">
+<input id="sd-tab-item-23" name="sd-tab-set-11" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-23">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>reflectivity = [Data array: [51 x 2], Data array: [51 x 2]],
 simulation = [Data array: [51 x 2], Data array: [51 x 2]],
@@ -1105,18 +1141,19 @@ fitNames = [&#39;Substrate Roughness&#39;, &#39;Tails Thickness&#39;, &#39;Heads
 </div>
 </div>
 </div>
-<p>This contains the results of our calculations, so for us including the SLD profiles and reflectivities calculated from our <em>problemDef</em> class. We can now plot the output, either manually (by taking the relevant parts from the <em>results</em> array), or using one of the supplied plotting utilities:</p>
+<p>This contains the results of our calculations, so for us including the SLD profiles and reflectivities calculated from our problem class.
+We can now plot the output, either manually (by taking the relevant parts from the <code class="docutils literal notranslate"><span class="pre">results</span></code> array), or using one of the supplied plotting utilities:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-22" name="sd-tab-set-11" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-22">
+<input checked="checked" id="sd-tab-item-24" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-24">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="nb">clf</span><span class="p">;</span>
 <span class="n">plotRefSLD</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-23" name="sd-tab-set-11" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-23">
+<input id="sd-tab-item-25" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-25">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_ref_sld</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
 </pre></div>
@@ -1124,7 +1161,9 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <img alt="reflectivity and SLD plots" src="../_images/plots.png" />
-<p>We can see that our model is looking fairly sensible, but that our guess values for the parameters are pretty wide off the mark.</p>
+<p>We can see that our model is looking fairly sensible, but that our guess values for the parameters are pretty wide off the mark. Further analysis
+might include running a fit over some of our parameters using one of the other procedures available in the controls object.</p>
+</section>
 </section>
 </section>
 
@@ -1150,7 +1189,18 @@ PYTHON</label><div class="sd-tab-content docutils">
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-a-simple-model-of-a-lipid-layer">An example - A simple model of a lipid layer</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-a-simple-model-of-a-lipid-layer">An example - A simple model of a lipid layer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-the-model">Specifying the Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-parameters-group">1. The Parameters Group</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-layers-group">2. The Layers Group</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instrument-parameters-backgrounds-scalefactors-and-resolutions">3. ‘Instrument’ Parameters: (Backgrounds, scalefactors and resolutions)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data">4. Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contrasts">5. Contrasts</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-model">Running the Model</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

@@ -453,7 +453,7 @@ document.write(`
 <p>Similar to <a class="reference internal" href="DSPC_custom_layers.html#dspc-custom-layers"><span class="std std-ref">DSPC Custom Layers</span></a>, we can make use of the fact that the volumes, and of course the atomistic composition are known. So,
 for lipid tails for example, then we can take a literature value for the tails volume, have a fittable parameter for the lipid area per molecule, and then the tail thickness will simply be</p>
 <div class="math notranslate nohighlight">
-\[Tail Thick = Tail Volume / Lipid APM.\]</div>
+\[\text{Tail Thick} = \frac{\text{Tail Volume}}{\text{Lipid APM}}.\]</div>
 <p>Since the volume is known, then the SLD of the tails is also obviously easily calculable.</p>
 <p>In this model, we make distributions to represent the volume fractions of each of the components in the sample, the convert these to SLD’s, as described in <a class="reference internal" href="#ref-1"><span class="std std-ref">[1]</span></a>.</p>
 <p>We also make our volume fractions as optional outputted parameters from our file. The optional nature of this output means we can suppress it to run the model, then
@@ -503,7 +503,7 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p id="ref-1">[1]  Sheker et al, J. Appl. Phys, 100, 102216 (2011) [<a href="https://doi.org/10.1063/1.3661986" target="_blank">DOI</a>]</p>
+<p id="ref-1">[1]  Sheker et al, J. Appl. Phys, 100, 102216 (2011) [<a class="reference external" href="https://doi.org/10.1063/1.3661986">DOI 10.1063/1.3661986</a>]</p>
 </section>
 
 

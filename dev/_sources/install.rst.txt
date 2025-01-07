@@ -34,7 +34,7 @@ This section provides more detailed information about installing RAT for MATLAB 
 
         To build the mex, do the following:
 
-        1. Download the RAT source code from the |release| page.
+        1. Download the RAT source code from the `Github release page <https://github.com/RascalSoftware/RAT/releases/latest>`_.
         2. Open MATLAB and navigate to the folder containing the RAT source code.
         3. Run *addPaths.m* then run *buildScript.m* in MATLAB. This will add the necessary paths and builds the MEX file. This could take several minutes depending on your machine.
         4. The MEX files will be created in the **RAT/compile** folder.
@@ -60,15 +60,6 @@ This section provides more detailed information about installing RAT for MATLAB 
 
         .. note::
             
-            MATLAB does not support every version of Python so you have to ensure to use a Python version that is supported by your installed MATLAB, 
-            for example, the maximum supported Python version for MATLAB 2023a is 3.10 so you cannot install matlabengine for this MATLAB on Python version 3.11 and above. 
-            You can check the |python_compatibility| on the MATLAB website.
+            MATLAB does not support every version of Python so you have to ensure to use a Python version that is supported by your installed MATLAB. 
+            You can check the `Python compatibility <https://mathworks.com/support/requirements/python-compatibility.html>`_ on the MATLAB website.
 
-
-.. |release| raw:: html
-
-   <a href="https://github.com/RascalSoftware/RAT/releases/latest" target="_blank">Github Release</a>
-
-.. |python_compatibility| raw:: html
-
-   <a href="https://mathworks.com/support/requirements/python-compatibility.html" target="_blank">Python Compatibility</a>
