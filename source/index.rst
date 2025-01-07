@@ -7,13 +7,13 @@
 
 Reflectivity Algorithms Toolbox (RAT) is a toolbox for analysing neutron reflectivity data at multiple contrasts.
 It has been designed as the calculation engine for the upcoming RasCAL-2,
-which will supersede the reflectivity software |RasCAL|. 
+which will supersede the reflectivity software `RasCAL <https://github.com/arwelHughes/RasCAL_2019>`_. 
 
 It is designed to be flexible, allowing analysis using traditional layer models,
 but also using user-defined custom models, which can be parameterised by the user however they wish
 (either as an array of layers, or a continuous SLD profile). 
 It is also incredibly fast; the core algorithm code is native C++, 
-created from the MATLAB source code using |MATLAB Coder|.
+created from the MATLAB source code using `MATLAB Coder <https://www.mathworks.com/products/matlab-coder.html>`_.
 
 By separating the GUI from the toolbox, users can create and run a full analysis from a script, 
 which can be written in either our MATLAB or Python API. 
@@ -63,7 +63,7 @@ RAT contains a number of improvements over legacy RasCAL, including:
         Get more help
         ^^^
 
-        The easiest way to get help with the project is to start discussions or open an issue on |Github|.
+        The easiest way to get help with the project is to start discussions or open an issue on `Github <https://github.com/RascalSoftware/RAT>`_.
 
 
 .. toctree::
@@ -79,15 +79,3 @@ RAT contains a number of improvements over legacy RasCAL, including:
    guide
    reference/matlab/index
 
-
-.. |Github| raw:: html
-
-   <a href="https://github.com/RascalSoftware/RAT" target="_blank">Github</a>
-
-.. |RasCAL| raw:: html
-
-   <a href="https://github.com/arwelHughes/RasCAL_2019" target="_blank">RasCAL</a>
-
-.. |MATLAB Coder| raw:: html
-
-   <a href="https://www.mathworks.com/products/matlab-coder.html" target="_blank">MATLAB Coder</a>
