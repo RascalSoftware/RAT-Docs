@@ -5,78 +5,62 @@ Differential Evolution
 ======================
 
 Differential evolution (DE) is a method that optimizes a problem by iteratively trying to improve a candidate solution with regard to a given measure of quality. It is an
-example of a 'genetic algorithm', whereas the principles of Darwinian Evolution are used to 'evolve' the correct solution from an initial set of guesses.
+example of a `'genetic algorithm' <https://en.wikipedia.org/wiki/Genetic_algorithm>`_ , where the principles of Darwinian Evolution are used to 
+'evolve' the correct solution from an initial set of guesses.
 
 DE is used for multidimensional real-valued functions but does not use the gradient of the problem being optimized, which means DE does not 
 require the optimization problem to be differentiable, as is required by classic optimization methods. 
 
-DE optimizes a problem by maintaining a population of candidate solutions and creating new candidate solutions by combining existing ones according to its simple formulae, 
+DE optimizes a problem by maintaining a population of candidate solutions and creating new candidate solutions by combining existing ones according to simple formulae, 
 and then keeping whichever candidate solution has the best score or fitness on the optimization problem at hand. In this way, the optimization problem is treated as a black box 
 that merely provides a measure of quality given a candidate solution and the gradient is therefore not needed.
 
-As with all the RAT algorithms, DE is selected using the 'procedure' attribute of the controls block:-
+The way new candidate solutions are created is via taking two existing solutions, and 'mutating' them by adding a 'base vector' (usually random, see Strategies below), a
+'difference vector' calculated via the difference between the two points in a randomly-chosen parameter, and performing 'crossover', where random parameters are
+copied between the parent solutions and the mutant (with a probability determined by ``crossoverProbability``, below).
 
-.. tab-set-code::
-    .. code-block:: Matlab
+The RAT implementation is based on a MATLAB implementation by Storn, Price, Neumaier and van Zandt, modified to be compilable to C++ using MATLAB Coder.
 
-        controls = controlsClass();
-        controls.procedure = 'DE'
+For more technical information, see the `Wikipedia page for differential evolution <https://en.wikipedia.org/wiki/Differential_evolution>`_. There is also
+an `entire textbook on differential evolution by Price, Storn and Lampinen (2005) <https://link.springer.com/book/10.1007/3-540-31306-0>`_.
 
-    .. code-block:: Python
-    
-        controls = RAT.Controls(procedure='DE')
+Algorithm control parameters
+----------------------------
+The following parameters in the :ref:`Controls object<controlsInfo>` are specific to differential evolution:
 
-This reveals the DE specific parameters in controls:- 
+- ``populationSize``: The number of candidate solutions that exist at any given time.
+  This size is not particularly critical; a good initial guess is the number of fit parameters multiplied by 10. 
 
-.. tab-set::
-    :class: tab-label-hidden
-    :sync-group: code
+- ``numGenerations``: The maximum number of iterations to run.
 
-    .. tab-item:: Matlab
-        :sync: Matlab
+- ``crossoverProbability``: The probability of exchange of parameters between individuals at each generation (value between 0 and 1).
+  Note that for most practical cases, this probability should be quite high. Higher values tend to work better for correlated parameters,
+  and lower values work better for uncorrelated parameters.
 
-        .. output:: Matlab
+- ``fWeight``: A weighting value controlling the step size of mutations. The algorithm is quite sensitive to the choice of step size;
+  a good initial guess is a weight of 0.5 or higher, e.g. 0.8.
 
-            controls = controlsClass();
-            controls.procedure = 'DE';
-            disp(controls)
+- ``strategy``: The algorithm used to generate new candidates (see below).
 
-    .. tab-item:: Python 
-        :sync: Python
-        
-        .. output:: Python
+- ``targetValue``: The value of chi-squared to aim for. The algorithm will terminate if this is reached.
 
-            controls = RAT.Controls(procedure='DE')
-            print(controls)
+- ``updateFreq``: How often the algorithm should print out its progress, in iterations. 
 
-For all the algorithms in the RAT implementation of DE (see below), the parameters have the following meanings:-
+- ``updatePlotFreq``: If you are using live plotting, how often the plot should be updated. 
 
-* **populationSize**: For DE a number of sets of parameters (population) evolve using random mutation, or exchange of parameters 
-  (analogous to genes) between the members of the population.
+Strategies
+----------
+The ``strategy`` control parameter selects between variations in the actual selection algorithm. New candidates are created 
+using a 'base vector' to generate 'mutants' from existing points and the strategy defines how this base vector is calculated.
+Each strategy has a shorthand notation used in the literature, which is given in parentheses. The options are:
 
-* **numGenerations**: How many iterations of DE to run.
-
-* **crossoverProbability**: The probability of exchange of parameters between individuals at each generation (value between [0 - 1]).
-
-* **fWeight**: A weighting value controlling the step size of mutations.
-
-* **strategy**: The algorithm used (see below).
-
-* **Target Value**: The value of chi-squared to aim for (algorithm will terminate if this is reached).
-
-
-DE is also somewhat sensitive to the choice of the step size fWeight. A good initial guess is to
-choose fWeight from interval [0.5, 1], e.g. 0.8. The crossover probability (between 0 -1) helps to maintain
-the diversity of the population but should be close to 1 for most practical cases. Only separable problems do better with CR close to 0.
-If the parameters are correlated, high values of F_CR work better. The reverse is true for no correlation.
-
-The number of population members I_NP is also not very critical. A good initial guess is 10*I_D.
-
-The 'strategy' selects between variations in the actual selection algorithm. The options are:-
-
-#. DE/rand/1
-#. DE/local-to-best/1
-#. DE/best/1 with jitter
-#. DE/rand/1 with per-vector-dither
-#. DE/rand/1 with per-generation-dither
-#. DE/rand/1 either-or-algorithm
+#. Random (DE/rand/1): The base vector is random.
+#. Local-to-best (DE/local-to-best/1): The base vector is a combination of one randomly-selected local solution and the best solution of the previous iteration.
+   This approach tries to strike a balance between robustness and fast convergence.
+#. Best with jitter (DE/best/1 with jitter): The base vector is the best solution of the previous iteration, with a random small perturbation applied.
+#. Random with per-vector dither (DE/rand/1 with per-vector-dither): The base vector is random, with a random scaling factor applied to each mutant. This scaling
+   factor is different for each mutant.
+#. Random with per-generation dither (DE/rand/1 with per-generation-dither): The base vector is random, with a random scaling factor applied to each mutant.
+   This scaling factor is the same for every mutant, and randomised every generation.
+#. Random either-or algorithm (DE/rand/1 either-or-algorithm): The base vector is randomly chosen from either a pure random
+   mutation, or a pure recombination of parent parameter values.
