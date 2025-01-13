@@ -79,26 +79,61 @@ SLD with any associated problem. If we select 'simplex' as the algorithm, a diff
 which allow the user to set things such as tolerance targets and so on. There is a different set of options for each algorithm.
 We will now look at each of the available options in turn.
 
-******************************
 Methods for the controls class
-******************************
+------------------------------
 
-Parallel
-========
-TODO
+These are the general parameters for the controls class. For algorithm-specific parameters see the page for each algorithm in the
+:ref:`algorithms section<algorithms>`.
 
-Procedure
-=========
-TODO
+``procedure``
+^^^^^^^^^^^^^
+Which algorithm RAT should run. Currently the options are:
 
-calcSldDuringFit
-================
-TODO
+- ``"calculate"``: A simple `Abelès calculation <https://www.reflectometry.org/learn/3_reflectometry/slab_models/how_we_calculate_the_reflectivity_of_a_slab_model.html>`_
+  of reflectivity for the model, with chi-squared fit calculated between the model and the data. 
+- ``"simplex"``: Optimisation via the Nelder-Mead :ref:`simplex method<simplex>`.
+- ``"de"``: Optimisation via :ref:`differential evolution<DE>`.
+- ``"ns"``: Bayesian optimisation via :ref:`nested sampling<nestedSampling>`.
+- ``"dream"``: Bayesian optimisation via the :ref:`DREAM algorithm<DREAM>`.
 
-display
-=======
-TODO
+``parallel``
+^^^^^^^^^^^^
+How the calculation should be :ref:`parallelised<parallelisation>`. Currently the options are:
 
-resamPars
-=========
-TODO
+- ``"single"``: do not parallelise.
+- ``"contrasts"``: each contrast gets its own calculation thread.
+- ``"points"``: each contrast is split into a number of sections, and each section gets its own calculation thread.
+
+Which option is more efficient will depend on the number of contrasts and the size of your data.
+
+``calcSldDuringFit``
+^^^^^^^^^^^^^^^^^^^^
+A boolean (true or false) value which determines whether SLD will be calculated during the fit
+(for :ref:`live plotting<livePlot>` etc.)
+
+``display``
+^^^^^^^^^^^
+How much RAT should print to the terminal. The current options are:
+
+- ``"off"``: No display.
+- ``"iter"``: Give information after every iteration for iterative algorithms.
+- ``"notify"``:
+- ``"final"``: Just provide information when the calculation has finished.
+
+Resampling parameters (``resampleMinAngle`` and ``resampleNPoints``)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The two parameters ``resampleMinAngle`` and ``resampleNPoints`` decide how
+adaptive resampling will be used on the SLD profiles. 
+See the :ref:`resampling page<resampling>` for more details. In short:
+
+- ``resampleMinAngle``: For each data point, the algorithm draws two lines from that data point to its neighbouring points on either side. 
+  If the angle between those lines is smaller than ``resampleMinAngle``, then the algorithm will refine over that point. 
+
+  In practice, this means that resampling happens for points which are significantly higher or lower than their neighbours
+  (i.e. the gradient of the function has changed rapidly)
+  and ``resampleMinAngle`` controls the sensitivity of this.
+  
+  ``resampleMinAngle`` is defined in the units of 'radians divided by pi', i.e. ``resampleMinAngle = 0.9`` refines where the adjacent points form an angle smaller than :math:`0.9 \pi` radians.
+
+- ``resampleNPoints``: The initial number of domain points (layers) sampled by the algorithm at the start.
+
