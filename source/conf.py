@@ -39,7 +39,7 @@ doc_version = get_doc_version()
 # add extensions path for snippets
 sys.path.append(os.path.abspath("./_ext"))
 
-extensions = ['sphinxcontrib.matlab', 'sphinx.ext.napoleon', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary', 'sphinxcontrib.autodoc_pydantic', 'sphinx_design', 'sphinx_copybutton', 'snippets', 'enum_tools.autoenum']
+extensions = ['sphinxcontrib.matlab', 'sphinx.ext.napoleon', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary', 'sphinxcontrib.autodoc_pydantic', 'sphinx_design', 'sphinx_copybutton', 'snippets', 'enum_tools.autoenum', 'nbsphinx']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -81,6 +81,7 @@ html_sidebars = {
 
 copybutton_prompt_text = r">>> |>> "
 copybutton_prompt_is_regexp = True
+<<<<<<< HEAD
 
 autodoc_typehints = "description"
 
@@ -104,3 +105,5 @@ autodoc_pydantic_model_undoc_members = False
 
 # get field documentation from field docstrings
 autodoc_pydantic_field_doc_policy = "docstring"
+=======
+>>>>>>> c63ed898 (rearranged examples to make way for python)
