@@ -79,8 +79,8 @@ SLD with any associated problem. If we select 'simplex' as the algorithm, a diff
 which allow the user to set things such as tolerance targets and so on. There is a different set of options for each algorithm.
 We will now look at each of the available options in turn.
 
-Methods for the controls class
-------------------------------
+General parameters for the controls class
+-----------------------------------------
 
 These are the general parameters for the controls class. For algorithm-specific parameters see the page for each algorithm in the
 :ref:`algorithms section<algorithms>`.

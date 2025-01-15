@@ -10,23 +10,21 @@ geometric method, and is probably easiest to understand by means of a visualisat
 For two variables, a simplex is a triangle, and the method is a pattern search that compares function values at the three vertices of a
 triangle. The worst vertex, where :math:`f(x, y)` is largest, is rejected and replaced with a new
 vertex. A new triangle is formed and the search is continued. The process generates
-a sequence of triangles (which might have different shapes), for which the function
+a sequence of triangles with different sizes and positions, for which the function
 values at the vertices get smaller and smaller. The size of the triangles is reduced and
 the coordinates of the minimum point are found.
 
 The algorithm can extend to any number of dimensions, where to find the minimum of a function of N variables the simplex is then a generalized triangle (`a simplex <https://en.wikipedia.org/wiki/Simplex>`_)
 in N dimensions. It is effective and computationally compact, and has the advantage of not requiring the gradient of the underlying function to be defined. 
 
-The main advantage of simplex methods for reflectivity is that they are robust in the face of competing local minima, and quickly converge to 
-the region where the true global minimum lies. Finding the absolute local minimum for high dimensional problems can be slow however (i.e. simplex methods
-are really Global Minimisers, and can be slow to converge locally). 
+This algorithm is often one of the best ways to "get something working quickly", [#press2007]_ for example you may use it as a 'bootstrap' to get close to a minimum
+quickly before adjusting your parameter bounds and getting more detailed results from an algorithm such as :ref:`differential evolution<DE>` or :ref:`DREAM<DREAM>`.
 
 The RAT implementation of Nelder-Mead Simplex is based on the `MATLAB implementation "fminsearch" <https://www.mathworks.com/help/matlab/ref/fminsearch.html>`_.
 
 If you would like more technical information on Nelder-Mead simplex methods, consider the 
 `Wikipedia page for the Nelder-Mead method <https://en.wikipedia.org/wiki/Nelder%E2%80%93Mead_method>`_
-and the sources therein, or books such as Numerical Recipes (Press et al. 2007, chapter 10.5), 
-which is available online `here <https://numerical.recipes>`_.
+and the sources therein, or books such as Numerical Recipes (Press et al. 2007, chapter 10.5). [#press2007]_
 
 Algorithm control parameters
 ----------------------------
@@ -47,3 +45,8 @@ The following parameters in the :ref:`Controls object<controlsInfo>` are specifi
 
 - ``updatePlotFreq``: If you are using live plotting, how often the plot should be updated. 
 
+.. [#press2007]
+   Press, William H.; Teukolsky, Saul A.; Vetterling, William T.; Flannery, Brian P. (2007),
+   "Numerical Recipes: Third Edition".
+   ISBN: 0-521-88068-8,
+   URL: https://numerical.recipes
