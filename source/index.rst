@@ -26,8 +26,7 @@ RAT contains a number of improvements over legacy RasCAL, including:
 * Advanced interface microslicing using :ref:`adaptive resampling<resampling>`
 * Option to write :ref:`custom models<customLanguages>` in MATLAB, Python or C++
 * Custom models for background and resolution functions (not yet functional)
-* Fast Bayesian analysis using :ref:`DREAM<DREAM>` or the :ref:`external Paramonte Sampler<paramonte>`
-* Parallel Bayes using Paramonte via 'mpiexcec'
+* Fast Bayesian analysis using :ref:`DREAM<DREAM>`
 * An integrated :ref:`Nested sampler<nestedSampling>` for Bayesian model selection
 * Fully validated against ORSO examples
 * Ability to :ref:`load and run RasCAL-1 projects<conversionFuncs>` (usually) without modification
