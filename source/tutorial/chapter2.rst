@@ -1315,7 +1315,7 @@ and modify the output to only display the final result (rather than each iterati
         controls.procedure = 'simplex';
         controls.parallel = 'contrasts';
         controls.display = 'final';
-        [problem, results] = RAT(problem, controls)
+        [problem, results] = RAT(problem, controls);
     
     .. code-block:: Python
 

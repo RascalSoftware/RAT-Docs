@@ -364,7 +364,7 @@ We can now plot the output, either manually (by taking the relevant parts from t
 .. tab-set-code::
     .. code-block:: Matlab
 
-        fig(1); clf;
+        figure(1); clf;
         plotRefSLD(problem, results)
 
     .. code-block:: Python
