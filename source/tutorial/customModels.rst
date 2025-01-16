@@ -55,7 +55,7 @@ In terms of the SLD's, because the volume and composition of each layer is known
 
 The figure shows the system we are measuring. We have a single, hydrogenated DSPC bilayer supported on a silicon surface. The silicon is, as always, coated with an oxide layer. The bilayer may or may not be complete (i.e. partially hydrated) so we will need hydration parameters, and there is the possibility of a thin water layer between the bilayer and the substrate. We also need some roughness parameters, both for the substrate and the bilayer itself. We will build a custom model for this and use it to analyse the bilayer data at three contrasts.
 
-.. image:: ../images/userManual/chapter3/bilayer.png
+.. image:: ../images/tutorial/bilayer.png
     :alt: Bilayer on silicon diagram
 
 Looking at our system, we can see that we are going to need 8 parameters in total:
@@ -765,7 +765,7 @@ The following code snippet we'll make an example of a simple layer....
         plt.axis((0 100 0 1.5))
         plt.show()
 
-.. image:: ../images/userManual/chapter3/simpleLayer.png
+.. image:: ../images/tutorial/simpleLayer.png
     :width: 800
     :alt: simple layer
 
@@ -947,12 +947,12 @@ run it and plot the results
         problem,resuts = RAT.run(problem, controls)
         RAT.plotting.plot_ref_sld(problem, results)
 
-.. image:: ../images/userManual/chapter3/customTwoLayerFig.png
+.. image:: ../images/tutorial/customTwoLayerFig.png
     :width: 500
     :alt: Dtwo layers XY
 
 When sent to RAT, customXY SLD profiles are automatically resampled into layers with adaptive resampling:
 
-.. image:: ../images/userManual/chapter3/twoLayerRAT.png
+.. image:: ../images/tutorial/twoLayerRAT.png
     :width: 800
     :alt: Displays the final customXY result
