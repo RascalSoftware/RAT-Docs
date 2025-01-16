@@ -1303,7 +1303,7 @@ We then send all of this to RAT, and plot the output:
 
         
 
-.. image:: ../images/userManual/chapter2/plot1.png
+.. image:: ../images/tutorial/plotBeforeOptimization.png
     :alt: Displays reflectivity and SLD plot
 
 To do a fit, we change the *procedure* attribute of the controls class to **simplex**. We will also change the 'parallel' option to 'contrasts', so that each contrast gets its own calculation thread, 
@@ -1383,5 +1383,5 @@ We can now plot the results of our fit:
 
         RAT.plotting.plot_ref_sld(problem, results)
 
-.. image:: ../images/userManual/chapter2/plot2.png
+.. image:: ../images/tutorial/plotAfterOptimization.png
     :alt: Displays reflectivity and SLD plot
