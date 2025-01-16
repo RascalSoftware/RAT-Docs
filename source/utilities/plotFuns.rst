@@ -37,7 +37,7 @@ If this plot is not cleared before subsequent plots, then *plotRefSLD* will over
 
     .. code-block:: Python
         
-        controls = RAT.Controls(procedure='DE', display='final', parallel='contrast')
+        controls = RAT.Controls(procedure='DE', display='final', parallel='contrasts')
         problem, results = RAT.run(problem, controls)
         RAT.plotting.plot_ref_sld(problem, controls)
 
