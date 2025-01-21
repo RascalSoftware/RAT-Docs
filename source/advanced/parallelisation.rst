@@ -4,8 +4,7 @@
 Parallelising Calculations
 ==========================
 
-RAT has in-built parallelisation for speeding up calculations. It will either parallelise over points and this is easily selectable from the controls class. In addition, it is possible to use the external Paramonte sampler
-to run Bayesian analysis in parallel using 'mpiexcec'
+RAT has in-built parallelisation for speeding up calculations. It will either parallelise over points or contrasts and this is easily selectable from the controls class.
 
 ************************
 Internal Parallelisation
@@ -47,6 +46,3 @@ The parallelisation scheme is chosen from the controls class:
 Generally speaking, unless you have an inordinate amount of points in your datafiles, the greatest speed increase always results from parallelising over contrasts. In fact, if the number of points in your data
 is relatively small, parallelising over points can even slow things down because of the extra calculation overhead! It is a good idea to verify which is fastest for a give problem at the start of an analysis.
 
-******************************************
-Parallel Bayes with MIPEXCEC and Paramonte
-******************************************
