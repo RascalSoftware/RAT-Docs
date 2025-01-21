@@ -53,9 +53,9 @@ The following parameters in the :ref:`Controls object<controlsInfo>` are specifi
 
 - ``targetValue``: The value of chi-squared to aim for. The algorithm will terminate if this is reached.
 
-- ``updateFreq``: How often the algorithm should print out its progress, in iterations. 
+- ``updateFreq``: The number of iterations between printing progress updates to the terminal. 
 
-- ``updatePlotFreq``: If you are using live plotting, how often the plot should be updated. 
+- ``updatePlotFreq``: The number of iterations between updates to live plots. 
 
 
 .. _deStrategies :

@@ -41,9 +41,9 @@ The following parameters in the :ref:`Controls object<controlsInfo>` are specifi
 
 - ``maxIterations``: The maximum number of iterations that can be performed before the algorithm terminates.
 
-- ``updateFreq``: How often the algorithm should print out its progress, in iterations. 
+- ``updateFreq``: The number of iterations between printing progress updates to the terminal. 
 
-- ``updatePlotFreq``: If you are using live plotting, how often the plot should be updated. 
+- ``updatePlotFreq``: The number of iterations between updates to live plots. 
 
 .. [#press2007]
    Press, William H.; Teukolsky, Saul A.; Vetterling, William T.; Flannery, Brian P. (2007),
