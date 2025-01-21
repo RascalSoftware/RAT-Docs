@@ -44,6 +44,7 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=881e7dcd"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'algorithms/index';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -360,7 +361,6 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="DE.html">Differential Evolution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DREAM.html">Bayesian Analysis - DREAM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nestedSampling.html">Bayesian Model Selection - Nested Sampling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="paramonte.html">The Paramonte Sampler</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/index.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -446,15 +446,26 @@ document.write(`
   <section id="algorithms">
 <span id="id1"></span><h1>Algorithms<a class="headerlink" href="#algorithms" title="Link to this heading">#</a></h1>
 <p>RAT has 4 built-in algorithms for data fitting and analysis. The Nelder-Mead Simplex and Differential Evolution
-are traditional minimisers, whereas the other two (DREAM and Nested Sampling) are Bayes samplers. The use
-of an external library (<a class="reference external" href="https://www.cdslab.org/paramonte/">Paramonte</a>.) for Bayesian sampling is also supported.</p>
+are traditional minimisers, whereas the other two (DREAM and Nested Sampling) are Bayes samplers.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="simplex.html">Nelder-Mead Simplex</a></li>
-<li class="toctree-l1"><a class="reference internal" href="DE.html">Differential Evolution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="DREAM.html">Bayesian Analysis - DREAM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nestedSampling.html">Bayesian Model Selection - Nested Sampling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="paramonte.html">The Paramonte Sampler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simplex.html">Nelder-Mead Simplex</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="simplex.html#algorithm-control-parameters">Algorithm control parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DE.html">Differential Evolution</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DE.html#algorithm-control-parameters">Algorithm control parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DE.html#strategies">Strategies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DREAM.html">Bayesian Analysis - DREAM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DREAM.html#algorithm-control-parameters">Algorithm control parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nestedSampling.html">Bayesian Model Selection - Nested Sampling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="nestedSampling.html#algorithm-control-parameters">Algorithm control parameters</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>

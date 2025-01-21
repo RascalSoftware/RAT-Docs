@@ -44,6 +44,7 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=881e7dcd"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'algorithms/DE';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -254,6 +255,10 @@ document.write(`
   
 
   
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
 </div>
 
     </header>
@@ -360,7 +365,6 @@ document.write(`
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Differential Evolution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DREAM.html">Bayesian Analysis - DREAM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nestedSampling.html">Bayesian Model Selection - Nested Sampling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="paramonte.html">The Paramonte Sampler</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/index.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -449,103 +453,79 @@ document.write(`
   <section id="differential-evolution">
 <span id="de"></span><h1>Differential Evolution<a class="headerlink" href="#differential-evolution" title="Link to this heading">#</a></h1>
 <p>Differential evolution (DE) is a method that optimizes a problem by iteratively trying to improve a candidate solution with regard to a given measure of quality. It is an
-example of a ‘genetic algorithm’, whereas the principles of Darwinian Evolution are used to ‘evolve’ the correct solution from an initial set of guesses.</p>
+example of a <a class="reference external" href="https://en.wikipedia.org/wiki/Genetic_algorithm">‘genetic algorithm’</a> , where the principles of Darwinian Evolution are used to
+‘evolve’ the correct solution from an initial set of guesses.</p>
 <p>DE is used for multidimensional real-valued functions but does not use the gradient of the problem being optimized, which means DE does not
 require the optimization problem to be differentiable, as is required by classic optimization methods.</p>
-<p>DE optimizes a problem by maintaining a population of candidate solutions and creating new candidate solutions by combining existing ones according to its simple formulae,
+<p>DE optimizes a problem by maintaining a population of candidate solutions and creating new candidate solutions by combining existing ones according to simple formulae,
 and then keeping whichever candidate solution has the best score or fitness on the optimization problem at hand. In this way, the optimization problem is treated as a black box
 that merely provides a measure of quality given a candidate solution and the gradient is therefore not needed.</p>
-<p>As with all the RAT algorithms, DE is selected using the ‘procedure’ attribute of the controls block:-</p>
-<div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
-MATLAB</label><div class="sd-tab-content docutils">
-<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">();</span>
-<span class="n">controls</span><span class="p">.</span><span class="n">procedure</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;DE&#39;</span>
-</pre></div>
-</div>
-</div>
-<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-1">
-PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">(</span><span class="n">procedure</span><span class="o">=</span><span class="s1">&#39;DE&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>This reveals the DE specific parameters in controls:-</p>
-<div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
-Matlab</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  controlsClass with properties:
-
-                parallel: &#39;single&#39;
-               procedure: &#39;de&#39;
-        calcSldDuringFit: 0
-                 display: &#39;iter&#39;
-              updateFreq: 1
-          updatePlotFreq: 20
-          populationSize: 20
-                 fWeight: 0.5000
-    crossoverProbability: 0.8000
-                strategy: 4
-             targetValue: 1
-          numGenerations: 500
-        resampleMinAngle: 0.9000
-         resampleNPoints: 50
-</pre></div>
-</div>
-</div>
-<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
-Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+----------------------+---------------+
-|       Property       |     Value     |
-+----------------------+---------------+
-|      procedure       |       de      |
-|       parallel       |     single    |
-|   calcSldDuringFit   |     False     |
-|   resampleMinAngle   |      0.9      |
-|   resampleNPoints    |       50      |
-|       display        |      iter     |
-|    populationSize    |       20      |
-|       fWeight        |      0.5      |
-| crossoverProbability |      0.8      |
-|       strategy       | vector dither |
-|     targetValue      |      1.0      |
-|    numGenerations    |      500      |
-|      updateFreq      |       1       |
-|    updatePlotFreq    |       20      |
-+----------------------+---------------+
-</pre></div>
-</div>
-</div>
-</div>
-<p>For all the algorithms in the RAT implementation of DE (see below), the parameters have the following meanings:-</p>
-<ul class="simple">
-<li><p><strong>populationSize</strong>: For DE a number of sets of parameters (population) evolve using random mutation, or exchange of parameters
-(analogous to genes) between the members of the population.</p></li>
-<li><p><strong>numGenerations</strong>: How many iterations of DE to run.</p></li>
-<li><p><strong>crossoverProbability</strong>: The probability of exchange of parameters between individuals at each generation (value between [0 - 1]).</p></li>
-<li><p><strong>fWeight</strong>: A weighting value controlling the step size of mutations.</p></li>
-<li><p><strong>strategy</strong>: The algorithm used (see below).</p></li>
-<li><p><strong>Target Value</strong>: The value of chi-squared to aim for (algorithm will terminate if this is reached).</p></li>
+<p>The way new candidate solutions are created is via taking two existing solutions, and ‘mutating’ them by adding a ‘base vector’ (usually random, see <a class="reference internal" href="#destrategies"><span class="std std-ref">Strategies</span></a> below), a
+‘difference vector’ calculated via the difference between the two points in a randomly-chosen parameter, and performing ‘crossover’, where random parameters are
+copied between the parent solutions and the mutant (with a probability determined by <code class="docutils literal notranslate"><span class="pre">crossoverProbability</span></code>, below).</p>
+<p>The RAT implementation is based on a MATLAB implementation by Storn, Price, Neumaier and van Zandt, modified to be compilable to C++ using MATLAB Coder.</p>
+<p>For more technical information, see the <a class="reference external" href="https://en.wikipedia.org/wiki/Differential_evolution">Wikipedia page for differential evolution</a>. There is also
+an entire textbook on differential evolution by Price, Storn and Lampinen (2005). <a class="footnote-reference brackets" href="#price2005" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<section id="algorithm-control-parameters">
+<h2>Algorithm control parameters<a class="headerlink" href="#algorithm-control-parameters" title="Link to this heading">#</a></h2>
+<p>The following parameters in the <a class="reference internal" href="../tutorial/controlsInfo.html#controlsinfo"><span class="std std-ref">Controls object</span></a> are specific to differential evolution:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">populationSize</span></code>: The number of candidate solutions that exist at any given time.
+The original MATLAB code (Storn et al.) suggests that this size is not particularly critical, and that
+a good initial guess is the number of fit parameters multiplied by 10.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numGenerations</span></code>: The maximum number of iterations to run.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">crossoverProbability</span></code>: The probability of exchange of parameters between individuals at each generation (value between 0 and 1).
+The original MATLAB code (Storn et al.) suggests that this should be high for most practical applications; it should be higher for correlated parameters,
+and lower for uncorrelated parameters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fWeight</span></code>: A weighting value controlling the step size of mutations. The algorithm is quite sensitive to the choice of step size.</p>
+<p>Storn, Price and Lampinen (2005) <a class="footnote-reference brackets" href="#price2005" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> suggest 1 as an “empirically derived upper limit, in the sense that no function [they have seen] has required [fWeight] &gt; 1”.
+Zaharie (2002) <a class="footnote-reference brackets" href="#zaharie2002" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> calculates that population variance decreases (and so the population eventually becomes homogeneous) if</p>
+<div class="math notranslate nohighlight">
+\[F &lt; \sqrt{\frac{1 - P_{cr}/2}{N_p}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(P_{cr}\)</span> is the crossover probability (<code class="docutils literal notranslate"><span class="pre">crossoverProbability</span></code>) and <span class="math notranslate nohighlight">\(N_p\)</span> is the population size (<code class="docutils literal notranslate"><span class="pre">populationSize</span></code>). This expression
+gives a rule of thumb for a smallest ‘good’ value.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">strategy</span></code>: The algorithm used to generate new candidates (see <a class="reference internal" href="#destrategies"><span class="std std-ref">below</span></a>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">targetValue</span></code>: The value of chi-squared to aim for. The algorithm will terminate if this is reached.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updateFreq</span></code>: The number of iterations between printing progress updates to the terminal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updatePlotFreq</span></code>: The number of iterations between updates to live plots.</p></li>
 </ul>
-<p>DE is also somewhat sensitive to the choice of the step size fWeight. A good initial guess is to
-choose fWeight from interval [0.5, 1], e.g. 0.8. The crossover probability (between 0 -1) helps to maintain
-the diversity of the population but should be close to 1 for most practical cases. Only separable problems do better with CR close to 0.
-If the parameters are correlated, high values of F_CR work better. The reverse is true for no correlation.</p>
-<p>The number of population members I_NP is also not very critical. A good initial guess is 10*I_D.</p>
-<p>The ‘strategy’ selects between variations in the actual selection algorithm. The options are:-</p>
+</section>
+<section id="strategies">
+<span id="destrategies"></span><h2>Strategies<a class="headerlink" href="#strategies" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">strategy</span></code> control parameter selects between variations in the actual selection algorithm. New candidates are created
+using a ‘base vector’ to generate ‘mutants’ from existing points and the strategy defines how this base vector is calculated.
+Each strategy has a shorthand notation used in the literature, which is given in parentheses. The options are:</p>
 <ol class="arabic simple">
-<li><p>DE/rand/1</p></li>
-<li><p>DE/local-to-best/1</p></li>
-<li><p>DE/best/1 with jitter</p></li>
-<li><p>DE/rand/1 with per-vector-dither</p></li>
-<li><p>DE/rand/1 with per-generation-dither</p></li>
-<li><p>DE/rand/1 either-or-algorithm</p></li>
+<li><p><strong>Random (DE/rand/1)</strong>: The base vector is random.</p></li>
+<li><p><strong>Local-to-best (DE/local-to-best/1)</strong>: The base vector is a combination of one randomly-selected local solution and the best solution of the previous iteration.
+This approach tries to strike a balance between robustness and fast convergence.</p></li>
+<li><p><strong>Best with jitter (DE/best/1 with jitter)</strong>: The base vector is the best solution of the previous iteration, with a small random perturbation applied.</p></li>
+<li><p><strong>Random with per-vector dither (DE/rand/1 with per-vector-dither)</strong>: The base vector is random, with a random scaling factor applied to each mutant. This scaling
+factor is different for each mutant.</p></li>
+<li><p><strong>Random with per-generation dither (DE/rand/1 with per-generation-dither)</strong>: The base vector is random, with a random scaling factor applied to each mutant.
+This scaling factor is the same for every mutant, and randomised every generation.</p></li>
+<li><p><strong>Random either-or algorithm (DE/rand/1 either-or-algorithm)</strong>: The base vector is randomly chosen from either a pure random
+mutation, or a pure recombination of parent parameter values.</p></li>
 </ol>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="price2005" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
+<p>Price, Kenneth V.; Storn, Rainer M.; Lampinen, Jouni A. (2005),
+“Differential Evolution: A Practical Approach to Global Optimisation”.
+ISBN: 978-3-540-20950-8,
+URL: <a class="reference external" href="https://link.springer.com/book/10.1007/3-540-31306-0">https://link.springer.com/book/10.1007/3-540-31306-0</a></p>
+</aside>
+<aside class="footnote brackets" id="zaharie2002" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
+<p>Zaharie, Daniela (2002),
+“Critical values for the control parameters of differential evolution algorithms”.
+Journal: Proc. of MENDEL 2002, 8th Int. Conf. on Soft Computing 2002,
+URL: <a class="reference external" href="https://staff.fmi.uvt.ro/~daniela.zaharie/mendel02.pdf">https://staff.fmi.uvt.ro/~daniela.zaharie/mendel02.pdf</a></p>
+</aside>
+</aside>
+</section>
 </section>
 
 
@@ -559,7 +539,23 @@ If the parameters are correlated, high values of F_CR work better. The reverse i
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm-control-parameters">Algorithm control parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strategies">Strategies</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

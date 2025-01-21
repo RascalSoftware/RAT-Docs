@@ -44,6 +44,7 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=881e7dcd"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'algorithms/simplex';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -254,6 +255,10 @@ document.write(`
   
 
   
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
 </div>
 
     </header>
@@ -360,7 +365,6 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="DE.html">Differential Evolution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DREAM.html">Bayesian Analysis - DREAM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nestedSampling.html">Bayesian Model Selection - Nested Sampling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="paramonte.html">The Paramonte Sampler</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/index.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -448,88 +452,47 @@ document.write(`
                   
   <section id="nelder-mead-simplex">
 <span id="simplex"></span><h1>Nelder-Mead Simplex<a class="headerlink" href="#nelder-mead-simplex" title="Link to this heading">#</a></h1>
-<p>The Nelder-Mead simplex method for finding a local minimum of a function of several variables. For two variables, a simplex is a triangle, and
-the method is a pattern search that compares function values at the three vertices of a
-triangle. The worst vertex, where f (x, y) is largest, is rejected and replaced with a new
+<p>The Nelder-Mead simplex method is a popular heuristic for finding a local minimum of a function of several variables. It is a very intuitive
+geometric method, and is probably easiest to understand by means of a visualisation (e.g. <a class="reference external" href="https://alexdowad.github.io/visualizing-nelder-mead/">this interactive explanation</a>)</p>
+<p>For two variables, a simplex is a triangle, and the method is a pattern search that compares function values at the three vertices of a
+triangle. The worst vertex, where <span class="math notranslate nohighlight">\(f(x, y)\)</span> is largest, is rejected and replaced with a new
 vertex. A new triangle is formed and the search is continued. The process generates
-a sequence of triangles (which might have different shapes), for which the function
+a sequence of triangles with different sizes and positions, for which the function
 values at the vertices get smaller and smaller. The size of the triangles is reduced and
 the coordinates of the minimum point are found.</p>
-<p>The algorithm can extend to any number of dimensions, where to find the minimum of a function of N variables the simplex is then a generalized triangle in N dimensions.
-It is effective and computationally compact, and has the advantage of not requiring the gradient of the underlying function to be defined.</p>
-<p>The main advantage of simplex methods for reflectivity is that they are robust in the face of competing local minima, and quickly converge to
-the region where the true global minimum lies. Finding the absolute local minimum for high dimensional problems can be slow however (i.e. simplex methods
-are really Global Minimisers, and can be slow to converge locally).</p>
-<p>To select the simplex in RAT, we use the ‘procedure’ attribute of the controls block:-</p>
-<div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
-MATLAB</label><div class="sd-tab-content docutils">
-<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">();</span>
-<span class="n">controls</span><span class="p">.</span><span class="n">procedure</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;simplex&#39;</span>
-</pre></div>
-</div>
-</div>
-<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-1">
-PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">(</span><span class="n">procedure</span><span class="o">=</span><span class="s1">&#39;simplex&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Then, a number of additional fields become visible in the controls block, which are the parameters
-for the simplex:-</p>
-<div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
-Matlab</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  controlsClass with properties:
-
-            parallel: &#39;single&#39;
-           procedure: &#39;simplex&#39;
-    calcSldDuringFit: 0
-             display: &#39;iter&#39;
-          xTolerance: 1.0000e-06
-       funcTolerance: 1.0000e-06
-        maxFuncEvals: 10000
-       maxIterations: 1000
-          updateFreq: 1
-      updatePlotFreq: 20
-    resampleMinAngle: 0.9000
-     resampleNPoints: 50
-</pre></div>
-</div>
-</div>
-<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
-Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------+---------+
-|     Property     |  Value  |
-+------------------+---------+
-|    procedure     | simplex |
-|     parallel     |  single |
-| calcSldDuringFit |  False  |
-| resampleMinAngle |   0.9   |
-| resampleNPoints  |    50   |
-|     display      |   iter  |
-|    xTolerance    |  1e-06  |
-|  funcTolerance   |  1e-06  |
-|   maxFuncEvals   |  10000  |
-|  maxIterations   |   1000  |
-|    updateFreq    |    1    |
-|  updatePlotFreq  |    20   |
-+------------------+---------+
-</pre></div>
-</div>
-</div>
-</div>
-<p>Many of these have been described in <a class="reference internal" href="../tutorial/controlsInfo.html#controlsinfo"><span class="std std-ref">A Closer Look at the Controls Class</span></a>, but a few here are specific to the simplex:-</p>
-<p>tolX -</p>
-<p>tolFun -</p>
-<p>maxFunEvals -</p>
-<p>updateFreq -</p>
-<p>updatePlotFreq -</p>
+<p>The algorithm can extend to any number of dimensions, where to find the minimum of a function of N variables the simplex is then a generalized triangle (<a class="reference external" href="https://en.wikipedia.org/wiki/Simplex">a simplex</a>)
+in N dimensions. It is effective and computationally compact, and has the advantage of not requiring the gradient of the underlying function to be defined.</p>
+<p>This algorithm is often one of the best ways to “get something working quickly”, <a class="footnote-reference brackets" href="#press2007" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> for example you may use it as a ‘bootstrap’ to get close to a minimum
+quickly before adjusting your parameter bounds and getting more detailed results from an algorithm such as <a class="reference internal" href="DE.html#de"><span class="std std-ref">differential evolution</span></a> or <a class="reference internal" href="DREAM.html#dream"><span class="std std-ref">DREAM</span></a>.</p>
+<p>The RAT implementation of Nelder-Mead Simplex is based on the <a class="reference external" href="https://www.mathworks.com/help/matlab/ref/fminsearch.html">MATLAB implementation “fminsearch”</a>.</p>
+<p>If you would like more technical information on Nelder-Mead simplex methods, consider the
+<a class="reference external" href="https://en.wikipedia.org/wiki/Nelder%E2%80%93Mead_method">Wikipedia page for the Nelder-Mead method</a>
+and the sources therein, or books such as Numerical Recipes (Press et al. 2007, chapter 10.5). <a class="footnote-reference brackets" href="#press2007" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<section id="algorithm-control-parameters">
+<h2>Algorithm control parameters<a class="headerlink" href="#algorithm-control-parameters" title="Link to this heading">#</a></h2>
+<p>The following parameters in the <a class="reference internal" href="../tutorial/controlsInfo.html#controlsinfo"><span class="std std-ref">Controls object</span></a> are specific to the Nelder-Mead simplex:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">xTolerance</span></code>: The termination tolerance for step size. If the minimiser tries to take a step
+smaller than <code class="docutils literal notranslate"><span class="pre">xTolerance</span></code> <em>and</em> the tolerance bound on <code class="docutils literal notranslate"><span class="pre">funcTolerance</span></code> is satisfied, the algorithm terminates.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">funcTolerance</span></code>: The termination tolerance for function value change. If the minimiser tries to take a step where
+the change in chi-squared is less than <code class="docutils literal notranslate"><span class="pre">funcTolerance</span></code> <em>and</em> the tolerance bound on <code class="docutils literal notranslate"><span class="pre">xTolerance</span></code> is satisfied,
+the algorithm terminates.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maxFunEvals</span></code>: The maximum number of function evaluations that can be performed before the algorithm terminates.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maxIterations</span></code>: The maximum number of iterations that can be performed before the algorithm terminates.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updateFreq</span></code>: The number of iterations between printing progress updates to the terminal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">updatePlotFreq</span></code>: The number of iterations between updates to live plots.</p></li>
+</ul>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="press2007" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
+<p>Press, William H.; Teukolsky, Saul A.; Vetterling, William T.; Flannery, Brian P. (2007),
+“Numerical Recipes: Third Edition”.
+ISBN: 0-521-88068-8,
+URL: <a class="reference external" href="https://numerical.recipes">https://numerical.recipes</a></p>
+</aside>
+</aside>
+</section>
 </section>
 
 
@@ -543,7 +506,22 @@ Python</label><div class="sd-tab-content docutils">
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm-control-parameters">Algorithm control parameters</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

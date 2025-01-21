@@ -44,6 +44,7 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=881e7dcd"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'algorithms/nestedSampling';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -54,7 +55,7 @@
     <link rel="icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The Paramonte Sampler" href="paramonte.html" />
+    <link rel="next" title="Advanced Topics" href="../advanced/index.html" />
     <link rel="prev" title="Bayesian Analysis - DREAM" href="DREAM.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -254,6 +255,10 @@ document.write(`
   
 
   
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
 </div>
 
     </header>
@@ -360,7 +365,6 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="DE.html">Differential Evolution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="DREAM.html">Bayesian Analysis - DREAM</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Bayesian Model Selection - Nested Sampling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="paramonte.html">The Paramonte Sampler</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/index.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -448,7 +452,86 @@ document.write(`
                   
   <section id="bayesian-model-selection-nested-sampling">
 <span id="nestedsampling"></span><h1>Bayesian Model Selection - Nested Sampling<a class="headerlink" href="#bayesian-model-selection-nested-sampling" title="Link to this heading">#</a></h1>
-<p>TODO</p>
+<p>Nested sampling is a Bayesian model selection algorithm first
+developed by John Skilling in 2004. <a class="footnote-reference brackets" href="#skilling2004" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> It calculates
+an estimate for the Bayesian ‘evidence’ for a model, from which
+one can obtain other useful information such as the best fit values
+for a set of parameters.</p>
+<p>It works by sampling points in the parameter space and calculating how
+well the parameter values at each point fit the experimental data given. This fit
+is proportional to the “likelihood” that these are the correct values.
+It then takes the worst fit point and sets that as the “least likelihood”,
+and replaces that point with one with a better fit. The process is then repeated.
+In practice, this means that the space where we take our samples from becomes a smaller
+space containing better and better fitting points, until either a certain number of iterations
+have been performed or until a tolerance threshold has been passed.</p>
+<p>In the literature, the points which are kept after each iteration are known as ‘live points’.</p>
+<p>For more background on nested sampling, please see the page for
+<a class="reference external" href="https://en.wikipedia.org/wiki/Nested_sampling_algorithm">nested sampling algorithms on Wikipedia</a>,
+or books such as Sivia &amp; Skilling (2006). <a class="footnote-reference brackets" href="#sivia2006" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../_images/nested_contour.png"><img alt="../_images/nested_contour.png" src="../_images/nested_contour.png" style="width: 700px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Four iterations of a nested sampling algorithm on a likelihood function
+given by the contour. The red point indicates the least likelihood point
+chosen in each iteration, the green point the new point sampled,
+and the red shaded area is the area from which the green point could be sampled.</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Of course, unlike the diagram, we do not know our entire likelihood function in advance (else we wouldn’t need this algorithm!). The difficult part
+of nested sampling is figuring out how to choose our new points such that they are within the red shaded area. The method of doing this is the main
+difference between any two implementations of the nested sampling algorithm. Skilling’s original implementation
+(found in <a class="footnote-reference brackets" href="#sivia2006" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> or <a class="reference external" href="https://www.inference.org.uk/bayesys/sivia/">online here</a>) did this by choosing a point at a fixed distance and random
+angle to one of the live points, calculating its likelihood, and accepting it as the new point if the likelihood is better than the least likelihood;
+otherwise, the point is rejected and the process is repeated.</p>
+<p>The particular implementation of nested sampling used by RAT is a version of <a class="reference external" href="https://github.com/mattpitkin/matlabmultinest">MatlabMultinest</a>,
+modified to be compilable to C++ with MATLAB Coder. MatlabMultinest is a MATLAB implementation of the MultiNest algorithm <a class="footnote-reference brackets" href="#feroz2008" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a>, which efficiently
+selects new points by grouping the live points into ‘contours’, drawing an ellipsoid around each contour using its covariance matrix, and selecting
+a new point randomly from inside one of the ellipsoids.</p>
+<section id="algorithm-control-parameters">
+<h2>Algorithm control parameters<a class="headerlink" href="#algorithm-control-parameters" title="Link to this heading">#</a></h2>
+<p>The following parameters in the <a class="reference internal" href="../tutorial/controlsInfo.html#controlsinfo"><span class="std std-ref">Controls object</span></a> are specific to nested sampling:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">nLive</span></code>: the number of points to sample. Must be an integer greater than zero.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nMCMC</span></code>: if non-zero, MultiNest will not be used, and instead new points will be chosen using an MCMC chain with this many iterations.
+Must be an integer greater than or equal to zero.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">propScale</span></code>: A scaling factor for the ellipsoid. If this is larger, the algorithm is more likely to choose points near the edges
+of the ellipsoid rather than focusing on the centre. In some cases this may lead to better exploration of the parameter space.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nsTolerance</span></code>: The tolerance threshold for when the nested sampler should finish. A smaller value indicates a stricter tolerance.</p>
+<p>The convergence statistic for each iteration is</p>
+<div class="math notranslate nohighlight">
+\[\log(\log(Z) + (\log(L_{max}) - j/N_{live})) - \log(Z)\]</div>
+<p>where <span class="math notranslate nohighlight">\(Z\)</span> is the evidence, <span class="math notranslate nohighlight">\(L_{max}\)</span> is the maximum likelihood out of all live points, <span class="math notranslate nohighlight">\(j\)</span> is the number of iterations,
+and <span class="math notranslate nohighlight">\(N_{live}\)</span> is the number of live points (<code class="docutils literal notranslate"><span class="pre">nLive</span></code>). The algorithm is considered to have converged when this value
+is less than <code class="docutils literal notranslate"><span class="pre">nsTolerance</span></code>.</p>
+</li>
+</ul>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="skilling2004" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Skilling, John (2004),
+“Nested Sampling”.
+DOI: <a class="reference external" href="https://doi.org/10.1063/1.1835238">10.1063/1.1835238</a>,
+URL: <a class="reference external" href="https://www.inference.org.uk/bayesys/nest.pdf">https://www.inference.org.uk/bayesys/nest.pdf</a></p>
+</aside>
+<aside class="footnote brackets" id="sivia2006" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id3">2</a>)</span>
+<p>Sivia, Devinder; Skilling, John (2006),
+“Data Analysis: A Bayesian Tutorial”.
+ISBN: 978-0-19-856832-2,
+URL: <a class="reference external" href="https://global.oup.com/academic/product/data-analysis-9780198568322">https://global.oup.com/academic/product/data-analysis-9780198568322</a></p>
+</aside>
+<aside class="footnote brackets" id="feroz2008" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">3</a><span class="fn-bracket">]</span></span>
+<p>Feroz, F.; Hobson, M.P.; Bridges, M. (2008),
+“MULTINEST: an efficient and robust Bayesian inference tool for cosmology and particle physics”.
+DOI: <a class="reference external" href="https://doi.org/10.1111/j.1365-2966.2009.14548.x">10.1111/j.1365-2966.2009.14548.x</a>,
+URL: <a class="reference external" href="https://arxiv.org/abs/0809.3437">https://arxiv.org/abs/0809.3437</a></p>
+</aside>
+</aside>
+</section>
 </section>
 
 
@@ -462,7 +545,22 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm-control-parameters">Algorithm control parameters</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

@@ -44,6 +44,7 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=881e7dcd"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/controlsInfo';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -364,7 +365,6 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../algorithms/DE.html">Differential Evolution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../algorithms/DREAM.html">Bayesian Analysis - DREAM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../algorithms/nestedSampling.html">Bayesian Model Selection - Nested Sampling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../algorithms/paramonte.html">The Paramonte Sampler</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/index.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -569,27 +569,62 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 <p>which allow the user to set things such as tolerance targets and so on. There is a different set of options for each algorithm.
 We will now look at each of the available options in turn.</p>
-<section id="methods-for-the-controls-class">
-<h2>Methods for the controls class<a class="headerlink" href="#methods-for-the-controls-class" title="Link to this heading">#</a></h2>
-<section id="parallel">
-<h3>Parallel<a class="headerlink" href="#parallel" title="Link to this heading">#</a></h3>
-<p>TODO</p>
-</section>
+<section id="general-parameters-for-the-controls-class">
+<h2>General parameters for the controls class<a class="headerlink" href="#general-parameters-for-the-controls-class" title="Link to this heading">#</a></h2>
+<p>These are the general parameters for the controls class. For algorithm-specific parameters see the page for each algorithm in the
+<a class="reference internal" href="../algorithms/index.html#algorithms"><span class="std std-ref">algorithms section</span></a>.</p>
 <section id="procedure">
-<h3>Procedure<a class="headerlink" href="#procedure" title="Link to this heading">#</a></h3>
-<p>TODO</p>
+<h3><code class="docutils literal notranslate"><span class="pre">procedure</span></code><a class="headerlink" href="#procedure" title="Link to this heading">#</a></h3>
+<p>Which algorithm RAT should run. Currently the options are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;calculate&quot;</span></code>: A simple <a class="reference external" href="https://www.reflectometry.org/learn/3_reflectometry/slab_models/how_we_calculate_the_reflectivity_of_a_slab_model.html">Abelès calculation</a>
+of reflectivity for the model, with chi-squared fit calculated between the model and the data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;simplex&quot;</span></code>: Optimisation via the Nelder-Mead <a class="reference internal" href="../algorithms/simplex.html#simplex"><span class="std std-ref">simplex method</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;de&quot;</span></code>: Optimisation via <a class="reference internal" href="../algorithms/DE.html#de"><span class="std std-ref">differential evolution</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;ns&quot;</span></code>: Bayesian optimisation via <a class="reference internal" href="../algorithms/nestedSampling.html#nestedsampling"><span class="std std-ref">nested sampling</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;dream&quot;</span></code>: Bayesian optimisation via the <a class="reference internal" href="../algorithms/DREAM.html#dream"><span class="std std-ref">DREAM algorithm</span></a>.</p></li>
+</ul>
+</section>
+<section id="parallel">
+<h3><code class="docutils literal notranslate"><span class="pre">parallel</span></code><a class="headerlink" href="#parallel" title="Link to this heading">#</a></h3>
+<p>How the calculation should be <a class="reference internal" href="../advanced/parallelisation.html#parallelisation"><span class="std std-ref">parallelised</span></a>. Currently the options are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;single&quot;</span></code>: do not parallelise.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;contrasts&quot;</span></code>: each contrast gets its own calculation thread.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;points&quot;</span></code>: each contrast is split into a number of sections, and each section gets its own calculation thread.</p></li>
+</ul>
+<p>Which option is more efficient will depend on the number of contrasts and the size of your data.</p>
 </section>
 <section id="calcsldduringfit">
-<h3>calcSldDuringFit<a class="headerlink" href="#calcsldduringfit" title="Link to this heading">#</a></h3>
-<p>TODO</p>
+<h3><code class="docutils literal notranslate"><span class="pre">calcSldDuringFit</span></code><a class="headerlink" href="#calcsldduringfit" title="Link to this heading">#</a></h3>
+<p>A boolean (true or false) value which determines whether SLD will be calculated during the fit
+(for <a class="reference internal" href="../utilities/livePlot.html#liveplot"><span class="std std-ref">live plotting</span></a> etc.)</p>
 </section>
 <section id="display">
-<h3>display<a class="headerlink" href="#display" title="Link to this heading">#</a></h3>
-<p>TODO</p>
+<h3><code class="docutils literal notranslate"><span class="pre">display</span></code><a class="headerlink" href="#display" title="Link to this heading">#</a></h3>
+<p>How much RAT should print to the terminal. The current options are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code>: No display.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;iter&quot;</span></code>: Give information after every iteration for iterative algorithms.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;notify&quot;</span></code>:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;final&quot;</span></code>: Just provide information when the calculation has finished.</p></li>
+</ul>
 </section>
-<section id="resampars">
-<h3>resamPars<a class="headerlink" href="#resampars" title="Link to this heading">#</a></h3>
-<p>TODO</p>
+<section id="resampling-parameters-resampleminangle-and-resamplenpoints">
+<h3>Resampling parameters (<code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code> and <code class="docutils literal notranslate"><span class="pre">resampleNPoints</span></code>)<a class="headerlink" href="#resampling-parameters-resampleminangle-and-resamplenpoints" title="Link to this heading">#</a></h3>
+<p>The two parameters <code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code> and <code class="docutils literal notranslate"><span class="pre">resampleNPoints</span></code> decide how
+adaptive resampling will be used on the SLD profiles.
+See the <a class="reference internal" href="../advanced/resampling.html#resampling"><span class="std std-ref">resampling page</span></a> for more details. In short:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code>: For each data point, the algorithm draws two lines from that data point to its neighbouring points on either side.
+If the angle between those lines is smaller than <code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code>, then the algorithm will refine over that point.</p>
+<p>In practice, this means that resampling happens for points which are significantly higher or lower than their neighbours
+(i.e. the gradient of the function has changed rapidly)
+and <code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code> controls the sensitivity of this.</p>
+<p><code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code> is defined in the units of ‘radians divided by pi’, i.e. <code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span> <span class="pre">=</span> <span class="pre">0.9</span></code> refines where the adjacent points form an angle smaller than <span class="math notranslate nohighlight">\(0.9 \pi\)</span> radians.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">resampleNPoints</span></code>: The initial number of domain points (layers) sampled by the algorithm at the start.</p></li>
+</ul>
 </section>
 </section>
 </section>
@@ -616,12 +651,12 @@ We will now look at each of the available options in turn.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methods-for-the-controls-class">Methods for the controls class</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel">Parallel</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure">Procedure</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calcsldduringfit">calcSldDuringFit</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display">display</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resampars">resamPars</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-parameters-for-the-controls-class">General parameters for the controls class</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure"><code class="docutils literal notranslate"><span class="pre">procedure</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel"><code class="docutils literal notranslate"><span class="pre">parallel</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calcsldduringfit"><code class="docutils literal notranslate"><span class="pre">calcSldDuringFit</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display"><code class="docutils literal notranslate"><span class="pre">display</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resampling-parameters-resampleminangle-and-resamplenpoints">Resampling parameters (<code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code> and <code class="docutils literal notranslate"><span class="pre">resampleNPoints</span></code>)</a></li>
 </ul>
 </li>
 </ul>

@@ -432,7 +432,7 @@ The types of available target functions are:</p>
 <span id="commonfunctions"></span><h2>Common Functions<a class="headerlink" href="#common-functions" title="Link to this heading">#</a></h2>
 <dl class="mat function" id="module-targetFunctions.common">
 <dt class="sig sig-object mat" id="targetFunctions.common.backSort">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">backSort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrastQzshifts</span></em>, <em class="sig-param"><span class="pre">contrastScalefactors</span></em>, <em class="sig-param"><span class="pre">contrastBulkIns</span></em>, <em class="sig-param"><span class="pre">contrastBulkOuts</span></em>, <em class="sig-param"><span class="pre">contrastResolutionParams</span></em>, <em class="sig-param"><span class="pre">qzshifts</span></em>, <em class="sig-param"><span class="pre">scalefactors</span></em>, <em class="sig-param"><span class="pre">bulkIn</span></em>, <em class="sig-param"><span class="pre">bulkOut</span></em>, <em class="sig-param"><span class="pre">resolutionParams</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.backSort" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">backSort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrastQzshifts</span></em>, <em class="sig-param"><span class="pre">contrastScalefactors</span></em>, <em class="sig-param"><span class="pre">contrastBulkIns</span></em>, <em class="sig-param"><span class="pre">contrastBulkOuts</span></em>, <em class="sig-param"><span class="pre">qzshifts</span></em>, <em class="sig-param"><span class="pre">scalefactors</span></em>, <em class="sig-param"><span class="pre">bulkIn</span></em>, <em class="sig-param"><span class="pre">bulkOut</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.backSort" title="Link to this definition">#</a></dt>
 <dd><p>Distributes the background and shift values among the different contrasts</p>
 <dl class="simple">
 <dt>INPUTS:</dt><dd><ul class="simple">
@@ -440,12 +440,10 @@ The types of available target functions are:</p>
 <li><p>contrastScalefactors: Which scalefactor value is associated with each contrast</p></li>
 <li><p>contrastBulkIns: Which BulkIn value is associated with each contrast</p></li>
 <li><p>contrastBulkOuts: Which BulkOut value is associated with each contrast</p></li>
-<li><p>contrastResolutionParams: Which resolution value is associated with each contrast</p></li>
 <li><p>qzshifts: List of all qzshift values</p></li>
 <li><p>scalefactors: List of all scalefactor values</p></li>
 <li><p>bulkIn: List of all bulkIn values</p></li>
 <li><p>bulkOut: List of all bulkOut values</p></li>
-<li><p>resolutionParams: List of all resolution parameter values</p></li>
 </ul>
 </dd>
 <dt>OUTPUTS:</dt><dd><ul class="simple">
@@ -453,7 +451,6 @@ The types of available target functions are:</p>
 <li><p>outScalefactor: list of actual scalefactor values for each contrast</p></li>
 <li><p>outBulkIn: list of actual bulkIn values for each contrast</p></li>
 <li><p>outBulkOut: list of actual bulkOut values for each contrast</p></li>
-<li><p>outResolution: list of actual resolution parameter for each contrast</p></li>
 </ul>
 </dd>
 </dl>
@@ -461,11 +458,19 @@ The types of available target functions are:</p>
 
 <dl class="mat function">
 <dt class="sig sig-object mat" id="targetFunctions.common.constructBackground">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">constructBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">backgroundType</span></em>, <em class="sig-param"><span class="pre">backgroundParamIndices</span></em>, <em class="sig-param"><span class="pre">shiftedData</span></em>, <em class="sig-param"><span class="pre">customFiles</span></em>, <em class="sig-param"><span class="pre">backgroundParamArray</span></em>, <em class="sig-param"><span class="pre">simLimits</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.constructBackground" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">constructBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">backgroundType</span></em>, <em class="sig-param"><span class="pre">backgroundParamIndices</span></em>, <em class="sig-param"><span class="pre">shiftedData</span></em>, <em class="sig-param"><span class="pre">customFiles</span></em>, <em class="sig-param"><span class="pre">backgroundParamArray</span></em>, <em class="sig-param"><span class="pre">simulationXData</span></em>, <em class="sig-param"><span class="pre">dataIndices</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.constructBackground" title="Link to this definition">#</a></dt>
 <dd><p>Apply background parameters to the background.</p>
 <p>For function backgrounds, this means running the function using the
 defined parameters. For data and constant backgrounds, this means taking
-any predefined background data and adding any supplied poarameters.</p>
+any predefined background data and adding any supplied parameters.</p>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="targetFunctions.common.constructResolution">
+<span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">constructResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">resolutionType</span></em>, <em class="sig-param"><span class="pre">resolutionParamIndex</span></em>, <em class="sig-param"><span class="pre">shiftedData</span></em>, <em class="sig-param"><span class="pre">customFiles</span></em>, <em class="sig-param"><span class="pre">resolutionParamArray</span></em>, <em class="sig-param"><span class="pre">simulationXData</span></em>, <em class="sig-param"><span class="pre">dataIndices</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.constructResolution" title="Link to this definition">#</a></dt>
+<dd><p>Apply resolution parameters to the resolution.</p>
+<p>For data and constant resolutions, this means taking any predefined
+resolution data and adding any supplied parameters.</p>
 </dd></dl>
 
 <dl class="mat function">
@@ -540,13 +545,13 @@ the ‘outLayers’ cell array</p>
 <dt class="sig sig-object mat" id="targetFunctions.common.groupLayers.groupLayersMod">
 <span class="sig-prename descclassname"><span class="pre">targetFunctions.common.groupLayers.</span></span><span class="sig-name descname"><span class="pre">groupLayersMod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">resampledLayers</span></em>, <em class="sig-param"><span class="pre">subRoughs</span></em>, <em class="sig-param"><span class="pre">geometry</span></em>, <em class="sig-param"><span class="pre">bulkIns</span></em>, <em class="sig-param"><span class="pre">bulkOuts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.groupLayers.groupLayersMod" title="Link to this definition">#</a></dt>
 <dd><p>Arrange layers according to geometry and apply any coverage correction. The paratt calculation proceeds through the 
-z,rho,rough stack, and the parameter ‘ssub’ in callParatt is the final roughness encountered.</p>
+z,rho,rough stack, and the parameter ‘ssub’ is the final roughness encountered.</p>
 <ul class="simple">
 <li><p>For air liquid ‘ssub’ is therefore the substrate roughness.</p></li>
 <li><p>For solid liquid, the substrate roughness is the first roughness encountered, and ‘ssub’ is then the roughness of the outermost layer</p></li>
 </ul>
 <p>USAGE:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">outLayers</span><span class="p">,</span> <span class="n">outSsubs</span><span class="p">]</span> <span class="o">=</span> <span class="n">groupLayersMod</span><span class="p">(</span><span class="n">resampledLayers</span><span class="p">,</span><span class="n">subRoughs</span><span class="p">,</span><span class="n">geometry</span><span class="p">,</span><span class="n">bulkIns</span><span class="p">,</span><span class="n">bulkOuts</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">outLayers</span><span class="p">,</span> <span class="n">ssubs</span><span class="p">]</span> <span class="o">=</span> <span class="n">groupLayersMod</span><span class="p">(</span><span class="n">resampledLayers</span><span class="p">,</span><span class="n">subRoughs</span><span class="p">,</span><span class="n">geometry</span><span class="p">,</span><span class="n">bulkIns</span><span class="p">,</span><span class="n">bulkOuts</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="simple">
@@ -560,7 +565,7 @@ z,rho,rough stack, and the parameter ‘ssub’ in callParatt is the final rough
 </dd>
 <dt>Outputs:</dt><dd><ul class="simple">
 <li><p>outLayers: cell array of layers param values for each contrast.</p></li>
-<li><p>outSsubs: vector of substrate roughness values.</p></li>
+<li><p>ssubs: vector of ssub values.</p></li>
 </ul>
 </dd>
 </dl>
@@ -570,13 +575,13 @@ z,rho,rough stack, and the parameter ‘ssub’ in callParatt is the final rough
 <dt class="sig sig-object mat" id="targetFunctions.common.groupLayers.groupLayersModImaginary">
 <span class="sig-prename descclassname"><span class="pre">targetFunctions.common.groupLayers.</span></span><span class="sig-name descname"><span class="pre">groupLayersModImaginary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">resampledLayers</span></em>, <em class="sig-param"><span class="pre">subRoughs</span></em>, <em class="sig-param"><span class="pre">geometry</span></em>, <em class="sig-param"><span class="pre">bulkIns</span></em>, <em class="sig-param"><span class="pre">bulkOuts</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.groupLayers.groupLayersModImaginary" title="Link to this definition">#</a></dt>
 <dd><p>Arrange layers according to geometry and apply any coverage correction. The paratt calculation proceeds through the 
-z,rho,rough stack, and the parameter ‘ssub’ in callParatt is the final roughness encountered.</p>
+z,rho,rough stack, and the parameter ‘ssub’ is the final roughness encountered.</p>
 <ul class="simple">
 <li><p>For air liquid ‘ssub’ is therefore the substrate roughness.</p></li>
 <li><p>For solid liquid, the substrate roughness is the first roughness encountered, and ‘ssub’ is then the roughness of the outermost layer</p></li>
 </ul>
 <p>USAGE:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">outLayers</span><span class="p">,</span> <span class="n">outSsubs</span><span class="p">]</span> <span class="o">=</span> <span class="n">groupLayersModImaginary</span><span class="p">(</span><span class="n">resampledLayers</span><span class="p">,</span><span class="n">subRoughs</span><span class="p">,</span><span class="n">geometry</span><span class="p">,</span><span class="n">bulkIns</span><span class="p">,</span><span class="n">bulkOuts</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">outLayers</span><span class="p">,</span> <span class="n">ssubs</span><span class="p">]</span> <span class="o">=</span> <span class="n">groupLayersModImaginary</span><span class="p">(</span><span class="n">resampledLayers</span><span class="p">,</span><span class="n">subRoughs</span><span class="p">,</span><span class="n">geometry</span><span class="p">,</span><span class="n">bulkIns</span><span class="p">,</span><span class="n">bulkOuts</span><span class="p">)</span>
 </pre></div>
 </div>
 <dl class="simple">
@@ -590,7 +595,7 @@ z,rho,rough stack, and the parameter ‘ssub’ in callParatt is the final rough
 </dd>
 <dt>Outputs:</dt><dd><ul class="simple">
 <li><p>outLayers: cell array of layers param values for each contrast.</p></li>
-<li><p>outSsubs: vector of substrate roughness values.</p></li>
+<li><p>ssubs: vector of ssub values.</p></li>
 </ul>
 </dd>
 </dl>

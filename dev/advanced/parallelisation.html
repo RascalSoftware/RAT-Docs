@@ -364,7 +364,6 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../algorithms/DE.html">Differential Evolution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../algorithms/DREAM.html">Bayesian Analysis - DREAM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../algorithms/nestedSampling.html">Bayesian Model Selection - Nested Sampling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../algorithms/paramonte.html">The Paramonte Sampler</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Advanced Topics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
@@ -452,8 +451,7 @@ document.write(`
                   
   <section id="parallelising-calculations">
 <span id="parallelisation"></span><h1>Parallelising Calculations<a class="headerlink" href="#parallelising-calculations" title="Link to this heading">#</a></h1>
-<p>RAT has in-built parallelisation for speeding up calculations. It will either parallelise over points and this is easily selectable from the controls class. In addition, it is possible to use the external Paramonte sampler
-to run Bayesian analysis in parallel using ‘mpiexcec’</p>
+<p>RAT has in-built parallelisation for speeding up calculations. It will either parallelise over points or contrasts and this is easily selectable from the controls class.</p>
 <section id="internal-parallelisation">
 <h2>Internal Parallelisation<a class="headerlink" href="#internal-parallelisation" title="Link to this heading">#</a></h2>
 <p>The controls class allows selection of parallel calculations for all algorithms. The parallelisation can be either over ‘contrasts’ or ‘points’…</p>
@@ -499,9 +497,6 @@ PYTHON</label><div class="sd-tab-content docutils">
 <p>Generally speaking, unless you have an inordinate amount of points in your datafiles, the greatest speed increase always results from parallelising over contrasts. In fact, if the number of points in your data
 is relatively small, parallelising over points can even slow things down because of the extra calculation overhead! It is a good idea to verify which is fastest for a give problem at the start of an analysis.</p>
 </section>
-<section id="parallel-bayes-with-mipexcec-and-paramonte">
-<h2>Parallel Bayes with MIPEXCEC and Paramonte<a class="headerlink" href="#parallel-bayes-with-mipexcec-and-paramonte" title="Link to this heading">#</a></h2>
-</section>
 </section>
 
 
@@ -527,7 +522,6 @@ is relatively small, parallelising over points can even slow things down because
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-parallelisation">Internal Parallelisation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-bayes-with-mipexcec-and-paramonte">Parallel Bayes with MIPEXCEC and Paramonte</a></li>
 </ul>
   </nav></div>
 
