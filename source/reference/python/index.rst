@@ -15,6 +15,7 @@ User API
     models
     events
     examples
+    plotting
 
 .. autofunction:: RATapi.run
 
@@ -30,3 +31,4 @@ Developer API
    RATapi.inputs
    RATapi.outputs
    RATapi.wrappers
+   RATapi.utils.enums
