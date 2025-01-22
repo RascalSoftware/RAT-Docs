@@ -55,7 +55,7 @@ This example can be run as a script or interactively using the instructions belo
         .. code-block:: Python 
             
             import RATapi as RAT
-            problem, results = RATapi.examples.domains.domains_standard_layers()
+            problem, results = RAT.examples.domains.domains_standard_layers()
         
         **Run Interactively**:  
         

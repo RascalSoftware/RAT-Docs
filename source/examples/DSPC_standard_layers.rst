@@ -1,3 +1,5 @@
+.. _DSPC_Standard_Layers:
+
 ====================
 DSPC Standard Layers
 ====================
@@ -44,7 +46,7 @@ This example can be run as a script or interactively using the instructions belo
         .. code-block:: Python 
             
             import RATapi as RAT
-            problem, results = RATapi.examples.non_polarised.DSPC_standard_layers()
+            problem, results = RAT.examples.non_polarised.DSPC_standard_layers()
         
         **Run Interactively**:  
         

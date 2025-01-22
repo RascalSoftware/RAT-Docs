@@ -4,7 +4,23 @@
 Plotting Bayesian Analysis
 ==========================
 
-A number of function exist for plotting the results of Bayesian analysis.
+A number of functions exist for plotting the results of Bayesian analysis. The problem and result used in this section were made using the  
+:ref:`DSPC Standard Layers<DSPC_Standard_Layers>` example and a control object with the procedure set to ``DREAM``.
+
+.. tab-set-code::
+    .. code-block:: Matlab
+
+        % Run the DSPC standard layers example
+        controls = controlsClass();
+        controls.procedure = 'dream';
+        [problem, results] = RAT(problem, controls);
+    
+    .. code-block:: Python
+
+        # Run the DSPC standard layer example
+        controls = RAT.Controls()
+        controls.procedure = 'dream'
+        problem, results = RAT.run(problem, controls)
 
 ********************
 Reflectivity and SLD
@@ -128,16 +144,13 @@ Finally, you can check the integrity of your markov chain as follows:
 .. tab-set-code::
     .. code-block:: Matlab
 
-        mcmcplot(results.chain,[],results.fitNames,'chainpanel');
+        plotChain(results);
 
     .. code-block:: Python
 
         RAT.plotting.plot_chain(results)
 
 
-
-
 .. image:: ../images/misc/chainPlot.png
     :width: 800
     :alt: chainPlot
-

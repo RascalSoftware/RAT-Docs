@@ -5,7 +5,8 @@ Basic Plotting
 ==============
 
 The simplest plot available is a simple display of the contents of the *problem* and *results* blocks.
-This takes the following form:
+The initial problem and result used in this section were made by running :ref:`DSPC Standard Layers<DSPC_Standard_Layers>`, after 
+running the example a basic plot takes the following form:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -18,7 +19,7 @@ This takes the following form:
         RAT.plotting.plot_ref_sld(problem, results)
 
 .. image:: ../images/misc/simPlot1.png
-    :alt: disp(results)
+    :alt: simple plot 
 
 
 This produces a basic plot of the reflectivity and SLD.

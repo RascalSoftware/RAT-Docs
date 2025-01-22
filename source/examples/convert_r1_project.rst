@@ -43,7 +43,7 @@ This example can be run using the instructions below.
         .. code-block:: Python 
             
             import RATapi as RAT
-            problem, results = RATapi.examples.convert_rascal_project.convert_rascal()
+            problem, results = RAT.examples.convert_rascal_project.convert_rascal()
         
         **Run Interactively**:  
         
