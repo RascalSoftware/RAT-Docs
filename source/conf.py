@@ -37,7 +37,7 @@ doc_version = get_doc_version()
 # add extensions path for snippets
 sys.path.append(os.path.abspath("./_ext"))
 
-extensions = ['sphinxcontrib.matlab', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary', 'sphinxcontrib.autodoc_pydantic', 'sphinx_design', 'sphinx_copybutton', 'snippets']
+extensions = ['sphinxcontrib.matlab', 'sphinx.ext.napoleon', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary', 'sphinxcontrib.autodoc_pydantic', 'sphinx_design', 'sphinx_copybutton', 'snippets']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -80,8 +80,20 @@ html_sidebars = {
 copybutton_prompt_text = r">>> |>> "
 copybutton_prompt_is_regexp = True
 
+### autodoc_pydantic settings
+# hide JSON schemas by default
 autodoc_pydantic_model_show_json = False
 autodoc_pydantic_settings_show_json = False
+
+# don't show validators for each field
 autodoc_pydantic_field_list_validators = False
+
+# hide parameter list in class signature
 autodoc_pydantic_settings_hide_paramlist = True
+
+# do not show list of fields if they do not have docstrings
+# (e.g. for models we use the main docstring)
+autodoc_pydantic_model_undoc_members = False
+
+# get field documentation from field docstrings
 autodoc_pydantic_field_doc_policy = "docstring"
