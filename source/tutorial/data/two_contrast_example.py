@@ -34,8 +34,8 @@ problem.background_parameters.set_fields(0, name='Backs Value ACMW')
 problem.background_parameters.set_fields(0, value=5.5e-6)
 problem.background_parameters.append(name='Backs Value D2O', min=1e-8, value=2.8e-6, max=1e-5)
 
-problem.backgrounds.append(name='Background D2O', type='constant', value_1='Backs Value D2O')
-problem.backgrounds.set_fields(0, name='Background ACMW', value_1='Backs Value ACMW')
+problem.backgrounds.append(name='Background D2O', type='constant', source='Backs Value D2O')
+problem.backgrounds.set_fields(0, name='Background ACMW', source='Backs Value ACMW')
 
 problem.bulk_out.append(name='SLD ACMW', min=-0.6e-6, value=-0.56e-6, max=-0.3e-6, fit=True)
 

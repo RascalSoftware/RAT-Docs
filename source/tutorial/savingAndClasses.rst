@@ -212,8 +212,8 @@ Then, RAT will create a file containing all the statements needed to re-create y
             bulk_in=RAT.ClassList([RAT.models.Parameter(name='SLD Air', min=0.0, value=0.0, max=0.0, fit=False, prior_type='uniform', mu=0.0, sigma=inf)]),
             bulk_out=RAT.ClassList([RAT.models.Parameter(name='SLD D2O', min=6.2e-06, value=6.35e-06, max=6.35e-06, fit=False, prior_type='uniform', mu=0.0, sigma=inf)]),
             resolution_parameters=RAT.ClassList([RAT.models.Parameter(name='Resolution Param 1', min=0.01, value=0.03, max=0.05, fit=False, prior_type='uniform', mu=0.0, sigma=inf)]),
-            backgrounds=RAT.ClassList([Background(name='Background 1', type='constant', value_1='Background Param 1', value_2='', value_3='', value_4='', value_5='')]),
-            resolutions=RAT.ClassList([Resolution(name='Resolution 1', type='constant', value_1='Resolution Param 1', value_2='', value_3='', value_4='', value_5='')]),
+            backgrounds=RAT.ClassList([Background(name='Background 1', type='constant', source='Background Param 1', value_2='', value_3='', value_4='', value_5='')]),
+            resolutions=RAT.ClassList([Resolution(name='Resolution 1', type='constant', source='Resolution Param 1', value_2='', value_3='', value_4='', value_5='')]),
             data=RAT.ClassList([Data(name='Simulation')]),
             )
 
