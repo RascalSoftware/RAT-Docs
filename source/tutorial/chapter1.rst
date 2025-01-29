@@ -86,7 +86,7 @@ heads which are adjacent (or embedded) in the bulk aqueous phase.
 
 In our example, the layers can be either deuterated or hydrogenated, and the bulk water can either be D2O or ACMW.
 
-.. image:: ../images/userManual/chapter1/lipidMonolayer.png
+.. image:: ../images/tutorial/lipidMonolayer.png
     :width: 300
     :alt: The lipid monolayer example
 
@@ -364,14 +364,14 @@ We can now plot the output, either manually (by taking the relevant parts from t
 .. tab-set-code::
     .. code-block:: Matlab
 
-        fig(1); clf;
+        figure(1); clf;
         plotRefSLD(problem, results)
 
     .. code-block:: Python
 
         RAT.plotting.plot_ref_sld(problem, results)
 
-.. image:: ../images/userManual/chapter1/plots.png
+.. image:: ../images/tutorial/plotBeforeOptimization.png
     :alt: reflectivity and SLD plots
 
 We can see that our model is looking fairly sensible, but that our guess values for the parameters are pretty wide off the mark. Further analysis

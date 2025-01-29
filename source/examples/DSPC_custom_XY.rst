@@ -16,7 +16,7 @@ In this model, we make distributions to represent the volume fractions of each o
 We also make our volume fractions as optional outputted parameters from our file. The optional nature of this output means we can suppress it to run the model, then
 activate it to make final output plots of our analysis.
 
-.. image:: ../images/examples/volumeFractions.jpg
+.. image:: ../images/examples/volumeFractions.png
     :align: center
     :alt: Volume fractions
 
@@ -64,7 +64,7 @@ This example can be run as a script or interactively using the instructions belo
         .. code-block:: Python 
             
             import RATapi as RAT
-            problem, results = RATapi.examples.non_polarised.DSPC_custom_XY()
+            problem, results = RAT.examples.non_polarised.DSPC_custom_XY()
         
         **Run Interactively**:  
         

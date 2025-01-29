@@ -47,7 +47,7 @@ This example can be run using the instructions below.
         .. code-block:: Python 
             
             import RATapi as RAT
-            problem, results = RATapi.examples.absorption.absorption()
+            problem, results = RAT.examples.absorption.absorption()
         
         **Run Interactively**:  
         
