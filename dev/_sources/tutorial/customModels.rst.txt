@@ -55,7 +55,7 @@ In terms of the SLD's, because the volume and composition of each layer is known
 
 The figure shows the system we are measuring. We have a single, hydrogenated DSPC bilayer supported on a silicon surface. The silicon is, as always, coated with an oxide layer. The bilayer may or may not be complete (i.e. partially hydrated) so we will need hydration parameters, and there is the possibility of a thin water layer between the bilayer and the substrate. We also need some roughness parameters, both for the substrate and the bilayer itself. We will build a custom model for this and use it to analyse the bilayer data at three contrasts.
 
-.. image:: ../images/userManual/chapter3/bilayer.png
+.. image:: ../images/tutorial/bilayer.png
     :alt: Bilayer on silicon diagram
 
 Looking at our system, we can see that we are going to need 8 parameters in total:
@@ -605,11 +605,11 @@ The rest of the custom model is defined similar to the standard layers model sho
         problem.background_parameters.append(name='Background parameter H2O', min=1.0e-10, value=1.0e-7, max=1.0e-5, fit=True)
 
         # And add the two new constant backgrounds
-        problem.backgrounds.append(name='Background SMW', type='constant', value_1='Background parameter SMW')
-        problem.backgrounds.append(name='Background H2O', type='constant', value_1='Background parameter H2O')
+        problem.backgrounds.append(name='Background SMW', type='constant', source='Background parameter SMW')
+        problem.backgrounds.append(name='Background H2O', type='constant', source='Background parameter H2O')
 
         # And edit the other one....
-        problem.backgrounds.set_fields(0, name='Background D2O', value_1='Background parameter D2O')
+        problem.backgrounds.set_fields(0, name='Background D2O', source='Background parameter D2O')
 
         # Finally modify some of the other parameters to be more suitable values for a solid / liquid experiment
         problem.scalefactors.set_fields(0, value=1.0, min=0.5, max=2.0, fit=True)
@@ -765,7 +765,7 @@ The following code snippet we'll make an example of a simple layer....
         plt.axis((0 100 0 1.5))
         plt.show()
 
-.. image:: ../images/userManual/chapter3/simpleLayer.png
+.. image:: ../images/tutorial/simpleLayer.png
     :width: 800
     :alt: simple layer
 
@@ -947,12 +947,12 @@ run it and plot the results
         problem,resuts = RAT.run(problem, controls)
         RAT.plotting.plot_ref_sld(problem, results)
 
-.. image:: ../images/userManual/chapter3/customTwoLayerFig.png
+.. image:: ../images/tutorial/customTwoLayerFig.png
     :width: 500
     :alt: Dtwo layers XY
 
 When sent to RAT, customXY SLD profiles are automatically resampled into layers with adaptive resampling:
 
-.. image:: ../images/userManual/chapter3/twoLayerRAT.png
+.. image:: ../images/tutorial/twoLayerRAT.png
     :width: 800
     :alt: Displays the final customXY result

@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9deae167" />
@@ -446,7 +446,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="dspc-standard-layers">
-<h1>DSPC Standard Layers<a class="headerlink" href="#dspc-standard-layers" title="Link to this heading">#</a></h1>
+<span id="id1"></span><h1>DSPC Standard Layers<a class="headerlink" href="#dspc-standard-layers" title="Link to this heading">#</a></h1>
 <p>This shows an example of using a <a class="reference internal" href="../tutorial/chapter2.html#standardlayers"><span class="std std-ref">standard layers</span></a> model to analyse reflectivity from a floating bilayer of DSPC.</p>
 <p>The model is set up in the script, we set Gaussian priors on some of the parameters, build the two contrasts, run the calculation and plot the results.</p>
 <p>This example can be run as a script or interactively using the instructions below.</p>
@@ -471,16 +471,16 @@ Matlab</label><div class="sd-tab-content docutils">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-1">
 Python</label><div class="sd-tab-content docutils">
 <p><strong>Run Script</strong>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python RATapi.examples.non_polarised.DSPC_standard_layers.py</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python RATapi.examples.normal_reflectivity.DSPC_standard_layers.py</span>
 </pre></div>
 </div>
 <p><strong>Run as Function</strong>:</p>
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">RATapi</span> <span class="k">as</span> <span class="nn">RAT</span>
-<span class="n">problem</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">RATapi</span><span class="o">.</span><span class="n">examples</span><span class="o">.</span><span class="n">non_polarised</span><span class="o">.</span><span class="n">DSPC_standard_layers</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">RATapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">RAT</span>
+<span class="n">problem</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">examples</span><span class="o">.</span><span class="n">normal_reflectivity</span><span class="o">.</span><span class="n">DSPC_standard_layers</span><span class="p">()</span>
 </pre></div>
 </div>
 <p><strong>Run Interactively</strong>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">jupyter notebook RATapi.examples.non_polarised.DSPC_standard_layers.ipynb</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">jupyter notebook RATapi.examples.normal_reflectivity.DSPC_standard_layers.ipynb</span>
 </pre></div>
 </div>
 </div>

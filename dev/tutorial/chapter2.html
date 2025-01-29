@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9deae167" />
@@ -492,7 +492,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">problem</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Project</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;my project&#39;</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">problem</span><span class="p">)</span>
 
-<span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">RAT</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">Project</span><span class="s1">&#39;&gt;</span>
+<span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">RAT</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">Project</span><span class="s1">&#39;&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -624,7 +624,7 @@ my project
 
 Calculation: ---------------------------------------------------------------------------------------
 
-non polarised
+normal
 
 Model: ---------------------------------------------------------------------------------------------
 
@@ -636,67 +636,67 @@ air/substrate
 
 Parameters: ----------------------------------------------------------------------------------------
 
-+-------+---------------------+-----+-------+-----+------+------------+-----+-------+
-| index |         name        | min | value | max | fit  | prior type |  mu | sigma |
-+-------+---------------------+-----+-------+-----+------+------------+-----+-------+
-|   0   | Substrate Roughness | 1.0 |  3.0  | 5.0 | True |  uniform   | 0.0 |  inf  |
-+-------+---------------------+-----+-------+-----+------+------------+-----+-------+
++-------+---------------------+-----+-------+-----+------+
+| index |         name        | min | value | max | fit  |
++-------+---------------------+-----+-------+-----+------+
+|   0   | Substrate Roughness | 1.0 |  3.0  | 5.0 | True |
++-------+---------------------+-----+-------+-----+------+
 
 Bulk In: -------------------------------------------------------------------------------------------
 
-+-------+---------+-----+-------+-----+-------+------------+-----+-------+
-| index |   name  | min | value | max |  fit  | prior type |  mu | sigma |
-+-------+---------+-----+-------+-----+-------+------------+-----+-------+
-|   0   | SLD Air | 0.0 |  0.0  | 0.0 | False |  uniform   | 0.0 |  inf  |
-+-------+---------+-----+-------+-----+-------+------------+-----+-------+
++-------+---------+-----+-------+-----+-------+
+| index |   name  | min | value | max |  fit  |
++-------+---------+-----+-------+-----+-------+
+|   0   | SLD Air | 0.0 |  0.0  | 0.0 | False |
++-------+---------+-----+-------+-----+-------+
 
 Bulk Out: ------------------------------------------------------------------------------------------
 
-+-------+---------+---------+----------+----------+-------+------------+-----+-------+
-| index |   name  |   min   |  value   |   max    |  fit  | prior type |  mu | sigma |
-+-------+---------+---------+----------+----------+-------+------------+-----+-------+
-|   0   | SLD D2O | 6.2e-06 | 6.35e-06 | 6.35e-06 | False |  uniform   | 0.0 |  inf  |
-+-------+---------+---------+----------+----------+-------+------------+-----+-------+
++-------+---------+---------+----------+----------+-------+
+| index |   name  |   min   |  value   |   max    |  fit  |
++-------+---------+---------+----------+----------+-------+
+|   0   | SLD D2O | 6.2e-06 | 6.35e-06 | 6.35e-06 | False |
++-------+---------+---------+----------+----------+-------+
 
 Scalefactors: --------------------------------------------------------------------------------------
 
-+-------+---------------+------+-------+------+-------+------------+-----+-------+
-| index |      name     | min  | value | max  |  fit  | prior type |  mu | sigma |
-+-------+---------------+------+-------+------+-------+------------+-----+-------+
-|   0   | Scalefactor 1 | 0.02 |  0.23 | 0.25 | False |  uniform   | 0.0 |  inf  |
-+-------+---------------+------+-------+------+-------+------------+-----+-------+
++-------+---------------+------+-------+------+-------+
+| index |      name     | min  | value | max  |  fit  |
++-------+---------------+------+-------+------+-------+
+|   0   | Scalefactor 1 | 0.02 |  0.23 | 0.25 | False |
++-------+---------------+------+-------+------+-------+
 
 Background Parameters: -----------------------------------------------------------------------------
 
-+-------+--------------------+-------+-------+-------+-------+------------+-----+-------+
-| index |        name        |  min  | value |  max  |  fit  | prior type |  mu | sigma |
-+-------+--------------------+-------+-------+-------+-------+------------+-----+-------+
-|   0   | Background Param 1 | 1e-07 | 1e-06 | 1e-05 | False |  uniform   | 0.0 |  inf  |
-+-------+--------------------+-------+-------+-------+-------+------------+-----+-------+
++-------+--------------------+-------+-------+-------+-------+
+| index |        name        |  min  | value |  max  |  fit  |
++-------+--------------------+-------+-------+-------+-------+
+|   0   | Background Param 1 | 1e-07 | 1e-06 | 1e-05 | False |
++-------+--------------------+-------+-------+-------+-------+
 
 Backgrounds: ---------------------------------------------------------------------------------------
 
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
-| index |     name     |   type   |      value 1       | value 2 | value 3 | value 4 | value 5 |
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
-|   0   | Background 1 | constant | Background Param 1 |         |         |         |         |
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
++-------+--------------+----------+--------------------+
+| index |     name     |   type   |       source       |
++-------+--------------+----------+--------------------+
+|   0   | Background 1 | constant | Background Param 1 |
++-------+--------------+----------+--------------------+
 
 Resolution Parameters: -----------------------------------------------------------------------------
 
-+-------+--------------------+------+-------+------+-------+------------+-----+-------+
-| index |        name        | min  | value | max  |  fit  | prior type |  mu | sigma |
-+-------+--------------------+------+-------+------+-------+------------+-----+-------+
-|   0   | Resolution Param 1 | 0.01 |  0.03 | 0.05 | False |  uniform   | 0.0 |  inf  |
-+-------+--------------------+------+-------+------+-------+------------+-----+-------+
++-------+--------------------+------+-------+------+-------+
+| index |        name        | min  | value | max  |  fit  |
++-------+--------------------+------+-------+------+-------+
+|   0   | Resolution Param 1 | 0.01 |  0.03 | 0.05 | False |
++-------+--------------------+------+-------+------+-------+
 
 Resolutions: ---------------------------------------------------------------------------------------
 
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
-| index |     name     |   type   |      value 1       | value 2 | value 3 | value 4 | value 5 |
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
-|   0   | Resolution 1 | constant | Resolution Param 1 |         |         |         |         |
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
++-------+--------------+----------+--------------------+
+| index |     name     |   type   |       source       |
++-------+--------------+----------+--------------------+
+|   0   | Resolution 1 | constant | Resolution Param 1 |
++-------+--------------+----------+--------------------+
 
 Data: ----------------------------------------------------------------------------------------------
 
@@ -742,24 +742,24 @@ Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>reflectivity = [],
 simulation = [],
 shiftedData = [],
+backgrounds = [],
+resolutions = [],
 layerSlds = [],
 sldProfiles = [],
 resampledLayers = [],
 calculationResults = CalculationResults(
 	chiValues = [],
-	sumChi = 0.0,
+	sumChi = 741.4491077056697,
 ),
 contrastParams = ContrastParams(
-	backgroundParams = [],
 	scalefactors = [],
 	bulkIn = [],
 	bulkOut = [],
-	resolutionParams = [],
 	subRoughs = [],
 	resample = [],
 ),
-fitParams = [3.],
-fitNames = [&#39;Substrate Roughness&#39;],
+fitParams = [],
+fitNames = [],
 </pre></div>
 </div>
 </div>
@@ -859,11 +859,11 @@ Matlab</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-15" name="sd-tab-set-7" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-15">
 Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+---------------------+-----+-------+-----+------+------------+-----+-------+
-| index |         name        | min | value | max | fit  | prior type |  mu | sigma |
-+-------+---------------------+-----+-------+-----+------+------------+-----+-------+
-|   0   | Substrate Roughness | 1.0 |  3.0  | 5.0 | True |  uniform   | 0.0 |  inf  |
-+-------+---------------------+-----+-------+-----+------+------------+-----+-------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+---------------------+-----+-------+-----+------+
+| index |         name        | min | value | max | fit  |
++-------+---------------------+-----+-------+-----+------+
+|   0   | Substrate Roughness | 1.0 |  3.0  | 5.0 | True |
++-------+---------------------+-----+-------+-----+------+
 </pre></div>
 </div>
 </div>
@@ -933,16 +933,16 @@ Matlab</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-21" name="sd-tab-set-10" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-21">
 Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+---------------------+-------+-------+-------+-------+------------+-----+-------+
-| index |         name        |  min  | value |  max  |  fit  | prior type |  mu | sigma |
-+-------+---------------------+-------+-------+-------+-------+------------+-----+-------+
-|   0   | Substrate Roughness |  1.0  |  3.0  |  5.0  |  True |  uniform   | 0.0 |  inf  |
-|   1   |     My new param    |  1.0  |  2.0  |  3.0  | False |  uniform   | 0.0 |  inf  |
-|   2   |  My other new param |  10.0 |  20.0 |  30.0 | False |  uniform   | 0.0 |  inf  |
-|   3   |     Layer thick     |  10.0 |  20.0 |  30.0 |  True |  uniform   | 0.0 |  inf  |
-|   4   |      Layer SLD      | 1e-06 | 3e-06 | 5e-06 |  True |  uniform   | 0.0 |  inf  |
-|   5   |     Layer rough     |  5.0  |  7.0  |  10.0 |  True |  uniform   | 0.0 |  inf  |
-+-------+---------------------+-------+-------+-------+-------+------------+-----+-------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+---------------------+-------+-------+-------+-------+
+| index |         name        |  min  | value |  max  |  fit  |
++-------+---------------------+-------+-------+-------+-------+
+|   0   | Substrate Roughness |  1.0  |  3.0  |  5.0  |  True |
+|   1   |     My new param    |  1.0  |  2.0  |  3.0  | False |
+|   2   |  My other new param |  10.0 |  20.0 |  30.0 | False |
+|   3   |     Layer thick     |  10.0 |  20.0 |  30.0 |  True |
+|   4   |      Layer SLD      | 1e-06 | 3e-06 | 5e-06 |  True |
+|   5   |     Layer rough     |  5.0  |  7.0  |  10.0 |  True |
++-------+---------------------+-------+-------+-------+-------+
 </pre></div>
 </div>
 </div>
@@ -995,16 +995,16 @@ Matlab</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-25" name="sd-tab-set-12" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-25">
 Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+---------------------+-------+-------+-------+-------+------------+-----+-------+
-| index |         name        |  min  | value |  max  |  fit  | prior type |  mu | sigma |
-+-------+---------------------+-------+-------+-------+-------+------------+-----+-------+
-|   0   | Substrate Roughness |  1.0  |  3.0  |  5.0  |  True |  uniform   | 0.0 |  inf  |
-|   1   |   My changed param  |  0.96 |  2.0  |  3.62 | False |  uniform   | 0.0 |  inf  |
-|   2   |  My other new param |  10.0 |  20.0 |  30.0 | False |  uniform   | 0.0 |  inf  |
-|   3   |     Layer thick     |  10.0 | 20.22 |  30.0 |  True |  uniform   | 0.0 |  inf  |
-|   4   |      Layer SLD      | 1e-06 | 3e-06 | 5e-06 |  True |  uniform   | 0.0 |  inf  |
-|   5   |     Layer rough     |  5.0  |  7.0  |  10.0 | False |  uniform   | 0.0 |  inf  |
-+-------+---------------------+-------+-------+-------+-------+------------+-----+-------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+---------------------+-------+-------+-------+-------+
+| index |         name        |  min  | value |  max  |  fit  |
++-------+---------------------+-------+-------+-------+-------+
+|   0   | Substrate Roughness |  1.0  |  3.0  |  5.0  |  True |
+|   1   |   My changed param  |  0.96 |  2.0  |  3.62 | False |
+|   2   |  My other new param |  10.0 |  20.0 |  30.0 | False |
+|   3   |     Layer thick     |  10.0 | 20.22 |  30.0 |  True |
+|   4   |      Layer SLD      | 1e-06 | 3e-06 | 5e-06 |  True |
+|   5   |     Layer rough     |  5.0  |  7.0  |  10.0 | False |
++-------+---------------------+-------+-------+-------+-------+
 </pre></div>
 </div>
 </div>
@@ -1045,16 +1045,16 @@ Matlab</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-29" name="sd-tab-set-14" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-29">
 Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+---------------------+-------+-------+-------+-------+------------+-----+-------+
-| index |         name        |  min  | value |  max  |  fit  | prior type |  mu | sigma |
-+-------+---------------------+-------+-------+-------+-------+------------+-----+-------+
-|   0   | Substrate Roughness |  1.0  |  3.0  |  5.0  |  True |  uniform   | 0.0 |  inf  |
-|   1   |   My changed param  |  0.96 |  2.0  |  3.62 | False |  uniform   | 0.0 |  inf  |
-|   2   |  My other new param |  10.0 |  20.0 |  30.0 | False |  uniform   | 0.0 |  inf  |
-|   3   |        thick        |  15.0 | 20.22 |  33.0 | False |  uniform   | 0.0 |  inf  |
-|   4   |      Layer SLD      | 1e-06 | 3e-06 | 5e-06 |  True |  uniform   | 0.0 |  inf  |
-|   5   |     Layer rough     |  5.0  |  7.0  |  10.0 | False |  uniform   | 0.0 |  inf  |
-+-------+---------------------+-------+-------+-------+-------+------------+-----+-------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+---------------------+-------+-------+-------+-------+
+| index |         name        |  min  | value |  max  |  fit  |
++-------+---------------------+-------+-------+-------+-------+
+|   0   | Substrate Roughness |  1.0  |  3.0  |  5.0  |  True |
+|   1   |   My changed param  |  0.96 |  2.0  |  3.62 | False |
+|   2   |  My other new param |  10.0 |  20.0 |  30.0 | False |
+|   3   |        thick        |  15.0 | 20.22 |  33.0 | False |
+|   4   |      Layer SLD      | 1e-06 | 3e-06 | 5e-06 |  True |
+|   5   |     Layer rough     |  5.0  |  7.0  |  10.0 | False |
++-------+---------------------+-------+-------+-------+-------+
 </pre></div>
 </div>
 </div>
@@ -1095,15 +1095,15 @@ Matlab</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-33" name="sd-tab-set-16" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-33">
 Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+---------------------+-------+-------+-------+-------+------------+-----+-------+
-| index |         name        |  min  | value |  max  |  fit  | prior type |  mu | sigma |
-+-------+---------------------+-------+-------+-------+-------+------------+-----+-------+
-|   0   | Substrate Roughness |  1.0  |  3.0  |  5.0  |  True |  uniform   | 0.0 |  inf  |
-|   1   |   My changed param  |  0.96 |  2.0  |  3.62 | False |  uniform   | 0.0 |  inf  |
-|   2   |  My other new param |  10.0 |  20.0 |  30.0 | False |  uniform   | 0.0 |  inf  |
-|   3   |      Layer SLD      | 1e-06 | 3e-06 | 5e-06 |  True |  uniform   | 0.0 |  inf  |
-|   4   |     Layer rough     |  5.0  |  7.0  |  10.0 | False |  uniform   | 0.0 |  inf  |
-+-------+---------------------+-------+-------+-------+-------+------------+-----+-------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+---------------------+-------+-------+-------+-------+
+| index |         name        |  min  | value |  max  |  fit  |
++-------+---------------------+-------+-------+-------+-------+
+|   0   | Substrate Roughness |  1.0  |  3.0  |  5.0  |  True |
+|   1   |   My changed param  |  0.96 |  2.0  |  3.62 | False |
+|   2   |  My other new param |  10.0 |  20.0 |  30.0 | False |
+|   3   |      Layer SLD      | 1e-06 | 3e-06 | 5e-06 |  True |
+|   4   |     Layer rough     |  5.0  |  7.0  |  10.0 | False |
++-------+---------------------+-------+-------+-------+-------+
 </pre></div>
 </div>
 </div>
@@ -1370,18 +1370,18 @@ Matlab</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-55" name="sd-tab-set-27" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-55">
 Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+---------+-------+-----------+---------+-------+------------+-----+-------+
-| index |   name  |  min  |   value   |   max   |  fit  | prior type |  mu | sigma |
-+-------+---------+-------+-----------+---------+-------+------------+-----+-------+
-|   0   | SLD Air |  0.0  |    0.0    |   0.0   | False |  uniform   | 0.0 |  inf  |
-|   1   | Silicon | 2e-06 | 2.073e-06 | 2.1e-06 | False |  uniform   | 0.0 |  inf  |
-+-------+---------+-------+-----------+---------+-------+------------+-----+-------+
-+-------+---------+---------+----------+----------+-------+------------+-----+-------+
-| index |   name  |   min   |  value   |   max    |  fit  | prior type |  mu | sigma |
-+-------+---------+---------+----------+----------+-------+------------+-----+-------+
-|   0   | SLD D2O | 6.2e-06 | 6.35e-06 | 6.35e-06 | False |  uniform   | 0.0 |  inf  |
-|   1   |   D2O   |  -6e-07 | -5.6e-07 |  -5e-07  | False |  uniform   | 0.0 |  inf  |
-+-------+---------+---------+----------+----------+-------+------------+-----+-------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+---------+-------+-----------+---------+-------+
+| index |   name  |  min  |   value   |   max   |  fit  |
++-------+---------+-------+-----------+---------+-------+
+|   0   | SLD Air |  0.0  |    0.0    |   0.0   | False |
+|   1   | Silicon | 2e-06 | 2.073e-06 | 2.1e-06 | False |
++-------+---------+-------+-----------+---------+-------+
++-------+---------+---------+----------+----------+-------+
+| index |   name  |   min   |  value   |   max    |  fit  |
++-------+---------+---------+----------+----------+-------+
+|   0   | SLD D2O | 6.2e-06 | 6.35e-06 | 6.35e-06 | False |
+|   1   |   D2O   |  -6e-07 | -5.6e-07 |  -5e-07  | False |
++-------+---------+---------+----------+----------+-------+
 </pre></div>
 </div>
 </div>
@@ -1459,11 +1459,11 @@ Matlab</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-61" name="sd-tab-set-30" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-61">
 Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------+----------+--------------------+---------+---------+---------+---------+
-| index |     name     |   type   |      value 1       | value 2 | value 3 | value 4 | value 5 |
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
-|   0   | Background 1 | constant | Background Param 1 |         |         |         |         |
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------+----------+--------------------+
+| index |     name     |   type   |       source       |
++-------+--------------+----------+--------------------+
+|   0   | Background 1 | constant | Background Param 1 |
++-------+--------------+----------+--------------------+
 </pre></div>
 </div>
 </div>
@@ -1490,7 +1490,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-63">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">background_parameters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My New BackPar&#39;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">problem</span><span class="o">.</span><span class="n">backgrounds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My New Background&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">value_1</span><span class="o">=</span><span class="s1">&#39;My New BackPar&#39;</span><span class="p">)</span>
+<span class="n">problem</span><span class="o">.</span><span class="n">backgrounds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My New Background&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;My New BackPar&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1521,18 +1521,18 @@ Matlab</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-65" name="sd-tab-set-32" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-65">
 Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------------+-------+-------+-------+-------+------------+-----+-------+
-| index |        name        |  min  | value |  max  |  fit  | prior type |  mu | sigma |
-+-------+--------------------+-------+-------+-------+-------+------------+-----+-------+
-|   0   | Background Param 1 | 1e-07 | 1e-06 | 1e-05 | False |  uniform   | 0.0 |  inf  |
-|   1   |   My New BackPar   | 1e-08 | 1e-07 | 1e-06 |  True |  uniform   | 0.0 |  inf  |
-+-------+--------------------+-------+-------+-------+-------+------------+-----+-------+
-+-------+-------------------+----------+--------------------+---------+---------+---------+---------+
-| index |        name       |   type   |      value 1       | value 2 | value 3 | value 4 | value 5 |
-+-------+-------------------+----------+--------------------+---------+---------+---------+---------+
-|   0   |    Background 1   | constant | Background Param 1 |         |         |         |         |
-|   1   | My New Background | constant |   My New BackPar   |         |         |         |         |
-+-------+-------------------+----------+--------------------+---------+---------+---------+---------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------------+-------+-------+-------+-------+
+| index |        name        |  min  | value |  max  |  fit  |
++-------+--------------------+-------+-------+-------+-------+
+|   0   | Background Param 1 | 1e-07 | 1e-06 | 1e-05 | False |
+|   1   |   My New BackPar   | 1e-08 | 1e-07 | 1e-06 |  True |
++-------+--------------------+-------+-------+-------+-------+
++-------+-------------------+----------+--------------------+
+| index |        name       |   type   |       source       |
++-------+-------------------+----------+--------------------+
+|   0   |    Background 1   | constant | Background Param 1 |
+|   1   | My New Background | constant |   My New BackPar   |
++-------+-------------------+----------+--------------------+
 </pre></div>
 </div>
 </div>
@@ -1552,7 +1552,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-67" name="sd-tab-set-33" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-67">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">backgrounds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Data Background 1&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">value_1</span><span class="o">=</span><span class="s1">&#39;My Background Data&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">backgrounds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Data Background 1&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;My Background Data&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1616,16 +1616,16 @@ Matlab</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-71" name="sd-tab-set-35" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-71">
 Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------------+------+-------+------+-------+------------+-----+-------+
-| index |        name        | min  | value | max  |  fit  | prior type |  mu | sigma |
-+-------+--------------------+------+-------+------+-------+------------+-----+-------+
-|   0   | Resolution Param 1 | 0.01 |  0.03 | 0.05 | False |  uniform   | 0.0 |  inf  |
-+-------+--------------------+------+-------+------+-------+------------+-----+-------+
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
-| index |     name     |   type   |      value 1       | value 2 | value 3 | value 4 | value 5 |
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
-|   0   | Resolution 1 | constant | Resolution Param 1 |         |         |         |         |
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------------+------+-------+------+-------+
+| index |        name        | min  | value | max  |  fit  |
++-------+--------------------+------+-------+------+-------+
+|   0   | Resolution Param 1 | 0.01 |  0.03 | 0.05 | False |
++-------+--------------------+------+-------+------+-------+
++-------+--------------+----------+--------------------+
+| index |     name     |   type   |       source       |
++-------+--------------+----------+--------------------+
+|   0   | Resolution 1 | constant | Resolution Param 1 |
++-------+--------------+----------+--------------------+
 </pre></div>
 </div>
 </div>
@@ -1643,7 +1643,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-73" name="sd-tab-set-36" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-73">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">resolutions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My new resolution&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">value_1</span><span class="o">=</span><span class="s1">&#39;My Resolution Param&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">resolutions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My new resolution&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;My Resolution Param&#39;</span><span class="p">)</span>
 <span class="n">problem</span><span class="o">.</span><span class="n">resolutions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My Data Resolution&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1675,13 +1675,13 @@ Matlab</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-75" name="sd-tab-set-37" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-75">
 Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------------+----------+---------------------+---------+---------+---------+---------+
-| index |        name        |   type   |       value 1       | value 2 | value 3 | value 4 | value 5 |
-+-------+--------------------+----------+---------------------+---------+---------+---------+---------+
-|   0   |    Resolution 1    | constant |  Resolution Param 1 |         |         |         |         |
-|   1   | My new resolution  | constant | My Resolution Param |         |         |         |         |
-|   2   | My Data Resolution |   data   |                     |         |         |         |         |
-+-------+--------------------+----------+---------------------+---------+---------+---------+---------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------------+----------+---------------------+---------+
+| index |        name        |   type   |        source       | value 1 |
++-------+--------------------+----------+---------------------+---------+
+|   0   |    Resolution 1    | constant |  Resolution Param 1 |         |
+|   1   | My new resolution  | constant | My Resolution Param |         |
+|   2   | My Data Resolution |   data   |                     |         |
++-------+--------------------+----------+---------------------+---------+
 </pre></div>
 </div>
 </div>
@@ -1738,7 +1738,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-79" name="sd-tab-set-39" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-79">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">myData</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;c_PLP0016596.dat&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
 <span class="n">problem</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My new datafile&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">myData</span><span class="p">)</span>
 </pre></div>
@@ -1837,7 +1837,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-87" name="sd-tab-set-43" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-87">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">RATapi</span> <span class="k">as</span> <span class="nn">RAT</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">RATapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">RAT</span>
 <span class="n">problem</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Project</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;DSPC monolayers&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1990,8 +1990,8 @@ MATLAB</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-97" name="sd-tab-set-48" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-97">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">backgrounds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Background D2O&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">value_1</span><span class="o">=</span><span class="s1">&#39;Backs Value D2O&#39;</span><span class="p">)</span>
-<span class="n">problem</span><span class="o">.</span><span class="n">backgrounds</span><span class="o">.</span><span class="n">set_fields</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Background ACMW&#39;</span><span class="p">,</span> <span class="n">value_1</span><span class="o">=</span><span class="s1">&#39;Backs Value ACMW&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">backgrounds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Background D2O&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;Backs Value D2O&#39;</span><span class="p">)</span>
+<span class="n">problem</span><span class="o">.</span><span class="n">backgrounds</span><span class="o">.</span><span class="n">set_fields</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Background ACMW&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;Backs Value ACMW&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2030,7 +2030,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-101" name="sd-tab-set-50" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-101">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">d13ACM</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;d13acmw20.dat&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
 <span class="n">d70d2O</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;d70d2o20.dat&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
 <span class="n">problem</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;H-tail / D-head / ACMW&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">d13ACM</span><span class="p">)</span>
@@ -2277,7 +2277,7 @@ DSPC monolayers
 
 Calculation: ---------------------------------------------------------------------------------------
 
-non polarised
+normal
 
 Model: ---------------------------------------------------------------------------------------------
 
@@ -2289,79 +2289,79 @@ air/substrate
 
 Parameters: ----------------------------------------------------------------------------------------
 
-+-------+------------------------+--------+---------+-------+------+------------+-----+-------+
-| index |          name          |  min   |  value  |  max  | fit  | prior type |  mu | sigma |
-+-------+------------------------+--------+---------+-------+------+------------+-----+-------+
-|   0   |  Substrate Roughness   |  1.0   |   3.0   |  5.0  | True |  uniform   | 0.0 |  inf  |
-|   1   |    Tails Thickness     |  10.0  |   20.0  |  30.0 | True |  uniform   | 0.0 |  inf  |
-|   2   |    Heads Thickness     |  3.0   |   11.0  |  16.0 | True |  uniform   | 0.0 |  inf  |
-|   3   |    Tails Roughness     |  2.0   |   5.0   |  9.0  | True |  uniform   | 0.0 |  inf  |
-|   4   |    Heads Roughness     |  2.0   |   5.0   |  9.0  | True |  uniform   | 0.0 |  inf  |
-|   5   |  Deuterated Tails SLD  | 4e-06  |  6e-06  | 2e-05 | True |  uniform   | 0.0 |  inf  |
-|   6   | Hydrogenated Tails SLD | -6e-07 |  -4e-07 |  0.0  | True |  uniform   | 0.0 |  inf  |
-|   7   |  Deuterated Heads SLD  | 1e-06  |  3e-06  | 8e-06 | True |  uniform   | 0.0 |  inf  |
-|   8   | Hydrogenated Heads SLD | 1e-07  | 1.4e-06 | 3e-06 | True |  uniform   | 0.0 |  inf  |
-|   9   |    Heads Hydration     |  0.0   |   0.3   |  0.5  | True |  uniform   | 0.0 |  inf  |
-+-------+------------------------+--------+---------+-------+------+------------+-----+-------+
++-------+------------------------+--------+---------+-------+------+
+| index |          name          |  min   |  value  |  max  | fit  |
++-------+------------------------+--------+---------+-------+------+
+|   0   |  Substrate Roughness   |  1.0   |   3.0   |  5.0  | True |
+|   1   |    Tails Thickness     |  10.0  |   20.0  |  30.0 | True |
+|   2   |    Heads Thickness     |  3.0   |   11.0  |  16.0 | True |
+|   3   |    Tails Roughness     |  2.0   |   5.0   |  9.0  | True |
+|   4   |    Heads Roughness     |  2.0   |   5.0   |  9.0  | True |
+|   5   |  Deuterated Tails SLD  | 4e-06  |  6e-06  | 2e-05 | True |
+|   6   | Hydrogenated Tails SLD | -6e-07 |  -4e-07 |  0.0  | True |
+|   7   |  Deuterated Heads SLD  | 1e-06  |  3e-06  | 8e-06 | True |
+|   8   | Hydrogenated Heads SLD | 1e-07  | 1.4e-06 | 3e-06 | True |
+|   9   |    Heads Hydration     |  0.0   |   0.3   |  0.5  | True |
++-------+------------------------+--------+---------+-------+------+
 
 Bulk In: -------------------------------------------------------------------------------------------
 
-+-------+---------+-----+-------+-----+-------+------------+-----+-------+
-| index |   name  | min | value | max |  fit  | prior type |  mu | sigma |
-+-------+---------+-----+-------+-----+-------+------------+-----+-------+
-|   0   | SLD Air | 0.0 |  0.0  | 0.0 | False |  uniform   | 0.0 |  inf  |
-+-------+---------+-----+-------+-----+-------+------------+-----+-------+
++-------+---------+-----+-------+-----+-------+
+| index |   name  | min | value | max |  fit  |
++-------+---------+-----+-------+-----+-------+
+|   0   | SLD Air | 0.0 |  0.0  | 0.0 | False |
++-------+---------+-----+-------+-----+-------+
 
 Bulk Out: ------------------------------------------------------------------------------------------
 
-+-------+----------+---------+----------+----------+------+------------+-----+-------+
-| index |   name   |   min   |  value   |   max    | fit  | prior type |  mu | sigma |
-+-------+----------+---------+----------+----------+------+------------+-----+-------+
-|   0   | SLD D2O  | 6.2e-06 | 6.35e-06 | 6.35e-06 | True |  uniform   | 0.0 |  inf  |
-|   1   | SLD ACMW |  -6e-07 | -5.6e-07 |  -3e-07  | True |  uniform   | 0.0 |  inf  |
-+-------+----------+---------+----------+----------+------+------------+-----+-------+
++-------+----------+---------+----------+----------+------+
+| index |   name   |   min   |  value   |   max    | fit  |
++-------+----------+---------+----------+----------+------+
+|   0   | SLD D2O  | 6.2e-06 | 6.35e-06 | 6.35e-06 | True |
+|   1   | SLD ACMW |  -6e-07 | -5.6e-07 |  -3e-07  | True |
++-------+----------+---------+----------+----------+------+
 
 Scalefactors: --------------------------------------------------------------------------------------
 
-+-------+---------------+------+-------+------+------+------------+-----+-------+
-| index |      name     | min  | value | max  | fit  | prior type |  mu | sigma |
-+-------+---------------+------+-------+------+------+------------+-----+-------+
-|   0   | Scalefactor 1 | 0.02 |  0.23 | 0.25 | True |  uniform   | 0.0 |  inf  |
-+-------+---------------+------+-------+------+------+------------+-----+-------+
++-------+---------------+------+-------+------+------+
+| index |      name     | min  | value | max  | fit  |
++-------+---------------+------+-------+------+------+
+|   0   | Scalefactor 1 | 0.02 |  0.23 | 0.25 | True |
++-------+---------------+------+-------+------+------+
 
 Background Parameters: -----------------------------------------------------------------------------
 
-+-------+------------------+-------+---------+-------+------+------------+-----+-------+
-| index |       name       |  min  |  value  |  max  | fit  | prior type |  mu | sigma |
-+-------+------------------+-------+---------+-------+------+------------+-----+-------+
-|   0   | Backs Value ACMW | 1e-07 | 5.5e-06 | 1e-05 | True |  uniform   | 0.0 |  inf  |
-|   1   | Backs Value D2O  | 1e-08 | 2.8e-06 | 1e-05 | True |  uniform   | 0.0 |  inf  |
-+-------+------------------+-------+---------+-------+------+------------+-----+-------+
++-------+------------------+-------+---------+-------+------+
+| index |       name       |  min  |  value  |  max  | fit  |
++-------+------------------+-------+---------+-------+------+
+|   0   | Backs Value ACMW | 1e-07 | 5.5e-06 | 1e-05 | True |
+|   1   | Backs Value D2O  | 1e-08 | 2.8e-06 | 1e-05 | True |
++-------+------------------+-------+---------+-------+------+
 
 Backgrounds: ---------------------------------------------------------------------------------------
 
-+-------+-----------------+----------+------------------+---------+---------+---------+---------+
-| index |       name      |   type   |     value 1      | value 2 | value 3 | value 4 | value 5 |
-+-------+-----------------+----------+------------------+---------+---------+---------+---------+
-|   0   | Background ACMW | constant | Backs Value ACMW |         |         |         |         |
-|   1   |  Background D2O | constant | Backs Value D2O  |         |         |         |         |
-+-------+-----------------+----------+------------------+---------+---------+---------+---------+
++-------+-----------------+----------+------------------+
+| index |       name      |   type   |      source      |
++-------+-----------------+----------+------------------+
+|   0   | Background ACMW | constant | Backs Value ACMW |
+|   1   |  Background D2O | constant | Backs Value D2O  |
++-------+-----------------+----------+------------------+
 
 Resolution Parameters: -----------------------------------------------------------------------------
 
-+-------+--------------------+------+-------+------+-------+------------+-----+-------+
-| index |        name        | min  | value | max  |  fit  | prior type |  mu | sigma |
-+-------+--------------------+------+-------+------+-------+------------+-----+-------+
-|   0   | Resolution Param 1 | 0.01 |  0.03 | 0.05 | False |  uniform   | 0.0 |  inf  |
-+-------+--------------------+------+-------+------+-------+------------+-----+-------+
++-------+--------------------+------+-------+------+-------+
+| index |        name        | min  | value | max  |  fit  |
++-------+--------------------+------+-------+------+-------+
+|   0   | Resolution Param 1 | 0.01 |  0.03 | 0.05 | False |
++-------+--------------------+------+-------+------+-------+
 
 Resolutions: ---------------------------------------------------------------------------------------
 
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
-| index |     name     |   type   |      value 1       | value 2 | value 3 | value 4 | value 5 |
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
-|   0   | Resolution 1 | constant | Resolution Param 1 |         |         |         |         |
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
++-------+--------------+----------+--------------------+
+| index |     name     |   type   |       source       |
++-------+--------------+----------+--------------------+
+|   0   | Resolution 1 | constant | Resolution Param 1 |
++-------+--------------+----------+--------------------+
 
 Data: ----------------------------------------------------------------------------------------------
 
@@ -2472,7 +2472,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ________________________________________________________________________________________________
 
-Elapsed time is 0.001645 seconds.
+Elapsed time is 0.001379 seconds.
 
 Finished RAT ______________________________________________________________________________________________ 
 </pre></div>
@@ -2503,7 +2503,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<img alt="Displays reflectivity and SLD plot" src="../_images/plot1.png" />
+<img alt="Displays reflectivity and SLD plot" src="../_images/plotBeforeOptimization.png" />
 <p>To do a fit, we change the <em>procedure</em> attribute of the controls class to <strong>simplex</strong>. We will also change the ‘parallel’ option to ‘contrasts’, so that each contrast gets its own calculation thread,
 and modify the output to only display the final result (rather than each iteration) and then run our fit and plot the results:</p>
 <div class="sd-tab-set docutils">
@@ -2513,7 +2513,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span><span class="p">.</span><span class="n">procedure</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;simplex&#39;</span><span class="p">;</span>
 <span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;contrasts&#39;</span><span class="p">;</span>
 <span class="n">controls</span><span class="p">.</span><span class="n">display</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;final&#39;</span><span class="p">;</span>
-<span class="p">[</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RAT</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">controls</span><span class="p">)</span>
+<span class="p">[</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RAT</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">controls</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -2537,7 +2537,7 @@ Running simplex
 
 
 Exiting: Max iterations reached
-Elapsed time is 0.190000 seconds.
+Elapsed time is 0.187965 seconds.
 
 Finished RAT ______________________________________________________________________________________________ 
 </pre></div>
@@ -2553,7 +2553,7 @@ Running simplex
 
 
 Exiting: Max iterations reached
-Elapsed time is 0.210 seconds
+Elapsed time is 0.265 seconds
 
 Finished RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 </pre></div>
@@ -2601,23 +2601,26 @@ Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>reflectivity = [Data array: [51 x 2], Data array: [51 x 2]],
 simulation = [Data array: [51 x 2], Data array: [51 x 2]],
 shiftedData = [Data array: [51 x 3], Data array: [51 x 3]],
+backgrounds = [Data array: [51 x 3], Data array: [51 x 3]],
+resolutions = [Data array: [51 x 2], Data array: [51 x 2]],
 layerSlds = [[Data array: [2 x 3]], [Data array: [2 x 3]]],
-sldProfiles = [[Data array: [178 x 2]], [Data array: [178 x 2]]],
+sldProfiles = [[Data array: [179 x 2]], [Data array: [179 x 2]]],
 resampledLayers = [[Data array: [1 x 3]], [Data array: [1 x 3]]],
 calculationResults = CalculationResults(
-	chiValues = [15.32099818 76.08846334],
-	sumChi = 91.4094615197768,
+	chiValues = [ 9.38093098 62.84500547],
+	sumChi = 72.22593645220759,
 ),
 contrastParams = ContrastParams(
-	backgroundParams = [3.52601782e-07 5.84837824e-06],
-	scalefactors = [0.2478306 0.2478306],
+	scalefactors = [0.24983572 0.24983572],
 	bulkIn = [0. 0.],
-	bulkOut = [ 6.31672040e-06 -5.52469914e-07],
-	resolutionParams = [0.03 0.03],
-	subRoughs = [2.9962268 2.9962268],
+	bulkOut = [ 6.26552417e-06 -5.99472626e-07],
+	subRoughs = [3.03087726 3.03087726],
 	resample = [0. 0.],
 ),
-fitParams = [2.9962268],
+fitParams = [ 3.03087726e+00  2.04705000e+01  8.31427150e+00  6.49767194e+00
+  4.29089077e+00  7.69591087e-06 -8.87391301e-08  7.91236320e-06
+  1.58987702e-06  1.38209696e-01  3.72691294e-06  3.88996743e-06
+  2.49835716e-01  6.26552417e-06 -5.99472626e-07],
 fitNames = [&#39;Substrate Roughness&#39;, &#39;Tails Thickness&#39;, &#39;Heads Thickness&#39;, &#39;Tails Roughness&#39;, &#39;Heads Roughness&#39;, &#39;Deuterated Tails SLD&#39;, &#39;Hydrogenated Tails SLD&#39;, &#39;Deuterated Heads SLD&#39;, &#39;Hydrogenated Heads SLD&#39;, &#39;Heads Hydration&#39;, &#39;Backs Value ACMW&#39;, &#39;Backs Value D2O&#39;, &#39;Scalefactor 1&#39;, &#39;SLD D2O&#39;, &#39;SLD ACMW&#39;],
 </pre></div>
 </div>
@@ -2641,7 +2644,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<img alt="Displays reflectivity and SLD plot" src="../_images/plot2.png" />
+<img alt="Displays reflectivity and SLD plot" src="../_images/plotAfterOptimization.png" />
 </section>
 </section>
 

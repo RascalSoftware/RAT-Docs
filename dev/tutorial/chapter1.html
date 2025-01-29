@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9deae167" />
@@ -490,7 +490,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-1">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">RATapi</span> <span class="k">as</span> <span class="nn">RAT</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">RATapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">RAT</span>
 
 <span class="c1"># to create a project and controls:</span>
 <span class="n">project</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Project</span><span class="p">()</span>
@@ -697,7 +697,7 @@ DSPC monolayers
 
 Calculation: ---------------------------------------------------------------------------------------
 
-non polarised
+normal
 
 Model: ---------------------------------------------------------------------------------------------
 
@@ -709,79 +709,79 @@ air/substrate
 
 Parameters: ----------------------------------------------------------------------------------------
 
-+-------+------------------------+--------+---------+-------+------+------------+-----+-------+
-| index |          name          |  min   |  value  |  max  | fit  | prior type |  mu | sigma |
-+-------+------------------------+--------+---------+-------+------+------------+-----+-------+
-|   0   |  Substrate Roughness   |  1.0   |   3.0   |  5.0  | True |  uniform   | 0.0 |  inf  |
-|   1   |    Tails Thickness     |  10.0  |   20.0  |  30.0 | True |  uniform   | 0.0 |  inf  |
-|   2   |    Heads Thickness     |  3.0   |   11.0  |  16.0 | True |  uniform   | 0.0 |  inf  |
-|   3   |    Tails Roughness     |  2.0   |   5.0   |  9.0  | True |  uniform   | 0.0 |  inf  |
-|   4   |    Heads Roughness     |  2.0   |   5.0   |  9.0  | True |  uniform   | 0.0 |  inf  |
-|   5   |  Deuterated Tails SLD  | 4e-06  |  6e-06  | 2e-05 | True |  uniform   | 0.0 |  inf  |
-|   6   | Hydrogenated Tails SLD | -6e-07 |  -4e-07 |  0.0  | True |  uniform   | 0.0 |  inf  |
-|   7   |  Deuterated Heads SLD  | 1e-06  |  3e-06  | 8e-06 | True |  uniform   | 0.0 |  inf  |
-|   8   | Hydrogenated Heads SLD | 1e-07  | 1.4e-06 | 3e-06 | True |  uniform   | 0.0 |  inf  |
-|   9   |    Heads Hydration     |  0.0   |   0.3   |  0.5  | True |  uniform   | 0.0 |  inf  |
-+-------+------------------------+--------+---------+-------+------+------------+-----+-------+
++-------+------------------------+--------+---------+-------+------+
+| index |          name          |  min   |  value  |  max  | fit  |
++-------+------------------------+--------+---------+-------+------+
+|   0   |  Substrate Roughness   |  1.0   |   3.0   |  5.0  | True |
+|   1   |    Tails Thickness     |  10.0  |   20.0  |  30.0 | True |
+|   2   |    Heads Thickness     |  3.0   |   11.0  |  16.0 | True |
+|   3   |    Tails Roughness     |  2.0   |   5.0   |  9.0  | True |
+|   4   |    Heads Roughness     |  2.0   |   5.0   |  9.0  | True |
+|   5   |  Deuterated Tails SLD  | 4e-06  |  6e-06  | 2e-05 | True |
+|   6   | Hydrogenated Tails SLD | -6e-07 |  -4e-07 |  0.0  | True |
+|   7   |  Deuterated Heads SLD  | 1e-06  |  3e-06  | 8e-06 | True |
+|   8   | Hydrogenated Heads SLD | 1e-07  | 1.4e-06 | 3e-06 | True |
+|   9   |    Heads Hydration     |  0.0   |   0.3   |  0.5  | True |
++-------+------------------------+--------+---------+-------+------+
 
 Bulk In: -------------------------------------------------------------------------------------------
 
-+-------+---------+-----+-------+-----+-------+------------+-----+-------+
-| index |   name  | min | value | max |  fit  | prior type |  mu | sigma |
-+-------+---------+-----+-------+-----+-------+------------+-----+-------+
-|   0   | SLD Air | 0.0 |  0.0  | 0.0 | False |  uniform   | 0.0 |  inf  |
-+-------+---------+-----+-------+-----+-------+------------+-----+-------+
++-------+---------+-----+-------+-----+-------+
+| index |   name  | min | value | max |  fit  |
++-------+---------+-----+-------+-----+-------+
+|   0   | SLD Air | 0.0 |  0.0  | 0.0 | False |
++-------+---------+-----+-------+-----+-------+
 
 Bulk Out: ------------------------------------------------------------------------------------------
 
-+-------+----------+---------+----------+----------+------+------------+-----+-------+
-| index |   name   |   min   |  value   |   max    | fit  | prior type |  mu | sigma |
-+-------+----------+---------+----------+----------+------+------------+-----+-------+
-|   0   | SLD D2O  | 6.2e-06 | 6.35e-06 | 6.35e-06 | True |  uniform   | 0.0 |  inf  |
-|   1   | SLD ACMW |  -6e-07 | -5.6e-07 |  -3e-07  | True |  uniform   | 0.0 |  inf  |
-+-------+----------+---------+----------+----------+------+------------+-----+-------+
++-------+----------+---------+----------+----------+------+
+| index |   name   |   min   |  value   |   max    | fit  |
++-------+----------+---------+----------+----------+------+
+|   0   | SLD D2O  | 6.2e-06 | 6.35e-06 | 6.35e-06 | True |
+|   1   | SLD ACMW |  -6e-07 | -5.6e-07 |  -3e-07  | True |
++-------+----------+---------+----------+----------+------+
 
 Scalefactors: --------------------------------------------------------------------------------------
 
-+-------+---------------+------+-------+------+------+------------+-----+-------+
-| index |      name     | min  | value | max  | fit  | prior type |  mu | sigma |
-+-------+---------------+------+-------+------+------+------------+-----+-------+
-|   0   | Scalefactor 1 | 0.02 |  0.23 | 0.25 | True |  uniform   | 0.0 |  inf  |
-+-------+---------------+------+-------+------+------+------------+-----+-------+
++-------+---------------+------+-------+------+------+
+| index |      name     | min  | value | max  | fit  |
++-------+---------------+------+-------+------+------+
+|   0   | Scalefactor 1 | 0.02 |  0.23 | 0.25 | True |
++-------+---------------+------+-------+------+------+
 
 Background Parameters: -----------------------------------------------------------------------------
 
-+-------+------------------+-------+---------+-------+------+------------+-----+-------+
-| index |       name       |  min  |  value  |  max  | fit  | prior type |  mu | sigma |
-+-------+------------------+-------+---------+-------+------+------------+-----+-------+
-|   0   | Backs Value ACMW | 1e-07 | 5.5e-06 | 1e-05 | True |  uniform   | 0.0 |  inf  |
-|   1   | Backs Value D2O  | 1e-08 | 2.8e-06 | 1e-05 | True |  uniform   | 0.0 |  inf  |
-+-------+------------------+-------+---------+-------+------+------------+-----+-------+
++-------+------------------+-------+---------+-------+------+
+| index |       name       |  min  |  value  |  max  | fit  |
++-------+------------------+-------+---------+-------+------+
+|   0   | Backs Value ACMW | 1e-07 | 5.5e-06 | 1e-05 | True |
+|   1   | Backs Value D2O  | 1e-08 | 2.8e-06 | 1e-05 | True |
++-------+------------------+-------+---------+-------+------+
 
 Backgrounds: ---------------------------------------------------------------------------------------
 
-+-------+-----------------+----------+------------------+---------+---------+---------+---------+
-| index |       name      |   type   |     value 1      | value 2 | value 3 | value 4 | value 5 |
-+-------+-----------------+----------+------------------+---------+---------+---------+---------+
-|   0   | Background ACMW | constant | Backs Value ACMW |         |         |         |         |
-|   1   |  Background D2O | constant | Backs Value D2O  |         |         |         |         |
-+-------+-----------------+----------+------------------+---------+---------+---------+---------+
++-------+-----------------+----------+------------------+
+| index |       name      |   type   |      source      |
++-------+-----------------+----------+------------------+
+|   0   | Background ACMW | constant | Backs Value ACMW |
+|   1   |  Background D2O | constant | Backs Value D2O  |
++-------+-----------------+----------+------------------+
 
 Resolution Parameters: -----------------------------------------------------------------------------
 
-+-------+--------------------+------+-------+------+-------+------------+-----+-------+
-| index |        name        | min  | value | max  |  fit  | prior type |  mu | sigma |
-+-------+--------------------+------+-------+------+-------+------------+-----+-------+
-|   0   | Resolution Param 1 | 0.01 |  0.03 | 0.05 | False |  uniform   | 0.0 |  inf  |
-+-------+--------------------+------+-------+------+-------+------------+-----+-------+
++-------+--------------------+------+-------+------+-------+
+| index |        name        | min  | value | max  |  fit  |
++-------+--------------------+------+-------+------+-------+
+|   0   | Resolution Param 1 | 0.01 |  0.03 | 0.05 | False |
++-------+--------------------+------+-------+------+-------+
 
 Resolutions: ---------------------------------------------------------------------------------------
 
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
-| index |     name     |   type   |      value 1       | value 2 | value 3 | value 4 | value 5 |
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
-|   0   | Resolution 1 | constant | Resolution Param 1 |         |         |         |         |
-+-------+--------------+----------+--------------------+---------+---------+---------+---------+
++-------+--------------+----------+--------------------+
+| index |     name     |   type   |       source       |
++-------+--------------+----------+--------------------+
+|   0   | Resolution 1 | constant | Resolution Param 1 |
++-------+--------------+----------+--------------------+
 
 Data: ----------------------------------------------------------------------------------------------
 
@@ -843,20 +843,20 @@ Matlab</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-7">
 Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+------------------------+--------+---------+-------+------+------------+-----+-------+
-| index |          name          |  min   |  value  |  max  | fit  | prior type |  mu | sigma |
-+-------+------------------------+--------+---------+-------+------+------------+-----+-------+
-|   0   |  Substrate Roughness   |  1.0   |   3.0   |  5.0  | True |  uniform   | 0.0 |  inf  |
-|   1   |    Tails Thickness     |  10.0  |   20.0  |  30.0 | True |  uniform   | 0.0 |  inf  |
-|   2   |    Heads Thickness     |  3.0   |   11.0  |  16.0 | True |  uniform   | 0.0 |  inf  |
-|   3   |    Tails Roughness     |  2.0   |   5.0   |  9.0  | True |  uniform   | 0.0 |  inf  |
-|   4   |    Heads Roughness     |  2.0   |   5.0   |  9.0  | True |  uniform   | 0.0 |  inf  |
-|   5   |  Deuterated Tails SLD  | 4e-06  |  6e-06  | 2e-05 | True |  uniform   | 0.0 |  inf  |
-|   6   | Hydrogenated Tails SLD | -6e-07 |  -4e-07 |  0.0  | True |  uniform   | 0.0 |  inf  |
-|   7   |  Deuterated Heads SLD  | 1e-06  |  3e-06  | 8e-06 | True |  uniform   | 0.0 |  inf  |
-|   8   | Hydrogenated Heads SLD | 1e-07  | 1.4e-06 | 3e-06 | True |  uniform   | 0.0 |  inf  |
-|   9   |    Heads Hydration     |  0.0   |   0.3   |  0.5  | True |  uniform   | 0.0 |  inf  |
-+-------+------------------------+--------+---------+-------+------+------------+-----+-------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+------------------------+--------+---------+-------+------+
+| index |          name          |  min   |  value  |  max  | fit  |
++-------+------------------------+--------+---------+-------+------+
+|   0   |  Substrate Roughness   |  1.0   |   3.0   |  5.0  | True |
+|   1   |    Tails Thickness     |  10.0  |   20.0  |  30.0 | True |
+|   2   |    Heads Thickness     |  3.0   |   11.0  |  16.0 | True |
+|   3   |    Tails Roughness     |  2.0   |   5.0   |  9.0  | True |
+|   4   |    Heads Roughness     |  2.0   |   5.0   |  9.0  | True |
+|   5   |  Deuterated Tails SLD  | 4e-06  |  6e-06  | 2e-05 | True |
+|   6   | Hydrogenated Tails SLD | -6e-07 |  -4e-07 |  0.0  | True |
+|   7   |  Deuterated Heads SLD  | 1e-06  |  3e-06  | 8e-06 | True |
+|   8   | Hydrogenated Heads SLD | 1e-07  | 1.4e-06 | 3e-06 | True |
+|   9   |    Heads Hydration     |  0.0   |   0.3   |  0.5  | True |
++-------+------------------------+--------+---------+-------+------+
 </pre></div>
 </div>
 </div>
@@ -1072,7 +1072,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ________________________________________________________________________________________________
 
-Elapsed time is 0.161652 seconds.
+Elapsed time is 0.162848 seconds.
 
 Finished RAT ______________________________________________________________________________________________ 
 </pre></div>
@@ -1119,23 +1119,25 @@ Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>reflectivity = [Data array: [51 x 2], Data array: [51 x 2]],
 simulation = [Data array: [51 x 2], Data array: [51 x 2]],
 shiftedData = [Data array: [51 x 3], Data array: [51 x 3]],
+backgrounds = [Data array: [51 x 3], Data array: [51 x 3]],
+resolutions = [Data array: [51 x 2], Data array: [51 x 2]],
 layerSlds = [[Data array: [2 x 3]], [Data array: [2 x 3]]],
 sldProfiles = [[Data array: [182 x 2]], [Data array: [182 x 2]]],
 resampledLayers = [[Data array: [1 x 3]], [Data array: [1 x 3]]],
 calculationResults = CalculationResults(
-	chiValues = [278.31497186 463.11042095],
-	sumChi = 741.4253928160788,
+	chiValues = [278.33456632 463.11454139],
+	sumChi = 741.4491077056697,
 ),
 contrastParams = ContrastParams(
-	backgroundParams = [2.8e-06 5.5e-06],
 	scalefactors = [0.23 0.23],
 	bulkIn = [0. 0.],
 	bulkOut = [ 6.35e-06 -5.60e-07],
-	resolutionParams = [0.03 0.03],
 	subRoughs = [3. 3.],
 	resample = [0. 0.],
 ),
-fitParams = [3.],
+fitParams = [ 3.00e+00  2.00e+01  1.10e+01  5.00e+00  5.00e+00  6.00e-06 -4.00e-07
+  3.00e-06  1.40e-06  3.00e-01  5.50e-06  2.80e-06  2.30e-01  6.35e-06
+ -5.60e-07],
 fitNames = [&#39;Substrate Roughness&#39;, &#39;Tails Thickness&#39;, &#39;Heads Thickness&#39;, &#39;Tails Roughness&#39;, &#39;Heads Roughness&#39;, &#39;Deuterated Tails SLD&#39;, &#39;Hydrogenated Tails SLD&#39;, &#39;Deuterated Heads SLD&#39;, &#39;Hydrogenated Heads SLD&#39;, &#39;Heads Hydration&#39;, &#39;Backs Value ACMW&#39;, &#39;Backs Value D2O&#39;, &#39;Scalefactor 1&#39;, &#39;SLD D2O&#39;, &#39;SLD ACMW&#39;],
 </pre></div>
 </div>
@@ -1147,7 +1149,7 @@ We can now plot the output, either manually (by taking the relevant parts from t
 <input checked="checked" id="sd-tab-item-24" name="sd-tab-set-12" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-24">
 MATLAB</label><div class="sd-tab-content docutils">
-<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="nb">clf</span><span class="p">;</span>
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="nb">clf</span><span class="p">;</span>
 <span class="n">plotRefSLD</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1160,7 +1162,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<img alt="reflectivity and SLD plots" src="../_images/plots.png" />
+<img alt="reflectivity and SLD plots" src="../_images/plotBeforeOptimization.png" />
 <p>We can see that our model is looking fairly sensible, but that our guess values for the parameters are pretty wide off the mark. Further analysis
 might include running a fit over some of our parameters using one of the other procedures available in the controls object.</p>
 </section>

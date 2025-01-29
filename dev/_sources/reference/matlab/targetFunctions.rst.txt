@@ -18,7 +18,7 @@ Common Functions
 .. automodule:: targetFunctions.common.groupLayers
     :members:    
 
-.. _nonPolarisedTF:
+.. _normalTF:
 
 Normal Target Functions (normalTF)
 

@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9deae167" />
@@ -451,60 +451,176 @@ document.write(`
                   
   <section id="plotting-bayesian-analysis">
 <span id="bayesplotting"></span><h1>Plotting Bayesian Analysis<a class="headerlink" href="#plotting-bayesian-analysis" title="Link to this heading">#</a></h1>
-<p>A number of function exist for plotting the results of Bayesian analysis.</p>
+<p>A number of functions exist for plotting the results of Bayesian analysis. The problem and result used in this section were made using the
+<a class="reference internal" href="../examples/DSPC_standard_layers.html#dspc-standard-layers"><span class="std std-ref">DSPC Standard Layers</span></a> example and a control object with the procedure set to <code class="docutils literal notranslate"><span class="pre">DREAM</span></code>.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Run the DSPC standard layers example</span>
+<span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">();</span>
+<span class="n">controls</span><span class="p">.</span><span class="n">procedure</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;dream&#39;</span><span class="p">;</span>
+<span class="p">[</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RAT</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">controls</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-1">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run the DSPC standard layer example</span>
+<span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">()</span>
+<span class="n">controls</span><span class="o">.</span><span class="n">procedure</span> <span class="o">=</span> <span class="s1">&#39;dream&#39;</span>
+<span class="n">problem</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">controls</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section id="reflectivity-and-sld">
 <h2>Reflectivity and SLD<a class="headerlink" href="#reflectivity-and-sld" title="Link to this heading">#</a></h2>
 <p>A simple reflectivity shaded plot can be displayed as follows:</p>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="nb">clf</span><span class="p">;</span>
-<span class="n">bayesShadedPlot</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="n">results</span><span class="p">)</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">bayesShadedPlot</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_ref_sld</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">bayes</span><span class="o">=</span><span class="mi">65</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <a class="reference internal image-reference" href="../_images/bayesRef1.png"><img alt="simple shaded plot" src="../_images/bayesRef1.png" style="width: 800px;" />
 </a>
 <p>By default, this shows a standard reflectivity plot with a 65% shaded confidence interval.</p>
 <p>There are a number of options to customise the plot:</p>
 <p><strong>Interval</strong> - You can sepcify either the 65% or 95% confidence interval to display:</p>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="n">bayesShadedPlot</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="n">results</span><span class="p">,</span><span class="s">&#39;interval&#39;</span><span class="p">,</span><span class="mi">95</span><span class="p">)</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">bayesShadedPlot</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;interval&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">95</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-5">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_ref_sld</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">bayes</span><span class="o">=</span><span class="mi">95</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <a class="reference internal image-reference" href="../_images/bayes95.png"><img alt="95 shaded plot" src="../_images/bayes95.png" style="width: 800px;" />
 </a>
 <p><strong>Type</strong> - You can also specify a q4 plot for the reflectivity:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-6">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">bayesShadedPlot</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;q4&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-7">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_ref_sld</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">bayes</span><span class="o">=</span><span class="mi">65</span><span class="p">,</span> <span class="n">q4</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <a class="reference internal image-reference" href="../_images/bayesq4.png"><img alt="bayes q4 plot" src="../_images/bayesq4.png" style="width: 800px;" />
 </a>
-</section>
 <section id="posterior-histograms">
-<h2>Posterior Histograms<a class="headerlink" href="#posterior-histograms" title="Link to this heading">#</a></h2>
+<h3>Posterior Histograms<a class="headerlink" href="#posterior-histograms" title="Link to this heading">#</a></h3>
 <p>You can easily view the marginalised Bayesian posteriors from your analysis:</p>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="n">plotHists</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-8">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">plotHists</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<input id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-9">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_hists</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <a class="reference internal image-reference" href="../_images/histSmooth.png"><img alt="smooth hists" src="../_images/histSmooth.png" style="width: 800px;" />
 </a>
 <p>By default, <em>plotHists</em> carries out a KDE smooth of the histograms. You can optionally choose no smoothing:</p>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="n">plotHists</span><span class="p">(</span><span class="n">results</span><span class="p">,</span><span class="s">&#39;smooth&#39;</span><span class="p">,</span><span class="nb">false</span><span class="p">)</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-10" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-10">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">plotHists</span><span class="p">(</span><span class="n">results</span><span class="p">,</span><span class="s">&#39;smooth&#39;</span><span class="p">,</span><span class="nb">false</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<input id="sd-tab-item-11" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-11">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_hists</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">smooth</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <a class="reference internal image-reference" href="../_images/histNoSmooth.png"><img alt="smooth hists" src="../_images/histNoSmooth.png" style="width: 800px;" />
 </a>
 </section>
 <section id="corner-plots">
-<h2>Corner Plots<a class="headerlink" href="#corner-plots" title="Link to this heading">#</a></h2>
+<h3>Corner Plots<a class="headerlink" href="#corner-plots" title="Link to this heading">#</a></h3>
 <p>To produce a cornerplot, simply use the <em>cornerPlot</em> function:</p>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="n">cornerPlot</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-12" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-12">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">cornerPlot</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<input id="sd-tab-item-13" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-13">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_corner</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <a class="reference internal image-reference" href="../_images/cornerPlot.png"><img alt="cornerPlot" src="../_images/cornerPlot.png" style="width: 800px;" />
 </a>
 </section>
 <section id="chain-view">
-<h2>Chain View<a class="headerlink" href="#chain-view" title="Link to this heading">#</a></h2>
+<h3>Chain View<a class="headerlink" href="#chain-view" title="Link to this heading">#</a></h3>
 <p>Finally, you can check the integrity of your markov chain as follows:</p>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="n">mcmcplot</span><span class="p">(</span><span class="n">results</span><span class="p">.</span><span class="n">chain</span><span class="p">,[],</span><span class="n">results</span><span class="p">.</span><span class="n">fitNames</span><span class="p">,</span><span class="s">&#39;chainpanel&#39;</span><span class="p">);</span>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-14" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-14">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">plotChain</span><span class="p">(</span><span class="n">results</span><span class="p">);</span>
 </pre></div>
+</div>
+</div>
+<input id="sd-tab-item-15" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-15">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_chain</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <a class="reference internal image-reference" href="../_images/chainPlot.png"><img alt="chainPlot" src="../_images/chainPlot.png" style="width: 800px;" />
 </a>
+</section>
 </section>
 </section>
 
@@ -530,10 +646,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflectivity-and-sld">Reflectivity and SLD</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-histograms">Posterior Histograms</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#corner-plots">Corner Plots</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chain-view">Chain View</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reflectivity-and-sld">Reflectivity and SLD</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#posterior-histograms">Posterior Histograms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#corner-plots">Corner Plots</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chain-view">Chain View</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

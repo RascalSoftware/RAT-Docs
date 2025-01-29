@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9deae167" />
@@ -448,7 +448,8 @@ document.write(`
   <section id="basic-plotting">
 <span id="simpleplotting"></span><h1>Basic Plotting<a class="headerlink" href="#basic-plotting" title="Link to this heading">#</a></h1>
 <p>The simplest plot available is a simple display of the contents of the <em>problem</em> and <em>results</em> blocks.
-This takes the following form:</p>
+The initial problem and result used in this section were made by running <a class="reference internal" href="../examples/DSPC_standard_layers.html#dspc-standard-layers"><span class="std std-ref">DSPC Standard Layers</span></a>, after
+running the example a basic plot takes the following form:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
@@ -466,7 +467,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<img alt="disp(results)" src="../_images/simPlot1.png" />
+<img alt="simple plot" src="../_images/simPlot1.png" />
 <p>This produces a basic plot of the reflectivity and SLD.</p>
 <p>If this plot is not cleared before subsequent plots, then <em>plotRefSLD</em> will overplot allowing the results of calculations to be compared:</p>
 <div class="sd-tab-set docutils">
@@ -485,7 +486,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">(</span><span class="n">procedure</span><span class="o">=</span><span class="s1">&#39;DE&#39;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="s1">&#39;final&#39;</span><span class="p">,</span> <span class="n">parallel</span><span class="o">=</span><span class="s1">&#39;contrast&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">(</span><span class="n">procedure</span><span class="o">=</span><span class="s1">&#39;DE&#39;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="s1">&#39;final&#39;</span><span class="p">,</span> <span class="n">parallel</span><span class="o">=</span><span class="s1">&#39;contrasts&#39;</span><span class="p">)</span>
 <span class="n">problem</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">controls</span><span class="p">)</span>
 <span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_ref_sld</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">controls</span><span class="p">)</span>
 </pre></div>
