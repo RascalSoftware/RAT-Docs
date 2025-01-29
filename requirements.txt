@@ -3,3 +3,4 @@ sphinxcontrib-matlabdomain==0.18
 pydata-sphinx-theme==0.15.2
 sphinx_design==0.6.0
 sphinx-copybutton==0.5.2
+RATapi==0.0.0.dev4

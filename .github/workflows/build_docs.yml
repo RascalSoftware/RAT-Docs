@@ -26,7 +26,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install matlabengine==24.1.*
         pip install -r requirements.txt
-        pip install RATapi
         python build_docs.py
     - name: Checkout gh-pages
       if: github.ref == 'refs/heads/main'
