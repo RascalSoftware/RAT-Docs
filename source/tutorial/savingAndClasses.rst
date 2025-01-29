@@ -205,7 +205,7 @@ Then, RAT will create a file containing all the statements needed to re-create y
         from numpy import array, inf
 
         problem = RAT.Project(
-            name='', calculation='non polarised', model='standard layers', geometry='air/substrate', absorption=False,
+            name='', calculation='normal', model='standard layers', geometry='air/substrate', absorption=False,
             parameters=RAT.ClassList([ProtectedRAT.models.Parameter(name='Substrate Roughness', min=1.0, value=3.0, max=5.0, fit=True, prior_type='uniform', mu=0.0, sigma=inf)]),
             background_parameters=RAT.ClassList([RAT.models.Parameter(name='Background Param 1', min=1e-07, value=1e-06, max=1e-05, fit=False, prior_type='uniform', mu=0.0, sigma=inf)]),
             scalefactors=RAT.ClassList([RAT.models.Parameter(name='Scalefactor 1', min=0.02, value=0.23, max=0.25, fit=False, prior_type='uniform', mu=0.0, sigma=inf)]),
