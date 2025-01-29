@@ -39,17 +39,17 @@ This example can be run as a script or interactively using the instructions belo
         
         .. code-block:: console 
             
-            python RATapi.examples.non_polarised.DSPC_standard_layers.py
+            python RATapi.examples.normal_reflectivity.DSPC_standard_layers.py
 
         **Run as Function**:  
         
         .. code-block:: Python 
             
             import RATapi as RAT
-            problem, results = RAT.examples.non_polarised.DSPC_standard_layers()
+            problem, results = RAT.examples.normal_reflectivity.DSPC_standard_layers()
         
         **Run Interactively**:  
         
         .. code-block:: console 
             
-            jupyter notebook RATapi.examples.non_polarised.DSPC_standard_layers.ipynb
+            jupyter notebook RATapi.examples.normal_reflectivity.DSPC_standard_layers.ipynb

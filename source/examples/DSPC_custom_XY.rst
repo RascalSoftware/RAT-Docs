@@ -50,27 +50,27 @@ This example can be run as a script or interactively using the instructions belo
     .. tab-item:: Python 
         :sync: Python
 
-        .. note:: The custom model used is a Python model - **RATapi.examples.non_polarised.custom_XY_DSPC.py**.
+        .. note:: The custom model used is a Python model - **RATapi.examples.normal_reflectivity.custom_XY_DSPC.py**.
 
 
         **Run Script**:  
         
         .. code-block:: console 
             
-            python RATapi.examples.non_polarised.DSPC_custom_XY.py
+            python RATapi.examples.normal_reflectivity.DSPC_custom_XY.py
 
         **Run as Function**:  
         
         .. code-block:: Python 
             
             import RATapi as RAT
-            problem, results = RAT.examples.non_polarised.DSPC_custom_XY()
+            problem, results = RAT.examples.normal_reflectivity.DSPC_custom_XY()
         
         **Run Interactively**:  
         
         .. code-block:: console 
             
-            jupyter notebook RATapi.examples.non_polarised.DSPC_custom_XY.ipynb
+            jupyter notebook RATapi.examples.normal_reflectivity.DSPC_custom_XY.ipynb
 
 
 .. _ref_1:

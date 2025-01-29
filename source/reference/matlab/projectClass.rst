@@ -54,7 +54,7 @@ Although, Project class provides one level higher interface so that one can use 
 *************
 Domains Class
 *************
-RAT currently supports two calculation types (nonPolarised and Domains). The Domains Class is a project class with extra parameters (domainRatio, domainContrasts) for the Domains calculation.
+RAT currently supports two calculation types (normal and Domains). The Domains Class is a project class with extra parameters (domainRatio, domainContrasts) for the Domains calculation.
 
 .. note::
     It is recommended to use `API.createProject` instead of creating a Project or Domains object directly.

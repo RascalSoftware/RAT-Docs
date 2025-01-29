@@ -700,7 +700,7 @@ The backgrounds can be one of three types: 'constant', 'function' or 'data'. The
     .. code-block:: Python
 
         problem.background_parameters.append(name='My New BackPar', min=1e-8, value=1e-7, max=1e-6, fit=True)
-        problem.backgrounds.append(name='My New Background', type='constant', value_1='My New BackPar')
+        problem.backgrounds.append(name='My New Background', type='constant', source='My New BackPar')
 
 
 With this code snippet we've made a new background, with the value taken from the (fittable) parameter called 'My New BackPar':
@@ -724,7 +724,7 @@ With this code snippet we've made a new background, with the value taken from th
         .. output:: Python
 
             problem.background_parameters.append(name='My New BackPar', min=1e-8, value=1e-7, max=1e-6, fit=True)
-            problem.backgrounds.append(name='My New Background', type='constant', value_1='My New BackPar')
+            problem.backgrounds.append(name='My New Background', type='constant', source='My New BackPar')
             print(problem.background_parameters)
             print(problem.backgrounds)
 
@@ -740,7 +740,7 @@ This is then available to be used by any of our contrasts (see later).
     
     .. code-block:: Python
 
-        problem.backgrounds.append(name='Data Background 1', type='data', value_1='My Background Data')
+        problem.backgrounds.append(name='Data Background 1', type='data', source='My Background Data')
 
 .. .. tab-set::
 ..     :class: tab-label-hidden
@@ -759,7 +759,7 @@ This is then available to be used by any of our contrasts (see later).
 
 ..         .. output:: Python
 
-..              problem.backgrounds.append(name='Data Background 1', type='data', value_1='My Background Data')
+..              problem.backgrounds.append(name='Data Background 1', type='data', source='My Background Data')
 ..              print(problem.backgrounds)
 
 This is then used in the reflectivity calculation for any contrast in which it is specified.
@@ -822,7 +822,7 @@ Then, we make the actual resolution referring to whichever one of the resolution
 
     .. code-block:: Python
     
-        problem.resolutions.append(name='My new resolution', type='constant', value_1='My Resolution Param')
+        problem.resolutions.append(name='My new resolution', type='constant', source='My Resolution Param')
         problem.resolutions.append(name='My Data Resolution', type='data')
 
 .. tab-set::
@@ -845,7 +845,7 @@ Then, we make the actual resolution referring to whichever one of the resolution
         .. output:: Python
 
             problem.resolution_parameters.append(name='My Resolution Param', min=0.02, value=0.05, max=0.08, fit=True)
-            problem.resolutions.append(name='My new resolution', type='constant', value_1='My Resolution Param')
+            problem.resolutions.append(name='My new resolution', type='constant', source='My Resolution Param')
             problem.resolutions.append(name='My Data Resolution', type='data')
             print(problem.resolutions)
 
@@ -1102,8 +1102,8 @@ Use these parameters to define two constant backgrounds, again using the existin
     
     .. code-block:: Python
 
-        problem.backgrounds.append(name='Background D2O', type='constant', value_1='Backs Value D2O')
-        problem.backgrounds.set_fields(0, name='Background ACMW', value_1='Backs Value ACMW')
+        problem.backgrounds.append(name='Background D2O', type='constant', source='Backs Value D2O')
+        problem.backgrounds.set_fields(0, name='Background ACMW', source='Backs Value ACMW')
 
 We need two sub-phases for our project. D2O is already in the project as a default, so we only need to add the bulk out for ACMW
 
