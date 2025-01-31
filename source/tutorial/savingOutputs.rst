@@ -31,7 +31,7 @@ Saving these objects to the current file directory can be done as shown below.
 
         problem.save(".", "problem.json")
         controls.save(".", "controls.json")
-        # Result file is saved using pickle
+        # Result file is saved using the builtin "pickle" library
         with open('results.pickle', 'wb') as result_file:
             # dump result into that file
             pickle.dump(results, result_file)
