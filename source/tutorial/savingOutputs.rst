@@ -1,74 +1,67 @@
-.. _savingAndClasses:
+.. _savingOutputs:
 
-Saving Your Work (working with classes)
-=======================================
-When you have completed your analysis, usually uou will want to save a copy of your work for subsequent. Since everything about your model and results are contained
-is their own classes (actually a struct for 'results'), this is very easy. But, there are a couple of pitfalls to be aware of..
+==========================
+Copying and Saving Outputs
+==========================
+When you have completed your analysis, usually you will want to save a copy of your work for subsequent analysis. The problem definition can either be cloned so analysis is 
+attempted with different parameters without risk of losing the best fits, or it can be saved to a file or as a script as detailed in the sections below  
 
+****************
 Saving to a file
-................
-Suppose you have a model defined in problem, and you have run this through RAT and you want to save your work for later...
+****************
+After a RAT calculation run, ``problem`` is the problem definition with updated fit parameters, ``controls`` is the settings used for the calculation and ``results`` is the computed reflectivities, SLD's and so on. 
+
 
 .. image:: ../images/ratInput.png
     :width: 600
     :alt: RAT input model
 
-So 'problem' now contains a copy of the input problem, and results the relevant reflectivities, SLD's and so on. Because everything is in these two outputs, then saving your work is
-just a matter of saving these to file. It is good practice to keep everything together, and a good way of doing this is to collect them into a struct. Then, you only need to save the 
-struct to a file to save all of your work:
+
+Saving these objects to the current file directory can be done as shown below.
 
 .. tab-set-code::
     .. code-block:: Matlab
 
         myResults = struct('problem', problem, 'results', results, 'controls', controls);
-        save('myResultsFile', 'myResults');
+        save('myResultsFile.mat', 'myResults');
 
     .. code-block:: Python
 
-        TODO
+        import pickle
 
+        problem.save(".", "problem.json")
+        controls.save(".", "controls.json")
+        # Result file is saved using pickle
+        with open('results.pickle', 'wb') as result_file:
+            # dump result into that file
+            pickle.dump(results, result_file)
 
-At a later date, you only need to load back in your struct, split it up into it is components and away you go:
+Later on, the objects can be loaded from the save directory as shown below:
 
 .. tab-set-code::
     .. code-block:: Matlab
 
-        myWork = load('myResultsFile');
-        myWork.myResults
+        myWork = load('myResultsFile.mat');
+        problem = myWork.myResults.problem;
+        controls = myWork.myResults.controls;
+        results = myWork.myResults.results;
 
     .. code-block:: Python
-
-        TODO
-
-.. tab-set::
-    :class: tab-label-hidden
-    :sync-group: code
-
-    .. tab-item:: Matlab
-        :sync: Matlab
-
-        .. code-block:: text
-
-            myResults = 
-
-            struct with fields:
-
-                problem: [1x1 projectClass]
-                results: [1x1 struct]
-                controls: [1x1 controlsClass]
-
-    .. tab-item:: Python 
-        :sync: Python
-        
-        TODO
+            
+        problem = RAT.Project.load("problem.json")
+        controls = RAT.Controls.load("controls.json")
+        with open('results.pickle', 'rb') as result_file:
+            # load result from file
+            results = pickle.load(result_file)
 
 
+***********************
 Copying a project class
-.......................
+***********************
 During an analysis, it may be necessary to make a copy of your project, so that you can modify one of them in order 
 to carry out some kind of comparison between them for example. 
-In the example below, *problem1* and *problem1* are references to the same instance of project class so modifying 
-*problem2* will also modify original object *problem1* which is not ideal.
+In the example below, ``problem1`` and ``problem1`` are references to the same instance of project class so modifying 
+``problem2`` will also modify original object ``problem1`` which is not ideal.
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -137,8 +130,9 @@ The proper way to make a copy/clone of the project class is shown in the example
 
 Now *problem1* and *problem2* are seperate instances of project class and changing *problem2* no longer changes *problem1*.
 
+*********************
 Exporting as a Script
-.....................
+*********************
 Although saving a binary version of the class is useful, sometimes it would be better to have a script version which will reproduce the class. This can be done as shown below:
 
 .. tab-set-code::
