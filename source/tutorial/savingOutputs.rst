@@ -29,8 +29,8 @@ Saving these objects to the current file directory can be done as shown below.
 
         import pickle
 
-        problem.save(".", "problem.json")
-        controls.save(".", "controls.json")
+        problem.save('problem.json')
+        controls.save('controls.json')
         # Result file is saved using the builtin "pickle" library
         with open('results.pickle', 'wb') as result_file:
             # dump result into that file
@@ -48,8 +48,8 @@ Later on, the objects can be loaded from the save directory as shown below:
 
     .. code-block:: Python
             
-        problem = RAT.Project.load("problem.json")
-        controls = RAT.Controls.load("controls.json")
+        problem = RAT.Project.load('problem.json')
+        controls = RAT.Controls.load('controls.json')
         with open('results.pickle', 'rb') as result_file:
             # load result from file
             results = pickle.load(result_file)
