@@ -131,7 +131,7 @@ The proper way to make a copy/clone of the project class is shown in the example
 Now *problem1* and *problem2* are seperate instances of project class and changing *problem2* no longer changes *problem1*.
 
 *********************
-Exporting as a Script
+Exporting as a script
 *********************
 Although saving a binary version of the class is useful, sometimes it would be better to have a script version which will reproduce the class. This can be done as shown below:
 
