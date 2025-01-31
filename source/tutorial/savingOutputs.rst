@@ -60,7 +60,7 @@ Copying a project class
 ***********************
 During an analysis, it may be necessary to make a copy of your project, so that you can modify one of them in order 
 to carry out some kind of comparison between them for example. 
-In the example below, ``problem1`` and ``problem1`` are references to the same instance of project class so modifying 
+In the example below, ``problem1`` and ``problem2`` are references to the same instance of project class so modifying 
 ``problem2`` will also modify original object ``problem1`` which is not ideal.
 
 .. tab-set-code::
