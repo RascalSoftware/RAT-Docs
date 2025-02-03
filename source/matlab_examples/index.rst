@@ -1,9 +1,9 @@
-.. _examples:
+.. _matlabExamples:
 
-========
-Examples
-========
-A number of examples are provided to demonstrate the functionality available in the MATLAB and Python interface of RAT.
+===============
+MATLAB Examples
+===============
+A number of examples are provided to demonstrate the functionality available in the MATLAB interface of RAT.
 
 ******************
 Normal Calculation
