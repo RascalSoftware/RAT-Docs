@@ -5,7 +5,6 @@
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-import re
 import os
 import sys
 import datetime
@@ -18,6 +17,9 @@ exclude_patterns = []
 current_dir = os.path.dirname(os.path.abspath(__file__))
 # matlab_src_dir is required for sphinxcontrib-matlabdomain
 matlab_src_dir = os.path.abspath(os.path.join(current_dir, '..', 'API'))
+if not os.path.isdir(matlab_src_dir) or not os.path.isfile(os.path.join(matlab_src_dir, 'version.txt')):
+    raise FileNotFoundError(f'A RAT MATLAB release could not be found in {matlab_src_dir}. ' 
+                            'Please download and extract the RAT release to the API folder.')
 sys.path.insert(0, matlab_src_dir)
 
 import RATapi
