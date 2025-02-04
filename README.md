@@ -18,7 +18,7 @@ Download the appropriate version of RAT from the GitHub [release](https://github
     unzip Linux.zip -d API/
 
 
-To build the html docs, in the terminal with access to the python executable, type  
+To build the HTML docs, type the following into a terminal with access to the Python executable:  
 
     make html
 
