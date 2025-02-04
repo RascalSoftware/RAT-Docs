@@ -26,6 +26,6 @@ matlabengine is required to generate MATLAB code snippet outputs. If matlabengin
 
     UserWarning: Could not create output as MATLAB engine was not available
 
-If the MATLAB code outputs are needed, install the appropriate matlabengine for your installed MATLAB
+If the MATLAB code outputs are needed, install the appropriate `matlabengine` for your installed MATLAB
 
     pip install matlabengine
