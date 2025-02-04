@@ -22,7 +22,7 @@ To build the html docs, in the terminal with access to the python executable, ty
 
     make html
 
-matlabengine is required to generate MATLAB code snippet outputs. If matlabengine is not installed the outputs will be omitted and the following warning will be printed in the terminal
+[`matlabengine`](https://pypi.org/project/matlabengine/) is required to generate MATLAB code snippet outputs. If `matlabengine` is not installed, the outputs will be omitted and the following warning will be printed in the terminal:
 
     UserWarning: Could not create output as MATLAB engine was not available
 
