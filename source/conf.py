@@ -80,13 +80,18 @@ html_sidebars = {
 copybutton_prompt_text = r">>> |>> "
 copybutton_prompt_is_regexp = True
 
+autodoc_typehints = "description"
+
 ### autodoc_pydantic settings
 # hide JSON schemas by default
 autodoc_pydantic_model_show_json = False
 autodoc_pydantic_settings_show_json = False
 
-# don't show validators for each field
+# don't show validators or config 
 autodoc_pydantic_field_list_validators = False
+autodoc_pydantic_model_show_config_summary = False
+autodoc_pydantic_model_show_validator_summary = False
+autodoc_pydantic_model_show_validator_members = False
 
 # hide parameter list in class signature
 autodoc_pydantic_settings_hide_paramlist = True

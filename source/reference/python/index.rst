@@ -23,12 +23,11 @@ User API
 Developer API
 ^^^^^^^^^^^^^
 
-.. autosummary::
-   :toctree:
-   :recursive:
-   
-   RATapi.rat_core
-   RATapi.inputs
-   RATapi.outputs
-   RATapi.wrappers
-   RATapi.utils.enums
+.. toctree::
+   :maxdepth: 2
+
+   core
+   inputs
+   outputs
+   wrappers
+   enums
