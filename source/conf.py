@@ -37,7 +37,7 @@ doc_version = get_doc_version()
 # add extensions path for snippets
 sys.path.append(os.path.abspath("./_ext"))
 
-extensions = ['sphinxcontrib.matlab', 'sphinx.ext.napoleon', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary', 'sphinxcontrib.autodoc_pydantic', 'sphinx_design', 'sphinx_copybutton', 'snippets']
+extensions = ['sphinxcontrib.matlab', 'sphinx.ext.napoleon', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary', 'sphinxcontrib.autodoc_pydantic', 'sphinx_design', 'sphinx_copybutton', 'snippets', 'enum_tools.autoenum']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

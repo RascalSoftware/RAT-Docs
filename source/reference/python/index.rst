@@ -9,6 +9,7 @@ User API
 .. toctree::
     :maxdepth: 2
 
+    run
     project
     controls
     classlist
@@ -16,8 +17,7 @@ User API
     events
     examples
     plotting
-
-.. autofunction:: RATapi.run
+    enums
 
 
 Developer API
@@ -30,4 +30,3 @@ Developer API
    inputs
    outputs
    wrappers
-   enums
