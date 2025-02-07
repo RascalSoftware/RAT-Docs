@@ -116,7 +116,6 @@ html_sidebars = {
 
 copybutton_prompt_text = r">>> |>> "
 copybutton_prompt_is_regexp = True
-<<<<<<< HEAD
 
 autodoc_typehints = "description"
 
@@ -140,5 +139,3 @@ autodoc_pydantic_model_undoc_members = False
 
 # get field documentation from field docstrings
 autodoc_pydantic_field_doc_policy = "docstring"
-=======
->>>>>>> c63ed898 (rearranged examples to make way for python)
