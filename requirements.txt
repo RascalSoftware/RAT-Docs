@@ -4,3 +4,5 @@ pydata-sphinx-theme==0.15.2
 sphinx_design==0.6.0
 sphinx-copybutton==0.5.2
 RATapi==0.0.0.dev4
+autodoc_pydantic==2.2.0
+enum-tools[sphinx]==0.12.0
