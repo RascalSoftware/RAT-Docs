@@ -29,6 +29,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
@@ -199,6 +200,13 @@ document.write(`
                       </a>
                     </li>
                 
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../python/index.html">
+                        Python API Reference
+                      </a>
+                    </li>
+                
   </ul>
 </nav></div>
       
@@ -305,6 +313,13 @@ document.write(`
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
                         MATLAB API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../python/index.html">
+                        Python API Reference
                       </a>
                     </li>
                 
@@ -601,13 +616,13 @@ if yes, what to parallelize on. (Single, Points or Contrasts)</p>
 <dl class="simple">
 <dt>USAGE:</dt><dd><p>obj.setProcedure(procedure, varargin)</p>
 </dd>
-<dt>EXAMPLE:</dt><dd><ul class="simple">
+</dl>
+<p class="rubric">Example</p>
+<ul class="simple">
 <li><p>obj.setProcedure(‘simplex’, {‘xTolerance’, 1e-6, ‘funcTolerance’, 1e-6,’maxFuncEvals’, 1000})</p></li>
 <li><p>obj.setProcedure(‘dream’)</p></li>
 <li><p>obj.setProcedure(‘ns’, {‘nLive’, 150,’nMCMC’, 0, ‘propScale’, 0.1, ‘nsTolerance’, 0.1})</p></li>
 </ul>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="mat attribute">

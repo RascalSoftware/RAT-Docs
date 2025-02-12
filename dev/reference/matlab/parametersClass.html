@@ -29,6 +29,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
@@ -199,6 +200,13 @@ document.write(`
                       </a>
                     </li>
                 
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../python/index.html">
+                        Python API Reference
+                      </a>
+                    </li>
+                
   </ul>
 </nav></div>
       
@@ -305,6 +313,13 @@ document.write(`
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
                         MATLAB API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../python/index.html">
+                        Python API Reference
                       </a>
                     </li>
                 
@@ -493,10 +508,10 @@ the parameters block.</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.addParameter">
 <span class="sig-name descname"><span class="pre">addParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.addParameter" title="Link to this definition">#</a></dt>
-<dd><p>Adds an new parameter to the parameters table. Default 
-values are used when adding the parameter if no arguments are 
+<dd><p>Adds an new parameter to the parameters table. Default
+values are used when adding the parameter if no arguments are
 provided, otherwise a subset of the arguments can be provided.
-The following are assumed from number of arguments: 
+The following are assumed from number of arguments:
 for 1 input, the name only is provided
 for 2 inputs, the name and value are provided
 for 4 inputs, the name, min, value, and max are provided
@@ -517,7 +532,7 @@ the priors default is false</p>
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.parametersClass">
 <span class="sig-name descname"><span class="pre">parametersClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.parametersClass" title="Link to this definition">#</a></dt>
 <dd><p>Class constructor.
-Creates a Parameter object. The arguments should be 
+Creates a Parameter object. The arguments should be
 the content of the first parameter. A parameter consists of
 a name (string), min (double), value (double), max (double),
 fit flag (logical), prior type (string), mu (double), and
@@ -525,7 +540,7 @@ sigma (double) values in that order.
 Default values are used when adding the parameter if no
 arguments are provided, otherwise a subset of the arguments
 can be provided.
-The following are assumed from number of arguments: 
+The following are assumed from number of arguments:
 for 1 input, the name only is provided
 for 2 inputs, the name and value are provided
 for 4 inputs, the name, min, value, and max are provided
@@ -537,7 +552,7 @@ for 8 inputs, all parameter properties are provided</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.removeParameter">
 <span class="sig-name descname"><span class="pre">removeParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.removeParameter" title="Link to this definition">#</a></dt>
-<dd><p>Removes a parameter from the parameters table. 
+<dd><p>Removes a parameter from the parameters table.
 Expects a single parameter name or index/array of parameter
 names or indices to remove</p>
 <p>params.removeParameter(2);</p>

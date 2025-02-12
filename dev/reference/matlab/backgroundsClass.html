@@ -29,6 +29,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
@@ -199,6 +200,13 @@ document.write(`
                       </a>
                     </li>
                 
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../python/index.html">
+                        Python API Reference
+                      </a>
+                    </li>
+                
   </ul>
 </nav></div>
       
@@ -305,6 +313,13 @@ document.write(`
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
                         MATLAB API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../python/index.html">
+                        Python API Reference
                       </a>
                     </li>
                 
@@ -497,7 +512,7 @@ background.addBackground(allowedNames, ‘New Row’, ‘data’, ‘data_name�
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.backgroundsClass.backgroundsClass">
 <span class="sig-name descname"><span class="pre">backgroundsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">parameters</span></em>, <em class="sig-param"><span class="pre">startBackground</span></em>, <em class="sig-param"><span class="pre">allowedNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.backgroundsClass" title="Link to this definition">#</a></dt>
-<dd><p>Creates a background object. The arguments should be 
+<dd><p>Creates a background object. The arguments should be
 an instance of the parameter class with the background
 parameters, a cell array of  backgrounds and the struct of
 allowed data and function names.</p>
@@ -508,7 +523,7 @@ background = backgroundClass(params, {‘Background 1’, ‘constant’, ‘Bac
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.backgroundsClass.displayBackgroundsObject">
 <span class="sig-name descname"><span class="pre">displayBackgroundsObject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">showPriors</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.displayBackgroundsObject" title="Link to this definition">#</a></dt>
-<dd><p>Displays the background parameters and background table. 
+<dd><p>Displays the background parameters and background table.
 Optional showPriors to display the priors default is false</p>
 <p>background.displayBackgroundsObject(true);</p>
 </dd></dl>
@@ -516,7 +531,7 @@ Optional showPriors to display the priors default is false</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.backgroundsClass.getNames">
 <span class="sig-name descname"><span class="pre">getNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.getNames" title="Link to this definition">#</a></dt>
-<dd><p>Returns a N x 1 cell array of names of the backgrounds 
+<dd><p>Returns a N x 1 cell array of names of the backgrounds
 in the object.</p>
 <p>names = background.getNames();</p>
 </dd></dl>
@@ -524,7 +539,7 @@ in the object.</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.backgroundsClass.removeBackground">
 <span class="sig-name descname"><span class="pre">removeBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.removeBackground" title="Link to this definition">#</a></dt>
-<dd><p>Removes a background entry from the table. Expects the 
+<dd><p>Removes a background entry from the table. Expects the
 index or array of indices of background(s) to remove.</p>
 <p>background.removeBackground(2);
 background.removeBackground([1, 3]);</p>
@@ -533,7 +548,7 @@ background.removeBackground([1, 3]);</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.backgroundsClass.setBackground">
 <span class="sig-name descname"><span class="pre">setBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">allowedNames</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.setBackground" title="Link to this definition">#</a></dt>
-<dd><p>Changes the value of a given background in the table. Expects the 
+<dd><p>Changes the value of a given background in the table. Expects the
 index or name of background, the struct of allowed data and
 function names, and keyword/value pairs to set.</p>
 <p>background.setBackground(1, allowedNames, ‘name’, ‘back 1’, ‘type’, ‘constant’, ‘source’, ‘param_name’);</p>
@@ -542,7 +557,7 @@ function names, and keyword/value pairs to set.</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.backgroundsClass.setBackgroundName">
 <span class="sig-name descname"><span class="pre">setBackgroundName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.backgroundsClass.setBackgroundName" title="Link to this definition">#</a></dt>
-<dd><p>Sets the name of a given background in the table. Expects 
+<dd><p>Sets the name of a given background in the table. Expects
 an index and the new name.</p>
 <p>background.setBackgroundName(1, ‘new_name’);</p>
 </dd></dl>

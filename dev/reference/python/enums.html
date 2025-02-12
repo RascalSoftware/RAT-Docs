@@ -1,0 +1,967 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Enums &#8212; RAT  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=881e7dcd"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/python/enums';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://rascalsoftware.github.io/RAT-Docs/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="icon" href="../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="RAT Core" href="core.html" />
+    <link rel="prev" title="Plotting" href="plotting.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="RAT  documentation - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="RAT  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+      <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        Home
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../guide.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../matlab/index.html">
+                        MATLAB API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Python API Reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        Home
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../guide.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../matlab/index.html">
+                        MATLAB API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Python API Reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="run.html">Run</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project.html">Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controls.html">Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="classlist.html">ClassList</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plotting.html">Plotting</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Enums</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="core.html">RAT Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs.html">Inputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wrappers.html">Wrappers</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Python API Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Enums</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="enums">
+<h1>Enums<a class="headerlink" href="#enums" title="Link to this heading">#</a></h1>
+<p>This utility module (found in <code class="docutils literal notranslate"><span class="pre">RATapi.utils.enums</span></code>) contains the Enum objects
+which are used under the hood to represent arguments given as string options,
+such as those for control parameters or background types.</p>
+<dl class="py class enum" id="module-RATapi.utils.enums">
+<dt class="sig sig-object py" id="RATapi.utils.enums.BackgroundActions">
+<em class="property"><span class="pre">enum</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.utils.enums.</span></span><span class="sig-name descname"><span class="pre">BackgroundActions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.utils.enums.BackgroundActions" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Member Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+<p>Valid values are as follows:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.BackgroundActions.Add">
+<span class="sig-name descname"><span class="pre">Add</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;BackgroundActions.Add:</span> <span class="pre">'add'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.BackgroundActions.Add" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.BackgroundActions.Subtract">
+<span class="sig-name descname"><span class="pre">Subtract</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;BackgroundActions.Subtract:</span> <span class="pre">'subtract'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.BackgroundActions.Subtract" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class enum">
+<dt class="sig sig-object py" id="RATapi.utils.enums.BoundHandling">
+<em class="property"><span class="pre">enum</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.utils.enums.</span></span><span class="sig-name descname"><span class="pre">BoundHandling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.utils.enums.BoundHandling" title="Link to this definition">#</a></dt>
+<dd><p>Defines the available options for bound handling</p>
+<dl class="field-list simple">
+<dt class="field-odd">Member Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+<p>Valid values are as follows:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.BoundHandling.Off">
+<span class="sig-name descname"><span class="pre">Off</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;BoundHandling.Off:</span> <span class="pre">'off'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.BoundHandling.Off" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.BoundHandling.Reflect">
+<span class="sig-name descname"><span class="pre">Reflect</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;BoundHandling.Reflect:</span> <span class="pre">'reflect'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.BoundHandling.Reflect" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.BoundHandling.Bound">
+<span class="sig-name descname"><span class="pre">Bound</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;BoundHandling.Bound:</span> <span class="pre">'bound'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.BoundHandling.Bound" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.BoundHandling.Fold">
+<span class="sig-name descname"><span class="pre">Fold</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;BoundHandling.Fold:</span> <span class="pre">'fold'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.BoundHandling.Fold" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class enum">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Calculations">
+<em class="property"><span class="pre">enum</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.utils.enums.</span></span><span class="sig-name descname"><span class="pre">Calculations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.utils.enums.Calculations" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Member Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+<p>Valid values are as follows:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Calculations.Normal">
+<span class="sig-name descname"><span class="pre">Normal</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Calculations.Normal:</span> <span class="pre">'normal'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Calculations.Normal" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Calculations.Domains">
+<span class="sig-name descname"><span class="pre">Domains</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Calculations.Domains:</span> <span class="pre">'domains'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Calculations.Domains" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class enum">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Display">
+<em class="property"><span class="pre">enum</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.utils.enums.</span></span><span class="sig-name descname"><span class="pre">Display</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.utils.enums.Display" title="Link to this definition">#</a></dt>
+<dd><p>Defines the available options for display</p>
+<dl class="field-list simple">
+<dt class="field-odd">Member Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+<p>Valid values are as follows:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Display.Off">
+<span class="sig-name descname"><span class="pre">Off</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Display.Off:</span> <span class="pre">'off'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Display.Off" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Display.Iter">
+<span class="sig-name descname"><span class="pre">Iter</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Display.Iter:</span> <span class="pre">'iter'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Display.Iter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Display.Notify">
+<span class="sig-name descname"><span class="pre">Notify</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Display.Notify:</span> <span class="pre">'notify'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Display.Notify" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Display.Final">
+<span class="sig-name descname"><span class="pre">Final</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Display.Final:</span> <span class="pre">'final'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Display.Final" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class enum">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Geometries">
+<em class="property"><span class="pre">enum</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.utils.enums.</span></span><span class="sig-name descname"><span class="pre">Geometries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.utils.enums.Geometries" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Member Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+<p>Valid values are as follows:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Geometries.AirSubstrate">
+<span class="sig-name descname"><span class="pre">AirSubstrate</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Geometries.AirSubstrate:</span> <span class="pre">'air/substrate'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Geometries.AirSubstrate" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Geometries.SubstrateLiquid">
+<span class="sig-name descname"><span class="pre">SubstrateLiquid</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Geometries.SubstrateLiquid:</span> <span class="pre">'substrate/liquid'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Geometries.SubstrateLiquid" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class enum">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Hydration">
+<em class="property"><span class="pre">enum</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.utils.enums.</span></span><span class="sig-name descname"><span class="pre">Hydration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.utils.enums.Hydration" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Member Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+<p>Valid values are as follows:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Hydration.None_">
+<span class="sig-name descname"><span class="pre">None_</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Hydration.None_:</span> <span class="pre">'none'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Hydration.None_" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Hydration.BulkIn">
+<span class="sig-name descname"><span class="pre">BulkIn</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Hydration.BulkIn:</span> <span class="pre">'bulk</span> <span class="pre">in'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Hydration.BulkIn" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Hydration.BulkOut">
+<span class="sig-name descname"><span class="pre">BulkOut</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Hydration.BulkOut:</span> <span class="pre">'bulk</span> <span class="pre">out'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Hydration.BulkOut" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class enum">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Languages">
+<em class="property"><span class="pre">enum</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.utils.enums.</span></span><span class="sig-name descname"><span class="pre">Languages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.utils.enums.Languages" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Member Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+<p>Valid values are as follows:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Languages.Cpp">
+<span class="sig-name descname"><span class="pre">Cpp</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Languages.Cpp:</span> <span class="pre">'cpp'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Languages.Cpp" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Languages.Python">
+<span class="sig-name descname"><span class="pre">Python</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Languages.Python:</span> <span class="pre">'python'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Languages.Python" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Languages.Matlab">
+<span class="sig-name descname"><span class="pre">Matlab</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Languages.Matlab:</span> <span class="pre">'matlab'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Languages.Matlab" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class enum">
+<dt class="sig sig-object py" id="RATapi.utils.enums.LayerModels">
+<em class="property"><span class="pre">enum</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.utils.enums.</span></span><span class="sig-name descname"><span class="pre">LayerModels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.utils.enums.LayerModels" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Member Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+<p>Valid values are as follows:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.LayerModels.CustomLayers">
+<span class="sig-name descname"><span class="pre">CustomLayers</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;LayerModels.CustomLayers:</span> <span class="pre">'custom</span> <span class="pre">layers'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.LayerModels.CustomLayers" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.LayerModels.CustomXY">
+<span class="sig-name descname"><span class="pre">CustomXY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;LayerModels.CustomXY:</span> <span class="pre">'custom</span> <span class="pre">xy'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.LayerModels.CustomXY" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.LayerModels.StandardLayers">
+<span class="sig-name descname"><span class="pre">StandardLayers</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;LayerModels.StandardLayers:</span> <span class="pre">'standard</span> <span class="pre">layers'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.LayerModels.StandardLayers" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class enum">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Parallel">
+<em class="property"><span class="pre">enum</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.utils.enums.</span></span><span class="sig-name descname"><span class="pre">Parallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.utils.enums.Parallel" title="Link to this definition">#</a></dt>
+<dd><p>Defines the available options for parallelization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Member Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+<p>Valid values are as follows:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Parallel.Single">
+<span class="sig-name descname"><span class="pre">Single</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Parallel.Single:</span> <span class="pre">'single'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Parallel.Single" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Parallel.Points">
+<span class="sig-name descname"><span class="pre">Points</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Parallel.Points:</span> <span class="pre">'points'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Parallel.Points" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Parallel.Contrasts">
+<span class="sig-name descname"><span class="pre">Contrasts</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Parallel.Contrasts:</span> <span class="pre">'contrasts'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Parallel.Contrasts" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class enum">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Priors">
+<em class="property"><span class="pre">enum</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.utils.enums.</span></span><span class="sig-name descname"><span class="pre">Priors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.utils.enums.Priors" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Member Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+<p>Valid values are as follows:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Priors.Uniform">
+<span class="sig-name descname"><span class="pre">Uniform</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Priors.Uniform:</span> <span class="pre">'uniform'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Priors.Uniform" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Priors.Gaussian">
+<span class="sig-name descname"><span class="pre">Gaussian</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Priors.Gaussian:</span> <span class="pre">'gaussian'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Priors.Gaussian" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class enum">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Procedures">
+<em class="property"><span class="pre">enum</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.utils.enums.</span></span><span class="sig-name descname"><span class="pre">Procedures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.utils.enums.Procedures" title="Link to this definition">#</a></dt>
+<dd><p>Defines the available options for procedures</p>
+<dl class="field-list simple">
+<dt class="field-odd">Member Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+<p>Valid values are as follows:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Procedures.Calculate">
+<span class="sig-name descname"><span class="pre">Calculate</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Procedures.Calculate:</span> <span class="pre">'calculate'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Procedures.Calculate" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Procedures.Simplex">
+<span class="sig-name descname"><span class="pre">Simplex</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Procedures.Simplex:</span> <span class="pre">'simplex'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Procedures.Simplex" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Procedures.DE">
+<span class="sig-name descname"><span class="pre">DE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Procedures.DE:</span> <span class="pre">'de'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Procedures.DE" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Procedures.NS">
+<span class="sig-name descname"><span class="pre">NS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Procedures.NS:</span> <span class="pre">'ns'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Procedures.NS" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Procedures.DREAM">
+<span class="sig-name descname"><span class="pre">DREAM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Procedures.DREAM:</span> <span class="pre">'dream'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Procedures.DREAM" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class enum">
+<dt class="sig sig-object py" id="RATapi.utils.enums.RATEnum">
+<em class="property"><span class="pre">enum</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.utils.enums.</span></span><span class="sig-name descname"><span class="pre">RATEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.utils.enums.RATEnum" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Member Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class enum">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Strategies">
+<em class="property"><span class="pre">enum</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.utils.enums.</span></span><span class="sig-name descname"><span class="pre">Strategies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.utils.enums.Strategies" title="Link to this definition">#</a></dt>
+<dd><p>Defines the available options for differential evolution strategies</p>
+<dl class="field-list simple">
+<dt class="field-odd">Member Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+<p>Valid values are as follows:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Strategies.Random">
+<span class="sig-name descname"><span class="pre">Random</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Strategies.Random:</span> <span class="pre">'random'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Strategies.Random" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Strategies.LocalToBest">
+<span class="sig-name descname"><span class="pre">LocalToBest</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Strategies.LocalToBest:</span> <span class="pre">'local</span> <span class="pre">to</span> <span class="pre">best'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Strategies.LocalToBest" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Strategies.BestWithJitter">
+<span class="sig-name descname"><span class="pre">BestWithJitter</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Strategies.BestWithJitter:</span> <span class="pre">'best</span> <span class="pre">jitter'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Strategies.BestWithJitter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Strategies.RandomWithPerVectorDither">
+<span class="sig-name descname"><span class="pre">RandomWithPerVectorDither</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Strategies.RandomWithPerVectorDither:</span> <span class="pre">'vector</span> <span class="pre">dither'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Strategies.RandomWithPerVectorDither" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Strategies.RandomWithPerGenerationDither">
+<span class="sig-name descname"><span class="pre">RandomWithPerGenerationDither</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Strategies.RandomWithPerGenerationDither:</span> <span class="pre">'generation</span> <span class="pre">dither'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Strategies.RandomWithPerGenerationDither" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.Strategies.RandomEitherOrAlgorithm">
+<span class="sig-name descname"><span class="pre">RandomEitherOrAlgorithm</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;Strategies.RandomEitherOrAlgorithm:</span> <span class="pre">'either</span> <span class="pre">or'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.Strategies.RandomEitherOrAlgorithm" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class enum">
+<dt class="sig sig-object py" id="RATapi.utils.enums.TypeOptions">
+<em class="property"><span class="pre">enum</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.utils.enums.</span></span><span class="sig-name descname"><span class="pre">TypeOptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.utils.enums.TypeOptions" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Member Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+<p>Valid values are as follows:</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.TypeOptions.Constant">
+<span class="sig-name descname"><span class="pre">Constant</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;TypeOptions.Constant:</span> <span class="pre">'constant'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.TypeOptions.Constant" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.TypeOptions.Data">
+<span class="sig-name descname"><span class="pre">Data</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;TypeOptions.Data:</span> <span class="pre">'data'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.TypeOptions.Data" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="RATapi.utils.enums.TypeOptions.Function">
+<span class="sig-name descname"><span class="pre">Function</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;TypeOptions.Function:</span> <span class="pre">'function'&gt;</span></em><a class="headerlink" href="#RATapi.utils.enums.TypeOptions.Function" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.BackgroundActions"><code class="docutils literal notranslate"><span class="pre">BackgroundActions</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.BackgroundActions.Add"><code class="docutils literal notranslate"><span class="pre">BackgroundActions.Add</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.BackgroundActions.Subtract"><code class="docutils literal notranslate"><span class="pre">BackgroundActions.Subtract</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.BoundHandling"><code class="docutils literal notranslate"><span class="pre">BoundHandling</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.BoundHandling.Off"><code class="docutils literal notranslate"><span class="pre">BoundHandling.Off</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.BoundHandling.Reflect"><code class="docutils literal notranslate"><span class="pre">BoundHandling.Reflect</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.BoundHandling.Bound"><code class="docutils literal notranslate"><span class="pre">BoundHandling.Bound</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.BoundHandling.Fold"><code class="docutils literal notranslate"><span class="pre">BoundHandling.Fold</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Calculations"><code class="docutils literal notranslate"><span class="pre">Calculations</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Calculations.Normal"><code class="docutils literal notranslate"><span class="pre">Calculations.Normal</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Calculations.Domains"><code class="docutils literal notranslate"><span class="pre">Calculations.Domains</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Display"><code class="docutils literal notranslate"><span class="pre">Display</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Display.Off"><code class="docutils literal notranslate"><span class="pre">Display.Off</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Display.Iter"><code class="docutils literal notranslate"><span class="pre">Display.Iter</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Display.Notify"><code class="docutils literal notranslate"><span class="pre">Display.Notify</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Display.Final"><code class="docutils literal notranslate"><span class="pre">Display.Final</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Geometries"><code class="docutils literal notranslate"><span class="pre">Geometries</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Geometries.AirSubstrate"><code class="docutils literal notranslate"><span class="pre">Geometries.AirSubstrate</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Geometries.SubstrateLiquid"><code class="docutils literal notranslate"><span class="pre">Geometries.SubstrateLiquid</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Hydration"><code class="docutils literal notranslate"><span class="pre">Hydration</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Hydration.None_"><code class="docutils literal notranslate"><span class="pre">Hydration.None_</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Hydration.BulkIn"><code class="docutils literal notranslate"><span class="pre">Hydration.BulkIn</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Hydration.BulkOut"><code class="docutils literal notranslate"><span class="pre">Hydration.BulkOut</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Languages"><code class="docutils literal notranslate"><span class="pre">Languages</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Languages.Cpp"><code class="docutils literal notranslate"><span class="pre">Languages.Cpp</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Languages.Python"><code class="docutils literal notranslate"><span class="pre">Languages.Python</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Languages.Matlab"><code class="docutils literal notranslate"><span class="pre">Languages.Matlab</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.LayerModels"><code class="docutils literal notranslate"><span class="pre">LayerModels</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.LayerModels.CustomLayers"><code class="docutils literal notranslate"><span class="pre">LayerModels.CustomLayers</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.LayerModels.CustomXY"><code class="docutils literal notranslate"><span class="pre">LayerModels.CustomXY</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.LayerModels.StandardLayers"><code class="docutils literal notranslate"><span class="pre">LayerModels.StandardLayers</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Parallel"><code class="docutils literal notranslate"><span class="pre">Parallel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Parallel.Single"><code class="docutils literal notranslate"><span class="pre">Parallel.Single</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Parallel.Points"><code class="docutils literal notranslate"><span class="pre">Parallel.Points</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Parallel.Contrasts"><code class="docutils literal notranslate"><span class="pre">Parallel.Contrasts</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Priors"><code class="docutils literal notranslate"><span class="pre">Priors</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Priors.Uniform"><code class="docutils literal notranslate"><span class="pre">Priors.Uniform</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Priors.Gaussian"><code class="docutils literal notranslate"><span class="pre">Priors.Gaussian</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Procedures"><code class="docutils literal notranslate"><span class="pre">Procedures</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Procedures.Calculate"><code class="docutils literal notranslate"><span class="pre">Procedures.Calculate</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Procedures.Simplex"><code class="docutils literal notranslate"><span class="pre">Procedures.Simplex</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Procedures.DE"><code class="docutils literal notranslate"><span class="pre">Procedures.DE</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Procedures.NS"><code class="docutils literal notranslate"><span class="pre">Procedures.NS</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Procedures.DREAM"><code class="docutils literal notranslate"><span class="pre">Procedures.DREAM</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.RATEnum"><code class="docutils literal notranslate"><span class="pre">RATEnum</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Strategies"><code class="docutils literal notranslate"><span class="pre">Strategies</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Strategies.Random"><code class="docutils literal notranslate"><span class="pre">Strategies.Random</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Strategies.LocalToBest"><code class="docutils literal notranslate"><span class="pre">Strategies.LocalToBest</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Strategies.BestWithJitter"><code class="docutils literal notranslate"><span class="pre">Strategies.BestWithJitter</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Strategies.RandomWithPerVectorDither"><code class="docutils literal notranslate"><span class="pre">Strategies.RandomWithPerVectorDither</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Strategies.RandomWithPerGenerationDither"><code class="docutils literal notranslate"><span class="pre">Strategies.RandomWithPerGenerationDither</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.Strategies.RandomEitherOrAlgorithm"><code class="docutils literal notranslate"><span class="pre">Strategies.RandomEitherOrAlgorithm</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.TypeOptions"><code class="docutils literal notranslate"><span class="pre">TypeOptions</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.TypeOptions.Constant"><code class="docutils literal notranslate"><span class="pre">TypeOptions.Constant</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.TypeOptions.Data"><code class="docutils literal notranslate"><span class="pre">TypeOptions.Data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.utils.enums.TypeOptions.Function"><code class="docutils literal notranslate"><span class="pre">TypeOptions.Function</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2022-2025, ISIS Neutron and Muon Source.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -29,6 +29,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
@@ -199,6 +200,13 @@ document.write(`
                       </a>
                     </li>
                 
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../python/index.html">
+                        Python API Reference
+                      </a>
+                    </li>
+                
   </ul>
 </nav></div>
       
@@ -305,6 +313,13 @@ document.write(`
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
                         MATLAB API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../python/index.html">
+                        Python API Reference
                       </a>
                     </li>
                 
@@ -439,7 +454,7 @@ table. Then, we group these into the resolutions themselves using a
 multiTypeTable. So, we can then use the resolution parameters to
 either define resolution as  constant, data or a function.</p>
 <p>For constant only one parameter is supplied to multi type table.</p>
-<p>For data the name is supplied, along with the name of the data in the 
+<p>For data the name is supplied, along with the name of the data in the
 data table.</p>
 <p>For function, the function name is supplied, along with up to three parameters (from the
 parameters table) which are then supplied to the function to calculate the resolution.</p>
@@ -464,7 +479,7 @@ Optional showPriors to display the priors default is false</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.resolutionsClass.getNames">
 <span class="sig-name descname"><span class="pre">getNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.resolutionsClass.getNames" title="Link to this definition">#</a></dt>
-<dd><p>Returns a N x 1 cell array of names of the resolutions 
+<dd><p>Returns a N x 1 cell array of names of the resolutions
 in the object.</p>
 <p>names = resolution.getNames();</p>
 </dd></dl>
@@ -472,7 +487,7 @@ in the object.</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.resolutionsClass.removeResolution">
 <span class="sig-name descname"><span class="pre">removeResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.resolutionsClass.removeResolution" title="Link to this definition">#</a></dt>
-<dd><p>Removes a resolution entry from the table. Expects the 
+<dd><p>Removes a resolution entry from the table. Expects the
 index or array of indices of resolution(s) to remove.</p>
 <p>resolution.removeResolution(2);
 resolution.removeResolution([1, 3]);</p>
@@ -481,7 +496,7 @@ resolution.removeResolution([1, 3]);</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.resolutionsClass.resolutionsClass">
 <span class="sig-name descname"><span class="pre">resolutionsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">parameters</span></em>, <em class="sig-param"><span class="pre">startResolution</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.resolutionsClass.resolutionsClass" title="Link to this definition">#</a></dt>
-<dd><p>Creates a Resolutions object. The arguments should be 
+<dd><p>Creates a Resolutions object. The arguments should be
 an instance of the parameter class with the resolution parameters and a
 cell array with the first resolution entry</p>
 <p>params = parametersClass({‘Resolution Param 1’, 0.01, 0.03, 0.05, false});
@@ -491,7 +506,7 @@ resolution = resolutionsClass(params, {‘Resolution 1’, ‘constant’, ‘Ta
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.resolutionsClass.setResolution">
 <span class="sig-name descname"><span class="pre">setResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.resolutionsClass.setResolution" title="Link to this definition">#</a></dt>
-<dd><p>Changes the value of a given resolution in the table. Expects the 
+<dd><p>Changes the value of a given resolution in the table. Expects the
 index or name of resolution and keyword/value pairs to set.</p>
 <p>resolution.setResolution(1, ‘name’, ‘resolution 1’, ‘type’, ‘constant’, ‘source’, ‘param_name’);</p>
 </dd></dl>
@@ -499,7 +514,7 @@ index or name of resolution and keyword/value pairs to set.</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.resolutionsClass.setResolutionName">
 <span class="sig-name descname"><span class="pre">setResolutionName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.resolutionsClass.setResolutionName" title="Link to this definition">#</a></dt>
-<dd><p>Sets the name of a given resolution in the table. Expects 
+<dd><p>Sets the name of a given resolution in the table. Expects
 an index and the new name.</p>
 <p>resolution.setResolutionName(1, ‘new_name’);</p>
 </dd></dl>

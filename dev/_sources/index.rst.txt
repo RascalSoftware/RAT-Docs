@@ -55,6 +55,7 @@ RAT contains a number of improvements over legacy RasCAL, including:
         Learn more by diving into the RAT reference:
         
         * :ref:`matlab_api`: Detailed information about all of RAT's MATLAB API.
+        * :ref:`python_api`: Detailed information about the RAT Python API.
 
 
     .. grid-item-card::
@@ -77,4 +78,5 @@ RAT contains a number of improvements over legacy RasCAL, including:
    install
    guide
    reference/matlab/index
+   reference/python/index
 

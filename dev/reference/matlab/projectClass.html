@@ -29,6 +29,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
@@ -199,6 +200,13 @@ document.write(`
                       </a>
                     </li>
                 
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../python/index.html">
+                        Python API Reference
+                      </a>
+                    </li>
+                
   </ul>
 </nav></div>
       
@@ -305,6 +313,13 @@ document.write(`
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
                         MATLAB API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../python/index.html">
+                        Python API Reference
                       </a>
                     </li>
                 
@@ -497,8 +512,8 @@ All of the arguments are optional.</p>
 <dd><dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.addBackground">
 <span class="sig-name descname"><span class="pre">addBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addBackground" title="Link to this definition">#</a></dt>
-<dd><p>Adds a background to the project. Expects a 
-cell array with background name and type and 
+<dd><p>Adds a background to the project. Expects a
+cell array with background name and type and
 up to 4 parameters</p>
 <p>project.addBackground(‘name’, ‘constant’, ‘par’);</p>
 </dd></dl>
@@ -506,7 +521,7 @@ up to 4 parameters</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.addBackgroundParam">
 <span class="sig-name descname"><span class="pre">addBackgroundParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addBackgroundParam" title="Link to this definition">#</a></dt>
-<dd><p>Adds a new background parameter. A parameter consists 
+<dd><p>Adds a new background parameter. A parameter consists
 of a name, min, value, max, fit flag, prior type’, mu,
 and sigma</p>
 <p>project.addBackgroundParam(‘Backs Value D2O’, 1e-8, 2.8e-6, 1e-5);</p>
@@ -531,7 +546,7 @@ of bulk-out, min, value, max, and if fit is off or on</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.addContrast">
 <span class="sig-name descname"><span class="pre">addContrast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addContrast" title="Link to this definition">#</a></dt>
-<dd><p>Adds a new contrast parameter. Expects a parameter name, and with 
+<dd><p>Adds a new contrast parameter. Expects a parameter name, and with
 key-value pairs with one or more of the following “data”,
 “background”, “bulk in”, “bulk out”, “scalefactor”,
 “resolution”, “resample”, “model”</p>
@@ -541,7 +556,7 @@ key-value pairs with one or more of the following “data”,
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.addCustomFile">
 <span class="sig-name descname"><span class="pre">addCustomFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addCustomFile" title="Link to this definition">#</a></dt>
-<dd><p>Adds a new custom file parameter. Expects a parameter name, filename, 
+<dd><p>Adds a new custom file parameter. Expects a parameter name, filename,
 language (matlab, octave, or cpp), and working directory</p>
 <p>project.addCustomFile(‘model 1’, ‘custom.m’, ‘matlab’, pwd);</p>
 </dd></dl>
@@ -567,7 +582,7 @@ or just a name, to create an empty layer.</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.addLayerGroup">
 <span class="sig-name descname"><span class="pre">addLayerGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">layerGroup</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addLayerGroup" title="Link to this definition">#</a></dt>
-<dd><p>Adds a group of layers to the layers object. Expects 
+<dd><p>Adds a group of layers to the layers object. Expects
 a cell array of layer cell arrays</p>
 <p>project.addLayerGroup({{‘Layer 1’}, {‘Layer 2’}});</p>
 </dd></dl>
@@ -576,10 +591,10 @@ a cell array of layer cell arrays</p>
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.addParameter">
 <span class="sig-name descname"><span class="pre">addParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addParameter" title="Link to this definition">#</a></dt>
 <dd><p>Adds an individual parameter to the parameters object.
-Check how many parameters we are adding and make sure all 
+Check how many parameters we are adding and make sure all
 the inputs are cells. A parameter consists of a name, min,
-value, max, fit flag, prior type’, mu, and sigma. The input 
-is optional but if provided should contain 1, 2, 4, 5, or 8 
+value, max, fit flag, prior type’, mu, and sigma. The input
+is optional but if provided should contain 1, 2, 4, 5, or 8
 values of the parameter to added.</p>
 <p>project.addParameter(‘Tails Roughness’);</p>
 </dd></dl>
@@ -595,8 +610,8 @@ Expects a cell array of parameter cell arrays.</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.addResolution">
 <span class="sig-name descname"><span class="pre">addResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addResolution" title="Link to this definition">#</a></dt>
-<dd><p>Adds a resolution to the project. Expects a 
-cell array with resolution name and type and 
+<dd><p>Adds a resolution to the project. Expects a
+cell array with resolution name and type and
 up to 4 parameters</p>
 <p>project.addResolution(‘name’,’constant’,’par’);</p>
 </dd></dl>
@@ -604,7 +619,7 @@ up to 4 parameters</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.addResolutionParam">
 <span class="sig-name descname"><span class="pre">addResolutionParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addResolutionParam" title="Link to this definition">#</a></dt>
-<dd><p>Adds a new resolution parameter. A parameter consists 
+<dd><p>Adds a new resolution parameter. A parameter consists
 of a name, min, value, max, fit flag, prior type’, mu,
 and sigma</p>
 <p>project.addResolutionParam(‘Resolution Param 1’, 1e-8, 2.8e-6, 1e-5);</p>
@@ -777,8 +792,8 @@ index of layer(s) to remove.</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.removeParameter">
 <span class="sig-name descname"><span class="pre">removeParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.removeParameter" title="Link to this definition">#</a></dt>
-<dd><p>Removes a parameter from the parameters object. The 
-parameter will also be removed from the layers array 
+<dd><p>Removes a parameter from the parameters object. The
+parameter will also be removed from the layers array
 if it is in use. Expects series of indices or names of
 parameters to remove</p>
 <p>project.removeParameter(2);</p>
@@ -848,7 +863,7 @@ index or name of parameter and keyword/value pairs to set</p>
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.setBackgroundParamLimits">
 <span class="sig-name descname"><span class="pre">setBackgroundParamLimits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">min</span></em>, <em class="sig-param"><span class="pre">max</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setBackgroundParamLimits" title="Link to this definition">#</a></dt>
 <dd><p>Sets the constraints of existing background
-parameter. Expects index or name of parameter 
+parameter. Expects index or name of parameter
 and new min and max of the parameter’s value</p>
 <p>project.setBackgroundParamLimits(1, 0, 1);</p>
 </dd></dl>
@@ -856,8 +871,8 @@ and new min and max of the parameter’s value</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.setBackgroundParamName">
 <span class="sig-name descname"><span class="pre">setBackgroundParamName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setBackgroundParamName" title="Link to this definition">#</a></dt>
-<dd><p>Sets the name of an existing background 
-parameter. Expects index or name of parameter 
+<dd><p>Sets the name of an existing background
+parameter. Expects index or name of parameter
 and the new name</p>
 <p>project.setBackgroundParamName(2, ‘new name’);</p>
 </dd></dl>
@@ -865,8 +880,8 @@ and the new name</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.setBackgroundParamValue">
 <span class="sig-name descname"><span class="pre">setBackgroundParamValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setBackgroundParamValue" title="Link to this definition">#</a></dt>
-<dd><p>Sets the value of existing background            
-parameter. Expects index or name of parameter 
+<dd><p>Sets the value of existing background
+parameter. Expects index or name of parameter
 and new value to set</p>
 <p>project.setBackgroundParamValue(1, 5.5e-6);</p>
 </dd></dl>
@@ -901,7 +916,7 @@ inputs are name / value pairs for the parts involved</p>
 <span class="sig-name descname"><span class="pre">setContrastModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setContrastModel" title="Link to this definition">#</a></dt>
 <dd><p>Edits the model of an existing contrast parameter. Expects
 the index of contrast parameter and cell array of layer
-names. Multiple models can be set simultaneously by using 
+names. Multiple models can be set simultaneously by using
 an 1D array of indices or cell of strings</p>
 <p>project.setContrastModel(1, {‘layer 1’})
 project.setContrastModel(1:3, {‘layer 1’})</p>
@@ -924,29 +939,12 @@ index of data to edit and key-value pairs</p>
 </dd></dl>
 
 <dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.setGeometry">
-<span class="sig-name descname"><span class="pre">setGeometry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">geometry</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setGeometry" title="Link to this definition">#</a></dt>
-<dd><p>Sets the experiment geometry. The geometry should be a string,  
-either “Air/Substrate” or “Substrate/Liquid” is permitted.</p>
-<p>project.setGeometry(‘Substrate/liquid’);</p>
-</dd></dl>
-
-<dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.setLayerValue">
 <span class="sig-name descname"><span class="pre">setLayerValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">col</span></em>, <em class="sig-param"><span class="pre">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setLayerValue" title="Link to this definition">#</a></dt>
 <dd><p>Sets a value of a given layer. Expects the row/name and
-column of layer value to set, then the name/index of the 
+column of layer value to set, then the name/index of the
 parameter to set the value to.</p>
 <p>project.setLayerValue(1, 2, ‘Tails Thickness’);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.setModelType">
-<span class="sig-name descname"><span class="pre">setModelType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">modelType</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setModelType" title="Link to this definition">#</a></dt>
-<dd><p>Sets the experiment type. The type should be a string,  
-either “standard layers”, “custom layers”, or “custom xy” is
-permitted.</p>
-<p>project.setModelType(‘Custom Layers’);</p>
 </dd></dl>
 
 <dl class="mat method">
@@ -961,7 +959,7 @@ index or name of parameter and keyword/value pairs to set</p>
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.setParameterFit">
 <span class="sig-name descname"><span class="pre">setParameterFit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">fitFlag</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setParameterFit" title="Link to this definition">#</a></dt>
 <dd><p>Sets the ‘fit’ to off or on for parameter.
-Expects index or name of parameter and 
+Expects index or name of parameter and
 new fit flag</p>
 <p>project.setParameterFit(2, true);</p>
 </dd></dl>
@@ -970,7 +968,7 @@ new fit flag</p>
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.setParameterLimits">
 <span class="sig-name descname"><span class="pre">setParameterLimits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">min</span></em>, <em class="sig-param"><span class="pre">max</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setParameterLimits" title="Link to this definition">#</a></dt>
 <dd><p>Sets the limits of an existing parameter.
-Expects index or name of parameter and new min 
+Expects index or name of parameter and new min
 and max of the parameter’s value</p>
 <p>project.setParameterLimits(2, 0, 100);</p>
 </dd></dl>
@@ -988,7 +986,7 @@ new name</p>
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.setParameterPrior">
 <span class="sig-name descname"><span class="pre">setParameterPrior</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setParameterPrior" title="Link to this definition">#</a></dt>
 <dd><p>Sets the prior type of the parameter.
-Expects index or name of parameter and 
+Expects index or name of parameter and
 new prior type(‘uniform’,’gaussian’,’jeffreys’)</p>
 <p>project.setParameterPrior(2, ‘uniform’);</p>
 </dd></dl>
@@ -1029,7 +1027,7 @@ index or name of parameter and keyword/value pairs to set</p>
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.setResolutionParamLimits">
 <span class="sig-name descname"><span class="pre">setResolutionParamLimits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">min</span></em>, <em class="sig-param"><span class="pre">max</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setResolutionParamLimits" title="Link to this definition">#</a></dt>
 <dd><p>Sets the constraints of existing resolution
-parameter. Expects index or name of parameter 
+parameter. Expects index or name of parameter
 and new min and max of the parameter’s value</p>
 <p>project.setResolutionParamLimits(1, 0, 1);</p>
 </dd></dl>
@@ -1037,8 +1035,8 @@ and new min and max of the parameter’s value</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.setResolutionParamName">
 <span class="sig-name descname"><span class="pre">setResolutionParamName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setResolutionParamName" title="Link to this definition">#</a></dt>
-<dd><p>Sets the name of an existing resolution 
-parameter. Expects index or name of parameter 
+<dd><p>Sets the name of an existing resolution
+parameter. Expects index or name of parameter
 and the new name</p>
 <p>project.setResolutionParamName(2, ‘new name’);</p>
 </dd></dl>
@@ -1046,8 +1044,8 @@ and the new name</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.setResolutionParamValue">
 <span class="sig-name descname"><span class="pre">setResolutionParamValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setResolutionParamValue" title="Link to this definition">#</a></dt>
-<dd><p>Sets the value of existing resolution            
-parameter. Expects index or name of parameter 
+<dd><p>Sets the value of existing resolution
+parameter. Expects index or name of parameter
 and new value to set</p>
 <p>project.setResolutionParamValue(1, 5.5e-6);</p>
 </dd></dl>
@@ -1188,15 +1186,6 @@ the index of contrast parameter and cell array of layer names</p>
 <dd><p>Edits an existing domain ratio parameter. Expects the
 index of domain ratio to edit and key-value pairs</p>
 <p>project.setDomainRatio(1, ‘name’,’Domain Ratio 1’, ‘value’, 0.55);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.domainsClass.setModelType">
-<span class="sig-name descname"><span class="pre">setModelType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">modelType</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.domainsClass.setModelType" title="Link to this definition">#</a></dt>
-<dd><p>Sets the experiment type. The type should be a string,  
-either “standard layers”, “custom layers”, or “custom xy” is
-permitted.</p>
-<p>project.setModelType(‘Custom Layers’);</p>
 </dd></dl>
 
 <dl class="mat method">

@@ -29,6 +29,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
@@ -199,6 +200,13 @@ document.write(`
                       </a>
                     </li>
                 
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../python/index.html">
+                        Python API Reference
+                      </a>
+                    </li>
+                
   </ul>
 </nav></div>
       
@@ -305,6 +313,13 @@ document.write(`
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
                         MATLAB API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../python/index.html">
+                        Python API Reference
                       </a>
                     </li>
                 
@@ -457,8 +472,8 @@ properly on terminal.</p>
 A custom file entry can be added with no parameters, just the
 name of the custom file entry, the name of the entry
 alongside a filename, or can be fully defined by specifying
-the name of the custom file entry, filename, language, 
-file path, and function name. For MATLAB, the provided path must 
+the name of the custom file entry, filename, language,
+file path, and function name. For MATLAB, the provided path must
 be in the matlab path</p>
 <p>customFiles.addCustomFile()
 customFiles.addCustomFile(‘New Row’)
@@ -506,7 +521,7 @@ parameters for the first row should be provided.</p>
 The expected inputs are the row of the file entry of
 interest (given either by name of index), and key-value pairs
 of the parameter(s) to change. The values of the keys are:
-“Name”, “Filename”, “Language”, “Path” and “functionName” if 
+“Name”, “Filename”, “Language”, “Path” and “functionName” if
 applicable.</p>
 <dl class="simple">
 <dt>customFiles.setcustomFile(1, ‘Name’, ‘New Name’,…</dt><dd><p>‘Language’, ‘Octave’)</p>

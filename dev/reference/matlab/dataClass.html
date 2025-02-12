@@ -29,6 +29,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
@@ -199,6 +200,13 @@ document.write(`
                       </a>
                     </li>
                 
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../python/index.html">
+                        Python API Reference
+                      </a>
+                    </li>
+                
   </ul>
 </nav></div>
       
@@ -305,6 +313,13 @@ document.write(`
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
                         MATLAB API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../python/index.html">
+                        Python API Reference
                       </a>
                     </li>
                 
@@ -471,10 +486,10 @@ input .. etc.</p>
 <dd><dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.dataClass.addData">
 <span class="sig-name descname"><span class="pre">addData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.addData" title="Link to this definition">#</a></dt>
-<dd><p>Adds a dataset to the data table. Default values are used if no 
-arguments are provided, otherwise a subset of the arguments can 
+<dd><p>Adds a dataset to the data table. Default values are used if no
+arguments are provided, otherwise a subset of the arguments can
 be provided.
-The following are assumed from number of arguments: 
+The following are assumed from number of arguments:
 for 1 input, the name only is provided
 for 2 inputs, the name and data are provided
 for 4 inputs, the name, data, data range, and simulation range are provided</p>
@@ -488,7 +503,7 @@ data.addData(‘Sim’, ones(5, 3), [0.2, 0.9],  [-3, 6]);</p>
 <dt class="sig sig-object mat" id="API.projectClass.dataClass.dataClass">
 <span class="sig-name descname"><span class="pre">dataClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.dataClass" title="Link to this definition">#</a></dt>
 <dd><p>Creates a Data object. The argument should be contents of the first
-dataset which should consists of a name (string), data (N by 3 array), 
+dataset which should consists of a name (string), data (N by 3 array),
 dataRange (1 by 2 or empty array), and simRange (1 by 2 or empty array).</p>
 <p>data = dataClass(‘data_name’,  [],  [], []);</p>
 </dd></dl>
@@ -496,8 +511,8 @@ dataRange (1 by 2 or empty array), and simRange (1 by 2 or empty array).</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.dataClass.displayTable">
 <span class="sig-name descname"><span class="pre">displayTable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.displayTable" title="Link to this definition">#</a></dt>
-<dd><p>Displays the table object. The actual obj.varTable has the 
-format {string, cell, double, double}, but for display we 
+<dd><p>Displays the table object. The actual obj.varTable has the
+format {string, cell, double, double}, but for display we
 make a table that is all strings.</p>
 </dd></dl>
 
@@ -512,7 +527,7 @@ index or name of dataset and keyword/value pairs to set</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.dataClass.setDataName">
 <span class="sig-name descname"><span class="pre">setDataName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">whichData</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.setDataName" title="Link to this definition">#</a></dt>
-<dd><p>Sets the name of an existing dataset. Expects index of data  
+<dd><p>Sets the name of an existing dataset. Expects index of data
 and the new name. Name must be a char and not an existing name.
 Returns a structure with the new name and old name</p>
 <p>names = data.setDataName({2, ‘new name’});</p>
