@@ -17,6 +17,8 @@ Download the appropriate version of RAT from the GitHub [release](https://github
     wget https://github.com/RascalSoftware/RAT/releases/download/nightly/Linux.zip
     unzip Linux.zip -d API/
 
+You also must have `pandoc` installed to build the Python example Jupyter notebooks. See the installation instructions [here](https://pandoc.org/installing.html).
+
 
 To build the HTML docs, type the following into a terminal with access to the Python executable:  
 

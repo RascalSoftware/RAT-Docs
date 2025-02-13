@@ -60,7 +60,7 @@ if not os.path.isdir("./python_examples/data"):
 
     shutil.rmtree("./python-RAT")
 
-if not os.path.isfile("./matlab_examples/standardLaersDSPCSheet.html"):
+if not os.path.isfile("./matlab_examples/standardLayersDSPCSheet.html"):
     try:
         from matlab.engine import start_matlab
     except ImportError:

@@ -79,6 +79,7 @@ RAT contains a number of improvements over legacy RasCAL, including:
    
    install
    guide
+   examples
    reference/matlab/index
    reference/python/index
 
