@@ -47,8 +47,10 @@ extensions = ['sphinxcontrib.matlab', 'sphinx.ext.napoleon', 'sphinx.ext.autodoc
 templates_path = ['_templates']
 
 # -- Setup example files -----------------------------------------------------
+PYTHON_RAT_RELEASE = "0.0.0.dev4"
+
 if not os.path.isdir("./python_examples/data"):
-    os.system('git clone --depth 1 --branch 0.0.0.dev4 https://github.com/RascalSoftware/python-RAT')
+    os.system(f'git clone --depth 1 --branch {PYTHON_RAT_RELEASE} https://github.com/RascalSoftware/python-RAT')
     print("Copying Jupyter notebooks...")
     for directory in ['normal_reflectivity', 'domains', 'absorption']:
         for file in Path(f"./python-RAT/RATapi/examples/{directory}/").glob('*'):
@@ -118,6 +120,30 @@ copybutton_prompt_text = r">>> |>> "
 copybutton_prompt_is_regexp = True
 
 autodoc_typehints = "description"
+
+nbsphinx_prolog = r"""
+{% set docname = 'doc/' + env.doc2path(env.docname, base=None)|string %}
+
+.. raw:: html
+
+    <div class="admonition note">
+      This page was generated from the notebook {{ env.docname.split('/')|last|e + '.ipynb' }} found in 
+      <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/"""+PYTHON_RAT_RELEASE+r"""/RATapi/examples/">the Python-RAT repository. </a>
+      <a href="{{ env.docname.split('/')|last|e + '.ipynb' }}" class="reference download internal" download>Download notebook</a>.
+    </div>
+
+.. note::
+
+    To get the output project and results from this example in your Python session, run:
+
+    .. code-block:: python
+
+        from RATapi.examples import {{ env.docname.split('/')|last|e }}
+        project, results = {{ env.docname.split('/')|last|e }}() 
+
+-------------------------------------------------------------------------------------
+
+"""
 
 ### autodoc_pydantic settings
 # hide JSON schemas by default
