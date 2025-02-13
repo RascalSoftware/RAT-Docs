@@ -68,6 +68,8 @@ if not os.path.isfile("./matlab_examples/standardLaersDSPCSheet.html"):
     else:
         print("Starting MATLAB Engine...")
         eng = start_matlab()
+        matlab_examples_path = Path("./matlab_examples").resolve()
+        eng.eval("cd('../API'); addPaths;", nargout=0)
         for sheet in ['normalReflectivity/standardLayers/standardLayersDSPCSheet', 
                       'normalReflectivity/customLayers/customLayersDSPCSheet', 
                       'normalReflectivity/customXY/customXYDSPCSheet', 
@@ -77,8 +79,12 @@ if not os.path.isfile("./matlab_examples/standardLaersDSPCSheet.html"):
                       'miscellaneous/convertRascal1Project/convertRascal',
                       'miscellaneous/alternativeLanguages/customModelLanguagesSheet',]:
             filename = Path(sheet).name
+            folder = str(Path(sheet).parent)
             print(f"exporting {sheet}")
-            eng.export(f"../API/examples/{sheet}.mlx", f"./matlab_examples/{filename}.html", nargout=0)
+            eng.cd(f"examples/{folder}", nargout=0)
+            eng.matlab.internal.liveeditor.executeAndSave(str(Path(f"../API/examples/{sheet}.mlx").resolve()), nargout=0)
+            eng.export(f"{filename}.mlx", str(matlab_examples_path / f"{filename}.html"), nargout=0)
+            eng.cd("../../../", nargout=0)
 
 
 # -- Options for HTML output -------------------------------------------------
