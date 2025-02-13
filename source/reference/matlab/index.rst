@@ -10,3 +10,5 @@ MATLAB API Reference
     controlClass
     entryFunctions
     targetFunctions
+    plotting
+    utilities
