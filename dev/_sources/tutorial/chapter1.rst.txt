@@ -24,9 +24,9 @@ our parameter values for our model using a genetic algorithm, and then run a Bay
 for each parameter.
 
 These inputs are passed into RAT to produce
-two outputs. The first is a results object which contains the results of the calculations, such as simulated reflectivities, SLD profiles or parameter distributions.
-The second is another model definition, which describes the same experiment as the input definition but with updated best-fit parameter values for parameters which
-we have chosen to optimise.
+two outputs. The first is another model definition, which describes the same experiment as the input definition but with updated best-fit parameter values for parameters which
+we have chosen to optimise. The second is a results object which contains the results of the calculations, such as simulated reflectivities, SLD profiles or parameter distributions.
+
 
 We will discuss these further in :ref:`the next chapter<chapter2>`, where we look at the inputs and outputs in more detail.
 

@@ -483,9 +483,8 @@ one will define a single model and then run it with several different controls o
 our parameter values for our model using a genetic algorithm, and then run a Bayesian analysis to obtain the posterior distributions
 for each parameter.</p>
 <p>These inputs are passed into RAT to produce
-two outputs. The first is a results object which contains the results of the calculations, such as simulated reflectivities, SLD profiles or parameter distributions.
-The second is another model definition, which describes the same experiment as the input definition but with updated best-fit parameter values for parameters which
-we have chosen to optimise.</p>
+two outputs. The first is another model definition, which describes the same experiment as the input definition but with updated best-fit parameter values for parameters which
+we have chosen to optimise. The second is a results object which contains the results of the calculations, such as simulated reflectivities, SLD profiles or parameter distributions.</p>
 <p>We will discuss these further in <a class="reference internal" href="chapter2.html#chapter2"><span class="std std-ref">the next chapter</span></a>, where we look at the inputs and outputs in more detail.</p>
 <img alt="A flowchart depicting the RAT workflow model described above. On the left, we have two boxes labeled Problem (Input) and Controls, representing the required inputs used by RAT. An arrow points from each of these boxes to a central box labeled 'RAT', which represents passing these input objects into the main RAT program. Two arrows point from this central RAT box to a pair of boxes on the right labelled Problem (Output) and Results, indicating the output produced by RAT after the program runs." src="../_images/ratInput.png" />
 <p>The below code block gives the name of each object for each language, as well as how to run a calculation.</p>
@@ -1087,7 +1086,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ________________________________________________________________________________________________
 
-Elapsed time is 0.162119 seconds.
+Elapsed time is 0.162984 seconds.
 
 Finished RAT ______________________________________________________________________________________________ 
 </pre></div>

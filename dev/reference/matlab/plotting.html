@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>RAT Entry Functions &#8212; RAT  documentation</title>
+    <title>Plotting &#8212; RAT  documentation</title>
   
   
   
@@ -45,7 +45,7 @@
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=881e7dcd"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/matlab/entryFunctions';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/matlab/plotting';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://rascalsoftware.github.io/RAT-Docs/switcher.json';
@@ -55,8 +55,8 @@
     <link rel="icon" href="../../_static/logo.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Target Functions (Low Level API)" href="targetFunctions.html" />
-    <link rel="prev" title="Controls Class" href="controlClass.html" />
+    <link rel="next" title="Utilities" href="utilities.html" />
+    <link rel="prev" title="Target Functions (Low Level API)" href="targetFunctions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -361,9 +361,9 @@ document.write(`
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="controlClass.html">Controls Class</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">RAT Entry Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entryFunctions.html">RAT Entry Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="targetFunctions.html">Target Functions (Low Level API)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plotting.html">Plotting</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Plotting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="utilities.html">Utilities</a></li>
 </ul>
 </div>
@@ -405,7 +405,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">MATLAB API Reference</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">RAT Entry Functions</li>
+    <li class="breadcrumb-item active" aria-current="page">Plotting</li>
   </ul>
 </nav>
 </div>
@@ -422,165 +422,158 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="rat-entry-functions">
-<h1>RAT Entry Functions<a class="headerlink" href="#rat-entry-functions" title="Link to this heading">#</a></h1>
-<p>The user should begin by creating a project and controls object, then the user can run RAT like shown below</p>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Sample usage of RAT class.</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c">% Initialize the project class</span>
-<span class="w">    </span><span class="n">problem</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">createProject</span><span class="p">();</span>
-
-<span class="w">    </span><span class="c">% Initialize the controls class</span>
-<span class="w">    </span><span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">();</span>
-
-<span class="w">    </span><span class="c">% call the RAT function</span>
-<span class="w">    </span><span class="p">[</span><span class="n">problem</span><span class="p">,</span><span class="n">results</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RAT</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="n">controls</span><span class="p">);</span>
+  <section id="plotting">
+<h1>Plotting<a class="headerlink" href="#plotting" title="Link to this heading">#</a></h1>
+<dl class="mat function" id="module-utilities.plotting">
+<dt class="sig sig-object mat" id="utilities.plotting.bayesShadedPlot">
+<span class="sig-prename descclassname"><span class="pre">utilities.plotting.</span></span><span class="sig-name descname"><span class="pre">bayesShadedPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">project</span></em>, <em class="sig-param"><span class="pre">result</span></em>, <em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotting.bayesShadedPlot" title="Link to this definition">#</a></dt>
+<dd><p>Plots the shaded reflectivities from Bayes output from RAT</p>
+<p>Example Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bayesShadedPlot</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="s1">&#39;interval&#39;</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="s1">&#39;q4&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
 </pre></div>
 </div>
-</div>
-<p>When the RAT function is called, the classes are passed into internal functions like <cite>parseClassToStructs</cite> which takes the classes and breaks them down into cells,
-limits, priors and more importantly converts the project class to struct.</p>
-<p>Then, the <cite>RATMain</cite> function redirects the control flow based on what procedure is selected in controlsClass. One of the redirecting functions will call the reflectivityCalculation
-which starts the reflectivity calculation.</p>
-<p>Some interesting data type changes are needed because of how things work with coder. Coder wont accept variable sized cell arrays contains variable sized arrays (strings for eg)
-in a field of a struct. So, look at <cite>parseClassToStructs</cite> function to understand how the data is converted.</p>
-<dl class="mat function">
-<dt class="sig sig-object mat" id="API.RAT">
-<span class="sig-prename descclassname"><span class="pre">API.</span></span><span class="sig-name descname"><span class="pre">RAT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">project</span></em>, <em class="sig-param"><span class="pre">controls</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.RAT" title="Link to this definition">#</a></dt>
-<dd><p>Runs RAT calculation for the given project and controls inputs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>project</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">projectClass</span></code></span>) – An instance of the <code class="docutils literal notranslate"><span class="pre">projectClass</span></code>.</p></li>
-<li><p><strong>controls</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">controlsClass</span></code></span>) – An instance of the <code class="docutils literal notranslate"><span class="pre">controlsClass</span></code>.</p></li>
+<li><p><strong>project</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">projectClass</span></code></span>) – An instance of the projectClass.</p></li>
+<li><p><strong>result</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">struct</span></code></span>) – The result of the RAT Bayesian calculation.</p></li>
+<li><p><strong>options</strong> – <dl class="simple">
+<dt>Keyword/value pair to configure plotting, the following are allowed</dt><dd><ul>
+<li><p>q4 (logical, default: false) indicates if the Y axis should plot Q^4</p></li>
+<li><p>keepAxes (logical, default: false) indicates if the figure should be used without clearing axes.</p></li>
+<li><p>interval (65 or 95, default: 95) Bayesian confidence interval to shade in the plot.</p></li>
+<li><p>showLegend (logical, default: false) indicates if the legend should be shown.</p></li>
 </ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>project</strong> (<em>projectClass</em>) – An instance of the <code class="docutils literal notranslate"><span class="pre">projectClass</span></code> with updated fit values from the calculation.</p></li>
-<li><p><strong>result</strong> (<em>struct</em>) – The results of the calculation such as simulated reflectivities, SLD profiles etc.</p></li>
-</ul>
-</p>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
-<p>For a non-Bayesian procedure, the result struct has the following fields below where nDomains,
-nContrasts and nParams are the the number of domains, contrasts and params respectively</p>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Field</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>reflectivity</p></td>
-<td><p>[nContrasts x 1] cell</p></td>
-<td><p>calculated reflectivity values</p></td>
-</tr>
-<tr class="row-odd"><td><p>simulation</p></td>
-<td><p>[nContrasts x 1] cell</p></td>
-<td><p>simulated reflectivity values</p></td>
-</tr>
-<tr class="row-even"><td><p>shiftedData</p></td>
-<td><p>[nContrasts x 1] cell</p></td>
-<td><p>Data shifted using given scale factor</p></td>
-</tr>
-<tr class="row-odd"><td><p>backgrounds</p></td>
-<td><p>[nContrasts x 1] cell</p></td>
-<td><p>background values for each contrast</p></td>
-</tr>
-<tr class="row-even"><td><p>resolutions</p></td>
-<td><p>[nContrasts x 1] cell</p></td>
-<td><p>resolution values for each contrast</p></td>
-</tr>
-<tr class="row-odd"><td><p>layerSlds</p></td>
-<td><p>[nContrasts x nDomains] cell</p></td>
-<td><p>layers parameter values for each contrast</p></td>
-</tr>
-<tr class="row-even"><td><p>sldProfiles</p></td>
-<td><p>[nContrasts x nDomains] cell</p></td>
-<td><p>SLD profiles</p></td>
-</tr>
-<tr class="row-odd"><td><p>resampledLayers</p></td>
-<td><p>[nContrasts x nDomains] cell</p></td>
-<td><p>resampled layer values for each contrast
-if resample is true otherwise an array of zeros</p></td>
-</tr>
-<tr class="row-even"><td><p>calculationResults</p></td>
-<td><p>[1 x 1] struct</p></td>
-<td><p>Chi-squared goodness of fit results. The fields
-are <code class="docutils literal notranslate"><span class="pre">chiValues</span></code> and <code class="docutils literal notranslate"><span class="pre">sumChi</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>contrastParams</p></td>
-<td><p>[1 x 1] struct</p></td>
-<td><p>Parameter values for each contrast. The fields are
-<code class="docutils literal notranslate"><span class="pre">scalefactors</span></code>, <code class="docutils literal notranslate"><span class="pre">bulkIn</span></code>, <code class="docutils literal notranslate"><span class="pre">bulkOut</span></code>, <code class="docutils literal notranslate"><span class="pre">subRoughs</span></code>,
-and <code class="docutils literal notranslate"><span class="pre">resample</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>fitParams</p></td>
-<td><p>[1 x nParams] double</p></td>
-<td><p>fitted parameter values</p></td>
-</tr>
-<tr class="row-odd"><td><p>fitNames</p></td>
-<td><p>[nParams x 1] cell</p></td>
-<td><p>name of fitted parameters</p></td>
-</tr>
-</tbody>
-</table>
-<p>For a Bayesian procedure, the result struct will also contain the following fields in
-addition to the ones above</p>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Field</p></th>
-<th class="head"><p>Type</p></th>
-<th class="head"><p>Description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>predictionIntervals</p></td>
-<td><p>[1 x 1] struct</p></td>
-<td><p>Mean, 65% and 95% confidence intervals, and chi squared
-goodness of fit values for the reflectivity and SLD. The fields
-are <code class="docutils literal notranslate"><span class="pre">reflectivity</span></code>, <code class="docutils literal notranslate"><span class="pre">sld</span></code>, and <code class="docutils literal notranslate"><span class="pre">sampleChi</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>confidenceIntervals</p></td>
-<td><p>[1 x 1] struct</p></td>
-<td><p>Confidence intervals for the Markov chain. The fields are
-<code class="docutils literal notranslate"><span class="pre">percentile95</span></code>, <code class="docutils literal notranslate"><span class="pre">percentile65</span></code>, and <code class="docutils literal notranslate"><span class="pre">mean</span></code>.</p></td>
-</tr>
-<tr class="row-even"><td><p>dreamParams</p></td>
-<td><p>[1 x 1] struct</p></td>
-<td><p>Parameters used to configure dream.</p></td>
-</tr>
-<tr class="row-odd"><td><p>dreamOutput</p></td>
-<td><p>[1 x 1] struct</p></td>
-<td><p>Diagnostic output information from a DREAM run. The fields
-are <code class="docutils literal notranslate"><span class="pre">allChains</span></code>, <code class="docutils literal notranslate"><span class="pre">outlierChains</span></code>, <code class="docutils literal notranslate"><span class="pre">runtime</span></code>,
-<code class="docutils literal notranslate"><span class="pre">iteration</span></code>, <code class="docutils literal notranslate"><span class="pre">modelOutput</span></code>, <code class="docutils literal notranslate"><span class="pre">AR</span></code>, <code class="docutils literal notranslate"><span class="pre">R_stat</span></code>, and <code class="docutils literal notranslate"><span class="pre">CR</span></code></p></td>
-</tr>
-<tr class="row-even"><td><p>nestedSamplerOutput</p></td>
-<td><p>[1 x 1] struct</p></td>
-<td><p>Output from a nested sampler run. The fields are <code class="docutils literal notranslate"><span class="pre">LogZ</span></code>,
-<code class="docutils literal notranslate"><span class="pre">LogZErr</span></code>, <code class="docutils literal notranslate"><span class="pre">nestSamples</span></code>, and <code class="docutils literal notranslate"><span class="pre">postSamples</span></code></p></td>
-</tr>
-<tr class="row-odd"><td><p>chain</p></td>
-<td><p>[M x nParams] double</p></td>
-<td><p>MCMC chains where M is the length of each chain</p></td>
-</tr>
-</tbody>
-</table>
+</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat function">
-<dt class="sig sig-object mat" id="API.RATMain">
-<span class="sig-prename descclassname"><span class="pre">API.</span></span><span class="sig-name descname"><span class="pre">RATMain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">problemStruct</span></em>, <em class="sig-param"><span class="pre">problemLimits</span></em>, <em class="sig-param"><span class="pre">controls</span></em>, <em class="sig-param"><span class="pre">priors</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.RATMain" title="Link to this definition">#</a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object mat" id="utilities.plotting.plotChain">
+<span class="sig-prename descclassname"><span class="pre">utilities.plotting.</span></span><span class="sig-name descname"><span class="pre">plotChain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">result</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotting.plotChain" title="Link to this definition">#</a></dt>
+<dd><p>Plots MCMC chain from the result of a Bayesian RAT calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>result</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">struct</span></code></span>) – The result from a Bayesian RAT calculation.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="mat function">
-<dt class="sig sig-object mat" id="API.parseClassToStructs">
-<span class="sig-prename descclassname"><span class="pre">API.</span></span><span class="sig-name descname"><span class="pre">parseClassToStructs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">project</span></em>, <em class="sig-param"><span class="pre">inputControls</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.parseClassToStructs" title="Link to this definition">#</a></dt>
-<dd><p>Breaks up the classes into the relevant structures for inputting into C</p>
+<dt class="sig sig-object mat" id="utilities.plotting.plotHists">
+<span class="sig-prename descclassname"><span class="pre">utilities.plotting.</span></span><span class="sig-name descname"><span class="pre">plotHists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">result</span></em>, <em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotting.plotHists" title="Link to this definition">#</a></dt>
+<dd><p>Plots the Bayes histogram plot from the chain, with or without smoothing.
+If selected, smoothing is via a moving average algorithm.</p>
+<p>Example Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotHists</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s1">&#39;smooth&#39;</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>result</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">struct</span></code></span>) – The result of the RAT Bayesian calculation.</p></li>
+<li><p><strong>options</strong> – <dl class="simple">
+<dt>Keyword/value pair to configure plotting, the following are allowed</dt><dd><ul>
+<li><p>figure (‘matlab.ui.Figure’ or int, default: []) figure or number of the figure to use for the plot.</p></li>
+<li><p>smooth (logical, default: true) indicates if moving average smoothing to the plot</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="utilities.plotting.plotRefSLD">
+<span class="sig-prename descclassname"><span class="pre">utilities.plotting.</span></span><span class="sig-name descname"><span class="pre">plotRefSLD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">project</span></em>, <em class="sig-param"><span class="pre">result</span></em>, <em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotting.plotRefSLD" title="Link to this definition">#</a></dt>
+<dd><p>Plots the reflectivity and SLD profiles</p>
+<p>Example Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotRefSLD</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="s1">&#39;showGrid&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s1">&#39;q4&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>project</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">projectClass</span></code></span>) – An instance of the projectClass.</p></li>
+<li><p><strong>result</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">struct</span></code></span>) – The result of the RAT calculation.</p></li>
+<li><p><strong>options</strong> – <dl class="simple">
+<dt>Keyword/value pairs to configure plotting, the following are allowed</dt><dd><ul>
+<li><p>linearX (logical, default: false) indicates if the X axis should be linear scale instead of log.</p></li>
+<li><p>q4 (logical, default: false) indicates if the Y axis should plot Q^4.</p></li>
+<li><p>showErrorBar (logical, default: true) indicates if the error bar should be shown.</p></li>
+<li><p>showGrid (logical, default: false) indicates if the grid should be shown.</p></li>
+<li><p>showLegend (logical, default: true) indicates if the legend should be shown.</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="utilities.plotting.plotRefSLDHelper">
+<span class="sig-prename descclassname"><span class="pre">utilities.plotting.</span></span><span class="sig-name descname"><span class="pre">plotRefSLDHelper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">data</span></em>, <em class="sig-param"><span class="pre">noDelay</span></em>, <em class="sig-param"><span class="pre">linearX</span></em>, <em class="sig-param"><span class="pre">q4</span></em>, <em class="sig-param"><span class="pre">showErrorBar</span></em>, <em class="sig-param"><span class="pre">showGrid</span></em>, <em class="sig-param"><span class="pre">showLegend</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotting.plotRefSLDHelper" title="Link to this definition">#</a></dt>
+<dd><p>Helper function to plot the reflectivity and SLD profiles from plot event struct.
+Most users never need to use this function, rather use <code class="docutils literal notranslate"><span class="pre">useLivePlot</span></code> for live
+plotting or <code class="docutils literal notranslate"><span class="pre">plotRefSLD</span></code> for simple SLD plots.</p>
+<p>Example Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotRefSLDHelper</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><cite>data</cite> is a struct created by the RAT plot event. This struct can be created as shown below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">projectStruct</span><span class="p">,</span><span class="o">~</span><span class="p">,</span><span class="o">~</span><span class="p">,</span><span class="o">~</span><span class="p">]</span> <span class="o">=</span> <span class="n">parseClassToStructs</span><span class="p">(</span><span class="n">project</span><span class="p">,</span><span class="n">controls</span><span class="p">);</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">modelType</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">modelType</span><span class="p">;</span>
+<span class="n">data</span><span class="o">.</span><span class="n">reflectivity</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">reflectivity</span><span class="p">;</span>
+<span class="n">data</span><span class="o">.</span><span class="n">shiftedData</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">shiftedData</span><span class="p">;</span>
+<span class="n">data</span><span class="o">.</span><span class="n">sldProfiles</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">sldProfiles</span><span class="p">;</span>
+<span class="n">data</span><span class="o">.</span><span class="n">resampledLayers</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">resampledLayers</span><span class="p">;</span>
+<span class="n">data</span><span class="o">.</span><span class="n">dataPresent</span> <span class="o">=</span> <span class="n">projectStruct</span><span class="o">.</span><span class="n">dataPresent</span><span class="p">;</span>
+<span class="n">data</span><span class="o">.</span><span class="n">subRoughs</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">contrastParams</span><span class="o">.</span><span class="n">subRoughs</span><span class="p">;</span>
+<span class="n">data</span><span class="o">.</span><span class="n">resample</span> <span class="o">=</span> <span class="n">projectStruct</span><span class="o">.</span><span class="n">resample</span><span class="p">;</span>
+<span class="n">data</span><span class="o">.</span><span class="n">contrastNames</span> <span class="o">=</span> <span class="n">projectStruct</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">contrasts</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Where <cite>project</cite> is an instance of the <code class="docutils literal notranslate"><span class="pre">projectClass</span></code>, <cite>controls</cite> is an instance of <code class="docutils literal notranslate"><span class="pre">controlsClass</span></code> and <cite>result</cite> is
+the result struct from the RAT calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">struct</span></code></span>) – A plot event struct.</p></li>
+<li><p><strong>noDelay</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">true</span></code></span>) – Indicates if draw should be delayed.</p></li>
+<li><p><strong>linearX</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">false</span></code></span>) – Indicates if the X axis should be linear scale instead of log.</p></li>
+<li><p><strong>q4</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">false</span></code></span>) – Indicates if the Y axis should plot Q^4.</p></li>
+<li><p><strong>showErrorBar</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">true</span></code></span>) – Indicates if the error bar should be shown.</p></li>
+<li><p><strong>showGrid</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">false</span></code></span>) – Indicates if the grid should be shown.</p></li>
+<li><p><strong>showLegend</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">true</span></code></span>) – Indicates if the legend should be shown.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat class">
+<dt class="sig sig-object mat" id="utilities.plotting.useLivePlot">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">utilities.plotting.</span></span><span class="sig-name descname"><span class="pre">useLivePlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">figureId</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotting.useLivePlot" title="Link to this definition">#</a></dt>
+<dd><p>Sets up a live plot on a given figure. The live plot listens for plot events from the RAT calculation and
+redraws the plot every time an event is received.</p>
+<p>Example Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">useLivePlot</span><span class="p">();</span>   <span class="o">%</span> <span class="n">Opens</span> <span class="n">a</span> <span class="n">new</span> <span class="n">figure</span> <span class="k">for</span> <span class="n">plot</span>
+<span class="n">useLivePlot</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Use</span> <span class="n">figure</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">plot</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>figureId</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">'matlab.ui.Figure'</span> <span class="pre">or</span> <span class="pre">int,</span> <span class="pre">default:</span> <span class="pre">[]</span></code></span>) – The number of the figure to use for the live plot.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
