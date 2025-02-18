@@ -9,7 +9,10 @@ import os
 import sys
 import shutil
 import datetime
+import zipfile
+from importlib import metadata
 from urllib.parse import urljoin
+from urllib.request import urlretrieve
 from pathlib import Path
 # -- Project information -----------------------------------------------------
 # Add any Sphinx extension module names here, as strings. They can be
@@ -47,18 +50,20 @@ extensions = ['sphinxcontrib.matlab', 'sphinx.ext.napoleon', 'sphinx.ext.autodoc
 templates_path = ['_templates']
 
 # -- Setup example files -----------------------------------------------------
-PYTHON_RAT_RELEASE = "0.0.0.dev4"
+PYTHON_RAT_RELEASE = metadata.version("RATapi")
 
 if not os.path.isdir("./python_examples/data"):
-    os.system(f'git clone --depth 1 --branch {PYTHON_RAT_RELEASE} https://github.com/RascalSoftware/python-RAT')
+    zip_dir, headers = urlretrieve(f"https://github.com/RascalSoftware/python-RAT/archive/refs/tags/{PYTHON_RAT_RELEASE}.zip")
+    with zipfile.ZipFile(zip_dir) as zf:
+        zf.extractall()
     print("Copying Jupyter notebooks...")
     for directory in ['normal_reflectivity', 'domains', 'absorption']:
-        for file in Path(f"./python-RAT/RATapi/examples/{directory}/").glob('*'):
+        for file in Path(f"./python-RAT-{PYTHON_RAT_RELEASE}/RATapi/examples/{directory}/").glob('*'):
             shutil.copy(file, "./python_examples/notebooks/")
 
-    shutil.copytree("./python-RAT/RATapi/examples/data", "./python_examples/data", dirs_exist_ok=True)
+    shutil.copytree(f"./python-RAT-{PYTHON_RAT_RELEASE}/RATapi/examples/data", "./python_examples/data", dirs_exist_ok=True)
 
-    shutil.rmtree("./python-RAT")
+    shutil.rmtree(f"./python-RAT-{PYTHON_RAT_RELEASE}")
 
 if not os.path.isfile("./matlab_examples/standardLayersDSPCSheet.html"):
     try:
@@ -134,7 +139,7 @@ nbsphinx_prolog = r"""
 
     <div class="admonition note">
       This page was generated from the notebook {{ env.docname.split('/')|last|e + '.ipynb' }} found in 
-      <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/"""+PYTHON_RAT_RELEASE+r"""/RATapi/examples/">the Python-RAT repository. </a>
+      <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/"""+PYTHON_RAT_RELEASE+r"""/RATapi/examples/">the Python-RAT repository</a>.
       <a href="{{ env.docname.split('/')|last|e + '.ipynb' }}" class="reference download internal" download>Download notebook</a>.
     </div>
 
