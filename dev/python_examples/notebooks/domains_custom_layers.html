@@ -1,0 +1,893 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Analysing Domains Samples Using Custom Layers Models &#8212; RAT  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=881e7dcd"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'python_examples/notebooks/domains_custom_layers';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://rascalsoftware.github.io/RAT-Docs/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="icon" href="../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Simple example of a layer containing domains using a custom XY model" href="domains_custom_XY.html" />
+    <link rel="prev" title="Domains Samples Using Standard Layers" href="domains_standard_layers.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="RAT  documentation - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="RAT  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+      <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        Home
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../guide.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../reference/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        Home
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../guide.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../reference/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorial/index.html">Tutorial</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/chapter1.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/chapter2.html">The Problem Definition Input Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/controlsInfo.html">A Closer Look at the Controls Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/customModels.html">Custom Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/savingOutputs.html">Copying and Saving Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../matlab_examples/index.html">MATLAB Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../matlab_examples/DSPC_standard_layers.html">DSPC Standard Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../matlab_examples/DSPC_custom_layers.html">DSPC Custom Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../matlab_examples/DSPC_custom_XY.html">DSPC Custom XY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../matlab_examples/domains_standard_layers.html">Incoherent Summing with Standard Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../matlab_examples/domains_custom_layers.html">Incoherent Summing with Custom Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../matlab_examples/domains_custom_XY.html">Incoherent Summing with Custom XY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../matlab_examples/imaginary.html">Absorption (Imaginary SLD) Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../matlab_examples/convert_r1_project.html">Converting a RasCAL-1 Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../matlab_examples/custom_model_languages.html">Alternative Custom Model Languages</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Python Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="DSPC_standard_layers.html">Standard Layers Analysis of a DSPC Floating Bilayer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DSPC_custom_layers.html">Custom Layers Example for Supported DSPC layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DSPC_custom_xy.html">Custom XY Example for Supported DSPC layer.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domains_standard_layers.html">Domains Samples Using Standard Layers</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Analysing Domains Samples Using Custom Layers Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domains_custom_XY.html">Simple example of a layer containing domains using a custom XY model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absorption.html">Absorption (imaginary SLD) - effect below the critical edge</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../algorithms/index.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../algorithms/simplex.html">Nelder-Mead Simplex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../algorithms/DE.html">Differential Evolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../algorithms/DREAM.html">Bayesian Analysis - DREAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../algorithms/nestedSampling.html">Bayesian Model Selection - Nested Sampling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../advanced/index.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../advanced/resampling.html">Profile Resampling (‘microslicing’)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../advanced/parallelisation.html">Parallelising Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../advanced/customLanguages.html">Custom Models in Python or C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../advanced/events.html">Handling Events During Calculations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../calcTypes/index.html">Different Calculation Types</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../calcTypes/imaginary.html">Adding the Imaginary Refractive Index</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../calcTypes/incoherent.html">Incoherent Summing (Domains)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../calcTypes/domainsStanlay.html">Standard Layers Domains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calcTypes/domainsCustomModels.html">Custom Models with Domains</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../utilities/index.html">Utility Functions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/plotFuns.html">Basic Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/plotFunsBayes.html">Plotting Bayesian Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/livePlot.html">Live Updating Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/conversionFuncs.html">Convert between RAT and RasCAL-1</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../guide.html" class="nav-link">User Guide</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Python Examples</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Analysing...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="admonition note">
+  This page was generated from the notebook domains_custom_layers.ipynb found in
+  <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/0.0.0.dev4/RATapi/examples/">the Python-RAT repository</a>.
+  <a href="domains_custom_layers.ipynb" class="reference download internal" download>Download notebook</a>.
+</div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To get the output project and results from this example in your Python session, run:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">RATapi.examples</span><span class="w"> </span><span class="kn">import</span> <span class="n">domains_custom_layers</span>
+<span class="n">project</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">domains_custom_layers</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Code</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">RATapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">RAT</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">RATapi.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Parameter</span>
+</pre></div>
+</div>
+</div>
+<section id="Analysing-Domains-Samples-Using-Custom-Layers-Models">
+<h1>Analysing Domains Samples Using Custom Layers Models<a class="headerlink" href="#Analysing-Domains-Samples-Using-Custom-Layers-Models" title="Link to this heading">#</a></h1>
+<p>For custom models, all the work with calculating the reflectivity from the different domains is done within the custom model itself. To do this, there is an additional input into the custom model file which denotes the domain to be calculated:</p>
+<p>The final ‘domain’ input is always either 0 or 1, denoting which domain is being calculated. Then, within the custom model, we can calculate the layers structure for whichever domain structure is required in this pass through the function:</p>
+<p>We will make a simple example of a permalloy layer on silicon, which has spin up and spin down domains, each with different SLDs</p>
+<p><img alt="image.png" src="data:image/png;base64,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mZmZmZmZmRVgIo+ZmZmZmZmZWQEm8piZmZmZmZmZFWAij5mZmZmZmZlZASbymJmZmZmZmZkVYCKPmZmZmZmZmVkBJvKYmZmZmZmZmRVgIo+ZmZmZmZmZWQEm8piZmZmZmZmZFWAij5mZmZmZmZlZASbymJmZmZmZmZkVYCKPmZmZmZmZmVkBJvKYmZmZmZmZmRVgIo+ZmZmZmZmZWQEm8piZmZmZmZmZFWAij5mZmZmZmZlZASbymJmZmZmZmZkVYCKPmZmZmZmZmVkBJvKYmZmZmZmZmRVgIo+ZmZmZmZmZWQEm8piZmZmZmZmZFWAij5mZmZmZmZlZASbymJmZmZmZmZkVYCKPmZmZmZmZmVkBJvKYmZmZmZmZmRVgIo+ZmZmZmZmZWQEm8piZmZmZmZmZFWAij5mZmZmZmZlZASbymJmZmZmZmZkVYCKPmZmZmZmZmVkBJvKYmZmZmZmZmRVgIo+ZmZmZmZmZWQEm8piZmZmZmZmZFWAij5mZmZmZmZlZASbymJmZmZmZmZkVYCKPmZmZmZmZmVkBJvKYmZmZmZmZmRVgIo+ZmZmZmZmZWQEm8piZmZmZmZmZFWAij5mZmZmZmZlZASbymJmZmZmZmZkVYCKPmZmZmZmZmVkB9v8BDmqwDDoJKuwAAAAASUVORK5CYII=" /> We start by setting up the project:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Project</span><span class="p">(</span><span class="n">calculation</span><span class="o">=</span><span class="s2">&quot;domains&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;custom layers&quot;</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="s2">&quot;substrate/liquid&quot;</span><span class="p">)</span>
+
+<span class="c1"># Make some parameters</span>
+<span class="n">parameter_list</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alloy Thickness&quot;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">150.0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">200.0</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alloy SLD up&quot;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">9.0e-6</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">11.0e-6</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">13.0e-6</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alloy SLD down&quot;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">5.0e-6</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">7.0e-6</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">10.0e-6</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alloy Roughness&quot;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">7.0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">11.0</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Gold Thickness&quot;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">150.0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">200.0</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Gold SLD&quot;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">4.0e-6</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">4.5e-6</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">5.0e-6</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Gold Roughness&quot;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">7.0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">11.0</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">problem</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">parameter_list</span><span class="p">)</span>
+
+<span class="c1"># Set the bulk SLD</span>
+<span class="n">problem</span><span class="o">.</span><span class="n">bulk_in</span><span class="o">.</span><span class="n">set_fields</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Silicon&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">2.073e-6</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1"># Add the custom file</span>
+<span class="n">problem</span><span class="o">.</span><span class="n">custom_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alloy domains&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;alloy_domains.py&quot;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">(),</span>
+<span class="p">)</span>
+
+<span class="c1"># Make a contrast</span>
+<span class="n">problem</span><span class="o">.</span><span class="n">contrasts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;D2O Contrast&quot;</span><span class="p">,</span>
+    <span class="n">data</span><span class="o">=</span><span class="s2">&quot;Simulation&quot;</span><span class="p">,</span>
+    <span class="n">background</span><span class="o">=</span><span class="s2">&quot;Background 1&quot;</span><span class="p">,</span>
+    <span class="n">bulk_in</span><span class="o">=</span><span class="s2">&quot;Silicon&quot;</span><span class="p">,</span>
+    <span class="n">bulk_out</span><span class="o">=</span><span class="s2">&quot;SLD D2O&quot;</span><span class="p">,</span>
+    <span class="n">scalefactor</span><span class="o">=</span><span class="s2">&quot;Scalefactor 1&quot;</span><span class="p">,</span>
+    <span class="n">resolution</span><span class="o">=</span><span class="s2">&quot;Resolution 1&quot;</span><span class="p">,</span>
+    <span class="n">resample</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">domain_ratio</span><span class="o">=</span><span class="s2">&quot;Domain Ratio 1&quot;</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Alloy domains&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">problem</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Calculation: ---------------------------------------------------------------------------------------
+
+domains
+
+Model: ---------------------------------------------------------------------------------------------
+
+custom layers
+
+Geometry: ------------------------------------------------------------------------------------------
+
+substrate/liquid
+
+Parameters: ----------------------------------------------------------------------------------------
+
++-------+---------------------+-------+---------+---------+------+
+| index |         name        |  min  |  value  |   max   | fit  |
++-------+---------------------+-------+---------+---------+------+
+|   0   | Substrate Roughness |  1.0  |   3.0   |   5.0   | True |
+|   1   |   Alloy Thickness   | 100.0 |  150.0  |  200.0  | True |
+|   2   |     Alloy SLD up    | 9e-06 | 1.1e-05 | 1.3e-05 | True |
+|   3   |    Alloy SLD down   | 5e-06 |  7e-06  |  1e-05  | True |
+|   4   |   Alloy Roughness   |  5.0  |   7.0   |   11.0  | True |
+|   5   |    Gold Thickness   | 100.0 |  150.0  |  200.0  | True |
+|   6   |       Gold SLD      | 4e-06 | 4.5e-06 |  5e-06  | True |
+|   7   |    Gold Roughness   |  5.0  |   7.0   |   11.0  | True |
++-------+---------------------+-------+---------+---------+------+
+
+Bulk In: -------------------------------------------------------------------------------------------
+
++-------+---------+-----+-----------+-----+-------+
+| index |   name  | min |   value   | max |  fit  |
++-------+---------+-----+-----------+-----+-------+
+|   0   | Silicon | 0.0 | 2.073e-06 | 1.0 | False |
++-------+---------+-----+-----------+-----+-------+
+
+Bulk Out: ------------------------------------------------------------------------------------------
+
++-------+---------+---------+----------+----------+-------+
+| index |   name  |   min   |  value   |   max    |  fit  |
++-------+---------+---------+----------+----------+-------+
+|   0   | SLD D2O | 6.2e-06 | 6.35e-06 | 6.35e-06 | False |
++-------+---------+---------+----------+----------+-------+
+
+Scalefactors: --------------------------------------------------------------------------------------
+
++-------+---------------+------+-------+------+-------+
+| index |      name     | min  | value | max  |  fit  |
++-------+---------------+------+-------+------+-------+
+|   0   | Scalefactor 1 | 0.02 |  0.23 | 0.25 | False |
++-------+---------------+------+-------+------+-------+
+
+Domain Ratios: -------------------------------------------------------------------------------------
+
++-------+----------------+-----+-------+-----+-------+
+| index |      name      | min | value | max |  fit  |
++-------+----------------+-----+-------+-----+-------+
+|   0   | Domain Ratio 1 | 0.4 |  0.5  | 0.6 | False |
++-------+----------------+-----+-------+-----+-------+
+
+Background Parameters: -----------------------------------------------------------------------------
+
++-------+--------------------+-------+-------+-------+-------+
+| index |        name        |  min  | value |  max  |  fit  |
++-------+--------------------+-------+-------+-------+-------+
+|   0   | Background Param 1 | 1e-07 | 1e-06 | 1e-05 | False |
++-------+--------------------+-------+-------+-------+-------+
+
+Backgrounds: ---------------------------------------------------------------------------------------
+
++-------+--------------+----------+--------------------+
+| index |     name     |   type   |       source       |
++-------+--------------+----------+--------------------+
+|   0   | Background 1 | constant | Background Param 1 |
++-------+--------------+----------+--------------------+
+
+Resolution Parameters: -----------------------------------------------------------------------------
+
++-------+--------------------+------+-------+------+-------+
+| index |        name        | min  | value | max  |  fit  |
++-------+--------------------+------+-------+------+-------+
+|   0   | Resolution Param 1 | 0.01 |  0.03 | 0.05 | False |
++-------+--------------------+------+-------+------+-------+
+
+Resolutions: ---------------------------------------------------------------------------------------
+
++-------+--------------+----------+--------------------+
+| index |     name     |   type   |       source       |
++-------+--------------+----------+--------------------+
+|   0   | Resolution 1 | constant | Resolution Param 1 |
++-------+--------------+----------+--------------------+
+
+Custom Files: --------------------------------------------------------------------------------------
+
++-------+---------------+------------------+---------------+----------+------------------------------------------------------------------------------+
+| index |      name     |     filename     | function name | language |                                     path                                     |
++-------+---------------+------------------+---------------+----------+------------------------------------------------------------------------------+
+|   0   | Alloy domains | alloy_domains.py | alloy_domains |  python  | /opt/actions-runner/_work/RAT-Docs/RAT-Docs/source/python_examples/notebooks |
++-------+---------------+------------------+---------------+----------+------------------------------------------------------------------------------+
+
+Data: ----------------------------------------------------------------------------------------------
+
++-------+------------+------+------------+------------------+
+| index |    name    | data | data range | simulation range |
++-------+------------+------+------------+------------------+
+|   0   | Simulation |  []  |     []     |   [0.005, 0.7]   |
++-------+------------+------+------------+------------------+
+
+Contrasts: -----------------------------------------------------------------------------------------
+
++-------+--------------+------------+--------------+-------------------+---------+----------+---------------+--------------+----------+----------------+---------------+
+| index |     name     |    data    |  background  | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample |  domain ratio  |     model     |
++-------+--------------+------------+--------------+-------------------+---------+----------+---------------+--------------+----------+----------------+---------------+
+|   0   | D2O Contrast | Simulation | Background 1 |        add        | Silicon | SLD D2O  | Scalefactor 1 | Resolution 1 |  False   | Domain Ratio 1 | Alloy domains |
++-------+--------------+------------+--------------+-------------------+---------+----------+---------------+--------------+----------+----------------+---------------+
+
+
+</pre></div></div>
+</div>
+<p>In the project, we are using a custom function which we have called ‘alloy_domains’:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Code</span><span class="p">(</span><span class="s2">&quot;alloy_domains.py&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.output_html .hll { background-color: #ffffcc }
+.output_html { background: #f8f8f8; }
+.output_html .c { color: #3D7B7B; font-style: italic } /* Comment */
+.output_html .err { border: 1px solid #F00 } /* Error */
+.output_html .k { color: #008000; font-weight: bold } /* Keyword */
+.output_html .o { color: #666 } /* Operator */
+.output_html .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.output_html .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.output_html .cp { color: #9C6500 } /* Comment.Preproc */
+.output_html .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.output_html .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.output_html .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
+.output_html .gd { color: #A00000 } /* Generic.Deleted */
+.output_html .ge { font-style: italic } /* Generic.Emph */
+.output_html .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.output_html .gr { color: #E40000 } /* Generic.Error */
+.output_html .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.output_html .gi { color: #008400 } /* Generic.Inserted */
+.output_html .go { color: #717171 } /* Generic.Output */
+.output_html .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.output_html .gs { font-weight: bold } /* Generic.Strong */
+.output_html .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.output_html .gt { color: #04D } /* Generic.Traceback */
+.output_html .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.output_html .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.output_html .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.output_html .kp { color: #008000 } /* Keyword.Pseudo */
+.output_html .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.output_html .kt { color: #B00040 } /* Keyword.Type */
+.output_html .m { color: #666 } /* Literal.Number */
+.output_html .s { color: #BA2121 } /* Literal.String */
+.output_html .na { color: #687822 } /* Name.Attribute */
+.output_html .nb { color: #008000 } /* Name.Builtin */
+.output_html .nc { color: #00F; font-weight: bold } /* Name.Class */
+.output_html .no { color: #800 } /* Name.Constant */
+.output_html .nd { color: #A2F } /* Name.Decorator */
+.output_html .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.output_html .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
+.output_html .nf { color: #00F } /* Name.Function */
+.output_html .nl { color: #767600 } /* Name.Label */
+.output_html .nn { color: #00F; font-weight: bold } /* Name.Namespace */
+.output_html .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.output_html .nv { color: #19177C } /* Name.Variable */
+.output_html .ow { color: #A2F; font-weight: bold } /* Operator.Word */
+.output_html .w { color: #BBB } /* Text.Whitespace */
+.output_html .mb { color: #666 } /* Literal.Number.Bin */
+.output_html .mf { color: #666 } /* Literal.Number.Float */
+.output_html .mh { color: #666 } /* Literal.Number.Hex */
+.output_html .mi { color: #666 } /* Literal.Number.Integer */
+.output_html .mo { color: #666 } /* Literal.Number.Oct */
+.output_html .sa { color: #BA2121 } /* Literal.String.Affix */
+.output_html .sb { color: #BA2121 } /* Literal.String.Backtick */
+.output_html .sc { color: #BA2121 } /* Literal.String.Char */
+.output_html .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.output_html .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.output_html .s2 { color: #BA2121 } /* Literal.String.Double */
+.output_html .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
+.output_html .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.output_html .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
+.output_html .sx { color: #008000 } /* Literal.String.Other */
+.output_html .sr { color: #A45A77 } /* Literal.String.Regex */
+.output_html .s1 { color: #BA2121 } /* Literal.String.Single */
+.output_html .ss { color: #19177C } /* Literal.String.Symbol */
+.output_html .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.output_html .fm { color: #00F } /* Name.Function.Magic */
+.output_html .vc { color: #19177C } /* Name.Variable.Class */
+.output_html .vg { color: #19177C } /* Name.Variable.Global */
+.output_html .vi { color: #19177C } /* Name.Variable.Instance */
+.output_html .vm { color: #19177C } /* Name.Variable.Magic */
+.output_html .il { color: #666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">alloy_domains</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">bulkIn</span><span class="p">,</span> <span class="n">bulkOut</span><span class="p">,</span> <span class="n">contrast</span><span class="p">,</span> <span class="n">domain</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Simple custom model for testing incoherent summing.</span>
+<span class="sd">    Simple two layer of permalloy / gold, with up/down domains.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Split up the parameters</span>
+    <span class="n">subRough</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">alloyThick</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">alloySLDup</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">alloySLDdn</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">alloyRough</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+    <span class="n">goldThick</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+    <span class="n">goldSLD</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+    <span class="n">goldRough</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+
+    <span class="c1"># Make the layers</span>
+    <span class="n">alloyUp</span> <span class="o">=</span> <span class="p">[</span><span class="n">alloyThick</span><span class="p">,</span> <span class="n">alloySLDup</span><span class="p">,</span> <span class="n">alloyRough</span><span class="p">]</span>
+    <span class="n">alloyDn</span> <span class="o">=</span> <span class="p">[</span><span class="n">alloyThick</span><span class="p">,</span> <span class="n">alloySLDdn</span><span class="p">,</span> <span class="n">alloyRough</span><span class="p">]</span>
+    <span class="n">gold</span> <span class="o">=</span> <span class="p">[</span><span class="n">goldThick</span><span class="p">,</span> <span class="n">goldSLD</span><span class="p">,</span> <span class="n">goldRough</span><span class="p">]</span>
+
+    <span class="c1"># Make the model depending on which domain we are looking at</span>
+    <span class="k">if</span> <span class="n">domain</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">alloyUp</span><span class="p">,</span> <span class="n">gold</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">alloyDn</span><span class="p">,</span> <span class="n">gold</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">output</span><span class="p">,</span> <span class="n">subRough</span>
+</pre></div></div>
+</div>
+<p>Note that the main difference between this and a ‘normal’ custom function is the extra ‘domain’ input, which we then use to select which domain we compute using the ‘if / else’ instruction at the end of the function</p>
+<p>To run this, we make a controls block as usual, and send it to RAT.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">()</span>
+<span class="n">problem</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">controls</span><span class="p">)</span>
+
+<span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_ref_sld</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Starting RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Elapsed time is 0.004 seconds
+
+Finished RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/python_examples_notebooks_domains_custom_layers_6_1.png" src="../../_images/python_examples_notebooks_domains_custom_layers_6_1.png" />
+</div>
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2022-2025, ISIS Neutron and Muon Source.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

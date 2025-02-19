@@ -45,7 +45,9 @@
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=881e7dcd"></script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'reference/python/index';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
@@ -196,15 +198,15 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../matlab/index.html">
-                        MATLAB API Reference
+                      <a class="nav-link nav-internal" href="../../examples.html">
+                        Examples
                       </a>
                     </li>
                 
 
                     <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
-                        Python API Reference
+                      <a class="nav-link nav-internal" href="../index.html">
+                        API Reference
                       </a>
                     </li>
                 
@@ -312,15 +314,15 @@ document.write(`
                 
 
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../matlab/index.html">
-                        MATLAB API Reference
+                      <a class="nav-link nav-internal" href="../../examples.html">
+                        Examples
                       </a>
                     </li>
                 
 
                     <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
-                        Python API Reference
+                      <a class="nav-link nav-internal" href="../index.html">
+                        API Reference
                       </a>
                     </li>
                 
@@ -355,21 +357,42 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="run.html">Run</a></li>
-<li class="toctree-l1"><a class="reference internal" href="project.html">Project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controls.html">Controls</a></li>
-<li class="toctree-l1"><a class="reference internal" href="classlist.html">ClassList</a></li>
-<li class="toctree-l1"><a class="reference internal" href="models.html">Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="events.html">Events</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plotting.html">Plotting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enums.html">Enums</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../matlab/index.html">MATLAB API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../matlab/projectClass.html">Project Class</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../matlab/parametersClass.html">Parameters Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matlab/resolutionsClass.html">Resolutions Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matlab/backgroundsClass.html">Backgrounds Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matlab/dataClass.html">Data Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matlab/layersClass.html">Layers Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matlab/customFileClass.html">Custom File Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matlab/contrastsClass.html">Contrasts Class</a></li>
 </ul>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="core.html">RAT Core</a></li>
-<li class="toctree-l1"><a class="reference internal" href="inputs.html">Inputs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="outputs.html">Outputs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="wrappers.html">Wrappers</a></li>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../matlab/controlClass.html">Controls Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matlab/entryFunctions.html">RAT Entry Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matlab/targetFunctions.html">Target Functions (Low Level API)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matlab/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matlab/utilities.html">Utilities</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Python API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="run.html">Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project.html">Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controls.html">Controls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classlist.html">ClassList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html">Enums</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.html">RAT Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html">Inputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outputs.html">Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrappers.html">Wrappers</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </nav></div>
@@ -407,6 +430,9 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API Reference</a></li>
+    
     <li class="breadcrumb-item active" aria-current="page">Python API Reference</li>
   </ul>
 </nav>

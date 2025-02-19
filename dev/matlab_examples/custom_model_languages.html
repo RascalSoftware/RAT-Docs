@@ -1,0 +1,1002 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Alternative Custom Model Languages &#8212; RAT  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9deae167" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=881e7dcd"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'matlab_examples/custom_model_languages';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://rascalsoftware.github.io/RAT-Docs/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python Examples" href="../python_examples/index.html" />
+    <link rel="prev" title="Converting a RasCAL-1 Project" href="convert_r1_project.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="RAT  documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="RAT  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+      <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Home
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../guide.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../reference/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Home
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../guide.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../reference/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorial/index.html">Tutorial</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter1.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter2.html">The Problem Definition Input Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/controlsInfo.html">A Closer Look at the Controls Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/customModels.html">Custom Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/savingOutputs.html">Copying and Saving Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">MATLAB Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="DSPC_standard_layers.html">DSPC Standard Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DSPC_custom_layers.html">DSPC Custom Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DSPC_custom_XY.html">DSPC Custom XY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domains_standard_layers.html">Incoherent Summing with Standard Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domains_custom_layers.html">Incoherent Summing with Custom Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domains_custom_XY.html">Incoherent Summing with Custom XY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="imaginary.html">Absorption (Imaginary SLD) Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="convert_r1_project.html">Converting a RasCAL-1 Project</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Alternative Custom Model Languages</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python_examples/index.html">Python Examples</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/DSPC_standard_layers.html">Standard Layers Analysis of a DSPC Floating Bilayer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/DSPC_custom_layers.html">Custom Layers Example for Supported DSPC layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/DSPC_custom_xy.html">Custom XY Example for Supported DSPC layer.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/domains_standard_layers.html">Domains Samples Using Standard Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/domains_custom_layers.html">Analysing Domains Samples Using Custom Layers Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/domains_custom_XY.html">Simple example of a layer containing domains using a custom XY model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/absorption.html">Absorption (imaginary SLD) - effect below the critical edge</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algorithms/index.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algorithms/simplex.html">Nelder-Mead Simplex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algorithms/DE.html">Differential Evolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algorithms/DREAM.html">Bayesian Analysis - DREAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algorithms/nestedSampling.html">Bayesian Model Selection - Nested Sampling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/index.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/resampling.html">Profile Resampling (‘microslicing’)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/parallelisation.html">Parallelising Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/customLanguages.html">Custom Models in Python or C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/events.html">Handling Events During Calculations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../calcTypes/index.html">Different Calculation Types</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../calcTypes/imaginary.html">Adding the Imaginary Refractive Index</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calcTypes/incoherent.html">Incoherent Summing (Domains)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsStanlay.html">Standard Layers Domains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsCustomModels.html">Custom Models with Domains</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../utilities/index.html">Utility Functions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/plotFuns.html">Basic Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/plotFunsBayes.html">Plotting Bayesian Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Live Updating Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/conversionFuncs.html">Convert between RAT and RasCAL-1</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../guide.html" class="nav-link">User Guide</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">MATLAB Examples</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Alternative...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="alternative-custom-model-languages">
+<h1>Alternative Custom Model Languages<a class="headerlink" href="#alternative-custom-model-languages" title="Link to this heading">#</a></h1>
+<p>In this example, we setup a <a class="reference internal" href="../tutorial/customModels.html#customlayers"><span class="std std-ref">custom layers</span></a> problem using three different programming language (MATLAB, Python, and C++) to write the custom model function.
+The provided C++ function needs to be compiled into a dynamic library using instructions given in <a class="reference internal" href="../advanced/customLanguages.html#customlanguages"><span class="std std-ref">Custom Models in Python or C++</span></a> or instructions specific to your compiler.</p>
+<p>This example can be run using the instructions below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The custom models used are -
+<strong>examples/miscellaneous/languages/alloyDomains.m</strong>,
+<strong>examples/miscellaneous/languages/alloyDomains.m</strong>,
+<strong>examples/miscellaneous/languages/alloyDomains.m</strong>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For Python custom functions, you will need to setup the python environment for MATLAB, see <a class="reference external" href="https://uk.mathworks.com/help/matlab/matlab_external/install-supported-python-implementation.html">Setup MATLAB to use Python</a></p>
+</div>
+<p><strong>Run Script</strong>:</p>
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">getappdata</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;root&#39;</span><span class="p">);</span>
+<span class="nb">cd</span><span class="p">(</span><span class="nb">fullfile</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;examples&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;miscellaneous&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;alternativeLanguages&#39;</span><span class="p">));</span>
+<span class="n">customModelLanguagesScript</span>
+</pre></div>
+</div>
+<p><strong>Run Interactively</strong>:</p>
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">getappdata</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;root&#39;</span><span class="p">);</span>
+<span class="nb">cd</span><span class="p">(</span><span class="nb">fullfile</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;examples&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;miscellaneous&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;alternativeLanguages&#39;</span><span class="p">));</span>
+<span class="n">edit</span><span class="w"> </span><span class="s">customModelLanguagesSheet.mlx</span>
+</pre></div>
+</div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2024a"><title>Custom Layers Example for Supported DSPC layer.</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(192, 76, 11); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S2 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 15px 10px 0; display: inline-block }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S5 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S6 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.eoOutputWrapper { width: calc(90vw - 10px) !important; }
+.S7 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S8 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsErrorElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsErrorElement .diagnosticMessage-errorType {    overflow: auto;}
+.embeddedOutputsErrorElement.activeOutput .eoOutputContent {    user-select: text;    -webkit-user-select: text;}
+.embeddedOutputsErrorElement.activeOutput .eoOutputContent button {    user-select: none;    -webkit-user-select: none;}
+.embeddedOutputsErrorElement .eoOutputContent ::selection {}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsWarningElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsWarningElement .diagnosticMessage-warningType {    overflow: auto;}
+.embeddedOutputsWarningElement.activeOutput .eoOutputContent {    user-select: text;    -webkit-user-select: text;}
+.embeddedOutputsWarningElement .eoOutputContent ::selection {}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+/* Copyright 2015-2023 The MathWorks, Inc. *//* In this file, styles are not scoped to rtcContainer since they could be in the Dojo Tooltip */.diagnosticMessage-wrapper {    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;    font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {    /*This fallback value will be used for appdesigner warnings*/    color: var(--rtc-warning-output-color, var(--mw-color-matlabWarning));}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {    /*This fallback value will be used for appdesigner warnings*/    color: var(--rtc-warning-output-color, var(--mw-color-matlabWarning));    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning) !important;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {    /*This fallback value will be used in appdesigner error tooltip text*/    color: var(--rtc-error-output-color, var(--mw-color-matlabErrors));}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {    /*This fallback value will be used in appdesigner error tooltip text*/    color: var(--rtc-error-output-color, var(--mw-color-matlabErrors));    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors) !important;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {    white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {    white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {    white-space: pre;    word-wrap:  initial;    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsTextElement .textElement,.embeddedOutputsVariableStringElement .textElement {    overflow: auto;}
+.embeddedOutputsTextElement.activeOutput .eoOutputContent,.embeddedOutputsVariableStringElement.activeOutput .eoOutputContent {    user-select: text;    -webkit-user-select: text;}
+/*embeddedOutputsTextElement has a different dom structure than embeddedOutputsVariableStringElement.Unlike variableString, the text output has both TEXT nodes and elements as children. Hence we needa selector for each.*/.embeddedOutputsTextElement .eoOutputContent::selection,.embeddedOutputsTextElement .eoOutputContent ::selection,.embeddedOutputsVariableStringElement .eoOutputContent ::selection {}
+.textElement,.rtcDataTipElement .textElement {    padding-top: 2px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .textElement {    padding-top: 2px;    padding-left: 9px;}
+.S9 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S10 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S11 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Custom Layers Example for Supported DSPC layer.</span></h1><div  class = 'S1'><span>Example of using alternative languages to make a Custom layers to model a DSPC supportd bilayer. </span></div><div  class = 'S1'><span>First, we'll run the project using a conventional Matlab custom model. Then, we will do the same calculation using the same model, but written in Python or C++.</span></div><div  class = 'S1'><span></span></div><h2  class = 'S2'><span>1.  Normal Matlab Custom Model.</span></h2><div  class = 'S1'><span>Start by making the class and setting it to a custom layers type:</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >problem = projectClass(</span><span style="color: #a709f5;">'Orso lipid example - custom layers'</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >problem.modelType = modelTypes.CustomLayers.value;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >problem.geometry = geometryOptions.SubstrateLiquid.value;</span></span></div></div></div><div  class = 'S6'><span></span></div><div  class = 'S1'><span>First we need to set up a parameters group. We will be using a pre-prepared custom model file, (at the end of the worksheet). Use this to set up the parameters block...</span></div><div  class = 'S1'><span>We need to add the relevant parameters we are going to need to define the model (note that Substrate Roughness' always exists as parameter 1..</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >Parameters = {</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >    </span><span style="color: #008013;">%       Name                min         val         max     fit? </span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >        {</span><span style="color: #a709f5;">'Oxide thick'</span><span >,         5,          20,         60,     true   };</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >        {</span><span style="color: #a709f5;">'Oxide Hydration'</span><span >      0,          0.2,        0.5,    true   };</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >        {</span><span style="color: #a709f5;">'Lipid APM'</span><span >            45          55          65      true   };</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >        {</span><span style="color: #a709f5;">'Head Hydration'</span><span >       0           0.2         0.5     true   };</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >        {</span><span style="color: #a709f5;">'Bilayer Hydration'</span><span >    0           0.1         0.2     true   };</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >        {</span><span style="color: #a709f5;">'Bilayer Roughness'</span><span >    2           4           8       true   };</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >        {</span><span style="color: #a709f5;">'Water Thickness'</span><span >      0           2           10      true   };</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >        };</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >    </span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span > problem.addParameterGroup(Parameters);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span > problem.setParameter(1,</span><span style="color: #a709f5;">'min'</span><span >,1,</span><span style="color: #a709f5;">'max'</span><span >,10); </span><span style="color: #008013;">% Change the substrate roughness limits</span></span></div></div></div><div  class = 'S6'><span></span></div><div  class = 'S1'><span>Need to add the relevant Bulk SLD's. Change the bulk in from air to silicon, and add two additional water contrasts:</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: #008013;">% Change bulk in from air to silicon....</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >problem.setBulkIn(1,</span><span style="color: #a709f5;">'name'</span><span >,</span><span style="color: #a709f5;">'Silicon'</span><span >,</span><span style="color: #a709f5;">'min'</span><span >,2.07e-6,</span><span style="color: #a709f5;">'value'</span><span >,2.073e-6,</span><span style="color: #a709f5;">'max'</span><span >,2.08e-6,</span><span style="color: #a709f5;">'fit'</span><span >,false);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span style="color: #008013;">% Add two more values for bulk out....</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >problem.addBulkOut(</span><span style="color: #a709f5;">'SLD SMW'</span><span >,1e-6,2.073e-6,3e-6,true);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >problem.addBulkOut(</span><span style="color: #a709f5;">'SLD H2O'</span><span >,-0.6e-6,-0.56e-6,-0.3e-6,true);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >problem.setBulkOut(1,</span><span style="color: #a709f5;">'fit'</span><span >,true,</span><span style="color: #a709f5;">'min'</span><span >,5e-6);</span></span></div></div></div><div  class = 'S6'><span></span></div><div  class = 'S1'><span>Now add the datafiles. We have three datasets we need to consider - the bilayer against D2O, Silicon Matched water and H2O. Load these datafiles in and put them in the data block....</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: #008013;">% Read in the datafiles</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >root = getappdata(0, </span><span style="color: #a709f5;">'root'</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >D2O_data = dlmread(fullfile(root, </span><span style="color: #a709f5;">'/examples/normalReflectivity/customLayers/c_PLP0016596.dat'</span><span >));</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >SMW_data = dlmread(fullfile(root, </span><span style="color: #a709f5;">'/examples/normalReflectivity/customLayers/c_PLP0016601.dat'</span><span >));</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >H2O_data = dlmread(fullfile(root, </span><span style="color: #a709f5;">'/examples/normalReflectivity/customLayers/c_PLP0016607.dat'</span><span >));</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span style="color: #008013;">% Add the data to the project</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >problem.addData(</span><span style="color: #a709f5;">'Bilayer / D2O'</span><span >, D2O_data(:,1:3));</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >problem.addData(</span><span style="color: #a709f5;">'Bilayer / SMW'</span><span >, SMW_data(:,1:3));</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >problem.addData(</span><span style="color: #a709f5;">'Bilayer / H2O'</span><span >, H2O_data(:,1:3));</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >problem.setData(2,</span><span style="color: #a709f5;">'dataRange'</span><span >,[0.013 0.37]);</span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S7'><span style="white-space: pre"><span >problem.setData(3,</span><span style="color: #a709f5;">'dataRange'</span><span >,[0.013 0.37]);</span></span></div><div  class = 'S8'><div class="inlineElement eoOutputWrapper disableDefaultGestureHandling embeddedOutputsWarningElement" uid="89929A83" prevent-scroll="true" data-testid="output_0" tabindex="-1" style="width: 1137px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="diagnosticMessage-wrapper diagnosticMessage-warningType eoOutputContent" tabindex="-1" data-previous-available-width="1100" data-previous-scroll-height="19" data-hashorizontaloverflow="false" role="article" aria-roledescription="Use Browse Mode to explore " aria-description="warning output " style="max-height: 261px; white-space: normal; font-style: normal; color: rgb(179, 98, 5); font-size: 12px;"><div class="diagnosticMessage-messagePart" style="white-space: pre-wrap; font-style: normal; color: rgb(179, 98, 5); font-size: 12px;">Warning: dataRange(2) can't be more than max data value - resetting to 3.299600e-01</div><div class="diagnosticMessage-stackPart" style="white-space: pre; font-style: normal; color: rgb(179, 98, 5); font-size: 12px;"></div></div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S9'><span style="white-space: pre"><span >problem.setData(4,</span><span style="color: #a709f5;">'dataRange'</span><span >,[0.013 0.37]);</span></span></div><div  class = 'S8'><div class="inlineElement eoOutputWrapper disableDefaultGestureHandling embeddedOutputsWarningElement" uid="1CD304B2" prevent-scroll="true" data-testid="output_1" tabindex="-1" style="width: 1137px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="diagnosticMessage-wrapper diagnosticMessage-warningType eoOutputContent" tabindex="-1" data-previous-available-width="1100" data-previous-scroll-height="19" data-hashorizontaloverflow="false" role="article" aria-roledescription="Use Browse Mode to explore " aria-description="warning output " style="max-height: 261px; white-space: normal; font-style: normal; color: rgb(179, 98, 5); font-size: 12px;"><div class="diagnosticMessage-messagePart" style="white-space: pre-wrap; font-style: normal; color: rgb(179, 98, 5); font-size: 12px;">Warning: dataRange(2) can't be more than max data value - resetting to 3.304800e-01</div><div class="diagnosticMessage-stackPart" style="white-space: pre; font-style: normal; color: rgb(179, 98, 5); font-size: 12px;"></div></div></div></div></div></div><div  class = 'S6'><span></span></div><div  class = 'S1'><span>Add the custom file to the project....</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: #008013;">%                          name         filename        language    path</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >problem.addCustomFile(</span><span style="color: #a709f5;">'DSPC Model'</span><span >, </span><span style="color: #a709f5;">'customBilayer.m'</span><span >, supportedLanguages.Matlab, pwd);</span></span></div></div></div><div  class = 'S6'><span></span></div><div  class = 'S1'><span>Also, add the relevant background parameters - one each for each contrast:</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: #008013;">% Change the name of the existing parameters to refer to D2O</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >problem.setBackgroundParam(1,</span><span style="color: #a709f5;">'name'</span><span >,</span><span style="color: #a709f5;">'Backs par D2O'</span><span >,</span><span style="color: #a709f5;">'fit'</span><span >,true,</span><span style="color: #a709f5;">'min'</span><span >,1e-10,</span><span style="color: #a709f5;">'max'</span><span >,1e-5,</span><span style="color: #a709f5;">'value'</span><span >,1e-6);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span style="color: #008013;">% Add two new backs parameters for the other two..</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >problem.addBackgroundParam(</span><span style="color: #a709f5;">'Backs par SMW'</span><span >,1e-10,1e-6,1e-5,true);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >problem.addBackgroundParam(</span><span style="color: #a709f5;">'Backs par H2O'</span><span >,1e-10,1e-6,1e-5,true);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span style="color: #008013;">% And add the two new constant backgrounds..</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >problem.addBackground(</span><span style="color: #a709f5;">'Background SMW'</span><span >,</span><span style="color: #a709f5;">'constant'</span><span >,</span><span style="color: #a709f5;">'Backs par SMW'</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >problem.addBackground(</span><span style="color: #a709f5;">'Background H2O'</span><span >,</span><span style="color: #a709f5;">'constant'</span><span >,</span><span style="color: #a709f5;">'Backs par H2O'</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S4'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span style="color: #008013;">% And edit the other one....</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >problem.setBackgroundName(1,</span><span style="color: #a709f5;">'Background D2O'</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >problem.setBackground(1,</span><span style="color: #a709f5;">'source'</span><span >,</span><span style="color: #a709f5;">'Backs par D2O'</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span style="color: #008013;">% Finally modify some of the other parameters to be more suitable values</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span style="color: #008013;">% for a solid / liquid experiment.</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span style="color: #008013;">% Set the scalefactor...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >problem.setScalefactor(1,</span><span style="color: #a709f5;">'Value'</span><span >,1,</span><span style="color: #a709f5;">'min'</span><span >,0.5,</span><span style="color: #a709f5;">'max'</span><span >,2,</span><span style="color: #a709f5;">'fit'</span><span >,true);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S4'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span style="color: #008013;">% Finally modify some of the other parameters to be more suitable values</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span style="color: #008013;">% for a solid / liquid experiment.</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span style="color: #008013;">% Set the scalefactor...</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >problem.setScalefactor(1,</span><span style="color: #a709f5;">'Value'</span><span >,1,</span><span style="color: #a709f5;">'min'</span><span >,0.5,</span><span style="color: #a709f5;">'max'</span><span >,2,</span><span style="color: #a709f5;">'fit'</span><span >,true);</span></span></div></div></div><div  class = 'S1'><span>Now add the three contrasts as before:</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: #008013;">% D2O contrast..</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >problem.addContrast(</span><span style="color: #a709f5;">'name'</span><span >,        </span><span style="color: #a709f5;">'Bilayer / D2O'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'background'</span><span >,  </span><span style="color: #a709f5;">'Background D2O'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'resolution'</span><span >,  </span><span style="color: #a709f5;">'Resolution 1'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'scalefactor'</span><span >, </span><span style="color: #a709f5;">'Scalefactor 1'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'BulkOut'</span><span >,     </span><span style="color: #a709f5;">'SLD D2O'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'BulkIn'</span><span >,      </span><span style="color: #a709f5;">'Silicon'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'data'</span><span >,        </span><span style="color: #a709f5;">'Bilayer / D2O'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'model'</span><span >,       </span><span style="color: #a709f5;">'DSPC Model'</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span style="color: #008013;">% SMW contrast..</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >problem.addContrast(</span><span style="color: #a709f5;">'name'</span><span >,        </span><span style="color: #a709f5;">'Bilayer / SMW'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'background'</span><span >,  </span><span style="color: #a709f5;">'Background SMW'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'resolution'</span><span >,  </span><span style="color: #a709f5;">'Resolution 1'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'scalefactor'</span><span >, </span><span style="color: #a709f5;">'Scalefactor 1'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'BulkOut'</span><span >,     </span><span style="color: #a709f5;">'SLD SMW'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'BulkIn'</span><span >,      </span><span style="color: #a709f5;">'Silicon'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'data'</span><span >,        </span><span style="color: #a709f5;">'Bilayer / SMW'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'model'</span><span >,       </span><span style="color: #a709f5;">'DSPC Model'</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'>&nbsp;</div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span style="color: #008013;">% SMW contrast..</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >problem.addContrast(</span><span style="color: #a709f5;">'name'</span><span >,        </span><span style="color: #a709f5;">'Bilayer / H2O'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'background'</span><span >,  </span><span style="color: #a709f5;">'Background H2O'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'resolution'</span><span >,  </span><span style="color: #a709f5;">'Resolution 1'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'scalefactor'</span><span >, </span><span style="color: #a709f5;">'Scalefactor 1'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'BulkOut'</span><span >,     </span><span style="color: #a709f5;">'SLD H2O'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'BulkIn'</span><span >,      </span><span style="color: #a709f5;">'Silicon'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'data'</span><span >,        </span><span style="color: #a709f5;">'Bilayer / H2O'</span><span >,</span><span style="color: #0e00ff;">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >                    </span><span style="color: #a709f5;">'model'</span><span >,       </span><span style="color: #a709f5;">'DSPC Model'</span><span >);</span></span></div></div></div><div  class = 'S1'><span>Look at the complete model definition before sending it to RAT;</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S10'><span style="white-space: pre"><span >disp(problem)</span></span></div><div  class = 'S8'><div class="inlineElement eoOutputWrapper disableDefaultGestureHandling embeddedOutputsTextElement scrollableOutput" uid="D0A38662" prevent-scroll="true" data-testid="output_2" tabindex="-1" style="width: 1137px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent scrollArea" tabindex="-1" data-previous-available-width="1100" data-previous-scroll-height="1744" data-hashorizontaloverflow="false" role="article" aria-roledescription="Use Browse Mode to explore " aria-description="text output " style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">         modelType: 'custom layers'
+    experimentName: 'Orso lipid example - custom layers'
+          geometry: 'substrate/liquid'
+
+
+    Parameters: ---------------------------------------------------------------------------------------------- 
+
+    p            Name             Min    Value    Max    Fit? 
+    _    _____________________    ___    _____    ___    _____
+
+    1    "Substrate Roughness"     1        3      10    true 
+    2    "Oxide thick"             5       20      60    true 
+    3    "Oxide Hydration"         0      0.2     0.5    true 
+    4    "Lipid APM"              45       55      65    true 
+    5    "Head Hydration"          0      0.2     0.5    true 
+    6    "Bilayer Hydration"       0      0.1     0.2    true 
+    7    "Bilayer Roughness"       2        4       8    true 
+    8    "Water Thickness"         0        2      10    true 
+
+
+    Bulk In: -------------------------------------------------------------------------------------------------- 
+
+    p      Name         Min         Value        Max       Fit? 
+    _    _________    ________    _________    ________    _____
+
+    1    "Silicon"    2.07e-06    2.073e-06    2.08e-06    false
+
+
+    Bulk Out: ------------------------------------------------------------------------------------------------- 
+
+    p      Name        Min        Value        Max       Fit? 
+    _    _________    ______    _________    ________    _____
+
+    1    "SLD D2O"     5e-06     6.35e-06    6.35e-06    true 
+    2    "SLD SMW"     1e-06    2.073e-06       3e-06    true 
+    3    "SLD H2O"    -6e-07     -5.6e-07      -3e-07    true 
+
+
+    Scalefactors: ------------------------------------------------------------------------------------------------- 
+
+    p         Name          Min    Value    Max    Fit? 
+    _    _______________    ___    _____    ___    _____
+
+    1    "Scalefactor 1"    0.5      1       2     true 
+
+
+    Backgrounds: ----------------------------------------------------------------------------------------------- 
+
+    (a) Background Parameters: 
+
+    p         Name           Min     Value     Max     Fit? 
+    _    _______________    _____    _____    _____    _____
+
+    1    "Backs par D2O"    1e-10    1e-06    1e-05    true 
+    2    "Backs par SMW"    1e-10    1e-06    1e-05    true 
+    3    "Backs par H2O"    1e-10    1e-06    1e-05    true 
+
+    (b) Backgrounds:  
+
+    p          Name             Type           Source         Value 1    Value 2    Value 3    Value 4    Value 5
+    _    ________________    __________    _______________    _______    _______    _______    _______    _______
+
+    1    "Background D2O"    "constant"    "Backs par D2O"      ""         ""         ""         ""         ""   
+    2    "Background SMW"    "constant"    "Backs par SMW"      ""         ""         ""         ""         ""   
+    3    "Background H2O"    "constant"    "Backs par H2O"      ""         ""         ""         ""         ""   
+
+
+    Resolutions: --------------------------------------------------------------------------------------------- 
+
+    (a) Resolutions Parameters: 
+
+    p           Name           Min     Value    Max     Fit? 
+    _    __________________    ____    _____    ____    _____
+
+    1    "Resolution par 1"    0.01    0.03     0.05    false
+
+    (b) Resolutions:  
+
+    p         Name            Type             Source          Value 1    Value 2    Value 3    Value 4    Value 5
+    _    ______________    __________    __________________    _______    _______    _______    _______    _______
+
+    1    "Resolution 1"    "constant"    "Resolution par 1"      ""         ""         ""         ""         ""   
+
+
+    Custom Files: ------------------------------------------------------------------------------------------------------ 
+
+        Name            Filename         Function Name    Language                              Path                          
+    ____________    _________________    _____________    ________    ________________________________________________________
+
+    "DSPC Model"    "customBilayer.m"         "-"         "matlab"    "...ocs/API/examples/miscellaneous/alternativeLanguages"
+
+
+    Data: ------------------------------------------------------------------------------------------------------ 
+
+         Name                   Data                   Data Range            Simulation Range   
+    _______________    _______________________    _____________________    _____________________
+
+    "Simulation"       "No Data"                  "-"                      "[ 0.0050 , 0.7000 ]"
+    "Bilayer / D2O"    "Data array: [146 x 3]"    "[ 0.0130 , 0.3700 ]"    "[ 0.0057 , 0.3961 ]"
+    "Bilayer / SMW"    "Data array: [97 x 3]"     "[ 0.0130 , 0.3300 ]"    "[ 0.0076 , 0.3300 ]"
+    "Bilayer / H2O"    "Data array: [104 x 3]"    "[ 0.0130 , 0.3305 ]"    "[ 0.0063 , 0.3305 ]"
+
+
+   Contrasts: ----------------------------------------------------------------------------------------------- 
+
+             p                    1                   2                   3        
+    ___________________    ________________    ________________    ________________
+
+    "Name"                 "Bilayer / D2O"     "Bilayer / SMW"     "Bilayer / H2O" 
+    "Data"                 "Bilayer / D2O"     "Bilayer / SMW"     "Bilayer / H2O" 
+    "Background"           "Background D2O"    "Background SMW"    "Background H2O"
+    "Background Action"    "add"               "add"               "add"           
+    "Bulk in"              "Silicon"           "Silicon"           "Silicon"       
+    "Bulk out"             "SLD D2O"           "SLD SMW"           "SLD H2O"       
+    "Scalefactor"          "Scalefactor 1"     "Scalefactor 1"     "Scalefactor 1" 
+    "Resolution"           "Resolution 1"      "Resolution 1"      "Resolution 1"  
+    "Resample"             "false"             "false"             "false"         
+    "Model"                "DSPC Model"        "DSPC Model"        "DSPC Model"    </div></div></div></div></div><div  class = 'S1'><span>Make a controls block....</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span >controls = controlsClass();</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >controls.procedure = </span><span style="color: #a709f5;">'DE'</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >controls.display = </span><span style="color: #a709f5;">'final'</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >controls.parallel = </span><span style="color: #a709f5;">'contrasts'</span><span >;</span></span></div></div></div><div  class = 'S1'><span>And send this to RAT...</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S10'><span style="white-space: pre"><span >[problem,results] = RAT(problem,controls);</span></span></div><div  class = 'S8'><div class="inlineElement eoOutputWrapper disableDefaultGestureHandling embeddedOutputsTextElement" uid="01C5C79F" prevent-scroll="true" data-testid="output_3" tabindex="-1" style="width: 1137px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class=" textElement eoOutputContent" tabindex="-1" data-previous-available-width="1100" data-previous-scroll-height="135" data-hashorizontaloverflow="false" role="article" aria-roledescription="Use Browse Mode to explore " aria-description="text output " style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">Starting RAT ________________________________________________________________________________________________
+
+
+Running Differential Evolution
+
+Final chi squared is 5.99558
+Elapsed time is 8.325467 seconds.
+
+Finished RAT ______________________________________________________________________________________________ </div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S9'><span style="white-space: pre"><span >plotRefSLD(problem,results);</span></span></div><div  class = 'S8'><div class="inlineElement eoOutputWrapper disableDefaultGestureHandling embeddedOutputsFigure" uid="44379E1A" prevent-scroll="true" data-testid="output_4" tabindex="-1" style="width: 1137px;"><div class="figureElement eoOutputContent" role="article" aria-roledescription="Use Browse Mode to explore " aria-description="figure output "><img class="figureImage figureContainingNode" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkcAAAG1CAYAAADz8VB4AAAAAXNSR0IArs4c6QAAIABJREFUeF7sXQm4TVX7fxVCROGLIl2aDCWZScb4p6hMX8lMiS6Zq49CpRIiEZIxpc9UH1+DIiTXEPHJDUlXUSlz5JLh/p93XevYZ599ztnrnLP32cNvPY8H97577bV+7zrv/d13vUOOrKysLMIAAkAACAABIAAEgAAQEAjkADnCSQACQAAIAAEgAASAwEUEQI5wGoAAEAACQAAIAAEgoEEA5AjHAQgAASAABIAAEAACIEc4A0AACAABIAAEgAAQMEYAniOcDCAABIAAEAACQAAIwHOEMwAEgAAQAAJAAAgAAXiOcAaAABAAAkAACAABIBAVAVyrRYUIAkAACAABIAAEgICfEAA58pO2sVcgAASAABAAAkAgKgIgR1EhggAQAAJAAAgAASDgJwRAjvykbewVCAABIAAEgAAQiIoAyFFUiCAABIAAEAACQAAI+AkBkCM/aRt7BQJAAAgAASAABKIiAHIUFSIIAAEgAASAABAAAn5CAOTIT9rGXoEAEAACQAAIAIGoCIAcRYUIAkAACAABIAAEgICfEAA58pO2sVcgAARchcD27dvptddeE2uuVKkS9ezZ01Xrx2KBgFsRADlyq+awbiAABDyPQJcuXWjUqFFUuHBhWrt2LdWsWdPze8YGgYATEAA5coIWsAYgAAQ8icD7779Pr7zyCg0YMIDatWsX2OO2bdto6NChlJGRQVdeeSX169eP7r333hAMWrVqRXXr1qXdu3dTvXr16IEHHvAkTtgUEHAaAiBHTtMI1gMEgIArEDhx4gTlz58/aK3arz333HPE///5558FqZHk6PTp09SoUSNxRfbPf/6TNm/eTI8++ijNnz+fDh48SFOmTKEiRYoIUlWrVi1atmwZ5cmThx566CGaPn06XXHFFa7AB4sEAm5GAOTIzdrD2oEAEEgaAi+88ALlzJmTnnnmGbEGJi6bNm2iiRMniv9v3bqVbrvtNurUqZMgQ5IcrVmzhpg4LV++PLB29hylpKRQr169gvbTtm1bmjp1Kl1++eX0yCOP0IQJE4SnCQMIAAFrEQA5shZfzA4EgIBHEWAPUI8ePeiWW24Rnp7//Oc/NHPmzBDyoidHs2bNIiZIb731VgAZJlS7du2icePGBaG1ceNG4Um65JJL6I477qDu3bt7FE1sCwg4CwGQI2fpA6sBAkDARQgwQeIrsyNHjtAnn3xi6NXRkyMmOxxz9MYbbwR2yl6ndevWBREmF8GApQIBzyEAcuQ5lWJDQAAI2IXAjBkzhMeIr7puuummwBWb9v16cjR79mz64osvhJdJDvYY/fTTTzR27Fi7lo73AAEgEAEBkCMcDyAABIBADAgwyVm0aBHxNRkHTPOV18033xxCkPTkKC0tjZ566in68ssvKUeOHOLNHJxdoUIF1DGKQQ94BAhYgQDI0QVUOXiSi61x4GPu3LlFbREOtsQAAkAACBghwHWHypUrRwULFhTfzszMJI4RqlOnTpC4nhydOXOGGjduTB06dKD27dvT+vXrKTU1lZYsWUIlSpQA2EAACDgAAZCjC0p49913RR2Ra6+9lgYOHCgyTMqXL+8AFWEJQAAIuA2Bc+fOiUw1HmfPnqVLL71UeInatGkj6hvt2LGDhgwZQt9//z1dffXV9PTTT1PDhg3dtk2sFwh4FgFPkiP+7W3QoEHitzpOfZXj/PnzwiP0wQcf0N9//y1qiIwYMSLwmx/LcWBlnz59aPLkyZQ3b17PKh4bAwJA4CIC7LVhgqIdTGrGjx9PTZo0AVRAAAj4DAHPkSM2chwDULp0aTp58mQQOZozZw7NmzePpk2bJoq3/etf/xIpsmPGjBFq51Ta119/XRCr6667zmdHAdsFAkBAIvD7778T1xjiX6RQdBHnAgj4DwHPkSN2VzMx4sJp3LRR6zniCrP8R5bg59L99913H33zzTeijD97i9iTxHFHGEAACPgXgb59+9Kdd95JLVu29C8I2DkQ8DECniNHUpdcVE1PjqpWrUqcestZITyysrJEXNHixYuJq92yG10GV3LDxypVqvj4aGDrQMCfCHA7D44HYi80e5YxgAAQ8B8CviJHTIrYTX7jjTcGNF2pUiVxDSeDJ/13BLBjIAAEtAg88cQTdPfdd6PJK44FEPAxAr4iR9WqVaNJkyZR5cqVhcrZU8RB259++qm4ijMzOP2WU295cB8kTsHFAAJAwBsI/Prrr9S0aVP66quvQprKyh3CBnhD19gFEIiEgK/IEQdYNm/eXMQd8fjuu+/Evzm7jWsbmRlc5A2kyAxSkAEC7kOAEzZWrVoVaB5rtAO2ATt37nTf5rBiIAAETCPgK3L0/vvviys07mNUoEABGjBgABUtWlTEG5kdIEdmkYIcEHAfApzOX7JkSeKrtXAD5Mh9esWKgYAqAp4jRx07dhSeIA625kJsXOW6TJkyIuiav8ZVsPm3Q65z1KBBAxo+fHhY93m43xrhOVI9ZpAHAu5AgBMxuHq19C7Dc+QOvWGVQCDRCHiOHCUaIP18+K3RaoQxPxBwNgKwAc7WD1YHBBKBAMiRIoq4VlMEDOJAwGMIgBx5TKHYDhAwQADkSPFYwDAqAgZxIOAxBGADPKZQbAcIgBzFfwbgOYofQ8wABNyMAMiRm7WHtQMBcwjAc2QOp4AUDKMiYBAHAh5DADbAYwrFdoAAPEfxnwEYxvgxxAxAwM0IwAa4WXtYOxAwhwA8R+ZwCvIcIZVfETSIAwEPIQBy5CFlYitAIAwCIEeKR8OPhlHbLkERLoi7EIHq1avT7NmzXbhye5YMG2APznhL8hCADSACOVI8f340jH7cs+Kx8JQ49B1ZnX7Ex4979tSHWnEz0DfIkeKRIfJjtho+KMrHxNUPQN8gR3oEcCZc/ZFWXjz0DXKEQ2MCAS98UA4ePEj/+Mc/6KabbqIcOXLQmTNnqEaNGvTWW29Rvnz56L777qMhQ4bQ2bNnxd8rV640gUxiRKZOnUp//PEHDR48ODDhggULqFOnTlSiRAnR6oYbI7dv356eeuop0RKHx9ixY+ntt98W+ylbtqzoG8h74TY5Y8aMoSlTptDp06fpkksuoQcffFD0EMyfP3/URXtB31E3GYeAH/Hxwp5hA2ADVD72uFZTQYuyPUd+68jthT2zYWSicerUKaFxJkGNGjUi7sXXuXPnwCn46quvLCVH58+fF2RFO1q2bEnPPPMMValSJYgcMfH59NNPxdf2799P3PeLCd7MmTNpw4YNgixt2rRJEJ5//vOfVLt2berdu7cgWdxZnhst855PnjxJffr0od27d9Py5cujnngv6DvqJuMQ8CM+XtgzbABsgMrHHuRIBS2QI0W0nCOuN4x//fUX1a9fn1599VWqV6+e+PPiiy+KBUvPUVpaGg0cOFB4Y06cOCE8L1WrVqUbb7yRfvjhB7riiiuE/A033EBLliyhPHnyEGcyMgE6fvy4ICRMfJ5//nnas2cP/fjjj/Tcc8+JhsdyMEljr8/3338vPEBysOdIS47460eOHKFSpUrR//73PypevLh4R9GiRcUjgwYNooIFC1K/fv2ocOHC9O2334qGy3Kwp4z/z4SpVq1aERXjhR+EVp48P+LjhT3DBsAGqNgFkCMVtC6QI7+l8usNY2b6WkXUkiOet3zNwIulS/22224TX2OiwldN06ZNE9dURuSICco111wjyMT69evpiSeeoI0bN9Jjjz1GlStXpu7du4uvM4H68ssv6Z577qGnn36a6tatS8eOHSN+19atW2nSpEm0ePFiWr16NV166aVBYPDXJk+eTO+++27Q143IEQvwVSB7me6///6A/N69e8X6v/jiCzp69Cg1adJEeJr0o1WrVoIQ8j4iDS/8ILTyxPkRHy/sGTaACDbAvGUAOTKPlZD0gpFQ3HLInr9vdY3qFLbL5ytfi0oMXxBEjvTXahy/wx4hjs0xIkdff/01jRw5UhAavppibwx7gNhzwwSJiRF7h/g6rF27dlSgQAGqVKlS4Nrst99+IyY5H330EbFhHj16dAgOfAV2yy23iCsy7QhHjpiosffp//7v/4T4d999J67Uxo0bRw0bNqT09HSxlwMHDoS8i8lg48aNqUePHiBHcZxI2IA4wEvio0bXarABxgrx4xnXIwFypPhh9eOh0e/ZC+SI1f7NN99QmzZtxBWZETlKSUmh6dOnC28Le4CaN28uyBEPju9hUvXQQw8JbxJfqfE1G8f1yKsuebReeeUVQcLktZ32yPE13X//+1+6+uqro5Ijvla77rrrxHpZnuONmJS99957gpTx4ABsjktat26duK6TQ16rMemqVq0ayJHi514rDhtANPyzDBq2NCMOFK1/dFiTFBraOCXsL0iwAeF14MczDnIU52fSj4dGv+dD88bEiaI9jxdu0z+iYWSywsTmww8/NCRHHGu0a9cuuvbaa2nAgAGChPz6669izjlz5ghyxF4jzhrj0bRpU/EnNTVVXG/xFdubb74p4pqMyBFnqLE8r0E/9J6jw4cPExfjZHLEc3K80R133CFindjzpB0c4/Txxx8Lr5X0lvXt21cQu08++SQq+H4841FB0Qj4ER8v7FnvOWKVwgYYn3wv6FvlM20kC8+RIoJ+PDRe2LOMNyhXrpzQOAdNcyA1Ew0mEEaeo5deeonmz58vyBHH6XDQM5MZvmpjD02RIkVE1pj00GRkZIg4JPbS8DUckyS+LgvnOWKCxddgL7/8siE54iw6DsDmtfKf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" style="width: 583px;"></div><div class="outputLayer selectedOutputDecorationLayer doNotExport" aria-hidden="true"></div><div class="outputLayer activeOutputDecorationLayer doNotExport" aria-hidden="true"></div><div class="outputLayer scrollableOutputDecorationLayer doNotExport" aria-hidden="true"></div><div class="outputLayer navigationFocusLayer doNotExport" aria-hidden="false" tabindex="-1" role="application" aria-label="figure output "></div></div></div></div></div><h1  class = 'S0'><span>Using a Python Custom Model.</span></h1><div  class = 'S1'><span>RAT also allows the use of Python custom models (instead of Matlab). The purpose of this is because it is more logical to work with Python custom functions when working with the Python API for RAT, but also since there may be existing libraries in Python which the user might want to use in a custom model.</span></div><div  class = 'S1'><span>The format of the custom model is very similar to the Matlab version. In this example, our model is called customBilayer.py..</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S10'><span style="white-space: pre"><span >type </span><span style="color: #a709f5;">customBilayer.py</span></span></div><div  class = 'S8'><div class="inlineElement eoOutputWrapper disableDefaultGestureHandling embeddedOutputsWarningElement" uid="255EAF79" prevent-scroll="true" data-testid="output_5" tabindex="-1" style="width: 1137px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="diagnosticMessage-wrapper diagnosticMessage-warningType eoOutputContent" tabindex="-1" data-previous-available-width="1100" data-previous-scroll-height="19" data-hashorizontaloverflow="false" role="article" aria-roledescription="Use Browse Mode to explore " aria-description="warning output " style="max-height: 261px; white-space: normal; font-style: normal; color: rgb(179, 98, 5); font-size: 12px;"><div class="diagnosticMessage-messagePart" style="white-space: pre-wrap; font-style: normal; color: rgb(179, 98, 5); font-size: 12px;">Warning: Negative data ignored</div><div class="diagnosticMessage-stackPart" style="white-space: pre; font-style: normal; color: rgb(179, 98, 5); font-size: 12px;"></div></div></div><div class="inlineElement eoOutputWrapper disableDefaultGestureHandling embeddedOutputsTextElement scrollableOutput" uid="9B32A550" prevent-scroll="true" data-testid="output_6" tabindex="-1" style="width: 1137px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent scrollArea" tabindex="-1" data-previous-available-width="1100" data-previous-scroll-height="1080" data-hashorizontaloverflow="false" role="article" aria-roledescription="Use Browse Mode to explore " aria-description="text output " style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"># customBilayer.py
+import numpy as np
+
+def customBilayer(params, bulk_in, bulk_out, contrast):
+    params = params
+    bulk_in = bulk_in
+    bulk_out = bulk_out
+
+    sub_rough = params[0]
+    oxide_thick = params[1]
+    oxide_hydration = params[2]
+    lipidAPM = params[3]
+    headHydration = params[4]
+    bilayerHydration = params[5]
+    bilayerRough = params[6]
+    waterThick = params[7]
+
+    # We have a constant SLD for the bilayer
+    oxide_SLD = 3.41e-6
+ 
+    # Now make the lipid layers..
+    # Use known lipid volume and compositions
+    # to make the layers
+
+    # define all the neutron b's.
+    bc = 0.6646e-4     # Carbon
+    bo = 0.5843e-4     # Oxygen
+    bh = -0.3739e-4    # Hydrogen
+    bp = 0.513e-4      # Phosphorus
+    bn = 0.936e-4      # Nitrogen
+    bd = 0.6671e-4     # Deuterium
+
+    # Now make the lipid groups..
+    COO = (4*bo) + (2*bc)
+    GLYC = (3*bc) + (5*bh)
+    CH3 = (2*bc) + (6*bh)             
+    PO4 = (1*bp) + (4*bo)
+    CH2 = (1*bc) + (2*bh)
+    CHOL = (5*bc) + (12*bh) + (1*bn)
+
+    # Group these into heads and tails:
+    Head = CHOL + PO4 + GLYC + COO
+    Tails = (34*CH2) + (2*CH3)
+
+    # We need volumes for each.
+    # Use literature values:
+    vHead = 319
+    vTail = 782
+
+    # we use the volumes to calculate the SLD's
+    SLDhead = Head / vHead
+    SLDtail = Tails / vTail
+
+    # We calculate the layer thickness' from
+    # the volumes and the APM...
+    headThick = vHead / lipidAPM
+    tailThick = vTail / lipidAPM
+
+    # Manually deal with hydration for layers in
+    # this example.
+    oxSLD = (oxide_hydration * bulk_out[contrast]) + ((1 - oxide_hydration) * oxide_SLD)
+    headSLD = (headHydration * bulk_out[contrast]) + ((1 - headHydration) * SLDhead)
+    tailSLD = (bilayerHydration * bulk_out[contrast]) + ((1 - bilayerHydration) * SLDtail)   
+
+    # Make the layers
+    oxide = [oxide_thick, oxSLD, sub_rough]
+    water = [waterThick, bulk_out[contrast], bilayerRough]
+    head = [headThick, headSLD, bilayerRough]
+    tail = [tailThick, tailSLD, bilayerRough]
+    
+    output = np.array([oxide, water, head, tail, tail, head])
+
+    return output, sub_rough</div></div></div></div></div><div  class = 'S6'><span></span></div><div  class = 'S1'><span>We add this to the project in exactly the same way as a Matlab cutom model....</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S11'><span style="white-space: pre"><span >problem.addCustomFile(</span><span style="color: #a709f5;">'pyDSPC'</span><span >,</span><span style="color: #a709f5;">'customBilayer.py'</span><span >,</span><span style="color: #a709f5;">'Python'</span><span >,pwd);</span></span></div></div></div><div  class = 'S6'><span>...then set the models of our contrasts accordingly....</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: #0e00ff;">for </span><span >i = 1:3</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span >    problem.setContrast(i,</span><span style="color: #a709f5;">'model'</span><span >, </span><span style="color: #a709f5;">'pyDSPC'</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span style="color: #0e00ff;">end</span></span></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Custom Layers Example for Supported DSPC layer.
+% Example of using alternative languages to make a Custom layers to model a 
+% DSPC supportd bilayer. 
+% 
+% First, we'll run the project using a conventional Matlab custom model. Then, 
+% we will do the same calculation using the same model, but written in Python 
+% or C++.
+% 
+% 
+%% 1.  Normal Matlab Custom Model.
+% Start by making the class and setting it to a custom layers type:
+
+problem = projectClass('Orso lipid example - custom layers');
+problem.modelType = modelTypes.CustomLayers.value;
+problem.geometry = geometryOptions.SubstrateLiquid.value;
+%% 
+% 
+% 
+% First we need to set up a parameters group. We will be using a pre-prepared 
+% custom model file, (at the end of the worksheet). Use this to set up the parameters 
+% block...
+% 
+% We need to add the relevant parameters we are going to need to define the 
+% model (note that Substrate Roughness' always exists as parameter 1..
+
+Parameters = {
+    %       Name                min         val         max     fit? 
+        {'Oxide thick',         5,          20,         60,     true   };
+        {'Oxide Hydration'      0,          0.2,        0.5,    true   };
+        {'Lipid APM'            45          55          65      true   };
+        {'Head Hydration'       0           0.2         0.5     true   };
+        {'Bilayer Hydration'    0           0.1         0.2     true   };
+        {'Bilayer Roughness'    2           4           8       true   };
+        {'Water Thickness'      0           2           10      true   };
+        };
+    
+ problem.addParameterGroup(Parameters);
+ problem.setParameter(1,'min',1,'max',10); % Change the substrate roughness limits
+%% 
+% 
+% 
+% Need to add the relevant Bulk SLD's. Change the bulk in from air to silicon, 
+% and add two additional water contrasts:
+
+% Change bulk in from air to silicon....
+problem.setBulkIn(1,'name','Silicon','min',2.07e-6,'value',2.073e-6,'max',2.08e-6,'fit',false);
+
+% Add two more values for bulk out....
+problem.addBulkOut('SLD SMW',1e-6,2.073e-6,3e-6,true);
+problem.addBulkOut('SLD H2O',-0.6e-6,-0.56e-6,-0.3e-6,true);
+
+problem.setBulkOut(1,'fit',true,'min',5e-6);
+%% 
+% 
+% 
+% Now add the datafiles. We have three datasets we need to consider - the bilayer 
+% against D2O, Silicon Matched water and H2O. Load these datafiles in and put 
+% them in the data block....
+
+% Read in the datafiles
+root = getappdata(0, 'root');
+D2O_data = dlmread(fullfile(root, '/examples/normalReflectivity/customLayers/c_PLP0016596.dat'));
+SMW_data = dlmread(fullfile(root, '/examples/normalReflectivity/customLayers/c_PLP0016601.dat'));
+H2O_data = dlmread(fullfile(root, '/examples/normalReflectivity/customLayers/c_PLP0016607.dat'));
+
+% Add the data to the project
+problem.addData('Bilayer / D2O', D2O_data(:,1:3));
+problem.addData('Bilayer / SMW', SMW_data(:,1:3));
+problem.addData('Bilayer / H2O', H2O_data(:,1:3));
+
+problem.setData(2,'dataRange',[0.013 0.37]);
+problem.setData(3,'dataRange',[0.013 0.37]);
+problem.setData(4,'dataRange',[0.013 0.37]);
+%% 
+% 
+% 
+% Add the custom file to the project....
+
+%                          name         filename        language    path
+problem.addCustomFile('DSPC Model', 'customBilayer.m', supportedLanguages.Matlab, pwd);
+%% 
+% 
+% 
+% Also, add the relevant background parameters - one each for each contrast:
+
+% Change the name of the existing parameters to refer to D2O
+problem.setBackgroundParam(1,'name','Backs par D2O','fit',true,'min',1e-10,'max',1e-5,'value',1e-6);
+
+% Add two new backs parameters for the other two..
+problem.addBackgroundParam('Backs par SMW',1e-10,1e-6,1e-5,true);
+problem.addBackgroundParam('Backs par H2O',1e-10,1e-6,1e-5,true);
+
+% And add the two new constant backgrounds..
+problem.addBackground('Background SMW','constant','Backs par SMW');
+problem.addBackground('Background H2O','constant','Backs par H2O');
+
+
+% And edit the other one....
+problem.setBackgroundName(1,'Background D2O');
+problem.setBackground(1,'source','Backs par D2O');
+
+% Finally modify some of the other parameters to be more suitable values
+% for a solid / liquid experiment.
+
+% Set the scalefactor...
+problem.setScalefactor(1,'Value',1,'min',0.5,'max',2,'fit',true);
+
+
+% Finally modify some of the other parameters to be more suitable values
+% for a solid / liquid experiment.
+
+% Set the scalefactor...
+problem.setScalefactor(1,'Value',1,'min',0.5,'max',2,'fit',true);
+%% 
+% Now add the three contrasts as before:
+
+% D2O contrast..
+problem.addContrast('name',        'Bilayer / D2O',...
+                    'background',  'Background D2O',...
+                    'resolution',  'Resolution 1',...
+                    'scalefactor', 'Scalefactor 1',...
+                    'BulkOut',     'SLD D2O',...
+                    'BulkIn',      'Silicon',...
+                    'data',        'Bilayer / D2O',...
+                    'model',       'DSPC Model');
+
+% SMW contrast..
+problem.addContrast('name',        'Bilayer / SMW',...
+                    'background',  'Background SMW',...
+                    'resolution',  'Resolution 1',...
+                    'scalefactor', 'Scalefactor 1',...
+                    'BulkOut',     'SLD SMW',...
+                    'BulkIn',      'Silicon',...
+                    'data',        'Bilayer / SMW',...
+                    'model',       'DSPC Model');
+
+% SMW contrast..
+problem.addContrast('name',        'Bilayer / H2O',...
+                    'background',  'Background H2O',...
+                    'resolution',  'Resolution 1',...
+                    'scalefactor', 'Scalefactor 1',...
+                    'BulkOut',     'SLD H2O',...
+                    'BulkIn',      'Silicon',...
+                    'data',        'Bilayer / H2O',...
+                    'model',       'DSPC Model');
+%% 
+% Look at the complete model definition before sending it to RAT;
+
+disp(problem)
+%% 
+% Make a controls block....
+
+controls = controlsClass();
+controls.procedure = 'DE';
+controls.display = 'final';
+controls.parallel = 'contrasts';
+%% 
+% And send this to RAT...
+
+[problem,results] = RAT(problem,controls);
+plotRefSLD(problem,results);
+%% Using a Python Custom Model.
+% RAT also allows the use of Python custom models (instead of Matlab). The purpose 
+% of this is because it is more logical to work with Python custom functions when 
+% working with the Python API for RAT, but also since there may be existing libraries 
+% in Python which the user might want to use in a custom model.
+% 
+% The format of the custom model is very similar to the Matlab version. In this 
+% example, our model is called customBilayer.py..
+
+type customBilayer.py
+%% 
+% 
+% 
+% We add this to the project in exactly the same way as a Matlab cutom model....
+
+problem.addCustomFile('pyDSPC','customBilayer.py','Python',pwd);
+%% 
+% ...then set the models of our contrasts accordingly....
+
+for i = 1:3
+    problem.setContrast(i,'model', 'pyDSPC');
+end
+##### SOURCE END #####
+-->
+</div></body></html></section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2022-2025, ISIS Neutron and Muon Source.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
