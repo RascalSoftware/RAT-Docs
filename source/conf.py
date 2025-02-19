@@ -7,8 +7,13 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 import os
 import sys
+import shutil
 import datetime
+import zipfile
+from importlib import metadata
 from urllib.parse import urljoin
+from urllib.request import urlretrieve
+from pathlib import Path
 # -- Project information -----------------------------------------------------
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -33,16 +38,59 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(".")))
 sys.path.insert(0, os.path.dirname(os.path.abspath("..")))
 from version import get_doc_version
 doc_version = get_doc_version()
-    
+
 # -- General configuration ---------------------------------------------------
 
 # add extensions path for snippets
 sys.path.append(os.path.abspath("./_ext"))
 
-extensions = ['sphinxcontrib.matlab', 'sphinx.ext.napoleon', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary', 'sphinxcontrib.autodoc_pydantic', 'sphinx_design', 'sphinx_copybutton', 'snippets', 'enum_tools.autoenum']
+extensions = ['sphinxcontrib.matlab', 'sphinx.ext.napoleon', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary', 'sphinxcontrib.autodoc_pydantic', 'sphinx_design', 'sphinx_copybutton', 'snippets', 'enum_tools.autoenum', 'nbsphinx']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
+
+# -- Setup example files -----------------------------------------------------
+PYTHON_RAT_RELEASE = metadata.version("RATapi")
+
+if not os.path.isdir("./python_examples/data"):
+    zip_dir, headers = urlretrieve(f"https://github.com/RascalSoftware/python-RAT/archive/refs/tags/{PYTHON_RAT_RELEASE}.zip")
+    with zipfile.ZipFile(zip_dir) as zf:
+        zf.extractall()
+    print("Copying Jupyter notebooks...")
+    for directory in ['normal_reflectivity', 'domains', 'absorption']:
+        for file in Path(f"./python-RAT-{PYTHON_RAT_RELEASE}/RATapi/examples/{directory}/").glob('*'):
+            shutil.copy(file, "./python_examples/notebooks/")
+
+    shutil.copytree(f"./python-RAT-{PYTHON_RAT_RELEASE}/RATapi/examples/data", "./python_examples/data", dirs_exist_ok=True)
+
+    shutil.rmtree(f"./python-RAT-{PYTHON_RAT_RELEASE}")
+
+if not os.path.isfile("./matlab_examples/standardLayersDSPCSheet.html"):
+    try:
+        from matlab.engine import start_matlab
+    except ImportError:
+        print("Could not copy MATLAB live scripts as MATLAB is not installed.")
+    else:
+        print("Starting MATLAB Engine...")
+        eng = start_matlab()
+        matlab_examples_path = Path("./matlab_examples").resolve()
+        eng.eval("cd('../API'); addPaths;", nargout=0)
+        for sheet in ['normalReflectivity/standardLayers/standardLayersDSPCSheet', 
+                      'normalReflectivity/customLayers/customLayersDSPCSheet', 
+                      'normalReflectivity/customXY/customXYDSPCSheet', 
+                      'domains/standardLayers/domainsStandardLayersSheet', 
+                      'domains/customLayers/domainsCustomLayersSheet',
+                      'domains/customXY/domainsCustomXYSheet',
+                      'miscellaneous/convertRascal1Project/convertRascal',
+                      'miscellaneous/alternativeLanguages/customModelLanguagesSheet',]:
+            filename = Path(sheet).name
+            folder = str(Path(sheet).parent)
+            print(f"exporting {sheet}")
+            eng.cd(f"examples/{folder}", nargout=0)
+            eng.matlab.internal.liveeditor.executeAndSave(str(Path(f"../API/examples/{sheet}.mlx").resolve()), nargout=0)
+            eng.export(f"{filename}.mlx", str(matlab_examples_path / f"{filename}.html"), nargout=0)
+            eng.cd("../../../", nargout=0)
+
 
 # -- Options for HTML output -------------------------------------------------
 #set primary_domain = 'matlab'
@@ -83,6 +131,30 @@ copybutton_prompt_text = r">>> |>> "
 copybutton_prompt_is_regexp = True
 
 autodoc_typehints = "description"
+
+nbsphinx_prolog = r"""
+{% set docname = 'doc/' + env.doc2path(env.docname, base=None)|string %}
+
+.. raw:: html
+
+    <div class="admonition note">
+      This page was generated from the notebook {{ env.docname.split('/')|last|e + '.ipynb' }} found in 
+      <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/"""+PYTHON_RAT_RELEASE+r"""/RATapi/examples/">the Python-RAT repository</a>.
+      <a href="{{ env.docname.split('/')|last|e + '.ipynb' }}" class="reference download internal" download>Download notebook</a>.
+    </div>
+
+.. note::
+
+    To get the output project and results from this example in your Python session, run:
+
+    .. code-block:: python
+
+        from RATapi.examples import {{ env.docname.split('/')|last|e }}
+        project, results = {{ env.docname.split('/')|last|e }}() 
+
+-------------------------------------------------------------------------------------
+
+"""
 
 ### autodoc_pydantic settings
 # hide JSON schemas by default
