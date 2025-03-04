@@ -15,42 +15,12 @@ This example analyses a bilayer sample on a permalloy/gold substrate, measured u
 
 This example can be run using the instructions below.
 
-.. tab-set::
-    :sync-group: code
+.. note:: The custom model used is a MATLAB model - **examples/miscellaneous/absorption/volumeThiolBilayer.m**.
 
-    .. tab-item:: Matlab
-        :sync: Matlab
+**Run Script**: 
 
-        .. note:: The custom model used is a MATLAB model - **examples/miscellaneous/absorption/volumeThiolBilayer.m**.
+.. code-block:: Matlab 
 
-        **Run Script**: 
-
-        .. code-block:: Matlab 
-        
-            root = getappdata(0, 'root');
-            cd(fullfile(root, 'examples', 'miscellaneous', 'absorption'));
-            absorptionDPPC50
-
-    .. tab-item:: Python 
-        :sync: Python
-
-        .. note:: The custom model used is a Python model - **RATapi.examples.absorption.volume_thiol_bilayer.py**.
-
-        **Run Script**:  
-        
-        .. code-block:: console 
-            
-            python RATapi.examples.absorption.absorption.py
-
-        **Run as Function**:  
-        
-        .. code-block:: Python 
-            
-            import RATapi as RAT
-            problem, results = RAT.examples.absorption.absorption()
-        
-        **Run Interactively**:  
-        
-        .. code-block:: console 
-            
-            jupyter notebook RATapi.examples.absorption.absorption.ipynb
+    root = getappdata(0, 'root');
+    cd(fullfile(root, 'examples', 'miscellaneous', 'absorption'));
+    absorptionDPPC50

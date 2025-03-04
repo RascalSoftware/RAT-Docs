@@ -6,7 +6,7 @@ Analysing data containing domains using standard layers models is done in a simi
 additional steps. 
 
 A normal standard layers model defines parameters, which are grouped into layers, and then these are arranged into contrasts. For sample containing domains, the 
-layers are first grouped into domain 'contrasts', which are just groupings of layers with none of the additional parameters of a contrast (such as resolutions
+layers are first grouped into **domain contrasts**, which are just groupings of layers with none of the additional parameters of a contrast (such as resolutions
 etc). Then, the actual experimental contrasts are built in the usual way, but with the model set as any two of the domains.
 
 .. image:: ../images/domainsGraph.png

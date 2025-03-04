@@ -33,7 +33,7 @@ The event listener function is also shown below, it uses one of the plot functio
 
             subplot(1,2,1); cla           % Reflectivity plot panel
             subplot(1,2,2); cla           % SLD plot panel
-            plotRefSLDHelper(eventData);      % Use the standard RAT reflectivity plot
+            plotRefSLDHelper(eventData);  % Use the standard RAT reflectivity plot
             drawnow limitrate             % Make sure it updates
 
         end

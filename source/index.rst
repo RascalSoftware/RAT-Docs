@@ -22,13 +22,13 @@ and this analysis script can be provided alongside publications to ensure reprod
 
 RAT contains a number of improvements over legacy RasCAL, including:
 
-* :ref:`Automatic parallelisation<parallelisation>` (MPI) either over contrasts or points using a simple flag
+* :ref:`Automatic parallelisation<parallelisation>` (MPI) either over contrasts or points
 * Advanced interface microslicing using :ref:`adaptive resampling<resampling>`
 * Option to write :ref:`custom models<customLanguages>` in MATLAB, Python or C++
-* Custom models for background and resolution functions (not yet functional)
+* Custom models for background functions
 * Fast Bayesian analysis using :ref:`DREAM<DREAM>`
 * An integrated :ref:`Nested sampler<nestedSampling>` for Bayesian model selection
-* Fully validated against ORSO examples
+* Fully validated against `ORSO <https://www.reflectometry.org/>`_ examples
 * Ability to :ref:`load and run RasCAL-1 projects<conversionFuncs>` (usually) without modification
 * :ref:`Plotting routines<simplePlotting>` for easy visualisation of data and fits
 * and more!

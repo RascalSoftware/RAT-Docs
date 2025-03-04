@@ -4,9 +4,9 @@
 Custom Models in Python or C++
 ==============================
 
-Custom models are usually written in MATLAB, but RAT allows alternative languages to be used. You can write your custom models either in Python or C++.
-The reason for the Python functionality is mainly since this is the more natural choice when using RAT from Python with pythonRAT, but also because the user might choose to incorporate Python libraries into the custom models that are not available in MATLAB.
-The reason for C++ if for pure speed, where very computationally demanding custom models calculations are required. Both options are easy to use in RAT.
+RAT supports custom models written in MATLAB, Python or C++.
+Python functionality is useful as the more natural choice when using the python API, as well as making the wide range of Python libraries available within custom models.
+The reason for C++ is for pure speed, where very computationally demanding custom models calculations are required.
 
 .. note::
     Examples of using Python and C++ custom models can be found in the /examples/miscellaneous/alternativeLanguages folder
@@ -179,7 +179,7 @@ To use a python custom model from RAT, you need to add it to the current project
 
         problem.custom_files.append(name='myModel', filename='customBilayer.py', language='python')
 
-You can then use this in your calculations in the same way as a normal, MATLAB custom model.
+You can then use this in your calculations in the same way as a MATLAB custom model.
 
 *****************
 C++ Custom Models

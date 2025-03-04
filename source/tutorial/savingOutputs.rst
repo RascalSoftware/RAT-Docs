@@ -3,7 +3,7 @@
 ==========================
 Copying and Saving Outputs
 ==========================
-When you have completed your analysis, usually you will want to save a copy of your work for subsequent analysis. The problem definition can either be cloned so analysis is 
+When you have completed your analysis, usually you will want to save a copy of your work for subsequent analysis. The **Project** can either be cloned so analysis is 
 attempted with different parameters without risk of losing the best fits, or it can be saved to a file or as a script as detailed in the sections below  
 
 ****************
@@ -60,7 +60,7 @@ Copying a project class
 ***********************
 During an analysis, it may be necessary to make a copy of your project, so that you can modify one of them in order 
 to carry out some kind of comparison between them for example. 
-In the example below, ``problem1`` and ``problem2`` are references to the same instance of project class so modifying 
+In the example below, ``problem1`` and ``problem2`` are references to the same instance of the project class so modifying 
 ``problem2`` will also modify original object ``problem1`` which is not ideal.
 
 .. tab-set-code::
@@ -128,7 +128,7 @@ The proper way to make a copy/clone of the project class is shown in the example
 
         air/substrate
 
-Now *problem1* and *problem2* are seperate instances of project class and changing *problem2* no longer changes *problem1*.
+Now ``problem1`` and ``problem2`` are separate instances of the **Project** class and changing ``problem2`` no longer changes ``problem1``.
 
 *********************
 Exporting as a script

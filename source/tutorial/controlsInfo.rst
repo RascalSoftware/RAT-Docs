@@ -4,10 +4,10 @@
 A Closer Look at the Controls Class
 ===================================
 
-We have already seen in previous sections that once the problem has been defined in the projectClass, it is necessary to define a controls
-class which, as its name suggests, tells RAT what we want to do with the project.
+We have already seen in previous sections that once the problem has been defined in the project class, it is necessary to define a **Controls**
+object which, as its name suggests, tells RAT what we want to do with the project.
 
-Making an instance of the controls class is quite simple:-
+Making an instance of the **Controls** class is quite simple:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -19,7 +19,7 @@ Making an instance of the controls class is quite simple:-
         controls = RAT.Controls()
 
 
-This then creates an instance of controls class with a number of options defined:
+This then creates an instance of the **Controls** class with a number of options defined:
 
 .. tab-set::
     :class: tab-label-hidden
@@ -42,8 +42,8 @@ This then creates an instance of controls class with a number of options defined
             print(controls)
 
 We will look at each of these in more detail below. Note that the options that are visible depend on
-the algorithm selected. So, at the moment the controls are set to 'calculate', which will simply calculate the reflectivity and 
-SLD with any associated problem. If we select 'simplex' as the algorithm, a different set of options appears:-
+the ``procedure`` selected. So, at the moment the ``procedure`` is set to ``"calculate"``, which will simply calculate the reflectivity and 
+SLD for any associated problem. If we select the ``"simplex"`` algorithm as the ``procedure``, a different set of options appears:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -52,7 +52,7 @@ SLD with any associated problem. If we select 'simplex' as the algorithm, a diff
 
     .. code-block:: Python
         
-        controls = RAT.Controls(procedure='simplex')
+        controls.procedure = 'simplex'
 
 
 .. tab-set::
@@ -76,10 +76,10 @@ SLD with any associated problem. If we select 'simplex' as the algorithm, a diff
             controls = RAT.Controls(procedure='simplex')
             print(controls)
 
-which allow the user to set things such as tolerance targets and so on. There is a different set of options for each algorithm.
+which allow the user to set things such as tolerance targets and so on. There are a different set of options for each algorithm.
 We will now look at each of the available options in turn.
 
-General parameters for the controls class
+General parameters for the Controls Class
 -----------------------------------------
 
 These are the general parameters for the controls class. For algorithm-specific parameters see the page for each algorithm in the
@@ -133,7 +133,7 @@ See the :ref:`resampling page<resampling>` for more details. In short:
   (i.e. the gradient of the function has changed rapidly)
   and ``resampleMinAngle`` controls the sensitivity of this.
   
-  ``resampleMinAngle`` is defined in the units of 'radians divided by pi', i.e. ``resampleMinAngle = 0.9`` refines where the adjacent points form an angle smaller than :math:`0.9 \pi` radians.
+  ``resampleMinAngle`` is defined in the units of "radians divided by pi", i.e. ``resampleMinAngle = 0.9`` refines where the adjacent points form an angle smaller than :math:`0.9 \pi` radians.
 
 - ``resampleNPoints``: The initial number of domain points (layers) sampled by the algorithm at the start.
 

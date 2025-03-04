@@ -47,7 +47,7 @@ By default, this shows a standard reflectivity plot with a 65% shaded confidence
 
 There are a number of options to customise the plot:
 
-**Interval** - You can sepcify either the 65% or 95% confidence interval to display:
+**Interval** - You can specify either the 65% or 95% confidence interval to display:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -98,7 +98,7 @@ You can easily view the marginalised Bayesian posteriors from your analysis:
     :width: 800
     :alt: smooth hists
 
-By default, *plotHists* carries out a KDE smooth of the histograms. You can optionally choose no smoothing:
+By default, **plot Hists** carries out a KDE smooth of the histograms. You can optionally choose no smoothing:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -118,7 +118,7 @@ By default, *plotHists* carries out a KDE smooth of the histograms. You can opti
 Corner Plots
 ............
 
-To produce a cornerplot, simply use the *cornerPlot* function:
+To produce a corner plot, simply use the **corner Plot** function:
 
 .. tab-set-code::
     .. code-block:: Matlab

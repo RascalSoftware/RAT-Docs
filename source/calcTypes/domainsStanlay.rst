@@ -18,7 +18,7 @@ In order to use domains, we create a project of the correct type....
 
         problem = RAT.Project(calculation='domains')
 
-The principle of setting up these calculations relies on firstly grouping the layers into domains, then grouping the defined domains intro contrasts, according to a 'domain ratio' parameter:
+The principle of setting up these calculations relies on firstly grouping the layers into domains, then grouping the defined domains intro contrasts, according to a **domain ratio** parameter:
 
 .. image:: ../images/domainsGraph.png
     :width: 800
@@ -28,40 +28,52 @@ The example (in the examples folder), we define the layers as for conventional S
 .. tab-set-code::
     .. code-block:: Matlab
 
-        Layer1 = {'Layer 1',...         % Name of the layer
-            'L1 thick',...              % Layer thickness
-            'L1 SLD',...                % Layer SLD
-            'L1 Rough',...              % Layer roughness
-            'L1 Hydr',...               % hydration (percent)
-            'bulk out' };
+        Layer1 = {'Layer 1',...         % Name of the Layer
+                  'L1 thick',...        % Layer thickness
+                  'L1 SLD',...          % Layer SLD
+                  'L1 Rough',...        % Layer roughness
+                  'L1 Hydr',...         % hydration (percent)
+                  'bulk out' };
 
         Layer2 = {'Layer 2',...         % Name of the layer
-            'L2 thick',...              % Layer thickness
-            'L2 SLD',...                % Layer SLD
-            'L2 Rough',...              % Layer roughness
-            'L2 Hydr',...               % hydration (percent)
-            'bulk out' };
+                  'L2 thick',...        % Layer thickness
+                  'L2 SLD',...          % Layer SLD
+                  'L2 Rough',...        % Layer roughness
+                  'L2 Hydr',...         % hydration (percent)
+                  'bulk out' };
 
         Layer3 = {'Layer 3',...         % Name of the layer
-            'L3 thick',...              % Layer thickness
-            'L3 SLD',...                % Layer SLD
-            'L3 Rough',...              % Layer roughness
-            'L3 Hydr',...               % hydration (percent)
-            'bulk out' };
+                  'L3 thick',...        % Layer thickness
+                  'L3 SLD',...          % Layer SLD
+                  'L3 Rough',...        % Layer roughness
+                  'L3 Hydr',...         % hydration (percent)
+                  'bulk out' };
 
         problem.addLayerGroup({Layer1, Layer2, Layer3});
 
     .. code-block:: Python
 
         # Now group these parameters into layers
-        problem.layers.append(name='Layer 1', thickness='L1 Thickness', SLD='L1 SLD', roughness='L1 Roughness',
-                            hydration='L1 Hydration', hydrate_with='bulk out')
+        problem.layers.append(name='Layer 1',
+                              thickness='L1 Thickness',
+                              SLD='L1 SLD',
+                              roughness='L1 Roughness',
+                              hydration='L1 Hydration',
+                              hydrate_with='bulk out')
 
-        problem.layers.append(name='Layer 2', thickness='L2 Thickness', SLD='L2 SLD', roughness='L2 Roughness',
-                            hydration='L2 Hydration', hydrate_with='bulk out')
+        problem.layers.append(name='Layer 2',
+                              thickness='L2 Thickness',
+                              SLD='L2 SLD',
+                              roughness='L2 Roughness',
+                              hydration='L2 Hydration',
+                              hydrate_with='bulk out')
 
-        problem.layers.append(name='Layer 3', thickness='L3 Thickness', SLD='L3 SLD', roughness='L3 Roughness',
-                              hydration='L3 Hydration', hydrate_with='bulk out')
+        problem.layers.append(name='Layer 3',
+                              thickness='L3 Thickness',
+                              SLD='L3 SLD',
+                              roughness='L3 Roughness',
+                              hydration='L3 Hydration',
+                              hydrate_with='bulk out')
 
 .. tab-set::
     :class: tab-label-hidden
@@ -90,8 +102,8 @@ The example (in the examples folder), we define the layers as for conventional S
             print(problem.layers)
 
 
-From this point, the model diverges from the usual Standard Layers case, in that these are grouped into 'domain contrasts', which appears in an additional table in the
-printout of the project class. Domains contrasts consist of only layers, with no bulk phases etc..
+From this point, the model diverges from the usual Standard Layers case, in that the layers are grouped into **domain contrasts**, which appear in an additional table in the
+printout of the project class. Domains contrasts consist of only a ``model`` containing layers, with no bulk phases etc.
 
 .. tab-set::
     :class: tab-label-hidden
@@ -112,8 +124,8 @@ printout of the project class. Domains contrasts consist of only layers, with no
             print(problem.contrasts)
 
 
-It is then these that are grouped into the final contrasts model. For each contrast, there must be two (*and only two*) domain contrasts. In addition, each contrast requires a
-Domain Ratio parameter. This is a fittable parameter between 0 and 1, that appears in the Domain Ratio table:
+It is then these that are grouped into the final contrasts model. For each contrast, there must be **exactly** two (*and only two*) domain contrasts in the model. In addition, each contrast requires a
+**domain ratio** parameter. This is a fittable parameter between 0 and 1, that appears in the domain ratio table:
 
 .. tab-set::
     :class: tab-label-hidden
@@ -155,4 +167,4 @@ leading to the final contrast structure of two domains, and one domain ratio:
             print(problem.domain_contrasts)
 
 
-.. note:: For domain ratio, a ratio of 0 means 100% Domain 1, whilst conversely a ratio of 1 means 100% Domain 2.
+.. note:: For the domain ratio, a value of 0 means 100% Domain 1, whilst conversely a value of 1 means 100% Domain 2.
