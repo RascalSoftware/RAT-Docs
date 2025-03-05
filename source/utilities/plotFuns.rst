@@ -24,7 +24,7 @@ running the example a basic plot takes the following form:
 
 This produces a basic plot of the reflectivity and SLD.
 
-If this plot is not cleared before subsequent plots, then **plot Ref SLD** will overplot allowing the results of calculations to be compared:
+If this plot is not cleared before subsequent plots, then the basic plotting function will overplot allowing the results of calculations to be compared:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -46,9 +46,9 @@ If this plot is not cleared before subsequent plots, then **plot Ref SLD** will 
 .. image:: ../images/misc/simPlot2.png
     :alt: fit plot
 
-If you don't wish to overplot, just clear the figure before re-running plotRefSLD.
+If you don't wish to overplot, just clear the figure before re-running the plotting function.
 
-If you are resampling your SLD's, the **plot Ref SLD** will automatically show the resampled layers for you:
+If you are resampling your SLDs, the plotting function will automatically show the resampled layers for you:
 
 .. image:: ../images/misc/resamPlot.png
     :alt: resampled plot

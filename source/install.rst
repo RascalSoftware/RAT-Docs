@@ -50,7 +50,7 @@ This section provides more detailed information about installing RAT for MATLAB 
             pip install RATapi
 
         ``matlabengine`` is an optional dependency only required for MATLAB related actions such as running MATLAB custom functions and converting RasCAL-1 projects.
-        The version of ``matlabengine`` should match the version of MATLAB installed on the computer. For example, if MATLAB 2023a is installed on the computer, 
+        The version of ``matlabengine`` must match the version of MATLAB installed on the computer. For example, if MATLAB 2023a is installed on the computer, 
         ``matlabengine`` can be installed as shown below:
 
         .. code-block:: console

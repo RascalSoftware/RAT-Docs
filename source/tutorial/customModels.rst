@@ -4,7 +4,8 @@
 Custom Models
 =============
 
-The Standard Layers approach is useful for quickly setting up simple models, but parameterising models in this way is not always the best way of analysing data. For example, in the case of lipids, it is often natural and intuitive to analyse the data in terms of area per lipid rather than in terms of [d, :math:`\rho`, :math:`\sigma`]. Similarly, for solid state samples thinking in terms of density and composition is often more appropriate than SLD. In common with RasCAL, you can parameterise your model in any way you like, and then rather than building the model in the input class, the model is constructed using a custom model script. This is by far the most powerful method for using RAT for data analysis, as virtually any type of model can be implemented in this way.
+The Standard Layers approach is useful for quickly setting up simple models, but parameterising models in this way is not always the best way of analysing data. For example, in the case of lipids, it is often natural and intuitive to analyse the data in terms of area per lipid rather than in terms of [d, :math:`\rho`, :math:`\sigma`]  (thickness, SLD, roughness).
+Similarly, for solid state samples thinking in terms of density and composition is often more appropriate than SLD. In common with RasCAL, you can parameterise your model in any way you like, and then rather than building the model in the input class, the model is constructed using a custom model script. This is by far the most powerful method for using RAT for data analysis, as virtually any type of model can be implemented in this way.
 
 There are two main options for custom modelling:
 
@@ -44,14 +45,14 @@ define your model in terms of more scientifically useful parameters, such are Ar
             return layers, sub_rough 
 
 
-In other words, you get parameters and bulk SLD's in (along with a flag ``contrast`` telling your script which contrast to work on), and your code needs to construct the layers array defining the model.
+In other words, you get parameters and bulk SLDs in (along with a flag ``contrast`` telling your script which contrast to work on), and your code needs to construct the layers array defining the model.
 In the next section we'll demonstrate this by making an example to fit a lipid bilayer sample.
 
 DSPC Bilayer Example
 ====================
 In biophysical studies, one of the most common parameters of interest is the area occupied per lipid, be it in a bilayer or a monolayer. Often for lipids, the volume occupied per component is known, which leads to a simple way of calculating the thickness of the head and tail groups. Let the volume of the heads and tails be V\ :sub:`Head` and V\ :sub:`Tail` respectively. Then, for a given Area per Lipid, the thickness of the two layers will be given by :math:`D_\mathrm{Head} = \frac{V_\mathrm{Head}}{APM}` for the headgroup thickness, and :math:`D_\mathrm{Tail} = \frac{V_\mathrm{Tail}}{APM}` for the tail layers. 
 
-In terms of the SLD's, because the volume and composition of each layer is known, then for each, the SLD can be calculated as :math:`\rho = \frac {\sum_{i} n_\mathrm{i} b_\mathrm{i}}{V}` in the usual way. Using literature values for the volumes therefore, rather than parameterising a lipid in terms of thickness, roughness, SLD and coverage of the lipid layers (i.e. head and tail) separately, we can just use a single APM parameter for the whole lipid. In terms of the calculation, we still specify d, :math:`\rho`, :math:`\sigma` and coverage on a per layer basis for RAT, but we calculate these in a script for the bilayer from the APM and known composition and volume. This not only gives us the ability to fit our data using more realistic biophysical parameters (in our case APM), but also reduces the number of parameters (dimensions) of our model.
+In terms of the SLDs, because the volume and composition of each layer is known, then for each, the SLD can be calculated as :math:`\rho = \frac {\sum_{i} n_\mathrm{i} b_\mathrm{i}}{V}` in the usual way. Using literature values for the volumes therefore, rather than parameterising a lipid in terms of thickness, roughness, SLD and coverage of the lipid layers (i.e. head and tail) separately, we can just use a single APM parameter for the whole lipid. In terms of the calculation, we still specify d, :math:`\rho`, :math:`\sigma` and coverage on a per layer basis for RAT, but we calculate these in a script for the bilayer from the APM and known composition and volume. This not only gives us the ability to fit our data using more realistic biophysical parameters (in our case APM), but also reduces the number of parameters (dimensions) of our model.
 
 The figure shows the system we are measuring. We have a single, hydrogenated DSPC bilayer supported on a silicon surface. The silicon is, as always, coated with an oxide layer. The bilayer may or may not be complete (i.e. partially hydrated) so we will need hydration parameters, and there is the possibility of a thin water layer between the bilayer and the substrate. We also need some roughness parameters, both for the substrate and the bilayer itself. We will build a custom model for this and use it to analyse the bilayer data at three contrasts.
 
@@ -224,7 +225,7 @@ At this point it is useful to look at *customBilayer.m* and then go through it s
         vHead = 319;
         vTail = 782;
 
-        % we use the volumes to calculate the SLD's
+        % we use the volumes to calculate the SLDs
         SLDhead = Head / vHead;
         SLDtail = Tails / vTail;
 
@@ -300,7 +301,7 @@ At this point it is useful to look at *customBilayer.m* and then go through it s
             vHead = 319
             vTail = 782
 
-            # we use the volumes to calculate the SLD's
+            # we use the volumes to calculate the SLDs
             SLDhead = Head / vHead
             SLDtail = Tails / vTail
 
@@ -354,11 +355,11 @@ always a [1 x nParams] array of values. It is useful to split this array into it
         bilayerRough = params[6]
         waterThick = params[7]
 
-The next two inputs are arrays of all the bulk in and bulk out values for all the contrasts, and ``contrast`` is an the index of the contrast the script should calculate. The reason for passing the values of the bulk phases is that these are needed to calculate the SLD's of the layers if they are hydrated. So, to calculate the SLD of the Oxide layer, we take the known SLD for Silicon dioxide, and then use the oxide coverage parameter to calculate the effective SLD of the oxide. Because we define our coverage as a parameter between 0 and 1, where 1 is full coverage and 0 is fully hydrated, we can work out this SLD as a simple ratio between oxide SLD and water SLD
+The next two inputs are arrays of all the bulk in and bulk out values for all the contrasts, and ``contrast`` is an the index of the contrast the script should calculate. The reason for passing the values of the bulk phases is that these are needed to calculate the SLDs of the layers if they are hydrated. So, to calculate the SLD of the Oxide layer, we take the known SLD for Silicon dioxide, and then use the oxide coverage parameter to calculate the effective SLD of the oxide. Because we define our coverage as a parameter between 0 and 1, where 1 is full coverage and 0 is fully hydrated, we can work out this SLD as a simple ratio between oxide SLD and water SLD
 
 :math:`SLD_\mathrm{Hydrated layer} = (Hydration * SLD_\mathrm{water}) + ((1-Hydration)*SLD_\mathrm{layer})`
 
-The input parameter ``bulk_in`` is an array which is a list of the current SLD's for all the contrasts, so the current SLD of the water (which may be being fitted) is given by the value of ``bulk_out`` at the index ``contrast``. Therefore, the effective SLD of the oxide layer at a particular contrast is given by:
+The input parameter ``bulk_in`` is an array which is a list of the current SLDs for all the contrasts, so the current SLD of the water (which may be being fitted) is given by the value of ``bulk_out`` at the index ``contrast``. Therefore, the effective SLD of the oxide layer at a particular contrast is given by:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -398,7 +399,7 @@ To work out the thickness of the lipid layers, we use literature values for the 
         headThick = vHead / lipidAPM
         tailThick = vTail / lipidAPM
 
-For the SLD's, we again make use of these volumes, but we need to work out the sum of the scattering lengths from the layers' compositions:
+For the SLDs, we again make use of these volumes, but we need to work out the sum of the scattering lengths from the layers' compositions:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -423,7 +424,7 @@ For the SLD's, we again make use of these volumes, but we need to work out the s
         Head = CHOL + PO4 + GLYC + COO;
         Tails = (34*CH2) + (2*CH3);
 
-        % we use the volumes to calculate the SLD's
+        % we use the volumes to calculate the SLDs
         SLDhead = Head / vHead;
         SLDtail = Tails / vTail;
     
@@ -449,7 +450,7 @@ For the SLD's, we again make use of these volumes, but we need to work out the s
         Head = CHOL + PO4 + GLYC + COO
         Tails = (34*CH2) + (2*CH3)
 
-        # we use the volumes to calculate the SLD's
+        # we use the volumes to calculate the SLDs
         SLDhead = Head / vHead
         SLDtail = Tails / vTail
 
@@ -578,7 +579,7 @@ The rest of the custom model is defined similar to the standard layers model sho
 
     .. code-block:: Python
 
-        # Need to add the relevant Bulk SLD's. Change the bulk in from air to silicon, and add two additional water contrasts:
+        # Need to add the relevant Bulk SLDs. Change the bulk in from air to silicon, and add two additional water contrasts:
         problem.bulk_in.set_fields(0, name='Silicon', min=2.07e-6, value=2.073e-6, max=2.08e-6, fit=False)
 
         problem.bulk_out.append(name='SLD SMW', min=1.0e-6, value=2.073e-6, max=3.0e-6, fit=True)

@@ -63,7 +63,7 @@ There are a number of options to customise the plot:
     :alt: 95 shaded plot
 
 
-**Type** - You can also specify a q4 plot for the reflectivity:
+**q4** - You can also specify a q4 plot for the reflectivity:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -98,7 +98,7 @@ You can easily view the marginalised Bayesian posteriors from your analysis:
     :width: 800
     :alt: smooth hists
 
-By default, **plot Hists** carries out a KDE smooth of the histograms. You can optionally choose no smoothing:
+By default, the histogram plot function carries out a KDE smooth of the histograms. You can optionally choose no smoothing:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -118,7 +118,7 @@ By default, **plot Hists** carries out a KDE smooth of the histograms. You can o
 Corner Plots
 ............
 
-To produce a corner plot, simply use the **corner Plot** function:
+To produce a corner plot, simply use the corner plot function:
 
 .. tab-set-code::
     .. code-block:: Matlab

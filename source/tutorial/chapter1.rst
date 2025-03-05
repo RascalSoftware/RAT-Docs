@@ -12,7 +12,7 @@ The central RAT workflow centres around two objects:
 
 * A **Project** object, which
   describes our data, our models, the various parameters we may have along with their limits or priors,
-  and other quantities such as bulk SLD's or backgrounds.
+  and other quantities such as bulk SLDs or backgrounds.
 
 * A **Controls** object, which 
   summarises the actions which we want to do with our model. It specifies which algorithm we
@@ -39,7 +39,7 @@ We will discuss these further in :ref:`the next chapter<chapter2>`, where we loo
           and Results, indicating the output produced by RAT after the program runs.
 
 
-The code block below shows how to initialise each object for each language, as well as how to run a calculation.
+The code block below shows how to set up each object for each language, as well as how to run a calculation.
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -230,7 +230,7 @@ and can be fitted in the same way as part of our analysis (e.g. if the scalefact
             print(problem.data)
 
 Each contrast must have a dataset associated with it, whether or not it contains data. An empty data object 
-(i.e. containing no data and just a simulation ranges) means RAT will calculate the reflectivity only. When data is present, chi-squared goodness of fit
+(i.e. containing no data and just a simulation range) means RAT will calculate the reflectivity only. When data is present, chi-squared goodness of fit
 will also be calculated. For our problem, we have two datasets and these are passed to the data block ready to be incorporated into contrasts.
 
 5. Contrasts

@@ -9,7 +9,7 @@ attempted with different parameters without risk of losing the best fits, or it 
 ****************
 Saving to a file
 ****************
-After a RAT calculation run, ``problem`` is the problem definition with updated fit parameters, ``controls`` is the settings used for the calculation and ``results`` is the computed reflectivities, SLD's and so on. 
+After a RAT calculation run, ``problem`` is the problem definition with updated fit parameters, ``controls`` is the settings used for the calculation and ``results`` is the computed reflectivities, SLDs and so on. 
 
 
 .. image:: ../images/ratInput.png

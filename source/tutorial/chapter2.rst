@@ -75,14 +75,14 @@ want to do this, you can give the inputs and outputs different names:
 .. tab-set-code::
     .. code-block:: Matlab
 
-        [outputProblem, results] = RAT(problem, controls)
+        [outputProblem, results] = RAT(problem, controls);
     
     .. code-block:: Python
 
         output_problem, results = RAT.run(problem, controls)
 
 The second output can also be called whatever you like, and this is a class
-containing the simulated reflectivities, SLD's and so on from whatever procedure you have asked RAT to do:
+containing the simulated reflectivities, SLDs and so on from whatever procedure you have asked RAT to do:
 
 .. tab-set::
     :class: tab-label-hidden
@@ -155,7 +155,7 @@ But in the ``"air/substrate"`` case, the opposite is true, and the substrate rou
 
     * **Standard Layers** - The model is defined in terms of parameters, which are distributed into layers, and subsequently grouped into contrasts. No external functions are needed.
     * **Custom Layers** - Parameters are again defined and grouped into layers, but this time the layer definitions come from a user model script. This then gives complete flexibility of how layers are defined, so allowing models to be written in terms of area per molecule or material density, for example. This custom script controls translating these input parameters into a [d, :math:`\rho`, :math:`\sigma`] model. This is probably the most useful operating mode for RasCAL.
-    * **Custom XY-Profile** - This modelling mode also relies on a custom model function, but in this case does away with [d, :math:`\rho`, :math:`\sigma`] layers completely. Instead, the custom function uses the parameters to define a continuous SLD profile, which RAT then uses to calculate the reflectivity.
+    * **Custom XY-Profile** - This modelling mode also relies on a custom model function, but in this case does away with [d, :math:`\rho`, :math:`\sigma`] (thickness, SLD, roughness) layers completely. Instead, the custom function uses the parameters to define a continuous SLD profile, which RAT then uses to calculate the reflectivity.
 
 The model type of the project can be changed as follows:
 
@@ -877,7 +877,7 @@ For each entry in the table there are four fields:
 * **Name**: The name you choose to give the datafile (for reference in the contrasts block)
 * **Data**: An array containing the data itself (empty for 'Simulation').
 * **Data Range**: The min / max range of the data you wish to include in the fit. You do not have to include all the data in the calculation of chi-squared. This range **must** lie **within** the range of any data added to the **Data** column.
-* **Simulation Range**: The total range of the simulation to be calculated. This can lie outside the range of the data to allow for extrapolation, but **must** be >= the range of any data added to the **Data** column.
+* **Simulation Range**: The total range of the simulation to be calculated. This **must** be equal to or larger than the range of any data added to the **Data** column.
 
 To add data, we first load it into Matlab/Python, then create a new data entry containing it:
 
@@ -1160,7 +1160,7 @@ Now we need to add the data. We read in the two files, and put the data into the
         problem.data.append(name='D-tail / H-head / D2O', data=d70d2O)
 
 We have everything we need to now build our contrasts. We have two contrasts in all, and we build them using name / value pairs for all the different parts of the contrasts (i.e. selecting which background and bulk phases etc we need using the names we have given them).
-To define the models for each contrast, we add the relevant layers as appropriate.
+To define the models for each contrast, we list the names of the relevant layers as appropriate.
 
 .. tab-set-code::
     .. code-block:: Matlab

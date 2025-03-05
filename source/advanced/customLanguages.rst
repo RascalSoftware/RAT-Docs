@@ -5,11 +5,13 @@ Custom Models in Python or C++
 ==============================
 
 RAT supports custom models written in MATLAB, Python or C++.
-Python functionality is useful as the more natural choice when using the python API, as well as making the wide range of Python libraries available within custom models.
-The reason for C++ is for pure speed, where very computationally demanding custom models calculations are required.
+
+Between MATLAB and Python, the natural choice is to write a model in the same language as the the API you're using. This will also likely be faster, since there is no computational overhead due to running a different language.
+Another common reason for making a particular choice of language is to take advantage of particular software libraries available in certain languages.
+The primary reason for C++ is for pure speed, where very computationally demanding custom models calculations are required.
 
 .. note::
-    Examples of using Python and C++ custom models can be found in the /examples/miscellaneous/alternativeLanguages folder
+    Examples of using Python and C++ custom models can be found in the /examples/miscellaneous/alternativeLanguages folder.
 
 ********************
 Python Custom Models
@@ -68,7 +70,7 @@ Custom models in Python and MATLAB are very similar in structure as shown below:
             vHead = 319;
             vTail = 782;
 
-            % we use the volumes to calculate the SLD's
+            % we use the volumes to calculate the SLDs
             SLDhead = Head / vHead;
             SLDtail = Tails / vTail;
 
@@ -143,7 +145,7 @@ Custom models in Python and MATLAB are very similar in structure as shown below:
             vHead = 319
             vTail = 782
 
-            # we use the volumes to calculate the SLD's
+            # we use the volumes to calculate the SLDs
             SLDhead = Head / vHead
             SLDtail = Tails / vTail
 
@@ -246,7 +248,7 @@ Following on from our custom bilayer examples, the equivalent C++ custom model s
             double vHead = 319;
             double vTail = 782;
 
-            // we use the volumes to calculate the SLD's
+            // we use the volumes to calculate the SLDs
             double SLDhead = Head / vHead;
             double SLDtail = Tails / vTail;
 
