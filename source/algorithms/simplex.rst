@@ -28,7 +28,7 @@ and the sources therein, or books such as Numerical Recipes (Press et al. 2007, 
 
 Algorithm control parameters
 ----------------------------
-The following parameters in the :ref:`Controls object<controlsInfo>` are specific to the Nelder-Mead simplex:
+The following parameters in the :ref:`Controls object<controls>` are specific to the Nelder-Mead simplex:
 
 - ``xTolerance``: The termination tolerance for step size. If the minimiser tries to take a step
   smaller than ``xTolerance`` *and* the tolerance bound on ``funcTolerance`` is satisfied, the algorithm terminates.

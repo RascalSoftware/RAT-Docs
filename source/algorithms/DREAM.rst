@@ -51,7 +51,7 @@ MCMC approaches, and in some cases even outperforms classical optimisation algor
 
 Algorithm control parameters
 ----------------------------
-The following parameters in the :ref:`Controls object<controlsInfo>` are specific to DREAM:
+The following parameters in the :ref:`Controls object<controls>` are specific to DREAM:
 
 - ``nSamples``: The number of samples in the initial population for each chain.
 

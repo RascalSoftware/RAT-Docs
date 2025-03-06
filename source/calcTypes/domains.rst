@@ -1,4 +1,4 @@
-.. _incoherent:
+.. _domains:
 
 ============================
 Incoherent Summing (Domains)
@@ -12,5 +12,5 @@ domain that the ``"domains"`` calculation type is used. As with a ``"normal"`` r
 .. toctree::
    :maxdepth: 2
 
-   domainsStanlay
+   domainsStandardLayers
    domainsCustomModels

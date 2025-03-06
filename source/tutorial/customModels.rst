@@ -500,7 +500,7 @@ In other words, the entire purpose of our custom layer file is to take our param
 You have complete freedom in how you do this, which means that you can make any kind of layer model you can think of using a custom layers file, including layers that are mixtures of adjoining layers and so on. As long as you can describe your 
 system as layers with an error function (i.e. Nevot and Croce) roughness you can describe them using custom layer modelling.
 
-The rest of the custom model is defined similar to the standard layers model shown in :ref:`chapter2`. So, since we want to analyse three contrasts simultaneously, we need the following:
+The rest of the custom model is defined similar to the standard layers model shown in :ref:`project`. So, since we want to analyse three contrasts simultaneously, we need the following:
 
 .. tab-set-code::
     .. code-block:: Matlab

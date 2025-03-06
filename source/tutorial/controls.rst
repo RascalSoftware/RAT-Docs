@@ -1,4 +1,4 @@
-.. _controlsInfo:
+.. _controls:
 
 ===================================
 A Closer Look at the Controls Class
