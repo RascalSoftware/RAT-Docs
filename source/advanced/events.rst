@@ -22,7 +22,7 @@ The example below registers a function to listen for the ``Plot`` event:
         import RATapi as RAT
         RAT.events.register(RAT.events.EventTypes.Plot, update_plot)      
 
-The event listener function is also shown below, it uses one of the plot functions provided by RAT to display the event data. The plot event data contains the current state of the reflectivity and SLD's, along with a number of other items which is detailed below.
+The event listener function is also shown below, it uses one of the plot functions provided by RAT to display the event data. The plot event data contains the current state of the reflectivity and SLDs, along with a number of other items which is detailed below.
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -33,7 +33,7 @@ The event listener function is also shown below, it uses one of the plot functio
 
             subplot(1,2,1); cla           % Reflectivity plot panel
             subplot(1,2,2); cla           % SLD plot panel
-            plotRefSLDHelper(eventData);      % Use the standard RAT reflectivity plot
+            plotRefSLDHelper(eventData);  % Use the standard RAT reflectivity plot
             drawnow limitrate             % Make sure it updates
 
         end

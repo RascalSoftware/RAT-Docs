@@ -4,12 +4,14 @@
 Custom Models in Python or C++
 ==============================
 
-Custom models are usually written in MATLAB, but RAT allows alternative languages to be used. You can write your custom models either in Python or C++.
-The reason for the Python functionality is mainly since this is the more natural choice when using RAT from Python with pythonRAT, but also because the user might choose to incorporate Python libraries into the custom models that are not available in MATLAB.
-The reason for C++ if for pure speed, where very computationally demanding custom models calculations are required. Both options are easy to use in RAT.
+RAT supports custom models written in MATLAB, Python or C++.
+
+Between MATLAB and Python, the natural choice is to write a model in the same language as the the API you're using. This will also likely be faster, since there is no computational overhead due to running a different language.
+Another common reason for making a particular choice of language is to take advantage of particular software libraries available in certain languages.
+The primary reason for C++ is for pure speed, where very computationally demanding custom models calculations are required.
 
 .. note::
-    Examples of using Python and C++ custom models can be found in the /examples/miscellaneous/alternativeLanguages folder
+    Examples of using Python and C++ custom models can be found in the /examples/miscellaneous/alternativeLanguages folder.
 
 ********************
 Python Custom Models
@@ -68,7 +70,7 @@ Custom models in Python and MATLAB are very similar in structure as shown below:
             vHead = 319;
             vTail = 782;
 
-            % we use the volumes to calculate the SLD's
+            % we use the volumes to calculate the SLDs
             SLDhead = Head / vHead;
             SLDtail = Tails / vTail;
 
@@ -143,7 +145,7 @@ Custom models in Python and MATLAB are very similar in structure as shown below:
             vHead = 319
             vTail = 782
 
-            # we use the volumes to calculate the SLD's
+            # we use the volumes to calculate the SLDs
             SLDhead = Head / vHead
             SLDtail = Tails / vTail
 
@@ -179,7 +181,7 @@ To use a python custom model from RAT, you need to add it to the current project
 
         problem.custom_files.append(name='myModel', filename='customBilayer.py', language='python')
 
-You can then use this in your calculations in the same way as a normal, MATLAB custom model.
+You can then use this in your calculations in the same way as a MATLAB custom model.
 
 *****************
 C++ Custom Models
@@ -246,7 +248,7 @@ Following on from our custom bilayer examples, the equivalent C++ custom model s
             double vHead = 319;
             double vTail = 782;
 
-            // we use the volumes to calculate the SLD's
+            // we use the volumes to calculate the SLDs
             double SLDhead = Head / vHead;
             double SLDtail = Tails / vTail;
 

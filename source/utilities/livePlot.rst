@@ -4,7 +4,7 @@
 Live Updating Plots
 ===================
 Sometimes it is useful to be able to monitor the progress of a fit in real time for long simulations. For Simplex and DE fits, RAT sends out 'events', which send out data concerning the
-reflectivity, SLD's and more as the fit progresses. To visualize the plot event data, we use the live plots as follows:
+reflectivity, SLDs and more as the fit progresses. To visualize the plot event data, we use the live plots as follows:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -28,7 +28,7 @@ reflectivity, SLD's and more as the fit progresses. To visualize the plot event 
         with RAT.plotting.LivePlot(block=True):
             problem, result = RAT.run(problem, controls);
 
-When the snippet above is run, a plot figure willed be opened and the plot will be updated every time a plot event is received. 
+When the snippet above is run, a plot figure will be opened and the plot will be updated every time a plot event is received. 
 
 
 .. _frequencyLivePlot:

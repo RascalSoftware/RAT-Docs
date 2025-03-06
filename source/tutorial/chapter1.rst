@@ -12,7 +12,7 @@ The central RAT workflow centres around two objects:
 
 * A **Project** object, which
   describes our data, our models, the various parameters we may have along with their limits or priors,
-  and other quantities such as bulk SLD's or backgrounds.
+  and other quantities such as bulk SLDs or backgrounds.
 
 * A **Controls** object, which 
   summarises the actions which we want to do with our model. It specifies which algorithm we
@@ -39,7 +39,7 @@ We will discuss these further in :ref:`the next chapter<chapter2>`, where we loo
           and Results, indicating the output produced by RAT after the program runs.
 
 
-The below code block gives the name of each object for each language, as well as how to run a calculation.
+The code block below shows how to set up each object for each language, as well as how to run a calculation.
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -92,8 +92,8 @@ In our example, the layers can be either deuterated or hydrogenated, and the bul
 
 We are going to analyze our monolayer data using a standard `slab model <https://www.reflectometry.org/learn/3_reflectometry_slab_models/the_slab_model.html>`_.
 In this model, we approximate our experimental model as a series of layers with a known thickness, roughness, SLD and hydration.
-The way that this is represented in the RAT model definition is by a list of 'parameter' objects which represent a given quantity (such as a thickness or SLD),
-and then a list of 'layer' objects which group together these parameters to describe each layer. Layers are then grouped together in a 'contrast' object which
+The way that this is represented in the RAT model definition is by a list of **Parameter** objects which represent a given quantity (such as a thickness or SLD),
+and then a list of **Layer** objects which group together these parameters to describe each layer. Layers are then grouped together in a **Contrast** object which
 describes the slab model and matches it up to the experimental data to which the model will be compared. In this project we have two contrasts representing
 two slab models (one for our deuterated experiment, one for our hydrogenated experiment).
 
@@ -169,7 +169,7 @@ This block defines all the parameters that we need to specify our slab models. I
 need 10 parameters to define our system: A bulk interface roughness, thickness and roughness for the headgroups and tails, and
 SLD values for the layers, depending on whether they are deuterated or not. Each parameter has a given ``value``, a ``fit`` field
 which specifies whether they are included in the fitting algorithm, and ``min`` and ``max`` values indicating the minimum and maximum
-value they can take in a fit respectively. There are also ``prior_type``, ``mu``, and ``sigma`` fields which are used in Bayesian algorithms
+value they can take in a fit respectively. There are also **prior type** fields which are used in Bayesian algorithms
 to leverage prior knowledge about the model, but for non-Bayesian algorithms these fields are ignored. We will not use them here.
 
 
@@ -197,15 +197,15 @@ to leverage prior knowledge about the model, but for non-Bayesian algorithms the
 Once we have our parameters, we then need to group these into layers. We have two slab models, each of which consists of a head
 and a tail at different deuteration levels. This means we require 4 layers total. 
 
-3. 'Instrument' Parameters: (Backgrounds, scalefactors and resolutions)
+3. 'Instrument' Parameters: (Backgrounds, Resolutions and Scalefactors)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The tables for scalefactors, backgrounds, resolutions and parameters thereof describe 
-parameters which are not directly part of our model, but part of our experiment, such as 
+There are tables for backgrounds and background parameters, resolutions and resolution parameters; alongside the scalefactors table.
+These describe parameters which are not directly part of our model, but part of our experiment, such as 
 the background or resolution of the instrument, or scale factors to fix systemic errors in scaling 
 (with respect to absolute reflectivity). We will not discuss these in detail here, but we will note
 that background parameters, resolution parameters and scalefactors are parameters just like the ones above,
-and can be fit in the same way as part of our analysis (e.g. if the scalefactor is unknown and we would like to optimise it)!
+and can be fitted in the same way as part of our analysis (e.g. if the scalefactor is unknown and we would like to optimise it)!
 
 
 4. Data
@@ -229,15 +229,15 @@ and can be fit in the same way as part of our analysis (e.g. if the scalefactor 
 
             print(problem.data)
 
-Each contrast must have a dataset associated with it, whether or not it contains data or not. An empty data object 
-(i.e. containing no data and just simulation ranges) means RAT will calculate the reflectivity only. When data is present, chi-squared goodness of fit
-will also be calculated. For our problem, we have two datasets and these are passed to the data block ready to be incorporated into contrasts:
+Each contrast must have a dataset associated with it, whether or not it contains data. An empty data object 
+(i.e. containing no data and just a simulation range) means RAT will calculate the reflectivity only. When data is present, chi-squared goodness of fit
+will also be calculated. For our problem, we have two datasets and these are passed to the data block ready to be incorporated into contrasts.
 
 5. Contrasts
 ^^^^^^^^^^^^
 
 Once we have defined all the components of our model, we need to group them together into contrasts. We have two datasets 
-we want to consider, so two contrasts. We have the relevant instrument parameters, and also we specify which layers are included in each contrast (*model*). 
+we want to consider, so two contrasts. We have the relevant instrument parameters, and also we specify which layers are included in each contrast (in the ``model``). 
 
 .. tab-set::
     :class: tab-label-hidden
@@ -264,7 +264,7 @@ As we discussed at the beginning of the chapter, the other input to RAT is a con
 which describes the data analysis operation to use and any relevant settings such as 
 algorithm-specific parameters, parallelism, and display settings.
 More detail on the controls object is available at :ref:`controlsInfo`, 
-but for this demo we will just make an instance of the controls object:
+but for this demo we will just make an instance of the default controls object:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -301,7 +301,7 @@ but for this demo we will just make an instance of the controls object:
 
 By default, the Controls object specifies to run an `Abelès calculation <https://www.reflectometry.org/learn/3_reflectometry_slab_models/how_we_calculate_the_reflectivity_of_a_slab_model.html>`_
 of the reflectivity for the model, and then uses that to calculate SLD profiles. In other words we are not asking RAT to do any kind of fit with our parameters. 
-We can now pass our problem definition and controls classes to the RAT toolbox to run the calculation:
+We can now pass our problem definition and controls classes to RAT to run the calculation:
 
 
 .. tab-set-code::
@@ -334,7 +334,7 @@ We can now pass our problem definition and controls classes to the RAT toolbox t
             problem, results = RAT.run(problem, controls)
 
 Here, we overwrite our original input class with the output by using the same variable name (``problem``) as an input and an output, 
-but you don’t have to do it this way.
+but you don't have to do it this way.
 
 As discussed above, the output of this run is an updated model definition (which in this case is completely identical to the input
 definition as we did not perform any fitting) as well as the results from our calculation. The results contain various output arrays:
@@ -358,7 +358,7 @@ definition as we did not perform any fitting) as well as the results from our ca
 
             print(results)
 
-This contains the results of our calculations, so for us including the SLD profiles and reflectivities calculated from our problem class. 
+This contains the results of our calculations, including the SLD profiles and reflectivities calculated from our problem class. 
 We can now plot the output, either manually (by taking the relevant parts from the ``results`` array), or using one of the supplied plotting utilities:
 
 .. tab-set-code::
@@ -374,5 +374,5 @@ We can now plot the output, either manually (by taking the relevant parts from t
 .. image:: ../images/tutorial/plotBeforeOptimization.png
     :alt: reflectivity and SLD plots
 
-We can see that our model is looking fairly sensible, but that our guess values for the parameters are pretty wide off the mark. Further analysis
+We can see that our model is looking fairly sensible, but that our guess values for the parameters are pretty wide of the mark. Further analysis
 might include running a fit over some of our parameters using one of the other procedures available in the controls object.

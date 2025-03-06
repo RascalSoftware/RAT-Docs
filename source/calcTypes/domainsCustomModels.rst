@@ -20,8 +20,8 @@ In the custom model itself, there is an extra input parameter for the custom mod
             return output, sub_rough
 
 
-The first four parameters are the same as for a normal custom model. The final *'domainNumber'* parameter is an integer with a value which is either 1 or 2. Then, it is up
-to the user to build the correct domain. So for example, within the custom model:
+The first four parameters are the same as for a normal custom model. The final *'domainNumber'* parameter is the index of the domain (either 1 or 2 in MATLAB, and either 0 or 1 in Python).
+Then, it is up to the user to build the correct domain. So for example, within the custom model:
 
 .. tab-set-code::
     .. code-block:: Matlab
