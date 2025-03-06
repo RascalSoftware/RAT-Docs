@@ -580,7 +580,7 @@ The value of an existing layer can be changed by specifying the layer, layer par
 
         .. output:: Python
 
-            problem.layers.set_fields('H Layer', thickness='H SLD') 
+            problem.layers.set_fields(0, thickness='H SLD') 
             print(problem.layers)
 
 
@@ -952,7 +952,7 @@ Note that we did not specify data or simulation ranges, and so these default to 
 
         .. output:: Python
 
-            problem.data.set_fields('My new datafile', data_range=[0.1, 0.3])
+            problem.data.set_fields(1, data_range=[0.1, 0.3])
             print(problem.data)
 
 
