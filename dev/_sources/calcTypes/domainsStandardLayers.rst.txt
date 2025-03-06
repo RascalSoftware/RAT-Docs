@@ -1,4 +1,4 @@
-.. _domainsStanlay:
+.. _domainsStandardLayers:
 
 =======================
 Standard Layers Domains

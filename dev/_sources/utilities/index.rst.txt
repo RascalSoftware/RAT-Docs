@@ -11,7 +11,7 @@ These are mainly plotting functions:
 .. toctree::
    :maxdepth: 1
 
-   plotFuns
-   plotFunsBayes
+   plotFuncs
+   bayesPlot
    livePlot
    conversionFuncs

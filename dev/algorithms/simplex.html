@@ -358,9 +358,9 @@ document.write(`
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../tutorial/index.html">Tutorial</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter1.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter2.html">The Project Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/controlsInfo.html">A Closer Look at the Controls Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/project.html">The Project Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/controls.html">A Closer Look at the Controls Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/customModels.html">Custom Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/savingOutputs.html">Copying and Saving Outputs</a></li>
 </ul>
@@ -403,16 +403,16 @@ document.write(`
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../calcTypes/index.html">Different Calculation Types</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../calcTypes/imaginary.html">Adding the Imaginary Refractive Index</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../calcTypes/incoherent.html">Incoherent Summing (Domains)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsStanlay.html">Standard Layers Domains</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calcTypes/domains.html">Incoherent Summing (Domains)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsStandardLayers.html">Standard Layers Domains</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsCustomModels.html">Custom Models with Domains</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../utilities/index.html">Utility Functions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/plotFuns.html">Basic Plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/plotFunsBayes.html">Plotting Bayesian Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/plotFuncs.html">Basic Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/bayesPlot.html">Plotting Bayesian Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Live Updating Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/conversionFuncs.html">Convert between RAT and RasCAL-1</a></li>
 </ul>
@@ -497,7 +497,7 @@ quickly before adjusting your parameter bounds and getting more detailed results
 and the sources therein, or books such as Numerical Recipes (Press et al. 2007, chapter 10.5). <a class="footnote-reference brackets" href="#press2007" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
 <section id="algorithm-control-parameters">
 <h2>Algorithm control parameters<a class="headerlink" href="#algorithm-control-parameters" title="Link to this heading">#</a></h2>
-<p>The following parameters in the <a class="reference internal" href="../tutorial/controlsInfo.html#controlsinfo"><span class="std std-ref">Controls object</span></a> are specific to the Nelder-Mead simplex:</p>
+<p>The following parameters in the <a class="reference internal" href="../tutorial/controls.html#controls"><span class="std std-ref">Controls object</span></a> are specific to the Nelder-Mead simplex:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">xTolerance</span></code>: The termination tolerance for step size. If the minimiser tries to take a step
 smaller than <code class="docutils literal notranslate"><span class="pre">xTolerance</span></code> <em>and</em> the tolerance bound on <code class="docutils literal notranslate"><span class="pre">funcTolerance</span></code> is satisfied, the algorithm terminates.</p></li>

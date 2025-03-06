@@ -46,7 +46,7 @@
     <script src="../_static/copybutton.js?v=881e7dcd"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/chapter1';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/introduction';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://rascalsoftware.github.io/RAT-Docs/switcher.json';
@@ -56,7 +56,7 @@
     <link rel="icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="The Project Class" href="chapter2.html" />
+    <link rel="next" title="The Project Class" href="project.html" />
     <link rel="prev" title="Tutorial" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -357,8 +357,8 @@ document.write(`
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Tutorial</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chapter2.html">The Project Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="controlsInfo.html">A Closer Look at the Controls Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project.html">The Project Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controls.html">A Closer Look at the Controls Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="customModels.html">Custom Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="savingOutputs.html">Copying and Saving Outputs</a></li>
 </ul>
@@ -401,16 +401,16 @@ document.write(`
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../calcTypes/index.html">Different Calculation Types</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../calcTypes/imaginary.html">Adding the Imaginary Refractive Index</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../calcTypes/incoherent.html">Incoherent Summing (Domains)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsStanlay.html">Standard Layers Domains</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calcTypes/domains.html">Incoherent Summing (Domains)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsStandardLayers.html">Standard Layers Domains</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsCustomModels.html">Custom Models with Domains</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../utilities/index.html">Utility Functions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/plotFuns.html">Basic Plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/plotFunsBayes.html">Plotting Bayesian Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/plotFuncs.html">Basic Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/bayesPlot.html">Plotting Bayesian Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Live Updating Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/conversionFuncs.html">Convert between RAT and RasCAL-1</a></li>
 </ul>
@@ -476,7 +476,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="introduction">
-<span id="chapter1"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
 <p>RAT is used to analyse reduced data; after an experiment has been performed and the raw data simplified into a more usable format
 (using a data reduction software such as <a class="reference external" href="https://docs.mantidproject.org/v4.2.0/techniques/ISIS_Reflectometry.html">Mantid</a>),
 we can use RAT for the calculation, estimation, and fitting of quantities of interest.</p>
@@ -496,7 +496,7 @@ for each parameter.</p>
 <p>These inputs are passed into RAT to produce
 two outputs. The first is another model definition, which describes the same experiment as the input definition but with updated best-fit parameter values for parameters which
 we have chosen to optimise. The second is a results object which contains the results of the calculations, such as simulated reflectivities, SLD profiles or parameter distributions.</p>
-<p>We will discuss these further in <a class="reference internal" href="chapter2.html#chapter2"><span class="std std-ref">the next chapter</span></a>, where we look at the inputs and outputs in more detail.</p>
+<p>We will discuss these further in <a class="reference internal" href="project.html#project"><span class="std std-ref">the next chapter</span></a>, where we look at the inputs and outputs in more detail.</p>
 <img alt="A flowchart depicting the RAT workflow model described above. On the left, we have two boxes labeled Problem (Input) and Controls, representing the required inputs used by RAT. An arrow points from each of these boxes to a central box labeled 'RAT', which represents passing these input objects into the main RAT program. Two arrows point from this central RAT box to a pair of boxes on the right labelled Problem (Output) and Results, indicating the output produced by RAT after the program runs." src="../_images/ratInput.png" />
 <p>The code block below shows how to set up each object for each language, as well as how to run a calculation.</p>
 <div class="sd-tab-set docutils">
@@ -536,7 +536,7 @@ conversion utilities (<a class="reference internal" href="../utilities/conversio
 <h2>An example - A simple model of a lipid layer<a class="headerlink" href="#an-example-a-simple-model-of-a-lipid-layer" title="Link to this heading">#</a></h2>
 <section id="specifying-the-model">
 <h3>Specifying the Model<a class="headerlink" href="#specifying-the-model" title="Link to this heading">#</a></h3>
-<p>In <a class="reference internal" href="chapter2.html#chapter2"><span class="std std-ref">the next chapter</span></a>, we’ll look in detail how to set up the problem definition for a given situation.
+<p>In <a class="reference internal" href="project.html#project"><span class="std std-ref">the next chapter</span></a>, we’ll look in detail how to set up the problem definition for a given situation.
 Here we will just use an existing example model to introduce how these objects are used in RAT.
 Our example data is neutron reflectivity data for a lipid monolayer (see image below), collected at various deuterations,
 which we want to analyse simultaneously.</p>
@@ -1016,7 +1016,7 @@ Python</label><div class="sd-tab-content docutils">
 <p>As we discussed at the beginning of the chapter, the other input to RAT is a controls object,
 which describes the data analysis operation to use and any relevant settings such as
 algorithm-specific parameters, parallelism, and display settings.
-More detail on the controls object is available at <a class="reference internal" href="controlsInfo.html#controlsinfo"><span class="std std-ref">A Closer Look at the Controls Class</span></a>,
+More detail on the controls object is available at <a class="reference internal" href="controls.html#controls"><span class="std std-ref">A Closer Look at the Controls Class</span></a>,
 but for this demo we will just make an instance of the default controls object:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-14" name="sd-tab-set-7" type="radio">
@@ -1097,7 +1097,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ________________________________________________________________________________________________
 
-Elapsed time is 0.221287 seconds.
+Elapsed time is 0.388778 seconds.
 
 Finished RAT ______________________________________________________________________________________________ 
 </pre></div>

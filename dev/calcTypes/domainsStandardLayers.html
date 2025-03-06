@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>A Closer Look at the Controls Class &#8212; RAT  documentation</title>
+    <title>Standard Layers Domains &#8212; RAT  documentation</title>
   
   
   
@@ -46,9 +46,7 @@
     <script src="../_static/copybutton.js?v=881e7dcd"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/controlsInfo';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'calcTypes/domainsStandardLayers';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://rascalsoftware.github.io/RAT-Docs/switcher.json';
@@ -58,8 +56,8 @@
     <link rel="icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Custom Models" href="customModels.html" />
-    <link rel="prev" title="The Project Class" href="chapter2.html" />
+    <link rel="next" title="Custom Models with Domains" href="domainsCustomModels.html" />
+    <link rel="prev" title="Incoherent Summing (Domains)" href="domains.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -265,10 +263,6 @@ document.write(`
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
-      <span class="fa-solid fa-outdent"></span>
-    </label>
-  
 </div>
 
     </header>
@@ -357,12 +351,12 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Tutorial</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="chapter1.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chapter2.html">The Project Class</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">A Closer Look at the Controls Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customModels.html">Custom Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="savingOutputs.html">Copying and Saving Outputs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorial/index.html">Tutorial</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/project.html">The Project Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/controls.html">A Closer Look at the Controls Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/customModels.html">Custom Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/savingOutputs.html">Copying and Saving Outputs</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../matlab_examples/index.html">MATLAB Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -401,18 +395,18 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../advanced/events.html">Handling Events During Calculations</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../calcTypes/index.html">Different Calculation Types</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../calcTypes/imaginary.html">Adding the Imaginary Refractive Index</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../calcTypes/incoherent.html">Incoherent Summing (Domains)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsStanlay.html">Standard Layers Domains</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsCustomModels.html">Custom Models with Domains</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Different Calculation Types</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="imaginary.html">Adding the Imaginary Refractive Index</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="domains.html">Incoherent Summing (Domains)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Standard Layers Domains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="domainsCustomModels.html">Custom Models with Domains</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../utilities/index.html">Utility Functions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/plotFuns.html">Basic Plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/plotFunsBayes.html">Plotting Bayesian Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/plotFuncs.html">Basic Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/bayesPlot.html">Plotting Bayesian Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Live Updating Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/conversionFuncs.html">Convert between RAT and RasCAL-1</a></li>
 </ul>
@@ -446,6 +440,8 @@ document.write(`
 
 
 
+
+
 <nav aria-label="Breadcrumb">
   <ul class="bd-breadcrumbs">
     
@@ -458,9 +454,12 @@ document.write(`
     <li class="breadcrumb-item"><a href="../guide.html" class="nav-link">User Guide</a></li>
     
     
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Tutorial</a></li>
+    <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
     
-    <li class="breadcrumb-item active" aria-current="page">A Closer...</li>
+    
+    <li class="breadcrumb-item"><a href="domains.html" class="nav-link">Incoherent Summing (Domains)</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Standard...</li>
   </ul>
 </nav>
 </div>
@@ -477,183 +476,211 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="a-closer-look-at-the-controls-class">
-<span id="controlsinfo"></span><h1>A Closer Look at the Controls Class<a class="headerlink" href="#a-closer-look-at-the-controls-class" title="Link to this heading">#</a></h1>
-<p>We have already seen in previous sections that once the problem has been defined in the project class, it is necessary to define a <strong>Controls</strong>
-object which, as its name suggests, tells RAT what we want to do with the project.</p>
-<p>Making an instance of the <strong>Controls</strong> class is quite simple:</p>
+  <section id="standard-layers-domains">
+<span id="domainsstandardlayers"></span><h1>Standard Layers Domains<a class="headerlink" href="#standard-layers-domains" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See the <em>/examples/domains/standardLayers/</em> folder for an example of standard layers with domains.</p>
+</div>
+<p>In order to use domains, we create a project of the correct type….</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
 MATLAB</label><div class="sd-tab-content docutils">
-<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">();</span>
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">createProject</span><span class="p">(</span><span class="n">calcType</span><span class="p">=</span><span class="s">&#39;domains&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-1">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Project</span><span class="p">(</span><span class="n">calculation</span><span class="o">=</span><span class="s1">&#39;domains&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>This then creates an instance of the <strong>Controls</strong> class with a number of options defined:</p>
-<div class="sd-tab-set tab-label-hidden docutils">
+<p>The principle of setting up these calculations relies on firstly grouping the layers into domains, then grouping the defined domains intro contrasts, according to a <strong>domain ratio</strong> parameter:</p>
+<a class="reference internal image-reference" href="../_images/domainsGraph.png"><img alt="../_images/domainsGraph.png" src="../_images/domainsGraph.png" style="width: 800px;" />
+</a>
+<p>The example (in the examples folder), we define the layers as for conventional Standard Layers projects:</p>
+<div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
-Matlab</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  controlsClass with properties:
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Layer1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;Layer 1&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">         % Name of the Layer</span>
+<span class="w">          </span><span class="s">&#39;L1 thick&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">        % Layer thickness</span>
+<span class="w">          </span><span class="s">&#39;L1 SLD&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">          % Layer SLD</span>
+<span class="w">          </span><span class="s">&#39;L1 Rough&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">        % Layer roughness</span>
+<span class="w">          </span><span class="s">&#39;L1 Hydr&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">         % hydration (percent)</span>
+<span class="w">          </span><span class="s">&#39;bulk out&#39;</span><span class="w"> </span><span class="p">};</span>
 
-            parallel: &#39;single&#39;
-           procedure: &#39;calculate&#39;
-    calcSldDuringFit: 0
-             display: &#39;iter&#39;
-    resampleMinAngle: 0.9000
-     resampleNPoints: 50
+<span class="n">Layer2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;Layer 2&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">         % Name of the layer</span>
+<span class="w">          </span><span class="s">&#39;L2 thick&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">        % Layer thickness</span>
+<span class="w">          </span><span class="s">&#39;L2 SLD&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">          % Layer SLD</span>
+<span class="w">          </span><span class="s">&#39;L2 Rough&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">        % Layer roughness</span>
+<span class="w">          </span><span class="s">&#39;L2 Hydr&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">         % hydration (percent)</span>
+<span class="w">          </span><span class="s">&#39;bulk out&#39;</span><span class="w"> </span><span class="p">};</span>
+
+<span class="n">Layer3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;Layer 3&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">         % Name of the layer</span>
+<span class="w">          </span><span class="s">&#39;L3 thick&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">        % Layer thickness</span>
+<span class="w">          </span><span class="s">&#39;L3 SLD&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">          % Layer SLD</span>
+<span class="w">          </span><span class="s">&#39;L3 Rough&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">        % Layer roughness</span>
+<span class="w">          </span><span class="s">&#39;L3 Hydr&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">         % hydration (percent)</span>
+<span class="w">          </span><span class="s">&#39;bulk out&#39;</span><span class="w"> </span><span class="p">};</span>
+
+<span class="n">problem</span><span class="p">.</span><span class="n">addLayerGroup</span><span class="p">({</span><span class="n">Layer1</span><span class="p">,</span><span class="w"> </span><span class="n">Layer2</span><span class="p">,</span><span class="w"> </span><span class="n">Layer3</span><span class="p">});</span>
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
-Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------+-----------+
-|     Property     |   Value   |
-+------------------+-----------+
-|    procedure     | calculate |
-|     parallel     |   single  |
-| calcSldDuringFit |   False   |
-| resampleMinAngle |    0.9    |
-| resampleNPoints  |     50    |
-|     display      |    iter   |
-+------------------+-----------+
-</pre></div>
-</div>
-</div>
-</div>
-<p>We will look at each of these in more detail below. Note that the options that are visible depend on
-the <code class="docutils literal notranslate"><span class="pre">procedure</span></code> selected. So, at the moment the <code class="docutils literal notranslate"><span class="pre">procedure</span></code> is set to <code class="docutils literal notranslate"><span class="pre">&quot;calculate&quot;</span></code>, which will simply calculate the reflectivity and
-SLD for any associated problem. If we select the <code class="docutils literal notranslate"><span class="pre">&quot;simplex&quot;</span></code> algorithm as the <code class="docutils literal notranslate"><span class="pre">procedure</span></code>, a different set of options appears:</p>
-<div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
-MATLAB</label><div class="sd-tab-content docutils">
-<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span><span class="p">.</span><span class="n">procedure</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;simplex&#39;</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-5">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span><span class="o">.</span><span class="n">procedure</span> <span class="o">=</span> <span class="s1">&#39;simplex&#39;</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now group these parameters into layers</span>
+<span class="n">problem</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Layer 1&#39;</span><span class="p">,</span>
+                      <span class="n">thickness</span><span class="o">=</span><span class="s1">&#39;L1 Thickness&#39;</span><span class="p">,</span>
+                      <span class="n">SLD</span><span class="o">=</span><span class="s1">&#39;L1 SLD&#39;</span><span class="p">,</span>
+                      <span class="n">roughness</span><span class="o">=</span><span class="s1">&#39;L1 Roughness&#39;</span><span class="p">,</span>
+                      <span class="n">hydration</span><span class="o">=</span><span class="s1">&#39;L1 Hydration&#39;</span><span class="p">,</span>
+                      <span class="n">hydrate_with</span><span class="o">=</span><span class="s1">&#39;bulk out&#39;</span><span class="p">)</span>
+
+<span class="n">problem</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Layer 2&#39;</span><span class="p">,</span>
+                      <span class="n">thickness</span><span class="o">=</span><span class="s1">&#39;L2 Thickness&#39;</span><span class="p">,</span>
+                      <span class="n">SLD</span><span class="o">=</span><span class="s1">&#39;L2 SLD&#39;</span><span class="p">,</span>
+                      <span class="n">roughness</span><span class="o">=</span><span class="s1">&#39;L2 Roughness&#39;</span><span class="p">,</span>
+                      <span class="n">hydration</span><span class="o">=</span><span class="s1">&#39;L2 Hydration&#39;</span><span class="p">,</span>
+                      <span class="n">hydrate_with</span><span class="o">=</span><span class="s1">&#39;bulk out&#39;</span><span class="p">)</span>
+
+<span class="n">problem</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Layer 3&#39;</span><span class="p">,</span>
+                      <span class="n">thickness</span><span class="o">=</span><span class="s1">&#39;L3 Thickness&#39;</span><span class="p">,</span>
+                      <span class="n">SLD</span><span class="o">=</span><span class="s1">&#39;L3 SLD&#39;</span><span class="p">,</span>
+                      <span class="n">roughness</span><span class="o">=</span><span class="s1">&#39;L3 Roughness&#39;</span><span class="p">,</span>
+                      <span class="n">hydration</span><span class="o">=</span><span class="s1">&#39;L3 Hydration&#39;</span><span class="p">,</span>
+                      <span class="n">hydrate_with</span><span class="o">=</span><span class="s1">&#39;bulk out&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="sd-tab-set tab-label-hidden docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
+Matlab</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    p      Name       Thickness       SLD       Roughness     Hydration    Hydrate with
+    _    _________    __________    ________    __________    _________    ____________
+
+    1    &quot;Layer 1&quot;    &quot;L1 thick&quot;    &quot;L1 SLD&quot;    &quot;L1 Rough&quot;    &quot;L1 Hydr&quot;     &quot;bulk out&quot; 
+    2    &quot;Layer 2&quot;    &quot;L2 thick&quot;    &quot;L2 SLD&quot;    &quot;L2 Rough&quot;    &quot;L2 Hydr&quot;     &quot;bulk out&quot; 
+    3    &quot;Layer 3&quot;    &quot;L3 thick&quot;    &quot;L3 SLD&quot;    &quot;L3 Rough&quot;    &quot;L3 Hydr&quot;     &quot;bulk out&quot; 
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-5">
+Python</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+---------+--------------+--------+--------------+--------------+--------------+
+| index |   name  |  thickness   |  SLD   |  roughness   |  hydration   | hydrate with |
++-------+---------+--------------+--------+--------------+--------------+--------------+
+|   0   | Layer 1 | L1 Thickness | L1 SLD | L1 Roughness | L1 Hydration |   bulk out   |
+|   1   | Layer 2 | L2 Thickness | L2 SLD | L2 Roughness | L2 Hydration |   bulk out   |
+|   2   | Layer 3 | L3 Thickness | L3 SLD | L3 Roughness | L3 Hydration |   bulk out   |
++-------+---------+--------------+--------+--------------+--------------+--------------+
+</pre></div>
+</div>
+</div>
+</div>
+<p>From this point, the model diverges from the usual Standard Layers case, in that the layers are grouped into <strong>domain contrasts</strong>, which appear in an additional table in the
+printout of the project class. Domains contrasts consist of only a <code class="docutils literal notranslate"><span class="pre">model</span></code> containing layers, with no bulk phases etc.</p>
+<div class="sd-tab-set tab-label-hidden docutils">
 <input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-6">
 Matlab</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  controlsClass with properties:
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>             p                    1        
+    ___________________    ________________
 
-            parallel: &#39;single&#39;
-           procedure: &#39;simplex&#39;
-    calcSldDuringFit: 0
-             display: &#39;iter&#39;
-          xTolerance: 1.0000e-06
-       funcTolerance: 1.0000e-06
-        maxFuncEvals: 10000
-       maxIterations: 1000
-          updateFreq: 1
-      updatePlotFreq: 20
-    resampleMinAngle: 0.9000
-     resampleNPoints: 50
+    &quot;Name&quot;                 &quot;Domain Test&quot;   
+    &quot;Data&quot;                 &quot;Simulation&quot;    
+    &quot;Background&quot;           &quot;Background 1&quot;  
+    &quot;Background Action&quot;    &quot;add&quot;           
+    &quot;Bulk in&quot;              &quot;SLD Air&quot;       
+    &quot;Bulk out&quot;             &quot;SLD D2O&quot;       
+    &quot;Scalefactor&quot;          &quot;Scalefactor 1&quot; 
+    &quot;Resolution&quot;           &quot;Resolution 1&quot;  
+    &quot;Resample&quot;             &quot;false&quot;         
+    &quot;Domain Ratio&quot;         &quot;Domain Ratio 1&quot;
+    &quot;Model&quot;                &quot;Domain1&quot;       
+    &quot;&quot;                     &quot;Domain2&quot;       
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-7">
 Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------+---------+
-|     Property     |  Value  |
-+------------------+---------+
-|    procedure     | simplex |
-|     parallel     |  single |
-| calcSldDuringFit |  False  |
-| resampleMinAngle |   0.9   |
-| resampleNPoints  |    50   |
-|     display      |   iter  |
-|    xTolerance    |  1e-06  |
-|  funcTolerance   |  1e-06  |
-|   maxFuncEvals   |  10000  |
-|  maxIterations   |   1000  |
-|    updateFreq    |    1    |
-|  updatePlotFreq  |    20   |
-+------------------+---------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+-------------+------------+--------------+-------------------+---------+----------+---------------+--------------+----------+----------------+----------+
+| index |     name    |    data    |  background  | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample |  domain ratio  |  model   |
++-------+-------------+------------+--------------+-------------------+---------+----------+---------------+--------------+----------+----------------+----------+
+|   0   | Domain Test | Simulation | Background 1 |        add        | SLD Air | SLD D2O  | Scalefactor 1 | Resolution 1 |  False   | Domain Ratio 1 | Domain 1 |
+|       |             |            |              |                   |         |          |               |              |          |                | Domain 2 |
++-------+-------------+------------+--------------+-------------------+---------+----------+---------------+--------------+----------+----------------+----------+
 </pre></div>
 </div>
 </div>
 </div>
-<p>which allow the user to set things such as tolerance targets and so on. There are a different set of options for each algorithm.
-We will now look at each of the available options in turn.</p>
-<section id="general-parameters-for-the-controls-class">
-<h2>General parameters for the Controls Class<a class="headerlink" href="#general-parameters-for-the-controls-class" title="Link to this heading">#</a></h2>
-<p>These are the general parameters for the controls class. For algorithm-specific parameters see the page for each algorithm in the
-<a class="reference internal" href="../algorithms/index.html#algorithms"><span class="std std-ref">algorithms section</span></a>.</p>
-<section id="procedure">
-<h3><code class="docutils literal notranslate"><span class="pre">procedure</span></code><a class="headerlink" href="#procedure" title="Link to this heading">#</a></h3>
-<p>Which algorithm RAT should run. Currently the options are:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;calculate&quot;</span></code>: A simple <a class="reference external" href="https://www.reflectometry.org/learn/3_reflectometry/slab_models/how_we_calculate_the_reflectivity_of_a_slab_model.html">Abelès calculation</a>
-of reflectivity for the model, with chi-squared fit calculated between the model and the data.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;simplex&quot;</span></code>: Optimisation via the Nelder-Mead <a class="reference internal" href="../algorithms/simplex.html#simplex"><span class="std std-ref">simplex method</span></a>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;de&quot;</span></code>: Optimisation via <a class="reference internal" href="../algorithms/DE.html#de"><span class="std std-ref">differential evolution</span></a>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;ns&quot;</span></code>: Bayesian optimisation via <a class="reference internal" href="../algorithms/nestedSampling.html#nestedsampling"><span class="std std-ref">nested sampling</span></a>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;dream&quot;</span></code>: Bayesian optimisation via the <a class="reference internal" href="../algorithms/DREAM.html#dream"><span class="std std-ref">DREAM algorithm</span></a>.</p></li>
-</ul>
-</section>
-<section id="parallel">
-<h3><code class="docutils literal notranslate"><span class="pre">parallel</span></code><a class="headerlink" href="#parallel" title="Link to this heading">#</a></h3>
-<p>How the calculation should be <a class="reference internal" href="../advanced/parallelisation.html#parallelisation"><span class="std std-ref">parallelised</span></a>. Currently the options are:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;single&quot;</span></code>: do not parallelise.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;contrasts&quot;</span></code>: each contrast gets its own calculation thread.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;points&quot;</span></code>: each contrast is split into a number of sections, and each section gets its own calculation thread.</p></li>
-</ul>
-<p>Which option is more efficient will depend on the number of contrasts and the size of your data.</p>
-</section>
-<section id="calcsldduringfit">
-<h3><code class="docutils literal notranslate"><span class="pre">calcSldDuringFit</span></code><a class="headerlink" href="#calcsldduringfit" title="Link to this heading">#</a></h3>
-<p>A boolean (true or false) value which determines whether SLD will be calculated during the fit
-(for <a class="reference internal" href="../utilities/livePlot.html#liveplot"><span class="std std-ref">live plotting</span></a> etc.)</p>
-</section>
-<section id="display">
-<h3><code class="docutils literal notranslate"><span class="pre">display</span></code><a class="headerlink" href="#display" title="Link to this heading">#</a></h3>
-<p>How much RAT should print to the terminal. The current options are:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;off&quot;</span></code>: No display.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;iter&quot;</span></code>: Give information after every iteration for iterative algorithms.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;notify&quot;</span></code>:</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;final&quot;</span></code>: Just provide information when the calculation has finished.</p></li>
-</ul>
-</section>
-<section id="resampling-parameters-resampleminangle-and-resamplenpoints">
-<h3>Resampling parameters (<code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code> and <code class="docutils literal notranslate"><span class="pre">resampleNPoints</span></code>)<a class="headerlink" href="#resampling-parameters-resampleminangle-and-resamplenpoints" title="Link to this heading">#</a></h3>
-<p>The two parameters <code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code> and <code class="docutils literal notranslate"><span class="pre">resampleNPoints</span></code> decide how
-adaptive resampling will be used on the SLD profiles.
-See the <a class="reference internal" href="../advanced/resampling.html#resampling"><span class="std std-ref">resampling page</span></a> for more details. In short:</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code>: For each data point, the algorithm draws two lines from that data point to its neighbouring points on either side.
-If the angle between those lines is smaller than <code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code>, then the algorithm will refine over that point.</p>
-<p>In practice, this means that resampling happens for points which are significantly higher or lower than their neighbours
-(i.e. the gradient of the function has changed rapidly)
-and <code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code> controls the sensitivity of this.</p>
-<p><code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code> is defined in the units of “radians divided by pi”, i.e. <code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span> <span class="pre">=</span> <span class="pre">0.9</span></code> refines where the adjacent points form an angle smaller than <span class="math notranslate nohighlight">\(0.9 \pi\)</span> radians.</p>
-</li>
-<li><p><code class="docutils literal notranslate"><span class="pre">resampleNPoints</span></code>: The initial number of domain points (layers) sampled by the algorithm at the start.</p></li>
-</ul>
-</section>
-</section>
+<p>It is then these that are grouped into the final contrasts model. For each contrast, there must be <strong>exactly</strong> two (<em>and only two</em>) domain contrasts in the model. In addition, each contrast requires a
+<strong>domain ratio</strong> parameter. This is a fittable parameter between 0 and 1, that appears in the domain ratio table:</p>
+<div class="sd-tab-set tab-label-hidden docutils">
+<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-8">
+Matlab</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    p          Name          Min    Value    Max    Fit? 
+    _    ________________    ___    _____    ___    _____
+
+    1    &quot;Domain Ratio 1&quot;    0.4     0.5     0.6    false
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-9">
+Python</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+----------------+-----+-------+-----+-------+
+| index |      name      | min | value | max |  fit  |
++-------+----------------+-----+-------+-----+-------+
+|   0   | Domain Ratio 1 | 0.4 |  0.5  | 0.6 | False |
++-------+----------------+-----+-------+-----+-------+
+</pre></div>
+</div>
+</div>
+</div>
+<p>leading to the final contrast structure of two domains, and one domain ratio:</p>
+<div class="sd-tab-set tab-label-hidden docutils">
+<input checked="checked" id="sd-tab-item-10" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-10">
+Matlab</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>       p           1            2    
+    _______    _________    _________
+
+    &quot;Name&quot;     &quot;Domain1&quot;    &quot;Domain2&quot;
+    &quot;Model&quot;    &quot;Layer 1&quot;    &quot;Layer 2&quot;
+    &quot;&quot;         &quot;&quot;           &quot;Layer 3&quot;
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-11" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-11">
+Python</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+----------+---------+
+| index |   name   |  model  |
++-------+----------+---------+
+|   0   | Domain 1 | Layer 1 |
+|   1   | Domain 2 | Layer 2 |
+|       |          | Layer 3 |
++-------+----------+---------+
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the domain ratio, a value of 0 means 100% Domain 1, whilst conversely a value of 1 means 100% Domain 2.</p>
+</div>
 </section>
 
 
@@ -667,29 +694,7 @@ and <code class="docutils literal notranslate"><span class="pre">resampleMinAngl
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-parameters-for-the-controls-class">General parameters for the Controls Class</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure"><code class="docutils literal notranslate"><span class="pre">procedure</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel"><code class="docutils literal notranslate"><span class="pre">parallel</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calcsldduringfit"><code class="docutils literal notranslate"><span class="pre">calcSldDuringFit</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display"><code class="docutils literal notranslate"><span class="pre">display</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resampling-parameters-resampleminangle-and-resamplenpoints">Resampling parameters (<code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code> and <code class="docutils literal notranslate"><span class="pre">resampleNPoints</span></code>)</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
+                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>

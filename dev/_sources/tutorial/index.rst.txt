@@ -7,8 +7,8 @@ Tutorial
 .. toctree::
    :maxdepth: 2
 
-   chapter1
-   chapter2
-   controlsInfo
+   introduction
+   project
+   controls
    customModels
    savingOutputs

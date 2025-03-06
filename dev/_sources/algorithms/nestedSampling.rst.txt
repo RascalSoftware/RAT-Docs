@@ -47,7 +47,7 @@ a new point randomly from inside one of the ellipsoids.
 
 Algorithm control parameters
 ----------------------------
-The following parameters in the :ref:`Controls object<controlsInfo>` are specific to nested sampling:
+The following parameters in the :ref:`Controls object<controls>` are specific to nested sampling:
 
 - ``nLive``: the number of points to sample. Must be an integer greater than zero.
 - ``nMCMC``: if non-zero, MultiNest will not be used, and instead new points will be chosen using an MCMC chain with this many iterations.

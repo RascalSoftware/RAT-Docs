@@ -59,7 +59,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Copying and Saving Outputs" href="savingOutputs.html" />
-    <link rel="prev" title="A Closer Look at the Controls Class" href="controlsInfo.html" />
+    <link rel="prev" title="A Closer Look at the Controls Class" href="controls.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -358,9 +358,9 @@ document.write(`
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Tutorial</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="chapter1.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chapter2.html">The Project Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="controlsInfo.html">A Closer Look at the Controls Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project.html">The Project Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controls.html">A Closer Look at the Controls Class</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Custom Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="savingOutputs.html">Copying and Saving Outputs</a></li>
 </ul>
@@ -403,16 +403,16 @@ document.write(`
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../calcTypes/index.html">Different Calculation Types</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../calcTypes/imaginary.html">Adding the Imaginary Refractive Index</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../calcTypes/incoherent.html">Incoherent Summing (Domains)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsStanlay.html">Standard Layers Domains</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calcTypes/domains.html">Incoherent Summing (Domains)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsStandardLayers.html">Standard Layers Domains</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsCustomModels.html">Custom Models with Domains</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../utilities/index.html">Utility Functions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/plotFuns.html">Basic Plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/plotFunsBayes.html">Plotting Bayesian Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/plotFuncs.html">Basic Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/bayesPlot.html">Plotting Bayesian Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Live Updating Plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../utilities/conversionFuncs.html">Convert between RAT and RasCAL-1</a></li>
 </ul>
@@ -1019,7 +1019,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 <p>In other words, the entire purpose of our custom layer file is to take our parameters in a scientifically useful form (e.g. Area per Lipid in our case), and to translate these into a list of thick, SLD, rough layers for the whole interface.
 You have complete freedom in how you do this, which means that you can make any kind of layer model you can think of using a custom layers file, including layers that are mixtures of adjoining layers and so on. As long as you can describe your
 system as layers with an error function (i.e. Nevot and Croce) roughness you can describe them using custom layer modelling.</p>
-<p>The rest of the custom model is defined similar to the standard layers model shown in <a class="reference internal" href="chapter2.html#chapter2"><span class="std std-ref">The Project Class</span></a>. So, since we want to analyse three contrasts simultaneously, we need the following:</p>
+<p>The rest of the custom model is defined similar to the standard layers model shown in <a class="reference internal" href="project.html#project"><span class="std std-ref">The Project Class</span></a>. So, since we want to analyse three contrasts simultaneously, we need the following:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-22" name="sd-tab-set-11" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-22">

@@ -26,7 +26,7 @@ an entire textbook on differential evolution by Price, Storn and Lampinen (2005)
 
 Algorithm control parameters
 ----------------------------
-The following parameters in the :ref:`Controls object<controlsInfo>` are specific to differential evolution:
+The following parameters in the :ref:`Controls object<controls>` are specific to differential evolution:
 
 - ``populationSize``: The number of candidate solutions that exist at any given time.
   The original MATLAB code (Storn et al.) suggests that this size is not particularly critical, and that

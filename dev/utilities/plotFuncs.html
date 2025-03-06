@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Standard Layers Domains &#8212; RAT  documentation</title>
+    <title>Basic Plotting &#8212; RAT  documentation</title>
   
   
   
@@ -46,7 +46,7 @@
     <script src="../_static/copybutton.js?v=881e7dcd"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'calcTypes/domainsStanlay';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'utilities/plotFuncs';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://rascalsoftware.github.io/RAT-Docs/switcher.json';
@@ -56,8 +56,8 @@
     <link rel="icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Custom Models with Domains" href="domainsCustomModels.html" />
-    <link rel="prev" title="Incoherent Summing (Domains)" href="incoherent.html" />
+    <link rel="next" title="Plotting Bayesian Analysis" href="bayesPlot.html" />
+    <link rel="prev" title="Utility Functions" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -352,9 +352,9 @@ document.write(`
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../tutorial/index.html">Tutorial</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter1.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter2.html">The Project Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/controlsInfo.html">A Closer Look at the Controls Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/project.html">The Project Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/controls.html">A Closer Look at the Controls Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/customModels.html">Custom Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/savingOutputs.html">Copying and Saving Outputs</a></li>
 </ul>
@@ -395,20 +395,20 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../advanced/events.html">Handling Events During Calculations</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Different Calculation Types</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="imaginary.html">Adding the Imaginary Refractive Index</a></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="incoherent.html">Incoherent Summing (Domains)</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Standard Layers Domains</a></li>
-<li class="toctree-l3"><a class="reference internal" href="domainsCustomModels.html">Custom Models with Domains</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../calcTypes/index.html">Different Calculation Types</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../calcTypes/imaginary.html">Adding the Imaginary Refractive Index</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calcTypes/domains.html">Incoherent Summing (Domains)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsStandardLayers.html">Standard Layers Domains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsCustomModels.html">Custom Models with Domains</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../utilities/index.html">Utility Functions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/plotFuns.html">Basic Plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/plotFunsBayes.html">Plotting Bayesian Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Live Updating Plots</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../utilities/conversionFuncs.html">Convert between RAT and RasCAL-1</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Utility Functions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Basic Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayesPlot.html">Plotting Bayesian Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="livePlot.html">Live Updating Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conversionFuncs.html">Convert between RAT and RasCAL-1</a></li>
 </ul>
 </li>
 </ul>
@@ -440,8 +440,6 @@ document.write(`
 
 
 
-
-
 <nav aria-label="Breadcrumb">
   <ul class="bd-breadcrumbs">
     
@@ -454,12 +452,9 @@ document.write(`
     <li class="breadcrumb-item"><a href="../guide.html" class="nav-link">User Guide</a></li>
     
     
-    <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Utility Functions</a></li>
     
-    
-    <li class="breadcrumb-item"><a href="incoherent.html" class="nav-link">Incoherent Summing (Domains)</a></li>
-    
-    <li class="breadcrumb-item active" aria-current="page">Standard...</li>
+    <li class="breadcrumb-item active" aria-current="page">Basic Plotting</li>
   </ul>
 </nav>
 </div>
@@ -476,211 +471,58 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="standard-layers-domains">
-<span id="domainsstanlay"></span><h1>Standard Layers Domains<a class="headerlink" href="#standard-layers-domains" title="Link to this heading">#</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>See the <em>/examples/domains/standardLayers/</em> folder for an example of standard layers with domains.</p>
-</div>
-<p>In order to use domains, we create a project of the correct type….</p>
+  <section id="basic-plotting">
+<span id="simpleplotting"></span><h1>Basic Plotting<a class="headerlink" href="#basic-plotting" title="Link to this heading">#</a></h1>
+<p>The simplest plot available is a simple display of the contents of the <strong>Project</strong> and <strong>Results</strong> objects.
+The initial problem and result used in this section were made by running <a class="reference internal" href="../matlab_examples/DSPC_standard_layers.html#dspc-standard-layers"><span class="std std-ref">DSPC Standard Layers</span></a>, after
+running the example a basic plot takes the following form:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
 MATLAB</label><div class="sd-tab-content docutils">
-<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">createProject</span><span class="p">(</span><span class="n">calcType</span><span class="p">=</span><span class="s">&#39;domains&#39;</span><span class="p">);</span>
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="nb">clf</span><span class="p">;</span>
+<span class="n">plotRefSLD</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-1">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Project</span><span class="p">(</span><span class="n">calculation</span><span class="o">=</span><span class="s1">&#39;domains&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_ref_sld</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>The principle of setting up these calculations relies on firstly grouping the layers into domains, then grouping the defined domains intro contrasts, according to a <strong>domain ratio</strong> parameter:</p>
-<a class="reference internal image-reference" href="../_images/domainsGraph.png"><img alt="../_images/domainsGraph.png" src="../_images/domainsGraph.png" style="width: 800px;" />
-</a>
-<p>The example (in the examples folder), we define the layers as for conventional Standard Layers projects:</p>
+<img alt="simple plot" src="../_images/simPlot1.png" />
+<p>This produces a basic plot of the reflectivity and SLD.</p>
+<p>If this plot is not cleared before subsequent plots, then the basic plotting function will overplot allowing the results of calculations to be compared:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
 MATLAB</label><div class="sd-tab-content docutils">
-<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">Layer1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;Layer 1&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">         % Name of the Layer</span>
-<span class="w">          </span><span class="s">&#39;L1 thick&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">        % Layer thickness</span>
-<span class="w">          </span><span class="s">&#39;L1 SLD&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">          % Layer SLD</span>
-<span class="w">          </span><span class="s">&#39;L1 Rough&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">        % Layer roughness</span>
-<span class="w">          </span><span class="s">&#39;L1 Hydr&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">         % hydration (percent)</span>
-<span class="w">          </span><span class="s">&#39;bulk out&#39;</span><span class="w"> </span><span class="p">};</span>
-
-<span class="n">Layer2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;Layer 2&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">         % Name of the layer</span>
-<span class="w">          </span><span class="s">&#39;L2 thick&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">        % Layer thickness</span>
-<span class="w">          </span><span class="s">&#39;L2 SLD&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">          % Layer SLD</span>
-<span class="w">          </span><span class="s">&#39;L2 Rough&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">        % Layer roughness</span>
-<span class="w">          </span><span class="s">&#39;L2 Hydr&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">         % hydration (percent)</span>
-<span class="w">          </span><span class="s">&#39;bulk out&#39;</span><span class="w"> </span><span class="p">};</span>
-
-<span class="n">Layer3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;Layer 3&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">         % Name of the layer</span>
-<span class="w">          </span><span class="s">&#39;L3 thick&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">        % Layer thickness</span>
-<span class="w">          </span><span class="s">&#39;L3 SLD&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">          % Layer SLD</span>
-<span class="w">          </span><span class="s">&#39;L3 Rough&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">        % Layer roughness</span>
-<span class="w">          </span><span class="s">&#39;L3 Hydr&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">         % hydration (percent)</span>
-<span class="w">          </span><span class="s">&#39;bulk out&#39;</span><span class="w"> </span><span class="p">};</span>
-
-<span class="n">problem</span><span class="p">.</span><span class="n">addLayerGroup</span><span class="p">({</span><span class="n">Layer1</span><span class="p">,</span><span class="w"> </span><span class="n">Layer2</span><span class="p">,</span><span class="w"> </span><span class="n">Layer3</span><span class="p">});</span>
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">();</span>
+<span class="n">controls</span><span class="p">.</span><span class="n">procedure</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;DE&#39;</span><span class="p">;</span>
+<span class="n">controls</span><span class="p">.</span><span class="n">display</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;final&#39;</span><span class="p">;</span>
+<span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;contrasts&#39;</span><span class="p">;</span>
+<span class="p">[</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RAT</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">controls</span><span class="p">);</span>
+<span class="n">plotRefSLD</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">controls</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now group these parameters into layers</span>
-<span class="n">problem</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Layer 1&#39;</span><span class="p">,</span>
-                      <span class="n">thickness</span><span class="o">=</span><span class="s1">&#39;L1 Thickness&#39;</span><span class="p">,</span>
-                      <span class="n">SLD</span><span class="o">=</span><span class="s1">&#39;L1 SLD&#39;</span><span class="p">,</span>
-                      <span class="n">roughness</span><span class="o">=</span><span class="s1">&#39;L1 Roughness&#39;</span><span class="p">,</span>
-                      <span class="n">hydration</span><span class="o">=</span><span class="s1">&#39;L1 Hydration&#39;</span><span class="p">,</span>
-                      <span class="n">hydrate_with</span><span class="o">=</span><span class="s1">&#39;bulk out&#39;</span><span class="p">)</span>
-
-<span class="n">problem</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Layer 2&#39;</span><span class="p">,</span>
-                      <span class="n">thickness</span><span class="o">=</span><span class="s1">&#39;L2 Thickness&#39;</span><span class="p">,</span>
-                      <span class="n">SLD</span><span class="o">=</span><span class="s1">&#39;L2 SLD&#39;</span><span class="p">,</span>
-                      <span class="n">roughness</span><span class="o">=</span><span class="s1">&#39;L2 Roughness&#39;</span><span class="p">,</span>
-                      <span class="n">hydration</span><span class="o">=</span><span class="s1">&#39;L2 Hydration&#39;</span><span class="p">,</span>
-                      <span class="n">hydrate_with</span><span class="o">=</span><span class="s1">&#39;bulk out&#39;</span><span class="p">)</span>
-
-<span class="n">problem</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Layer 3&#39;</span><span class="p">,</span>
-                      <span class="n">thickness</span><span class="o">=</span><span class="s1">&#39;L3 Thickness&#39;</span><span class="p">,</span>
-                      <span class="n">SLD</span><span class="o">=</span><span class="s1">&#39;L3 SLD&#39;</span><span class="p">,</span>
-                      <span class="n">roughness</span><span class="o">=</span><span class="s1">&#39;L3 Roughness&#39;</span><span class="p">,</span>
-                      <span class="n">hydration</span><span class="o">=</span><span class="s1">&#39;L3 Hydration&#39;</span><span class="p">,</span>
-                      <span class="n">hydrate_with</span><span class="o">=</span><span class="s1">&#39;bulk out&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">(</span><span class="n">procedure</span><span class="o">=</span><span class="s1">&#39;DE&#39;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="s1">&#39;final&#39;</span><span class="p">,</span> <span class="n">parallel</span><span class="o">=</span><span class="s1">&#39;contrasts&#39;</span><span class="p">)</span>
+<span class="n">problem</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">controls</span><span class="p">)</span>
+<span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_ref_sld</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">controls</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
-Matlab</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    p      Name       Thickness       SLD       Roughness     Hydration    Hydrate with
-    _    _________    __________    ________    __________    _________    ____________
-
-    1    &quot;Layer 1&quot;    &quot;L1 thick&quot;    &quot;L1 SLD&quot;    &quot;L1 Rough&quot;    &quot;L1 Hydr&quot;     &quot;bulk out&quot; 
-    2    &quot;Layer 2&quot;    &quot;L2 thick&quot;    &quot;L2 SLD&quot;    &quot;L2 Rough&quot;    &quot;L2 Hydr&quot;     &quot;bulk out&quot; 
-    3    &quot;Layer 3&quot;    &quot;L3 thick&quot;    &quot;L3 SLD&quot;    &quot;L3 Rough&quot;    &quot;L3 Hydr&quot;     &quot;bulk out&quot; 
-</pre></div>
-</div>
-</div>
-<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-5">
-Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+---------+--------------+--------+--------------+--------------+--------------+
-| index |   name  |  thickness   |  SLD   |  roughness   |  hydration   | hydrate with |
-+-------+---------+--------------+--------+--------------+--------------+--------------+
-|   0   | Layer 1 | L1 Thickness | L1 SLD | L1 Roughness | L1 Hydration |   bulk out   |
-|   1   | Layer 2 | L2 Thickness | L2 SLD | L2 Roughness | L2 Hydration |   bulk out   |
-|   2   | Layer 3 | L3 Thickness | L3 SLD | L3 Roughness | L3 Hydration |   bulk out   |
-+-------+---------+--------------+--------+--------------+--------------+--------------+
-</pre></div>
-</div>
-</div>
-</div>
-<p>From this point, the model diverges from the usual Standard Layers case, in that the layers are grouped into <strong>domain contrasts</strong>, which appear in an additional table in the
-printout of the project class. Domains contrasts consist of only a <code class="docutils literal notranslate"><span class="pre">model</span></code> containing layers, with no bulk phases etc.</p>
-<div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-6">
-Matlab</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>             p                    1        
-    ___________________    ________________
-
-    &quot;Name&quot;                 &quot;Domain Test&quot;   
-    &quot;Data&quot;                 &quot;Simulation&quot;    
-    &quot;Background&quot;           &quot;Background 1&quot;  
-    &quot;Background Action&quot;    &quot;add&quot;           
-    &quot;Bulk in&quot;              &quot;SLD Air&quot;       
-    &quot;Bulk out&quot;             &quot;SLD D2O&quot;       
-    &quot;Scalefactor&quot;          &quot;Scalefactor 1&quot; 
-    &quot;Resolution&quot;           &quot;Resolution 1&quot;  
-    &quot;Resample&quot;             &quot;false&quot;         
-    &quot;Domain Ratio&quot;         &quot;Domain Ratio 1&quot;
-    &quot;Model&quot;                &quot;Domain1&quot;       
-    &quot;&quot;                     &quot;Domain2&quot;       
-</pre></div>
-</div>
-</div>
-<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-7">
-Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+-------------+------------+--------------+-------------------+---------+----------+---------------+--------------+----------+----------------+----------+
-| index |     name    |    data    |  background  | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample |  domain ratio  |  model   |
-+-------+-------------+------------+--------------+-------------------+---------+----------+---------------+--------------+----------+----------------+----------+
-|   0   | Domain Test | Simulation | Background 1 |        add        | SLD Air | SLD D2O  | Scalefactor 1 | Resolution 1 |  False   | Domain Ratio 1 | Domain 1 |
-|       |             |            |              |                   |         |          |               |              |          |                | Domain 2 |
-+-------+-------------+------------+--------------+-------------------+---------+----------+---------------+--------------+----------+----------------+----------+
-</pre></div>
-</div>
-</div>
-</div>
-<p>It is then these that are grouped into the final contrasts model. For each contrast, there must be <strong>exactly</strong> two (<em>and only two</em>) domain contrasts in the model. In addition, each contrast requires a
-<strong>domain ratio</strong> parameter. This is a fittable parameter between 0 and 1, that appears in the domain ratio table:</p>
-<div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-8">
-Matlab</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    p          Name          Min    Value    Max    Fit? 
-    _    ________________    ___    _____    ___    _____
-
-    1    &quot;Domain Ratio 1&quot;    0.4     0.5     0.6    false
-</pre></div>
-</div>
-</div>
-<input id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-9">
-Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+----------------+-----+-------+-----+-------+
-| index |      name      | min | value | max |  fit  |
-+-------+----------------+-----+-------+-----+-------+
-|   0   | Domain Ratio 1 | 0.4 |  0.5  | 0.6 | False |
-+-------+----------------+-----+-------+-----+-------+
-</pre></div>
-</div>
-</div>
-</div>
-<p>leading to the final contrast structure of two domains, and one domain ratio:</p>
-<div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-10" name="sd-tab-set-5" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-10">
-Matlab</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>       p           1            2    
-    _______    _________    _________
-
-    &quot;Name&quot;     &quot;Domain1&quot;    &quot;Domain2&quot;
-    &quot;Model&quot;    &quot;Layer 1&quot;    &quot;Layer 2&quot;
-    &quot;&quot;         &quot;&quot;           &quot;Layer 3&quot;
-</pre></div>
-</div>
-</div>
-<input id="sd-tab-item-11" name="sd-tab-set-5" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-11">
-Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+----------+---------+
-| index |   name   |  model  |
-+-------+----------+---------+
-|   0   | Domain 1 | Layer 1 |
-|   1   | Domain 2 | Layer 2 |
-|       |          | Layer 3 |
-+-------+----------+---------+
-</pre></div>
-</div>
-</div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For the domain ratio, a value of 0 means 100% Domain 1, whilst conversely a value of 1 means 100% Domain 2.</p>
-</div>
+<img alt="fit plot" src="../_images/simPlot2.png" />
+<p>If you don’t wish to overplot, just clear the figure before re-running the plotting function.</p>
+<p>If you are resampling your SLDs, the plotting function will automatically show the resampled layers for you:</p>
+<img alt="resampled plot" src="../_images/resamPlot.png" />
 </section>
 
 
