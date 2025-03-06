@@ -1,4 +1,4 @@
-.. _chapter2:
+.. _project:
 
 =================
 The Project Class

@@ -13,7 +13,7 @@ etc). Then, the actual experimental contrasts are built in the usual way, but wi
     :align: center
     :alt: Domains graph
 
-To control the ratio between the domains, we can add domain ratios as described in :ref:`domainsStanlay`. And each contrast has an additional field
+To control the ratio between the domains, we can add domain ratios as described in :ref:`domainsStandardLayers`. And each contrast has an additional field
 for domain ratios which is set as one of the values from this block.
 
 This example can be run as a script or interactively using the instructions below.

@@ -11,7 +11,7 @@ these are discussed in the following sections:
    :maxdepth: 2
 
    imaginary
-   incoherent
+   domains
 
 .. oilWater
    magnetic

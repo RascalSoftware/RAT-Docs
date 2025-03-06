@@ -1,4 +1,4 @@
-.. _chapter1:
+.. introduction:
 
 ============
 Introduction
@@ -28,7 +28,7 @@ two outputs. The first is another model definition, which describes the same exp
 we have chosen to optimise. The second is a results object which contains the results of the calculations, such as simulated reflectivities, SLD profiles or parameter distributions.
 
 
-We will discuss these further in :ref:`the next chapter<chapter2>`, where we look at the inputs and outputs in more detail.
+We will discuss these further in :ref:`the next chapter<project>`, where we look at the inputs and outputs in more detail.
 
 
 .. image:: ../images/ratInput.png
@@ -75,7 +75,7 @@ An example - A simple model of a lipid layer
 Specifying the Model
 --------------------
 
-In :ref:`the next chapter<chapter2>`, we'll look in detail how to set up the problem definition for a given situation. 
+In :ref:`the next chapter<project>`, we'll look in detail how to set up the problem definition for a given situation. 
 Here we will just use an existing example model to introduce how these objects are used in RAT.
 Our example data is neutron reflectivity data for a lipid monolayer (see image below), collected at various deuterations, 
 which we want to analyse simultaneously.
@@ -263,7 +263,7 @@ Running the Model
 As we discussed at the beginning of the chapter, the other input to RAT is a controls object,
 which describes the data analysis operation to use and any relevant settings such as 
 algorithm-specific parameters, parallelism, and display settings.
-More detail on the controls object is available at :ref:`controlsInfo`, 
+More detail on the controls object is available at :ref:`controls`, 
 but for this demo we will just make an instance of the default controls object:
 
 .. tab-set-code::
