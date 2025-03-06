@@ -4,15 +4,15 @@
 Profile Resampling ('microslicing')
 ===================================
 
-The Nevot-Croce roughness approximation only strictly holds for cases where the interface roughness is much less than the layer thickness. This usual way
-of handling cases where there are such layers, is to split the interfaces into a large number of layers of zero roughness, so that the roughness problem
+The Nevot-Croce roughness approximation only strictly holds for cases where the interface roughness is much less than the layer thickness. The usual way
+of handling cases where this approximation does not hold is to split the interfaces into a large number of layers of zero roughness, so that the roughness problem
 is circumvented:
 
 .. image:: ../images/advanced/resamplePic.png
      :width: 700
      :alt: old resampling
 
-However, this kind of 'dumb microslicing' causes the creation of a large number of layers, which may not all be necessary and will significantly slow down the calculation.
+However, this kind of "dumb microslicing" causes the creation of a large number of layers, which may not all be necessary and will significantly slow down the calculation.
 
 This problem of finding the lowest number of individual points that will completely describe a waveform is a common problem in signal processing. RAT uses a technique
 borrowed from signal processing called Adaptive Resampling (AR).
@@ -25,12 +25,12 @@ cosine wave, the resampled points cluster at the regions of the largest curvatur
      :width: 700
      :alt: adaptive cosine
 
-For the continuous cosine curve show in blue, the AR algorithm has chosen the red points as being most representative. In other words, if the red points were
+For the continuous cosine curve shown in blue, the AR algorithm has chosen the red points as being most representative. In other words, if the red points were
 joined with straight lines, the resulting curve would be very similar to the original signal. The salient point is that more points are required where the gradient
 of the signal is changing quickly, and those where the gradient is constant can be represented by fewer points.
 
 RAT borrows the AR trick from the signal processors, and uses this method to resample the SLD profiles. The AR algorithm is used to find the best series of points
-that will represent the profile most accurately, and then each of these points is taken as the centre of layer (of zero roughness). The thickness of each layer is half the
+that will represent the profile most accurately, and then each of these points is taken as the centre of the layer (of zero roughness). The thickness of each layer is half the
 distance between neighbouring points. So, for an SLD profile of a floating bilayer (blue line), AR selects the red points:
 
 .. image:: ../images/advanced/dotsSLD.png

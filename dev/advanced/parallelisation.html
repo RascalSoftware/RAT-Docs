@@ -357,7 +357,7 @@ document.write(`
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../tutorial/index.html">Tutorial</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter1.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter2.html">The Problem Definition Input Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter2.html">The Project Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/controlsInfo.html">A Closer Look at the Controls Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/customModels.html">Custom Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/savingOutputs.html">Copying and Saving Outputs</a></li>
@@ -477,13 +477,13 @@ document.write(`
                   
   <section id="parallelising-calculations">
 <span id="parallelisation"></span><h1>Parallelising Calculations<a class="headerlink" href="#parallelising-calculations" title="Link to this heading">#</a></h1>
-<p>RAT has in-built parallelisation for speeding up calculations. It will either parallelise over points or contrasts and this is easily selectable from the controls class.</p>
+<p>RAT has in-built parallelisation for speeding up calculations. It will either parallelise over points or contrasts and this is easily selectable from the <strong>Controls</strong> class.</p>
 <section id="internal-parallelisation">
 <h2>Internal Parallelisation<a class="headerlink" href="#internal-parallelisation" title="Link to this heading">#</a></h2>
-<p>The controls class allows selection of parallel calculations for all algorithms. The parallelisation can be either over ‘contrasts’ or ‘points’…</p>
+<p>The controls class allows selection of parallel calculations for all algorithms. The parallelisation can be either over <code class="docutils literal notranslate"><span class="pre">&quot;points&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;contrasts&quot;</span></code>:</p>
 <ul class="simple">
-<li><p><strong>points</strong>: In this case, each reflectivity curve is split into a number of sections, and the reflectivity for each set of points is calculated by an individual thread. Only the reflectivity calculation itself is parallelised, and the rest runs sequentially on a single thread.</p></li>
-<li><p><strong>contrasts</strong>: Each contrast <em>in its entirety</em> gets its own calculation thread.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;points&quot;</span></code>: In this case, each reflectivity curve is split into a number of sections, and the reflectivity for each set of points is calculated by an individual thread. Only the Abeles reflectivity calculation itself is parallelised, and the rest runs sequentially on a single thread.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;contrasts&quot;</span></code>: Each contrast <strong>in its entirety</strong> gets its own calculation thread.</p></li>
 </ul>
 <p>The parallelisation scheme is chosen from the controls class:</p>
 <div class="sd-tab-set docutils">
@@ -496,10 +496,10 @@ MATLAB</label><div class="sd-tab-content docutils">
 <span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;single&#39;</span><span class="p">;</span>
 
 <span class="c">% Parallelise over points</span>
-<span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;points&#39;</span>
+<span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;points&#39;</span><span class="p">;</span>
 
 <span class="c">% Parallelise over contrasts</span>
-<span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;contrasts&#39;</span>
+<span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;contrasts&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -521,7 +521,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <p>Generally speaking, unless you have an inordinate amount of points in your datafiles, the greatest speed increase always results from parallelising over contrasts. In fact, if the number of points in your data
-is relatively small, parallelising over points can even slow things down because of the extra calculation overhead! It is a good idea to verify which is fastest for a give problem at the start of an analysis.</p>
+is relatively small, parallelising over points can even slow things down because of the extra communication overhead! It is a good idea to verify which is fastest for a give problem at the start of an analysis.</p>
 </section>
 </section>
 

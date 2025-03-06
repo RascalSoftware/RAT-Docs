@@ -478,12 +478,64 @@ document.write(`
 </dd></dl>
 
 <dl class="mat function">
+<dt class="sig sig-object mat" id="utilities.plotting.cornerPlot">
+<span class="sig-prename descclassname"><span class="pre">utilities.plotting.</span></span><span class="sig-name descname"><span class="pre">cornerPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">results</span></em>, <em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotting.cornerPlot" title="Link to this definition">#</a></dt>
+<dd><p>Creates a corner plot from chain data in the result struct, with or without smoothing.
+If selected, smoothing is via a moving average algorithm.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cornerPlot</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s1">&#39;smooth&#39;</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cornerPlot</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s1">&#39;smooth&#39;</span><span class="p">,</span> <span class="n">false</span><span class="p">,</span> <span class="s1">&#39;params&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>  <span class="o">%</span> <span class="n">should</span> <span class="n">plot</span> <span class="mi">1</span><span class="n">st</span> <span class="ow">and</span> <span class="mi">3</span><span class="n">rd</span> <span class="n">fitted</span> <span class="n">parameters</span> <span class="n">only</span><span class="o">.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cornerPlot</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s1">&#39;smooth&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s1">&#39;smoothingFactor&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>result</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">struct</span></code></span>) – The result of the RAT Bayesian calculation.</p></li>
+<li><p><strong>options</strong> – <dl class="simple">
+<dt>Keyword/value pair to configure plotting, the following are allowed</dt><dd><ul>
+<li><p>figure (‘matlab.ui.Figure’ or int, default: []) figure or number of the figure to use for the plot.</p></li>
+<li><p>smooth (logical, default: true) indicates if moving average smoothing is applied to the plot.</p></li>
+<li><p>params (1D ‘array of int’, ‘array of string’ or ‘cell array of char vectors’, default: []) indices or names of a subset of parameters to the plot.</p></li>
+<li><dl class="simple">
+<dt>smoothingFactor (double [0, 1], default: 0.25) adjusts the level of smoothing by scaling the window size, values near 0 produce smaller moving window sizes,</dt><dd><p>resulting in less smoothing and values near 1 produce larger moving window sizes, resulting in more smoothing.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
 <dt class="sig sig-object mat" id="utilities.plotting.plotChain">
 <span class="sig-prename descclassname"><span class="pre">utilities.plotting.</span></span><span class="sig-name descname"><span class="pre">plotChain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">result</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotting.plotChain" title="Link to this definition">#</a></dt>
 <dd><p>Plots MCMC chain from the result of a Bayesian RAT calculation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>result</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">struct</span></code></span>) – The result from a Bayesian RAT calculation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="utilities.plotting.plotContours">
+<span class="sig-prename descclassname"><span class="pre">utilities.plotting.</span></span><span class="sig-name descname"><span class="pre">plotContours</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">x</span></em>, <em class="sig-param"><span class="pre">y</span></em>, <em class="sig-param"><span class="pre">parent</span></em>, <em class="sig-param"><span class="pre">smooth</span></em>, <em class="sig-param"><span class="pre">smoothingFactor</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotting.plotContours" title="Link to this definition">#</a></dt>
+<dd><p>Creates a contour plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double</span></code></span>) – 1D array data for X axis.</p></li>
+<li><p><strong>y</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double</span></code></span>) – 1D array data for Y axis.</p></li>
+<li><p><strong>parent</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">matlab.graphics.axes.Axes</span> <span class="pre">or</span> <span class="pre">matlab.ui.Figure,</span> <span class="pre">or</span> <span class="pre">figure</span> <span class="pre">number,</span> <span class="pre">default:</span> <span class="pre">[]</span></code></span>) – axes or fiure object to make plot on.</p></li>
+<li><p><strong>smooth</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">bool,</span> <span class="pre">default:</span> <span class="pre">false</span></code></span>) – indicates if moving average smoothing is applied to the plot.</p></li>
+<li><p><strong>smoothingFactor</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double</span> <span class="pre">[0,</span> <span class="pre">1],</span> <span class="pre">default:</span> <span class="pre">0.25</span></code></span>) – adjusts the level of smoothing by scaling the window size, values near 0 produce smaller moving window sizes,
+resulting in less smoothing and values near 1 produce larger moving window sizes, resulting in more smoothing</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -504,7 +556,7 @@ If selected, smoothing is via a moving average algorithm.</p>
 <li><p><strong>options</strong> – <dl class="simple">
 <dt>Keyword/value pair to configure plotting, the following are allowed</dt><dd><ul>
 <li><p>figure (‘matlab.ui.Figure’ or int, default: []) figure or number of the figure to use for the plot.</p></li>
-<li><p>smooth (logical, default: true) indicates if moving average smoothing to the plot</p></li>
+<li><p>smooth (logical, default: true) indicates if moving average smoothing is applied to the plot</p></li>
 </ul>
 </dd>
 </dl>

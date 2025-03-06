@@ -32,7 +32,7 @@ To convert this, simply navigate to the project directory, and run the following
 
         problem = r1_to_project_class('monolayer_8_contrasts.mat')
 
-This produces a *projectClass* containing the R1 project, which can then be analysed as normal:
+This produces a **Project** object containing the R1 project, which can then be analysed as normal:
 
 .. tab-set-code:: 
     .. code-block:: MATLAB
@@ -40,8 +40,8 @@ This produces a *projectClass* containing the R1 project, which can then be anal
         controls = controlsClass();
         controls.procedure = 'de';
         controls.parallel = 'contrasts';
-        [problem,results] = RAT(problem,controls);
-        plotRefSLD(problem,results);
+        [problem,results] = RAT(problem, controls);
+        plotRefSLD(problem, results);
 
     .. code-block:: Python
         
@@ -74,7 +74,7 @@ This produces a *projectClass* containing the R1 project, which can then be anal
 Convert RAT to a RasCAL-1 Project
 .................................
 
-It is also possible to do the opposite conversion, and convert any *projectClass* back to an R1 project:
+It is also possible to do the opposite conversion, and convert any RAT **Project** back to an R1 project:
 
 .. tab-set-code::
     .. code-block:: MATLAB

@@ -357,7 +357,7 @@ document.write(`
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../tutorial/index.html">Tutorial</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter1.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter2.html">The Problem Definition Input Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter2.html">The Project Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/controlsInfo.html">A Closer Look at the Controls Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/customModels.html">Custom Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/savingOutputs.html">Copying and Saving Outputs</a></li>
@@ -477,8 +477,8 @@ document.write(`
                   
   <section id="adding-the-imaginary-refractive-index">
 <span id="imaginary"></span><h1>Adding the Imaginary Refractive Index<a class="headerlink" href="#adding-the-imaginary-refractive-index" title="Link to this heading">#</a></h1>
-<p>In contrast to RasCAL-1, RAT allows the inclusion of the imaginary part of the refractive index to the project. The exact method of doing this varies according to the calculation type,
-but at the project top-level, the method of enabling it is always the same. If the project is called ‘problem’, then:</p>
+<p>RAT allows the inclusion of the imaginary part of the refractive index to the project. The exact method of doing this varies according to the calculation type,
+but at the project top-level, simply set the value of <code class="docutils literal notranslate"><span class="pre">absorption</span></code>:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
@@ -528,7 +528,7 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>Then, the value of this column are set (from the Parameters block) in the same way as all the other cells in the table.</p>
+<p>Then, the values of this column are set (from the Parameters block) in the same way as all the other cells in the table.</p>
 </section>
 <section id="custom-models">
 <h2>Custom Models<a class="headerlink" href="#custom-models" title="Link to this heading">#</a></h2>
@@ -576,7 +576,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>For custom XY models, it is necessary to construct a profile which represents the imaginary SLD across the sample, and this then appears as am extra column in the output:</p>
+<p>For custom XY models, it is necessary to construct a profile which represents the imaginary SLD across the sample, and this then appears as an extra column in the output:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">output = [X1,    SLD1,    SLD_im_1,</span>
 <span class="go">          X2,    SLD2,    SLD_im_2,</span>
 <span class="go">                ...</span>

@@ -353,7 +353,7 @@ document.write(`
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../tutorial/index.html">Tutorial</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter1.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter2.html">The Problem Definition Input Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter2.html">The Project Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/controlsInfo.html">A Closer Look at the Controls Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/customModels.html">Custom Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/savingOutputs.html">Copying and Saving Outputs</a></li>
@@ -499,8 +499,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>The first four parameters are the same as for a normal custom model. The final <em>‘domainNumber’</em> parameter is an integer with a value which is either 1 or 2. Then, it is up
-to the user to build the correct domain. So for example, within the custom model:</p>
+<p>The first four parameters are the same as for a normal custom model. The final <em>‘domainNumber’</em> parameter is the index of the domain (either 1 or 2 in MATLAB, and either 0 or 1 in Python).
+Then, it is up to the user to build the correct domain. So for example, within the custom model:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">

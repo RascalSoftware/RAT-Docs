@@ -11,7 +11,7 @@ for lipid tails for example, then we can take a literature value for the tails v
 
 Since the volume is known, then the SLD of the tails is also obviously easily calculable.
 
-In this model, we make distributions to represent the volume fractions of each of the components in the sample, the convert these to SLD's, as described in :ref:`[1] <ref_1>`.
+In this model, we make distributions to represent the volume fractions of each of the components in the sample, the convert these to SLDs, as described in :ref:`[1] <ref_1>`.
 
 We also make our volume fractions as optional outputted parameters from our file. The optional nature of this output means we can suppress it to run the model, then
 activate it to make final output plots of our analysis.

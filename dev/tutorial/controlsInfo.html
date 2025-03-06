@@ -59,7 +59,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Custom Models" href="customModels.html" />
-    <link rel="prev" title="The Problem Definition Input Class" href="chapter2.html" />
+    <link rel="prev" title="The Project Class" href="chapter2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -359,7 +359,7 @@ document.write(`
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Tutorial</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="chapter1.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="chapter2.html">The Problem Definition Input Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chapter2.html">The Project Class</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">A Closer Look at the Controls Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="customModels.html">Custom Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="savingOutputs.html">Copying and Saving Outputs</a></li>
@@ -479,9 +479,9 @@ document.write(`
                   
   <section id="a-closer-look-at-the-controls-class">
 <span id="controlsinfo"></span><h1>A Closer Look at the Controls Class<a class="headerlink" href="#a-closer-look-at-the-controls-class" title="Link to this heading">#</a></h1>
-<p>We have already seen in previous sections that once the problem has been defined in the projectClass, it is necessary to define a controls
-class which, as its name suggests, tells RAT what we want to do with the project.</p>
-<p>Making an instance of the controls class is quite simple:-</p>
+<p>We have already seen in previous sections that once the problem has been defined in the project class, it is necessary to define a <strong>Controls</strong>
+object which, as its name suggests, tells RAT what we want to do with the project.</p>
+<p>Making an instance of the <strong>Controls</strong> class is quite simple:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
@@ -498,7 +498,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>This then creates an instance of controls class with a number of options defined:</p>
+<p>This then creates an instance of the <strong>Controls</strong> class with a number of options defined:</p>
 <div class="sd-tab-set tab-label-hidden docutils">
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
@@ -532,8 +532,8 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <p>We will look at each of these in more detail below. Note that the options that are visible depend on
-the algorithm selected. So, at the moment the controls are set to ‘calculate’, which will simply calculate the reflectivity and
-SLD with any associated problem. If we select ‘simplex’ as the algorithm, a different set of options appears:-</p>
+the <code class="docutils literal notranslate"><span class="pre">procedure</span></code> selected. So, at the moment the <code class="docutils literal notranslate"><span class="pre">procedure</span></code> is set to <code class="docutils literal notranslate"><span class="pre">&quot;calculate&quot;</span></code>, which will simply calculate the reflectivity and
+SLD for any associated problem. If we select the <code class="docutils literal notranslate"><span class="pre">&quot;simplex&quot;</span></code> algorithm as the <code class="docutils literal notranslate"><span class="pre">procedure</span></code>, a different set of options appears:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
@@ -545,7 +545,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-5">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">(</span><span class="n">procedure</span><span class="o">=</span><span class="s1">&#39;simplex&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span><span class="o">.</span><span class="n">procedure</span> <span class="o">=</span> <span class="s1">&#39;simplex&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -594,10 +594,10 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>which allow the user to set things such as tolerance targets and so on. There is a different set of options for each algorithm.
+<p>which allow the user to set things such as tolerance targets and so on. There are a different set of options for each algorithm.
 We will now look at each of the available options in turn.</p>
 <section id="general-parameters-for-the-controls-class">
-<h2>General parameters for the controls class<a class="headerlink" href="#general-parameters-for-the-controls-class" title="Link to this heading">#</a></h2>
+<h2>General parameters for the Controls Class<a class="headerlink" href="#general-parameters-for-the-controls-class" title="Link to this heading">#</a></h2>
 <p>These are the general parameters for the controls class. For algorithm-specific parameters see the page for each algorithm in the
 <a class="reference internal" href="../algorithms/index.html#algorithms"><span class="std std-ref">algorithms section</span></a>.</p>
 <section id="procedure">
@@ -648,7 +648,7 @@ If the angle between those lines is smaller than <code class="docutils literal n
 <p>In practice, this means that resampling happens for points which are significantly higher or lower than their neighbours
 (i.e. the gradient of the function has changed rapidly)
 and <code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code> controls the sensitivity of this.</p>
-<p><code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code> is defined in the units of ‘radians divided by pi’, i.e. <code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span> <span class="pre">=</span> <span class="pre">0.9</span></code> refines where the adjacent points form an angle smaller than <span class="math notranslate nohighlight">\(0.9 \pi\)</span> radians.</p>
+<p><code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code> is defined in the units of “radians divided by pi”, i.e. <code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span> <span class="pre">=</span> <span class="pre">0.9</span></code> refines where the adjacent points form an angle smaller than <span class="math notranslate nohighlight">\(0.9 \pi\)</span> radians.</p>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">resampleNPoints</span></code>: The initial number of domain points (layers) sampled by the algorithm at the start.</p></li>
 </ul>
@@ -678,7 +678,7 @@ and <code class="docutils literal notranslate"><span class="pre">resampleMinAngl
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-parameters-for-the-controls-class">General parameters for the controls class</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-parameters-for-the-controls-class">General parameters for the Controls Class</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure"><code class="docutils literal notranslate"><span class="pre">procedure</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel"><code class="docutils literal notranslate"><span class="pre">parallel</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calcsldduringfit"><code class="docutils literal notranslate"><span class="pre">calcSldDuringFit</span></code></a></li>

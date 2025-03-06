@@ -4,15 +4,15 @@
 Parallelising Calculations
 ==========================
 
-RAT has in-built parallelisation for speeding up calculations. It will either parallelise over points or contrasts and this is easily selectable from the controls class.
+RAT has in-built parallelisation for speeding up calculations. It will either parallelise over points or contrasts and this is easily selectable from the **Controls** class.
 
 ************************
 Internal Parallelisation
 ************************
-The controls class allows selection of parallel calculations for all algorithms. The parallelisation can be either over 'contrasts' or 'points'...
+The controls class allows selection of parallel calculations for all algorithms. The parallelisation can be either over ``"points"`` or ``"contrasts"``:
 
-* **points**: In this case, each reflectivity curve is split into a number of sections, and the reflectivity for each set of points is calculated by an individual thread. Only the reflectivity calculation itself is parallelised, and the rest runs sequentially on a single thread.
-* **contrasts**: Each contrast *in its entirety* gets its own calculation thread.
+* ``"points"``: In this case, each reflectivity curve is split into a number of sections, and the reflectivity for each set of points is calculated by an individual thread. Only the Abeles reflectivity calculation itself is parallelised, and the rest runs sequentially on a single thread.
+* ``"contrasts"``: Each contrast **in its entirety** gets its own calculation thread.
 
 The parallelisation scheme is chosen from the controls class:
 
@@ -25,10 +25,10 @@ The parallelisation scheme is chosen from the controls class:
         controls.parallel = 'single';
 
         % Parallelise over points
-        controls.parallel = 'points'
+        controls.parallel = 'points';
 
         % Parallelise over contrasts
-        controls.parallel = 'contrasts'
+        controls.parallel = 'contrasts';
     
     .. code-block:: Python
 
@@ -44,5 +44,5 @@ The parallelisation scheme is chosen from the controls class:
         controls.parallel = 'contrasts'
 
 Generally speaking, unless you have an inordinate amount of points in your datafiles, the greatest speed increase always results from parallelising over contrasts. In fact, if the number of points in your data
-is relatively small, parallelising over points can even slow things down because of the extra calculation overhead! It is a good idea to verify which is fastest for a give problem at the start of an analysis.
+is relatively small, parallelising over points can even slow things down because of the extra communication overhead! It is a good idea to verify which is fastest for a give problem at the start of an analysis.
 

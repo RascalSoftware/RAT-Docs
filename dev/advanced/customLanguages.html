@@ -357,7 +357,7 @@ document.write(`
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../tutorial/index.html">Tutorial</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter1.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter2.html">The Problem Definition Input Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter2.html">The Project Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/controlsInfo.html">A Closer Look at the Controls Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/customModels.html">Custom Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/savingOutputs.html">Copying and Saving Outputs</a></li>
@@ -477,12 +477,13 @@ document.write(`
                   
   <section id="custom-models-in-python-or-c">
 <span id="customlanguages"></span><h1>Custom Models in Python or C++<a class="headerlink" href="#custom-models-in-python-or-c" title="Link to this heading">#</a></h1>
-<p>Custom models are usually written in MATLAB, but RAT allows alternative languages to be used. You can write your custom models either in Python or C++.
-The reason for the Python functionality is mainly since this is the more natural choice when using RAT from Python with pythonRAT, but also because the user might choose to incorporate Python libraries into the custom models that are not available in MATLAB.
-The reason for C++ if for pure speed, where very computationally demanding custom models calculations are required. Both options are easy to use in RAT.</p>
+<p>RAT supports custom models written in MATLAB, Python or C++.</p>
+<p>Between MATLAB and Python, the natural choice is to write a model in the same language as the the API you’re using. This will also likely be faster, since there is no computational overhead due to running a different language.
+Another common reason for making a particular choice of language is to take advantage of particular software libraries available in certain languages.
+The primary reason for C++ is for pure speed, where very computationally demanding custom models calculations are required.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Examples of using Python and C++ custom models can be found in the /examples/miscellaneous/alternativeLanguages folder</p>
+<p>Examples of using Python and C++ custom models can be found in the /examples/miscellaneous/alternativeLanguages folder.</p>
 </div>
 <section id="python-custom-models">
 <h2>Python Custom Models<a class="headerlink" href="#python-custom-models" title="Link to this heading">#</a></h2>
@@ -540,7 +541,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="n">vHead</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">319</span><span class="p">;</span>
 <span class="w">    </span><span class="n">vTail</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">782</span><span class="p">;</span>
 
-<span class="w">    </span><span class="c">% we use the volumes to calculate the SLD&#39;s</span>
+<span class="w">    </span><span class="c">% we use the volumes to calculate the SLDs</span>
 <span class="w">    </span><span class="n">SLDhead</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Head</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">vHead</span><span class="p">;</span>
 <span class="w">    </span><span class="n">SLDtail</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Tails</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">vTail</span><span class="p">;</span>
 
@@ -618,7 +619,7 @@ PYTHON</label><div class="sd-tab-content docutils">
     <span class="n">vHead</span> <span class="o">=</span> <span class="mi">319</span>
     <span class="n">vTail</span> <span class="o">=</span> <span class="mi">782</span>
 
-    <span class="c1"># we use the volumes to calculate the SLD&#39;s</span>
+    <span class="c1"># we use the volumes to calculate the SLDs</span>
     <span class="n">SLDhead</span> <span class="o">=</span> <span class="n">Head</span> <span class="o">/</span> <span class="n">vHead</span>
     <span class="n">SLDtail</span> <span class="o">=</span> <span class="n">Tails</span> <span class="o">/</span> <span class="n">vTail</span>
 
@@ -663,7 +664,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>You can then use this in your calculations in the same way as a normal, MATLAB custom model.</p>
+<p>You can then use this in your calculations in the same way as a MATLAB custom model.</p>
 </section>
 <section id="c-custom-models">
 <h2>C++ Custom Models<a class="headerlink" href="#c-custom-models" title="Link to this heading">#</a></h2>
@@ -725,7 +726,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 <span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">vHead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">319</span><span class="p">;</span>
 <span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">vTail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">782</span><span class="p">;</span>
 
-<span class="w">        </span><span class="c1">// we use the volumes to calculate the SLD&#39;s</span>
+<span class="w">        </span><span class="c1">// we use the volumes to calculate the SLDs</span>
 <span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">SLDhead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Head</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">vHead</span><span class="p">;</span>
 <span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">SLDtail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Tails</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">vTail</span><span class="p">;</span>
 

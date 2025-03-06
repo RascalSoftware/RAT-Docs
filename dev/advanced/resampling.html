@@ -359,7 +359,7 @@ document.write(`
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../tutorial/index.html">Tutorial</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter1.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter2.html">The Problem Definition Input Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter2.html">The Project Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/controlsInfo.html">A Closer Look at the Controls Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/customModels.html">Custom Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/savingOutputs.html">Copying and Saving Outputs</a></li>
@@ -479,12 +479,12 @@ document.write(`
                   
   <section id="profile-resampling-microslicing">
 <span id="resampling"></span><h1>Profile Resampling (‘microslicing’)<a class="headerlink" href="#profile-resampling-microslicing" title="Link to this heading">#</a></h1>
-<p>The Nevot-Croce roughness approximation only strictly holds for cases where the interface roughness is much less than the layer thickness. This usual way
-of handling cases where there are such layers, is to split the interfaces into a large number of layers of zero roughness, so that the roughness problem
+<p>The Nevot-Croce roughness approximation only strictly holds for cases where the interface roughness is much less than the layer thickness. The usual way
+of handling cases where this approximation does not hold is to split the interfaces into a large number of layers of zero roughness, so that the roughness problem
 is circumvented:</p>
 <a class="reference internal image-reference" href="../_images/resamplePic.png"><img alt="old resampling" src="../_images/resamplePic.png" style="width: 700px;" />
 </a>
-<p>However, this kind of ‘dumb microslicing’ causes the creation of a large number of layers, which may not all be necessary and will significantly slow down the calculation.</p>
+<p>However, this kind of “dumb microslicing” causes the creation of a large number of layers, which may not all be necessary and will significantly slow down the calculation.</p>
 <p>This problem of finding the lowest number of individual points that will completely describe a waveform is a common problem in signal processing. RAT uses a technique
 borrowed from signal processing called Adaptive Resampling (AR).</p>
 <p>AR is an interactive process which aims to find the lowest number of points that will best describe a curve. It does this by adding points where the angle between neighbouring
@@ -492,11 +492,11 @@ points becomes smaller than a threshold value. So, it adds more points where the
 cosine wave, the resampled points cluster at the regions of the largest curvature:</p>
 <a class="reference internal image-reference" href="../_images/adaptiveSpPic.png"><img alt="adaptive cosine" src="../_images/adaptiveSpPic.png" style="width: 700px;" />
 </a>
-<p>For the continuous cosine curve show in blue, the AR algorithm has chosen the red points as being most representative. In other words, if the red points were
+<p>For the continuous cosine curve shown in blue, the AR algorithm has chosen the red points as being most representative. In other words, if the red points were
 joined with straight lines, the resulting curve would be very similar to the original signal. The salient point is that more points are required where the gradient
 of the signal is changing quickly, and those where the gradient is constant can be represented by fewer points.</p>
 <p>RAT borrows the AR trick from the signal processors, and uses this method to resample the SLD profiles. The AR algorithm is used to find the best series of points
-that will represent the profile most accurately, and then each of these points is taken as the centre of layer (of zero roughness). The thickness of each layer is half the
+that will represent the profile most accurately, and then each of these points is taken as the centre of the layer (of zero roughness). The thickness of each layer is half the
 distance between neighbouring points. So, for an SLD profile of a floating bilayer (blue line), AR selects the red points:</p>
 <a class="reference internal image-reference" href="../_images/dotsSLD.png"><img alt="sld and dots..." src="../_images/dotsSLD.png" style="width: 700px;" />
 </a>

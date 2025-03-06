@@ -353,7 +353,7 @@ document.write(`
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../tutorial/index.html">Tutorial</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter1.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter2.html">The Problem Definition Input Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/chapter2.html">The Project Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/controlsInfo.html">A Closer Look at the Controls Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/customModels.html">Custom Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/savingOutputs.html">Copying and Saving Outputs</a></li>
@@ -473,7 +473,7 @@ document.write(`
                   
   <section id="basic-plotting">
 <span id="simpleplotting"></span><h1>Basic Plotting<a class="headerlink" href="#basic-plotting" title="Link to this heading">#</a></h1>
-<p>The simplest plot available is a simple display of the contents of the <em>problem</em> and <em>results</em> blocks.
+<p>The simplest plot available is a simple display of the contents of the <strong>Project</strong> and <strong>Results</strong> objects.
 The initial problem and result used in this section were made by running <a class="reference internal" href="../matlab_examples/DSPC_standard_layers.html#dspc-standard-layers"><span class="std std-ref">DSPC Standard Layers</span></a>, after
 running the example a basic plot takes the following form:</p>
 <div class="sd-tab-set docutils">
@@ -495,7 +495,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 <img alt="simple plot" src="../_images/simPlot1.png" />
 <p>This produces a basic plot of the reflectivity and SLD.</p>
-<p>If this plot is not cleared before subsequent plots, then <em>plotRefSLD</em> will overplot allowing the results of calculations to be compared:</p>
+<p>If this plot is not cleared before subsequent plots, then the basic plotting function will overplot allowing the results of calculations to be compared:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
@@ -520,8 +520,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <img alt="fit plot" src="../_images/simPlot2.png" />
-<p>If you don’t wish to overplot, just clear the figure before re-running plotRefSLD.</p>
-<p>If you are resampling your SLD’s, the <em>plotRefSLD</em> will automatically show the resampled layers for you:</p>
+<p>If you don’t wish to overplot, just clear the figure before re-running the plotting function.</p>
+<p>If you are resampling your SLDs, the plotting function will automatically show the resampled layers for you:</p>
 <img alt="resampled plot" src="../_images/resamPlot.png" />
 </section>
 
