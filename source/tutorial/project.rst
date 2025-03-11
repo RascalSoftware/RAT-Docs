@@ -272,19 +272,19 @@ The resulting parameters block looks like this:
     Parameters can't have duplicate names. Attempting to duplicate a name will throw an error. This can cause problems when loading in RasCAL-1 projects
     where duplicate names are allowed.
 
-To subsequently change the values of the parameters (including names), there are a few methods you can use. For each of the methods, you can refer to the parameter by its index number or by name:
+To subsequently change the values of the parameters (including names), you can set the properties of a given parameter using name/value pairs, which parameter to set can be specified using the index number or name of the parameter:
 
 .. tab-set-code::
     .. code-block:: Matlab
 
-        problem.setParameterName('My new param', 'My changed param');
-        problem.setParameterLimits(2, 0.96, 3.62);
-        problem.setParameterValue(4, 20.22);
-        problem.setParameterFit('Layer rough', false);
+        problem.setParameter('My new param', 'name', 'My changed param');
+        problem.setParameter(2, 'min', 0.96, 'max', 3.62);
+        problem.setParameter(4, 'value', 20.22);
+        problem.setParameter('Layer rough', 'fit', false);
     
     .. code-block:: Python
 
-        problem.parameters[1].name = 'My changed param'
+        problem.parameters['My new param'].name = 'My changed param'
         problem.parameters[1].min = 0.96
         problem.parameters[1].max = 3.62
         problem.parameters['Layer thick'].value = 20.22
@@ -299,10 +299,10 @@ To subsequently change the values of the parameters (including names), there are
 
         .. output:: Matlab
 
-            problem.setParameterName('My new param', 'My changed param');
-            problem.setParameterLimits(2, 0.96, 3.62);
-            problem.setParameterValue(4, 20.22);
-            problem.setParameterFit('Layer rough', false);
+            problem.setParameter('My new param', 'name', 'My changed param');
+            problem.setParameter(2, 'min', 0.96, 'max', 3.62);
+            problem.setParameter(4, 'value', 20.22);
+            problem.setParameter('Layer rough', 'fit', false);
             problem.parameters.displayTable()
 
     .. tab-item:: Python 
@@ -310,14 +310,14 @@ To subsequently change the values of the parameters (including names), there are
         
         .. output:: Python
 
-            problem.parameters[1].name = 'My changed param'
+            problem.parameters['My new param'].name = 'My changed param'
             problem.parameters[1].min = 0.96
             problem.parameters[1].max = 3.62
             problem.parameters['Layer thick'].value = 20.22
             problem.parameters['Layer rough'].fit = False
             print(problem.parameters)
 
-Alternatively, you can set a number of properties of a given parameter at once using name/value pairs.
+Alternatively, you can set a multiple properties of a given parameter at once using name/value pairs.
 
 .. tab-set-code::
     .. code-block:: Matlab

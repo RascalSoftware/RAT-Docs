@@ -32,9 +32,9 @@ We will discuss these further in :ref:`the next chapter<project>`, where we look
 
 
 .. image:: ../images/ratInput.png
-    :alt: A flowchart depicting the RAT workflow model described above. On the left, we have two boxes labeled Problem (Input) and Controls,
+    :alt: A flowchart depicting the RAT workflow model described above. On the left, we have two boxes labelled Problem (Input) and Controls,
           representing the required inputs used by RAT.
-          An arrow points from each of these boxes to a central box labeled 'RAT', which represents passing these input objects into
+          An arrow points from each of these boxes to a central box labelled 'RAT', which represents passing these input objects into
           the main RAT program. Two arrows point from this central RAT box to a pair of boxes on the right labelled Problem (Output)
           and Results, indicating the output produced by RAT after the program runs.
 
