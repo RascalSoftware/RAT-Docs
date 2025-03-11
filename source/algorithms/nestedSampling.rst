@@ -58,12 +58,12 @@ The following parameters in the :ref:`Controls object<controls>` are specific to
 
   The convergence statistic for each iteration is
 
-  .. math:: \log(\log(Z) + (\log(L_{max}) - j/N_{live})) - \log(Z)
+  .. math:: \log(Z + L_{max}*exp(-j/N_{live})) - \log(Z)
 
 
   where :math:`Z` is the evidence, :math:`L_{max}` is the maximum likelihood out of all live points, :math:`j` is the number of iterations,
-  and :math:`N_{live}` is the number of live points (``nLive``). The algorithm is considered to have converged when this value
-  is less than ``nsTolerance``.
+  and :math:`N_{live}` is the number of live points (``nLive``). This is an estimate of the most that the log-evidence can change on iteration :math:`j`. [#feroz2008-2]_
+  The algorithm is considered to have converged when this value is less than ``nsTolerance``.
 
 .. [#skilling2004] 
    Skilling, John (2004), 
@@ -82,3 +82,9 @@ The following parameters in the :ref:`Controls object<controls>` are specific to
    "MULTINEST: an efficient and robust Bayesian inference tool for cosmology and particle physics". 
    DOI: `10.1111/j.1365-2966.2009.14548.x <https://doi.org/10.1111/j.1365-2966.2009.14548.x>`_,
    URL: https://arxiv.org/abs/0809.3437
+
+.. [#feroz2008-2]
+   Feroz, F.; Hobson, M.P. (2008)
+   "Multimodal nested sampling: an efficient and robust alternative to MCMC methods for astronomical data analysis".
+   DOI: `10.1111/j.1365-2966.2007.12353.x <https://doi.org/10.1111/j.1365-2966.2007.12353.x>`_,
+   URL: https://arxiv.org/abs/0704.3704
