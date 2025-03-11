@@ -454,8 +454,8 @@ document.write(`
 <span class="sig-prename descclassname"><span class="pre">utilities.misc.</span></span><span class="sig-name descname"><span class="pre">projectClassToR1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">project</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.misc.projectClassToR1" title="Link to this definition">#</a></dt>
 <dd><p>Converts <code class="docutils literal notranslate"><span class="pre">projectClass</span></code> instance to RasCAL1 (r1) struct. Also creates the datafiles directory and saves the
 data if asked. The functions takes in a <code class="docutils literal notranslate"><span class="pre">projectClass</span></code> instance and other optional arguments then outputs r1 struct.</p>
-<p>Example Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r1Struct</span> <span class="o">=</span> <span class="n">projectClassToR1</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="s1">&#39;saveProject&#39;</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r1Struct</span> <span class="o">=</span> <span class="n">projectClassToR1</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="s1">&#39;saveProject&#39;</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -489,9 +489,9 @@ data if asked. The functions takes in a <code class="docutils literal notranslat
 <span class="sig-prename descclassname"><span class="pre">utilities.misc.</span></span><span class="sig-name descname"><span class="pre">r1ToProjectClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">r1Problem</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.misc.r1ToProjectClass" title="Link to this definition">#</a></dt>
 <dd><p>Converts RasCAL1 (r1) struct to an equivalent <code class="docutils literal notranslate"><span class="pre">projectClass</span></code> instance. The function takes the path of the
 r1 struct .mat file.</p>
-<p>Example Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">project</span> <span class="o">=</span> <span class="n">r1ToProjectClass</span><span class="p">(</span><span class="s1">&#39;DSPCBilayerStructInput.mat&#39;</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Load</span> <span class="kn">from</span><span class="w"> </span><span class="nn">current</span> <span class="n">directory</span>
-<span class="n">project</span> <span class="o">=</span> <span class="n">r1ToProjectClass</span><span class="p">(</span><span class="s1">&#39;examples/DSPCBilayerStructInput.mat&#39;</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Load</span> <span class="kn">from</span><span class="w"> </span><span class="nn">the</span> <span class="n">example</span> <span class="n">subdirectory</span>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">r1ToProjectClass</span><span class="p">(</span><span class="s1">&#39;DSPCBilayerStructInput.mat&#39;</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Load</span> <span class="kn">from</span><span class="w"> </span><span class="nn">current</span> <span class="n">directory</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">r1ToProjectClass</span><span class="p">(</span><span class="s1">&#39;examples/DSPCBilayerStructInput.mat&#39;</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Load</span> <span class="kn">from</span><span class="w"> </span><span class="nn">the</span> <span class="n">example</span> <span class="n">subdirectory</span>
 </pre></div>
 </div>
 <dl class="field-list simple">

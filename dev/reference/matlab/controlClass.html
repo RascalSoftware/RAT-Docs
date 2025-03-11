@@ -463,17 +463,17 @@ whether to calculate the SLD during a fit, how many iterations an algorithm shou
 <li><p>DREAM</p></li>
 </ul>
 <p>Each procedure has their own unique set of options so the relevant procedure is listed in square brackets before the options description.</p>
-<p>Example Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">controlsClass</span><span class="p">();</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">procedure</span> <span class="o">=</span> <span class="n">procedures</span><span class="o">.</span><span class="n">Dream</span><span class="p">;</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">nSamples</span> <span class="o">=</span> <span class="mi">6000</span><span class="p">;</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">nChains</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">parallel</span> <span class="o">=</span> <span class="n">parallelOptions</span><span class="o">.</span><span class="n">Contrasts</span><span class="p">;</span>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span> <span class="o">=</span> <span class="n">controlsClass</span><span class="p">();</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span><span class="o">.</span><span class="n">procedure</span> <span class="o">=</span> <span class="n">procedures</span><span class="o">.</span><span class="n">Dream</span><span class="p">;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span><span class="o">.</span><span class="n">nSamples</span> <span class="o">=</span> <span class="mi">6000</span><span class="p">;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span><span class="o">.</span><span class="n">nChains</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span><span class="o">.</span><span class="n">parallel</span> <span class="o">=</span> <span class="n">parallelOptions</span><span class="o">.</span><span class="n">Contrasts</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>Alternatively use the <code class="docutils literal notranslate"><span class="pre">setProcedure</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">controlsClass</span><span class="p">();</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">setProcedure</span><span class="p">(</span><span class="s1">&#39;dream&#39;</span><span class="p">,</span> <span class="s1">&#39;nSamples&#39;</span><span class="p">,</span> <span class="mi">6000</span><span class="p">,</span> <span class="s1">&#39;nChains&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;parallel&#39;</span><span class="p">,</span> <span class="s1">&#39;contrasts&#39;</span><span class="p">);</span>
+<p>Alternatively use the <code class="docutils literal notranslate"><span class="pre">setProcedure</span></code> method</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span> <span class="o">=</span> <span class="n">controlsClass</span><span class="p">();</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span><span class="o">.</span><span class="n">setProcedure</span><span class="p">(</span><span class="s1">&#39;dream&#39;</span><span class="p">,</span> <span class="s1">&#39;nSamples&#39;</span><span class="p">,</span> <span class="mi">6000</span><span class="p">,</span> <span class="s1">&#39;nChains&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;parallel&#39;</span><span class="p">,</span> <span class="s1">&#39;contrasts&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="mat attribute">
@@ -526,7 +526,7 @@ whether to calculate the SLD during a fit, how many iterations an algorithm shou
 <dd><p>The number of initial points to use for resampling.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int, default: 50</p>
+<dd class="field-odd"><p>whole number, default: 50</p>
 </dd>
 </dl>
 </dd></dl>
@@ -548,7 +548,7 @@ whether to calculate the SLD during a fit, how many iterations an algorithm shou
 <dd><p>[SIMPLEX, DE] Number of iterations between printing progress updates to the terminal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int, default: 1</p>
+<dd class="field-odd"><p>whole number, default: 1</p>
 </dd>
 </dl>
 </dd></dl>
@@ -559,7 +559,7 @@ whether to calculate the SLD during a fit, how many iterations an algorithm shou
 <dd><p>[SIMPLEX, DE] Number of iterations between updates to live plots.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int, default: 20</p>
+<dd class="field-odd"><p>whole number, default: 20</p>
 </dd>
 </dl>
 </dd></dl>
@@ -592,7 +592,7 @@ whether to calculate the SLD during a fit, how many iterations an algorithm shou
 <dd><p>[SIMPLEX] The maximum number of function evaluations before the algorithm terminates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int, default: 10000</p>
+<dd class="field-odd"><p>whole number, default: 10000</p>
 </dd>
 </dl>
 </dd></dl>
@@ -603,7 +603,7 @@ whether to calculate the SLD during a fit, how many iterations an algorithm shou
 <dd><p>[SIMPLEX] The maximum number of iterations before the algorithm terminates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int, default: 1000</p>
+<dd class="field-odd"><p>whole number, default: 1000</p>
 </dd>
 </dl>
 </dd></dl>
@@ -614,7 +614,7 @@ whether to calculate the SLD during a fit, how many iterations an algorithm shou
 <dd><p>[DE] The number of candidate solutions that exist at any time.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int, default: 20</p>
+<dd class="field-odd"><p>whole number, default: 20</p>
 </dd>
 </dl>
 </dd></dl>
@@ -669,7 +669,7 @@ whether to calculate the SLD during a fit, how many iterations an algorithm shou
 <dd><p>[DE] The maximum number of iterations before the algorithm terminates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int, default: 500</p>
+<dd class="field-odd"><p>whole number, default: 500</p>
 </dd>
 </dl>
 </dd></dl>
@@ -680,7 +680,7 @@ whether to calculate the SLD during a fit, how many iterations an algorithm shou
 <dd><p>[NS] The number of points to sample.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int, default: 150</p>
+<dd class="field-odd"><p>whole number, default: 150</p>
 </dd>
 </dl>
 </dd></dl>
@@ -691,7 +691,7 @@ whether to calculate the SLD during a fit, how many iterations an algorithm shou
 <dd><p>[NS] If non-zero, an MCMC process with <code class="docutils literal notranslate"><span class="pre">nMCMC</span></code> chains will be used instead of MultiNest.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int, default: 0</p>
+<dd class="field-odd"><p>whole number, default: 0</p>
 </dd>
 </dl>
 </dd></dl>
@@ -724,7 +724,7 @@ whether to calculate the SLD during a fit, how many iterations an algorithm shou
 <dd><p>[DREAM] The number of samples in the initial population for each chain.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int, default: 20000</p>
+<dd class="field-odd"><p>whole number, default: 20000</p>
 </dd>
 </dl>
 </dd></dl>
@@ -735,7 +735,7 @@ whether to calculate the SLD during a fit, how many iterations an algorithm shou
 <dd><p>[DREAM] The number of Markov chains to use in the algorithm.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int, default: 10</p>
+<dd class="field-odd"><p>whole number, default: 10</p>
 </dd>
 </dl>
 </dd></dl>
@@ -788,9 +788,9 @@ whether to calculate the SLD during a fit, how many iterations an algorithm shou
 <dt class="sig sig-object mat" id="API.controlsClass.getIPCFilePath">
 <span class="sig-name descname"><span class="pre">getIPCFilePath</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.controlsClass.getIPCFilePath" title="Link to this definition">#</a></dt>
 <dd><p>Returns the path of the IPC file.</p>
-<p>Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">controlsClass</span><span class="p">();</span>
-<span class="n">path</span> <span class="o">=</span> <span class="n">controls</span><span class="o">.</span><span class="n">getIPCFilePath</span><span class="p">();</span>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span> <span class="o">=</span> <span class="n">controlsClass</span><span class="p">();</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">path</span> <span class="o">=</span> <span class="n">controls</span><span class="o">.</span><span class="n">getIPCFilePath</span><span class="p">();</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -807,9 +807,9 @@ whether to calculate the SLD during a fit, how many iterations an algorithm shou
 <dt class="sig sig-object mat" id="API.controlsClass.initialiseIPC">
 <span class="sig-name descname"><span class="pre">initialiseIPC</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.controlsClass.initialiseIPC" title="Link to this definition">#</a></dt>
 <dd><p>Creates and initialises the inter-process communication file</p>
-<p>Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">controlsClass</span><span class="p">();</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">initialiseIPC</span><span class="p">();</span>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span> <span class="o">=</span> <span class="n">controlsClass</span><span class="p">();</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span><span class="o">.</span><span class="n">initialiseIPC</span><span class="p">();</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -818,9 +818,9 @@ whether to calculate the SLD during a fit, how many iterations an algorithm shou
 <dt class="sig sig-object mat" id="API.controlsClass.sendStopEvent">
 <span class="sig-name descname"><span class="pre">sendStopEvent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.controlsClass.sendStopEvent" title="Link to this definition">#</a></dt>
 <dd><p>Sends the stop event via IPC file.</p>
-<p>Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">controlsClass</span><span class="p">();</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">sendStopEvent</span><span class="p">();</span>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span> <span class="o">=</span> <span class="n">controlsClass</span><span class="p">();</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span><span class="o">.</span><span class="n">sendStopEvent</span><span class="p">();</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -829,11 +829,11 @@ whether to calculate the SLD during a fit, how many iterations an algorithm shou
 <dt class="sig sig-object mat" id="API.controlsClass.setProcedure">
 <span class="sig-name descname"><span class="pre">setProcedure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">procedure</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.controlsClass.setProcedure" title="Link to this definition">#</a></dt>
 <dd><p>Sets the properties of the controls object based on the selected procedures</p>
-<p>Example Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">controlsClass</span><span class="p">();</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">setProcedure</span><span class="p">(</span><span class="s1">&#39;simplex&#39;</span><span class="p">,</span> <span class="s1">&#39;xTolerance&#39;</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="s1">&#39;funcTolerance&#39;</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxFuncEvals&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">setProcedure</span><span class="p">(</span><span class="s1">&#39;dream&#39;</span><span class="p">);</span>  <span class="o">%</span> <span class="n">This</span> <span class="n">will</span> <span class="n">use</span> <span class="n">default</span> <span class="n">DREAM</span> <span class="n">options</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">setProcedure</span><span class="p">(</span><span class="s1">&#39;ns&#39;</span><span class="p">,</span> <span class="s1">&#39;nLive&#39;</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span><span class="s1">&#39;nMCMC&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;propScale&#39;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;nsTolerance&#39;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">);</span>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span> <span class="o">=</span> <span class="n">controlsClass</span><span class="p">();</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span><span class="o">.</span><span class="n">setProcedure</span><span class="p">(</span><span class="s1">&#39;simplex&#39;</span><span class="p">,</span> <span class="s1">&#39;xTolerance&#39;</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="s1">&#39;funcTolerance&#39;</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxFuncEvals&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span><span class="o">.</span><span class="n">setProcedure</span><span class="p">(</span><span class="s1">&#39;dream&#39;</span><span class="p">);</span>  <span class="o">%</span> <span class="n">This</span> <span class="n">will</span> <span class="n">use</span> <span class="n">default</span> <span class="n">DREAM</span> <span class="n">options</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span><span class="o">.</span><span class="n">setProcedure</span><span class="p">(</span><span class="s1">&#39;ns&#39;</span><span class="p">,</span> <span class="s1">&#39;nLive&#39;</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span><span class="s1">&#39;nMCMC&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;propScale&#39;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;nsTolerance&#39;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">

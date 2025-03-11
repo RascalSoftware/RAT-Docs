@@ -531,128 +531,302 @@ to set the name of a parameter.</p>
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
 <dl class="mat class">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">parametersClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass" title="Link to this definition">#</a></dt>
-<dd><p>This is the class definition for
-the parameters block.</p>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">parametersClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name</span></em>, <em class="sig-param"><span class="pre">min</span></em>, <em class="sig-param"><span class="pre">value</span></em>, <em class="sig-param"><span class="pre">max</span></em>, <em class="sig-param"><span class="pre">fit</span></em>, <em class="sig-param"><span class="pre">priorType</span></em>, <em class="sig-param"><span class="pre">mu</span></em>, <em class="sig-param"><span class="pre">sigma</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass" title="Link to this definition">#</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">parametersClass</span></code> manages the parameters for the project. It provides methods to add, update and remove parameters.
+Each parameter is stored as a row in a table and consists of a name, a value with its minimum and maximum limits, a flag indicating
+if the parameter should be fitted in the calculation, and priors for Bayesian calculations. The type of the prior (either “uniform”,
+“gaussian”, or “jeffreys”) is included alongside the mean (mu) and standard deviation (sigma) of the Gaussian distribution for Gaussian
+priors. <code class="docutils literal notranslate"><span class="pre">parametersClass</span></code> will be initialised with a default first parameter if no arguments are provided otherwise the provided
+arguments will be used to create the first parameter.</p>
+<p class="rubric">Examples</p>
+<p>Default values are used when adding the parameter if no arguments are provided.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span> <span class="o">=</span> <span class="n">parametersClass</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>for 2 inputs, the min value provided would be used to set the value and max value.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span> <span class="o">=</span> <span class="n">parametersClass</span><span class="p">(</span><span class="s1">&#39;Tails&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The code above is equivalent to</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span> <span class="o">=</span> <span class="n">parametersClass</span><span class="p">(</span><span class="s1">&#39;Tails&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Other ways of initialisation</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span> <span class="o">=</span> <span class="n">parametersClass</span><span class="p">(</span><span class="s1">&#39;Tails&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">params</span> <span class="o">=</span> <span class="n">parametersClass</span><span class="p">(</span><span class="s1">&#39;Tails&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="n">priorTypes</span><span class="o">.</span><span class="n">Uniform</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Inf</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">auto-generated</span> <span class="pre">name</span></code></span>) – The name of the first parameter.</p></li>
+<li><p><strong>min</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – The minimum value that the first parameter could take when fitted.</p></li>
+<li><p><strong>value</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – The value of the parameter</p></li>
+<li><p><strong>max</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – The maximum value that the first parameter could take when fitted.</p></li>
+<li><p><strong>fit</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">false</span></code></span>) – Whether the first parameter should be fitted in a calculation.</p></li>
+<li><p><strong>priorType</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">PriorTypes,</span> <span class="pre">default:</span> <span class="pre">PriorTypes.Uniform</span></code></span>) – For Bayesian calculations, whether the prior likelihood is assumed to be ‘uniform’ or ‘gaussian’.</p></li>
+<li><p><strong>mu</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0</span></code></span>) – If the prior type is Gaussian, the mean of the Gaussian function for the prior likelihood.</p></li>
+<li><p><strong>sigma</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">Inf</span></code></span>) – If the prior type is Gaussian, the standard deviation of the Gaussian function for the prior likelihood.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="parametersClass.varTable">
+<span class="sig-name descname"><span class="pre">varTable</span></span><a class="headerlink" href="#parametersClass.varTable" title="Link to this definition">#</a></dt>
+<dd><p>The table which contains the properties for each parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>table</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.addParameter">
-<span class="sig-name descname"><span class="pre">addParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.addParameter" title="Link to this definition">#</a></dt>
-<dd><p>Adds an new parameter to the parameters table. Default
-values are used when adding the parameter if no arguments are
-provided, otherwise a subset of the arguments can be provided.
-The following are assumed from number of arguments:
-for 1 input, the name only is provided
-for 2 inputs, the name and value are provided
-for 4 inputs, the name, min, value, and max are provided
-for 5 inputs, the name, min, value, max, and fit? are provided
-for 8 inputs, all parameter properties are provided</p>
-<p>params.addParameter(‘Tails Roughness’);</p>
+<span class="sig-name descname"><span class="pre">addParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name</span></em>, <em class="sig-param"><span class="pre">min</span></em>, <em class="sig-param"><span class="pre">value</span></em>, <em class="sig-param"><span class="pre">max</span></em>, <em class="sig-param"><span class="pre">fit</span></em>, <em class="sig-param"><span class="pre">priorType</span></em>, <em class="sig-param"><span class="pre">mu</span></em>, <em class="sig-param"><span class="pre">sigma</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.addParameter" title="Link to this definition">#</a></dt>
+<dd><p>Adds an new parameter to the parameters table.</p>
+<p class="rubric">Examples</p>
+<p>To add a new parameter with no properties and an autogenerated name.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">addParameter</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>To add a parameter with all available properties.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">addParameter</span><span class="p">(</span><span class="s1">&#39;Tails&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Other examples of adding parameters with a subset of properties.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">addParameter</span><span class="p">(</span><span class="s1">&#39;Tails&#39;</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Parameter</span> <span class="n">name</span> <span class="n">only</span> <span class="k">with</span> <span class="n">others</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">default</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">addParameter</span><span class="p">(</span><span class="s1">&#39;Tails&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Parameter</span> <span class="n">name</span> <span class="ow">and</span> <span class="nb">min</span> <span class="n">only</span><span class="o">.</span> <span class="n">Value</span> <span class="ow">and</span> <span class="nb">max</span> <span class="n">will</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">to</span> <span class="mi">23</span> <span class="n">to</span> <span class="n">keep</span> <span class="n">limits</span> <span class="n">valid</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">addParameter</span><span class="p">(</span><span class="s1">&#39;Tails&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>  <span class="o">%</span> <span class="n">priors</span> <span class="n">will</span> <span class="n">be</span> <span class="n">default</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">auto-generated</span> <span class="pre">name</span></code></span>) – The name of the parameter.</p></li>
+<li><p><strong>min</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – The minimum value that the parameter could take when fitted.</p></li>
+<li><p><strong>value</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – The value of the parameter, default will be equal to <code class="docutils literal notranslate"><span class="pre">min</span></code> if this is not set.</p></li>
+<li><p><strong>max</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – The maximum value that the parameter could take when fitted, default will be equal to <code class="docutils literal notranslate"><span class="pre">value</span></code> if this is not set.</p></li>
+<li><p><strong>fit</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">false</span></code></span>) – Whether the parameter should be fitted in a calculation.</p></li>
+<li><p><strong>priorType</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">PriorTypes,</span> <span class="pre">default:</span> <span class="pre">PriorTypes.Uniform</span></code></span>) – For Bayesian calculations, whether the prior likelihood is assumed to be ‘uniform’ or ‘gaussian’.</p></li>
+<li><p><strong>mu</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – If the prior type is Gaussian, the mean of the Gaussian function for the prior likelihood.</p></li>
+<li><p><strong>sigma</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">Inf</span></code></span>) – If the prior type is Gaussian, the standard deviation of the Gaussian function for the prior likelihood.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.displayTable">
 <span class="sig-name descname"><span class="pre">displayTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">showPriors</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.displayTable" title="Link to this definition">#</a></dt>
-<dd><p>Displays the parameter table. Optional showPriors to display
-the priors default is false</p>
-<p>params.displayTable(true);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.parametersClass.parametersClass">
-<span class="sig-name descname"><span class="pre">parametersClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.parametersClass" title="Link to this definition">#</a></dt>
-<dd><p>Class constructor.
-Creates a Parameter object. The arguments should be
-the content of the first parameter. A parameter consists of
-a name (string), min (double), value (double), max (double),
-fit flag (logical), prior type (string), mu (double), and
-sigma (double) values in that order.
-Default values are used when adding the parameter if no
-arguments are provided, otherwise a subset of the arguments
-can be provided.
-The following are assumed from number of arguments:
-for 1 input, the name only is provided
-for 2 inputs, the name and value are provided
-for 4 inputs, the name, min, value, and max are provided
-for 5 inputs, the name, min, value, max, and fit? are provided
-for 8 inputs, all parameter properties are provided</p>
-<p>params = parametersClass(‘Tails’, 10, 20, 30, true, priorTypes.Uniform.value, 0, Inf);</p>
+<dd><p>Prints the parameter table to the console.</p>
+<p class="rubric">Examples</p>
+<p>To print the table with the prior information.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">displayTable</span><span class="p">(</span><span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>showPriors</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">false</span></code></span>) – Indicates if the prior type, mu, and sigma columns should be displayed.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.removeParameter">
 <span class="sig-name descname"><span class="pre">removeParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.removeParameter" title="Link to this definition">#</a></dt>
-<dd><p>Removes a parameter from the parameters table.
-Expects a single parameter name or index/array of parameter
-names or indices to remove</p>
-<p>params.removeParameter(2);</p>
+<dd><p>Removes a parameter from the parameters table.</p>
+<p class="rubric">Examples</p>
+<p>To remove the second parameter in the table (parameter in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">removeParameter</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To remove parameter with a specific name.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">removeParameter</span><span class="p">(</span><span class="s1">&#39;Tails&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">integer</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to remove. If it is text,
+it is the name of the parameter to remove.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.setFit">
-<span class="sig-name descname"><span class="pre">setFit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">fitFlag</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setFit" title="Link to this definition">#</a></dt>
-<dd><p>Sets the ‘fit’ to off or on for parameter.
-Expects index or name of parameter and new fit flag</p>
-<p>params.setFit(2, true);</p>
+<span class="sig-name descname"><span class="pre">setFit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">fit</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setFit" title="Link to this definition">#</a></dt>
+<dd><p>Sets the fit to off or on for an existing parameter.</p>
+<p class="rubric">Examples</p>
+<p>To change the fit flag of the second parameter in the table (parameter in row 2)</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">setFit</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To change the fit flag of a parameter with name ‘Tails’</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">setFit</span><span class="p">(</span><span class="s1">&#39;Tails&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">integer</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to update. If it is text,
+it is the name of the parameter to update.</p></li>
+<li><p><strong>fit</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical</span></code></span>) – The new fit flag of the parameter.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.setLimits">
-<span class="sig-name descname"><span class="pre">setLimits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">minValue</span></em>, <em class="sig-param"><span class="pre">maxValue</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setLimits" title="Link to this definition">#</a></dt>
-<dd><p>Sets the limits of an existing parameter. Expects index
-or name of parameter and new min and max of the parameter’s
-value</p>
-<p>params.setLimits({2, 0, 100});</p>
+<span class="sig-name descname"><span class="pre">setLimits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">min</span></em>, <em class="sig-param"><span class="pre">max</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setLimits" title="Link to this definition">#</a></dt>
+<dd><p>Sets the limits of an existing parameter.</p>
+<p class="rubric">Examples</p>
+<p>To change the limits of the second parameter in the table (parameter in row 2)</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">setLimits</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To change the limits of a parameter with name ‘Tails’</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">setLimits</span><span class="p">(</span><span class="s1">&#39;Tails&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">integer</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to update. If it is text,
+it is the name of the parameter to update.</p></li>
+<li><p><strong>min</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double</span></code></span>) – The new minimum value of the parameter.</p></li>
+<li><p><strong>max</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double</span></code></span>) – The new maximum value of the parameter.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.setName">
 <span class="sig-name descname"><span class="pre">setName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setName" title="Link to this definition">#</a></dt>
-<dd><p>Sets the name of an existing parameter.
-Expects index or name of parameter and the new name</p>
-<p>params.setName(2, ‘new name’);</p>
+<dd><p>Sets the name of an existing parameter.</p>
+<p class="rubric">Examples</p>
+<p>To change the name of the second parameter in the table (parameter in row 2)</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;new name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To change the name of a parameter called ‘Tails’ to ‘Heads’</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">setName</span><span class="p">(</span><span class="s1">&#39;Tails&#39;</span><span class="p">,</span> <span class="s1">&#39;Heads&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">integer</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to update. If it is text,
+it is the name of the parameter to update.</p></li>
+<li><p><strong>name</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span></code></span>) – The new name of the parameter.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.setParameter">
-<span class="sig-name descname"><span class="pre">setParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setParameter" title="Link to this definition">#</a></dt>
-<dd><p>General purpose set parameter method. Expects index or name
-of parameter and keyword/value pairs to set</p>
-<p>params.setParameter(2, ‘value’, 50);</p>
+<span class="sig-name descname"><span class="pre">setParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setParameter" title="Link to this definition">#</a></dt>
+<dd><p>General purpose method for updating properties of an existing parameter.
+Any unset property will remain unchanged.</p>
+<p class="rubric">Examples</p>
+<p>To change the name and value of the second parameter in the table (parameter in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Heads&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To change the all properties of a parameter called ‘Tails’.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s1">&#39;Tails&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Heads&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="o">...</span>
+<span class="gp">&gt;&gt;&gt; </span>                    <span class="s1">&#39;fit&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s1">&#39;priorType&#39;</span><span class="p">,</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="s1">&#39;mu&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;sigma&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">integer</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to update. If it is text,
+it is the name of the parameter to update.</p></li>
+<li><p><strong>options</strong> – <dl class="simple">
+<dt>Keyword/value pair to properties to update for the specific parameter.</dt><dd><ul>
+<li><p>name (char array or string, default: ‘’) the new name of the parameter.</p></li>
+<li><p>min (double, default: []) the new minimum value of the parameter.</p></li>
+<li><p>value (double, default: []) the new value of the parameter.</p></li>
+<li><p>max (double, default: []) the new maximum value of the parameter.</p></li>
+<li><p>fit (logical, default: logical.empty()) the new fit flag of the parameter.</p></li>
+<li><p>priorTypes (priorTypes, priorTypes.empty()) the new prior type of the parameter.</p></li>
+<li><p>mu (double, default: []) the new mean of the Gaussian function for the prior.</p></li>
+<li><p>sigma (double, default: []) The new standard deviation of the Gaussian function for the prior.</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.setPrior">
-<span class="sig-name descname"><span class="pre">setPrior</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setPrior" title="Link to this definition">#</a></dt>
-<dd><p>Sets the prior of an existing parameter. Expects index or
-name of parameter and the new prior type (‘uniform’,
-‘gaussian’, ‘jeffreys’) with mu and sigma value if applicable</p>
-<p>params.setPrior(2, priorTypes.Gaussian, 1, 2);</p>
+<span class="sig-name descname"><span class="pre">setPrior</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">priorType</span></em>, <em class="sig-param"><span class="pre">mu</span></em>, <em class="sig-param"><span class="pre">sigma</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setPrior" title="Link to this definition">#</a></dt>
+<dd><p>Sets the prior information of an existing parameter.</p>
+<p class="rubric">Examples</p>
+<p>To change the prior of the second parameter in the table (parameter in row 2)</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">setPrior</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">priorTypes</span><span class="o">.</span><span class="n">Gaussian</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To change the prior of a parameter called ‘Tails’</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">setPrior</span><span class="p">(</span><span class="s1">&#39;Tails&#39;</span><span class="p">,</span> <span class="s1">&#39;uniform&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">integer</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to update. If it is text,
+it is the name of the parameter to update.</p></li>
+<li><p><strong>priorType</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">PriorTypes</span></code></span>) – The new prior type of the parameter.</p></li>
+<li><p><strong>mu</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">[]</span></code></span>) – If the prior type is Gaussian, the mean of the Gaussian function for the prior likelihood, the value is not changed if empty.</p></li>
+<li><p><strong>sigma</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">[]</span></code></span>) – The new standard deviation of the Gaussian function for the prior likelihood, the value is not changed if empty.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.setValue">
 <span class="sig-name descname"><span class="pre">setValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.setValue" title="Link to this definition">#</a></dt>
-<dd><p>Sets the value of an existing parameter. Expects index or
-name of parameter and the new value</p>
-<p>params.setValue(2, 3.4);</p>
+<dd><p>Sets the value of an existing parameter.</p>
+<p class="rubric">Examples</p>
+<p>To change the value of the second parameter in the table (parameter in row 2)</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To change the value of a parameter called ‘Tails’</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="s1">&#39;Tails&#39;</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">integer</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to update. If it is text,
+it is the name of the parameter to update.</p></li>
+<li><p><strong>value</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double</span></code></span>) – The new value of the parameter.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.toStruct">
 <span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.toStruct" title="Link to this definition">#</a></dt>
 <dd><p>Converts the class parameters into a structure array.</p>
-</dd></dl>
-
-<dl class="mat staticmethod">
-<dt class="sig sig-object mat" id="API.projectClass.parametersClass.validateLimits">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">validateLimits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">minLimit</span></em>, <em class="sig-param"><span class="pre">value</span></em>, <em class="sig-param"><span class="pre">maxLimit</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.validateLimits" title="Link to this definition">#</a></dt>
-<dd><p>Validate the value, lower and upper limit variables</p>
-</dd></dl>
-
-<dl class="mat staticmethod">
-<dt class="sig sig-object mat" id="API.projectClass.parametersClass.validatePriors">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">validatePriors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">priorType</span></em>, <em class="sig-param"><span class="pre">muValue</span></em>, <em class="sig-param"><span class="pre">sigmaValue</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.validatePriors" title="Link to this definition">#</a></dt>
-<dd><p>Validate the prior types, mu and sigma variables</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>outStruct</strong> – A struct which contains the properties for all the parameters.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>struct</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

@@ -1003,22 +1003,22 @@ Python</label><div class="sd-tab-content docutils">
 <p>Parameters can’t have duplicate names. Attempting to duplicate a name will throw an error. This can cause problems when loading in RasCAL-1 projects
 where duplicate names are allowed.</p>
 </div>
-<p>To subsequently change the values of the parameters (including names), there are a few methods you can use. For each of the methods, you can refer to the parameter by its index number or by name:</p>
+<p>To subsequently change the values of the parameters (including names), you can set the properties of a given parameter using name/value pairs, which parameter to set can be specified using the index number or name of the parameter:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-24" name="sd-tab-set-12" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-24">
 MATLAB</label><div class="sd-tab-content docutils">
-<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">setParameterName</span><span class="p">(</span><span class="s">&#39;My new param&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;My changed param&#39;</span><span class="p">);</span>
-<span class="n">problem</span><span class="p">.</span><span class="n">setParameterLimits</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mf">0.96</span><span class="p">,</span><span class="w"> </span><span class="mf">3.62</span><span class="p">);</span>
-<span class="n">problem</span><span class="p">.</span><span class="n">setParameterValue</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mf">20.22</span><span class="p">);</span>
-<span class="n">problem</span><span class="p">.</span><span class="n">setParameterFit</span><span class="p">(</span><span class="s">&#39;Layer rough&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&#39;My new param&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;My changed param&#39;</span><span class="p">);</span>
+<span class="n">problem</span><span class="p">.</span><span class="n">setParameter</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;min&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.96</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;max&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">3.62</span><span class="p">);</span>
+<span class="n">problem</span><span class="p">.</span><span class="n">setParameter</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;value&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">20.22</span><span class="p">);</span>
+<span class="n">problem</span><span class="p">.</span><span class="n">setParameter</span><span class="p">(</span><span class="s">&#39;Layer rough&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;fit&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-25" name="sd-tab-set-12" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-25">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;My changed param&#39;</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;My new param&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;My changed param&#39;</span>
 <span class="n">problem</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span> <span class="o">=</span> <span class="mf">0.96</span>
 <span class="n">problem</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="mf">3.62</span>
 <span class="n">problem</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s1">&#39;Layer thick&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="mf">20.22</span>
@@ -1060,7 +1060,7 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>Alternatively, you can set a number of properties of a given parameter at once using name/value pairs.</p>
+<p>Alternatively, you can set a multiple properties of a given parameter at once using name/value pairs.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-28" name="sd-tab-set-14" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-28">
@@ -1179,7 +1179,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-38" name="sd-tab-set-19" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-38">
 Matlab</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Error using projectClass/removeParameter (line 279)
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Error using projectParametersMixin/removeParameter (line 144)
 Can&#39;t remove protected parameters
 </pre></div>
 </div>
@@ -2671,7 +2671,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ________________________________________________________________________________________________
 
-Elapsed time is 0.001396 seconds.
+Elapsed time is 0.006205 seconds.
 
 Finished RAT ______________________________________________________________________________________________ 
 </pre></div>
@@ -2737,7 +2737,7 @@ Running simplex
 
 
 Exiting: Max iterations reached
-Elapsed time is 0.195625 seconds.
+Elapsed time is 0.179026 seconds.
 
 Finished RAT ______________________________________________________________________________________________ 
 </pre></div>
@@ -2753,7 +2753,7 @@ Running simplex
 
 
 Exiting: Max iterations reached
-Elapsed time is 0.101 seconds
+Elapsed time is 0.175 seconds
 
 Finished RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 </pre></div>

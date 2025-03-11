@@ -453,8 +453,8 @@ document.write(`
 <dt class="sig sig-object mat" id="utilities.plotting.bayesShadedPlot">
 <span class="sig-prename descclassname"><span class="pre">utilities.plotting.</span></span><span class="sig-name descname"><span class="pre">bayesShadedPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">project</span></em>, <em class="sig-param"><span class="pre">result</span></em>, <em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotting.bayesShadedPlot" title="Link to this definition">#</a></dt>
 <dd><p>Plots the shaded reflectivities from Bayes output from RAT</p>
-<p>Example Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bayesShadedPlot</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="s1">&#39;interval&#39;</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="s1">&#39;q4&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bayesShadedPlot</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="s1">&#39;interval&#39;</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="s1">&#39;q4&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -494,9 +494,9 @@ If selected, smoothing is via a moving average algorithm.</p>
 <li><p><strong>result</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">struct</span></code></span>) – The result of the RAT Bayesian calculation.</p></li>
 <li><p><strong>options</strong> – <dl class="simple">
 <dt>Keyword/value pair to configure plotting, the following are allowed</dt><dd><ul>
-<li><p>figure (‘matlab.ui.Figure’ or int, default: []) figure or number of the figure to use for the plot.</p></li>
+<li><p>figure (‘matlab.ui.Figure’ or  whole number, default: []) figure or number of the figure to use for the plot.</p></li>
 <li><p>smooth (logical, default: true) indicates if moving average smoothing is applied to the plot.</p></li>
-<li><p>params (1D ‘array of int’, ‘array of string’ or ‘cell array of char vectors’, default: []) indices or names of a subset of parameters to the plot.</p></li>
+<li><p>params (1D ‘array of whole numbers’, ‘array of string’ or ‘cell array of char vectors’, default: []) indices or names of a subset of parameters to the plot.</p></li>
 <li><dl class="simple">
 <dt>smoothingFactor (double [0, 1], default: 0.25) adjusts the level of smoothing by scaling the window size, values near 0 produce smaller moving window sizes,</dt><dd><p>resulting in less smoothing and values near 1 produce larger moving window sizes, resulting in more smoothing.</p>
 </dd>
@@ -531,10 +531,10 @@ If selected, smoothing is via a moving average algorithm.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double</span></code></span>) – 1D array data for X axis.</p></li>
 <li><p><strong>y</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double</span></code></span>) – 1D array data for Y axis.</p></li>
-<li><p><strong>parent</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">matlab.graphics.axes.Axes</span> <span class="pre">or</span> <span class="pre">matlab.ui.Figure,</span> <span class="pre">or</span> <span class="pre">figure</span> <span class="pre">number,</span> <span class="pre">default:</span> <span class="pre">[]</span></code></span>) – axes or fiure object to make plot on.</p></li>
-<li><p><strong>smooth</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">bool,</span> <span class="pre">default:</span> <span class="pre">false</span></code></span>) – indicates if moving average smoothing is applied to the plot.</p></li>
+<li><p><strong>parent</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">matlab.graphics.axes.Axes</span> <span class="pre">or</span> <span class="pre">matlab.ui.Figure,</span> <span class="pre">or</span> <span class="pre">figure</span> <span class="pre">number,</span> <span class="pre">default:</span> <span class="pre">[]</span></code></span>) – axes or figure object to make plot on.</p></li>
+<li><p><strong>smooth</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">false</span></code></span>) – indicates if moving average smoothing is applied to the plot.</p></li>
 <li><p><strong>smoothingFactor</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double</span> <span class="pre">[0,</span> <span class="pre">1],</span> <span class="pre">default:</span> <span class="pre">0.25</span></code></span>) – adjusts the level of smoothing by scaling the window size, values near 0 produce smaller moving window sizes,
-resulting in less smoothing and values near 1 produce larger moving window sizes, resulting in more smoothing</p></li>
+resulting in less smoothing and values near 1 produce larger moving window sizes, resulting in more smoothing.</p></li>
 </ul>
 </dd>
 </dl>
@@ -545,8 +545,8 @@ resulting in less smoothing and values near 1 produce larger moving window sizes
 <span class="sig-prename descclassname"><span class="pre">utilities.plotting.</span></span><span class="sig-name descname"><span class="pre">plotHists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">result</span></em>, <em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotting.plotHists" title="Link to this definition">#</a></dt>
 <dd><p>Plots the Bayes histogram plot from the chain, with or without smoothing.
 If selected, smoothing is via a moving average algorithm.</p>
-<p>Example Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotHists</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s1">&#39;smooth&#39;</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plotHists</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s1">&#39;smooth&#39;</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -555,8 +555,8 @@ If selected, smoothing is via a moving average algorithm.</p>
 <li><p><strong>result</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">struct</span></code></span>) – The result of the RAT Bayesian calculation.</p></li>
 <li><p><strong>options</strong> – <dl class="simple">
 <dt>Keyword/value pair to configure plotting, the following are allowed</dt><dd><ul>
-<li><p>figure (‘matlab.ui.Figure’ or int, default: []) figure or number of the figure to use for the plot.</p></li>
-<li><p>smooth (logical, default: true) indicates if moving average smoothing is applied to the plot</p></li>
+<li><p>figure (‘matlab.ui.Figure’ or whole number, default: []) figure or number of the figure to use for the plot.</p></li>
+<li><p>smooth (logical, default: true) indicates if moving average smoothing is applied to the plot.</p></li>
 </ul>
 </dd>
 </dl>
@@ -570,8 +570,8 @@ If selected, smoothing is via a moving average algorithm.</p>
 <dt class="sig sig-object mat" id="utilities.plotting.plotRefSLD">
 <span class="sig-prename descclassname"><span class="pre">utilities.plotting.</span></span><span class="sig-name descname"><span class="pre">plotRefSLD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">project</span></em>, <em class="sig-param"><span class="pre">result</span></em>, <em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotting.plotRefSLD" title="Link to this definition">#</a></dt>
 <dd><p>Plots the reflectivity and SLD profiles</p>
-<p>Example Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotRefSLD</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="s1">&#39;showGrid&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s1">&#39;q4&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plotRefSLD</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="s1">&#39;showGrid&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s1">&#39;q4&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -601,22 +601,22 @@ If selected, smoothing is via a moving average algorithm.</p>
 <dd><p>Helper function to plot the reflectivity and SLD profiles from plot event struct.
 Most users never need to use this function, rather use <code class="docutils literal notranslate"><span class="pre">useLivePlot</span></code> for live
 plotting or <code class="docutils literal notranslate"><span class="pre">plotRefSLD</span></code> for simple SLD plots.</p>
-<p>Example Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotRefSLDHelper</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plotRefSLDHelper</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
 </pre></div>
 </div>
 <p><cite>data</cite> is a struct created by the RAT plot event. This struct can be created as shown below:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">projectStruct</span><span class="p">,</span><span class="o">~</span><span class="p">,</span><span class="o">~</span><span class="p">]</span> <span class="o">=</span> <span class="n">parseClassToStructs</span><span class="p">(</span><span class="n">project</span><span class="p">,</span><span class="n">controls</span><span class="p">);</span>
-
-<span class="n">data</span><span class="o">.</span><span class="n">modelType</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">modelType</span><span class="p">;</span>
-<span class="n">data</span><span class="o">.</span><span class="n">reflectivity</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">reflectivity</span><span class="p">;</span>
-<span class="n">data</span><span class="o">.</span><span class="n">shiftedData</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">shiftedData</span><span class="p">;</span>
-<span class="n">data</span><span class="o">.</span><span class="n">sldProfiles</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">sldProfiles</span><span class="p">;</span>
-<span class="n">data</span><span class="o">.</span><span class="n">resampledLayers</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">resampledLayers</span><span class="p">;</span>
-<span class="n">data</span><span class="o">.</span><span class="n">dataPresent</span> <span class="o">=</span> <span class="n">projectStruct</span><span class="o">.</span><span class="n">dataPresent</span><span class="p">;</span>
-<span class="n">data</span><span class="o">.</span><span class="n">subRoughs</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">contrastParams</span><span class="o">.</span><span class="n">subRoughs</span><span class="p">;</span>
-<span class="n">data</span><span class="o">.</span><span class="n">resample</span> <span class="o">=</span> <span class="n">projectStruct</span><span class="o">.</span><span class="n">resample</span><span class="p">;</span>
-<span class="n">data</span><span class="o">.</span><span class="n">contrastNames</span> <span class="o">=</span> <span class="n">projectStruct</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">contrasts</span><span class="p">;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">projectStruct</span><span class="p">,</span><span class="o">~</span><span class="p">,</span><span class="o">~</span><span class="p">]</span> <span class="o">=</span> <span class="n">parseClassToStructs</span><span class="p">(</span><span class="n">project</span><span class="p">,</span><span class="n">controls</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">modelType</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">modelType</span><span class="p">;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">reflectivity</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">reflectivity</span><span class="p">;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">shiftedData</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">shiftedData</span><span class="p">;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">sldProfiles</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">sldProfiles</span><span class="p">;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">resampledLayers</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">resampledLayers</span><span class="p">;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">dataPresent</span> <span class="o">=</span> <span class="n">projectStruct</span><span class="o">.</span><span class="n">dataPresent</span><span class="p">;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">subRoughs</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">contrastParams</span><span class="o">.</span><span class="n">subRoughs</span><span class="p">;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">resample</span> <span class="o">=</span> <span class="n">projectStruct</span><span class="o">.</span><span class="n">resample</span><span class="p">;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">contrastNames</span> <span class="o">=</span> <span class="n">projectStruct</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">contrasts</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>Where <cite>project</cite> is an instance of the <code class="docutils literal notranslate"><span class="pre">projectClass</span></code>, <cite>controls</cite> is an instance of <code class="docutils literal notranslate"><span class="pre">controlsClass</span></code> and <cite>result</cite> is
@@ -641,14 +641,14 @@ the result struct from the RAT calculation.</p>
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">utilities.plotting.</span></span><span class="sig-name descname"><span class="pre">useLivePlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">figureId</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotting.useLivePlot" title="Link to this definition">#</a></dt>
 <dd><p>Sets up a live plot on a given figure. The live plot listens for plot events from the RAT calculation and
 redraws the plot every time an event is received.</p>
-<p>Example Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">useLivePlot</span><span class="p">();</span>   <span class="o">%</span> <span class="n">Opens</span> <span class="n">a</span> <span class="n">new</span> <span class="n">figure</span> <span class="k">for</span> <span class="n">plot</span>
-<span class="n">useLivePlot</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Use</span> <span class="n">figure</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">plot</span>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">useLivePlot</span><span class="p">();</span>   <span class="o">%</span> <span class="n">Opens</span> <span class="n">a</span> <span class="n">new</span> <span class="n">figure</span> <span class="k">for</span> <span class="n">plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">useLivePlot</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Use</span> <span class="n">figure</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">plot</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>figureId</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">'matlab.ui.Figure'</span> <span class="pre">or</span> <span class="pre">int,</span> <span class="pre">default:</span> <span class="pre">[]</span></code></span>) – The number of the figure to use for the live plot.</p>
+<dd class="field-odd"><p><strong>figureId</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">'matlab.ui.Figure'</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number,</span> <span class="pre">default:</span> <span class="pre">[]</span></code></span>) – The number of the figure to use for the live plot.</p>
 </dd>
 </dl>
 </dd></dl>

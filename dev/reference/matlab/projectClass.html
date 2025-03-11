@@ -555,22 +555,6 @@ and sigma</p>
 </dd></dl>
 
 <dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.addBulkIn">
-<span class="sig-name descname"><span class="pre">addBulkIn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addBulkIn" title="Link to this definition">#</a></dt>
-<dd><p>Adds a new bulk-in parameter. Expects the name
-of bulk-in, min, value, max, and if fit is off or on</p>
-<p>project.addBulkIn(‘Silicon’, -1e-6, 0.0, 1e-6, true);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.addBulkOut">
-<span class="sig-name descname"><span class="pre">addBulkOut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addBulkOut" title="Link to this definition">#</a></dt>
-<dd><p>Adds a new bulk-out parameter. Expects the name
-of bulk-out, min, value, max, and if fit is off or on</p>
-<p>project.addBulkOut(‘SLD ACMW’, -1e-6, 0.0, 1e-6, true);</p>
-</dd></dl>
-
-<dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.addContrast">
 <span class="sig-name descname"><span class="pre">addContrast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addContrast" title="Link to this definition">#</a></dt>
 <dd><p>Adds a new contrast parameter. Expects a parameter name, and with
@@ -615,26 +599,6 @@ a cell array of layer cell arrays</p>
 </dd></dl>
 
 <dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.addParameter">
-<span class="sig-name descname"><span class="pre">addParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addParameter" title="Link to this definition">#</a></dt>
-<dd><p>Adds an individual parameter to the parameters object.
-Check how many parameters we are adding and make sure all
-the inputs are cells. A parameter consists of a name, min,
-value, max, fit flag, prior type’, mu, and sigma. The input
-is optional but if provided should contain 1, 2, 4, 5, or 8
-values of the parameter to added.</p>
-<p>project.addParameter(‘Tails Roughness’);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.addParameterGroup">
-<span class="sig-name descname"><span class="pre">addParameterGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">paramGroup</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addParameterGroup" title="Link to this definition">#</a></dt>
-<dd><p>Adds a group of parameters to the parameters object.
-Expects a cell array of parameter cell arrays.</p>
-<p>project.addParameterGroup({{‘Tails Thickness’}, {‘Heads Thickness’}});</p>
-</dd></dl>
-
-<dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.addResolution">
 <span class="sig-name descname"><span class="pre">addResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addResolution" title="Link to this definition">#</a></dt>
 <dd><p>Adds a resolution to the project. Expects a
@@ -652,30 +616,10 @@ and sigma</p>
 <p>project.addResolutionParam(‘Resolution Param 1’, 1e-8, 2.8e-6, 1e-5);</p>
 </dd></dl>
 
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.addScalefactor">
-<span class="sig-name descname"><span class="pre">addScalefactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addScalefactor" title="Link to this definition">#</a></dt>
-<dd><p>Adds a new scale factor parameter. Expects the name
-of scale factor, min, value, max, and if fit is off or on</p>
-<p>project.addScalefactor(‘Scalefactor 2’, 0.1, 0.19, 1.0, true);</p>
-</dd></dl>
-
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.background">
 <span class="sig-name descname"><span class="pre">background</span></span><a class="headerlink" href="#API.projectClass.projectClass.background" title="Link to this definition">#</a></dt>
 <dd><p>backgroundsClass object</p>
-</dd></dl>
-
-<dl class="mat attribute">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.bulkIn">
-<span class="sig-name descname"><span class="pre">bulkIn</span></span><a class="headerlink" href="#API.projectClass.projectClass.bulkIn" title="Link to this definition">#</a></dt>
-<dd><p>parametersClass object</p>
-</dd></dl>
-
-<dl class="mat attribute">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.bulkOut">
-<span class="sig-name descname"><span class="pre">bulkOut</span></span><a class="headerlink" href="#API.projectClass.projectClass.bulkOut" title="Link to this definition">#</a></dt>
-<dd><p>parametersClass object</p>
 </dd></dl>
 
 <dl class="mat method">
@@ -732,12 +676,6 @@ Data and Function types.</p>
 <dd><p>layersClass object</p>
 </dd></dl>
 
-<dl class="mat attribute">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.parameters">
-<span class="sig-name descname"><span class="pre">parameters</span></span><a class="headerlink" href="#API.projectClass.projectClass.parameters" title="Link to this definition">#</a></dt>
-<dd><p>parametersClass object</p>
-</dd></dl>
-
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.projectClass">
 <span class="sig-name descname"><span class="pre">projectClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">experimentName</span></em>, <em class="sig-param"><span class="pre">modelType</span></em>, <em class="sig-param"><span class="pre">geometry</span></em>, <em class="sig-param"><span class="pre">absorption</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.projectClass" title="Link to this definition">#</a></dt>
@@ -764,22 +702,6 @@ index or array of indices of background(s) to remove</p>
 <dd><p>Removes a given background parameter.
 Expects index or name of parameter to remove</p>
 <p>project.removeBackgroundParam(2);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.removeBulkIn">
-<span class="sig-name descname"><span class="pre">removeBulkIn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.removeBulkIn" title="Link to this definition">#</a></dt>
-<dd><p>Removes specified bulk-in parameter. Expects the name/index
-of bulk-in to remove</p>
-<p>project.removeBulkIn(2);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.removeBulkOut">
-<span class="sig-name descname"><span class="pre">removeBulkOut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.removeBulkOut" title="Link to this definition">#</a></dt>
-<dd><p>Removes specified bulk-out parameter. Expects the name/index
-of bulk-out to remove</p>
-<p>project.removeBulkOut(2);</p>
 </dd></dl>
 
 <dl class="mat method">
@@ -815,16 +737,6 @@ index/name of layer(s) to remove.</p>
 </dd></dl>
 
 <dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.removeParameter">
-<span class="sig-name descname"><span class="pre">removeParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.removeParameter" title="Link to this definition">#</a></dt>
-<dd><p>Removes a parameter from the parameters object. The
-parameter will also be removed from the layers array
-if it is in use. Expects series of indices or names of
-parameters to remove</p>
-<p>project.removeParameter(2);</p>
-</dd></dl>
-
-<dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.removeResolution">
 <span class="sig-name descname"><span class="pre">removeResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.removeResolution" title="Link to this definition">#</a></dt>
 <dd><p>Removes resolution from the project. Expects
@@ -840,24 +752,10 @@ Expects index or name of parameter to remove</p>
 <p>project.removeResolutionParam(2);</p>
 </dd></dl>
 
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.removeScalefactor">
-<span class="sig-name descname"><span class="pre">removeScalefactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.removeScalefactor" title="Link to this definition">#</a></dt>
-<dd><p>Removes specified scale factor parameter. Expects the name/index
-of scale factor to remove</p>
-<p>project.removeScalefactor(2);</p>
-</dd></dl>
-
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.resolution">
 <span class="sig-name descname"><span class="pre">resolution</span></span><a class="headerlink" href="#API.projectClass.projectClass.resolution" title="Link to this definition">#</a></dt>
 <dd><p>resolutionClass object</p>
-</dd></dl>
-
-<dl class="mat attribute">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.scalefactors">
-<span class="sig-name descname"><span class="pre">scalefactors</span></span><a class="headerlink" href="#API.projectClass.projectClass.scalefactors" title="Link to this definition">#</a></dt>
-<dd><p>parametersClass object</p>
 </dd></dl>
 
 <dl class="mat method">
@@ -882,49 +780,6 @@ Expects index or name of background and the new name</p>
 <dd><p>Sets the value of an existing background parameter. Expects
 index or name of parameter and keyword/value pairs to set</p>
 <p>project.setBackgroundParam(1, ‘name’, ‘Backs Value H2O’);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.setBackgroundParamLimits">
-<span class="sig-name descname"><span class="pre">setBackgroundParamLimits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">min</span></em>, <em class="sig-param"><span class="pre">max</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setBackgroundParamLimits" title="Link to this definition">#</a></dt>
-<dd><p>Sets the constraints of existing background
-parameter. Expects index or name of parameter
-and new min and max of the parameter’s value</p>
-<p>project.setBackgroundParamLimits(1, 0, 1);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.setBackgroundParamName">
-<span class="sig-name descname"><span class="pre">setBackgroundParamName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setBackgroundParamName" title="Link to this definition">#</a></dt>
-<dd><p>Sets the name of an existing background
-parameter. Expects index or name of parameter
-and the new name</p>
-<p>project.setBackgroundParamName(2, ‘new name’);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.setBackgroundParamValue">
-<span class="sig-name descname"><span class="pre">setBackgroundParamValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setBackgroundParamValue" title="Link to this definition">#</a></dt>
-<dd><p>Sets the value of existing background
-parameter. Expects index or name of parameter
-and new value to set</p>
-<p>project.setBackgroundParamValue(1, 5.5e-6);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.setBulkIn">
-<span class="sig-name descname"><span class="pre">setBulkIn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setBulkIn" title="Link to this definition">#</a></dt>
-<dd><p>Edits an existing bulk-in parameter. Expects the
-index of bulk-in to edit and key-value pairs</p>
-<p>project.setBulkIn(1, ‘name’, ‘Silicon’, ‘max’, 2.07e-6);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.setBulkOut">
-<span class="sig-name descname"><span class="pre">setBulkOut</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setBulkOut" title="Link to this definition">#</a></dt>
-<dd><p>Edits an existing bulk-out parameter. Expects the
-index of bulk-out to edit and key-value pairs</p>
-<p>project.setBulkOut(1, ‘name’, ‘SLD H2O’, ‘min’, 2.07e-6);</p>
 </dd></dl>
 
 <dl class="mat method">
@@ -973,58 +828,6 @@ parameter to set the value to.</p>
 </dd></dl>
 
 <dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.setParameter">
-<span class="sig-name descname"><span class="pre">setParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setParameter" title="Link to this definition">#</a></dt>
-<dd><p>General purpose set parameter method. Expects
-index or name of parameter and keyword/value pairs to set</p>
-<p>project.setParameter(2, ‘value’, 50);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.setParameterFit">
-<span class="sig-name descname"><span class="pre">setParameterFit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">fitFlag</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setParameterFit" title="Link to this definition">#</a></dt>
-<dd><p>Sets the ‘fit’ to off or on for parameter.
-Expects index or name of parameter and
-new fit flag</p>
-<p>project.setParameterFit(2, true);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.setParameterLimits">
-<span class="sig-name descname"><span class="pre">setParameterLimits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">min</span></em>, <em class="sig-param"><span class="pre">max</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setParameterLimits" title="Link to this definition">#</a></dt>
-<dd><p>Sets the limits of an existing parameter.
-Expects index or name of parameter and new min
-and max of the parameter’s value</p>
-<p>project.setParameterLimits(2, 0, 100);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.setParameterName">
-<span class="sig-name descname"><span class="pre">setParameterName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setParameterName" title="Link to this definition">#</a></dt>
-<dd><p>Sets the name of an existing parameter
-Expects index or name of parameter and the
-new name</p>
-<p>project.setParameterName(2, ‘new name’);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.setParameterPrior">
-<span class="sig-name descname"><span class="pre">setParameterPrior</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setParameterPrior" title="Link to this definition">#</a></dt>
-<dd><p>Sets the prior type of the parameter.
-Expects index or name of parameter and
-new prior type(‘uniform’,’gaussian’,’jeffreys’)</p>
-<p>project.setParameterPrior(2, ‘uniform’);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.setParameterValue">
-<span class="sig-name descname"><span class="pre">setParameterValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setParameterValue" title="Link to this definition">#</a></dt>
-<dd><p>Sets the value of a given parameter. Expects
-index or name of parameter and new value to set</p>
-<p>project.setParameterValue(2, 50);</p>
-</dd></dl>
-
-<dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.setResolution">
 <span class="sig-name descname"><span class="pre">setResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setResolution" title="Link to this definition">#</a></dt>
 <dd><p>Sets the value of an existing resolution. Expects
@@ -1033,54 +836,11 @@ index or name of resolution and keyword/value pairs to set</p>
 </dd></dl>
 
 <dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.setResolutionName">
-<span class="sig-name descname"><span class="pre">setResolutionName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setResolutionName" title="Link to this definition">#</a></dt>
-<dd><p>Sets the name of an existing resolution.
-Expects index or name of resolution and the new name</p>
-<p>project.setResolutionName(2, ‘new name’);</p>
-</dd></dl>
-
-<dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.setResolutionParam">
 <span class="sig-name descname"><span class="pre">setResolutionParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setResolutionParam" title="Link to this definition">#</a></dt>
 <dd><p>Sets the value of an existing resolution parameter. Expects
 index or name of parameter and keyword/value pairs to set</p>
 <p>project.setResolutionParam(1, ‘name’, ‘Resolution Param’);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.setResolutionParamLimits">
-<span class="sig-name descname"><span class="pre">setResolutionParamLimits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">min</span></em>, <em class="sig-param"><span class="pre">max</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setResolutionParamLimits" title="Link to this definition">#</a></dt>
-<dd><p>Sets the constraints of existing resolution
-parameter. Expects index or name of parameter
-and new min and max of the parameter’s value</p>
-<p>project.setResolutionParamLimits(1, 0, 1);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.setResolutionParamName">
-<span class="sig-name descname"><span class="pre">setResolutionParamName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setResolutionParamName" title="Link to this definition">#</a></dt>
-<dd><p>Sets the name of an existing resolution
-parameter. Expects index or name of parameter
-and the new name</p>
-<p>project.setResolutionParamName(2, ‘new name’);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.setResolutionParamValue">
-<span class="sig-name descname"><span class="pre">setResolutionParamValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setResolutionParamValue" title="Link to this definition">#</a></dt>
-<dd><p>Sets the value of existing resolution
-parameter. Expects index or name of parameter
-and new value to set</p>
-<p>project.setResolutionParamValue(1, 5.5e-6);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.setScalefactor">
-<span class="sig-name descname"><span class="pre">setScalefactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setScalefactor" title="Link to this definition">#</a></dt>
-<dd><p>Edits an existing scale factor parameter. Expects the
-index of scale factor to edit and key-value pairs</p>
-<p>project.setScalefactor(1, ‘name’,’Scalefactor 1’, ‘value’, 0.23251);</p>
 </dd></dl>
 
 <dl class="mat method">
