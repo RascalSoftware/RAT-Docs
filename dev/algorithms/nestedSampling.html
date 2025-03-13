@@ -496,14 +496,14 @@ have been performed or until a tolerance threshold has been passed.</p>
 <p>For more background on nested sampling, please see the page for
 <a class="reference external" href="https://en.wikipedia.org/wiki/Nested_sampling_algorithm">nested sampling algorithms on Wikipedia</a>,
 or books such as Sivia &amp; Skilling (2006). <a class="footnote-reference brackets" href="#sivia2006" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
-<figure class="align-default" id="id6">
+<figure class="align-default" id="id7">
 <a class="reference internal image-reference" href="../_images/nested_contour.png"><img alt="../_images/nested_contour.png" src="../_images/nested_contour.png" style="width: 700px;" />
 </a>
 <figcaption>
 <p><span class="caption-text">Four iterations of a nested sampling algorithm on a likelihood function
 given by the contour. The red point indicates the least likelihood point
 chosen in each iteration, the green point the new point sampled,
-and the red shaded area is the area from which the green point could be sampled.</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+and the red shaded area is the area from which the green point could be sampled.</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Of course, unlike the diagram, we do not know our entire likelihood function in advance (else we wouldn’t need this algorithm!). The difficult part
@@ -528,10 +528,10 @@ of the ellipsoid rather than focusing on the centre. In some cases this may lead
 <li><p><code class="docutils literal notranslate"><span class="pre">nsTolerance</span></code>: The tolerance threshold for when the nested sampler should finish. A smaller value indicates a stricter tolerance.</p>
 <p>The convergence statistic for each iteration is</p>
 <div class="math notranslate nohighlight">
-\[\log(\log(Z) + (\log(L_{max}) - j/N_{live})) - \log(Z)\]</div>
+\[\log(Z + L_{max}*exp(-j/N_{live})) - \log(Z)\]</div>
 <p>where <span class="math notranslate nohighlight">\(Z\)</span> is the evidence, <span class="math notranslate nohighlight">\(L_{max}\)</span> is the maximum likelihood out of all live points, <span class="math notranslate nohighlight">\(j\)</span> is the number of iterations,
-and <span class="math notranslate nohighlight">\(N_{live}\)</span> is the number of live points (<code class="docutils literal notranslate"><span class="pre">nLive</span></code>). The algorithm is considered to have converged when this value
-is less than <code class="docutils literal notranslate"><span class="pre">nsTolerance</span></code>.</p>
+and <span class="math notranslate nohighlight">\(N_{live}\)</span> is the number of live points (<code class="docutils literal notranslate"><span class="pre">nLive</span></code>). This is an estimate of the most that the log-evidence can change on iteration <span class="math notranslate nohighlight">\(j\)</span>. <a class="footnote-reference brackets" href="#feroz2008-2" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>
+The algorithm is considered to have converged when this value is less than <code class="docutils literal notranslate"><span class="pre">nsTolerance</span></code>.</p>
 </li>
 </ul>
 <aside class="footnote-list brackets">
@@ -556,6 +556,13 @@ URL: <a class="reference external" href="https://global.oup.com/academic/product
 “MULTINEST: an efficient and robust Bayesian inference tool for cosmology and particle physics”.
 DOI: <a class="reference external" href="https://doi.org/10.1111/j.1365-2966.2009.14548.x">10.1111/j.1365-2966.2009.14548.x</a>,
 URL: <a class="reference external" href="https://arxiv.org/abs/0809.3437">https://arxiv.org/abs/0809.3437</a></p>
+</aside>
+<aside class="footnote brackets" id="feroz2008-2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">4</a><span class="fn-bracket">]</span></span>
+<p>Feroz, F.; Hobson, M.P. (2008)
+“Multimodal nested sampling: an efficient and robust alternative to MCMC methods for astronomical data analysis”.
+DOI: <a class="reference external" href="https://doi.org/10.1111/j.1365-2966.2007.12353.x">10.1111/j.1365-2966.2007.12353.x</a>,
+URL: <a class="reference external" href="https://arxiv.org/abs/0704.3704">https://arxiv.org/abs/0704.3704</a></p>
 </aside>
 </aside>
 </section>
