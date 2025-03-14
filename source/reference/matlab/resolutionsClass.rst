@@ -4,24 +4,11 @@
 Resolutions Class
 =================
 
-Resolutions are defined in a two stage process. Firstly, actual fitted parameters are defined. These are held in a 'Parameter Class' table (referring to data type).
-Then, these are grouped into the resolutions themselves using a multi-type table. Then the resolution parameters can be used to either define resolution as 
-constant, data, or a function. 
+The `resolutionsClass` holds data describing how instrument resolution should be accounted for in the experiment. This data is the type of resolution (which can
+be either constant or from data) and the source of the resolution; for a constant resolution, this is the name of a resolution parameter (added via `projectClass.addResolutionParam`);
+for data, this will be taken from the fourth column of the data array used by the contrast.
 
-The constructor is called with the parameters and resolutions as input. The parameters are stored in the resolPars table whereas the resolutions are stored in 
-the resolutions table and the allowed types are defined in the allowedTypes variable.
 
-.. note::
-
-    1. For constant only one parameter is supplied to multi-type table. 
-    2. For data, the name is supplied, along with name of the data in the data table. 
-    3. For function, the function name is supplied, along with up to three parameters (from the parameters table) which are then supplied to the function to calculate the resolution. 
-
-In each case, the Resolutions can either be added to or subtracted from the data.
-
-*********
-Reference
-*********
 .. default-domain:: mat
 .. autoclass:: API.projectClass.resolutionsClass
     :members:
