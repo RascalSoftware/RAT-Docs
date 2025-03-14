@@ -10,5 +10,6 @@ MATLAB API Reference
     controlClass
     entryFunctions
     targetFunctions
+    minimisers/index
     plotting
     utilities
