@@ -2,38 +2,33 @@
 Target Functions (Low Level API)
 ================================
 
-..
-  .. default-domain:: mat
-  .. automodule:: targetFunctions
-      :members:
 
-  .. _CommonFunctions:
+.. default-domain:: mat
+.. automodule:: targetFunctions
+    :members:
 
-  Common Functions
-  ----------------
-  .. automodule:: targetFunctions.common
-      :members:
+.. _CommonFunctions:
 
-  .. automodule:: targetFunctions.common.costFunctions
-      :members: 
+Common Functions
+----------------
+.. automodule:: targetFunctions.common
+    :members:
 
-  .. automodule:: targetFunctions.common.groupLayers
-      :members:    
+.. automodule:: targetFunctions.common.costFunctions
+    :members: 
 
-  .. _normalTF:
+.. automodule:: targetFunctions.common.groupLayers
+    :members:    
 
-  Normal Target Functions (normalTF)
 
-  .. automodule:: targetFunctions.+normalTF.+customLayers
-      :members:
+Normal Target Functions (normalTF)
+----------------------------------
 
-  .. automodule:: targetFunctions.+normalTF.+customXY
-      :members:
+.. automodule:: targetFunctions.+normalTF
+    :members:
 
-  Domains Target Functions (domainsTF)
-  ------------------------------------
-  .. automodule:: targetFunctions.+domainsTF.+customLayers
-      :members:
+Domains Target Functions (domainsTF)
+------------------------------------
 
-  .. automodule:: targetFunctions.+domainsTF.+customXY
-      :members:
+.. automodule:: targetFunctions.+domainsTF
+   :members:

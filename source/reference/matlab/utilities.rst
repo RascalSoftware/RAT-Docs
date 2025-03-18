@@ -48,9 +48,6 @@ Developer utilities
 .. autoclass:: utilities.dyLibWrapper
    :members:
 
-.. autoclass:: utilities.mockFunction
-   :members:
-
 .. autofunction:: utilities.misc.randSample
 
 .. autofunction:: utilities.misc.kde
