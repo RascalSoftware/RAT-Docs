@@ -18,22 +18,41 @@ Developer utilities
 
 .. default-domain:: mat
 .. autofunction:: utilities.copyProperties
-.. autofunction:: utilities.customEnum
-.. autofunction:: utilities.dyLibWrapper
+
 .. autofunction:: utilities.isFigure
+
 .. autofunction:: utilities.isText
-.. autofunction:: utilities.mockFunction
+
 .. autofunction:: utilities.mustBeScalarOrEmptyLogical
-.. autofunction:: utilities.pythonWrapper
+
 .. autofunction:: utilities.textProgressBar
+
 .. autofunction:: utilities.validateLimits
+
 .. autofunction:: utilities.validateLogical
+
 .. autofunction:: utilities.validateNumber
+
 .. autofunction:: utilities.validateOption
+
 .. autofunction:: utilities.validateParameter
+
 .. autofunction:: utilities.validatePriors
 
+.. autoclass:: utilities.pythonWrapper
+   :members:
+
+.. autoclass:: utilities.customEnum
+   :members:
+
+.. autoclass:: utilities.dyLibWrapper
+   :members:
+
+.. autoclass:: utilities.mockFunction
+   :members:
+
 .. autofunction:: utilities.misc.randSample
+
 .. autofunction:: utilities.misc.kde
 
 .. automodule:: utilities.+exceptions 
