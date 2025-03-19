@@ -1,3 +1,5 @@
+.. _convertR1Matlab:
+
 =============================
 Converting a RasCAL-1 Project
 =============================
