@@ -134,6 +134,7 @@ autodoc_typehints = "description"
 
 nbsphinx_prolog = r"""
 {% set docname = 'doc/' + env.doc2path(env.docname, base=None)|string %}
+.. _{{ env.docname.split('/')|last|e }}IPYNB:
 
 .. raw:: html
 
