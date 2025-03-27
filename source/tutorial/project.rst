@@ -670,7 +670,7 @@ The ``backgrounds`` block is used to define the type of background applied to ea
 
         .. output:: Matlab
 
-            problem.background.displayBackgroundsObject()
+            problem.background.displayTable()
 
     .. tab-item:: Python 
         :sync: Python
@@ -711,7 +711,7 @@ With this code snippet we've made a new background, with the value taken from th
 
             problem.addBackgroundParam('My New BackPar', 1e-8, 1e-7, 1e-6, true);
             problem.addBackground('My New Background','constant','My New BackPar');
-            problem.background.displayBackgroundsObject()
+            problem.backgrounds.displayTable()
 
     .. tab-item:: Python 
         :sync: Python
@@ -747,7 +747,7 @@ This is then available to be used by any of our contrasts (see later).
 ..         .. output:: Matlab
 
 ..              problem.addBackground('Data Background 1', 'data', 'My Background Data')
-..              problem.background.displayBackgroundsObject()
+..              problem.background.displayTable()
 
 ..     .. tab-item:: Python 
 ..         :sync: Python
