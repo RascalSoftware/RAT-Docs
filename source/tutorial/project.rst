@@ -695,7 +695,7 @@ The backgrounds can be one of three types: ``"constant"``, ``"function"`` or ``"
     .. code-block:: Python
 
         problem.background_parameters.append(name='My New BackPar', min=1e-8, value=1e-7, max=1e-6, fit=True)
-        problem.backgrounds.append(name='My New Background', type='constant', source='My New BackPar')
+        problem.background.append(name='My New Background', type='constant', source='My New BackPar')
 
 
 With this code snippet we've made a new background, with the value taken from the (fittable) parameter called 'My New BackPar':
@@ -711,7 +711,7 @@ With this code snippet we've made a new background, with the value taken from th
 
             problem.addBackgroundParam('My New BackPar', 1e-8, 1e-7, 1e-6, true);
             problem.addBackground('My New Background','constant','My New BackPar');
-            problem.backgrounds.displayTable()
+            problem.background.displayTable()
 
     .. tab-item:: Python 
         :sync: Python
