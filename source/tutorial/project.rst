@@ -797,7 +797,7 @@ To define a resolution parameter, we use the following methods:
 
         .. output:: Matlab
 
-            problem.resolution.displayResolutionsObject()
+            problem.resolution.displayTable()
 
     .. tab-item:: Python 
         :sync: Python
@@ -833,7 +833,7 @@ Then, we make the actual resolution referring to whichever one of the resolution
             problem.addResolutionParam('My Resolution Param', 0.02, 0.05, 0.08, true);
             problem.addResolution('My new resolution','constant','My Resolution Param');
             problem.addResolution('My Data Resolution','data');
-            problem.resolution.displayResolutionsObject()
+            problem.resolution.displayTable()
 
     .. tab-item:: Python 
         :sync: Python
