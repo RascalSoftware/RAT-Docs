@@ -76,12 +76,7 @@ Using resampling on a contrast in RAT is very simple. For any contrast that you 
         
         .. output:: Python
 
-            # replace with a better project reading method when we have one...
-            with open('source/tutorial/data/two_contrast_example.py', "r") as f:
-                script = f.read()
-            locals = {}
-            exec(script, None, locals)
-            problem = locals['problem']
+            problem = RAT.Project.load("source/tutorial/data/two_contrast_example.json")
             problem.contrasts.set_fields(0, resample=True)
             print(problem.contrasts)
 

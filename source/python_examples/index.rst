@@ -35,3 +35,4 @@ Miscellaneous
    :maxdepth: 1  
    
    notebooks/absorption
+   notebooks/convert_rascal
