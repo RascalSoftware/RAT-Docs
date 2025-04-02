@@ -15,7 +15,7 @@ related to its chi-squared fit: [#sivia1998]_
 .. math:: P(X=x | I) \propto \exp(-\chi^2 / 2)
 
 where :math:`I` is the background information from the project. This means we can explore this
-likelihood function to learn statistical information about the experiment and model.
+probability ('likelihood') function to learn statistical information about the experiment and model.
 
 .. warning::
    This tutorial expects that you are familiar with setting up a project
@@ -74,6 +74,7 @@ You can give the prior (alongside :math:`mu`, and :math:`sigma` if relevant) whe
 
 .. tab-set-code::
     .. code-block:: Matlab
+
         % this Gaussian prior has a mean of 0 and standard deviation of 1
         problem.addParameter('My new param', 1, 2, 3, true, "gaussian", 0, 1);
         problem.addParameter('My scale param',10,20,30,true, "jeffreys");
@@ -90,7 +91,7 @@ Running and plotting a Bayesian analysis
 ----------------------------------------
 
 Running a Bayesian analysis is the same as running RAT normally. Here we'll do a DREAM analysis
-on the project from the :ref:`introduction`:
+on the project from the :ref:`DSPC Standard Layers<DSPC_Standard_Layers>` example:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -102,35 +103,6 @@ on the project from the :ref:`introduction`:
 
         problem, results = RAT.run(problem, controls);
         print(results)
-
-
-.. tab-set::
-    :class: tab-label-hidden
-    :sync-group: code
-
-    .. tab-item:: Matlab
-        :sync: Matlab
-
-        .. output:: Matlab
-
-            problem = load('source/tutorial/data/twoContrastExample.mat');
-            problem = problem.problem;
-            controls = controlsClass();
-            controls.procedure = "dream";
-            [problem, results] = RAT(problem, controls);
-            disp(results)
-             
-    .. tab-item:: Python 
-        :sync: Python
-
-        .. output:: Python
-
-            import RATapi as RAT
-
-            problem = RAT.Project.load("source/tutorial/data/two_contrast_example.json")
-            controls = RAT.Controls(procedure="dream")
-            problem, results = RAT.run(problem, controls)
-            print(results)
 
 
 The results object contains additional results from the Bayesian analysis. The main thing
@@ -146,9 +118,9 @@ you may want to do with this is create a corner plot of the posterior distributi
         RAT.plotting.plot_corner(results)
 
 
-.. image:: 
+.. image:: ../images/tutorial/corner.png 
    :alt: A corner plot from the Bayesian analysis, showing the posterior
-   histograms for each parameter and the contour plots for each pair of parameters.
+         histograms for each parameter and the contour plots for each pair of parameters.
 
 
 Note that you can specify some specific parameters to create a smaller, more focused corner plot:
@@ -156,16 +128,16 @@ Note that you can specify some specific parameters to create a smaller, more foc
 .. tab-set-code::
     .. code-block:: Matlab
 
-        cornerPlot(results, 'params', ["Substrate Roughness", "Backs Value D2O", "Scalefactor 1"]); 
+        cornerPlot(results, 'params', ["Substrate Roughness", "Backs parameter SMW", "Backs parameter D2O"]); 
 
     .. code-block:: Python
 
-        RAT.plotting.plot_corner(results, params=["Substrate Roughness", "Backs Value D2O", "Scalefactor 1"])
+        RAT.plotting.plot_corner(results, params=["Substrate Roughness", "Background parameter SMW", "Background parameter D2O"])
 
 
-.. image:: 
+.. image:: ../images/tutorial/cornerFiltered.png
    :alt: A smaller version of the previous corner plot, just giving the histograms
-   and contour plots for substrate roguhness, the D2O background, and the scalefactor.
+         and contour plots for substrate roughness, the D2O background, and the SMW background.
 
 
 It is also possible to plot the histograms from the analysis as a grid:
@@ -181,7 +153,7 @@ It is also possible to plot the histograms from the analysis as a grid:
         RAT.plotting.plot_hists(results)
 
 
-.. image::
+.. image:: ../images/tutorial/hists.png
    :alt: A grid of histograms for each parameter of the analysis.
 
 
@@ -197,8 +169,9 @@ and also the Markov chains for each parameter:
         RAT.plotting.plot_chain(results)
 
 
-.. image::
+.. image:: ../images/tutorial/chains.png
    :alt: A grid of MCMC chains for each parameter of the analysis.
+
 
 .. [#sivia1998]
     D. S. Sivia, J. R. P. Webster,

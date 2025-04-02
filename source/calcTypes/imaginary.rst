@@ -42,13 +42,7 @@ The imaginary refractive index appears as a new column in the 'Layers' block.
         
         .. output:: Python
 
-            # replace with a better project reading method when we have one...
-            with open('source/tutorial/data/two_contrast_example.py', "r") as f:
-                script = f.read()
-            locals = {}
-            exec(script, None, locals)
-            problem = locals['problem']
-            problem.absorption = True
+            problem = RAT.Project.load("source/tutorial/data/two_contrast_example.json")
             print(problem.layers)
 
 Then, the values of this column are set (from the Parameters block) in the same way as all the other cells in the table.
