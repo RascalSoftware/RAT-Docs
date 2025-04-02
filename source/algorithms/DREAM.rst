@@ -53,7 +53,7 @@ Algorithm control parameters
 ----------------------------
 The following parameters in the :ref:`Controls object<controls>` are specific to DREAM:
 
-- ``nSamples``: The number of samples in the initial population for each chain.
+- ``nSamples``: The total number of function evaluations (number of algorithm generations times number of chains).
 
 - ``nChains``: The number of Markov chains to use in the algorithm.
 
