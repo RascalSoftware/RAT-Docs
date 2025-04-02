@@ -167,6 +167,7 @@ SLD values for the layers, depending on whether they are deuterated or not. Each
 which specifies whether they are included in the fitting algorithm, and ``min`` and ``max`` values indicating the minimum and maximum
 value they can take in a fit respectively. There are also **prior type** fields which are used in Bayesian algorithms
 to leverage prior knowledge about the model, but for non-Bayesian algorithms these fields are ignored. We will not use them here.
+More information on Bayesian algorithms is available in the :ref:`Bayes tutorial<bayesTutorial>`.
 
 
 2. The Layers Group

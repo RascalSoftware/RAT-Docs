@@ -73,7 +73,7 @@ possible to define a custom model using a function; this is seen in the :ref:`cu
 
 .. note:: 
    If you have a model from RasCAL-1, this model can be imported as a RAT project. See the following example
-   pages for how to do this in :ref:`MATLAB<convertR1Matlab>` and :ref:`Python<convert_rascalIPYNB>`
+   pages for how to do this in :ref:`MATLAB<convertR1Matlab>` and :ref:`Python<convert_rascalIPYNB>`.
 
 
 When we run RAT, the first of the two outputs is another **Project**, but updated with the results of the calculation.
@@ -442,6 +442,9 @@ Also, if you try to remove the substrate roughness you will get an error:
                 del problem.parameters[0]
             except Exception as err:
                 print(err)
+
+.. note::
+   There are additional properties of Parameters used for Bayesian algorithms; see the :ref:`Bayes tutorial<bayesTutorial>`.
 
 
 .. _standardLayers:
@@ -1283,12 +1286,7 @@ Now have a look at our project, to make sure it all looks reasonable:
 
         .. output:: Python
 
-            # replace with a better project reading method when we have one...
-            with open('source/tutorial/data/two_contrast_example.py', "r") as f:
-                script = f.read()
-            locals = {}
-            exec(script, None, locals)
-            problem = locals['problem']
+            problem = RAT.Project.load("source/tutorial/data/two_contrast_example.json")
             print(problem)
 
 Now we'll calculate this to check the agreement with the data. We need an instance of the controls class, with the procedure attribute set to ``"calculate"`` (the default):

@@ -93,12 +93,7 @@ The example (in the examples folder), we define the layers as for conventional S
 
         .. output:: Python
             
-            # replace with a better project reading method when we have one...
-            with open('source/calcTypes/data/domains_example.py', "r") as f:
-                script = f.read()
-            locals = {}
-            exec(script, None, locals)
-            problem = locals['problem']
+            problem = RAT.Project.load("source/tutorial/data/two_contrast_example.json")
             print(problem.layers)
 
 
