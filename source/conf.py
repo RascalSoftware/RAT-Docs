@@ -57,7 +57,7 @@ if not os.path.isdir("./python_examples/data"):
     with zipfile.ZipFile(zip_dir) as zf:
         zf.extractall()
     print("Copying Jupyter notebooks...")
-    for directory in ['normal_reflectivity', 'domains', 'absorption']:
+    for directory in ['normal_reflectivity', 'domains', 'absorption', 'convert_rascal_project']:
         for file in Path(f"./python-RAT-{PYTHON_RAT_RELEASE}/RATapi/examples/{directory}/").glob('*'):
             shutil.copy(file, "./python_examples/notebooks/")
 
