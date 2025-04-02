@@ -477,81 +477,207 @@ the resolutions table and the allowed types are defined in the allowedTypes vari
 <dl class="mat class">
 <dt class="sig sig-object mat" id="API.projectClass.resolutionsClass">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">resolutionsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">parameters</span></em>, <em class="sig-param"><span class="pre">startResolution</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.resolutionsClass" title="Link to this definition">#</a></dt>
-<dd><p>Resolutions are defined in a two stage process. Firstly we define the
-actual fitted parameters. These are held in a ‘ParametersClass’
-table. Then, we group these into the resolutions themselves using a
-multiTypeTable. So, we can then use the resolution parameters to
-either define resolution as  constant, data or a function.</p>
-<p>For constant only one parameter is supplied to multi type table.</p>
-<p>For data the name is supplied, along with the name of the data in the
-data table.</p>
-<p>For function, the function name is supplied, along with up to three parameters (from the
-parameters table) which are then supplied to the function to calculate the resolution.</p>
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.resolutionsClass.addResolution">
-<span class="sig-name descname"><span class="pre">addResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.resolutionsClass.addResolution" title="Link to this definition">#</a></dt>
-<dd><p>Adds a new entry to the resolution table.</p>
-<p>resolution.addResolution(‘New Row’);
-resolution.addResolution(‘New Row’, ‘constant’, ‘param_name’);
-resolution.addResolution(‘New Row’, ‘function’, ‘function_name’, ‘param_name’);
-resolution.addResolution(‘New Row’, ‘data’);</p>
+<dd><p>Resolutions are defined in a two-stage process. Firstly, we define the
+actual fitted parameters. These resolution parameters are held in a <code class="docutils literal notranslate"><span class="pre">parametersClass</span></code> object
+and can be used define resolutions.</p>
+<p>For constant resolutions, only one resolution parameter is supplied.</p>
+<p>For data resolutions, there are no parameters supplied, but it informs RAT to expect a fourth
+column in the datafile.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutionParams</span> <span class="o">=</span> <span class="n">parametersClass</span><span class="p">(</span><span class="s1">&#39;Resolution Parameter 1&#39;</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resolution</span> <span class="o">=</span> <span class="n">resolutionClass</span><span class="p">(</span><span class="n">resolutionParams</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Resolution 1&#39;</span><span class="p">,</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span><span class="s1">&#39;Resolution Parameter 1&#39;</span><span class="p">});</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parameters</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">parameterClass</span></code></span>) – The resolution parameters.</p></li>
+<li><p><strong>startResolution</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">cell</span></code></span>) – A cell array containing the properties for the first resolution.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="resolutionsClass.resolutionParams">
+<span class="sig-name descname"><span class="pre">resolutionParams</span></span><a class="headerlink" href="#resolutionsClass.resolutionParams" title="Link to this definition">#</a></dt>
+<dd><p>The resolution parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>parameterClass</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat">
+<span class="sig-name descname"><span class="pre">resolutions</span> <span class="pre">=</span> <span class="pre">multiTypeTable</span></span></dt>
+<dd><p>A custom table object that contains the resolution entries.</p>
 </dd></dl>
 
 <dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.resolutionsClass.displayResolutionsObject">
-<span class="sig-name descname"><span class="pre">displayResolutionsObject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">showPriors</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.resolutionsClass.displayResolutionsObject" title="Link to this definition">#</a></dt>
-<dd><p>Displays the resolution parameters and resolution table.
-Optional showPriors to display the priors default is false</p>
-<p>resolution.displayResolutionsObject(true);</p>
+<dt class="sig sig-object mat" id="API.projectClass.resolutionsClass.addResolution">
+<span class="sig-name descname"><span class="pre">addResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name</span></em>, <em class="sig-param"><span class="pre">type</span></em>, <em class="sig-param"><span class="pre">source</span></em>, <em class="sig-param"><span class="pre">value1</span></em>, <em class="sig-param"><span class="pre">value2</span></em>, <em class="sig-param"><span class="pre">value3</span></em>, <em class="sig-param"><span class="pre">value4</span></em>, <em class="sig-param"><span class="pre">value5</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.resolutionsClass.addResolution" title="Link to this definition">#</a></dt>
+<dd><p>Adds a new resolution to the resolution table.</p>
+<p class="rubric">Examples</p>
+<p>To add a new constant resolution with name only.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolution</span><span class="o">.</span><span class="n">addResolution</span><span class="p">(</span><span class="s1">&#39;New Resolution&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To add a constant resolution.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolution</span><span class="o">.</span><span class="n">addResolution</span><span class="p">(</span><span class="n">New</span> <span class="n">Resolution</span><span class="s1">&#39;, &#39;</span><span class="n">constant</span><span class="s1">&#39;, &#39;</span><span class="n">param</span> <span class="n">name</span><span class="s1">&#39;);</span>
+</pre></div>
+</div>
+<p>To add a data resolution.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolution</span><span class="o">.</span><span class="n">addResolution</span><span class="p">(</span><span class="s1">&#39;New Resolution&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">auto-generated</span> <span class="pre">name</span></code></span>) – The name of the resolution.</p></li>
+<li><p><strong>type</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">allowedTypes,</span> <span class="pre">default:</span> <span class="pre">allowedTypes.Constant</span></code></span>) – The type of resolution (constant or data).</p></li>
+<li><p><strong>source</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – The source of the resolution.
+if type is ‘constant’, this should be the name (or the row index) of a resolution parameter.
+if type is ‘data’, this should be empty. RAT will expect a fourth column in the datafile.</p></li>
+<li><p><strong>value1</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – Any extra values required by the resolution.
+if type is ‘constant’, all values will be ignored.
+if type is ‘data’, all values will be ignored.</p></li>
+<li><p><strong>value2</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – Any extra values required by the resolution.
+if type is ‘constant’, all values will be ignored.
+if type is ‘data’, all values will be ignored.</p></li>
+<li><p><strong>value3</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – Any extra values required by the resolution.
+if type is ‘constant’, all values will be ignored.
+if type is ‘data’, all values will be ignored.</p></li>
+<li><p><strong>value4</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – Any extra values required by the resolution.
+if type is ‘constant’, all values will be ignored.
+if type is ‘data’, all values will be ignored.</p></li>
+<li><p><strong>value5</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – Any extra values required by the resolution.
+if type is ‘constant’, all values will be ignored.
+if type is ‘data’, all values will be ignored.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="API.projectClass.resolutionsClass.displayTable">
+<span class="sig-name descname"><span class="pre">displayTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">showPriors</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.resolutionsClass.displayTable" title="Link to this definition">#</a></dt>
+<dd><p>Prints the resolutions and resolution parameters tables to the console.</p>
+<p class="rubric">Examples</p>
+<p>To print the resolution parameters table with the prior information.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutions</span><span class="o">.</span><span class="n">displayTable</span><span class="p">(</span><span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>showPriors</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">false</span></code></span>) – Indicates if the prior type, mu, and sigma columns in the resolution parameters table should be displayed.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.resolutionsClass.getNames">
 <span class="sig-name descname"><span class="pre">getNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.resolutionsClass.getNames" title="Link to this definition">#</a></dt>
-<dd><p>Returns a N x 1 cell array of names of the resolutions
-in the object.</p>
-<p>names = resolution.getNames();</p>
+<dd><p>Returns a N x 1 cell array of names of the resolutions in the object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>names</strong> – A cell array which contains the names of resolution entries.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>cell</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.resolutionsClass.removeResolution">
 <span class="sig-name descname"><span class="pre">removeResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.resolutionsClass.removeResolution" title="Link to this definition">#</a></dt>
-<dd><p>Removes a resolution entry from the table. Expects the
-index or array of indices of resolution(s) to remove.</p>
-<p>resolution.removeResolution(2);
-resolution.removeResolution([1, 3]);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.resolutionsClass.resolutionsClass">
-<span class="sig-name descname"><span class="pre">resolutionsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">parameters</span></em>, <em class="sig-param"><span class="pre">startResolution</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.resolutionsClass.resolutionsClass" title="Link to this definition">#</a></dt>
-<dd><p>Creates a Resolutions object. The arguments should be
-an instance of the parameter class with the resolution parameters and a
-cell array with the first resolution entry</p>
-<p>params = parametersClass({‘Resolution Param 1’, 0.01, 0.03, 0.05, false});
-resolution = resolutionsClass(params, {‘Resolution 1’, ‘constant’, ‘Tails’});</p>
+<dd><p>Removes a resolution entry from the table.</p>
+<p class="rubric">Examples</p>
+<p>To remove the second resolution in the table (resolution in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutions</span><span class="o">.</span><span class="n">removeResolution</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To remove resolution with a specific name.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutions</span><span class="o">.</span><span class="n">removeResolution</span><span class="p">(</span><span class="s1">&#39;Resolution 1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the resolution to remove. If it is text,
+it is the name of the resolution to remove.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.resolutionsClass.setResolution">
-<span class="sig-name descname"><span class="pre">setResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.resolutionsClass.setResolution" title="Link to this definition">#</a></dt>
-<dd><p>Changes the value of a given resolution in the table. Expects the
-index or name of resolution and keyword/value pairs to set.</p>
-<p>resolution.setResolution(1, ‘name’, ‘resolution 1’, ‘type’, ‘constant’, ‘source’, ‘param_name’);</p>
+<span class="sig-name descname"><span class="pre">setResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.resolutionsClass.setResolution" title="Link to this definition">#</a></dt>
+<dd><p>General purpose method for updating properties of an existing resolution.</p>
+<p class="rubric">Examples</p>
+<p>To change the name and value of the second resolution in the table (resolution in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutions</span><span class="o">.</span><span class="n">setResolution</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Resolution 1&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;param name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To change the properties of a resolution called ‘Resolution 1’.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutions</span><span class="o">.</span><span class="n">setResolution</span><span class="p">(</span><span class="s1">&#39;Resolution 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;New Resolution&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the resolution to update. If it is text,
+it is the name of the resolution to update.</p></li>
+<li><p><strong>options</strong> – <dl class="simple">
+<dt>Keyword/value pair to properties to update for the specific resolution.</dt><dd><ul>
+<li><p>name (char array or string, default: ‘’) the new name of the resolution.</p></li>
+<li><p>type (allowedTypes, default: allowedTypes.empty()) the type of resolution (constant or data).</p></li>
+<li><p>source (char array or string, or whole number, default: ‘’) the new source of the resolution.</p></li>
+<li><p>value1, value2, value3, value4, value5 (char array or string or whole number, default: ‘’) any extra values required for the resolution.</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.resolutionsClass.setResolutionName">
 <span class="sig-name descname"><span class="pre">setResolutionName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.resolutionsClass.setResolutionName" title="Link to this definition">#</a></dt>
-<dd><p>Sets the name of a given resolution in the table. Expects
-an index and the new name.</p>
-<p>resolution.setResolutionName(1, ‘new_name’);</p>
+<dd><p>Sets the name of a given resolution in the table.</p>
+<p class="rubric">Examples</p>
+<p>To change the name of the second resolution in the table (resolution in row 2)</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutions</span><span class="o">.</span><span class="n">setResolutionName</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;new name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To change the name of a resolution called ‘old name’ to ‘new name’</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutions</span><span class="o">.</span><span class="n">setResolutionName</span><span class="p">(</span><span class="s1">&#39;old name&#39;</span><span class="p">,</span> <span class="s1">&#39;new name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the resolution to update. If it is text,
+it is the name of the resolution to update.</p></li>
+<li><p><strong>name</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span></code></span>) – The new name of the resolution.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.resolutionsClass.toStruct">
 <span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.resolutionsClass.toStruct" title="Link to this definition">#</a></dt>
-<dd><p>Converts the class parameters into a structure array.</p>
+<dd><p>Converts the resolutionClass into a structure array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>resolutionStruct</strong> – A struct which contains the properties for all the resolutions and resolution parameters.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>struct</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

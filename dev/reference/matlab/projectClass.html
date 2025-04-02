@@ -523,35 +523,257 @@ so that they can be used in other parts of the software.</p>
 <dl class="mat function">
 <dt class="sig sig-object mat" id="API.createProject">
 <span class="sig-prename descclassname"><span class="pre">API.</span></span><span class="sig-name descname"><span class="pre">createProject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.createProject" title="Link to this definition">#</a></dt>
-<dd><p>Creates a project object.
-The input arguments are the experiment name which is a char
-array; the calculation type, which is a calculationTypes enum; the
-model type, which is a modelTypes enum; the geometry, which is a
-geometryOptions enum; and a logical to state whether or not
-absorption terms are included in the refractive index.
-All of the arguments are optional.</p>
-<p>project = createProject(name=’New experiment’, calc=’normal’);</p>
+<dd><p>Creates a normal project or domain project object depending on the given calculation type. This is the
+recommended way to create a RAT project not via the <code class="docutils literal notranslate"><span class="pre">projectClass</span></code> or <code class="docutils literal notranslate"><span class="pre">domainsClass</span></code>.</p>
+<p class="rubric">Examples</p>
+<p>To create a normal, standard layers project.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">createProject</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;New experiment&#39;</span><span class="p">,</span> <span class="n">calcType</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To create a domains, custom layers project with absorption.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">createProject</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Domains experiment&#39;</span><span class="p">,</span> <span class="n">calcType</span><span class="o">=</span><span class="s1">&#39;domains&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;custom layers&#39;</span><span class="p">,</span> <span class="n">absorption</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – The name of the project.</p></li>
+<li><p><strong>calcType</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">calculationTypes,</span> <span class="pre">default:</span> <span class="pre">calculationTypes.Normal</span></code></span>) – The calculation type which can be ‘normal’ or ‘domains’.</p></li>
+<li><p><strong>model</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">modelTypes,</span> <span class="pre">default:</span> <span class="pre">modelTypes.StandardLayers</span></code></span>) – The layer model type which can be ‘standard layers’, ‘custom layers’, or ‘custom xy’.</p></li>
+<li><p><strong>geometry</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">geometryOptions,</span> <span class="pre">default:</span> <span class="pre">geometryOptions.AirSubstrate</span></code></span>) – The geometry to use which can be ‘air/substrate’ or ‘substrate/liquid’.</p></li>
+<li><p><strong>absorption</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">false</span></code></span>) – Indicates whether imaginary component is used for the SLD value in layers.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>obj</strong> – A new normal project class or domains project class initialised with given parameters.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>projectClass or domainsClass</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat class">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">projectClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">experimentName</span></em>, <em class="sig-param"><span class="pre">modelType</span></em>, <em class="sig-param"><span class="pre">geometry</span></em>, <em class="sig-param"><span class="pre">absorption</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass" title="Link to this definition">#</a></dt>
-<dd><dl class="mat method">
+<dd><p><code class="docutils literal notranslate"><span class="pre">projectClass</span></code> stores all the information that describes the experiment which is essential for running a RAT calculation. There are several components of a
+project such as the parameters, backgrounds, resolutions, custom files, data, contrast etc, the <code class="docutils literal notranslate"><span class="pre">projectClass</span></code> provides a number of methods to add, remove,
+and update these components. For example, for parameters, the <code class="docutils literal notranslate"><span class="pre">addParameter</span></code>, <code class="docutils literal notranslate"><span class="pre">removeParameter</span></code>, and <code class="docutils literal notranslate"><span class="pre">setParameter</span></code> methods are available for adding, removing,
+and updating parameters.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">projectClass</span><span class="p">();</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">projectClass</span><span class="p">(</span><span class="s2">&quot;Example Project&quot;</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">projectClass</span><span class="p">(</span><span class="s2">&quot;Example Project&quot;</span><span class="p">,</span> <span class="s1">&#39;custom layers&#39;</span><span class="p">,</span> <span class="s1">&#39;substrate/liquid&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>experimentName</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – The name of the project.</p></li>
+<li><p><strong>modelType</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">modelTypes,</span> <span class="pre">default:</span> <span class="pre">modelTypes.StandardLayers</span></code></span>) – The layer model type which can be ‘standard layers’, ‘custom layers’, or ‘custom xy’.</p></li>
+<li><p><strong>geometry</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">geometryOptions,</span> <span class="pre">default:</span> <span class="pre">geometryOptions.AirSubstrate</span></code></span>) – The geometry to use which can be ‘air/substrate’ or ‘substrate/liquid’.</p></li>
+<li><p><strong>absorption</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">false</span></code></span>) – Indicates whether imaginary component is used for the SLD value in layers.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="projectClass.parameters">
+<span class="sig-name descname"><span class="pre">parameters</span></span><a class="headerlink" href="#projectClass.parameters" title="Link to this definition">#</a></dt>
+<dd><p>The project parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>parametersClass</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="projectClass.bulkIn">
+<span class="sig-name descname"><span class="pre">bulkIn</span></span><a class="headerlink" href="#projectClass.bulkIn" title="Link to this definition">#</a></dt>
+<dd><p>The bulkIn parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>parametersClass</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="projectClass.bulkOut">
+<span class="sig-name descname"><span class="pre">bulkOut</span></span><a class="headerlink" href="#projectClass.bulkOut" title="Link to this definition">#</a></dt>
+<dd><p>The bulkOut parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>parametersClass</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="projectClass.scalefactors">
+<span class="sig-name descname"><span class="pre">scalefactors</span></span><a class="headerlink" href="#projectClass.scalefactors" title="Link to this definition">#</a></dt>
+<dd><p>The scalefactors parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>parametersClass</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="projectClass.layers">
+<span class="sig-name descname"><span class="pre">layers</span></span><a class="headerlink" href="#projectClass.layers" title="Link to this definition">#</a></dt>
+<dd><p>An object which contains the layers information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>layersClass</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="projectClass.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#projectClass.data" title="Link to this definition">#</a></dt>
+<dd><p>An object which contains the data table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dataClass</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="projectClass.customFile">
+<span class="sig-name descname"><span class="pre">customFile</span></span><a class="headerlink" href="#projectClass.customFile" title="Link to this definition">#</a></dt>
+<dd><p>An object which contains the defined customFiles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Custom file object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="projectClass.background">
+<span class="sig-name descname"><span class="pre">background</span></span><a class="headerlink" href="#projectClass.background" title="Link to this definition">#</a></dt>
+<dd><p>An object which contains defined backgrounds and background parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>backgroundsClass object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="projectClass.resolution">
+<span class="sig-name descname"><span class="pre">resolution</span></span><a class="headerlink" href="#projectClass.resolution" title="Link to this definition">#</a></dt>
+<dd><p>An object which contains defined resolutions and resolution parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>resolutionClass object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="projectClass.contrasts">
+<span class="sig-name descname"><span class="pre">contrasts</span></span><a class="headerlink" href="#projectClass.contrasts" title="Link to this definition">#</a></dt>
+<dd><p>An object which contains contrast information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>contrastsClass object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.addBackground">
-<span class="sig-name descname"><span class="pre">addBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addBackground" title="Link to this definition">#</a></dt>
-<dd><p>Adds a background to the project. Expects a
-cell array with background name and type and
-up to 4 parameters</p>
-<p>project.addBackground(‘name’, ‘constant’, ‘par’);</p>
+<span class="sig-name descname"><span class="pre">addBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name</span></em>, <em class="sig-param"><span class="pre">type</span></em>, <em class="sig-param"><span class="pre">source</span></em>, <em class="sig-param"><span class="pre">value1</span></em>, <em class="sig-param"><span class="pre">value2</span></em>, <em class="sig-param"><span class="pre">value3</span></em>, <em class="sig-param"><span class="pre">value4</span></em>, <em class="sig-param"><span class="pre">value5</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addBackground" title="Link to this definition">#</a></dt>
+<dd><p>Adds a new background to the project.</p>
+<p class="rubric">Examples</p>
+<p>To add a new constant background with name only.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="s1">&#39;New Background&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To add a constant background.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="s1">&#39;New Background&#39;</span><span class="p">,</span> <span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="s1">&#39;param name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To add a function background with 2 parameters.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="s1">&#39;New Background&#39;</span><span class="p">,</span> <span class="s1">&#39;function&#39;</span><span class="p">,</span> <span class="s1">&#39;function name&#39;</span><span class="p">,</span> <span class="s1">&#39;param name&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="n">param</span> <span class="n">name</span> <span class="mi">2</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To add a data background with an offset.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="s1">&#39;New Background&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;data name&#39;</span><span class="p">,</span> <span class="s1">&#39;offset param name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">auto-generated</span> <span class="pre">name</span></code></span>) – The name of the background.</p></li>
+<li><p><strong>type</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">allowedTypes,</span> <span class="pre">default:</span> <span class="pre">allowedTypes.Constant</span></code></span>) – The type of background (constant, function or data).</p></li>
+<li><p><strong>source</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – The source of the background.
+if type is ‘constant’, this should be the name (or the row index) of a background parameter.
+if type is ‘data’, this should be the name (or the row index) of a dataset defined in <cite>projectClass.data</cite>.
+if type is ‘function’, this should be the name (or the row index) of a custom function defined in <cite>projectClass.customFiles</cite>.</p></li>
+<li><p><strong>value1</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – Any extra values required for the background.
+if type is ‘constant’, all values will be ignored.
+if type is ‘data’, value1 may be the name (or the row index) of a background parameter for an optional offset. Other values are ignored.
+if type is ‘function’, these values may be the names (or the row index) of up to 5 parameters which are passed to the function.</p></li>
+<li><p><strong>value2</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – Any extra values required for the background.
+if type is ‘constant’, all values will be ignored.
+if type is ‘data’, value1 may be the name (or the row index) of a background parameter for an optional offset. Other values are ignored.
+if type is ‘function’, these values may be the names (or the row index) of up to 5 parameters which are passed to the function.</p></li>
+<li><p><strong>value3</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – Any extra values required for the background.
+if type is ‘constant’, all values will be ignored.
+if type is ‘data’, value1 may be the name (or the row index) of a background parameter for an optional offset. Other values are ignored.
+if type is ‘function’, these values may be the names (or the row index) of up to 5 parameters which are passed to the function.</p></li>
+<li><p><strong>value4</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – Any extra values required for the background.
+if type is ‘constant’, all values will be ignored.
+if type is ‘data’, value1 may be the name (or the row index) of a background parameter for an optional offset. Other values are ignored.
+if type is ‘function’, these values may be the names (or the row index) of up to 5 parameters which are passed to the function.</p></li>
+<li><p><strong>value5</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – Any extra values required for the background.
+if type is ‘constant’, all values will be ignored.
+if type is ‘data’, value1 may be the name (or the row index) of a background parameter for an optional offset. Other values are ignored.
+if type is ‘function’, these values may be the names (or the row index) of up to 5 parameters which are passed to the function.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.addBackgroundParam">
-<span class="sig-name descname"><span class="pre">addBackgroundParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addBackgroundParam" title="Link to this definition">#</a></dt>
-<dd><p>Adds a new background parameter. A parameter consists
-of a name, min, value, max, fit flag, prior type’, mu,
-and sigma</p>
-<p>project.addBackgroundParam(‘Backs Value D2O’, 1e-8, 2.8e-6, 1e-5);</p>
+<span class="sig-name descname"><span class="pre">addBackgroundParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name</span></em>, <em class="sig-param"><span class="pre">min</span></em>, <em class="sig-param"><span class="pre">value</span></em>, <em class="sig-param"><span class="pre">max</span></em>, <em class="sig-param"><span class="pre">fit</span></em>, <em class="sig-param"><span class="pre">priorType</span></em>, <em class="sig-param"><span class="pre">mu</span></em>, <em class="sig-param"><span class="pre">sigma</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addBackgroundParam" title="Link to this definition">#</a></dt>
+<dd><p>Adds a new background parameter to project.</p>
+<p class="rubric">Examples</p>
+<p>To add a new background parameter with no properties and an autogenerated name.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackgroundParam</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>To add a background parameter with all available properties.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackgroundParam</span><span class="p">(</span><span class="s1">&#39;Background Value D2O&#39;&#39;, 1e-8, 2.8e-6, 1e-5, true, &#39;</span><span class="n">gaussian</span><span class="s1">&#39;, 1, 5);</span>
+</pre></div>
+</div>
+<p>Other examples of adding background parameters with a subset of properties.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackgroundParam</span><span class="p">(</span><span class="s1">&#39;Background Value D2O&#39;</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Background</span> <span class="n">parameter</span> <span class="n">name</span> <span class="n">only</span> <span class="k">with</span> <span class="n">others</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">default</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackgroundParam</span><span class="p">(</span><span class="s1">&#39;Background Value D2O&#39;</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Background</span> <span class="n">parameter</span> <span class="n">name</span> <span class="ow">and</span> <span class="nb">min</span> <span class="n">only</span><span class="o">.</span> <span class="n">Value</span> <span class="ow">and</span> <span class="nb">max</span> <span class="n">will</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">to</span> <span class="mf">1e-8</span> <span class="n">to</span> <span class="n">keep</span> <span class="n">limits</span> <span class="n">valid</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackgroundParam</span><span class="p">(</span><span class="s1">&#39;Background Value D2O&#39;</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mf">2.8e-6</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>  <span class="o">%</span> <span class="n">priors</span> <span class="n">will</span> <span class="n">be</span> <span class="n">default</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">auto-generated</span> <span class="pre">name</span></code></span>) – The name of the background parameter.</p></li>
+<li><p><strong>min</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – The minimum value that the background parameter could take when fitted.</p></li>
+<li><p><strong>value</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – The value of the background parameter, default will be equal to <code class="docutils literal notranslate"><span class="pre">min</span></code> if this is not set.</p></li>
+<li><p><strong>max</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – The maximum value that the background parameter could take when fitted, default will be equal to <code class="docutils literal notranslate"><span class="pre">value</span></code> if this is not set.</p></li>
+<li><p><strong>fit</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">false</span></code></span>) – Whether the background parameter should be fitted in a calculation.</p></li>
+<li><p><strong>priorType</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">PriorTypes,</span> <span class="pre">default:</span> <span class="pre">PriorTypes.Uniform</span></code></span>) – For Bayesian calculations, whether the prior likelihood is assumed to be ‘uniform’, ‘gaussian’, or ‘jeffreys’.</p></li>
+<li><p><strong>mu</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – If the prior type is Gaussian, the mean of the Gaussian function for the prior likelihood.</p></li>
+<li><p><strong>sigma</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">Inf</span></code></span>) – If the prior type is Gaussian, the standard deviation of the Gaussian function for the prior likelihood.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
@@ -600,20 +822,82 @@ a cell array of layer cell arrays</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.addResolution">
-<span class="sig-name descname"><span class="pre">addResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addResolution" title="Link to this definition">#</a></dt>
-<dd><p>Adds a resolution to the project. Expects a
-cell array with resolution name and type and
-up to 4 parameters</p>
-<p>project.addResolution(‘name’,’constant’,’par’);</p>
+<span class="sig-name descname"><span class="pre">addResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name</span></em>, <em class="sig-param"><span class="pre">type</span></em>, <em class="sig-param"><span class="pre">source</span></em>, <em class="sig-param"><span class="pre">value1</span></em>, <em class="sig-param"><span class="pre">value2</span></em>, <em class="sig-param"><span class="pre">value3</span></em>, <em class="sig-param"><span class="pre">value4</span></em>, <em class="sig-param"><span class="pre">value5</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addResolution" title="Link to this definition">#</a></dt>
+<dd><p>Adds a new resolution to the project.</p>
+<p class="rubric">Examples</p>
+<p>To add a new constant resolution with name only.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolution</span><span class="p">(</span><span class="s1">&#39;New Resolution&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To add a constant resolution.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolution</span><span class="p">(</span><span class="n">New</span> <span class="n">Resolution</span><span class="s1">&#39;, &#39;</span><span class="n">constant</span><span class="s1">&#39;, &#39;</span><span class="n">param</span> <span class="n">name</span><span class="s1">&#39;);</span>
+</pre></div>
+</div>
+<p>To add a data resolution.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolution</span><span class="p">(</span><span class="s1">&#39;New Resolution&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">auto-generated</span> <span class="pre">name</span></code></span>) – The name of the resolution.</p></li>
+<li><p><strong>type</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">allowedTypes,</span> <span class="pre">default:</span> <span class="pre">allowedTypes.Constant</span></code></span>) – The type of resolution (constant or data).</p></li>
+<li><p><strong>source</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – The source of the resolution.
+if type is ‘constant’, this should be the name (or the row index) of a resolution parameter.
+if type is ‘data’, this should be empty. RAT will expect a fourth column in the datafile.</p></li>
+<li><p><strong>value1</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – Any extra values required by the resolution.
+if type is ‘constant’, all values will be ignored.
+if type is ‘data’, all values will be ignored.</p></li>
+<li><p><strong>value2</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – Any extra values required by the resolution.
+if type is ‘constant’, all values will be ignored.
+if type is ‘data’, all values will be ignored.</p></li>
+<li><p><strong>value3</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – Any extra values required by the resolution.
+if type is ‘constant’, all values will be ignored.
+if type is ‘data’, all values will be ignored.</p></li>
+<li><p><strong>value4</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – Any extra values required by the resolution.
+if type is ‘constant’, all values will be ignored.
+if type is ‘data’, all values will be ignored.</p></li>
+<li><p><strong>value5</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – Any extra values required by the resolution.
+if type is ‘constant’, all values will be ignored.
+if type is ‘data’, all values will be ignored.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.addResolutionParam">
-<span class="sig-name descname"><span class="pre">addResolutionParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addResolutionParam" title="Link to this definition">#</a></dt>
-<dd><p>Adds a new resolution parameter. A parameter consists
-of a name, min, value, max, fit flag, prior type’, mu,
-and sigma</p>
-<p>project.addResolutionParam(‘Resolution Param 1’, 1e-8, 2.8e-6, 1e-5);</p>
+<span class="sig-name descname"><span class="pre">addResolutionParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name</span></em>, <em class="sig-param"><span class="pre">min</span></em>, <em class="sig-param"><span class="pre">value</span></em>, <em class="sig-param"><span class="pre">max</span></em>, <em class="sig-param"><span class="pre">fit</span></em>, <em class="sig-param"><span class="pre">priorType</span></em>, <em class="sig-param"><span class="pre">mu</span></em>, <em class="sig-param"><span class="pre">sigma</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addResolutionParam" title="Link to this definition">#</a></dt>
+<dd><p>Adds a new resolution parameter to the project.</p>
+<p class="rubric">Examples</p>
+<p>To add a new resolution parameter with no properties and an autogenerated name.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolutionParam</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>To add a resolution parameter with all available properties.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolutionParam</span><span class="p">(</span><span class="s1">&#39;Resolution Param 1&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Other examples of adding resolution parameters with a subset of properties.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolutionParam</span><span class="p">(</span><span class="s1">&#39;Resolution Param 1&#39;</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Resolution</span> <span class="n">parameter</span> <span class="n">name</span> <span class="n">only</span> <span class="k">with</span> <span class="n">others</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">default</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolutionParam</span><span class="p">(</span><span class="s1">&#39;Resolution Param 1&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Resolution</span> <span class="n">parameter</span> <span class="n">name</span> <span class="ow">and</span> <span class="nb">min</span> <span class="n">only</span><span class="o">.</span> <span class="n">Value</span> <span class="ow">and</span> <span class="nb">max</span> <span class="n">will</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">to</span> <span class="mi">23</span> <span class="n">to</span> <span class="n">keep</span> <span class="n">limits</span> <span class="n">valid</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolutionParam</span><span class="p">(</span><span class="s1">&#39;Resolution Param 1&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>  <span class="o">%</span> <span class="n">priors</span> <span class="n">will</span> <span class="n">be</span> <span class="n">default</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">auto-generated</span> <span class="pre">name</span></code></span>) – The name of the resolution parameter.</p></li>
+<li><p><strong>min</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – The minimum value that the resolution parameter could take when fitted.</p></li>
+<li><p><strong>value</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – The value of the resolution parameter, default will be equal to <code class="docutils literal notranslate"><span class="pre">min</span></code> if this is not set.</p></li>
+<li><p><strong>max</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – The maximum value that the resolution parameter could take when fitted, default will be equal to <code class="docutils literal notranslate"><span class="pre">value</span></code> if this is not set.</p></li>
+<li><p><strong>fit</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">false</span></code></span>) – Whether the resolution parameter should be fitted in a calculation.</p></li>
+<li><p><strong>priorType</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">PriorTypes,</span> <span class="pre">default:</span> <span class="pre">PriorTypes.Uniform</span></code></span>) – For Bayesian calculations, whether the prior likelihood is assumed to be ‘uniform’, ‘gaussian’, or ‘jeffreys’.</p></li>
+<li><p><strong>mu</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – If the prior type is Gaussian, the mean of the Gaussian function for the prior likelihood.</p></li>
+<li><p><strong>sigma</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">Inf</span></code></span>) – If the prior type is Gaussian, the standard deviation of the Gaussian function for the prior likelihood.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat attribute">
@@ -625,9 +909,19 @@ and sigma</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.clone">
 <span class="sig-name descname"><span class="pre">clone</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.clone" title="Link to this definition">#</a></dt>
-<dd><p>Makes a clone of the project by making a script and using it
-to recreate the project</p>
-<p>project.clone();</p>
+<dd><p>Creates a clone of the project.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">clonedProject</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">clone</span><span class="p">();</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>clonedProject</strong> – A new instance of projectClass with the same properties defined in the current projectClass.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>projectClass</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat attribute">
@@ -657,17 +951,19 @@ to recreate the project</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.getAllAllowedNames">
 <span class="sig-name descname"><span class="pre">getAllAllowedNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.getAllAllowedNames" title="Link to this definition">#</a></dt>
-<dd><p>Returns a cell array of all currently
-set parameter names for the project.</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.getDataAndFunctionNames">
-<span class="sig-name descname"><span class="pre">getDataAndFunctionNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.getDataAndFunctionNames" title="Link to this definition">#</a></dt>
-<dd><p>Returns a cell array of all currently
-set data and custom file names for the project.
-These are used to check backgrounds and resolutions of the
-Data and Function types.</p>
+<dd><p>Returns a struct with all currently set names of normal parameters, background and resolution
+parameters, backgrounds, resolutions, bulk-ins, bulk-outs, scalefactors, data, custom files and
+contrasts for the project.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>names</strong> – A struct with names of all the normal parameters, background and resolution
+parameters, backgrounds, resolutions, bulk-ins, bulk-outs, scalefactors, data, custom files and
+contrasts entries in the project.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>struct</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat attribute">
@@ -677,79 +973,171 @@ Data and Function types.</p>
 </dd></dl>
 
 <dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.projectClass">
-<span class="sig-name descname"><span class="pre">projectClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">experimentName</span></em>, <em class="sig-param"><span class="pre">modelType</span></em>, <em class="sig-param"><span class="pre">geometry</span></em>, <em class="sig-param"><span class="pre">absorption</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.projectClass" title="Link to this definition">#</a></dt>
-<dd><p>Creates a Project object. The input arguments are the
-experiment name which is a char array; the model type,
-which is a modelTypes enum; the geometry, which is a
-geometryOptions enum; and a logical to state whether or not
-absorption terms are included in the refractive index.
-All of the arguments are optional.</p>
-<p>project = projectClass(‘New experiment’);</p>
-</dd></dl>
-
-<dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.removeBackground">
 <span class="sig-name descname"><span class="pre">removeBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.removeBackground" title="Link to this definition">#</a></dt>
-<dd><p>Removes background from the project. Expects
-index or array of indices of background(s) to remove</p>
-<p>project.removeBackground(1);</p>
+<dd><p>Removes a background from the project.</p>
+<p class="rubric">Examples</p>
+<p>To remove the second background in the table (background in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeBackground</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To remove background with a specific name.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeBackground</span><span class="p">(</span><span class="s1">&#39;Background 1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the background to remove. If it is text,
+it is the name of the background to remove.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.removeBackgroundParam">
 <span class="sig-name descname"><span class="pre">removeBackgroundParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.removeBackgroundParam" title="Link to this definition">#</a></dt>
-<dd><p>Removes a given background parameter.
-Expects index or name of parameter to remove</p>
-<p>project.removeBackgroundParam(2);</p>
+<dd><p>Removes a given background parameter from the project.</p>
+<p class="rubric">Examples</p>
+<p>To remove the second background parameter in the table (parameter in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">project</span><span class="o">.</span><span class="n">removeBackgroundParam</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To remove background parameter with a specific name.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">project</span><span class="o">.</span><span class="n">removeBackgroundParam</span><span class="p">(</span><span class="s1">&#39;Background Value D2O&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the background parameter to remove. If it is text,
+it is the name of the background parameter to remove.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.removeContrast">
 <span class="sig-name descname"><span class="pre">removeContrast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.removeContrast" title="Link to this definition">#</a></dt>
-<dd><p>Removes a specified contrast parameter. Expects
-index or name of resolution to remove</p>
-<p>project.removeContrast(1);</p>
+<dd><p>Removes a given contrast from the project.</p>
+<p class="rubric">Examples</p>
+<p>To remove the second contrast in the table (contrast in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">project</span><span class="o">.</span><span class="n">removeContrast</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To remove contrast with a specific name.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">project</span><span class="o">.</span><span class="n">removeContrast</span><span class="p">(</span><span class="s1">&#39;contrast 1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the contrast to remove. If it is text,
+it is the name of the contrast to remove.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.removeCustomFile">
 <span class="sig-name descname"><span class="pre">removeCustomFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.removeCustomFile" title="Link to this definition">#</a></dt>
-<dd><p>Removes custom file entry(ies) from the custom files object.
-Expects index of entry(ies) to remove.</p>
-<p>project.removeCustomFile(1);</p>
+<dd><p>Removes a given custom file from the project.</p>
+<p class="rubric">Examples</p>
+<p>To remove the second custom file in the table (custom file in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">project</span><span class="o">.</span><span class="n">removeCustomFile</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To remove custom file with a specific name.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">project</span><span class="o">.</span><span class="n">removeCustomFile</span><span class="p">(</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the custom file to remove. If it is text,
+it is the name of the custom file to remove.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.removeData">
 <span class="sig-name descname"><span class="pre">removeData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.removeData" title="Link to this definition">#</a></dt>
-<dd><p>Removes a dataset. Expects the index or array of
-indices of dataset(s) to remove.</p>
-<p>project.removeData(2);</p>
+<dd><p>Removes a given dataset from the project.</p>
+<p class="rubric">Examples</p>
+<p>To remove the second dataset in the table (dataset in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">project</span><span class="o">.</span><span class="n">removeData</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To remove dataset with a specific name.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">project</span><span class="o">.</span><span class="n">removeData</span><span class="p">(</span><span class="s1">&#39;D2O&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the dataset to remove. If it is text,
+it is the name of the dataset to remove.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.removeLayer">
 <span class="sig-name descname"><span class="pre">removeLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">layer</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.removeLayer" title="Link to this definition">#</a></dt>
-<dd><p>Removes layer(s) from the layers object. Expects
-index/name of layer(s) to remove.</p>
-<p>project.removeLayer(1);</p>
+<dd><p>Removes a given layer from the project.</p>
+<p class="rubric">Examples</p>
+<p>To remove the second layer in the table (layer in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">project</span><span class="o">.</span><span class="n">removeLayer</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To remove layer with a specific name.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">project</span><span class="o">.</span><span class="n">removeLayer</span><span class="p">(</span><span class="s1">&#39;D2O&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the layer to remove. If it is text,
+it is the name of the layer to remove.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.removeResolution">
 <span class="sig-name descname"><span class="pre">removeResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.removeResolution" title="Link to this definition">#</a></dt>
-<dd><p>Removes resolution from the project. Expects
-index of resolution to remove</p>
-<p>project.removeResolution(1);</p>
+<dd><p>Removes a resolution from project.</p>
+<p class="rubric">Examples</p>
+<p>To remove the second resolution in the table (resolution in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeResolution</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To remove resolution with a specific name.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeResolution</span><span class="p">(</span><span class="s1">&#39;Resolution 1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the resolution to remove. If it is text,
+it is the name of the resolution to remove.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.removeResolutionParam">
 <span class="sig-name descname"><span class="pre">removeResolutionParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.removeResolutionParam" title="Link to this definition">#</a></dt>
-<dd><p>Removes a given resolution parameter.
-Expects index or name of parameter to remove</p>
-<p>project.removeResolutionParam(2);</p>
+<dd><p>Removes a resolution parameter from the project.</p>
+<p class="rubric">Examples</p>
+<p>To remove the second resolution parameter in the table (parameter in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeResolutionParam</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To remove resolution parameter with a specific name.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeResolutionParam</span><span class="p">(</span><span class="s1">&#39;Resolution Param 1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the resolution parameter to remove. If it is text,
+it is the name of the resolution parameter to remove.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat attribute">
@@ -760,26 +1148,74 @@ Expects index or name of parameter to remove</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.setBackground">
-<span class="sig-name descname"><span class="pre">setBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setBackground" title="Link to this definition">#</a></dt>
-<dd><p>Sets the value of an existing background. Expects
-index or name of background and keyword/value pairs to set</p>
-<p>project.setBackground(1, ‘name’, ‘Background ACMW’);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.projectClass.setBackgroundName">
-<span class="sig-name descname"><span class="pre">setBackgroundName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setBackgroundName" title="Link to this definition">#</a></dt>
-<dd><p>Sets the name of an existing Background.
-Expects index or name of background and the new name</p>
-<p>project.setBackgroundName(2, ‘new name’);</p>
+<span class="sig-name descname"><span class="pre">setBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setBackground" title="Link to this definition">#</a></dt>
+<dd><p>General purpose method for updating properties of an existing background.</p>
+<p class="rubric">Examples</p>
+<p>To change the name and value of the second background in the table (background in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">backgrounds</span><span class="o">.</span><span class="n">setBackground</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Background 1&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;param name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To change the properties of a background called ‘Background 1’.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">backgrounds</span><span class="o">.</span><span class="n">setBackground</span><span class="p">(</span><span class="s1">&#39;Background 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;New Background&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;function&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;custom file name&#39;</span><span class="p">,</span> <span class="n">value1</span><span class="o">=</span><span class="s1">&#39;param name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the background to update. If it is text,
+it is the name of the background to update.</p></li>
+<li><p><strong>options</strong> – <dl class="simple">
+<dt>Keyword/value pair to properties to update for the specific background.</dt><dd><ul>
+<li><p>name (char array or string, default: ‘’) the new name of the background.</p></li>
+<li><p>type (allowedTypes, default: allowedTypes.empty()) the type of background (constant, function or data).</p></li>
+<li><p>source (char array or string or whole number, default: ‘’) the new source of the background.</p></li>
+<li><p>value1, value2, value3, value4, value5 (char array or string or whole number, default: ‘’) any extra values required for the background.</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.setBackgroundParam">
-<span class="sig-name descname"><span class="pre">setBackgroundParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setBackgroundParam" title="Link to this definition">#</a></dt>
-<dd><p>Sets the value of an existing background parameter. Expects
-index or name of parameter and keyword/value pairs to set</p>
-<p>project.setBackgroundParam(1, ‘name’, ‘Backs Value H2O’);</p>
+<span class="sig-name descname"><span class="pre">setBackgroundParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setBackgroundParam" title="Link to this definition">#</a></dt>
+<dd><p>General purpose method for updating properties of an existing parameter.
+Any unset property will remain unchanged.</p>
+<p class="rubric">Examples</p>
+<p>To change the name and value of the second background parameter in the table (parameter in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setBackgroundParam</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Background 2&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To change the all properties of a background parameter called ‘Background Value D2O’.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setBackgroundParam</span><span class="p">(</span><span class="s1">&#39;Background Value D2O&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Background 2&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="o">...</span>
+<span class="gp">&gt;&gt;&gt; </span>                           <span class="s1">&#39;fit&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s1">&#39;priorType&#39;</span><span class="p">,</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="s1">&#39;mu&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;sigma&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the background parameter to update. If it is text,
+it is the name of the background parameter to update.</p></li>
+<li><p><strong>options</strong> – <dl class="simple">
+<dt>Keyword/value pair to properties to update for the specific background parameter.</dt><dd><ul>
+<li><p>name (char array or string, default: ‘’) the new name of the background parameter.</p></li>
+<li><p>min (double, default: []) the new minimum value of the background parameter.</p></li>
+<li><p>value (double, default: []) the new value of the background parameter.</p></li>
+<li><p>max (double, default: []) the new maximum value of the background parameter.</p></li>
+<li><p>fit (logical, default: logical.empty()) the new fit flag of the background parameter.</p></li>
+<li><p>priorTypes (priorTypes, default: priorTypes.empty()) the new prior type of the background parameter.</p></li>
+<li><p>mu (double, default: []) the new mean of the Gaussian function for the prior.</p></li>
+<li><p>sigma (double, default: []) The new standard deviation of the Gaussian function for the prior.</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
@@ -829,44 +1265,124 @@ parameter to set the value to.</p>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.setResolution">
-<span class="sig-name descname"><span class="pre">setResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setResolution" title="Link to this definition">#</a></dt>
-<dd><p>Sets the value of an existing resolution. Expects
-index or name of resolution and keyword/value pairs to set</p>
-<p>project.setResolution(1, ‘name’, ‘Resolution ACMW’);</p>
+<span class="sig-name descname"><span class="pre">setResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setResolution" title="Link to this definition">#</a></dt>
+<dd><p>General purpose method for updating properties of an existing resolution.</p>
+<p class="rubric">Examples</p>
+<p>To change the name and value of the second resolution in the table (resolution in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setResolution</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Resolution 1&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;param name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To change the properties of a resolution called ‘Resolution 1’.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setResolution</span><span class="p">(</span><span class="s1">&#39;Resolution 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;New Resolution 1&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the resolution to update. If it is text,
+it is the name of the resolution to update.</p></li>
+<li><p><strong>options</strong> – <dl class="simple">
+<dt>Keyword/value pair to properties to update for the specific resolution.</dt><dd><ul>
+<li><p>name (char array or string, default: ‘’) the new name of the resolution.</p></li>
+<li><p>type (allowedTypes, default: allowedTypes.empty()) the type of resolution (constant or data).</p></li>
+<li><p>source (char array or string, or whole number, default: ‘’) the new source of the resolution.</p></li>
+<li><p>value1, value2, value3, value4, value5 (char array or string or whole number, default: ‘’) any extra values required for the resolution.</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.setResolutionParam">
-<span class="sig-name descname"><span class="pre">setResolutionParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setResolutionParam" title="Link to this definition">#</a></dt>
-<dd><p>Sets the value of an existing resolution parameter. Expects
-index or name of parameter and keyword/value pairs to set</p>
-<p>project.setResolutionParam(1, ‘name’, ‘Resolution Param’);</p>
+<span class="sig-name descname"><span class="pre">setResolutionParam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.setResolutionParam" title="Link to this definition">#</a></dt>
+<dd><p>General purpose method for updating properties of an existing resolution parameter.
+Any unset property will remain unchanged.</p>
+<p class="rubric">Examples</p>
+<p>To change the name and value of the second resolution parameter in the table (parameter in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setResolutionParam</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Resolution Param 1&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To change the all properties of a resolution parameter called ‘Resolution Param 2’.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setResolutionParam</span><span class="p">(</span><span class="s1">&#39;Resolution Param 2&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Resolution Param 1&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="o">...</span>
+<span class="gp">&gt;&gt;&gt; </span>                           <span class="s1">&#39;fit&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s1">&#39;priorType&#39;</span><span class="p">,</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="s1">&#39;mu&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;sigma&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the resolution parameter to update. If it is text,
+it is the name of the resolution parameter to update.</p></li>
+<li><p><strong>options</strong> – <dl class="simple">
+<dt>Keyword/value pair to properties to update for the specific resolution parameter.</dt><dd><ul>
+<li><p>name (char array or string, default: ‘’) the new name of the resolution parameter.</p></li>
+<li><p>min (double, default: []) the new minimum value of the resolution parameter.</p></li>
+<li><p>value (double, default: []) the new value of the resolution parameter.</p></li>
+<li><p>max (double, default: []) the new maximum value of the resolution parameter.</p></li>
+<li><p>fit (logical, default: logical.empty()) the new fit flag of the resolution parameter.</p></li>
+<li><p>priorTypes (priorTypes, default: priorTypes.empty()) the new prior type of the resolution parameter.</p></li>
+<li><p>mu (double, default: []) the new mean of the Gaussian function for the prior.</p></li>
+<li><p>sigma (double, default: []) The new standard deviation of the Gaussian function for the prior.</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.toDomainsClass">
 <span class="sig-name descname"><span class="pre">toDomainsClass</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.toDomainsClass" title="Link to this definition">#</a></dt>
-<dd><p>Alias of the converter routine from projectClass to
-domainsClass.
-This routine takes the currently defined project and
-converts it to a domains calculation, preserving all
-currently defined properties.</p>
-<p>domainsProject = project.toDomainsClass();</p>
+<dd><p>Creates a new domainsClass object and copies the properties from current projectClass.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domainsProject</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">toDomainsClass</span><span class="p">();</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>domainsObj</strong> – An instance of domainsClass with the same properties defined in the projectClass.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>domainsClass</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.toStruct">
 <span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.toStruct" title="Link to this definition">#</a></dt>
-<dd><p>Converts the class parameters into a struct array for input
-into the RAT toolbox</p>
+<dd><p>Converts the projectClass into a structure array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>outStruct</strong> – A struct which contains the properties from the projectClass.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>struct</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.projectClass.writeScript">
 <span class="sig-name descname"><span class="pre">writeScript</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.writeScript" title="Link to this definition">#</a></dt>
-<dd><p>Writes a MATLAB script that can be run to reproduce this
-projectClass object.</p>
-<p>project.writeScript(script = “newScript.m”);</p>
+<dd><p>Writes a MATLAB script to a given file path. This script can be run to reproduce the current projectClass object.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">writeScript</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;newScript.m&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>objName</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">'project'</span></code></span>) – The name to use for the project object in the script.</p></li>
+<li><p><strong>path</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">'projectScript.m'</span></code></span>) – The relative or absolute file path where the script should be written to.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

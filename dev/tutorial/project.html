@@ -770,8 +770,8 @@ Matlab</label><div class="sd-tab-content docutils">
            shiftedData: {2x1 cell}
            backgrounds: {2x1 cell}
            resolutions: {2x1 cell}
-             layerSlds: {2x1 cell}
            sldProfiles: {2x1 cell}
+                layers: {2x1 cell}
        resampledLayers: {2x1 cell}
     calculationResults: [1x1 struct]
         contrastParams: [1x1 struct]
@@ -1529,7 +1529,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-65">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">background_parameters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My New BackPar&#39;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">problem</span><span class="o">.</span><span class="n">backgrounds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My New Background&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;My New BackPar&#39;</span><span class="p">)</span>
+<span class="n">problem</span><span class="o">.</span><span class="n">background</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My New Background&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;My New BackPar&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2671,7 +2671,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ________________________________________________________________________________________________
 
-Elapsed time is 0.001649 seconds.
+Elapsed time is 0.001721 seconds.
 
 Finished RAT ______________________________________________________________________________________________ 
 </pre></div>
@@ -2737,7 +2737,7 @@ Running simplex
 
 
 Exiting: Max iterations reached
-Elapsed time is 0.182307 seconds.
+Elapsed time is 0.173949 seconds.
 
 Finished RAT ______________________________________________________________________________________________ 
 </pre></div>
@@ -2753,7 +2753,7 @@ Running simplex
 
 
 Exiting: Max iterations reached
-Elapsed time is 0.105 seconds
+Elapsed time is 0.169 seconds
 
 Finished RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 </pre></div>
@@ -2785,8 +2785,8 @@ Matlab</label><div class="sd-tab-content docutils">
            shiftedData: {2x1 cell}
            backgrounds: {2x1 cell}
            resolutions: {2x1 cell}
-             layerSlds: {2x1 cell}
            sldProfiles: {2x1 cell}
+                layers: {2x1 cell}
        resampledLayers: {2x1 cell}
     calculationResults: [1x1 struct]
         contrastParams: [1x1 struct]

@@ -564,7 +564,7 @@ arguments will be used to create the first parameter.</p>
 <li><p><strong>value</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – The value of the parameter</p></li>
 <li><p><strong>max</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – The maximum value that the first parameter could take when fitted.</p></li>
 <li><p><strong>fit</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">false</span></code></span>) – Whether the first parameter should be fitted in a calculation.</p></li>
-<li><p><strong>priorType</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">PriorTypes,</span> <span class="pre">default:</span> <span class="pre">PriorTypes.Uniform</span></code></span>) – For Bayesian calculations, whether the prior likelihood is assumed to be ‘uniform’ or ‘gaussian’.</p></li>
+<li><p><strong>priorType</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">PriorTypes,</span> <span class="pre">default:</span> <span class="pre">PriorTypes.Uniform</span></code></span>) – For Bayesian calculations, whether the prior likelihood is assumed to be ‘uniform’, ‘gaussian’, or ‘jeffreys’.</p></li>
 <li><p><strong>mu</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0</span></code></span>) – If the prior type is Gaussian, the mean of the Gaussian function for the prior likelihood.</p></li>
 <li><p><strong>sigma</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">Inf</span></code></span>) – If the prior type is Gaussian, the standard deviation of the Gaussian function for the prior likelihood.</p></li>
 </ul>
@@ -608,7 +608,7 @@ arguments will be used to create the first parameter.</p>
 <li><p><strong>value</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – The value of the parameter, default will be equal to <code class="docutils literal notranslate"><span class="pre">min</span></code> if this is not set.</p></li>
 <li><p><strong>max</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – The maximum value that the parameter could take when fitted, default will be equal to <code class="docutils literal notranslate"><span class="pre">value</span></code> if this is not set.</p></li>
 <li><p><strong>fit</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">false</span></code></span>) – Whether the parameter should be fitted in a calculation.</p></li>
-<li><p><strong>priorType</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">PriorTypes,</span> <span class="pre">default:</span> <span class="pre">PriorTypes.Uniform</span></code></span>) – For Bayesian calculations, whether the prior likelihood is assumed to be ‘uniform’ or ‘gaussian’.</p></li>
+<li><p><strong>priorType</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">PriorTypes,</span> <span class="pre">default:</span> <span class="pre">PriorTypes.Uniform</span></code></span>) – For Bayesian calculations, whether the prior likelihood is assumed to be ‘uniform’, ‘gaussian’, or ‘jeffreys’.</p></li>
 <li><p><strong>mu</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">0.0</span></code></span>) – If the prior type is Gaussian, the mean of the Gaussian function for the prior likelihood.</p></li>
 <li><p><strong>sigma</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">Inf</span></code></span>) – If the prior type is Gaussian, the standard deviation of the Gaussian function for the prior likelihood.</p></li>
 </ul>
@@ -647,7 +647,7 @@ arguments will be used to create the first parameter.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">integer</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to remove. If it is text,
+<dd class="field-odd"><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to remove. If it is text,
 it is the name of the parameter to remove.</p>
 </dd>
 </dl>
@@ -669,7 +669,7 @@ it is the name of the parameter to remove.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">integer</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to update. If it is text,
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to update. If it is text,
 it is the name of the parameter to update.</p></li>
 <li><p><strong>fit</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical</span></code></span>) – The new fit flag of the parameter.</p></li>
 </ul>
@@ -693,7 +693,7 @@ it is the name of the parameter to update.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">integer</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to update. If it is text,
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to update. If it is text,
 it is the name of the parameter to update.</p></li>
 <li><p><strong>min</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double</span></code></span>) – The new minimum value of the parameter.</p></li>
 <li><p><strong>max</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double</span></code></span>) – The new maximum value of the parameter.</p></li>
@@ -718,7 +718,7 @@ it is the name of the parameter to update.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">integer</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to update. If it is text,
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to update. If it is text,
 it is the name of the parameter to update.</p></li>
 <li><p><strong>name</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span></code></span>) – The new name of the parameter.</p></li>
 </ul>
@@ -744,7 +744,7 @@ Any unset property will remain unchanged.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">integer</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to update. If it is text,
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to update. If it is text,
 it is the name of the parameter to update.</p></li>
 <li><p><strong>options</strong> – <dl class="simple">
 <dt>Keyword/value pair to properties to update for the specific parameter.</dt><dd><ul>
@@ -753,7 +753,7 @@ it is the name of the parameter to update.</p></li>
 <li><p>value (double, default: []) the new value of the parameter.</p></li>
 <li><p>max (double, default: []) the new maximum value of the parameter.</p></li>
 <li><p>fit (logical, default: logical.empty()) the new fit flag of the parameter.</p></li>
-<li><p>priorTypes (priorTypes, priorTypes.empty()) the new prior type of the parameter.</p></li>
+<li><p>priorTypes (priorTypes, default: priorTypes.empty()) the new prior type of the parameter.</p></li>
 <li><p>mu (double, default: []) the new mean of the Gaussian function for the prior.</p></li>
 <li><p>sigma (double, default: []) The new standard deviation of the Gaussian function for the prior.</p></li>
 </ul>
@@ -781,7 +781,7 @@ it is the name of the parameter to update.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">integer</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to update. If it is text,
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to update. If it is text,
 it is the name of the parameter to update.</p></li>
 <li><p><strong>priorType</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">PriorTypes</span></code></span>) – The new prior type of the parameter.</p></li>
 <li><p><strong>mu</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">[]</span></code></span>) – If the prior type is Gaussian, the mean of the Gaussian function for the prior likelihood, the value is not changed if empty.</p></li>
@@ -807,7 +807,7 @@ it is the name of the parameter to update.</p></li>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">integer</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to update. If it is text,
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the parameter to update. If it is text,
 it is the name of the parameter to update.</p></li>
 <li><p><strong>value</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double</span></code></span>) – The new value of the parameter.</p></li>
 </ul>
@@ -818,7 +818,7 @@ it is the name of the parameter to update.</p></li>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.parametersClass.toStruct">
 <span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.parametersClass.toStruct" title="Link to this definition">#</a></dt>
-<dd><p>Converts the class parameters into a structure array.</p>
+<dd><p>Converts the parametersClass into a structure array.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>outStruct</strong> – A struct which contains the properties for all the parameters.</p>

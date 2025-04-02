@@ -670,7 +670,7 @@ The ``backgrounds`` block is used to define the type of background applied to ea
 
         .. output:: Matlab
 
-            problem.background.displayBackgroundsObject()
+            problem.background.displayTable()
 
     .. tab-item:: Python 
         :sync: Python
@@ -695,7 +695,7 @@ The backgrounds can be one of three types: ``"constant"``, ``"function"`` or ``"
     .. code-block:: Python
 
         problem.background_parameters.append(name='My New BackPar', min=1e-8, value=1e-7, max=1e-6, fit=True)
-        problem.backgrounds.append(name='My New Background', type='constant', source='My New BackPar')
+        problem.background.append(name='My New Background', type='constant', source='My New BackPar')
 
 
 With this code snippet we've made a new background, with the value taken from the (fittable) parameter called 'My New BackPar':
@@ -711,7 +711,7 @@ With this code snippet we've made a new background, with the value taken from th
 
             problem.addBackgroundParam('My New BackPar', 1e-8, 1e-7, 1e-6, true);
             problem.addBackground('My New Background','constant','My New BackPar');
-            problem.background.displayBackgroundsObject()
+            problem.background.displayTable()
 
     .. tab-item:: Python 
         :sync: Python
@@ -747,7 +747,7 @@ This is then available to be used by any of our contrasts (see later).
 ..         .. output:: Matlab
 
 ..              problem.addBackground('Data Background 1', 'data', 'My Background Data')
-..              problem.background.displayBackgroundsObject()
+..              problem.background.displayTable()
 
 ..     .. tab-item:: Python 
 ..         :sync: Python
@@ -797,7 +797,7 @@ To define a resolution parameter, we use the following methods:
 
         .. output:: Matlab
 
-            problem.resolution.displayResolutionsObject()
+            problem.resolution.displayTable()
 
     .. tab-item:: Python 
         :sync: Python
@@ -833,7 +833,7 @@ Then, we make the actual resolution referring to whichever one of the resolution
             problem.addResolutionParam('My Resolution Param', 0.02, 0.05, 0.08, true);
             problem.addResolution('My new resolution','constant','My Resolution Param');
             problem.addResolution('My Data Resolution','data');
-            problem.resolution.displayResolutionsObject()
+            problem.resolution.displayTable()
 
     .. tab-item:: Python 
         :sync: Python
