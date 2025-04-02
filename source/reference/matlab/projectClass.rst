@@ -1,12 +1,13 @@
 =============
 Project Class
 =============
-Project Class is all about data. It contains the very data user wants to work with. It stores all the data required for reflectivity calculations. 
-Everything in RAT comes from projectClass in one way or another. There are many functions that deal with breaking down the data from Project Class into smaller pieces 
-so that they can be used in other parts of the software.
+The project class objects contain the experimental data and model information which is used in the reflectivity calculation and optimisation algorithms. The two classes
+are `projectClass`, which is used for normal calculations, and `domainsClass`, which is used for domains calculations. The `domainsClass` contains additional information
+relating to the structure of the domains (`domainRatio` and `domainContrasts`).
 
+How to create and modify a project is explained in :ref:`the user guide<project>`.
 
-Project Class has lot of other classes that help create objects for inputs. They are : 
+The class itself mostly brings together the data structures describing the experimental model and data. These structures are:
 
 .. toctree::
     :maxdepth: 1
@@ -20,48 +21,13 @@ Project Class has lot of other classes that help create objects for inputs. They
     contrastsClass
 
 
-.. note::
-    Most of these classes have the following in common:
+The class is designed so that these data structures do not need to be accessed directly. For example, the bulk in parameters are stored in a `parametersClass`,
+and the method `projectClass.addBulkIn` will pass its arguments to the `parametersClass.addParameter` method of the bulk in `parametersClass`. The same
+applies to removing and changing data in each part of the project.
 
-    1. They are all called from Project Class.
-    2. Methods to add or remove or change an attribute depending on the class.
-    3. Methods to find the location based on input value. Finding row when given an attribute's name or vice versa (Not all of them though).
-    4. Display methods.
-    5. A 'toStruct' method which output the class parameters as a struct.
+It is recommended that a project is created using the `createProject` function instead of creating a `projectClass` or `domainsClass` object directly; this function will validate
+input arguments and allow the creation of both types of project from the same entrypoint.
 
-
-.. list-table:: The methods on the left call the methods on the right in the table.
-    :widths: 50 50
-    :header-rows: 1
-
-    * - Method in Project Class
-      - Method in Parameter Class 
-    * - projectClass.addBulkIn/addBulkOut()
-      - parametersClass.addParameter() 
-    * - projectClass.removeBulkIn/removeBulkOut()
-      - parametersClass.removeParameter()
-    * - projectClass.setBulkIn/setBulkOut()
-      - parametersClass.setParameter()
-
-Although, Project class provides one level higher interface so that one can use `addBulkIn` and `addBulkOut` methods from projectClass to set these parameters.
-
-.. code-block:: MATLAB
-    :caption: Adding Bulk Out. Can set to a class using projectClass.addBulkOut(BulkIn)
-
-        %                   Name       min     val   max  fit?
-        problem.addBulkOut({'SLD SMW',2e-6,2.073e-6,3e-6,true});
-
-*************
-Domains Class
-*************
-RAT currently supports two calculation types (normal and Domains). The Domains Class is a project class with extra parameters (domainRatio, domainContrasts) for the Domains calculation.
-
-.. note::
-    It is recommended to use `API.createProject` instead of creating a Project or Domains object directly.
-
-*********
-Reference
-*********
 .. default-domain:: mat
 .. autofunction:: API.createProject
 
