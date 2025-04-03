@@ -522,7 +522,7 @@ MCMC approaches, and in some cases even outperforms classical optimisation algor
 <h2>Algorithm control parameters<a class="headerlink" href="#algorithm-control-parameters" title="Link to this heading">#</a></h2>
 <p>The following parameters in the <a class="reference internal" href="../tutorial/controls.html#controls"><span class="std std-ref">Controls object</span></a> are specific to DREAM:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">nSamples</span></code>: The number of samples in the initial population for each chain.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nSamples</span></code>: The total number of function evaluations (number of algorithm generations times number of chains).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">nChains</span></code>: The number of Markov chains to use in the algorithm.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">jumpProbability</span></code>: A probability range for the size of jumps when performing subspace sampling. Larger values mean
 more random variation in jump sizes for new proposed values.</p></li>
