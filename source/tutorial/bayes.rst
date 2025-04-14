@@ -65,7 +65,7 @@ The options for the prior type are:
 - ``"uniform"``: A uniformly distributed prior. Represents no initial knowledge about the true value of the parameter.
 - ``"gaussian"``: A Gaussian (normal) distribution, with given mean and variance.
 Represents that we have reason to believe the true value lies around some value :math:`\mu` with variance :math:`\sigma^2`.
-- ``"jeffreys"``: A Jeffreys' prior, which represents ignorance similarly to ``uniform``, but is also invariant
+- ``"jeffreys"``: A Jeffreys' prior, which represents no initial knowledge similarly to ``uniform``, but is also invariant
 to changes of scale.
 
 For Gaussian priors, :math:`mu` and :math:`sigma` are given to represent the mean and standard deviation of the distribution.
