@@ -10,5 +10,6 @@ Tutorial
    introduction
    project
    controls
+   bayes
    customModels
    savingOutputs

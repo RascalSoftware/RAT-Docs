@@ -1,4 +1,4 @@
-.. introduction:
+.. _introduction:
 
 ============
 Introduction
@@ -113,8 +113,7 @@ definition and explain what it describes.
 
     .. code-block:: Python
 
-        # TODO update with data
-        problem = get_problem()
+        problem = RAT.Project.load("source/tutorial/data/two_contrast_example.json")
         print(problem)
 
 
@@ -135,13 +134,10 @@ definition and explain what it describes.
         :sync: Python
 
         .. output:: Python
-            
-            # replace with a better project reading method when we have one...
-            with open('source/tutorial/data/two_contrast_example.py', "r") as f:
-                script = f.read()
-            locals = {}
-            exec(script, None, locals)
-            problem = locals['problem']
+
+            import RATapi as RAT
+
+            problem = RAT.Project.load("source/tutorial/data/two_contrast_example.json")
             print(problem)
 
 1. The Parameters Group
@@ -171,6 +167,7 @@ SLD values for the layers, depending on whether they are deuterated or not. Each
 which specifies whether they are included in the fitting algorithm, and ``min`` and ``max`` values indicating the minimum and maximum
 value they can take in a fit respectively. There are also **prior type** fields which are used in Bayesian algorithms
 to leverage prior knowledge about the model, but for non-Bayesian algorithms these fields are ignored. We will not use them here.
+More information on Bayesian algorithms is available in the :ref:`Bayes tutorial<bayesTutorial>`.
 
 
 2. The Layers Group

@@ -3,9 +3,13 @@
 =================
 The Project Class
 =================
-In the previous section, we saw an example of how we set up and run an analysis using the RAT toolbox. Every call to the toolbox has two parts: the **Project** object, where we define the model, add the data and define our contrasts, and the **Controls** object where we
-tell the toolbox what type of analysis we would like to do. The reason for splitting things up in this way is that once our model is defined, we can interact with it in various ways without needing to modify the model. So, we can experiment with our data, trying out different types of analysis, and explore the
-landscape of solutions by simply modifying the **Controls** object, leaving the **Project** object alone.
+In the previous section, we saw an example of how we set up and run an analysis using RAT. 
+Every call to the toolbox has two parts: the **Project** object, where we define the model, 
+add the data and define our contrasts, and the **Controls** object where we tell the toolbox 
+what type of analysis we would like to do. The reason for splitting things up in this way is that 
+once our model is defined, we can interact with it in various ways without needing to modify the model. 
+So we can try out different types of analysis and explore the landscape of solutions 
+by simply modifying the **Controls** object, leaving the **Project** object alone.
 
 As well as having two inputs, RAT always provides two outputs, so the call to the toolbox is always of this form:
 
@@ -19,9 +23,10 @@ As well as having two inputs, RAT always provides two outputs, so the call to th
         problem, results = RAT.run(problem, controls)
 
 
-In this case we have called our inputs *problem* and *controls*, and we have called our outputs *problem* and *results*, but we are free to call them anything we like. We will look at the outputs in more detail in the next section.
+In this case we have called our inputs ``problem`` and ``controls``, and we have called our outputs ``problem`` and ``results``, 
+but we are free to call them anything we like. We will look at the outputs in more detail in the next section.
 
-The first input, *problem*, is an instance of the **Project** class:
+The first input, ``problem``, is an instance of the **Project** class:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -40,7 +45,8 @@ The first input, *problem*, is an instance of the **Project** class:
 
         <class 'RAT.project.Project'>
 
-And if we take a look at it, we can see the class contains a series of sections, where we can define our parameters, make different kinds of model, load in our data and do everything we need to set up our model.
+The structure of the class is a collection of settings and tables defining things like calculation type,
+model type, parameters, data, contrasts, and so on. These define all we need for our analysis.
 
 .. tab-set::
     :class: tab-label-hidden
@@ -62,15 +68,16 @@ And if we take a look at it, we can see the class contains a series of sections,
             problem = RAT.Project(name='my project')
             print(problem)
 
-We can see that the class has a number of attributes, defining all we need for our analysis. In the default case, we have no parameters or data, and have not defined any contrasts, so this will not do anything useful in RAT. 
-Defining a model is a case of populating the sections in the **Project** class, which we do using its methods.
+In the following sections, we will look at how to build a standard layer slab model with this class. It is also
+possible to define a custom model using a function; this is seen in the :ref:`customModels` tutorial. 
 
-In the following sections, we will look at each of these methods and see how they can be used to define our reflectivity analysis problem. (There is also a utility which will convert a RasCAL model into a **Project** for use in RAT.
-This means that you can use the RasCAL GUI to set up your model if you like and then use the speed of RAT to conduct your analysis.)
+.. note:: 
+   If you have a model from RasCAL-1, this model can be imported as a RAT project. See the following example
+   pages for how to do this in :ref:`MATLAB<convertR1Matlab>` and :ref:`Python<convert_rascalIPYNB>`.
 
-In terms of the outputs, note that we have called the first output *problem*, but we don't need to do that. The first of the two outputs is another **Project**, but updated with the results of the calculation.
-So, if we run a fit, the fitted parameters will be updated with the best fit values of our procedure. In giving the output the same name as the input, we're overwriting our input with best fit values, but if you don't
-want to do this, you can give the inputs and outputs different names:
+
+When we run RAT, the first of the two outputs is another **Project**, but updated with the results of the calculation.
+So, if we run a fit, the fitted parameters will be updated with the best fit values of our procedure. 
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -81,8 +88,8 @@ want to do this, you can give the inputs and outputs different names:
 
         output_problem, results = RAT.run(problem, controls)
 
-The second output can also be called whatever you like, and this is a class
-containing the simulated reflectivities, SLDs and so on from whatever procedure you have asked RAT to do:
+The second output is a class containing the simulated reflectivities, SLDs and so on 
+using the parameters from the procedure given in the **Controls** object: 
 
 .. tab-set::
     :class: tab-label-hidden
@@ -116,7 +123,10 @@ The Components of the Project Class
 Project Defining Methods
 ========================
 
-The first step is always to create an instance of the **Project** class to hold our model. This is always done by calling the project creation routine and assigning it to our variable name (we will mostly use *problem* in this manual, but it can be anything), which always requires a name for our project as an input:
+The first step is always to create an instance of the **Project** class to hold our model. 
+
+This is always done by calling the project creation routine and assigning it to our variable name 
+(we will mostly use ``problem`` in this manual), which always requires a name for our project as an input:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -127,11 +137,11 @@ The first step is always to create an instance of the **Project** class to hold 
     
         problem = RAT.Project('My Problem')
     
-This creates an instance of **Project** and assigns it to the variable *problem*, and gives it the title 'My Problem'.
+This creates an instance of **Project**, assigns it to the variable ``problem``, and gives it the title 'My Problem'.
 
-The first part of the created *problem* has two other settable fields: **Model Type** and **geometry**.
+The first part of the created ``problem`` has two other fields: **Model Type** and **Geometry**.
 
-* **geometry**: This can be set to either ``"air/substrate"`` or ``"substrate/liquid"`` as below.
+* **Geometry**: This can be set to either ``"air/substrate"`` or ``"substrate/liquid"`` as below.
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -146,16 +156,28 @@ The first part of the created *problem* has two other settable fields: **Model T
 
 The effect of this parameter is in the numbering of roughness values in layer models. In any model for n-layers,
 there are always n+1 associated interfaces, and hence n+1 roughness parameters required. In RAT, the bulk interface roughness
-is a protected parameter called ``"Substrate Roughness"`` and always exists, and this parameter controls where this roughness is placed in the layer stack. So, for two layers defined with thickness,
-SLD and roughness as [d\ :sub:`1`, :math:`\rho_\mathrm{1}`, :math:`\sigma_\mathrm{1}`] and [d\ :sub:`2`, :math:`\rho_\mathrm{2}`, :math:`\sigma_\mathrm{1}`], then for the ``"substrate/liquid"`` geometry
-the substrate roughness is placed as the first roughness the beam meets, and the layer roughness values refer to the interface after the particular layer.
-But in the ``"air/substrate"`` case, the opposite is true, and the substrate roughness is the last roughness in the stack, with the layer roughness referring to the interface before each layer.
+is a protected parameter called ``"Substrate Roughness"`` which always exists.
+The **Geometry** field controls where this roughness is placed in the layer stack. So, for two layers defined with thickness,
+SLD and roughness :math:`[d_1, \rho_1, \sigma_1]` and :math:`[d_2, \rho_2, \sigma_2]`, 
+then for the ``"substrate/liquid"`` geometry the substrate roughness is placed as the first roughness the beam meets, 
+and the layer roughness values refer to the interface after the particular layer.
+But in the ``"air/substrate"`` case, the opposite is true, 
+and the substrate roughness is the last roughness in the stack, with the layer roughness referring to the interface before each layer.
 
 * **Model Type**: There are three ways of defining models in RAT:
 
-    * **Standard Layers** - The model is defined in terms of parameters, which are distributed into layers, and subsequently grouped into contrasts. No external functions are needed.
-    * **Custom Layers** - Parameters are again defined and grouped into layers, but this time the layer definitions come from a user model script. This then gives complete flexibility of how layers are defined, so allowing models to be written in terms of area per molecule or material density, for example. This custom script controls translating these input parameters into a [d, :math:`\rho`, :math:`\sigma`] model. This is probably the most useful operating mode for RasCAL.
-    * **Custom XY-Profile** - This modelling mode also relies on a custom model function, but in this case does away with [d, :math:`\rho`, :math:`\sigma`] (thickness, SLD, roughness) layers completely. Instead, the custom function uses the parameters to define a continuous SLD profile, which RAT then uses to calculate the reflectivity.
+    * **Standard Layers** - The model is defined in terms of parameters, which are distributed into layers, and subsequently grouped into contrasts. 
+      No external functions are needed.
+    * **Custom Layers** - Parameters are again defined and grouped into layers, but this time the layer definitions come from a user model script. 
+      This then gives complete flexibility of how layers are defined, so allowing models to be written in terms of area per molecule or material density, 
+      for example. This custom script controls translating these input parameters into a :math:`[d, \rho, \sigma]` (thickness, SLD, roughness) model. 
+      This is probably the most useful operating mode for RasCAL. 
+    * **Custom XY-Profile** - This modelling mode also relies on a custom model function, 
+      but in this case does away with :math:`[d, \rho, \sigma]` layers completely. 
+      Instead, the custom function uses the parameters to define a continuous SLD profile, which RAT then uses to calculate the reflectivity.
+
+.. note:: 
+   This tutorial just deals with standard layers. For information on the other model types, see :ref:`customLayers`.
 
 The model type of the project can be changed as follows:
 
@@ -177,7 +199,9 @@ Custom modelling is described in more depth in a :ref:`later section<customModel
 The Parameters Block
 ====================
 
-Any model, whether it be layers or anything else is always defined by parameters. These appear in the parameters block and are specified by a name, a value, minimum and maximum ranges and a flag defining whether the parameter is fitted or fixed:
+The parameters block outlines the material parameters of our model, such as thickness, SLD or roughness.
+These parameters are specified by a name, a value, minimum and maximum ranges,
+and a flag defining whether the parameter is fitted or fixed:
 
 
 .. tab-set::
@@ -200,7 +224,8 @@ Any model, whether it be layers or anything else is always defined by parameters
             problem = RAT.Project(name='my project')
             print(problem.parameters)
 
-The ``"Substrate Roughness"`` is a protected parameter in all cases (it defines the Fresnel roughness) and cannot be renamed or deleted. Its value and ranges can however be set to any numerical values.
+The ``"Substrate Roughness"`` is a protected parameter in all cases (it defines the Fresnel roughness) and cannot be renamed or deleted.
+Its value and ranges can however be set to any numerical values.
 
 To add a parameter, you can just specify a name, in which case the parameter takes on default values, or specify the whole parameter at once:
 
@@ -268,11 +293,12 @@ The resulting parameters block looks like this:
             problem.parameters.extend(pGroup)
             print(problem.parameters)
 
-.. note::
+.. warning::
     Parameters can't have duplicate names. Attempting to duplicate a name will throw an error. This can cause problems when loading in RasCAL-1 projects
     where duplicate names are allowed.
 
-To subsequently change the values of the parameters (including names), you can set the properties of a given parameter using name/value pairs, which parameter to set can be specified using the index number or name of the parameter:
+To subsequently change the values of the parameters (including names), you can set the properties of a given parameter using name/value pairs, 
+which parameter to set can be specified using the index number or name of the parameter:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -317,7 +343,7 @@ To subsequently change the values of the parameters (including names), you can s
             problem.parameters['Layer rough'].fit = False
             print(problem.parameters)
 
-Alternatively, you can set a multiple properties of a given parameter at once using name/value pairs.
+Alternatively, you can set multiple properties of a given parameter at once using name/value pairs.
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -348,7 +374,8 @@ Alternatively, you can set a multiple properties of a given parameter at once us
             problem.parameters.set_fields(3, name='thick', min=5, max=33, fit=False)
             print(problem.parameters)
 
-You can remove a parameter from the block using its index number or name. Note that if you remove a parameter from the middle of the block, subsequent parameter index numbers will change. 
+You can remove a parameter from the block using its index number or name. Note that if you remove a parameter from the middle of the block, 
+subsequent parameter index numbers will change. 
 Also, if you try to remove the substrate roughness you will get an error:
 
 .. tab-set-code::
@@ -416,14 +443,24 @@ Also, if you try to remove the substrate roughness you will get an error:
             except Exception as err:
                 print(err)
 
+.. note::
+   There are additional properties of Parameters used for Bayesian algorithms; see the :ref:`Bayes tutorial<bayesTutorial>`.
+
+
 .. _standardLayers:
 
 The Layers Block (Standard Layers models only)
 ==============================================
 
-For each of the custom models cases, the model building is done using a script (discussed in :ref:`customModels`). For standard layers models however, model building is done by grouping the parameters into layers, and then into contrasts (as is the case for RasCAL). The layers block is not visible when either of the two custom models are selected. Layers are stored in the ``layers`` field of the **Project**. As an example here, we make a new project, add some parameters, and create some layers.
+For standard layers models, model building is done by grouping the parameters into layers, and then into contrasts.
+The layers block is not visible when either of the two custom models are selected. Layers are stored in the ``layers`` field of the **Project**. 
+As an example here, we make a new project, add some parameters, and create some layers.
 
-For this example, we will make two layers representing a deuterated and hydrogenated version of the same layer. So, the layers will share all their parameters except for the SLD.
+For each of the custom models cases, the model building is done using a script (discussed in :ref:`customModels`). 
+
+
+For this example, we will make two layers representing a deuterated and hydrogenated version of the same layer. 
+So, the layers will share all their parameters except for the SLD.
 
 Start by making a new project, and adding the parameters we will need:
 
@@ -684,7 +721,7 @@ The **Background Parameters** is in fact another instance of the parameters clas
 
 The backgrounds can be one of three types: ``"constant"``, ``"function"`` or ``"data"``. The three types are discussed in more detail below:
 
-* ``"Constant"`` - This is the normal background type from RasCAL-1. Each background requires one **and only one** Background Parameter associated with it, as follows:
+* ``"constant"`` - This is the normal background type from RasCAL-1. Each background requires one **and only one** Background Parameter associated with it, as follows:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -726,7 +763,8 @@ With this code snippet we've made a new background, with the value taken from th
 
 This is then available to be used by any of our contrasts (see later).
 
-* ``"Data"`` - This option is used when a measured data background is available. Suppose our measured data is in a datafile loaded into the data block (see later), and called 'My Background Data'. To define a data background, we simply specify this datafile in our background specification:
+* ``"data"`` - This option is used when a measured data background is available. Our measured data is given in a datafile loaded into the data block (see later).
+  To define a data background from a datafile called 'My Background Data', we simply specify this datafile in our background specification:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -737,44 +775,36 @@ This is then available to be used by any of our contrasts (see later).
 
         problem.backgrounds.append(name='Data Background 1', type='data', source='My Background Data')
 
-.. .. tab-set::
-..     :class: tab-label-hidden
-..     :sync-group: code
+* ``"function"`` - This option defines the background using a function loaded into the custom file block (see later).
+  To define a function background, we simply specify this custom file in our background specification, along with
+  up to five background parameters (defined in the background parameters block) to use in the function.
 
-..     .. tab-item:: Matlab
-..         :sync: Matlab
+  In the following code block we define a background based on the function ``"My Background Function"`` which takes two values given
+  by ``"Background Parameter 1"`` and ``"Background Parameter 2"``
 
-..         .. output:: Matlab
+.. tab-set-code::
+    .. code-block:: Matlab
 
-..              problem.addBackground('Data Background 1', 'data', 'My Background Data')
-..              problem.background.displayTable()
+        problem.addBackground('Data Background 1', 'function', 'My Background Function', 'Background Parameter 1', 'Background Parameter 2')
+    
+    .. code-block:: Python
 
-..     .. tab-item:: Python 
-..         :sync: Python
-
-..         .. output:: Python
-
-..              problem.backgrounds.append(name='Data Background 1', type='data', source='My Background Data')
-..              print(problem.backgrounds)
+        problem.backgrounds.append(name='Data Background 1', type='data', source='My Background Function' value_1='Background Parameter 1', value_2='Background Parameter 2')
 
 This is then used in the reflectivity calculation for any contrast in which it is specified.
 
-.. note::
-    Also, take care to make sure that the background and data with which it is intended to be used have **the same q values**, otherwise the code will raise an error.
+.. warning::
+    Take care to make sure that the background and data with which it is intended to be used have **the same q values**, otherwise the code will raise an error.
 
 
 Resolutions
 ===========
-As is the case for the backgrounds, the resolutions block is also split into two parts: a **Resolution Parameters** block which defines the fittable parameters, and then the main ``resolutions`` block which groups these as required into actual resolutions.
+As is the case for the backgrounds, the resolutions block is also split into two parts: a **Resolution Parameters** block which defines the fittable parameters, 
+and then the main ``resolutions`` block which groups these as required into actual resolutions.
 The three types are:
 
 *   ``"constant"``: The default type. A resolution parameter defines the width of a sliding Gaussian window convolution applied to the data.
-*   ``"function"``: Convolution of the data with an arbitrary, user defined function (not yet implemented).
 *   ``"data"``: Convolution with a sliding Gaussian defined by a fourth column of a datafile.
-
-
-.. note::
-    Only ``"constant"`` and ``"data"`` are currently implemented.
 
 To define a resolution parameter, we use the following methods:
 
@@ -845,13 +875,15 @@ Then, we make the actual resolution referring to whichever one of the resolution
             problem.resolutions.append(name='My Data Resolution', type='data')
             print(problem.resolutions)
 
-.. note::
-    There are no parameters for a ``"data"`` resolution. Instead this tells RAT to expect a fourth column in the datafile. If no fourth column exists in the data to which this is applied, RAT will throw an error at runtime.
+.. warning::
+   There are no parameters for a ``"data"`` resolution. Instead this tells RAT to expect a fourth column in the datafile for the contrast. 
+   If no fourth column exists in the data to which this is applied, RAT will throw an error at runtime.
 
 
 Data
 ====
-The data block contains the data which defines at which points in q the reflectivity is calculated at each contrast. By default, it initialises with a single ``"Simulation"`` entry:
+The data block contains the data which defines at which points in q the reflectivity is calculated at each contrast. 
+By default, it initialises with a single ``"Simulation"`` entry:
 
 .. tab-set::
     :class: tab-label-hidden
@@ -876,8 +908,11 @@ For each entry in the table there are four fields:
 
 * **Name**: The name you choose to give the datafile (for reference in the contrasts block)
 * **Data**: An array containing the data itself (empty for 'Simulation').
-* **Data Range**: The min / max range of the data you wish to include in the fit. You do not have to include all the data in the calculation of chi-squared. This range **must** lie **within** the range of any data added to the **Data** column.
-* **Simulation Range**: The total range of the simulation to be calculated. This **must** be equal to or larger than the range of any data added to the **Data** column.
+* **Data Range**: The min / max range of the data you wish to include in the fit. 
+  You do not have to include all the data in the calculation of chi-squared. 
+  This range must lie **within** the range of the dataset.
+* **Simulation Range**: The total range of the simulation to be calculated. 
+  This must be equal to or larger than the range of any data added to the **Data** column.
 
 To add data, we first load it into Matlab/Python, then create a new data entry containing it:
 
@@ -959,7 +994,9 @@ Note that we did not specify data or simulation ranges, and so these default to 
 Putting it all together – defining contrasts
 ============================================
 
-Once we have defined the various aspects of our project, i.e. backgrounds, data and so on, we group these together into contrasts to make our fitting project. We can add a contrast using just its name, and edit it later, or we can specify which parts of our project we want to add to the contrast using name value pairs:
+Once we have defined the various aspects of our project, i.e. backgrounds, data and so on, we group these together into contrasts to make our fitting project. 
+A contrast defines one 'experimental setup', for example in our hydration/deuteration model we need two contrasts, one for hydration and one for deuteration.
+We can add a contrast using just its name, and edit it later, or we can specify which parts of our project we want to add to the contrast using name value pairs:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -982,10 +1019,12 @@ Once we have defined the various aspects of our project, i.e. backgrounds, data 
                                  bulk_out='SLD D2O',
                                  data='D-tail / H-head / D2O')
 
-The values which we add must refer to names within the other blocks of the project. So, if you try to add a ``scalefactor`` called "scalefactor1" when this name doesn't exist in the ``scalefactors`` block, an error will be raised.
+The values which we add must refer to names within the other blocks of the project. If the name doesn't exist in the relevant block, an error will be raised. 
 
-Once we have added the contrasts, then we need to set the model, either by adding layers for a ``"standard layers"`` project, or a custom model file (we discuss these in :ref:`customModels`). 
-In the case of layers, we give a list of layer names, in order from bulk in to bulk out. So for a monolayer for example, we would specify tails and then heads in as shown below:
+Once we have added the contrasts, then we need to set the model, either by adding layers for a ``"standard layers"`` project, 
+or a custom model file (we discuss these in :ref:`customModels`). 
+In the case of layers, we give a list of layer names, in order from bulk in to bulk out. 
+So for a monolayer for example, we would specify tails and then heads as shown below:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -1220,7 +1259,7 @@ We need to make sure that we are fitting the relevant backgrounds, scalefactors 
         problem.scalefactors.set_fields('Scalefactor 1', fit=True)
         problem.bulk_out.set_fields('SLD D2O', fit=True)
 
-Now have a look at our project, to make sure it all looks reasonable
+Now have a look at our project, to make sure it all looks reasonable:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -1249,12 +1288,7 @@ Now have a look at our project, to make sure it all looks reasonable
 
         .. output:: Python
 
-            # replace with a better project reading method when we have one...
-            with open('source/tutorial/data/two_contrast_example.py', "r") as f:
-                script = f.read()
-            locals = {}
-            exec(script, None, locals)
-            problem = locals['problem']
+            problem = RAT.Project.load("source/tutorial/data/two_contrast_example.json")
             print(problem)
 
 Now we'll calculate this to check the agreement with the data. We need an instance of the controls class, with the procedure attribute set to ``"calculate"`` (the default):
