@@ -594,7 +594,7 @@ The value of an existing layer can be changed by specifying the layer, layer par
 .. tab-set-code::
     .. code-block:: Matlab
 
-        problem.setLayerValue('H Layer', 'Thickness', 'H SLD');
+        problem.setLayer('H Layer', 'thickness', 'H SLD');
 
     .. code-block:: Python
 
@@ -609,7 +609,7 @@ The value of an existing layer can be changed by specifying the layer, layer par
 
         .. output:: Matlab
 
-            problem.setLayerValue('H Layer', 'Thickness', 'H SLD');
+            problem.setLayer('H Layer', 'thickness', 'H SLD');
             problem.layers.displayTable()
 
     .. tab-item:: Python 
