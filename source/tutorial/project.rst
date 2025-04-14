@@ -3,13 +3,13 @@
 =================
 The Project Class
 =================
-In the previous section, we saw an example of how we set up and run an analysis using the RAT toolbox. 
+In the previous section, we saw an example of how we set up and run an analysis using RAT. 
 Every call to the toolbox has two parts: the **Project** object, where we define the model, 
 add the data and define our contrasts, and the **Controls** object where we tell the toolbox 
 what type of analysis we would like to do. The reason for splitting things up in this way is that 
 once our model is defined, we can interact with it in various ways without needing to modify the model. 
-So, we can experiment with our data, trying out different types of analysis, and explore the
-landscape of solutions by simply modifying the **Controls** object, leaving the **Project** object alone.
+So we can try out different types of analysis and explore the landscape of solutions 
+by simply modifying the **Controls** object, leaving the **Project** object alone.
 
 As well as having two inputs, RAT always provides two outputs, so the call to the toolbox is always of this form:
 
@@ -45,7 +45,7 @@ The first input, ``problem``, is an instance of the **Project** class:
 
         <class 'RAT.project.Project'>
 
-The structure of a class is a collection of settings and tables defining things like calculation type,
+The structure of the class is a collection of settings and tables defining things like calculation type,
 model type, parameters, data, contrasts, and so on. These define all we need for our analysis.
 
 .. tab-set::
@@ -89,7 +89,7 @@ So, if we run a fit, the fitted parameters will be updated with the best fit val
         output_problem, results = RAT.run(problem, controls)
 
 The second output is a class containing the simulated reflectivities, SLDs and so on 
-from the procedure given in the **Controls** object: 
+using the parameters from the procedure given in the **Controls** object: 
 
 .. tab-set::
     :class: tab-label-hidden
@@ -158,7 +158,7 @@ The effect of this parameter is in the numbering of roughness values in layer mo
 there are always n+1 associated interfaces, and hence n+1 roughness parameters required. In RAT, the bulk interface roughness
 is a protected parameter called ``"Substrate Roughness"`` which always exists.
 The **Geometry** field controls where this roughness is placed in the layer stack. So, for two layers defined with thickness,
-SLD and roughness [d\ :sub:`1`, :math:`\rho_\mathrm{1}`, :math:`\sigma_\mathrm{1}`] and [d\ :sub:`2`, :math:`\rho_\mathrm{2}`, :math:`\sigma_\mathrm{2}`], 
+SLD and roughness :math:`[d_1, \rho_1, \sigma_1]` and :math:`[d_2, \rho_2, \sigma_2]`, 
 then for the ``"substrate/liquid"`` geometry the substrate roughness is placed as the first roughness the beam meets, 
 and the layer roughness values refer to the interface after the particular layer.
 But in the ``"air/substrate"`` case, the opposite is true, 
@@ -170,10 +170,10 @@ and the substrate roughness is the last roughness in the stack, with the layer r
       No external functions are needed.
     * **Custom Layers** - Parameters are again defined and grouped into layers, but this time the layer definitions come from a user model script. 
       This then gives complete flexibility of how layers are defined, so allowing models to be written in terms of area per molecule or material density, 
-      for example. This custom script controls translating these input parameters into a [d, :math:`\rho`, :math:`\sigma`] model. 
+      for example. This custom script controls translating these input parameters into a :math:`[d, \rho, \sigma]` (thickness, SLD, roughness) model. 
       This is probably the most useful operating mode for RasCAL. 
     * **Custom XY-Profile** - This modelling mode also relies on a custom model function, 
-      but in this case does away with [d, :math:`\rho`, :math:`\sigma`] (thickness, SLD, roughness) layers completely. 
+      but in this case does away with :math:`[d, \rho, \sigma]` layers completely. 
       Instead, the custom function uses the parameters to define a continuous SLD profile, which RAT then uses to calculate the reflectivity.
 
 .. note:: 
@@ -452,10 +452,12 @@ Also, if you try to remove the substrate roughness you will get an error:
 The Layers Block (Standard Layers models only)
 ==============================================
 
-For each of the custom models cases, the model building is done using a script (discussed in :ref:`customModels`). 
-For standard layers models however, model building is done by grouping the parameters into layers, and then into contrasts.
+For standard layers models, model building is done by grouping the parameters into layers, and then into contrasts.
 The layers block is not visible when either of the two custom models are selected. Layers are stored in the ``layers`` field of the **Project**. 
 As an example here, we make a new project, add some parameters, and create some layers.
+
+For each of the custom models cases, the model building is done using a script (discussed in :ref:`customModels`). 
+
 
 For this example, we will make two layers representing a deuterated and hydrogenated version of the same layer. 
 So, the layers will share all their parameters except for the SLD.
@@ -761,8 +763,8 @@ With this code snippet we've made a new background, with the value taken from th
 
 This is then available to be used by any of our contrasts (see later).
 
-* ``"data"`` - This option is used when a measured data background is available. Suppose our measured data is in a datafile loaded into the data block (see later), 
-  and called 'My Background Data'. To define a data background, we simply specify this datafile in our background specification:
+* ``"data"`` - This option is used when a measured data background is available. Our measured data is given in a datafile loaded into the data block (see later).
+  To define a data background from a datafile called 'My Background Data', we simply specify this datafile in our background specification:
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -874,7 +876,7 @@ Then, we make the actual resolution referring to whichever one of the resolution
             print(problem.resolutions)
 
 .. warning::
-   There are no parameters for a ``"data"`` resolution. Instead this tells RAT to expect a fourth column in the datafile. 
+   There are no parameters for a ``"data"`` resolution. Instead this tells RAT to expect a fourth column in the datafile for the contrast. 
    If no fourth column exists in the data to which this is applied, RAT will throw an error at runtime.
 
 
@@ -908,7 +910,7 @@ For each entry in the table there are four fields:
 * **Data**: An array containing the data itself (empty for 'Simulation').
 * **Data Range**: The min / max range of the data you wish to include in the fit. 
   You do not have to include all the data in the calculation of chi-squared. 
-  This range must lie **within** the range of any data added to the **Data** column.
+  This range must lie **within** the range of the dataset.
 * **Simulation Range**: The total range of the simulation to be calculated. 
   This must be equal to or larger than the range of any data added to the **Data** column.
 
@@ -1022,7 +1024,7 @@ The values which we add must refer to names within the other blocks of the proje
 Once we have added the contrasts, then we need to set the model, either by adding layers for a ``"standard layers"`` project, 
 or a custom model file (we discuss these in :ref:`customModels`). 
 In the case of layers, we give a list of layer names, in order from bulk in to bulk out. 
-So for a monolayer for example, we would specify tails and then heads in as shown below:
+So for a monolayer for example, we would specify tails and then heads as shown below:
 
 .. tab-set-code::
     .. code-block:: Matlab

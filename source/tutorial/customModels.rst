@@ -6,7 +6,7 @@ Custom Models
 
 The Standard Layers approach is useful for quickly setting up simple models, but parameterising models in this way is not always the best way of analysing data.
 For example, in the case of lipids, it is often natural and intuitive to analyse the data in terms of area per lipid 
-rather than in terms of [d, :math:`\rho`, :math:`\sigma`]  (thickness, SLD, roughness).
+rather than in terms of :math:`[d, \rho, \sigma]`  (thickness, SLD, roughness).
 Similarly, for solid state samples thinking in terms of density and composition is often more appropriate than SLD. 
 You can parameterise your model in any way you like, and then rather than building the model in the input class, 
 the model is constructed using a custom model script. This is by far the most powerful method for using RAT for data analysis, 
@@ -14,7 +14,7 @@ as virtually any type of model can be implemented in this way.
 
 There are two main options for custom modelling:
 
-* **Custom Layers** - In this method, the parameters are grouped into layers within the script, with the output then defining layers as [d, :math:`\rho`, :math:`\sigma`] triplets.
+* **Custom Layers** - In this method, the parameters are grouped into layers within the script, with the output then defining layers as :math:`[d, \rho, \sigma]` triplets.
 
 * **Custom XY Profile** - In this method the input parameters are used to create a z (in Angstroms) versus SLD curve, from which the reflectivity is calculated.
 
@@ -27,7 +27,7 @@ Custom Layers Models
 
 The general principle of custom layers models is that we take the defined parameters, and arrange them into an array of layers using some code. 
 This is a very powerful way of defining your model, since you have the freedom to parameterise and define your model however you wish. 
-So rather than being restricted to just simple [d, :math:`\rho`, :math:`\sigma`] combinations as parameters, 
+So rather than being restricted to just simple :math:`[d, \rho, \sigma]` combinations as parameters, 
 you can define your model in terms of more scientifically useful parameters, such as area per molecule or density. 
 The basic structure of any custom layers script always has the same format:
 
@@ -105,7 +105,7 @@ Looking at our system, we can see that we are going to need 8 parameters in tota
 
 These are the parameters that we will define in the parameters block.
 
-We start in the usual way by making in instance of the project class, but this time we change the model type to ``"custom layers"``, 
+We start in the usual way by making an instance of the project class, but this time we change the model type to ``"custom layers"``, 
 and also change the geometry to ``"substrate/liquid"``:
 
 .. tab-set-code::
@@ -122,7 +122,7 @@ and also change the geometry to ``"substrate/liquid"``:
                               geometry='substrate/liquid')
 
 If you look at the class, you will see that the ``layers`` block is no longer visible. We aren't going to need this for ``"custom layers"``. 
-Instead, we need a custom script, which takes our inputs and converts this in to a list of [d, :math:`\rho`, :math:`\sigma`] layers.
+Instead, we need a custom script, which takes our inputs and converts this into a list of :math:`[d, \rho, \sigma]` layers.
 
 First, we add our seven parameters (remember that Substrate Roughness is always there as the first parameter):
 
@@ -386,7 +386,7 @@ although you don't have to do this:
 The next two inputs are arrays of all the bulk in and bulk out values for all the contrasts, 
 and ``contrast`` is an the index of the contrast the script should calculate. 
 The reason for passing the values of the bulk phases is that these are needed to calculate the SLDs of the layers if they are hydrated. 
-So, to calculate the SLD of the Oxide layer, we take the known SLD for Silicon dioxide, 
+So, to calculate the SLD of the oxide layer, we take the known SLD for silicon dioxide, 
 and then use the oxide coverage parameter to calculate the effective SLD of the oxide. 
 Because we define our coverage as a parameter between 0 and 1, where 1 is full coverage and 0 is fully hydrated, 
 we can work out this SLD as a simple ratio between oxide SLD and water SLD:
@@ -536,7 +536,7 @@ and another b = [b1, b2, b3], then [a ; b] produces an array that looks like thi
    \begin{bmatrix} a_\mathrm{1} & a_\mathrm{2} & a_\mathrm{3} \\ b_\mathrm{1} & b_\mathrm{2} & b_\mathrm{3} \end{bmatrix}
 
 In other words, the entire purpose of our custom layer file is to take our parameters in a scientifically useful form 
-(e.g. Area per Lipid in our case), and to translate these into a list of thick, SLD, rough layers for the whole interface. 
+(e.g. Area per Lipid in our case), and to translate these into a list of :math:`[d, \rho, \sigma]` layers for the whole interface. 
 You have complete freedom in how you do this, which means that you can make any kind of layer model you can think of using a custom layers file, 
 including layers that are mixtures of adjoining layers and so on. As long as you can describe your 
 system as layers with an error function (i.e. Nevot-Croce) roughness you can describe them using custom layer modelling.

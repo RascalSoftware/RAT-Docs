@@ -57,15 +57,15 @@ See the :ref:`Nested Sampling<nestedSampling>` and :ref:`DREAM<DREAM>` pages for
 
 This is sufficient to run the algorithm. However, you may also want to use information
 about your parameters in the optimisation. All parameters in the **Project** object
-(parameters, background parameters, scalefactors, bulk in/out, etc.) can be given
-a prior which will be used in the algorithm. This prior represents our initial understanding
-of the parameter.
+(parameters, background & resolution parameters, scalefactors, bulk in/out, and domain ratios where applicable) 
+can be given a prior which will be used in the algorithm. 
+This prior represents our initial understanding of the parameter.
 
-The options for prior type are:
-- ``"uniform"``: A uniformly distributed prior. Represents ignorance about the true value of the parameter.
+The options for the prior type are:
+- ``"uniform"``: A uniformly distributed prior. Represents no initial knowledge about the true value of the parameter.
 - ``"gaussian"``: A Gaussian (normal) distribution, with given mean and variance.
 Represents that we have reason to believe the true value lies around some value :math:`\mu` with variance :math:`\sigma^2`.
-- ``"jeffreys"``: A Jeffreys' prior, which represents ignorance similarly to uniform, but is also invariant
+- ``"jeffreys"``: A Jeffreys' prior, which represents ignorance similarly to ``uniform``, but is also invariant
 to changes of scale.
 
 For Gaussian priors, :math:`mu` and :math:`sigma` are given to represent the mean and standard deviation of the distribution.
@@ -77,12 +77,12 @@ You can give the prior (alongside :math:`mu`, and :math:`sigma` if relevant) whe
 
         % this Gaussian prior has a mean of 0 and standard deviation of 1
         problem.addParameter('My new param', 1, 2, 3, true, "gaussian", 0, 1);
-        problem.addParameter('My scale param',10,20,30,true, "jeffreys");
+        problem.addParameter('My scale param', 10, 20, 30, true, "jeffreys");
 
     .. code-block:: Python
 
         problem.parameters.append(name='My new param', min=1, value=2, max=3, prior_type="gaussian", mu=0, sigma=1)
-        problem.parameters.append(name='My scale param', min=10, value=20, max=30, fit=False, prior_type="jeffreys")
+        problem.parameters.append(name='My scale param', min=10, value=20, max=30, fit=True, prior_type="jeffreys")
 
 
 You can also change these values in existing parameters, just as you would for the minimum, value, maximum, and fit.
