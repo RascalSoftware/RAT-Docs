@@ -15,8 +15,8 @@ The custom file table has the following columns:
 4. Path of the custom file
 
 If the 4 columns are supplied, a new row (cell array of strings) is made using the supplied inputs. Then, `addCustomFile` method is used to append the row to the object.
-This method takes care of the error checking and incrementing the count of the custom files. It also makes a table of the row supplied. This table helps with displaying it 
-properly on terminal.
+This method takes care of the error checking and incrementing the count of the custom files. The contents of the class are displayed as a table.
+
 
 .. note::
     RAT supports custom files in C++ (compiled to dynamic library), MATLAB, and Python.
