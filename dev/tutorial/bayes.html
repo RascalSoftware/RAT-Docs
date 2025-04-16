@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Parallelising Calculations &#8212; RAT  documentation</title>
+    <title>Bayesian Analysis &#8212; RAT  documentation</title>
   
   
   
@@ -46,7 +46,9 @@
     <script src="../_static/copybutton.js?v=881e7dcd"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'advanced/parallelisation';</script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/bayes';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://rascalsoftware.github.io/RAT-Docs/switcher.json';
@@ -56,8 +58,8 @@
     <link rel="icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Custom Models in Python or C++" href="customLanguages.html" />
-    <link rel="prev" title="Profile Resampling (‘microslicing’)" href="resampling.html" />
+    <link rel="next" title="Custom Models" href="customModels.html" />
+    <link rel="prev" title="A Closer Look at the Controls Class" href="controls.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -355,13 +357,13 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorial/index.html">Tutorial</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/introduction.html">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/project.html">The Project Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/controls.html">A Closer Look at the Controls Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/bayes.html">Bayesian Analysis</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/customModels.html">Custom Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tutorial/savingOutputs.html">Copying and Saving Outputs</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Tutorial</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project.html">The Project Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controls.html">A Closer Look at the Controls Class</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Bayesian Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customModels.html">Custom Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="savingOutputs.html">Copying and Saving Outputs</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../matlab_examples/index.html">MATLAB Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -395,11 +397,11 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../algorithms/nestedSampling.html">Bayesian Model Selection - Nested Sampling</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Advanced Topics</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="resampling.html">Profile Resampling (‘microslicing’)</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Parallelising Calculations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customLanguages.html">Custom Models in Python or C++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="events.html">Handling Events During Calculations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/index.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/resampling.html">Profile Resampling (‘microslicing’)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/parallelisation.html">Parallelising Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/customLanguages.html">Custom Models in Python or C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/events.html">Handling Events During Calculations</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../calcTypes/index.html">Different Calculation Types</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -459,9 +461,9 @@ document.write(`
     <li class="breadcrumb-item"><a href="../guide.html" class="nav-link">User Guide</a></li>
     
     
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Advanced Topics</a></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Tutorial</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Parallelisin...</li>
+    <li class="breadcrumb-item active" aria-current="page">Bayesian Analysis</li>
   </ul>
 </nav>
 </div>
@@ -478,53 +480,183 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="parallelising-calculations">
-<span id="parallelisation"></span><h1>Parallelising Calculations<a class="headerlink" href="#parallelising-calculations" title="Link to this heading">#</a></h1>
-<p>RAT has in-built parallelisation for speeding up calculations. It will either parallelise over points or contrasts and this is easily selectable from the <strong>Controls</strong> class.</p>
-<section id="internal-parallelisation">
-<h2>Internal Parallelisation<a class="headerlink" href="#internal-parallelisation" title="Link to this heading">#</a></h2>
-<p>The controls class allows selection of parallel calculations for all algorithms. The parallelisation can be either over <code class="docutils literal notranslate"><span class="pre">&quot;points&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;contrasts&quot;</span></code>:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;points&quot;</span></code>: In this case, each reflectivity curve is split into a number of sections, and the reflectivity for each set of points is calculated by an individual thread. Only the Abeles reflectivity calculation itself is parallelised, and the rest runs sequentially on a single thread.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;contrasts&quot;</span></code>: Each contrast <strong>in its entirety</strong> gets its own calculation thread.</p></li>
-</ul>
-<p>The parallelisation scheme is chosen from the controls class:</p>
-<div class="sd-tab-set docutils">
+  <section id="bayesian-analysis">
+<span id="bayestutorial"></span><h1>Bayesian Analysis<a class="headerlink" href="#bayesian-analysis" title="Link to this heading">#</a></h1>
+<p>RAT has two Bayesian algorithms available, <a class="reference internal" href="../algorithms/nestedSampling.html#nestedsampling"><span class="std std-ref">Nested Sampling</span></a>
+and <a class="reference internal" href="../algorithms/DREAM.html#dream"><span class="std std-ref">DREAM</span></a>.</p>
+<p>These algorithms use statistical techniques to estimate the true value of fit parameters.
+The nested sampler also calculates Bayesian evidence, which may be used to compare hypotheses or models.</p>
+<p>The central idea here is that the probability of a parameter <span class="math notranslate nohighlight">\(X\)</span>’s true value being <span class="math notranslate nohighlight">\(x\)</span> is
+related to its chi-squared fit: <a class="footnote-reference brackets" href="#sivia1998" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<div class="math notranslate nohighlight">
+\[P(X=x | I) \propto \exp(-\chi^2 / 2)\]</div>
+<p>where <span class="math notranslate nohighlight">\(I\)</span> is the background information from the project. This means we can explore this
+probability (‘likelihood’) function to learn statistical information about the experiment and model.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This tutorial expects that you are familiar with setting up a project
+and controls; see the <a class="reference internal" href="introduction.html#introduction"><span class="std std-ref">Introduction</span></a> and <a class="reference internal" href="project.html#project"><span class="std std-ref">project class</span></a> tutorials.</p>
+</div>
+<section id="setting-up-a-bayesian-analysis">
+<h2>Setting up a Bayesian analysis<a class="headerlink" href="#setting-up-a-bayesian-analysis" title="Link to this heading">#</a></h2>
+<p>To set up the Bayesian algorithm itself, simply set the procedure in the <strong>Controls</strong> object
+to either <code class="docutils literal notranslate"><span class="pre">&quot;ns&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;dream&quot;</span></code>:</p>
+<div class="sd-tab-set tab-label-hidden docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
-MATLAB</label><div class="sd-tab-content docutils">
-<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">()</span>
-
-<span class="c">% Choose no parallelisation</span>
-<span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;single&#39;</span><span class="p">;</span>
-
-<span class="c">% Parallelise over points</span>
-<span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;points&#39;</span><span class="p">;</span>
-
-<span class="c">% Parallelise over contrasts</span>
-<span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;contrasts&#39;</span><span class="p">;</span>
+Matlab</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-1">
-PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">()</span>
-
-<span class="c1"># Choose no parallelisation</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">parallel</span> <span class="o">=</span> <span class="s1">&#39;single&#39;</span>
-
-<span class="c1"># Parallelise over points</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">parallel</span> <span class="o">=</span> <span class="s1">&#39;points&#39;</span>
-
-<span class="c1"># Parallelise over contrasts</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">parallel</span> <span class="o">=</span> <span class="s1">&#39;contrasts&#39;</span>
+Python</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Generally speaking, unless you have an inordinate amount of points in your datafiles, the greatest speed increase always results from parallelising over contrasts. In fact, if the number of points in your data
-is relatively small, parallelising over points can even slow things down because of the extra communication overhead! It is a good idea to verify which is fastest for a give problem at the start of an analysis.</p>
+<p>Each of these algorithms have their own controls settings, as all procedures do.
+See the <a class="reference internal" href="../algorithms/nestedSampling.html#nestedsampling"><span class="std std-ref">Nested Sampling</span></a> and <a class="reference internal" href="../algorithms/DREAM.html#dream"><span class="std std-ref">DREAM</span></a> pages for an outline of these.</p>
+<p>This is sufficient to run the algorithm. However, you may also want to use information
+about your parameters in the optimisation. All parameters in the <strong>Project</strong> object
+(parameters, background &amp; resolution parameters, scalefactors, bulk in/out, and domain ratios where applicable)
+can be given a prior which will be used in the algorithm.
+This prior represents our initial understanding of the parameter.</p>
+<p>The options for the prior type are:
+- <code class="docutils literal notranslate"><span class="pre">&quot;uniform&quot;</span></code>: A uniformly distributed prior. Represents no initial knowledge about the true value of the parameter.
+- <code class="docutils literal notranslate"><span class="pre">&quot;gaussian&quot;</span></code>: A Gaussian (normal) distribution, with given mean and variance.
+Represents that we have reason to believe the true value lies around some value <span class="math notranslate nohighlight">\(\mu\)</span> with variance <span class="math notranslate nohighlight">\(\sigma^2\)</span>.
+- <code class="docutils literal notranslate"><span class="pre">&quot;jeffreys&quot;</span></code>: A Jeffreys’ prior, which represents no initial knowledge similarly to <code class="docutils literal notranslate"><span class="pre">uniform</span></code>, but is also invariant
+to changes of scale.</p>
+<p>For Gaussian priors, <span class="math notranslate nohighlight">\(mu\)</span> and <span class="math notranslate nohighlight">\(sigma\)</span> are given to represent the mean and standard deviation of the distribution.</p>
+<p>You can give the prior (alongside <span class="math notranslate nohighlight">\(mu\)</span>, and <span class="math notranslate nohighlight">\(sigma\)</span> if relevant) when you create the parameter:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% this Gaussian prior has a mean of 0 and standard deviation of 1</span>
+<span class="n">problem</span><span class="p">.</span><span class="n">addParameter</span><span class="p">(</span><span class="s">&#39;My new param&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;gaussian&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="n">problem</span><span class="p">.</span><span class="n">addParameter</span><span class="p">(</span><span class="s">&#39;My scale param&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;jeffreys&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My new param&#39;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">prior_type</span><span class="o">=</span><span class="s2">&quot;gaussian&quot;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">problem</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My scale param&#39;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">prior_type</span><span class="o">=</span><span class="s2">&quot;jeffreys&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also change these values in existing parameters, just as you would for the minimum, value, maximum, and fit.</p>
+</section>
+<section id="running-and-plotting-a-bayesian-analysis">
+<h2>Running and plotting a Bayesian analysis<a class="headerlink" href="#running-and-plotting-a-bayesian-analysis" title="Link to this heading">#</a></h2>
+<p>Running a Bayesian analysis is the same as running RAT normally. Here we’ll do a DREAM analysis
+on the project from the <a class="reference internal" href="../matlab_examples/DSPC_standard_layers.html#dspc-standard-layers"><span class="std std-ref">DSPC Standard Layers</span></a> example:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RAT</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">controls</span><span class="p">);</span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-5">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">controls</span><span class="p">);</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The results object contains additional results from the Bayesian analysis. The main thing
+you may want to do with this is create a corner plot of the posterior distributions:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-6">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">cornerPlot</span><span class="p">(</span><span class="n">results</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-7">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_corner</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<img alt="A corner plot from the Bayesian analysis, showing the posterior histograms for each parameter and the contour plots for each pair of parameters." src="../_images/corner.png" />
+<p>Note that you can specify some specific parameters to create a smaller, more focused corner plot:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-8">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">cornerPlot</span><span class="p">(</span><span class="n">results</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;params&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Substrate Roughness&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Backs parameter SMW&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Backs parameter D2O&quot;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-9">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_corner</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Substrate Roughness&quot;</span><span class="p">,</span> <span class="s2">&quot;Background parameter SMW&quot;</span><span class="p">,</span> <span class="s2">&quot;Background parameter D2O&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<img alt="A smaller version of the previous corner plot, just giving the histograms and contour plots for substrate roughness, the D2O background, and the SMW background." src="../_images/cornerFiltered.png" />
+<p>It is also possible to plot the histograms from the analysis as a grid:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-10" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-10">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">plotHists</span><span class="p">(</span><span class="n">results</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-11" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-11">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_hists</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<img alt="A grid of histograms for each parameter of the analysis." src="../_images/hists.png" />
+<p>and also the Markov chains for each parameter:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-12" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-12">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">plotChain</span><span class="p">(</span><span class="n">results</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-13" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-13">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_chain</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<img alt="A grid of MCMC chains for each parameter of the analysis." src="../_images/chains.png" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="sivia1998" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>D. S. Sivia, J. R. P. Webster,
+“The Bayesian approach to reflectivity data”.
+DOI: 10.1016/S0921-4526(98)00259-2,
+URL: <a class="reference external" href="https://bayes.wustl.edu/sivia/98_20feb03.pdf">https://bayes.wustl.edu/sivia/98_20feb03.pdf</a>,</p>
+</aside>
+</aside>
 </section>
 </section>
 
@@ -550,7 +682,8 @@ is relatively small, parallelising over points can even slow things down because
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-parallelisation">Internal Parallelisation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-a-bayesian-analysis">Setting up a Bayesian analysis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-and-plotting-a-bayesian-analysis">Running and plotting a Bayesian analysis</a></li>
 </ul>
   </nav></div>
 

@@ -359,6 +359,7 @@ document.write(`
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="project.html">The Project Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="controls.html">A Closer Look at the Controls Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayes.html">Bayesian Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="customModels.html">Custom Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="savingOutputs.html">Copying and Saving Outputs</a></li>
 </ul>
@@ -383,6 +384,8 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/domains_custom_layers.html">Analysing Domains Samples Using Custom Layers Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/domains_custom_XY.html">Simple example of a layer containing domains using a custom XY model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/absorption.html">Absorption (imaginary SLD) - effect below the critical edge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/convert_rascal.html">RasCAL-1 to RAT</a></li>
+
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../algorithms/index.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -476,7 +479,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<span id="id1"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
 <p>RAT is used to analyse reduced data; after an experiment has been performed and the raw data simplified into a more usable format
 (using a data reduction software such as <a class="reference external" href="https://docs.mantidproject.org/v4.2.0/techniques/ISIS_Reflectometry.html">Mantid</a>),
 we can use RAT for the calculation, estimation, and fitting of quantities of interest.</p>
@@ -571,8 +574,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO update with data</span>
-<span class="n">problem</span> <span class="o">=</span> <span class="n">get_problem</span><span class="p">()</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Project</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;source/tutorial/data/two_contrast_example.json&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">problem</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -708,6 +710,7 @@ Matlab</label><div class="sd-tab-content docutils">
     &quot;Scalefactor&quot;          &quot;Scalefactor 1&quot;            &quot;Scalefactor 1&quot;         
     &quot;Resolution&quot;           &quot;Resolution 1&quot;             &quot;Resolution 1&quot;          
     &quot;Resample&quot;             &quot;false&quot;                    &quot;false&quot;                 
+    &quot;Repeat Layers&quot;        &quot;1&quot;                        &quot;1&quot;                     
     &quot;Model&quot;                &quot;Deuterated Tails&quot;         &quot;Hydrogenated Tails&quot;    
     &quot;&quot;                     &quot;Hydrogenated Heads&quot;       &quot;Deuterated Heads&quot;      
 </pre></div>
@@ -891,7 +894,8 @@ need 10 parameters to define our system: A bulk interface roughness, thickness a
 SLD values for the layers, depending on whether they are deuterated or not. Each parameter has a given <code class="docutils literal notranslate"><span class="pre">value</span></code>, a <code class="docutils literal notranslate"><span class="pre">fit</span></code> field
 which specifies whether they are included in the fitting algorithm, and <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> values indicating the minimum and maximum
 value they can take in a fit respectively. There are also <strong>prior type</strong> fields which are used in Bayesian algorithms
-to leverage prior knowledge about the model, but for non-Bayesian algorithms these fields are ignored. We will not use them here.</p>
+to leverage prior knowledge about the model, but for non-Bayesian algorithms these fields are ignored. We will not use them here.
+More information on Bayesian algorithms is available in the <a class="reference internal" href="bayes.html#bayestutorial"><span class="std std-ref">Bayes tutorial</span></a>.</p>
 </section>
 <section id="the-layers-group">
 <h4>2. The Layers Group<a class="headerlink" href="#the-layers-group" title="Link to this heading">#</a></h4>
@@ -989,6 +993,7 @@ Matlab</label><div class="sd-tab-content docutils">
     &quot;Scalefactor&quot;          &quot;Scalefactor 1&quot;            &quot;Scalefactor 1&quot;         
     &quot;Resolution&quot;           &quot;Resolution 1&quot;             &quot;Resolution 1&quot;          
     &quot;Resample&quot;             &quot;false&quot;                    &quot;false&quot;                 
+    &quot;Repeat Layers&quot;        &quot;1&quot;                        &quot;1&quot;                     
     &quot;Model&quot;                &quot;Deuterated Tails&quot;         &quot;Hydrogenated Tails&quot;    
     &quot;&quot;                     &quot;Hydrogenated Heads&quot;       &quot;Deuterated Heads&quot;      
 </pre></div>
@@ -1095,11 +1100,11 @@ PYTHON</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-20" name="sd-tab-set-10" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-20">
 Matlab</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ________________________________________________________________________________________________
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ______________________________________________________________________________________________
 
-Elapsed time is 0.431839 seconds.
+Elapsed time is 0.465999 seconds.
 
-Finished RAT ______________________________________________________________________________________________ 
+Finished RAT ______________________________________________________________________________________________
 </pre></div>
 </div>
 </div>

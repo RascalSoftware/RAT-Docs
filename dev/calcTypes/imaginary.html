@@ -359,6 +359,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/introduction.html">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/project.html">The Project Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/controls.html">A Closer Look at the Controls Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/bayes.html">Bayesian Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/customModels.html">Custom Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tutorial/savingOutputs.html">Copying and Saving Outputs</a></li>
 </ul>
@@ -383,6 +384,8 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/domains_custom_layers.html">Analysing Domains Samples Using Custom Layers Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/domains_custom_XY.html">Simple example of a layer containing domains using a custom XY model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/absorption.html">Absorption (imaginary SLD) - effect below the critical edge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/convert_rascal.html">RasCAL-1 to RAT</a></li>
+
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../algorithms/index.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -516,14 +519,14 @@ Matlab</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
 Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------------+-----------------+------------------------+---------------+-----------------+-----------------+--------------+
-| index |        name        |    thickness    |        SLD real        | SLD imaginary |    roughness    |    hydration    | hydrate with |
-+-------+--------------------+-----------------+------------------------+---------------+-----------------+-----------------+--------------+
-|   0   | Hydrogenated Heads | Heads Thickness | Hydrogenated Heads SLD |               | Heads Roughness | Heads Hydration |   bulk out   |
-|   1   |  Deuterated Heads  | Heads Thickness |  Deuterated Heads SLD  |               | Heads Roughness | Heads Hydration |   bulk out   |
-|   2   | Hydrogenated Tails | Tails Thickness | Hydrogenated Tails SLD |               | Tails Roughness |                 |   bulk out   |
-|   3   |  Deuterated Tails  | Tails Thickness |  Deuterated Tails SLD  |               | Tails Roughness |                 |   bulk out   |
-+-------+--------------------+-----------------+------------------------+---------------+-----------------+-----------------+--------------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
+| index |        name        |    thickness    |          SLD           |    roughness    |    hydration    | hydrate with |
++-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
+|   0   | Hydrogenated Heads | Heads Thickness | Hydrogenated Heads SLD | Heads Roughness | Heads Hydration |   bulk out   |
+|   1   |  Deuterated Heads  | Heads Thickness |  Deuterated Heads SLD  | Heads Roughness | Heads Hydration |   bulk out   |
+|   2   | Hydrogenated Tails | Tails Thickness | Hydrogenated Tails SLD | Tails Roughness |                 |   bulk out   |
+|   3   |  Deuterated Tails  | Tails Thickness |  Deuterated Tails SLD  | Tails Roughness |                 |   bulk out   |
++-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
 </pre></div>
 </div>
 </div>

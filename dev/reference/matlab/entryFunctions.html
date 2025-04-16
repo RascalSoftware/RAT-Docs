@@ -600,7 +600,23 @@ are <code class="docutils literal notranslate"><span class="pre">allChains</span
 <dl class="mat function">
 <dt class="sig sig-object mat" id="API.RATMain">
 <span class="sig-prename descclassname"><span class="pre">API.</span></span><span class="sig-name descname"><span class="pre">RATMain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">problemStruct</span></em>, <em class="sig-param"><span class="pre">controls</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.RATMain" title="Link to this definition">#</a></dt>
-<dd><p>Adds C struct names for inputs</p>
+<dd><p>Select and run the internal RAT procedure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>problemStruct</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">struct</span></code></span>) – The project class in struct form (generated from parseClassToStructs)</p></li>
+<li><p><strong>controls</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">struct</span></code></span>) – The controls struct (generated from parseClassToStructs)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>problemStruct</strong> (<em>struct</em>) – The output problem struct.</p></li>
+<li><p><strong>results</strong> (<em>struct</em>) – The calculation results.</p></li>
+<li><p><strong>bayesResults</strong> (<em>struct</em>) – Additional results from a Bayesian calculation.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat function">

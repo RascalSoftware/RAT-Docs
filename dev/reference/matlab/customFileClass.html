@@ -493,76 +493,129 @@ properly on terminal.</p>
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
 <dl class="mat class">
 <dt class="sig sig-object mat" id="API.projectClass.customFileClass">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">customFileClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass" title="Link to this definition">#</a></dt>
-<dd><dl class="mat method">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">customFileClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name</span></em>, <em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">language</span></em>, <em class="sig-param"><span class="pre">path</span></em>, <em class="sig-param"><span class="pre">functionName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass" title="Link to this definition">#</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">customFileClass</span></code> manages the custom files for the project. It provides methods to add, update and remove custom files.
+Each custom file is stored as a row in a table and consists of a name, the filename of the custom file, the language of the
+file, the path where the file is located, and the name of the function in the file to call.</p>
+<p class="rubric">Examples</p>
+<p>If no arguments are provided, the object is created with an empty table.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span> <span class="o">=</span> <span class="n">customFileClass</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Otherwise, the arguments are used to create the first custom file.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span> <span class="o">=</span> <span class="n">customFileClass</span><span class="p">(</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">,</span> <span class="s1">&#39;customBilayer.m&#39;</span><span class="p">,</span> <span class="s1">&#39;matlab&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – The name of this custom file object.</p></li>
+<li><p><strong>filename</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – The name of the file containing the custom function.</p></li>
+<li><p><strong>language</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">supportedLanguages,</span> <span class="pre">default:</span> <span class="pre">supportedLanguages.Matlab</span></code></span>) – What language the custom function is written in: ‘matlab’, ‘python’, or ‘cpp’ (via a dynamic library)</p></li>
+<li><p><strong>path</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – The path to the custom file.</p></li>
+<li><p><strong>functionName</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – The name of the custom function within the file.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="customFileClass.varTable">
+<span class="sig-name descname"><span class="pre">varTable</span></span><a class="headerlink" href="#customFileClass.varTable" title="Link to this definition">#</a></dt>
+<dd><p>A table object that contains the custom file entries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>table</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.customFileClass.addCustomFile">
-<span class="sig-name descname"><span class="pre">addCustomFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.addCustomFile" title="Link to this definition">#</a></dt>
-<dd><p>Add an entry to the file table.
-A custom file entry can be added with no parameters, just the
-name of the custom file entry, the name of the entry
-alongside a filename, or can be fully defined by specifying
-the name of the custom file entry, filename, language,
-file path, and function name. For MATLAB, the provided path must
-be in the matlab path</p>
-<p>customFiles.addCustomFile()
-customFiles.addCustomFile(‘New Row’)
-customFiles.addCustomFile(‘New Row’, ‘file.m’)
-customFiles.addCustomFile(‘New Row’, ‘file.m’, ‘matlab’)
-customFiles.addCustomFile(‘New Row’, ‘file.py’, ‘python’, ‘C:/stuff’)
-customFiles.addCustomFile(‘New Row’, ‘file.py’, ‘python’, ‘C:/stuff’, ‘py_function’)</p>
-</dd></dl>
-
-<dl class="mat staticmethod">
-<dt class="sig sig-object mat" id="API.projectClass.customFileClass.addFileExtension">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">addFileExtension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">language</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.addFileExtension" title="Link to this definition">#</a></dt>
-<dd><p>Adds a file extension to the matlab and python filename if it is
-missing.</p>
-<p>fileWithExt = obj.addFileExtension(‘file’, ‘python’)</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.customFileClass.customFileClass">
-<span class="sig-name descname"><span class="pre">customFileClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.customFileClass" title="Link to this definition">#</a></dt>
-<dd><p>Construct a custom file class containing either an empty
-table or one with a single row.
-No input is required for an empty table, otherwise the
-parameters for the first row should be provided.</p>
-<p>customFiles = customFileClass()</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.customFileClass.delete">
-<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.delete" title="Link to this definition">#</a></dt>
-<dd><p>Destroys the wrappers</p>
+<span class="sig-name descname"><span class="pre">addCustomFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name</span></em>, <em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">language</span></em>, <em class="sig-param"><span class="pre">path</span></em>, <em class="sig-param"><span class="pre">functionName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.addCustomFile" title="Link to this definition">#</a></dt>
+<dd><p>Adds a new custom file to the file table. For MATLAB, the provided file must
+be in the matlab path when running.</p>
+<p class="rubric">Examples</p>
+<p>To add a new custom file entry with name only.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To add custom file with name, and filename.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">,</span> <span class="s1">&#39;customBilayer.m&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To add a Python custom files.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">,</span> <span class="s1">&#39;customBilayer.py&#39;</span><span class="p">,</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;C:/stuff&#39;</span><span class="p">,</span> <span class="s1">&#39;custom_bilayer);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">auto-generated</span> <span class="pre">name</span></code></span>) – The name of this custom file object.</p></li>
+<li><p><strong>filename</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – The name of the file containing the custom function.</p></li>
+<li><p><strong>language</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">supportedLanguages,</span> <span class="pre">default:</span> <span class="pre">supportedLanguages.Matlab</span></code></span>) – What language the custom function is written in: ‘matlab’, ‘python’, or ‘cpp’ (via a dynamic library)</p></li>
+<li><p><strong>path</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – The path to the custom file.</p></li>
+<li><p><strong>functionName</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – The name of the custom function within the file.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.customFileClass.displayTable">
 <span class="sig-name descname"><span class="pre">displayTable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.displayTable" title="Link to this definition">#</a></dt>
-<dd><p>Display the file table.</p>
-<p>customFiles.displayCustomFileObject()</p>
+<dd><p>Prints the custom file table to the console.</p>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.customFileClass.removeCustomFile">
 <span class="sig-name descname"><span class="pre">removeCustomFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.removeCustomFile" title="Link to this definition">#</a></dt>
-<dd><p>Removes a custom file from the file table.
-Expects a single custom file name or index/array of custom
-file names or indices to remove</p>
-<p>customFiles.removeCustomFile(2);</p>
+<dd><p>Removes a given custom file from the table.</p>
+<p class="rubric">Examples</p>
+<p>To remove the second custom file in the table (custom file in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">removeCustomFile</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To remove custom file with a specific name.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">removeCustomFile</span><span class="p">(</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the custom file to remove. If it is text,
+it is the name of the custom file to remove.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.customFileClass.setCustomFile">
-<span class="sig-name descname"><span class="pre">setCustomFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.setCustomFile" title="Link to this definition">#</a></dt>
-<dd><p>Change the value of a given parameter in the file table.
-The expected inputs are the row of the file entry of
-interest (given either by name of index), and key-value pairs
-of the parameter(s) to change. The values of the keys are:
-“Name”, “Filename”, “Language”, “Path” and “functionName” if
-applicable.</p>
-<dl class="simple">
-<dt>customFiles.setCustomFile(1, ‘Name’, ‘New Name’,…</dt><dd><p>‘Language’, ‘Octave’)</p>
+<span class="sig-name descname"><span class="pre">setCustomFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.setCustomFile" title="Link to this definition">#</a></dt>
+<dd><p>General purpose method for updating properties of an existing custom file.</p>
+<p class="rubric">Examples</p>
+<p>To change the name and filename of the second custom file in the table (custom file in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">setCustomFile</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;customFunction.m&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To change the properties of a custom file called ‘custom file 1’.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">setCustomFile</span><span class="p">(</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;new custom file&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;customFunction.py&#39;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the custom file to update. If it is text,
+it is the name of the custom file to update.</p></li>
+<li><p><strong>options</strong> – <dl class="simple">
+<dt>Keyword/value pair to properties to update for the specific custom file.</dt><dd><ul>
+<li><p>name (char array or string, default: ‘’) the new name of the custom file.</p></li>
+<li><p>filename (char array or string, default: ‘’) the new filename of the custom file.</p></li>
+<li><p>language (supportedLanguages, default: supportedLanguages.empty()) the new language of the custom file.</p></li>
+<li><p>path (char array or string, default: ‘’) the new path of the custom file.</p></li>
+<li><p>functionName (char array or string, default: ‘) the new function name of the custom file.</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -570,22 +623,15 @@ applicable.</p>
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.customFileClass.toStruct">
 <span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.toStruct" title="Link to this definition">#</a></dt>
-<dd><p>Convert the custom files class to a struct</p>
-<p>customFiles.toStruct()</p>
-</dd></dl>
-
-<dl class="mat staticmethod">
-<dt class="sig sig-object mat" id="API.projectClass.customFileClass.validateFunctionName">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">validateFunctionName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">filename</span></em>, <em class="sig-param"><span class="pre">functionName</span></em>, <em class="sig-param"><span class="pre">language</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.validateFunctionName" title="Link to this definition">#</a></dt>
-<dd><p>Validates a function name is the same as filename for matlab
-functions if a function name is provided.</p>
-<p>funcName = obj.validateFunctionName(‘file.m’, ‘results’, ‘matlab’)</p>
-</dd></dl>
-
-<dl class="mat staticmethod">
-<dt class="sig sig-object mat" id="API.projectClass.customFileClass.validatePath">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">validatePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.customFileClass.validatePath" title="Link to this definition">#</a></dt>
-<dd><p>Validate a new path exists</p>
+<dd><p>Converts the customFileClass into a structure array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fileStruct</strong> – A struct which contains the properties for all the custom files.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>struct</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

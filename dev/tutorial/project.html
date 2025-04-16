@@ -361,6 +361,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">The Project Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="controls.html">A Closer Look at the Controls Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayes.html">Bayesian Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="customModels.html">Custom Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="savingOutputs.html">Copying and Saving Outputs</a></li>
 </ul>
@@ -385,6 +386,8 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/domains_custom_layers.html">Analysing Domains Samples Using Custom Layers Models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/domains_custom_XY.html">Simple example of a layer containing domains using a custom XY model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/absorption.html">Absorption (imaginary SLD) - effect below the critical edge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/convert_rascal.html">RasCAL-1 to RAT</a></li>
+
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../algorithms/index.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -479,9 +482,13 @@ document.write(`
                   
   <section id="the-project-class">
 <span id="project"></span><h1>The Project Class<a class="headerlink" href="#the-project-class" title="Link to this heading">#</a></h1>
-<p>In the previous section, we saw an example of how we set up and run an analysis using the RAT toolbox. Every call to the toolbox has two parts: the <strong>Project</strong> object, where we define the model, add the data and define our contrasts, and the <strong>Controls</strong> object where we
-tell the toolbox what type of analysis we would like to do. The reason for splitting things up in this way is that once our model is defined, we can interact with it in various ways without needing to modify the model. So, we can experiment with our data, trying out different types of analysis, and explore the
-landscape of solutions by simply modifying the <strong>Controls</strong> object, leaving the <strong>Project</strong> object alone.</p>
+<p>In the previous section, we saw an example of how we set up and run an analysis using RAT.
+Every call to the toolbox has two parts: the <strong>Project</strong> object, where we define the model,
+add the data and define our contrasts, and the <strong>Controls</strong> object where we tell the toolbox
+what type of analysis we would like to do. The reason for splitting things up in this way is that
+once our model is defined, we can interact with it in various ways without needing to modify the model.
+So we can try out different types of analysis and explore the landscape of solutions
+by simply modifying the <strong>Controls</strong> object, leaving the <strong>Project</strong> object alone.</p>
 <p>As well as having two inputs, RAT always provides two outputs, so the call to the toolbox is always of this form:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
@@ -499,14 +506,15 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>In this case we have called our inputs <em>problem</em> and <em>controls</em>, and we have called our outputs <em>problem</em> and <em>results</em>, but we are free to call them anything we like. We will look at the outputs in more detail in the next section.</p>
-<p>The first input, <em>problem</em>, is an instance of the <strong>Project</strong> class:</p>
+<p>In this case we have called our inputs <code class="docutils literal notranslate"><span class="pre">problem</span></code> and <code class="docutils literal notranslate"><span class="pre">controls</span></code>, and we have called our outputs <code class="docutils literal notranslate"><span class="pre">problem</span></code> and <code class="docutils literal notranslate"><span class="pre">results</span></code>,
+but we are free to call them anything we like. We will look at the outputs in more detail in the next section.</p>
+<p>The first input, <code class="docutils literal notranslate"><span class="pre">problem</span></code>, is an instance of the <strong>Project</strong> class:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
 MATLAB</label><div class="sd-tab-content docutils">
-<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">problem</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">createProject</span><span class="p">(</span><span class="n">name</span><span class="p">=</span><span class="s">&#39;my project&#39;</span><span class="p">);</span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">class</span><span class="p">(</span><span class="n">problem</span><span class="p">)</span>
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">empty_problem</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">createProject</span><span class="p">(</span><span class="n">name</span><span class="p">=</span><span class="s">&#39;my project&#39;</span><span class="p">);</span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="nb">class</span><span class="p">(</span><span class="n">empty_problem</span><span class="p">)</span>
 
 <span class="nb">ans</span><span class="w"> </span><span class="p">=</span>
 <span class="w">    </span><span class="s">&#39;projectClass&#39;</span>
@@ -516,15 +524,16 @@ MATLAB</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">problem</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Project</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;my project&#39;</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">problem</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">empty_problem</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Project</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;my project&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">empty_problem</span><span class="p">)</span>
 
 <span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">RAT</span><span class="o">.</span><span class="n">project</span><span class="o">.</span><span class="n">Project</span><span class="s1">&#39;&gt;</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>And if we take a look at it, we can see the class contains a series of sections, where we can define our parameters, make different kinds of model, load in our data and do everything we need to set up our model.</p>
+<p>The structure of the class is a collection of settings and tables defining things like calculation type,
+model type, parameters, data, contrasts, and so on. These define all we need for our analysis.</p>
 <div class="sd-tab-set tab-label-hidden docutils">
 <input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
@@ -638,6 +647,7 @@ Matlab</label><div class="sd-tab-content docutils">
     &quot;Scalefactor&quot;      
     &quot;Resolution&quot;       
     &quot;Resample&quot;         
+    &quot;Repeat Layers&quot;    
     &quot;Model&quot;            
 </pre></div>
 </div>
@@ -736,13 +746,15 @@ Data: --------------------------------------------------------------------------
 </div>
 </div>
 </div>
-<p>We can see that the class has a number of attributes, defining all we need for our analysis. In the default case, we have no parameters or data, and have not defined any contrasts, so this will not do anything useful in RAT.
-Defining a model is a case of populating the sections in the <strong>Project</strong> class, which we do using its methods.</p>
-<p>In the following sections, we will look at each of these methods and see how they can be used to define our reflectivity analysis problem. (There is also a utility which will convert a RasCAL model into a <strong>Project</strong> for use in RAT.
-This means that you can use the RasCAL GUI to set up your model if you like and then use the speed of RAT to conduct your analysis.)</p>
-<p>In terms of the outputs, note that we have called the first output <em>problem</em>, but we don’t need to do that. The first of the two outputs is another <strong>Project</strong>, but updated with the results of the calculation.
-So, if we run a fit, the fitted parameters will be updated with the best fit values of our procedure. In giving the output the same name as the input, we’re overwriting our input with best fit values, but if you don’t
-want to do this, you can give the inputs and outputs different names:</p>
+<p>In the following sections, we will look at how to build a standard layer slab model with this class. It is also
+possible to define a custom model using a function; this is seen in the <a class="reference internal" href="customModels.html#custommodels"><span class="std std-ref">Custom Models</span></a> tutorial.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have a model from RasCAL-1, this model can be imported as a RAT project. See the following example
+pages for how to do this in <a class="reference internal" href="../matlab_examples/convert_r1_project.html#convertr1matlab"><span class="std std-ref">MATLAB</span></a> and <a class="reference internal" href="../python_examples/notebooks/convert_rascal.html#convert-rascalipynb"><span class="std std-ref">Python</span></a>.</p>
+</div>
+<p>When we run RAT, the first of the two outputs is another <strong>Project</strong>, but updated with the results of the calculation.
+So, if we run a fit, the fitted parameters will be updated with the best fit values of our procedure.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-6">
@@ -759,8 +771,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>The second output can also be called whatever you like, and this is a class
-containing the simulated reflectivities, SLDs and so on from whatever procedure you have asked RAT to do:</p>
+<p>The second output is a class containing the simulated reflectivities, SLDs and so on
+using the parameters from the procedure given in the <strong>Controls</strong> object:</p>
 <div class="sd-tab-set tab-label-hidden docutils">
 <input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-8">
@@ -783,27 +795,29 @@ Matlab</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-9">
 Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>reflectivity = [],
-simulation = [],
-shiftedData = [],
-backgrounds = [],
-resolutions = [],
-layerSlds = [],
-sldProfiles = [],
-resampledLayers = [],
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>reflectivity = [Data array: [51 x 2], Data array: [51 x 2]],
+simulation = [Data array: [51 x 2], Data array: [51 x 2]],
+shiftedData = [Data array: [51 x 3], Data array: [51 x 3]],
+backgrounds = [Data array: [51 x 3], Data array: [51 x 3]],
+resolutions = [Data array: [51 x 2], Data array: [51 x 2]],
+layerSlds = [[Data array: [2 x 3]], [Data array: [2 x 3]]],
+sldProfiles = [[Data array: [182 x 2]], [Data array: [182 x 2]]],
+resampledLayers = [[Data array: [1 x 3]], [Data array: [1 x 3]]],
 calculationResults = CalculationResults(
-	chiValues = [],
+	chiValues = [278.33456632 463.11454139],
 	sumChi = 741.4491077056697,
 ),
 contrastParams = ContrastParams(
-	scalefactors = [],
-	bulkIn = [],
-	bulkOut = [],
-	subRoughs = [],
-	resample = [],
+	scalefactors = [0.23 0.23],
+	bulkIn = [0. 0.],
+	bulkOut = [ 6.35e-06 -5.60e-07],
+	subRoughs = [3. 3.],
+	resample = [0. 0.],
 ),
-fitParams = [],
-fitNames = [],
+fitParams = [ 3.00e+00  2.00e+01  1.10e+01  5.00e+00  5.00e+00  6.00e-06 -4.00e-07
+  3.00e-06  1.40e-06  3.00e-01  5.50e-06  2.80e-06  2.30e-01  6.35e-06
+ -5.60e-07],
+fitNames = [&#39;Substrate Roughness&#39;, &#39;Tails Thickness&#39;, &#39;Heads Thickness&#39;, &#39;Tails Roughness&#39;, &#39;Heads Roughness&#39;, &#39;Deuterated Tails SLD&#39;, &#39;Hydrogenated Tails SLD&#39;, &#39;Deuterated Heads SLD&#39;, &#39;Hydrogenated Heads SLD&#39;, &#39;Heads Hydration&#39;, &#39;Backs Value ACMW&#39;, &#39;Backs Value D2O&#39;, &#39;Scalefactor 1&#39;, &#39;SLD D2O&#39;, &#39;SLD ACMW&#39;],
 </pre></div>
 </div>
 </div>
@@ -813,7 +827,9 @@ fitNames = [],
 <h2>The Components of the Project Class<a class="headerlink" href="#the-components-of-the-project-class" title="Link to this heading">#</a></h2>
 <section id="project-defining-methods">
 <h3>Project Defining Methods<a class="headerlink" href="#project-defining-methods" title="Link to this heading">#</a></h3>
-<p>The first step is always to create an instance of the <strong>Project</strong> class to hold our model. This is always done by calling the project creation routine and assigning it to our variable name (we will mostly use <em>problem</em> in this manual, but it can be anything), which always requires a name for our project as an input:</p>
+<p>The first step is always to create an instance of the <strong>Project</strong> class to hold our model.</p>
+<p>This is always done by calling the project creation routine and assigning it to our variable name
+(we will mostly use <code class="docutils literal notranslate"><span class="pre">problem</span></code> in this manual), which always requires a name for our project as an input:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-10" name="sd-tab-set-5" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-10">
@@ -830,10 +846,10 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>This creates an instance of <strong>Project</strong> and assigns it to the variable <em>problem</em>, and gives it the title ‘My Problem’.</p>
-<p>The first part of the created <em>problem</em> has two other settable fields: <strong>Model Type</strong> and <strong>geometry</strong>.</p>
+<p>This creates an instance of <strong>Project</strong>, assigns it to the variable <code class="docutils literal notranslate"><span class="pre">problem</span></code>, and gives it the title ‘My Problem’.</p>
+<p>The first part of the created <code class="docutils literal notranslate"><span class="pre">problem</span></code> has two other fields: <strong>Model Type</strong> and <strong>Geometry</strong>.</p>
 <ul class="simple">
-<li><p><strong>geometry</strong>: This can be set to either <code class="docutils literal notranslate"><span class="pre">&quot;air/substrate&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;substrate/liquid&quot;</span></code> as below.</p></li>
+<li><p><strong>Geometry</strong>: This can be set to either <code class="docutils literal notranslate"><span class="pre">&quot;air/substrate&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;substrate/liquid&quot;</span></code> as below.</p></li>
 </ul>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-12" name="sd-tab-set-6" type="radio">
@@ -855,21 +871,34 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 <p>The effect of this parameter is in the numbering of roughness values in layer models. In any model for n-layers,
 there are always n+1 associated interfaces, and hence n+1 roughness parameters required. In RAT, the bulk interface roughness
-is a protected parameter called <code class="docutils literal notranslate"><span class="pre">&quot;Substrate</span> <span class="pre">Roughness&quot;</span></code> and always exists, and this parameter controls where this roughness is placed in the layer stack. So, for two layers defined with thickness,
-SLD and roughness as [d<sub>1</sub>, <span class="math notranslate nohighlight">\(\rho_\mathrm{1}\)</span>, <span class="math notranslate nohighlight">\(\sigma_\mathrm{1}\)</span>] and [d<sub>2</sub>, <span class="math notranslate nohighlight">\(\rho_\mathrm{2}\)</span>, <span class="math notranslate nohighlight">\(\sigma_\mathrm{1}\)</span>], then for the <code class="docutils literal notranslate"><span class="pre">&quot;substrate/liquid&quot;</span></code> geometry
-the substrate roughness is placed as the first roughness the beam meets, and the layer roughness values refer to the interface after the particular layer.
-But in the <code class="docutils literal notranslate"><span class="pre">&quot;air/substrate&quot;</span></code> case, the opposite is true, and the substrate roughness is the last roughness in the stack, with the layer roughness referring to the interface before each layer.</p>
+is a protected parameter called <code class="docutils literal notranslate"><span class="pre">&quot;Substrate</span> <span class="pre">Roughness&quot;</span></code> which always exists.
+The <strong>Geometry</strong> field controls where this roughness is placed in the layer stack. So, for two layers defined with thickness,
+SLD and roughness <span class="math notranslate nohighlight">\([d_1, \rho_1, \sigma_1]\)</span> and <span class="math notranslate nohighlight">\([d_2, \rho_2, \sigma_2]\)</span>,
+then for the <code class="docutils literal notranslate"><span class="pre">&quot;substrate/liquid&quot;</span></code> geometry the substrate roughness is placed as the first roughness the beam meets,
+and the layer roughness values refer to the interface after the particular layer.
+But in the <code class="docutils literal notranslate"><span class="pre">&quot;air/substrate&quot;</span></code> case, the opposite is true,
+and the substrate roughness is the last roughness in the stack, with the layer roughness referring to the interface before each layer.</p>
 <ul>
 <li><p><strong>Model Type</strong>: There are three ways of defining models in RAT:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><strong>Standard Layers</strong> - The model is defined in terms of parameters, which are distributed into layers, and subsequently grouped into contrasts. No external functions are needed.</p></li>
-<li><p><strong>Custom Layers</strong> - Parameters are again defined and grouped into layers, but this time the layer definitions come from a user model script. This then gives complete flexibility of how layers are defined, so allowing models to be written in terms of area per molecule or material density, for example. This custom script controls translating these input parameters into a [d, <span class="math notranslate nohighlight">\(\rho\)</span>, <span class="math notranslate nohighlight">\(\sigma\)</span>] model. This is probably the most useful operating mode for RasCAL.</p></li>
-<li><p><strong>Custom XY-Profile</strong> - This modelling mode also relies on a custom model function, but in this case does away with [d, <span class="math notranslate nohighlight">\(\rho\)</span>, <span class="math notranslate nohighlight">\(\sigma\)</span>] (thickness, SLD, roughness) layers completely. Instead, the custom function uses the parameters to define a continuous SLD profile, which RAT then uses to calculate the reflectivity.</p></li>
+<li><p><strong>Standard Layers</strong> - The model is defined in terms of parameters, which are distributed into layers, and subsequently grouped into contrasts.
+No external functions are needed.</p></li>
+<li><p><strong>Custom Layers</strong> - Parameters are again defined and grouped into layers, but this time the layer definitions come from a user model script.
+This then gives complete flexibility of how layers are defined, so allowing models to be written in terms of area per molecule or material density,
+for example. This custom script controls translating these input parameters into a <span class="math notranslate nohighlight">\([d, \rho, \sigma]\)</span> (thickness, SLD, roughness) model.
+This is probably the most useful operating mode for RasCAL.</p></li>
+<li><p><strong>Custom XY-Profile</strong> - This modelling mode also relies on a custom model function,
+but in this case does away with <span class="math notranslate nohighlight">\([d, \rho, \sigma]\)</span> layers completely.
+Instead, the custom function uses the parameters to define a continuous SLD profile, which RAT then uses to calculate the reflectivity.</p></li>
 </ul>
 </div></blockquote>
 </li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This tutorial just deals with standard layers. For information on the other model types, see <a class="reference internal" href="customModels.html#customlayers"><span class="std std-ref">Custom Layers Models</span></a>.</p>
+</div>
 <p>The model type of the project can be changed as follows:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-14" name="sd-tab-set-7" type="radio">
@@ -895,7 +924,9 @@ PYTHON</label><div class="sd-tab-content docutils">
 </section>
 <section id="the-parameters-block">
 <h3>The Parameters Block<a class="headerlink" href="#the-parameters-block" title="Link to this heading">#</a></h3>
-<p>Any model, whether it be layers or anything else is always defined by parameters. These appear in the parameters block and are specified by a name, a value, minimum and maximum ranges and a flag defining whether the parameter is fitted or fixed:</p>
+<p>The parameters block outlines the material parameters of our model, such as thickness, SLD or roughness.
+These parameters are specified by a name, a value, minimum and maximum ranges,
+and a flag defining whether the parameter is fitted or fixed:</p>
 <div class="sd-tab-set tab-label-hidden docutils">
 <input checked="checked" id="sd-tab-item-16" name="sd-tab-set-8" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-16">
@@ -919,7 +950,8 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">&quot;Substrate</span> <span class="pre">Roughness&quot;</span></code> is a protected parameter in all cases (it defines the Fresnel roughness) and cannot be renamed or deleted. Its value and ranges can however be set to any numerical values.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&quot;Substrate</span> <span class="pre">Roughness&quot;</span></code> is a protected parameter in all cases (it defines the Fresnel roughness) and cannot be renamed or deleted.
+Its value and ranges can however be set to any numerical values.</p>
 <p>To add a parameter, you can just specify a name, in which case the parameter takes on default values, or specify the whole parameter at once:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-18" name="sd-tab-set-9" type="radio">
@@ -998,12 +1030,13 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>Parameters can’t have duplicate names. Attempting to duplicate a name will throw an error. This can cause problems when loading in RasCAL-1 projects
 where duplicate names are allowed.</p>
 </div>
-<p>To subsequently change the values of the parameters (including names), you can set the properties of a given parameter using name/value pairs, which parameter to set can be specified using the index number or name of the parameter:</p>
+<p>To subsequently change the values of the parameters (including names), you can set the properties of a given parameter using name/value pairs,
+which parameter to set can be specified using the index number or name of the parameter:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-24" name="sd-tab-set-12" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-24">
@@ -1060,7 +1093,7 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>Alternatively, you can set a multiple properties of a given parameter at once using name/value pairs.</p>
+<p>Alternatively, you can set multiple properties of a given parameter at once using name/value pairs.</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-28" name="sd-tab-set-14" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-28">
@@ -1110,7 +1143,8 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>You can remove a parameter from the block using its index number or name. Note that if you remove a parameter from the middle of the block, subsequent parameter index numbers will change.
+<p>You can remove a parameter from the block using its index number or name. Note that if you remove a parameter from the middle of the block,
+subsequent parameter index numbers will change.
 Also, if you try to remove the substrate roughness you will get an error:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-32" name="sd-tab-set-16" type="radio">
@@ -1193,11 +1227,19 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are additional properties of Parameters used for Bayesian algorithms; see the <a class="reference internal" href="bayes.html#bayestutorial"><span class="std std-ref">Bayes tutorial</span></a>.</p>
+</div>
 </section>
 <section id="the-layers-block-standard-layers-models-only">
 <span id="standardlayers"></span><h3>The Layers Block (Standard Layers models only)<a class="headerlink" href="#the-layers-block-standard-layers-models-only" title="Link to this heading">#</a></h3>
-<p>For each of the custom models cases, the model building is done using a script (discussed in <a class="reference internal" href="customModels.html#custommodels"><span class="std std-ref">Custom Models</span></a>). For standard layers models however, model building is done by grouping the parameters into layers, and then into contrasts (as is the case for RasCAL). The layers block is not visible when either of the two custom models are selected. Layers are stored in the <code class="docutils literal notranslate"><span class="pre">layers</span></code> field of the <strong>Project</strong>. As an example here, we make a new project, add some parameters, and create some layers.</p>
-<p>For this example, we will make two layers representing a deuterated and hydrogenated version of the same layer. So, the layers will share all their parameters except for the SLD.</p>
+<p>For standard layers models, model building is done by grouping the parameters into layers, and then into contrasts.
+The layers block is not visible when either of the two custom models are selected. Layers are stored in the <code class="docutils literal notranslate"><span class="pre">layers</span></code> field of the <strong>Project</strong>.
+As an example here, we make a new project, add some parameters, and create some layers.</p>
+<p>For each of the custom models cases, the model building is done using a script (discussed in <a class="reference internal" href="customModels.html#custommodels"><span class="std std-ref">Custom Models</span></a>).</p>
+<p>For this example, we will make two layers representing a deuterated and hydrogenated version of the same layer.
+So, the layers will share all their parameters except for the SLD.</p>
 <p>Start by making a new project, and adding the parameters we will need:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-40" name="sd-tab-set-20" type="radio">
@@ -1329,7 +1371,7 @@ Python</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-50" name="sd-tab-set-25" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-50">
 MATLAB</label><div class="sd-tab-content docutils">
-<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">setLayerValue</span><span class="p">(</span><span class="s">&#39;H Layer&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Thickness&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;H SLD&#39;</span><span class="p">);</span>
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">setLayer</span><span class="p">(</span><span class="s">&#39;H Layer&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;thickness&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;H SLD&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1514,7 +1556,7 @@ Python</label><div class="sd-tab-content docutils">
 <p>The <strong>Background Parameters</strong> is in fact another instance of the parameters class, and there are corresponding methods to fit, set limits and so on for these.</p>
 <p>The backgrounds can be one of three types: <code class="docutils literal notranslate"><span class="pre">&quot;constant&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;function&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;data&quot;</span></code>. The three types are discussed in more detail below:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Constant&quot;</span></code> - This is the normal background type from RasCAL-1. Each background requires one <strong>and only one</strong> Background Parameter associated with it, as follows:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;constant&quot;</span></code> - This is the normal background type from RasCAL-1. Each background requires one <strong>and only one</strong> Background Parameter associated with it, as follows:</p></li>
 </ul>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-64" name="sd-tab-set-32" type="radio">
@@ -1578,7 +1620,8 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 <p>This is then available to be used by any of our contrasts (see later).</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;Data&quot;</span></code> - This option is used when a measured data background is available. Suppose our measured data is in a datafile loaded into the data block (see later), and called ‘My Background Data’. To define a data background, we simply specify this datafile in our background specification:</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;data&quot;</span></code> - This option is used when a measured data background is available. Our measured data is given in a datafile loaded into the data block (see later).
+To define a data background from a datafile called ‘My Background Data’, we simply specify this datafile in our background specification:</p></li>
 </ul>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-68" name="sd-tab-set-34" type="radio">
@@ -1596,36 +1639,56 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>This is then used in the reflectivity calculation for any contrast in which it is specified.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Also, take care to make sure that the background and data with which it is intended to be used have <strong>the same q values</strong>, otherwise the code will raise an error.</p>
-</div>
-</section>
-<section id="resolutions">
-<h3>Resolutions<a class="headerlink" href="#resolutions" title="Link to this heading">#</a></h3>
-<p>As is the case for the backgrounds, the resolutions block is also split into two parts: a <strong>Resolution Parameters</strong> block which defines the fittable parameters, and then the main <code class="docutils literal notranslate"><span class="pre">resolutions</span></code> block which groups these as required into actual resolutions.
-The three types are:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;constant&quot;</span></code>: The default type. A resolution parameter defines the width of a sliding Gaussian window convolution applied to the data.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;function&quot;</span></code>: Convolution of the data with an arbitrary, user defined function (not yet implemented).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;data&quot;</span></code>: Convolution with a sliding Gaussian defined by a fourth column of a datafile.</p></li>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;function&quot;</span></code> - This option defines the background using a function loaded into the custom file block (see later).
+To define a function background, we simply specify this custom file in our background specification, along with
+up to five background parameters (defined in the background parameters block) to use in the function.</p>
+<p>In the following code block we define a background based on the function <code class="docutils literal notranslate"><span class="pre">&quot;My</span> <span class="pre">Background</span> <span class="pre">Function&quot;</span></code> which takes two values given
+by <code class="docutils literal notranslate"><span class="pre">&quot;Background</span> <span class="pre">Parameter</span> <span class="pre">1&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;Background</span> <span class="pre">Parameter</span> <span class="pre">2&quot;</span></code></p>
+</li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Only <code class="docutils literal notranslate"><span class="pre">&quot;constant&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;data&quot;</span></code> are currently implemented.</p>
-</div>
-<p>To define a resolution parameter, we use the following methods:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-70" name="sd-tab-set-35" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-70">
 MATLAB</label><div class="sd-tab-content docutils">
-<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">addResolutionParam</span><span class="p">(</span><span class="s">&#39;My Resolution Param&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.02</span><span class="p">,</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span><span class="w"> </span><span class="mf">0.08</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">)</span>
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">addBackground</span><span class="p">(</span><span class="s">&#39;Data Background 1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;function&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;My Background Function&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Background Parameter 1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Background Parameter 2&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-71" name="sd-tab-set-35" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-71">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">backgrounds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Data Background 1&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;My Background Function&#39;</span> <span class="n">value_1</span><span class="o">=</span><span class="s1">&#39;Background Parameter 1&#39;</span><span class="p">,</span> <span class="n">value_2</span><span class="o">=</span><span class="s1">&#39;Background Parameter 2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is then used in the reflectivity calculation for any contrast in which it is specified.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Take care to make sure that the background and data with which it is intended to be used have <strong>the same q values</strong>, otherwise the code will raise an error.</p>
+</div>
+</section>
+<section id="resolutions">
+<h3>Resolutions<a class="headerlink" href="#resolutions" title="Link to this heading">#</a></h3>
+<p>As is the case for the backgrounds, the resolutions block is also split into two parts: a <strong>Resolution Parameters</strong> block which defines the fittable parameters,
+and then the main <code class="docutils literal notranslate"><span class="pre">resolutions</span></code> block which groups these as required into actual resolutions.
+The three types are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;constant&quot;</span></code>: The default type. A resolution parameter defines the width of a sliding Gaussian window convolution applied to the data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;data&quot;</span></code>: Convolution with a sliding Gaussian defined by a fourth column of a datafile.</p></li>
+</ul>
+<p>To define a resolution parameter, we use the following methods:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-72" name="sd-tab-set-36" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-72">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">addResolutionParam</span><span class="p">(</span><span class="s">&#39;My Resolution Param&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">0.02</span><span class="p">,</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span><span class="w"> </span><span class="mf">0.08</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-73" name="sd-tab-set-36" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-73">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">resolution_parameters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My Resolution Param&#39;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">0.08</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -1633,8 +1696,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-72" name="sd-tab-set-36" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-72">
+<input checked="checked" id="sd-tab-item-74" name="sd-tab-set-37" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-74">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    (a) Resolutions Parameters: 
 
@@ -1652,8 +1715,8 @@ Matlab</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-73" name="sd-tab-set-36" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-73">
+<input id="sd-tab-item-75" name="sd-tab-set-37" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-75">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------------+------+-------+------+-------+
 | index |        name        | min  | value | max  |  fit  |
@@ -1671,16 +1734,16 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 <p>Then, we make the actual resolution referring to whichever one of the resolution parameters:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-74" name="sd-tab-set-37" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-74">
+<input checked="checked" id="sd-tab-item-76" name="sd-tab-set-38" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-76">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">addResolution</span><span class="p">(</span><span class="s">&#39;My new resolution&#39;</span><span class="p">,</span><span class="s">&#39;constant&#39;</span><span class="p">,</span><span class="s">&#39;My Resolution Param&#39;</span><span class="p">)</span>
 <span class="n">problem</span><span class="p">.</span><span class="n">addResolution</span><span class="p">(</span><span class="s">&#39;My Data Resolution&#39;</span><span class="p">,</span><span class="s">&#39;data&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-75" name="sd-tab-set-37" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-75">
+<input id="sd-tab-item-77" name="sd-tab-set-38" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-77">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">resolutions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My new resolution&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;My Resolution Param&#39;</span><span class="p">)</span>
 <span class="n">problem</span><span class="o">.</span><span class="n">resolutions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;My Data Resolution&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">)</span>
@@ -1689,8 +1752,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-76" name="sd-tab-set-38" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-76">
+<input checked="checked" id="sd-tab-item-78" name="sd-tab-set-39" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-78">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    (a) Resolutions Parameters: 
 
@@ -1711,8 +1774,8 @@ Matlab</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-77" name="sd-tab-set-38" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-77">
+<input id="sd-tab-item-79" name="sd-tab-set-39" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-79">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------------+----------+---------------------+---------+
 | index |        name        |   type   |        source       | value 1 |
@@ -1725,17 +1788,19 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>There are no parameters for a <code class="docutils literal notranslate"><span class="pre">&quot;data&quot;</span></code> resolution. Instead this tells RAT to expect a fourth column in the datafile. If no fourth column exists in the data to which this is applied, RAT will throw an error at runtime.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There are no parameters for a <code class="docutils literal notranslate"><span class="pre">&quot;data&quot;</span></code> resolution. Instead this tells RAT to expect a fourth column in the datafile for the contrast.
+If no fourth column exists in the data to which this is applied, RAT will throw an error at runtime.</p>
 </div>
 </section>
 <section id="data">
 <h3>Data<a class="headerlink" href="#data" title="Link to this heading">#</a></h3>
-<p>The data block contains the data which defines at which points in q the reflectivity is calculated at each contrast. By default, it initialises with a single <code class="docutils literal notranslate"><span class="pre">&quot;Simulation&quot;</span></code> entry:</p>
+<p>The data block contains the data which defines at which points in q the reflectivity is calculated at each contrast.
+By default, it initialises with a single <code class="docutils literal notranslate"><span class="pre">&quot;Simulation&quot;</span></code> entry:</p>
 <div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-78" name="sd-tab-set-39" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-78">
+<input checked="checked" id="sd-tab-item-80" name="sd-tab-set-40" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-80">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>        Name          Data       Data Range      Simulation Range   
     ____________    _________    __________    _____________________
@@ -1744,8 +1809,8 @@ Matlab</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-79" name="sd-tab-set-39" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-79">
+<input id="sd-tab-item-81" name="sd-tab-set-40" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-81">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+------------+------+------------+------------------+
 | index |    name    | data | data range | simulation range |
@@ -1760,13 +1825,16 @@ Python</label><div class="sd-tab-content docutils">
 <ul class="simple">
 <li><p><strong>Name</strong>: The name you choose to give the datafile (for reference in the contrasts block)</p></li>
 <li><p><strong>Data</strong>: An array containing the data itself (empty for ‘Simulation’).</p></li>
-<li><p><strong>Data Range</strong>: The min / max range of the data you wish to include in the fit. You do not have to include all the data in the calculation of chi-squared. This range <strong>must</strong> lie <strong>within</strong> the range of any data added to the <strong>Data</strong> column.</p></li>
-<li><p><strong>Simulation Range</strong>: The total range of the simulation to be calculated. This <strong>must</strong> be equal to or larger than the range of any data added to the <strong>Data</strong> column.</p></li>
+<li><p><strong>Data Range</strong>: The min / max range of the data you wish to include in the fit.
+You do not have to include all the data in the calculation of chi-squared.
+This range must lie <strong>within</strong> the range of the dataset.</p></li>
+<li><p><strong>Simulation Range</strong>: The total range of the simulation to be calculated.
+This must be equal to or larger than the range of any data added to the <strong>Data</strong> column.</p></li>
 </ul>
 <p>To add data, we first load it into Matlab/Python, then create a new data entry containing it:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-80" name="sd-tab-set-40" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-80">
+<input checked="checked" id="sd-tab-item-82" name="sd-tab-set-41" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-82">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">getappdata</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;root&#39;</span><span class="p">);</span>
 <span class="n">myData</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readmatrix</span><span class="p">(</span><span class="nb">fullfile</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;/examples/normalReflectivity/customXY/c_PLP0016596.dat&#39;</span><span class="p">));</span>
@@ -1774,8 +1842,8 @@ MATLAB</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-81" name="sd-tab-set-40" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-81">
+<input id="sd-tab-item-83" name="sd-tab-set-41" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-83">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">myData</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;c_PLP0016596.dat&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
@@ -1786,8 +1854,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 <p>and our new dataset appears in the table:</p>
 <div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-82" name="sd-tab-set-41" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-82">
+<input checked="checked" id="sd-tab-item-84" name="sd-tab-set-42" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-84">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>          Name                    Data                   Data Range            Simulation Range   
     _________________    _______________________    _____________________    _____________________
@@ -1797,8 +1865,8 @@ Matlab</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-83" name="sd-tab-set-41" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-83">
+<input id="sd-tab-item-85" name="sd-tab-set-42" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-85">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+-----------------+-----------------------+----------------------+----------------------+
 | index |       name      |          data         |      data range      |   simulation range   |
@@ -1812,15 +1880,15 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 <p>Note that we did not specify data or simulation ranges, and so these default to the min / max values of the data added. We can change these as follows:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-84" name="sd-tab-set-42" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-84">
+<input checked="checked" id="sd-tab-item-86" name="sd-tab-set-43" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-86">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">setData</span><span class="p">(</span><span class="s">&#39;My new datafile&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">dataRange</span><span class="p">=[</span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-85" name="sd-tab-set-42" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-85">
+<input id="sd-tab-item-87" name="sd-tab-set-43" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-87">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">set_fields</span><span class="p">(</span><span class="s1">&#39;My new datafile&#39;</span><span class="p">,</span> <span class="n">data_range</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
 </pre></div>
@@ -1828,8 +1896,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-86" name="sd-tab-set-43" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-86">
+<input checked="checked" id="sd-tab-item-88" name="sd-tab-set-44" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-88">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ans = 
 
@@ -1957,6 +2025,7 @@ Matlab</label><div class="sd-tab-content docutils">
     &quot;Scalefactor&quot;      
     &quot;Resolution&quot;       
     &quot;Resample&quot;         
+    &quot;Repeat Layers&quot;    
     &quot;Model&quot;            
 
           Name                    Data                   Data Range            Simulation Range   
@@ -1967,8 +2036,8 @@ Matlab</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-87" name="sd-tab-set-43" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-87">
+<input id="sd-tab-item-89" name="sd-tab-set-44" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-89">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+-----------------+-----------------------+------------+----------------------+
 | index |       name      |          data         | data range |   simulation range   |
@@ -1983,10 +2052,12 @@ Python</label><div class="sd-tab-content docutils">
 </section>
 <section id="putting-it-all-together-defining-contrasts">
 <h3>Putting it all together – defining contrasts<a class="headerlink" href="#putting-it-all-together-defining-contrasts" title="Link to this heading">#</a></h3>
-<p>Once we have defined the various aspects of our project, i.e. backgrounds, data and so on, we group these together into contrasts to make our fitting project. We can add a contrast using just its name, and edit it later, or we can specify which parts of our project we want to add to the contrast using name value pairs:</p>
+<p>Once we have defined the various aspects of our project, i.e. backgrounds, data and so on, we group these together into contrasts to make our fitting project.
+A contrast defines one ‘experimental setup’, for example in our hydration/deuteration model we need two contrasts, one for hydration and one for deuteration.
+We can add a contrast using just its name, and edit it later, or we can specify which parts of our project we want to add to the contrast using name value pairs:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-88" name="sd-tab-set-44" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-88">
+<input checked="checked" id="sd-tab-item-90" name="sd-tab-set-45" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-90">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">addContrast</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;D-tail/H-Head/D2O&#39;</span><span class="p">,</span><span class="k">...</span>
 <span class="w">                    </span><span class="s">&#39;background&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Background D2O&#39;</span><span class="p">,</span><span class="k">...</span>
@@ -1998,8 +2069,8 @@ MATLAB</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-89" name="sd-tab-set-44" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-89">
+<input id="sd-tab-item-91" name="sd-tab-set-45" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-91">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">contrasts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;D-tail/H-Head/D2O&#39;</span><span class="p">,</span>
                          <span class="n">background</span><span class="o">=</span><span class="s1">&#39;Background D2O&#39;</span><span class="p">,</span>
@@ -2012,19 +2083,21 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>The values which we add must refer to names within the other blocks of the project. So, if you try to add a <code class="docutils literal notranslate"><span class="pre">scalefactor</span></code> called “scalefactor1” when this name doesn’t exist in the <code class="docutils literal notranslate"><span class="pre">scalefactors</span></code> block, an error will be raised.</p>
-<p>Once we have added the contrasts, then we need to set the model, either by adding layers for a <code class="docutils literal notranslate"><span class="pre">&quot;standard</span> <span class="pre">layers&quot;</span></code> project, or a custom model file (we discuss these in <a class="reference internal" href="customModels.html#custommodels"><span class="std std-ref">Custom Models</span></a>).
-In the case of layers, we give a list of layer names, in order from bulk in to bulk out. So for a monolayer for example, we would specify tails and then heads in as shown below:</p>
+<p>The values which we add must refer to names within the other blocks of the project. If the name doesn’t exist in the relevant block, an error will be raised.</p>
+<p>Once we have added the contrasts, then we need to set the model, either by adding layers for a <code class="docutils literal notranslate"><span class="pre">&quot;standard</span> <span class="pre">layers&quot;</span></code> project,
+or a custom model file (we discuss these in <a class="reference internal" href="customModels.html#custommodels"><span class="std std-ref">Custom Models</span></a>).
+In the case of layers, we give a list of layer names, in order from bulk in to bulk out.
+So for a monolayer for example, we would specify tails and then heads as shown below:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-90" name="sd-tab-set-45" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-90">
+<input checked="checked" id="sd-tab-item-92" name="sd-tab-set-46" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-92">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">setContrast</span><span class="p">(</span><span class="s">&#39;D-tail/H-Head/D2O&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;model&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;Deuterated Tails&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Hydrogenated heads&#39;</span><span class="p">});</span>
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-91" name="sd-tab-set-45" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-91">
+<input id="sd-tab-item-93" name="sd-tab-set-46" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-93">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">contrasts</span><span class="o">.</span><span class="n">set_fields</span><span class="p">(</span><span class="s1">&#39;D-tail/H-Head/D2O&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Deuterated Tails&#39;</span><span class="p">,</span> <span class="s1">&#39;Hydrogenated heads&#39;</span><span class="p">])</span>
 </pre></div>
@@ -2039,15 +2112,15 @@ PYTHON</label><div class="sd-tab-content docutils">
 <p>In the previous sections, we showed an example of a pre-loaded problem definition class, which we used to analyse data from two contrasts of a lipid monolayer. Now, rather than loading in a pre-defined version of this problem we can use our class methods to build this from scratch, and do the same analysis as we did there, but this time from a script.</p>
 <p>To start, we first make an instance of the <strong>Project</strong> class:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-92" name="sd-tab-set-46" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-92">
+<input checked="checked" id="sd-tab-item-94" name="sd-tab-set-47" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-94">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">createProject</span><span class="p">(</span><span class="n">name</span><span class="p">=</span><span class="s">&#39;DSPC monolayers&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-93" name="sd-tab-set-46" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-93">
+<input id="sd-tab-item-95" name="sd-tab-set-47" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-95">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">RATapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">RAT</span>
 <span class="n">problem</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Project</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;DSPC monolayers&#39;</span><span class="p">)</span>
@@ -2057,8 +2130,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 <p>Then we need to define the parameters we need. We’ll do this by making a parameters block, and adding these to the project:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-94" name="sd-tab-set-47" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-94">
+<input checked="checked" id="sd-tab-item-96" name="sd-tab-set-48" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-96">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Define the parameters:</span>
 <span class="n">Parameters</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span>
@@ -2078,8 +2151,8 @@ MATLAB</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-95" name="sd-tab-set-47" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-95">
+<input id="sd-tab-item-97" name="sd-tab-set-48" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-97">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">RAT</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Tails Thickness&#39;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
@@ -2100,8 +2173,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 <p>Next we need to group the parameters into our layers. We need four layers in all, representing deuterated and hydrogenated versions of the heads and tails:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-96" name="sd-tab-set-48" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-96">
+<input checked="checked" id="sd-tab-item-98" name="sd-tab-set-49" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-98">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">H_Heads</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;Hydrogenated Heads&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Heads Thickness&#39;</span><span class="p">,</span><span class="k">...</span>
 <span class="w">           </span><span class="s">&#39;Hydrogenated Heads SLD&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Heads Roughness&#39;</span><span class="p">,</span><span class="k">...</span>
@@ -2119,8 +2192,8 @@ MATLAB</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-97" name="sd-tab-set-48" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-97">
+<input id="sd-tab-item-99" name="sd-tab-set-49" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-99">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">H_Heads</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Layer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Hydrogenated Heads&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="s1">&#39;Heads Thickness&#39;</span><span class="p">,</span>
                            <span class="n">SLD</span><span class="o">=</span><span class="s1">&#39;Hydrogenated Heads SLD&#39;</span><span class="p">,</span> <span class="n">roughness</span><span class="o">=</span><span class="s1">&#39;Heads Roughness&#39;</span><span class="p">,</span>
@@ -2145,15 +2218,15 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 <p>We now add our layers to the project:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-98" name="sd-tab-set-49" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-98">
+<input checked="checked" id="sd-tab-item-100" name="sd-tab-set-50" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-100">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">addLayerGroup</span><span class="p">({</span><span class="n">H_Heads</span><span class="p">;</span><span class="w"> </span><span class="n">D_Heads</span><span class="p">;</span><span class="w"> </span><span class="n">H_Tails</span><span class="p">;</span><span class="w"> </span><span class="n">D_Tails</span><span class="p">});</span>
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-99" name="sd-tab-set-49" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-99">
+<input id="sd-tab-item-101" name="sd-tab-set-50" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-101">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="n">H_Heads</span><span class="p">,</span> <span class="n">D_Heads</span><span class="p">,</span> <span class="n">H_Tails</span><span class="p">,</span> <span class="n">D_Tails</span><span class="p">])</span>
 </pre></div>
@@ -2162,8 +2235,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 <p>We are using two different sub-phases: D2O and ACMW. We need a different constant background for each, so we need two background parameters. There is already one background parameter in the project as a default, so we rename this and add a second one:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-100" name="sd-tab-set-50" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-100">
+<input checked="checked" id="sd-tab-item-102" name="sd-tab-set-51" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-102">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">setBackgroundParamName</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Backs Value ACMW&#39;</span><span class="p">);</span>
 <span class="n">problem</span><span class="p">.</span><span class="n">setBackgroundParamValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">5.5e-6</span><span class="p">);</span>
@@ -2171,8 +2244,8 @@ MATLAB</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-101" name="sd-tab-set-50" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-101">
+<input id="sd-tab-item-103" name="sd-tab-set-51" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-103">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">background_parameters</span><span class="o">.</span><span class="n">set_fields</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Backs Value ACMW&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">5.5e-6</span><span class="p">)</span>
 <span class="n">problem</span><span class="o">.</span><span class="n">background_parameters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Backs Value D2O&#39;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">2.8e-6</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">)</span>
@@ -2182,16 +2255,16 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 <p>Use these parameters to define two constant backgrounds, again using the existing default for one of them:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-102" name="sd-tab-set-51" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-102">
+<input checked="checked" id="sd-tab-item-104" name="sd-tab-set-52" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-104">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">addBackground</span><span class="p">(</span><span class="s">&#39;Background D2O&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;constant&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Backs Value D2O&#39;</span><span class="p">);</span>
 <span class="n">problem</span><span class="p">.</span><span class="n">setBackground</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Background ACMW&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;value1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Backs Value ACMW&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-103" name="sd-tab-set-51" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-103">
+<input id="sd-tab-item-105" name="sd-tab-set-52" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-105">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">backgrounds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Background D2O&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;Backs Value D2O&#39;</span><span class="p">)</span>
 <span class="n">problem</span><span class="o">.</span><span class="n">backgrounds</span><span class="o">.</span><span class="n">set_fields</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Background ACMW&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;Backs Value ACMW&#39;</span><span class="p">)</span>
@@ -2201,15 +2274,15 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 <p>We need two sub-phases for our project. D2O is already in the project as a default, so we only need to add the bulk out for ACMW</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-104" name="sd-tab-set-52" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-104">
+<input checked="checked" id="sd-tab-item-106" name="sd-tab-set-53" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-106">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">addBulkOut</span><span class="p">(</span><span class="s">&#39;SLD ACMW&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">0.6e-6</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">0.56e-6</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">0.3e-6</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-105" name="sd-tab-set-52" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-105">
+<input id="sd-tab-item-107" name="sd-tab-set-53" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-107">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">bulk_out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;SLD ACMW&#39;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=-</span><span class="mf">0.6e-6</span><span class="p">,</span> <span class="n">value</span><span class="o">=-</span><span class="mf">0.56e-6</span><span class="p">,</span> <span class="nb">max</span><span class="o">=-</span><span class="mf">0.3e-6</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -2218,8 +2291,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 <p>Now we need to add the data. We read in the two files, and put the data into the <code class="docutils literal notranslate"><span class="pre">data</span></code> block with appropriate names:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-106" name="sd-tab-set-53" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-106">
+<input checked="checked" id="sd-tab-item-108" name="sd-tab-set-54" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-108">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">getappdata</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;root&#39;</span><span class="p">);</span>
 <span class="n">dataPath</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;/examples/miscellaneous/convertRasCAL1Project/&#39;</span><span class="p">;</span>
@@ -2230,8 +2303,8 @@ MATLAB</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-107" name="sd-tab-set-53" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-107">
+<input id="sd-tab-item-109" name="sd-tab-set-54" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-109">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">d13ACM</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;d13acmw20.dat&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
@@ -2245,8 +2318,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 <p>We have everything we need to now build our contrasts. We have two contrasts in all, and we build them using name / value pairs for all the different parts of the contrasts (i.e. selecting which background and bulk phases etc we need using the names we have given them).
 To define the models for each contrast, we list the names of the relevant layers as appropriate.</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-108" name="sd-tab-set-54" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-108">
+<input checked="checked" id="sd-tab-item-110" name="sd-tab-set-55" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-110">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">addContrast</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;D-tail/H-Head/D2O&#39;</span><span class="p">,</span><span class="k">...</span>
 <span class="w">                    </span><span class="s">&#39;background&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Background D2O&#39;</span><span class="p">,</span><span class="k">...</span>
@@ -2268,8 +2341,8 @@ MATLAB</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-109" name="sd-tab-set-54" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-109">
+<input id="sd-tab-item-111" name="sd-tab-set-55" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-111">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">contrasts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;D-tail/H-Head/D2O&#39;</span><span class="p">,</span>
                          <span class="n">background</span><span class="o">=</span><span class="s1">&#39;Background D2O&#39;</span><span class="p">,</span>
@@ -2294,8 +2367,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 <p>We need to make sure that we are fitting the relevant backgrounds, scalefactors and bulk phase values:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-110" name="sd-tab-set-55" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-110">
+<input checked="checked" id="sd-tab-item-112" name="sd-tab-set-56" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-112">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">setBackgroundParam</span><span class="p">(</span><span class="s">&#39;Backs Value ACMW&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;fit&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
 <span class="n">problem</span><span class="p">.</span><span class="n">setBackgroundParam</span><span class="p">(</span><span class="s">&#39;Backs Value D2O&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;fit&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
@@ -2304,8 +2377,8 @@ MATLAB</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-111" name="sd-tab-set-55" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-111">
+<input id="sd-tab-item-113" name="sd-tab-set-56" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-113">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">background_parameters</span><span class="o">.</span><span class="n">set_fields</span><span class="p">(</span><span class="s1">&#39;Backs Value ACMW&#39;</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">problem</span><span class="o">.</span><span class="n">background_parameters</span><span class="o">.</span><span class="n">set_fields</span><span class="p">(</span><span class="s1">&#39;Backs Value D2O&#39;</span><span class="p">,</span> <span class="n">fit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2315,17 +2388,17 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-<p>Now have a look at our project, to make sure it all looks reasonable</p>
+<p>Now have a look at our project, to make sure it all looks reasonable:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-112" name="sd-tab-set-56" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-112">
+<input checked="checked" id="sd-tab-item-114" name="sd-tab-set-57" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-114">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">disp</span><span class="p">(</span><span class="n">problem</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-113" name="sd-tab-set-56" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-113">
+<input id="sd-tab-item-115" name="sd-tab-set-57" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-115">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">problem</span><span class="p">)</span>
 </pre></div>
@@ -2333,8 +2406,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-114" name="sd-tab-set-57" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-114">
+<input checked="checked" id="sd-tab-item-116" name="sd-tab-set-58" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-116">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>         modelType: &#39;standard layers&#39;
     experimentName: &#39;DSPC monolayers&#39;
@@ -2462,13 +2535,14 @@ Matlab</label><div class="sd-tab-content docutils">
     &quot;Scalefactor&quot;          &quot;Scalefactor 1&quot;            &quot;Scalefactor 1&quot;         
     &quot;Resolution&quot;           &quot;Resolution 1&quot;             &quot;Resolution 1&quot;          
     &quot;Resample&quot;             &quot;false&quot;                    &quot;false&quot;                 
+    &quot;Repeat Layers&quot;        &quot;1&quot;                        &quot;1&quot;                     
     &quot;Model&quot;                &quot;Deuterated Tails&quot;         &quot;Hydrogenated Tails&quot;    
     &quot;&quot;                     &quot;Hydrogenated Heads&quot;       &quot;Deuterated Heads&quot;      
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-115" name="sd-tab-set-57" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-115">
+<input id="sd-tab-item-117" name="sd-tab-set-58" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-117">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Name: ----------------------------------------------------------------------------------------------
 
@@ -2599,16 +2673,16 @@ Contrasts: ---------------------------------------------------------------------
 </div>
 <p>Now we’ll calculate this to check the agreement with the data. We need an instance of the controls class, with the procedure attribute set to <code class="docutils literal notranslate"><span class="pre">&quot;calculate&quot;</span></code> (the default):</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-116" name="sd-tab-set-58" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-116">
+<input checked="checked" id="sd-tab-item-118" name="sd-tab-set-59" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-118">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">();</span>
 <span class="nb">disp</span><span class="p">(</span><span class="n">controls</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-117" name="sd-tab-set-58" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-117">
+<input id="sd-tab-item-119" name="sd-tab-set-59" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-119">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">controls</span><span class="p">)</span>
@@ -2617,8 +2691,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-118" name="sd-tab-set-59" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-118">
+<input checked="checked" id="sd-tab-item-120" name="sd-tab-set-60" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-120">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  controlsClass with properties:
 
@@ -2631,8 +2705,8 @@ Matlab</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-119" name="sd-tab-set-59" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-119">
+<input id="sd-tab-item-121" name="sd-tab-set-60" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-121">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------+-----------+
 |     Property     |   Value   |
@@ -2650,15 +2724,15 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 <p>We then send all of this to RAT, and plot the output:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-120" name="sd-tab-set-60" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-120">
+<input checked="checked" id="sd-tab-item-122" name="sd-tab-set-61" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-122">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RAT</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="n">controls</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-121" name="sd-tab-set-60" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-121">
+<input id="sd-tab-item-123" name="sd-tab-set-61" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-123">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">controls</span><span class="p">)</span>
 </pre></div>
@@ -2666,19 +2740,19 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-122" name="sd-tab-set-61" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-122">
+<input checked="checked" id="sd-tab-item-124" name="sd-tab-set-62" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-124">
 Matlab</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ________________________________________________________________________________________________
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ______________________________________________________________________________________________
 
-Elapsed time is 0.002036 seconds.
+Elapsed time is 0.001649 seconds.
 
-Finished RAT ______________________________________________________________________________________________ 
+Finished RAT ______________________________________________________________________________________________
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-123" name="sd-tab-set-61" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-123">
+<input id="sd-tab-item-125" name="sd-tab-set-62" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-125">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
@@ -2686,16 +2760,16 @@ Python</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-124" name="sd-tab-set-62" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-124">
+<input checked="checked" id="sd-tab-item-126" name="sd-tab-set-63" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-126">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="nb">clf</span><span class="p">;</span>
 <span class="n">plotRefSLD</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-125" name="sd-tab-set-62" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-125">
+<input id="sd-tab-item-127" name="sd-tab-set-63" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-127">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_ref_sld</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
 </pre></div>
@@ -2706,8 +2780,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 <p>To do a fit, we change the <code class="docutils literal notranslate"><span class="pre">procedure</span></code> attribute of the controls class to <code class="docutils literal notranslate"><span class="pre">&quot;simplex&quot;</span></code>. We will also change the <code class="docutils literal notranslate"><span class="pre">parallel</span></code> option to <code class="docutils literal notranslate"><span class="pre">&quot;contrasts&quot;</span></code>, so that each contrast gets its own calculation thread,
 and modify the output to only display the final result (rather than each iteration) by setting the <code class="docutils literal notranslate"><span class="pre">display</span></code> option to <code class="docutils literal notranslate"><span class="pre">&quot;final&quot;</span></code> and then run our fit and plot the results:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-126" name="sd-tab-set-63" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-126">
+<input checked="checked" id="sd-tab-item-128" name="sd-tab-set-64" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-128">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">();</span>
 <span class="n">controls</span><span class="p">.</span><span class="n">procedure</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;simplex&#39;</span><span class="p">;</span>
@@ -2717,8 +2791,8 @@ MATLAB</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-127" name="sd-tab-set-63" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-127">
+<input id="sd-tab-item-129" name="sd-tab-set-64" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-129">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">(</span><span class="n">procedure</span><span class="o">=</span><span class="s1">&#39;simplex&#39;</span><span class="p">,</span> <span class="n">parallel</span><span class="o">=</span><span class="s1">&#39;contrasts&#39;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="s1">&#39;final&#39;</span><span class="p">)</span>
 <span class="n">problem</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">controls</span><span class="p">)</span>
@@ -2727,24 +2801,24 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-128" name="sd-tab-set-64" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-128">
+<input checked="checked" id="sd-tab-item-130" name="sd-tab-set-65" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-130">
 Matlab</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ________________________________________________________________________________________________
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ______________________________________________________________________________________________
 
 
 Running simplex
 
 
 Exiting: Max iterations reached
-Elapsed time is 0.174011 seconds.
+Elapsed time is 0.176530 seconds.
 
-Finished RAT ______________________________________________________________________________________________ 
+Finished RAT ______________________________________________________________________________________________
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-129" name="sd-tab-set-64" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-129">
+<input id="sd-tab-item-131" name="sd-tab-set-65" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-131">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -2753,7 +2827,7 @@ Running simplex
 
 
 Exiting: Max iterations reached
-Elapsed time is 0.165 seconds
+Elapsed time is 0.233 seconds
 
 Finished RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 </pre></div>
@@ -2761,15 +2835,15 @@ Finished RAT ──────────────────────�
 </div>
 </div>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-130" name="sd-tab-set-65" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-130">
+<input checked="checked" id="sd-tab-item-132" name="sd-tab-set-66" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-132">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">disp</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-131" name="sd-tab-set-65" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-131">
+<input id="sd-tab-item-133" name="sd-tab-set-66" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-133">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
@@ -2777,8 +2851,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 </div>
 </div>
 <div class="sd-tab-set tab-label-hidden docutils">
-<input checked="checked" id="sd-tab-item-132" name="sd-tab-set-66" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-132">
+<input checked="checked" id="sd-tab-item-134" name="sd-tab-set-67" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-134">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>          reflectivity: {2x1 cell}
             simulation: {2x1 cell}
@@ -2795,8 +2869,8 @@ Matlab</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-133" name="sd-tab-set-66" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-133">
+<input id="sd-tab-item-135" name="sd-tab-set-67" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-135">
 Python</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>reflectivity = [Data array: [51 x 2], Data array: [51 x 2]],
 simulation = [Data array: [51 x 2], Data array: [51 x 2]],
@@ -2828,16 +2902,16 @@ fitNames = [&#39;Substrate Roughness&#39;, &#39;Tails Thickness&#39;, &#39;Heads
 </div>
 <p>We can now plot the results of our fit:</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="sd-tab-item-134" name="sd-tab-set-67" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-134">
+<input checked="checked" id="sd-tab-item-136" name="sd-tab-set-68" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-136">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">figure</span><span class="p">;</span><span class="w"> </span><span class="nb">clf</span><span class="p">;</span>
 <span class="n">plotRefSLD</span><span class="p">(</span><span class="n">out</span><span class="p">,</span><span class="n">results</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<input id="sd-tab-item-135" name="sd-tab-set-67" type="radio">
-<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-135">
+<input id="sd-tab-item-137" name="sd-tab-set-68" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-137">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_ref_sld</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
 </pre></div>

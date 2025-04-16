@@ -508,68 +508,150 @@ adds them one by one using <cite>addLayer</cite> method which is used to add ind
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
 <dl class="mat class">
 <dt class="sig sig-object mat" id="API.projectClass.layersClass">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">layersClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">SLDValues</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass" title="Link to this definition">#</a></dt>
-<dd><dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.layersClass.addLayer">
-<span class="sig-name descname"><span class="pre">addLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">paramNames</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass.addLayer" title="Link to this definition">#</a></dt>
-<dd><p>Add a layer to the layers table
-The expected input is a string array of parameter names
-defined in the project’s parameter class and a variable
-number of layer parameters. The layer can be specified with
-no parameters, just a layer name (char), or a fully defined
-layer, which consists of either all except two parameters
-(no hydration) or all parameters.
-Parameters can be specified either by name or by index.</p>
-<p>layers.addLayer(parameters.varTable{:, 1});
-layers.addLayer(parameters.varTable{:, 1}, ‘New layer’);
-layers.addLayer(parameters.varTable{:, 1}, ‘Another layer’, 1, 2, 3);</p>
-</dd></dl>
-
-<dl class="mat staticmethod">
-<dt class="sig sig-object mat" id="API.projectClass.layersClass.findParameter">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">findParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">inputVal</span></em>, <em class="sig-param"><span class="pre">paramNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass.findParameter" title="Link to this definition">#</a></dt>
-<dd><p>Find whether or not a proposed layer parameter is included
-in a list of parameters, or obtain a parameter by index.
-The expected inputs are the potential layer parameter value
-(either name or index) and a list of parameter names.</p>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">layersClass</span></span><a class="headerlink" href="#API.projectClass.layersClass" title="Link to this definition">#</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">layersClass</span></code> manages the layers for the project. It provides methods to add, update and remove layers.
+Each layer is stored as a row in a table and consists of a name, the thickness, the SLD,
+the roughness, the percent hydration, and whether the layer is hydrated with “bulk” in or “bulk out”. If the
+absorption is set to true, the SLD column is split into ‘SLD Imaginary’, and ‘SLD Real’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>SLDValues</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">cell</span> <span class="pre">string,</span> <span class="pre">default:</span> <span class="pre">'SLD'</span></code></span>) – The name(s) of the SLD column(s).</p>
+</dd>
+</dl>
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="layersClass.varTable">
+<span class="sig-name descname"><span class="pre">varTable</span></span><a class="headerlink" href="#layersClass.varTable" title="Link to this definition">#</a></dt>
+<dd><p>The table which contains the properties for each layer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>table</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.layersClass.layersClass">
-<span class="sig-name descname"><span class="pre">layersClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">SLDValues</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass.layersClass" title="Link to this definition">#</a></dt>
-<dd><p>Construct a layers class including an empty layers table
-The optional input is a cell array of the required SLD
-parameters.</p>
-<p>layers = layersClass();</p>
+<dt class="sig sig-object mat" id="API.projectClass.layersClass.addLayer">
+<span class="sig-name descname"><span class="pre">addLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">paramNames</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass.addLayer" title="Link to this definition">#</a></dt>
+<dd><p>Adds a new layer to the layers table. This method can be called in 2 ways. The first for when <code class="docutils literal notranslate"><span class="pre">absorption</span></code> is false</p>
+<p><code class="docutils literal notranslate"><span class="pre">addLayer(paramNames,</span> <span class="pre">name,</span> <span class="pre">thickness,</span> <span class="pre">realSLD,</span> <span class="pre">roughness,</span> <span class="pre">hydration,</span> <span class="pre">hydrateWith)</span></code></p>
+<p>and the second includes an extra argument imaginarySLD for when <code class="docutils literal notranslate"><span class="pre">absorption</span></code> is true.</p>
+<p><code class="docutils literal notranslate"><span class="pre">addLayer(paramNames,</span> <span class="pre">name,</span> <span class="pre">thickness,</span> <span class="pre">realSLD,</span> <span class="pre">imaginarySLD,</span> <span class="pre">roughness,</span> <span class="pre">hydration,</span> <span class="pre">hydrateWith)</span></code></p>
+<p class="rubric">Examples</p>
+<p>To add a new layer with name only.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parameterNames</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">getAllAllowedNames</span><span class="p">()</span><span class="o">.</span><span class="n">paramNames</span><span class="p">;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">parameterNames</span><span class="p">,</span> <span class="s1">&#39;New layer&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To add a new layer when <code class="docutils literal notranslate"><span class="pre">absorption</span></code> is false.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">parameterNames</span><span class="p">,</span> <span class="s1">&#39;Water Layer&#39;</span><span class="p">,</span> <span class="s1">&#39;Water thickness&#39;</span><span class="p">,</span> <span class="s1">&#39;Water SLD&#39;</span><span class="p">,</span> <span class="s1">&#39;Bilayer heads roughness&#39;</span><span class="p">,</span> <span class="s1">&#39;Water hydration&#39;</span><span class="p">,</span> <span class="s1">&#39;Bulk out&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To add a new layer when <code class="docutils literal notranslate"><span class="pre">absorption</span></code> is true.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">parameterNames</span><span class="p">,</span> <span class="s1">&#39;Layer 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Layer thickness&#39;</span><span class="p">,</span> <span class="s1">&#39;Layer Real SLD&#39;</span><span class="p">,</span> <span class="s1">&#39;Layer Imaginary SLD&#39;</span><span class="p">,</span> <span class="s1">&#39;Layers roughness, &#39;</span><span class="n">Layer</span> <span class="n">hydration</span><span class="s1">&#39;, &#39;</span><span class="n">Bulk</span> <span class="ow">in</span><span class="s1">&#39;);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>paramNames</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">cell</span></code></span>) – A cell array which contains the names of available parameters.</p></li>
+<li><p><strong>name</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">auto-generated</span> <span class="pre">name</span></code></span>) – The name of this layer.</p></li>
+<li><p><strong>thickness</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – The name (or the row index) of the parameter describing the thickness of this layer.</p></li>
+<li><p><strong>realSLD</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – The name (or the row index) of the parameter describing the real (scattering) term
+for the scattering length density of this layer.</p></li>
+<li><p><strong>imaginarySLD</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – The name (or the row index) of the parameter describing the imaginary (absorption) term
+for the scattering length density of this layer.</p></li>
+<li><p><strong>roughness</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – The name (or the row index) of the parameter describing the roughness of this layer.</p></li>
+<li><p><strong>hydration</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – The name (or the row index) of the parameter describing the percent hydration for the layer</p></li>
+<li><p><strong>hydrateWith</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">hydrationTypes,</span> <span class="pre">default:</span> <span class="pre">hydrationTypes.BulkOut</span></code></span>) – Whether the layer is hydrated with the “bulk in” or “bulk out”.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.layersClass.removeLayer">
 <span class="sig-name descname"><span class="pre">removeLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass.removeLayer" title="Link to this definition">#</a></dt>
-<dd><p>Removes a layer from the layers table.
-Expects a single layer name or index/array of layer names or
-indices to remove</p>
-<p>layers.removeLayer(2);</p>
+<dd><p>Removes a given layer from the table.</p>
+<p class="rubric">Examples</p>
+<p>To remove the second layer in the table (layer in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">removeLayer</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To remove layer with a specific name.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">removeLayer</span><span class="p">(</span><span class="s1">&#39;D2O&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the layer to remove. If it is text,
+it is the name of the layer to remove.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.layersClass.setLayerValue">
-<span class="sig-name descname"><span class="pre">setLayerValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">col</span></em>, <em class="sig-param"><span class="pre">inputValue</span></em>, <em class="sig-param"><span class="pre">paramNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass.setLayerValue" title="Link to this definition">#</a></dt>
-<dd><p>Change the value of a given layer parameter in the table
-(excluding the layer name). The row and column of the
-parameter can both be specified by either name or index.
-The expected input is a row parameter (name or index), a
-column parameter (name or index), the new value to be set at
-that row and column, and a string array of parameter names
-defined in the project’s parameter class.</p>
-<p>layers.setLayerValue(1, 1, ‘origin’, parameters.varTable{:, 1});</p>
+<dt class="sig sig-object mat" id="API.projectClass.layersClass.setLayer">
+<span class="sig-name descname"><span class="pre">setLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">paramNames</span></em>, <em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass.setLayer" title="Link to this definition">#</a></dt>
+<dd><p>Update properties of an existing layer.
+Any unset property will remain unchanged.</p>
+<p class="rubric">Examples</p>
+<p>To update the thickness of the second layer in the table (layer in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parameterNames</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">getAllAllowedNames</span><span class="p">()</span><span class="o">.</span><span class="n">paramNames</span><span class="p">;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">setLayer</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">paramNames</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="s1">&#39;New thickness&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To change the properties of a layer called ‘Layer 1’.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">setLayer</span><span class="p">(</span><span class="s1">&#39;Layer 1&#39;</span><span class="p">,</span> <span class="n">paramNames</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;new layer&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="s1">&#39;New thickness&#39;</span><span class="p">,</span> <span class="n">sld</span><span class="o">=</span><span class="s1">&#39;Layer SLD&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To change the imaginary SLD when absorption is true.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">setLayer</span><span class="p">(</span><span class="s1">&#39;Layer 1&#39;</span><span class="p">,</span> <span class="n">paramNames</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;new layer&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="s1">&#39;New thickness&#39;</span><span class="p">,</span> <span class="n">realSLD</span><span class="o">=</span><span class="s1">&#39;Layer SLD&#39;</span><span class="p">,</span> <span class="n">imaginarySLD</span><span class="o">=</span><span class="s1">&#39;Layer Imaginary SLD&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row of the layer to update. If it is text,
+it is the name of the layer to update.</p></li>
+<li><p><strong>paramNames</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">cell</span></code></span>) – A cell array which contains the names of available parameters.</p></li>
+<li><p><strong>options</strong> – <dl class="simple">
+<dt>Keyword/value pair to properties to update for the specific parameter.</dt><dd><ul>
+<li><p>name (string or char array or whole number, default: ‘’) the new name of the layer.</p></li>
+<li><p>thickness (string or char array or whole number, default: ‘’) The name (or the row index) of the parameter describing the thickness of this layer.</p></li>
+<li><p>sld, realSLD (string or char array or whole number, default: ‘’) The name (or the row index) of the parameter describing the real (scattering) term of the SLD.</p></li>
+<li><p>imaginarySLD (string or char array or whole number, default: ‘’) the new name (or the row index) of the parameter describing the imaginary (absorption) term of the SLD.</p></li>
+<li><p>roughness (string or char array or whole number, default: ‘’) the new name (or the row index) of the parameter describing the roughness of this layer.</p></li>
+<li><p>hydration (string or char array or whole number, default: ‘’) the new name (or the row index) of the parameter describing the percent hydration for the layer</p></li>
+<li><p>hydrateWith (hydrationTypes, default: hydrationTypes.empty()) whether the layer is hydrated with the “bulk in” or “bulk out”.</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.layersClass.toStruct">
 <span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">paramNames</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.layersClass.toStruct" title="Link to this definition">#</a></dt>
-<dd><p>Convert the layers class to a struct.</p>
-<p>layers.toStruct()</p>
+<dd><p>Converts the layersClass content into a structure array.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parameterNames</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">parameters</span><span class="o">.</span><span class="n">getNames</span><span class="p">();</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">layerStruct</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">toStruct</span><span class="p">(</span><span class="n">parameterNames</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>paramNames</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">cell</span></code></span>) – A cell array which contains the names of available parameters.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>layerStruct</strong> – A struct which contains the properties for all the layers.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

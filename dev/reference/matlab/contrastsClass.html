@@ -497,45 +497,88 @@ on the type of model, the code checks whether some of the contrast names are all
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
 <dl class="mat class">
 <dt class="sig sig-object mat" id="API.projectClass.contrastsClass">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">contrastsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">calcType</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.contrastsClass" title="Link to this definition">#</a></dt>
-<dd><dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.contrastsClass.contrastsClass">
-<span class="sig-name descname"><span class="pre">contrastsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">calcType</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.contrastsClass.contrastsClass" title="Link to this definition">#</a></dt>
-<dd><p>Class Constructor
-The (optional) inputs is a logical flag to state whether
-or not this is a domains calculation.</p>
-<p>contrasts = contrastsClass()</p>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">contrastsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">isDomains</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.contrastsClass" title="Link to this definition">#</a></dt>
+<dd><p>This class holds the parameters for each contrast used in the simulation</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">contrasts</span> <span class="o">=</span> <span class="n">contrastsClass</span><span class="p">();</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">contrasts</span> <span class="o">=</span> <span class="n">contrastsClass</span><span class="p">(</span><span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>isDomains</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">false</span></code></span>) – Indicates if the contrast object is for a domains project.</p>
+</dd>
+</dl>
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="contrastsClass.contrasts">
+<span class="sig-name descname"><span class="pre">contrasts</span></span><a class="headerlink" href="#contrastsClass.contrasts" title="Link to this definition">#</a></dt>
+<dd><p>A cell containing all the contrast entries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>cell</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.contrastsClass.parseContrastInput">
 <span class="sig-name descname"><span class="pre">parseContrastInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">allowedNames</span></em>, <em class="sig-param"><span class="pre">inputValues</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.contrastsClass.parseContrastInput" title="Link to this definition">#</a></dt>
-<dd><p>Parse the parameters given for the contrast, assigning
+<dd><p>Parses the given keyword/value pairs of properties for the contrast, assigning
 default values to those unspecified and ensuring specified
 values are of the correct type, and included in the list of
 allowed names where necessary.</p>
-<dl class="simple">
-<dt>contrastsClass.parseContrastInput(allowedNames, …</dt><dd><p>‘name’, ‘Contrast Name’, …
-‘background’, ‘Background H2O’)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>allowedNames</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">struct</span></code></span>) – A struct containing the valid names that can be referenced in the contrast.</p></li>
+<li><p><strong>inputValues</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">cell</span></code></span>) – A cell containing keyword/value pairs of properties for the contrast.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>inputBlock</strong> – A struct containing the given properties of the contrast.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="mat staticmethod">
+<dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.contrastsClass.setDefaultValues">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">setDefaultValues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrast</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.contrastsClass.setDefaultValues" title="Link to this definition">#</a></dt>
-<dd><p>Set non-empty default values when adding a contrast.</p>
+<span class="sig-name descname"><span class="pre">setDefaultValues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrast</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.contrastsClass.setDefaultValues" title="Link to this definition">#</a></dt>
+<dd><p>Sets default values to empty fields when adding a contrast.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>contrast</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">struct</span></code></span>) – A struct containing properties of the contrast.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>contrast</strong> – A struct containing properties of the contrast with empty fields set to default.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.contrastsClass.toStruct">
 <span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">allowedNames</span></em>, <em class="sig-param"><span class="pre">modelType</span></em>, <em class="sig-param"><span class="pre">dataTable</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.contrastsClass.toStruct" title="Link to this definition">#</a></dt>
-<dd><p>Convert the contrasts class to a struct.
-This routine builds on that in the base class by dealing with
-the additional properties defined in this subclass.
-The expected input is the allowed names for each parameter,
-the model type and the data table from the data class.</p>
-<p>contrasts.toStruct(allowedNames, ‘standard layers’, dataTable)</p>
+<dd><p>Converts the contrasts class to a struct.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>allowedNames</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">struct</span></code></span>) – A struct containing the valid names that can be referenced in the contrast.</p></li>
+<li><p><strong>modelType</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">modelTypes</span></code></span>) – The layer model type which can be ‘standard layers’, ‘custom layers’, or ‘custom xy’.</p></li>
+<li><p><strong>dataTable</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">table</span></code></span>) – A table from the dataClass.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>contrastStruct</strong> – A struct which contains the properties for all the contrast entries.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
@@ -547,7 +590,12 @@ This function is only really called from projectClass if a
 data name has been updated. It looks through the ‘data’
 field of the contrasts and if it matches nameChange.oldName
 then this is updated to nameChange.newName</p>
-<p>contrasts.updateDataName(nameChange)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>nameChange</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">struct</span></code></span>) – A struct which contains the former name <code class="docutils literal notranslate"><span class="pre">oldName</span></code> and the new name <code class="docutils literal notranslate"><span class="pre">newName</span></code> of the dataset or
+an empty array if name is not changed</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -555,30 +603,47 @@ then this is updated to nameChange.newName</p>
 <dl class="mat class">
 <dt class="sig sig-object mat" id="API.projectClass.domainContrastsClass">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">domainContrastsClass</span></span><a class="headerlink" href="#API.projectClass.domainContrastsClass" title="Link to this definition">#</a></dt>
-<dd><dl class="mat method">
+<dd><p>A simplified version of the contrast class that allows specification
+of the model only (i.e. with no data). This is used for domains
+calculations.</p>
+<dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.domainContrastsClass.parseContrastInput">
 <span class="sig-name descname"><span class="pre">parseContrastInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">allowedNames</span></em>, <em class="sig-param"><span class="pre">inputValues</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.domainContrastsClass.parseContrastInput" title="Link to this definition">#</a></dt>
 <dd><p>Parse the parameters given for the contrast, assigning
 default values to those unspecified and ensuring specified
 values are of the correct type, and included in the list of
 allowed names where necessary.</p>
-<p>contrastsClass.parseContrastInput(~, allowedNames, ‘name’, ‘Contrast Name’)</p>
-</dd></dl>
-
-<dl class="mat staticmethod">
-<dt class="sig sig-object mat" id="API.projectClass.domainContrastsClass.setDefaultValues">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">setDefaultValues</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrast</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.domainContrastsClass.setDefaultValues" title="Link to this definition">#</a></dt>
-<dd><p>Set non-empty default values when adding a contrast.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>allowedNames</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">struct</span></code></span>) – A struct containing the valid names that can be referenced in the contrast.</p></li>
+<li><p><strong>inputValues</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">cell</span></code></span>) – A cell containing keyword/value pairs of properties for the contrast.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>inputBlock</strong> – A struct containing properties of the contrast with empty fields set to default.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.domainContrastsClass.toStruct">
 <span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">allowedNames</span></em>, <em class="sig-param"><span class="pre">~</span></em>, <em class="sig-param"><span class="pre">~</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.domainContrastsClass.toStruct" title="Link to this definition">#</a></dt>
-<dd><p>Convert the contrasts class to a struct.
-This routine builds on that in the base class by dealing with
-the additional properties defined in this subclass.
-The expected input is the allowed names for each parameter.</p>
-<p>domainContrasts.toStruct(allowedNames, ~, ~)</p>
+<dd><p>Converts the domains contrasts class to a struct.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>allowedNames</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">struct</span></code></span>) – A struct containing the valid names that can be referenced in the contrast.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>contrastStruct</strong> – A struct which contains the properties for all the contrast entries.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

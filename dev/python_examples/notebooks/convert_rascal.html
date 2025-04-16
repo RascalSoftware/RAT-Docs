@@ -1,0 +1,1268 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>RasCAL-1 to RAT &#8212; RAT  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=881e7dcd"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'python_examples/notebooks/convert_rascal';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://rascalsoftware.github.io/RAT-Docs/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="icon" href="../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Algorithms" href="../../algorithms/index.html" />
+    <link rel="prev" title="Absorption (imaginary SLD) - effect below the critical edge" href="absorption.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="RAT  documentation - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="RAT  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+      <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        Home
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../guide.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../reference/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        Home
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../guide.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../reference/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tutorial/index.html">Tutorial</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/introduction.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/project.html">The Project Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/controls.html">A Closer Look at the Controls Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/bayes.html">Bayesian Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/customModels.html">Custom Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tutorial/savingOutputs.html">Copying and Saving Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../matlab_examples/index.html">MATLAB Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../matlab_examples/DSPC_standard_layers.html">DSPC Standard Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../matlab_examples/DSPC_custom_layers.html">DSPC Custom Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../matlab_examples/DSPC_custom_XY.html">DSPC Custom XY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../matlab_examples/domains_standard_layers.html">Incoherent Summing with Standard Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../matlab_examples/domains_custom_layers.html">Incoherent Summing with Custom Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../matlab_examples/domains_custom_XY.html">Incoherent Summing with Custom XY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../matlab_examples/imaginary.html">Absorption (Imaginary SLD) Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../matlab_examples/convert_r1_project.html">Converting a RasCAL-1 Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../matlab_examples/custom_model_languages.html">Alternative Custom Model Languages</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Python Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="DSPC_standard_layers.html">Standard Layers Analysis of a DSPC Floating Bilayer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DSPC_custom_layers.html">Custom Layers Example for Supported DSPC layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DSPC_custom_xy.html">Custom XY Example for Supported DSPC layer.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domains_standard_layers.html">Domains Samples Using Standard Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domains_custom_layers.html">Analysing Domains Samples Using Custom Layers Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="domains_custom_XY.html">Simple example of a layer containing domains using a custom XY model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absorption.html">Absorption (imaginary SLD) - effect below the critical edge</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">RasCAL-1 to RAT</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../algorithms/index.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../algorithms/simplex.html">Nelder-Mead Simplex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../algorithms/DE.html">Differential Evolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../algorithms/DREAM.html">Bayesian Analysis - DREAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../algorithms/nestedSampling.html">Bayesian Model Selection - Nested Sampling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../advanced/index.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../advanced/resampling.html">Profile Resampling (‘microslicing’)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../advanced/parallelisation.html">Parallelising Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../advanced/customLanguages.html">Custom Models in Python or C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../advanced/events.html">Handling Events During Calculations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../calcTypes/index.html">Different Calculation Types</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../calcTypes/imaginary.html">Adding the Imaginary Refractive Index</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../calcTypes/domains.html">Incoherent Summing (Domains)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../calcTypes/domainsStandardLayers.html">Standard Layers Domains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../calcTypes/domainsCustomModels.html">Custom Models with Domains</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../utilities/index.html">Utility Functions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/plotFuncs.html">Basic Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/bayesPlot.html">Plotting Bayesian Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/livePlot.html">Live Updating Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../utilities/conversionFuncs.html">Convert between RAT and RasCAL-1</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../guide.html" class="nav-link">User Guide</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Python Examples</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">RasCAL-1 to RAT</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="admonition note">
+  This page was generated from the notebook convert_rascal.ipynb found in
+  <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/0.0.0.dev4/RATapi/examples/">the Python-RAT repository</a>.
+  <a href="convert_rascal.ipynb" class="reference download internal" download>Download notebook</a>.
+</div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To get the output project and results from this example in your Python session, run:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">RATapi.examples</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_rascal</span>
+<span class="n">project</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">convert_rascal</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<hr class="docutils" />
+<section id="RasCAL-1-to-RAT">
+<h1>RasCAL-1 to RAT<a class="headerlink" href="#RasCAL-1-to-RAT" title="Link to this heading">#</a></h1>
+<p>RasCAL-1 (R1) project structs can be converted to RAT Project classes, and vice versa. This is done via the functions <code class="docutils literal notranslate"><span class="pre">r1_to_project_class</span></code> and <code class="docutils literal notranslate"><span class="pre">project_class_to_r1</span></code>.</p>
+<p>Converting from R1 to a <code class="docutils literal notranslate"><span class="pre">Project</span></code> is very simple. We use the example R1 project in the file <code class="docutils literal notranslate"><span class="pre">R1monolayerVolumeModel.mat</span></code>, which is a project for analysing a monolayer of DSPC with various deuterations (tail-deuterated, head-deuterated, fully deuterated, hydrogenated)</p>
+<p>Simply give the file path to the function <code class="docutils literal notranslate"><span class="pre">r1_to_project_class</span></code>, and it returns a RAT <code class="docutils literal notranslate"><span class="pre">Project</span></code> that you can use exactly like any other.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">RATapi.utils.convert</span><span class="w"> </span><span class="kn">import</span> <span class="n">r1_to_project_class</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="n">r1_to_project_class</span><span class="p">(</span><span class="s2">&quot;R1monolayerVolumeModel.mat&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Name: ----------------------------------------------------------------------------------------------
+
+monolayerVolumeModel
+
+Calculation: ---------------------------------------------------------------------------------------
+
+normal
+
+Model: ---------------------------------------------------------------------------------------------
+
+custom layers
+
+Geometry: ------------------------------------------------------------------------------------------
+
+air/substrate
+
+Parameters: ----------------------------------------------------------------------------------------
+
++-------+---------------------+------+--------------------+-------+------+
+| index |         name        | min  |       value        |  max  | fit  |
++-------+---------------------+------+--------------------+-------+------+
+|   0   | Substrate Roughness | 1.0  | 2.9979642781948908 |  8.0  | True |
+|   1   |  Area per molecule  | 47.0 | 53.052680457664785 | 100.0 | True |
+|   2   |    Head Thickness   | 7.0  | 12.276333836779942 |  20.0 | True |
+|   3   |        Theta        | 0.0  | 28.870541049836262 |  50.0 | True |
++-------+---------------------+------+--------------------+-------+------+
+
+Bulk In: -------------------------------------------------------------------------------------------
+
++-------+------+-----+-------+-----+-------+
+| index | name | min | value | max |  fit  |
++-------+------+-----+-------+-----+-------+
+|   0   | Air  | 0.0 |  0.0  | 0.0 | False |
++-------+------+-----+-------+-----+-------+
+
+Bulk Out: ------------------------------------------------------------------------------------------
+
++-------+------+---------+----------+---------+-------+
+| index | name |   min   |  value   |   max   |  fit  |
++-------+------+---------+----------+---------+-------+
+|   0   | D2O  | 6.3e-06 | 6.35e-06 | 6.4e-06 | False |
+|   1   | ACMW |  -5e-07 |   0.0    |  5e-07  | False |
++-------+------+---------+----------+---------+-------+
+
+Scalefactors: --------------------------------------------------------------------------------------
+
++-------+---------------+-----+--------------------+-----+-------+
+| index |      name     | min |       value        | max |  fit  |
++-------+---------------+-----+--------------------+-----+-------+
+|   0   | Scalefactor 1 | 0.1 | 0.2272676786810902 | 0.4 | False |
++-------+---------------+-----+--------------------+-----+-------+
+
+Background Parameters: -----------------------------------------------------------------------------
+
++-------+------------------------+-------+------------------------+-------+------+
+| index |          name          |  min  |         value          |  max  | fit  |
++-------+------------------------+-------+------------------------+-------+------+
+|   0   | Background parameter 1 | 1e-07 | 2.2653463958223856e-06 | 7e-06 | True |
+|   1   | Background parameter 2 | 1e-07 | 5.7431759430575025e-06 | 7e-06 | True |
++-------+------------------------+-------+------------------------+-------+------+
+
+Backgrounds: ---------------------------------------------------------------------------------------
+
++-------+-----------------+----------+------------------------+
+| index |       name      |   type   |         source         |
++-------+-----------------+----------+------------------------+
+|   0   | Background  D2O | constant | Background parameter 1 |
+|   1   | Background ACMW | constant | Background parameter 2 |
++-------+-----------------+----------+------------------------+
+
+Resolution Parameters: -----------------------------------------------------------------------------
+
++-------+------------------------+------+-------+------+-------+
+| index |          name          | min  | value | max  |  fit  |
++-------+------------------------+------+-------+------+-------+
+|   0   | Resolution parameter 1 | 0.01 |  0.03 | 0.05 | False |
++-------+------------------------+------+-------+------+-------+
+
+Resolutions: ---------------------------------------------------------------------------------------
+
++-------+--------------+----------+------------------------+
+| index |     name     |   type   |         source         |
++-------+--------------+----------+------------------------+
+|   0   | Resolution 1 | constant | Resolution parameter 1 |
++-------+--------------+----------+------------------------+
+
+Custom Files: --------------------------------------------------------------------------------------
+
++-------+-----------+-------------+---------------+----------+------+
+| index |    name   |   filename  | function name | language | path |
++-------+-----------+-------------+---------------+----------+------+
+|   0   | Model_IIb | Model_IIb.m |   Model_IIb   |  matlab  |  .   |
++-------+-----------+-------------+---------------+----------+------+
+
+Data: ----------------------------------------------------------------------------------------------
+
++-------+------------+----------------------+---------------------+---------------------+
+| index |    name    |         data         |      data range     |   simulation range  |
++-------+------------+----------------------+---------------------+---------------------+
+|   0   | Simulation |          []          |          []         |     [0.005, 0.7]    |
+|   1   | d70acmw20  | Data array: [51 x 3] | [0.051793, 0.58877] | [0.051793, 0.58877] |
+|   2   |  d70d2o20  | Data array: [51 x 3] | [0.051793, 0.58877] | [0.051793, 0.58877] |
+|   3   | d13acmw20  | Data array: [51 x 3] | [0.051793, 0.58877] | [0.051793, 0.58877] |
+|   4   |  d13d2o20  | Data array: [51 x 3] | [0.051793, 0.58877] | [0.051793, 0.58877] |
+|   5   | d83acmw20  | Data array: [51 x 3] | [0.051793, 0.58877] | [0.051793, 0.58877] |
+|   6   |  d83d2o20  | Data array: [51 x 3] | [0.051793, 0.58877] | [0.051793, 0.58877] |
+|   7   |   hd2o20   | Data array: [51 x 3] | [0.051793, 0.58877] | [0.051793, 0.58877] |
++-------+------------+----------------------+---------------------+---------------------+
+
+Contrasts: -----------------------------------------------------------------------------------------
+
++-------+--------------+-----------+-----------------+-------------------+---------+----------+---------------+--------------+----------+-----------+
+| index |     name     |    data   |    background   | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample |   model   |
++-------+--------------+-----------+-----------------+-------------------+---------+----------+---------------+--------------+----------+-----------+
+|   0   |  d70, acmw   | d70acmw20 | Background ACMW |        add        |   Air   |   ACMW   | Scalefactor 1 | Resolution 1 |  False   | Model_IIb |
+|   1   |   d70 d2o    |  d70d2o20 | Background  D2O |        add        |   Air   |   D2O    | Scalefactor 1 | Resolution 1 |  False   | Model_IIb |
+|   2   |   d13 acmw   | d13acmw20 | Background ACMW |        add        |   Air   |   ACMW   | Scalefactor 1 | Resolution 1 |  False   | Model_IIb |
+|   3   |   d13 d2o    |  d13d2o20 | Background  D2O |        add        |   Air   |   D2O    | Scalefactor 1 | Resolution 1 |  False   | Model_IIb |
+|   4   |   d83 acmw   | d83acmw20 | Background ACMW |        add        |   Air   |   ACMW   | Scalefactor 1 | Resolution 1 |  False   | Model_IIb |
+|   5   |   d83 d2o    |  d83d2o20 | Background  D2O |        add        |   Air   |   D2O    | Scalefactor 1 | Resolution 1 |  False   | Model_IIb |
+|   6   | fully h, D2O |   hd2o20  | Background  D2O |        add        |   Air   |   D2O    | Scalefactor 1 | Resolution 1 |  False   | Model_IIb |
++-------+--------------+-----------+-----------------+-------------------+---------+----------+---------------+--------------+----------+-----------+
+
+
+</pre></div></div>
+</div>
+<p>Note that there are various features of RAT which do not feature in RasCAL-1, such as <code class="docutils literal notranslate"><span class="pre">prior_type</span></code>, <code class="docutils literal notranslate"><span class="pre">mu</span></code> and <code class="docutils literal notranslate"><span class="pre">sigma</span></code> for parameters. These are given sensible default values (again e.g. for parameters, <code class="docutils literal notranslate"><span class="pre">prior_type</span> <span class="pre">=</span> <span class="pre">uniform</span></code>, <code class="docutils literal notranslate"><span class="pre">mu</span> <span class="pre">=</span> <span class="pre">0.0</span></code>, <code class="docutils literal notranslate"><span class="pre">sigma=inf</span></code>), but you may change these if you would like to use these new features:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">project</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;Head Thickness&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">prior_type</span> <span class="o">=</span> <span class="s1">&#39;gaussian&#39;</span>
+<span class="n">project</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;Theta&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mu</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="n">project</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;Area per molecule&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sigma</span> <span class="o">=</span> <span class="mf">50.0</span>
+<span class="c1"># etc...</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">parameters</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
++-------+---------------------+------+--------------------+-------+------+
+| index |         name        | min  |       value        |  max  | fit  |
++-------+---------------------+------+--------------------+-------+------+
+|   0   | Substrate Roughness | 1.0  | 2.9979642781948908 |  8.0  | True |
+|   1   |  Area per molecule  | 47.0 | 53.052680457664785 | 100.0 | True |
+|   2   |    Head Thickness   | 7.0  | 12.276333836779942 |  20.0 | True |
+|   3   |        Theta        | 0.0  | 28.870541049836262 |  50.0 | True |
++-------+---------------------+------+--------------------+-------+------+
+</pre></div></div>
+</div>
+<p>Also note that any custom files must be available to RAT. By default, RAT will assume these files are in the same directory that you are running RAT from, but if they are elsewhere you may change the relevant file location:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># e.g. if our model is in the directory `my_models/`</span>
+<span class="n">project</span><span class="o">.</span><span class="n">custom_files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;my_models/Model_IIb.m&quot;</span>
+</pre></div>
+</div>
+</div>
+<p>As well as MATLAB functions, RAT can also run custom files provided in Python or C++ format. This may be beneficial if you do not have access to MATLAB, do not have access to the custom files from your old RasCAL project, or find it more convenient to use Python. This is done similarly to changing the file path: if we have a function defined in the Python custom file <code class="docutils literal notranslate"><span class="pre">Model_IIb.py</span></code>:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">project</span><span class="o">.</span><span class="n">custom_files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;Model_IIb.py&quot;</span>
+<span class="n">project</span><span class="o">.</span><span class="n">custom_files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">language</span> <span class="o">=</span> <span class="s1">&#39;python&#39;</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="RAT-to-RasCAL-1">
+<h1>RAT to RasCAL-1<a class="headerlink" href="#RAT-to-RasCAL-1" title="Link to this heading">#</a></h1>
+<p>To demonstrate the other way around, we will use the DSPC lipid bilayer model project from another tutorial.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">RATapi.examples</span><span class="w"> </span><span class="kn">import</span> <span class="n">DSPC_standard_layers</span>
+<span class="n">lipid_bilayer_project</span> <span class="o">=</span> <span class="n">DSPC_standard_layers</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lipid_bilayer_project</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Starting RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Elapsed time is 0.002 seconds
+
+Finished RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Name: ----------------------------------------------------------------------------------------------
+
+original_dspc_bilayer
+
+Calculation: ---------------------------------------------------------------------------------------
+
+normal
+
+Model: ---------------------------------------------------------------------------------------------
+
+standard layers
+
+Geometry: ------------------------------------------------------------------------------------------
+
+substrate/liquid
+
+Parameters: ----------------------------------------------------------------------------------------
+
++-------+-------------------------+----------+-----------+----------+-------+
+| index |           name          |   min    |   value   |   max    |  fit  |
++-------+-------------------------+----------+-----------+----------+-------+
+|   0   |   Substrate Roughness   |   1.0    |    3.0    |   10.0   |  True |
+|   1   |     Oxide Thickness     |   5.0    |   19.54   |   60.0   |  True |
+|   2   |        Oxide SLD        | 3.39e-06 |  3.39e-06 | 3.41e-06 | False |
+|   3   |   SAM Tails Thickness   |   15.0   |   22.66   |   35.0   |  True |
+|   4   |      SAM Tails SLD      |  -5e-07  | -4.01e-07 |  -3e-07  | False |
+|   5   |   SAM Tails Hydration   |   1.0    |   5.252   |   50.0   |  True |
+|   6   |      SAM Roughness      |   1.0    |    5.64   |   15.0   |  True |
+|   7   |       CW Thickness      |   10.0   |   17.12   |   28.0   |  True |
+|   8   |          CW SLD         |   0.0    |    0.0    |  1e-09   | False |
+|   9   |   SAM Heads Thickness   |   5.0    |    8.56   |   17.0   |  True |
+|   10  |      SAM Heads SLD      |  1e-07   |  1.75e-06 |  2e-06   | False |
+|   11  |   SAM Heads Hydration   |   10.0   |   45.45   |   50.0   |  True |
+|   12  | Bilayer Heads Thickness |   7.0    |    10.7   |   17.0   |  True |
+|   13  |    Bilayer Heads SLD    |  5e-07   |  1.47e-06 | 1.5e-06  | False |
+|   14  |    Bilayer Roughness    |   2.0    |   6.014   |   15.0   |  True |
+|   15  | Bilayer Tails Thickness |   14.0   |   17.82   |   22.0   |  True |
+|   16  |    Bilayer Tails SLD    |  -5e-07  | -4.61e-07 |   0.0    | False |
+|   17  | Bilayer Tails Hydration |   10.0   |   17.64   |   50.0   |  True |
+|   18  | Bilayer Heads Hydration |   10.0   |   36.15   |   50.0   |  True |
+|   19  |       CW Hydration      |   99.9   |   100.0   |  100.0   | False |
+|   20  |     Oxide Hydration     |   0.0    |   23.61   |   60.0   |  True |
++-------+-------------------------+----------+-----------+----------+-------+
+
+Bulk In: -------------------------------------------------------------------------------------------
+
++-------+---------+-------+-----------+---------+-------+
+| index |   name  |  min  |   value   |   max   |  fit  |
++-------+---------+-------+-----------+---------+-------+
+|   0   | Silicon | 2e-06 | 2.073e-06 | 2.1e-06 | False |
++-------+---------+-------+-----------+---------+-------+
+
+Bulk Out: ------------------------------------------------------------------------------------------
+
++-------+------+---------+----------+----------+------+
+| index | name |   min   |  value   |   max    | fit  |
++-------+------+---------+----------+----------+------+
+|   0   | D2O  | 5.5e-06 | 5.98e-06 | 6.4e-06  | True |
+|   1   | SMW  |  1e-06  | 2.21e-06 | 4.99e-06 | True |
++-------+------+---------+----------+----------+------+
+
+Scalefactors: --------------------------------------------------------------------------------------
+
++-------+---------------+------+-------+-----+-------+
+| index |      name     | min  | value | max |  fit  |
++-------+---------------+------+-------+-----+-------+
+|   0   | Scalefactor 1 | 0.05 |  0.1  | 0.2 | False |
+|   1   | Scalefactor 2 | 0.05 |  0.15 | 0.2 | False |
++-------+---------------+------+-------+-----+-------+
+
+Background Parameters: -----------------------------------------------------------------------------
+
++-------+--------------------------+-------+----------+----------+------+
+| index |           name           |  min  |  value   |   max    | fit  |
++-------+--------------------------+-------+----------+----------+------+
+|   0   | Background parameter D2O | 5e-10 | 2.23e-06 |  7e-06   | True |
+|   1   | Background parameter SMW | 1e-10 | 3.38e-06 | 4.99e-06 | True |
++-------+--------------------------+-------+----------+----------+------+
+
+Backgrounds: ---------------------------------------------------------------------------------------
+
++-------+----------------+----------+--------------------------+
+| index |      name      |   type   |          source          |
++-------+----------------+----------+--------------------------+
+|   0   | D2O Background | constant | Background parameter D2O |
+|   1   | SMW Background | constant | Background parameter SMW |
++-------+----------------+----------+--------------------------+
+
+Resolution Parameters: -----------------------------------------------------------------------------
+
++-------+--------------------+------+-------+------+-------+
+| index |        name        | min  | value | max  |  fit  |
++-------+--------------------+------+-------+------+-------+
+|   0   | Resolution Param 1 | 0.01 |  0.03 | 0.05 | False |
++-------+--------------------+------+-------+------+-------+
+
+Resolutions: ---------------------------------------------------------------------------------------
+
++-------+--------------+----------+--------------------+
+| index |     name     |   type   |       source       |
++-------+--------------+----------+--------------------+
+|   0   | Resolution 1 | constant | Resolution Param 1 |
++-------+--------------+----------+--------------------+
+
+Data: ----------------------------------------------------------------------------------------------
+
++-------+--------------+----------------------+---------------------+---------------------+
+| index |     name     |         data         |      data range     |   simulation range  |
++-------+--------------+----------------------+---------------------+---------------------+
+|   0   |  Simulation  |          []          |          []         |     [0.005, 0.7]    |
+|   1   | dspc_bil_D2O | Data array: [82 x 3] | [0.011403, 0.59342] | [0.011403, 0.59342] |
+|   2   | dspc_bil_smw | Data array: [82 x 3] | [0.011403, 0.59342] | [0.011403, 0.59342] |
++-------+--------------+----------------------+---------------------+---------------------+
+
+Layers: --------------------------------------------------------------------------------------------
+
++-------+---------------+-------------------------+-------------------+---------------------+-------------------------+--------------+
+| index |      name     |        thickness        |        SLD        |      roughness      |        hydration        | hydrate with |
++-------+---------------+-------------------------+-------------------+---------------------+-------------------------+--------------+
+|   0   |     Oxide     |     Oxide Thickness     |     Oxide SLD     | Substrate Roughness |     Oxide Hydration     |   bulk out   |
+|   1   |   SAM Tails   |   SAM Tails Thickness   |   SAM Tails SLD   |    SAM Roughness    |   SAM Tails Hydration   |   bulk out   |
+|   2   |   SAM Heads   |   SAM Heads Thickness   |   SAM Heads SLD   |    SAM Roughness    |   SAM Heads Hydration   |   bulk out   |
+|   3   | Central Water |       CW Thickness      |       CW SLD      |  Bilayer Roughness  |       CW Hydration      |   bulk out   |
+|   4   | Bilayer Heads | Bilayer Heads Thickness | Bilayer Heads SLD |  Bilayer Roughness  | Bilayer Heads Hydration |   bulk out   |
+|   5   | Bilayer Tails | Bilayer Tails Thickness | Bilayer Tails SLD |  Bilayer Roughness  | Bilayer Tails Hydration |   bulk out   |
++-------+---------------+-------------------------+-------------------+---------------------+-------------------------+--------------+
+
+Contrasts: -----------------------------------------------------------------------------------------
+
++-------+------+--------------+----------------+-------------------+---------+----------+---------------+--------------+----------+---------------+
+| index | name |     data     |   background   | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample |     model     |
++-------+------+--------------+----------------+-------------------+---------+----------+---------------+--------------+----------+---------------+
+|   0   | D2O  | dspc_bil_D2O | D2O Background |        add        | Silicon |   D2O    | Scalefactor 1 | Resolution 1 |  False   |     Oxide     |
+|       |      |              |                |                   |         |          |               |              |          |   SAM Tails   |
+|       |      |              |                |                   |         |          |               |              |          |   SAM Heads   |
+|       |      |              |                |                   |         |          |               |              |          | Central Water |
+|       |      |              |                |                   |         |          |               |              |          | Bilayer Heads |
+|       |      |              |                |                   |         |          |               |              |          | Bilayer Tails |
+|       |      |              |                |                   |         |          |               |              |          | Bilayer Tails |
+|       |      |              |                |                   |         |          |               |              |          | Bilayer Heads |
+|   1   | SMW  | dspc_bil_smw | SMW Background |        add        | Silicon |   SMW    | Scalefactor 2 | Resolution 1 |  False   |     Oxide     |
+|       |      |              |                |                   |         |          |               |              |          |   SAM Tails   |
+|       |      |              |                |                   |         |          |               |              |          |   SAM Heads   |
+|       |      |              |                |                   |         |          |               |              |          | Central Water |
+|       |      |              |                |                   |         |          |               |              |          | Bilayer Heads |
+|       |      |              |                |                   |         |          |               |              |          | Bilayer Tails |
+|       |      |              |                |                   |         |          |               |              |          | Bilayer Tails |
+|       |      |              |                |                   |         |          |               |              |          | Bilayer Heads |
++-------+------+--------------+----------------+-------------------+---------+----------+---------------+--------------+----------+---------------+
+
+
+</pre></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">project_class_to_r1</span></code> takes parameters <code class="docutils literal notranslate"><span class="pre">project</span></code> and <code class="docutils literal notranslate"><span class="pre">filename</span></code>, which are the <code class="docutils literal notranslate"><span class="pre">Project</span></code> object and filename for the produced .mat file respectively. This .mat file can then be loaded into RasCAL-1.</p>
+<p>Alternatively, if one sets <code class="docutils literal notranslate"><span class="pre">return_struct=True</span></code>, the struct is returned as a Python dictionary instead of being saved.</p>
+<p>Note that a MATLAB engine is used to save the project to a .mat file, so the Python library <code class="docutils literal notranslate"><span class="pre">matlabengine</span></code> must be installed.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">RATapi.utils.convert</span><span class="w"> </span><span class="kn">import</span> <span class="n">project_class_to_r1</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">pp</span>  <span class="c1"># for printing the struct</span>
+
+<span class="c1"># save to a file called lipid_bilayer.mat</span>
+<span class="n">project_class_to_r1</span><span class="p">(</span><span class="n">lipid_bilayer_project</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lipid_bilayer.mat&quot;</span><span class="p">)</span>
+
+<span class="c1"># return as a Python dictionary</span>
+<span class="n">struct</span> <span class="o">=</span> <span class="n">project_class_to_r1</span><span class="p">(</span><span class="n">lipid_bilayer_project</span><span class="p">,</span> <span class="n">return_struct</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pp</span><span class="p">(</span><span class="n">struct</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;name&#39;: &#39;original_dspc_bilayer&#39;,
+ &#39;module&#39;: {&#39;type&#39;: &#39;standard layers&#39;,
+            &#39;experiment_type&#39;: &#39;Solid / Liquid&#39;,
+            &#39;name&#39;: &#39;&#39;},
+ &#39;paramnames&#39;: [&#39;Substrate Roughness&#39;,
+                &#39;Oxide Thickness&#39;,
+                &#39;Oxide SLD&#39;,
+                &#39;SAM Tails Thickness&#39;,
+                &#39;SAM Tails SLD&#39;,
+                &#39;SAM Tails Hydration&#39;,
+                &#39;SAM Roughness&#39;,
+                &#39;CW Thickness&#39;,
+                &#39;CW SLD&#39;,
+                &#39;SAM Heads Thickness&#39;,
+                &#39;SAM Heads SLD&#39;,
+                &#39;SAM Heads Hydration&#39;,
+                &#39;Bilayer Heads Thickness&#39;,
+                &#39;Bilayer Heads SLD&#39;,
+                &#39;Bilayer Roughness&#39;,
+                &#39;Bilayer Tails Thickness&#39;,
+                &#39;Bilayer Tails SLD&#39;,
+                &#39;Bilayer Tails Hydration&#39;,
+                &#39;Bilayer Heads Hydration&#39;,
+                &#39;CW Hydration&#39;,
+                &#39;Oxide Hydration&#39;],
+ &#39;params&#39;: [3.0,
+            19.54,
+            3.39e-06,
+            22.66,
+            -4.01e-07,
+            5.252,
+            5.64,
+            17.12,
+            0.0,
+            8.56,
+            1.75e-06,
+            45.45,
+            10.7,
+            1.47e-06,
+            6.014,
+            17.82,
+            -4.61e-07,
+            17.64,
+            36.15,
+            100.0,
+            23.61],
+ &#39;constr&#39;: [[1.0, 10.0],
+            [5.0, 60.0],
+            [3.39e-06, 3.41e-06],
+            [15.0, 35.0],
+            [-5e-07, -3e-07],
+            [1.0, 50.0],
+            [1.0, 15.0],
+            [10.0, 28.0],
+            [0.0, 1e-09],
+            [5.0, 17.0],
+            [1e-07, 2e-06],
+            [10.0, 50.0],
+            [7.0, 17.0],
+            [5e-07, 1.5e-06],
+            [2.0, 15.0],
+            [14.0, 22.0],
+            [-5e-07, 0.0],
+            [10.0, 50.0],
+            [10.0, 50.0],
+            [99.9, 100.0],
+            [0.0, 60.0]],
+ &#39;fityesno&#39;: [1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1],
+ &#39;scalesNames&#39;: [&#39;Scalefactor 1&#39;, &#39;Scalefactor 2&#39;],
+ &#39;scalefac&#39;: [0.1, 0.15],
+ &#39;scale_constr&#39;: [[0.05, 0.2], [0.05, 0.2]],
+ &#39;scalefac_fityesno&#39;: [0, 0],
+ &#39;numberOfScales&#39;: 2,
+ &#39;nbaNames&#39;: &#39;Silicon&#39;,
+ &#39;nba&#39;: 2.073e-06,
+ &#39;nbairs_constr&#39;: [2e-06, 2.1e-06],
+ &#39;nbairs_fityesno&#39;: 0,
+ &#39;numberOfNbas&#39;: 1,
+ &#39;nbsNames&#39;: [&#39;D2O&#39;, &#39;SMW&#39;],
+ &#39;nbs&#39;: [5.98e-06, 2.21e-06],
+ &#39;nbsubs_constr&#39;: [[5.5e-06, 6.4e-06], [1e-06, 4.99e-06]],
+ &#39;nbsubs_fityesno&#39;: [1, 1],
+ &#39;numberOfNbss&#39;: 2,
+ &#39;numberOfShifts&#39;: 1,
+ &#39;shiftsNames&#39;: &#39;Shift 1&#39;,
+ &#39;shifts_horisontal&#39;: 0,
+ &#39;shifts_fityesno&#39;: 0,
+ &#39;shifts_constr&#39;: [-0.0001, 0.0001],
+ &#39;resolNames&#39;: &#39;Resolution 1&#39;,
+ &#39;resolution&#39;: 0.03,
+ &#39;resolution_constr&#39;: [0.01, 0.05],
+ &#39;resolution_fityesno&#39;: 0,
+ &#39;numberOfResolutions&#39;: 1,
+ &#39;backsNames&#39;: [&#39;D2O Background&#39;, &#39;SMW Background&#39;],
+ &#39;backs&#39;: [2.23e-06, 3.38e-06],
+ &#39;backs_constr&#39;: [[5e-10, 7e-06], [1e-10, 4.99e-06]],
+ &#39;backgrounds_fityesno&#39;: [1, 1],
+ &#39;numberOfBacks&#39;: 2,
+ &#39;numberOfLayers&#39;: 6,
+ &#39;layersDetails&#39;: [[2, 3, 1, 21, &#39;Oxide&#39;, &#39;bulk out&#39;],
+                   [4, 5, 7, 6, &#39;SAM Tails&#39;, &#39;bulk out&#39;],
+                   [10, 11, 7, 12, &#39;SAM Heads&#39;, &#39;bulk out&#39;],
+                   [8, 9, 15, 20, &#39;Central Water&#39;, &#39;bulk out&#39;],
+                   [13, 14, 15, 19, &#39;Bilayer Heads&#39;, &#39;bulk out&#39;],
+                   [16, 17, 15, 18, &#39;Bilayer Tails&#39;, &#39;bulk out&#39;]],
+ &#39;contrastNames&#39;: [&#39;D2O&#39;, &#39;SMW&#39;],
+ &#39;contrastNbas&#39;: [1, 1],
+ &#39;contrastNbss&#39;: [1, 2],
+ &#39;contrastScales&#39;: [1, 2],
+ &#39;data&#39;: [array([[1.1403e-02, 1.0063e-01, 1.9003e-03],
+       [1.1973e-02, 1.1082e-01, 1.8830e-03],
+       [1.2572e-02, 1.0766e-01, 1.6413e-03],
+       [1.3201e-02, 1.0652e-01, 1.4669e-03],
+       [1.3861e-02, 9.0118e-02, 1.1774e-03],
+       [1.4554e-02, 3.4255e-02, 4.8888e-04],
+       [1.5281e-02, 1.7209e-02, 2.6267e-04],
+       [1.6045e-02, 1.0465e-02, 1.7551e-04],
+       [1.6848e-02, 7.0455e-03, 1.3083e-04],
+       [1.7690e-02, 4.5958e-03, 9.7193e-05],
+       [1.8575e-02, 3.4925e-03, 8.0937e-05],
+       [1.9503e-02, 2.4510e-03, 6.4505e-05],
+       [2.0479e-02, 1.7544e-03, 5.1254e-05],
+       [2.1502e-02, 1.3384e-03, 4.2675e-05],
+       [2.2578e-02, 1.0447e-03, 3.5865e-05],
+       [2.3706e-02, 7.6523e-04, 2.9299e-05],
+       [2.4892e-02, 6.4257e-04, 2.6236e-05],
+       [2.6136e-02, 5.0024e-04, 1.3657e-05],
+       [2.7443e-02, 3.9982e-04, 1.1639e-05],
+       [2.8815e-02, 3.4301e-04, 1.0137e-05],
+       [3.0256e-02, 2.7746e-04, 8.5758e-06],
+       [3.1769e-02, 2.6396e-04, 8.2806e-06],
+       [3.3357e-02, 2.3596e-04, 7.8864e-06],
+       [3.5025e-02, 2.0280e-04, 1.0041e-05],
+       [3.6777e-02, 1.8591e-04, 4.9391e-06],
+       [3.8615e-02, 1.5427e-04, 4.3142e-06],
+       [4.0546e-02, 1.4273e-04, 3.9580e-06],
+       [4.2573e-02, 1.2868e-04, 3.6645e-06],
+       [4.4702e-02, 1.1002e-04, 3.2644e-06],
+       [4.6937e-02, 9.1148e-05, 2.8227e-06],
+       [4.9284e-02, 9.1217e-05, 2.7234e-06],
+       [5.1748e-02, 7.6323e-05, 2.3706e-06],
+       [5.4336e-02, 6.6691e-05, 2.1365e-06],
+       [5.7052e-02, 6.4594e-05, 2.4647e-06],
+       [5.9905e-02, 6.0971e-05, 1.3241e-06],
+       [6.2900e-02, 6.3097e-05, 1.2946e-06],
+       [6.6045e-02, 6.0729e-05, 1.1791e-06],
+       [6.9348e-02, 5.9985e-05, 1.1102e-06],
+       [7.2815e-02, 6.1021e-05, 1.1013e-06],
+       [7.6456e-02, 5.6755e-05, 1.0350e-06],
+       [8.0279e-02, 5.8755e-05, 1.5569e-06],
+       [8.4292e-02, 5.4071e-05, 9.5338e-07],
+       [8.8507e-02, 4.6964e-05, 8.4392e-07],
+       [9.2932e-02, 4.2634e-05, 7.7134e-07],
+       [9.7579e-02, 3.2700e-05, 6.5280e-07],
+       [1.0246e-01, 2.5400e-05, 5.4648e-07],
+       [1.0758e-01, 1.7075e-05, 4.2154e-07],
+       [1.1296e-01, 1.2197e-05, 3.4055e-07],
+       [1.1861e-01, 7.8205e-06, 2.5881e-07],
+       [1.2454e-01, 5.0910e-06, 2.0153e-07],
+       [1.3077e-01, 4.1579e-06, 1.7620e-07],
+       [1.3730e-01, 3.6345e-06, 1.6248e-07],
+       [1.4417e-01, 3.3455e-06, 1.5143e-07],
+       [1.5138e-01, 2.7295e-06, 1.3191e-07],
+       [1.5895e-01, 1.8245e-06, 1.0679e-07],
+       [1.6689e-01, 1.2171e-06, 8.7591e-08],
+       [1.7524e-01, 4.9313e-07, 5.6663e-08],
+       [1.8400e-01, 2.4038e-07, 4.1253e-08],
+       [1.9320e-01, 3.3832e-07, 5.3216e-08],
+       [2.0286e-01, 3.2022e-07, 5.5047e-08],
+       [2.1300e-01, 4.1948e-07, 6.8549e-08],
+       [2.2365e-01, 3.1493e-07, 6.3396e-08],
+       [2.3484e-01, 2.3214e-07, 5.5974e-08],
+       [2.4658e-01, 3.3414e-07, 6.8415e-08],
+       [2.5891e-01, 3.9863e-07, 8.2061e-08],
+       [2.7185e-01, 2.5113e-07, 6.2710e-08],
+       [2.8544e-01, 2.2469e-07, 6.3286e-08],
+       [2.9972e-01, 2.0862e-07, 6.0631e-08],
+       [3.1470e-01, 2.0861e-07, 6.1379e-08],
+       [3.3044e-01, 3.3381e-07, 7.7193e-08],
+       [3.4696e-01, 1.8378e-07, 6.0490e-08],
+       [3.6431e-01, 2.3515e-07, 6.6222e-08],
+       [3.8252e-01, 2.1154e-07, 6.3084e-08],
+       [4.0165e-01, 2.4662e-07, 6.6637e-08],
+       [4.2173e-01, 2.0170e-07, 6.2432e-08],
+       [4.4282e-01, 2.4563e-07, 6.9088e-08],
+       [4.6496e-01, 1.9906e-07, 6.0793e-08],
+       [4.8821e-01, 2.8635e-07, 7.3878e-08],
+       [5.1262e-01, 1.9471e-07, 6.1764e-08],
+       [5.3825e-01, 2.8836e-07, 7.5438e-08],
+       [5.6516e-01, 2.3816e-07, 7.0610e-08],
+       [5.9342e-01, 2.1782e-07, 6.6918e-08]]),
+          array([[1.1403e-02, 1.8074e-03, 1.0983e-04],
+       [1.1973e-02, 1.4774e-03, 9.0584e-05],
+       [1.2572e-02, 1.3250e-03, 7.7039e-05],
+       [1.3201e-02, 1.2216e-03, 6.6408e-05],
+       [1.3861e-02, 1.0077e-03, 5.5778e-05],
+       [1.4554e-02, 1.0266e-03, 5.1388e-05],
+       [1.5281e-02, 9.1489e-04, 4.5210e-05],
+       [1.6045e-02, 8.0921e-04, 3.9950e-05],
+       [1.6848e-02, 6.1576e-04, 3.3466e-05],
+       [1.7690e-02, 6.0308e-04, 3.1557e-05],
+       [1.8575e-02, 4.6074e-04, 2.6813e-05],
+       [1.9503e-02, 4.0453e-04, 2.4355e-05],
+       [2.0479e-02, 3.6496e-04, 2.2031e-05],
+       [2.1502e-02, 3.2468e-04, 2.0023e-05],
+       [2.2578e-02, 2.4790e-04, 1.6581e-05],
+       [2.3706e-02, 2.7709e-04, 1.7017e-05],
+       [2.4892e-02, 2.1141e-04, 1.4388e-05],
+       [2.6136e-02, 1.7034e-04, 7.5065e-06],
+       [2.7443e-02, 1.5127e-04, 6.7139e-06],
+       [2.8815e-02, 1.3632e-04, 5.9548e-06],
+       [3.0256e-02, 1.1151e-04, 5.2534e-06],
+       [3.1769e-02, 9.5843e-05, 4.7729e-06],
+       [3.3357e-02, 7.5905e-05, 4.2186e-06],
+       [3.5025e-02, 6.9190e-05, 6.2034e-06],
+       [3.6777e-02, 5.2720e-05, 2.3936e-06],
+       [3.8615e-02, 3.9182e-05, 1.9828e-06],
+       [4.0546e-02, 2.9380e-05, 1.6381e-06],
+       [4.2573e-02, 2.2329e-05, 1.3936e-06],
+       [4.4702e-02, 1.4710e-05, 1.0942e-06],
+       [4.6937e-02, 8.1966e-06, 7.7674e-07],
+       [4.9284e-02, 6.4866e-06, 6.6572e-07],
+       [5.1748e-02, 3.0853e-06, 4.3607e-07],
+       [5.4336e-02, 2.6025e-06, 3.8880e-07],
+       [5.7052e-02, 2.7294e-06, 4.9982e-07],
+       [5.9905e-02, 4.3615e-06, 3.1992e-07],
+       [6.2900e-02, 5.4926e-06, 3.4522e-07],
+       [6.6045e-02, 7.2943e-06, 3.6968e-07],
+       [6.9348e-02, 8.9112e-06, 3.8947e-07],
+       [7.2815e-02, 1.0612e-05, 4.1912e-07],
+       [7.6456e-02, 1.2411e-05, 4.4241e-07],
+       [8.0279e-02, 1.4576e-05, 7.0225e-07],
+       [8.4292e-02, 1.4768e-05, 4.5606e-07],
+       [8.8507e-02, 1.3957e-05, 4.2438e-07],
+       [9.2932e-02, 1.1624e-05, 3.7299e-07],
+       [9.7579e-02, 1.0598e-05, 3.4827e-07],
+       [1.0246e-01, 7.7689e-06, 2.8497e-07],
+       [1.0758e-01, 6.4311e-06, 2.4647e-07],
+       [1.1296e-01, 4.9520e-06, 2.0748e-07],
+       [1.1861e-01, 2.8957e-06, 1.5122e-07],
+       [1.2454e-01, 1.9786e-06, 1.2104e-07],
+       [1.3077e-01, 1.1837e-06, 9.0553e-08],
+       [1.3730e-01, 9.5591e-07, 8.0264e-08],
+       [1.4417e-01, 9.9179e-07, 7.9466e-08],
+       [1.5138e-01, 8.1026e-07, 6.9286e-08],
+       [1.5895e-01, 7.8161e-07, 6.7637e-08],
+       [1.6689e-01, 6.0390e-07, 5.9878e-08],
+       [1.7524e-01, 4.8559e-07, 5.4890e-08],
+       [1.8400e-01, 4.1425e-07, 5.2852e-08],
+       [1.9320e-01, 4.3750e-07, 5.9223e-08],
+       [2.0286e-01, 3.0001e-07, 5.1646e-08],
+       [2.1300e-01, 4.9488e-07, 7.1141e-08],
+       [2.2365e-01, 2.7977e-07, 5.7809e-08],
+       [2.3484e-01, 2.3853e-07, 5.4901e-08],
+       [2.4658e-01, 2.1767e-07, 5.3744e-08],
+       [2.5891e-01, 2.5677e-07, 6.3708e-08],
+       [2.7185e-01, 5.7975e-07, 9.3465e-08],
+       [2.8544e-01, 3.2659e-07, 7.4563e-08],
+       [2.9972e-01, 3.0527e-07, 7.1553e-08],
+       [3.1470e-01, 3.3603e-07, 7.6342e-08],
+       [3.3044e-01, 3.8583e-07, 8.1122e-08],
+       [3.4696e-01, 2.9402e-07, 7.2850e-08],
+       [3.6431e-01, 3.0297e-07, 7.2958e-08],
+       [3.8252e-01, 4.0996e-07, 8.5727e-08],
+       [4.0165e-01, 4.0612e-07, 8.3403e-08],
+       [4.2173e-01, 5.3059e-07, 9.7535e-08],
+       [4.4282e-01, 4.9546e-07, 9.5624e-08],
+       [4.6496e-01, 3.5423e-07, 7.8721e-08],
+       [4.8821e-01, 3.5614e-07, 7.9969e-08],
+       [5.1262e-01, 3.7628e-07, 8.3392e-08],
+       [5.3825e-01, 5.8915e-07, 1.0457e-07],
+       [5.6516e-01, 3.2619e-07, 7.9702e-08],
+       [5.9342e-01, 3.0680e-07, 7.7062e-08]])],
+ &#39;simLimits&#39;: [[0.011403, 0.59342], [0.011403, 0.59342]],
+ &#39;dataLimits&#39;: [[0.011403, 0.59342], [0.011403, 0.59342]],
+ &#39;fitlowrange&#39;: [0.011403, 0.011403],
+ &#39;fithirange&#39;: [0.59342, 0.59342],
+ &#39;contrastRepeatSLDs&#39;: [[0, 1], [0, 1]],
+ &#39;contrastFiles&#39;: [&#39;dspc_bil_D2O&#39;, &#39;dspc_bil_smw&#39;],
+ &#39;contrastResolutions&#39;: [1, 1],
+ &#39;contrastBacks&#39;: [1, 2],
+ &#39;dataPresent&#39;: [1, 1],
+ &#39;include_data&#39;: [1, 1],
+ &#39;dataTypes&#39;: [&#39;Ascii File&#39;, &#39;Ascii File&#39;],
+ &#39;contrastLayers&#39;: [&#39;1,2,3,4,5,6,6,5&#39;, &#39;1,2,3,4,5,6,6,5&#39;],
+ &#39;contrastsNumberOfLayers&#39;: [8, 8]}
+</pre></div></div>
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">RasCAL-1 to RAT</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#RAT-to-RasCAL-1">RAT to RasCAL-1</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2022-2025, ISIS Neutron and Muon Source.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

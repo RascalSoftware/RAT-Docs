@@ -511,77 +511,148 @@ input .. etc.</p>
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
 <dl class="mat class">
 <dt class="sig sig-object mat" id="API.projectClass.dataClass">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">dataClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass" title="Link to this definition">#</a></dt>
-<dd><dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.dataClass.addData">
-<span class="sig-name descname"><span class="pre">addData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.addData" title="Link to this definition">#</a></dt>
-<dd><p>Adds a dataset to the data table. Default values are used if no
-arguments are provided, otherwise a subset of the arguments can
-be provided.
-The following are assumed from number of arguments:
-for 1 input, the name only is provided
-for 2 inputs, the name and data are provided
-for 4 inputs, the name, data, data range, and simulation range are provided</p>
-<p>data.addData();
-data.addData(‘Sim’);
-data.addData(‘Sim’, ones(5, 3));
-data.addData(‘Sim’, ones(5, 3), [0.2, 0.9],  [-3, 6]);</p>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">dataClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name</span></em>, <em class="sig-param"><span class="pre">data</span></em>, <em class="sig-param"><span class="pre">dataRange</span></em>, <em class="sig-param"><span class="pre">simRange</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass" title="Link to this definition">#</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">dataClass</span></code> manages the datasets for the project. It provides methods to add, update and remove datasets.
+Each dataset is stored as a row in a table and consists of a name, the data itself, the range of the data to use,
+and the range for simulation.</p>
+<p class="rubric">Examples</p>
+<p>If no arguments are provided, the object is created with an empty table.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">dataClass</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Otherwise, the arguments are used to create the first dataset.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">dataClass</span><span class="p">(</span><span class="s1">&#39;Data 1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">''</span></code></span>) – The name of the dataset.</p></li>
+<li><p><strong>data</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float,</span> <span class="pre">default:</span> <span class="pre">[]</span></code></span>) – 3 or 4 column data for the dataset, the data should have (x, y, error) columns and may have an optional resolution column.</p></li>
+<li><p><strong>dataRange</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float,</span> <span class="pre">default:</span> <span class="pre">default:</span> <span class="pre">[data(1,</span> <span class="pre">1),</span> <span class="pre">data(end,</span> <span class="pre">1)]</span> <span class="pre">or</span> <span class="pre">[]</span> <span class="pre">if</span> <span class="pre">no</span> <span class="pre">data</span></code></span>) – The minimum and maximum range of <code class="docutils literal notranslate"><span class="pre">data</span></code> to use from the dataset.</p></li>
+<li><p><strong>simRange</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float,</span> <span class="pre">default:</span> <span class="pre">default:</span> <span class="pre">[0.005,</span> <span class="pre">0.7]</span></code></span>) – The minimum and maximum range to use for simulation.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="mat attribute">
+<dt class="sig sig-object mat" id="dataClass.varTable">
+<span class="sig-name descname"><span class="pre">varTable</span></span><a class="headerlink" href="#dataClass.varTable" title="Link to this definition">#</a></dt>
+<dd><p>A table object that contains the data entries.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>table</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.dataClass.dataClass">
-<span class="sig-name descname"><span class="pre">dataClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.dataClass" title="Link to this definition">#</a></dt>
-<dd><p>Creates a Data object. The argument should be contents of the first
-dataset which should consists of a name (string), data (N by 3 array),
-dataRange (1 by 2 or empty array), and simRange (1 by 2 or empty array).</p>
-<p>data = dataClass(‘data_name’,  [],  [], []);</p>
+<dt class="sig sig-object mat" id="API.projectClass.dataClass.addData">
+<span class="sig-name descname"><span class="pre">addData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name</span></em>, <em class="sig-param"><span class="pre">data</span></em>, <em class="sig-param"><span class="pre">dataRange</span></em>, <em class="sig-param"><span class="pre">simRange</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.addData" title="Link to this definition">#</a></dt>
+<dd><p>Adds a new dataset to the data table.</p>
+<p class="rubric">Examples</p>
+<p>To add a new dataset with name only.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="s1">&#39;Data 1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To add dataset with name and data.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="s1">&#39;Data 1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>To add dataset with name, data and the ranges.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="s1">&#39;Data 1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">auto-generated</span> <span class="pre">name</span></code></span>) – The name of the dataset.</p></li>
+<li><p><strong>data</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float,</span> <span class="pre">default:</span> <span class="pre">[]</span></code></span>) – 3 or 4 column data for the dataset, the data should have (x, y, error) columns and may have optional resolution column.</p></li>
+<li><p><strong>dataRange</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float,</span> <span class="pre">default:</span> <span class="pre">[data(1,</span> <span class="pre">1),</span> <span class="pre">data(end,</span> <span class="pre">1)]</span> <span class="pre">or</span> <span class="pre">[]</span> <span class="pre">if</span> <span class="pre">no</span> <span class="pre">data</span></code></span>) – The minimum and maximum range of <code class="docutils literal notranslate"><span class="pre">data</span></code> to use from the dataset.</p></li>
+<li><p><strong>simRange</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float,</span> <span class="pre">default:</span> <span class="pre">[0.005,</span> <span class="pre">0.7]</span></code></span>) – The minimum and maximum range to use for simulation.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.dataClass.displayTable">
 <span class="sig-name descname"><span class="pre">displayTable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.displayTable" title="Link to this definition">#</a></dt>
-<dd><p>Displays the table object. The actual obj.varTable has the
-format {string, cell, double, double}, but for display we
-make a table that is all strings.</p>
+<dd><p>Prints the data table to the console.</p>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.dataClass.removeData">
 <span class="sig-name descname"><span class="pre">removeData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.removeData" title="Link to this definition">#</a></dt>
-<dd><p>Removes a dataset. Expects the index or array of
-indices of dataset(s) to remove.</p>
-<p>data.removeData(2);</p>
+<dd><p>Removes a given dataset from the table.</p>
+<p class="rubric">Examples</p>
+<p>To remove the second dataset in the table (dataset in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">removeData</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To remove dataset with a specific name.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">removeData</span><span class="p">(</span><span class="s1">&#39;Data D2O&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the dataset to remove. If it is text,
+it is the name of the dataset to remove.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.dataClass.setData">
-<span class="sig-name descname"><span class="pre">setData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.setData" title="Link to this definition">#</a></dt>
-<dd><p>Sets the values of an existing dataset. Expects the
-index or name of dataset and keyword/value pairs to set</p>
-<p>data.setData(2, ‘name’, ‘new_name’);</p>
-</dd></dl>
-
-<dl class="mat method">
-<dt class="sig sig-object mat" id="API.projectClass.dataClass.setDataName">
-<span class="sig-name descname"><span class="pre">setDataName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">whichData</span></em>, <em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.setDataName" title="Link to this definition">#</a></dt>
-<dd><p>Sets the name of an existing dataset. Expects index of data
-and the new name. Name must be a char and not an existing name.
-Returns a structure with the new name and old name</p>
-<p>names = data.setDataName({2, ‘new name’});</p>
+<span class="sig-name descname"><span class="pre">setData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em>, <em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.setData" title="Link to this definition">#</a></dt>
+<dd><p>General purpose method for updating properties of an existing dataset.</p>
+<p class="rubric">Examples</p>
+<p>To change the name and data of the second dataset in the table (dataset in row 2).</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nameChanged</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">setData</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Data 1&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>To change the properties of a dataset called ‘Data 1’.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">nameChanged</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">setData</span><span class="p">(</span><span class="s1">&#39;Data 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Data H2O&#39;</span><span class="p">,</span> <span class="n">dataRange</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>row</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array</span> <span class="pre">or</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – If <code class="docutils literal notranslate"><span class="pre">row</span></code> is an integer, it is the row number of the dataset to update. If it is text,
+it is the name of the dataset to update.</p></li>
+<li><p><strong>options</strong> – <dl class="simple">
+<dt>Keyword/value pair to properties to update for the specific dataset.</dt><dd><ul>
+<li><p>name (char array or string, default: ‘’) the new name of the dataset.</p></li>
+<li><p>data (float, default: []) the new data array.</p></li>
+<li><p>dataRange (float, default: []) the new data range.</p></li>
+<li><p>simRange (float, default: []) the new simulation range.</p></li>
+</ul>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>nameChanged</strong> – A struct which contains the former name <code class="docutils literal notranslate"><span class="pre">oldName</span></code> and the new name <code class="docutils literal notranslate"><span class="pre">newName</span></code> of the dataset or
+an empty array if name is not changed.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>struct or []</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="mat method">
 <dt class="sig sig-object mat" id="API.projectClass.dataClass.toStruct">
 <span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.toStruct" title="Link to this definition">#</a></dt>
-<dd><p>Converts the class parameters into a structure array.</p>
-</dd></dl>
-
-<dl class="mat staticmethod">
-<dt class="sig sig-object mat" id="API.projectClass.dataClass.validateData">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">validateData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">row</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.dataClass.validateData" title="Link to this definition">#</a></dt>
-<dd><p>Carry out checks of Data type and ranges in a table row.
-Expects the row of the data table as input.</p>
-<p>row = obj.validateData(row);</p>
+<dd><p>Converts the dataClass into a structure array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dataStruct</strong> – A struct which contains the properties for all the datasets.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>struct</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
