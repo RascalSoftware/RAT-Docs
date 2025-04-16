@@ -767,7 +767,7 @@ such as protein volume fractions from simulations, or to make interfaces that ar
 As an example, we will do a simulation of a metal layer on Silicon, with a surface roughness that is governed by a tanh function rather than an error function.
 
 Because we are making the full SLD profile, if we want layers in it then we have to define our own. This is quite easy since a layer is just two error functions back-to-back.
-The following code snippet we'll make an example of a simple layer.
+In the following code snippet, we show an example of a simple layer.
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -775,7 +775,7 @@ The following code snippet we'll make an example of a simple layer.
         % Make a range for our simulation
         z = 0:100;
 
-        % Define fome layer patameters
+        % Define from layer parameters
         height = 1;
         roughLeft = 3;
         roughRight = 8;
@@ -799,7 +799,7 @@ The following code snippet we'll make an example of a simple layer.
         # Make a range for our simulation
         z = np.arange(101)
 
-        # Define fome layer patameters
+        # Define from layer parameters
         height = 1
         roughLeft = 3
         roughRight = 8
