@@ -192,90 +192,88 @@ At this point it is useful to look at our custom function and then go through it
 .. tab-set-code::
     .. code-block:: Matlab
 
-        function [output,sub_rough] = customBilayer(params,bulk_in,bulk_out,contrast)
-        %CUSTOMBILAYER  RASCAL Custom Layer Model File.
-        %
-        %
-        % This file accepts 3 vectors containing the values for
-        % Params, bulk in and bulk out
-        % The final parameter is an index of the contrast being calculated
-        % The m-file should output a matrix of layer values, in the form..
-        % Output = [thick 1, SLD 1, Rough 1, Percent Hydration 1, Hydrate how 1
-        %           ....
-        %           thick n, SLD n, Rough n, Percent Hydration n, Hydration how n]
-        % The 'hydrate how' parameter decides if the layer is hydrated with
-        % Bulk out or Bulk in phases. Set to 1 for Bulk out, zero for Bulk in.
-        % Alternatively, leave out hydration and just return..
-        % Output = [thick 1, SLD 1, Rough 1,
-        %           ....
-        %           thick n, SLD n, Rough n] };
-        % The second output parameter should be the substrate roughness
+        function [output,sub_rough] = customBilayer(params, bulk_in, bulk_out, contrast)
+            %CUSTOMBILAYER  RASCAL Custom Layer Model File.
+            %
+            % This file accepts 3 vectors containing the values for
+            % Params, bulk in and bulk out
+            % The final parameter is an index of the contrast being calculated
+            % The m-file should output a matrix of layer values, in the form..
+            % Output = [thick 1, SLD 1, Rough 1, Percent Hydration 1, Hydrate how 1
+            %           ....
+            %           thick n, SLD n, Rough n, Percent Hydration n, Hydration how n]
+            % The 'hydrate how' parameter decides if the layer is hydrated with
+            % Bulk out or Bulk in phases. Set to 1 for Bulk out, zero for Bulk in.
+            % Alternatively, leave out hydration and just return..
+            % Output = [thick 1, SLD 1, Rough 1,
+            %           ....
+            %           thick n, SLD n, Rough n] };
+            % The second output parameter should be the substrate roughness
 
-        sub_rough = params(1);
-        oxide_thick = params(2);
-        oxide_hydration = params(3);
-        lipidAPM = params(4);
-        headHydration = params(5);
-        bilayerHydration = params(6);
-        bilayerRough = params(7);
-        waterThick = params(8);
+            sub_rough = params(1);
+            oxide_thick = params(2);
+            oxide_hydration = params(3);
+            lipidAPM = params(4);
+            headHydration = params(5);
+            bilayerHydration = params(6);
+            bilayerRough = params(7);
+            waterThick = params(8);
 
-        % We have a constant SLD for the oxide
-        oxide_SLD = 3.41e-6;
+            % We have a constant SLD for the oxide
+            oxide_SLD = 3.41e-6;
 
-        % Now make the lipid layers..
-        % Use known lipid volume and compositions
-        % to make the layers.
+            % Now make the lipid layers..
+            % Use known lipid volume and compositions
+            % to make the layers.
 
-        % define all the neutron b's.
-        bc = 0.6646e-4;     %Carbon
-        bo = 0.5843e-4;     %Oxygen
-        bh = -0.3739e-4;	%Hydrogen
-        bp = 0.513e-4;      %Phosphorus
-        bn = 0.936e-4;      %Nitrogen
-        bd = 0.6671e-4;     %Deuterium
+            % define all the neutron b's.
+            bc = 0.6646e-4;     %Carbon
+            bo = 0.5843e-4;     %Oxygen
+            bh = -0.3739e-4;	%Hydrogen
+            bp = 0.513e-4;      %Phosphorus
+            bn = 0.936e-4;      %Nitrogen
+            bd = 0.6671e-4;     %Deuterium
 
-        % Now make the lipid groups..
-        COO = (4*bo) + (2*bc);
-        GLYC = (3*bc) + (5*bh);
-        CH3 = (2*bc) + (6*bh);             
-        PO4 = (1*bp) + (4*bo);
-        CH2 = (1*bc) + (2*bh);
-        CHOL = (5*bc) + (12*bh) + (1*bn);
+            % Now make the lipid groups..
+            COO = (4*bo) + (2*bc);
+            GLYC = (3*bc) + (5*bh);
+            CH3 = (2*bc) + (6*bh);             
+            PO4 = (1*bp) + (4*bo);
+            CH2 = (1*bc) + (2*bh);
+            CHOL = (5*bc) + (12*bh) + (1*bn);
 
-        % Group these into heads and tails:
-        Head = CHOL + PO4 + GLYC + COO;
-        Tails = (34*CH2) + (2*CH3);
+            % Group these into heads and tails:
+            Head = CHOL + PO4 + GLYC + COO;
+            Tails = (34*CH2) + (2*CH3);
 
-        % We need volumes for each.
-        % Use literature values:
-        vHead = 319;
-        vTail = 782;
+            % We need volumes for each.
+            % Use literature values:
+            vHead = 319;
+            vTail = 782;
 
-        % we use the volumes to calculate the SLDs
-        SLDhead = Head / vHead;
-        SLDtail = Tails / vTail;
+            % we use the volumes to calculate the SLDs
+            SLDhead = Head / vHead;
+            SLDtail = Tails / vTail;
 
-        % We calculate the layer thickness' from
-        % the volumes and the APM...
-        headThick = vHead / lipidAPM;
-        tailThick = vTail / lipidAPM;
+            % We calculate the layer thickness' from
+            % the volumes and the APM...
+            headThick = vHead / lipidAPM;
+            tailThick = vTail / lipidAPM;
 
-        % Manually deal with hydration for layers in
-        % this example.
-        oxSLD = (oxide_hydration * bulk_out(contrast)) + ((1 - oxide_hydration) * oxide_SLD);
-        headSLD = (headHydration * bulk_out(contrast)) + ((1 - headHydration) * SLDhead);
-        tailSLD = (bilayerHydration * bulk_out(contrast)) + ((1 - bilayerHydration) * SLDtail);
+            % Manually deal with hydration for layers in
+            % this example.
+            oxSLD = (oxide_hydration * bulk_out(contrast)) + ((1 - oxide_hydration) * oxide_SLD);
+            headSLD = (headHydration * bulk_out(contrast)) + ((1 - headHydration) * SLDhead);
+            tailSLD = (bilayerHydration * bulk_out(contrast)) + ((1 - bilayerHydration) * SLDtail);
 
-        % Make the layers
-        oxide = [oxide_thick oxSLD sub_rough];
-        water = [waterThick bulk_out(contrast) bilayerRough];
-        head = [headThick headSLD bilayerRough];
-        tail = [tailThick tailSLD bilayerRough];
+            % Make the layers
+            oxide = [oxide_thick oxSLD sub_rough];
+            water = [waterThick bulk_out(contrast) bilayerRough];
+            head = [headThick headSLD bilayerRough];
+            tail = [tailThick tailSLD bilayerRough];
 
-        % Group the layers to make the output
-        output = [oxide ; water ; head ; tail ; tail ; head];
-
+            % Group the layers to make the output
+            output = [oxide ; water ; head ; tail ; tail ; head];
         end
 
     .. code-block:: Python
@@ -547,10 +545,10 @@ So, since we want to analyse three contrasts simultaneously, we need the followi
 .. tab-set-code::
     .. code-block:: Matlab
 
-        % Change bulk in from air to silicon....
+        % Change bulk in from air to silicon.
         problem.setBulkIn(1, 'name', 'Silicon', 'min', 2.07e-6, 'value', 2.073e-6, 'max', 2.08e-6, 'fit', false);
 
-        % Add two more values for bulk out....
+        % Add two more values for bulk out.
         problem.addBulkOut('SLD SMW', 1e-6, 2.073e-6, 3e-6, true);
         problem.addBulkOut('SLD H2O', -0.6e-6, -0.56e-6, -0.3e-6, true);
 
@@ -656,7 +654,7 @@ So, since we want to analyse three contrasts simultaneously, we need the followi
         problem.backgrounds.append(name='Background SMW', type='constant', source='Background parameter SMW')
         problem.backgrounds.append(name='Background H2O', type='constant', source='Background parameter H2O')
 
-        # And edit the other one....
+        # And edit the other one.
         problem.backgrounds.set_fields(0, name='Background D2O', source='Background parameter D2O')
 
         # Finally modify some of the other parameters to be more suitable values for a solid / liquid experiment
@@ -769,7 +767,7 @@ such as protein volume fractions from simulations, or to make interfaces that ar
 As an example, we will do a simulation of a metal layer on Silicon, with a surface roughness that is governed by a tanh function rather than an error function.
 
 Because we are making the full SLD profile, if we want layers in it then we have to define our own. This is quite easy since a layer is just two error functions back-to-back.
-The following code snippet we'll make an example of a simple layer....
+In the following code snippet, we show an example of a simple layer.
 
 .. tab-set-code::
     .. code-block:: Matlab
@@ -777,7 +775,7 @@ The following code snippet we'll make an example of a simple layer....
         % Make a range for our simulation
         z = 0:100;
 
-        % Define fome layer patameters
+        % Define from layer parameters
         height = 1;
         roughLeft = 3;
         roughRight = 8;
@@ -801,7 +799,7 @@ The following code snippet we'll make an example of a simple layer....
         # Make a range for our simulation
         z = np.arange(101)
 
-        # Define fome layer patameters
+        # Define from layer parameters
         height = 1
         roughLeft = 3
         roughRight = 8
@@ -832,89 +830,85 @@ For our tanh layer, we will do a similar thing, but replace one side with a tanh
 .. tab-set-code::
     .. code-block:: Matlab
 
-        function [SLD,subRough] = tanhExample(params,bulkIn,bulkOut,contrast)
+        function [outSLD, subRough] = tanhExample(params,bulkIn,bulkOut,contrast)
+            % Flag to control whether we do a debug plot.
+            debugPlot = true;
 
-        % Flag to control whether we do a debug plot....
-        debugPlot = true;
+            % Make the z array.
+            z = 0:150;
 
-        % Make the z array.....
-        z = 0:150;
+            % Split up the parameters.
+            subRough = params(1);
+            layerThick = params(2);
+            layerSLD = params(3);
+            layerRough = params(4);
 
-        % Split up the parameters...
-        subRough = params(1);
-        layerThick = params(2);
-        layerSLD = params(3);
-        layerRough = params(4);
+            % Make a layer for the silicon.
+            width = 50;
+            [silicon,siSurface] = erfLayer(z,width,0,subRough,subRough,2.073e-6);
 
-        % Make a layer for the silicon..
-        width = 50;
-        [silicon,siSurface] = erfLayer(z,width,0,subRough,subRough,2.073e-6);
+            % Make the tanh layer.
+            centre = siSurface + layerThick/2;
+            layer = tanhLayer(z,layerThick,centre,subRough,layerRough,layerSLD);
 
-        % Make the tanh layer....
-        centre = siSurface + layerThick/2;
-        layer = tanhLayer(z,layerThick,centre,subRough,layerRough,layerSLD);
+            % Our total SLD is just the sum of the functions representing our model,
+            % but we flip it so that the substrate is on the fight side of the model
+            silicon = fliplr(silicon);
+            layer = fliplr(layer);
+            SLD = silicon + layer;
+            outSLD = [z(:) SLD(:)]; 
 
-        % Our total SLD is just the sum of the functions representing our model,
-        % but we flip it so that the substrate is on the fight side of the model
-        silicon = fliplr(silicon);
-        layer = fliplr(layer);
-        SLD = silicon + layer;
-
-        % Do a debug plot...
-        if debugPlot
-        figure(1); clf;
-        plot(z,silicon);
-        hold on
-        plot(z,layer);
-        plot(z,SLD,'k-','LineWidth',2.0);
-
+            % Do a debug plot.
+            if debugPlot
+                figure(1); clf;
+                plot(z,silicon);
+                hold on
+                plot(z,layer);
+                plot(z,SLD,'k-','LineWidth',2.0);
+            end
         end
 
+        function [f,layerSurface] = erfLayer(x, xw, xcen, s1, s2, h)
+            % Produces a step function convoluted with differnt error functions
+            % on each side.
+            % 
+            % x = vector of x values
+            % xw = Width of step function
+            % xcen = Centre point of step function
+            % s1 = Roughness parameter of left side
+            % s2 = Roughness parameter of right side
+            % h = Height of step function.
+
+            r = xcen + (xw/2);
+            l = xcen - (xw/2);
+
+            a = (x-l)./((2^0.5)*s1);
+            b = (x-r)./((2^0.5)*s2);
+
+            f = (h/2)*(erf(a)-erf(b));
+
+            layerSurface = r;
         end
 
-        function [f,layerSurface] = erfLayer(x,xw,xcen,s1,s2,h);
-        % Produces a step function convoluted with differnt error functions
-        % on each side.
-        % Convstep (x,xw,xcen,s1,s2,h)
-        %       x = vector of x values
-        %      xw = Width of step function
-        %    xcen = Centre point of step function
-        %       s1 = Roughness parameter of left side
-        %       s2 = Roughness parameter of right side
-        %       h = Height of step function.
+        function [f,layerSurface] = tanhLayer(x, xw, xcen, s1, s2, h)
+            % Makes a tanh layer.
+            %
+            % x = vector of x values
+            % xw = Width of step function
+            % xcen = Centre point of step function
+            % s1 = Roughness parameter of left side
+            % s2 = Roughness parameter of right side
+            % h = Height of step function.
 
-        r = xcen + (xw/2);
-        l = xcen - (xw/2);
+            r = xcen + (xw/2);
+            l = xcen - (xw/2);
 
-        a = (x-l)./((2^0.5)*s1);
-        b = (x-r)./((2^0.5)*s2);
+            a = (x-l)./((2^0.5)*s1);
+            b = (x-r)./((2^0.5)*s2);
 
-        f = (h/2)*(erf(a)-erf(b));
+            f = (h/2)*(erf(a)-tanh(b));
 
-        layerSurface = r;
-
-        end
-
-        function [f,layerSurface] = tanhLayer(x,xw,xcen,s1,s2,h);
-
-        % tanhlayer (x,xw,xcen,s1,s2,h)
-        %       x = vector of x values
-        %      xw = Width of step function
-        %    xcen = Centre point of step function
-        %       s1 = Roughness parameter of left side
-        %       s2 = Roughness parameter of right side
-        %       h = Height of step function.
-
-        r = xcen + (xw/2);
-        l = xcen - (xw/2);
-
-        a = (x-l)./((2^0.5)*s1);
-        b = (x-r)./((2^0.5)*s2);
-
-        f = (h/2)*(erf(a)-tanh(b));
-
-        layerSurface = r;
-
+            layerSurface = r;
         end
 
     .. code-block:: Python
@@ -953,10 +947,10 @@ To run our simulation, we make a RAT model as normal:
         problem.addParameterGroup(parameters);
 
         % Change the bulk-out to Si.
-        problem.setBulkOut(1,'name','SLD Silicon','value',2.073e-6,'fit',false);
+        problem.setBulkOut(1,'name','SLD Silicon','min',2.073e-6,'value',2.073e-6,'fit',false);
 
         % Add the custom model.
-        problem.addCustomFile('LayerMod','tanhLayer.m','matlab',pwd);
+        problem.addCustomFile('LayerMod','tanhExample.m','matlab',pwd);
 
         % Make the contrast.
         problem.addContrast('name',         'Simple Layer',...
@@ -1000,19 +994,21 @@ We now run it and plot the results:
 .. tab-set-code::
     .. code-block:: Matlab
 
-        [problem, resuts] = RAT(problem, controls);
+        controls = controlsClass();
+        [problem, results] = RAT(problem, controls);
 
         figure(1); clf;
         plotRefSLD(problem,results);
     
     .. code-block:: Python
         
-        problem, resuts = RAT.run(problem, controls)
+        controls = RAT.Controls()
+        problem, results = RAT.run(problem, controls)
         RAT.plotting.plot_ref_sld(problem, results)
 
 .. image:: ../images/tutorial/customTwoLayerFig.png
     :width: 500
-    :alt: Dtwo layers XY
+    :alt: The two layers XY
 
 When sent to RAT, customXY SLD profiles are automatically resampled into layers with adaptive resampling:
 

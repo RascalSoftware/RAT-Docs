@@ -31,8 +31,8 @@ The first input, ``problem``, is an instance of the **Project** class:
 .. tab-set-code::
     .. code-block:: Matlab
 
-        >> problem = createProject(name='my project');
-        >> class(problem)
+        >> empty_problem = createProject(name='my project');
+        >> class(empty_problem)
 
         ans =
             'projectClass'
@@ -40,8 +40,8 @@ The first input, ``problem``, is an instance of the **Project** class:
     .. code-block:: Python
         :force:
 
-        >>> problem = RAT.Project(name='my project')
-        >>> type(problem)
+        >>> empty_problem = RAT.Project(name='my project')
+        >>> type(empty_problem)
 
         <class 'RAT.project.Project'>
 
@@ -57,16 +57,16 @@ model type, parameters, data, contrasts, and so on. These define all we need for
 
         .. output:: Matlab
 
-            problem = createProject(name='my project');
-            disp(problem)
+            empty_problem = createProject(name='my project');
+            disp(empty_problem)
 
     .. tab-item:: Python 
         :sync: Python
         
         .. output:: Python
 
-            problem = RAT.Project(name='my project')
-            print(problem)
+            empty_problem = RAT.Project(name='my project')
+            print(empty_problem)
 
 In the following sections, we will look at how to build a standard layer slab model with this class. It is also
 possible to define a custom model using a function; this is seen in the :ref:`customModels` tutorial. 
@@ -111,6 +111,7 @@ using the parameters from the procedure given in the **Controls** object:
         .. output:: Python
 
             controls = RAT.Controls(display='off')
+            problem = RAT.Project.load("source/tutorial/data/two_contrast_example.json")
             p, results = RAT.run(problem, controls)
             print(results)
 
@@ -594,7 +595,7 @@ The value of an existing layer can be changed by specifying the layer, layer par
 .. tab-set-code::
     .. code-block:: Matlab
 
-        problem.setLayerValue('H Layer', 'Thickness', 'H SLD');
+        problem.setLayer('H Layer', 'thickness', 'H SLD');
 
     .. code-block:: Python
 
@@ -609,7 +610,7 @@ The value of an existing layer can be changed by specifying the layer, layer par
 
         .. output:: Matlab
 
-            problem.setLayerValue('H Layer', 'Thickness', 'H SLD');
+            problem.setLayer('H Layer', 'thickness', 'H SLD');
             problem.layers.displayTable()
 
     .. tab-item:: Python 
