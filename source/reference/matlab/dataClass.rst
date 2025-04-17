@@ -17,34 +17,6 @@ The dataTable is a `table`_ with 4 columns. The following are the 4 columns:
    simulation, and the second element is the maximum value of the simulation. (optional)
 
 
-.. list-table:: The methods on the left call the methods on the right in the table.
-    :widths: 25 25
-    :header-rows: 1
-
-    * - Method in Project Class
-      - Method in Data Class 
-    * - projectClass.addData()
-      - dataClass.addData() 
-    * - projectClass.setData()
-      - dataClass.setData()
-
-
-Like other classes, it has methods to setData, setDataRange or any individual column/parameter. It also checks if the data given is in the right format, 
-and if so, it stores it. If not, it has proper conditional statements to pinpoint the error. Like warning about duplicate names, number of inputs, type of an
-input .. etc. 
-
-.. code-block:: MATLAB
-    :caption: Adding data. Usually, the data is in .dat files. So, `readmatrix` built-in method is used to read the data into a variable.
-
-        D2O_data = readmatrix('c_PLP0016596.dat');
-        % Add the data to the project
-        projectClass.addData('Bilayer / D2O', D2O_data(:,1:3));
-
-.. code-block:: MATLAB
-    :caption: Setting data range. (Min and Max values)
-
-        problem.setData(2,'dataRange',[0.013 0.35]);
-
 *********
 Reference
 *********
