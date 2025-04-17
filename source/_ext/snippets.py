@@ -1,6 +1,5 @@
 """Sphinx directive for building code from snippets."""
 
-import warnings
 from contextlib import redirect_stdout
 from io import StringIO
 
@@ -45,8 +44,7 @@ def setup(app: Sphinx) -> ExtensionMetadata:
 
     def setup_envs(*ignore):
         """Initialise Python/MATLAB environments."""
-        app.env.snippets_env = {"RAT": RATapi}
-        print("Starting up MATLAB Engine...")
+        app.env.snippets_env = {"RAT": RATapi} 
         app.env.matlab_engine = setup_matlab()
         app.env.matlab_engine.eval(
             "cd('API'); addPaths; cd('..'); ratVars = who;", nargout=0
@@ -74,8 +72,7 @@ class FallbackMatlabEngine:
     """A fallback class that intercepts calls to MATLAB engine when the engine is not available."""
 
     def eval(self, *args, **kwargs):
-        print("Could not create output as MATLAB engine not available!")
-        warnings.warn("Could not create output as MATLAB engine was not available.")
+        pass 
 
     def quit(self):
         pass
@@ -88,6 +85,7 @@ def setup_matlab():
     except ImportError:
         return FallbackMatlabEngine()
 
+    print("Starting up MATLAB Engine for snippets...")
     return start_matlab()
 
 

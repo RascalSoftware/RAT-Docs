@@ -14,6 +14,8 @@ from importlib import metadata
 from urllib.parse import urljoin
 from urllib.request import urlretrieve
 from pathlib import Path
+
+
 # -- Project information -----------------------------------------------------
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -52,6 +54,13 @@ templates_path = ['_templates']
 # -- Setup example files -----------------------------------------------------
 PYTHON_RAT_RELEASE = metadata.version("RATapi")
 
+MATLAB_AVAILABLE = True
+try:
+    from matlab.engine import start_matlab
+except ImportError:
+    print("MATLAB Engine not found. Some examples and code blocks may be missing.")
+    MATLAB_AVAILABLE = False
+
 if not os.path.isdir("./python_examples/data"):
     zip_dir, headers = urlretrieve(f"https://github.com/RascalSoftware/python-RAT/archive/refs/tags/{PYTHON_RAT_RELEASE}.zip")
     with zipfile.ZipFile(zip_dir) as zf:
@@ -60,18 +69,18 @@ if not os.path.isdir("./python_examples/data"):
     for directory in ['normal_reflectivity', 'domains', 'absorption', 'convert_rascal_project']:
         for file in Path(f"./python-RAT-{PYTHON_RAT_RELEASE}/RATapi/examples/{directory}/").glob('*'):
             shutil.copy(file, "./python_examples/notebooks/")
+    if MATLAB_AVAILABLE:  # convert_rascal example requires matlab engine
+        for file in Path(f"./python-RAT-{PYTHON_RAT_RELEASE}/RATapi/examples/convert_rascal_project/").glob('*'):
+            shutil.copy(file, "./python_examples/notebooks/")
+
 
     shutil.copytree(f"./python-RAT-{PYTHON_RAT_RELEASE}/RATapi/examples/data", "./python_examples/data", dirs_exist_ok=True)
 
     shutil.rmtree(f"./python-RAT-{PYTHON_RAT_RELEASE}")
 
 if not os.path.isfile("./matlab_examples/standardLayersDSPCSheet.html"):
-    try:
-        from matlab.engine import start_matlab
-    except ImportError:
-        print("Could not copy MATLAB live scripts as MATLAB is not installed.")
-    else:
-        print("Starting MATLAB Engine...")
+    if MATLAB_AVAILABLE: 
+        print("Starting MATLAB Engine for live scripts...")
         eng = start_matlab()
         matlab_examples_path = Path("./matlab_examples").resolve()
         eng.eval("cd('../API'); addPaths;", nargout=0)
