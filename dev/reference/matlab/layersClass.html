@@ -263,10 +263,6 @@ document.write(`
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
-      <span class="fa-solid fa-outdent"></span>
-    </label>
-  
 </div>
 
     </header>
@@ -369,13 +365,21 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="controlClass.html">Controls Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="entryFunctions.html">RAT Entry Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="targetFunctions.html">Target Functions (Low Level API)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="minimisers/index.html">Minimisers</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/simplex.html">Simplex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/de.html">Differential Evolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/ns.html">Nested Sampling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/dream.html">DREAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/generalUtils.html">General Minimiser Utilities</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="plotting.html">Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="utilities.html">Utilities</a></li>
 </ul>
 </li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../python/index.html">Python API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/index.html">Python API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../python/run.html">Run</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python/project.html">Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python/controls.html">Controls</a></li>
@@ -458,54 +462,9 @@ document.write(`
                   
   <section id="layers-class">
 <h1>Layers Class<a class="headerlink" href="#layers-class" title="Link to this heading">#</a></h1>
-<p>Layers can be added as a group or individually. When added as a group, <cite>addLayerGroup</cite> method in projectClass iterates over the list of layers and
+<p>Layers give physical information for each layer in a slab model (such as thickness, SLD, roughness and hydration).
+Layers can be added as a group or individually. When added as a group, <cite>addLayerGroup</cite> method in projectClass iterates over the list of layers and
 adds them one by one using <cite>addLayer</cite> method which is used to add individual layers.</p>
-<table class="table" id="id1">
-<caption><span class="caption-text">The methods on the left call the methods on the right in the table.</span><a class="headerlink" href="#id1" title="Link to this table">#</a></caption>
-<colgroup>
-<col style="width: 50.0%" />
-<col style="width: 50.0%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Method in Project Class</p></th>
-<th class="head"><p>Method in Layers Class</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>projectClass.addLayerGroup()</p></td>
-<td><p>layersClass.addLayer()</p></td>
-</tr>
-<tr class="row-odd"><td><p>projectClass.addLayer()</p></td>
-<td><p>layersClass.addLayer()</p></td>
-</tr>
-<tr class="row-even"><td><p>projectClass.setLayerValue()</p></td>
-<td><p>layersClass.setLayerValue()</p></td>
-</tr>
-</tbody>
-</table>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Adding layers as a group. Can set to a class using projectClass.addLayerGroup(Layers)</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">projectClass</span><span class="p">.</span><span class="n">addLayerGroup</span><span class="p">({</span><span class="n">waterLayer</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">bilInnerHead</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">bilTails</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">bilOuterHead</span><span class="p">})</span>
-</pre></div>
-</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">Adding layers individually. Can set to a class using projectClass.addLayer(Layer)</span><a class="headerlink" href="#id3" title="Link to this code">#</a></div>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">waterLayer</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="s">&#39;Water Layer&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">           % Layer name</span>
-<span class="w">        </span><span class="s">&#39;Water thick&#39;</span><span class="p">,</span><span class="k">...</span>
-<span class="w">        </span><span class="s">&#39;Water SLD&#39;</span><span class="p">,</span><span class="k">...</span>
-<span class="w">        </span><span class="s">&#39;Bilayer heads rough&#39;</span><span class="p">,</span><span class="k">...</span><span class="c">    % Outer interface of the water layer is a bilayer headgroup</span>
-<span class="w">        </span><span class="s">&#39;Water hydr&#39;</span><span class="p">,</span><span class="k">...</span>
-<span class="w">        </span><span class="s">&#39;Bulk out&#39;</span>
-<span class="w">    </span><span class="p">};</span>
-
-<span class="w">    </span><span class="n">projectClass</span><span class="p">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">waterLayer</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<section id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
 <dl class="mat class">
 <dt class="sig sig-object mat" id="API.projectClass.layersClass">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">layersClass</span></span><a class="headerlink" href="#API.projectClass.layersClass" title="Link to this definition">#</a></dt>
@@ -657,7 +616,6 @@ it is the name of the layer to update.</p></li>
 </dd></dl>
 
 </section>
-</section>
 
 
                 </article>
@@ -670,22 +628,7 @@ it is the name of the layer to update.</p></li>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
+                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>

@@ -365,13 +365,21 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="controlClass.html">Controls Class</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">RAT Entry Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="targetFunctions.html">Target Functions (Low Level API)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="minimisers/index.html">Minimisers</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/simplex.html">Simplex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/de.html">Differential Evolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/ns.html">Nested Sampling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/dream.html">DREAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/generalUtils.html">General Minimiser Utilities</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="plotting.html">Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="utilities.html">Utilities</a></li>
 </ul>
 </li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../python/index.html">Python API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/index.html">Python API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../python/run.html">Run</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python/project.html">Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python/controls.html">Controls</a></li>
@@ -449,7 +457,7 @@ document.write(`
                   
   <section id="rat-entry-functions">
 <h1>RAT Entry Functions<a class="headerlink" href="#rat-entry-functions" title="Link to this heading">#</a></h1>
-<p>The user should begin by creating a project and controls object, then the user can run RAT like shown below</p>
+<p>Once a project and controls class have been created, RAT is run via the <cite>RAT</cite> function:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">Sample usage of RAT class.</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c">% Initialize the project class</span>
@@ -463,12 +471,9 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<p>When the RAT function is called, the classes are passed into internal functions like <cite>parseClassToStructs</cite> which takes the classes and breaks them down into cells,
-limits, priors and more importantly converts the project class to struct.</p>
-<p>Then, the <cite>RATMain</cite> function redirects the control flow based on what procedure is selected in controlsClass. One of the redirecting functions will call the reflectivityCalculation
-which starts the reflectivity calculation.</p>
-<p>Some interesting data type changes are needed because of how things work with coder. Coder wont accept variable sized cell arrays contains variable sized arrays (strings for eg)
-in a field of a struct. So, look at <cite>parseClassToStructs</cite> function to understand how the data is converted.</p>
+<p>The RAT function turns the <cite>projectClass</cite> and <cite>controlsClass</cite> into relevant structs and cell arrays.</p>
+<p>The <cite>parseClassToStructs</cite> function converts the user-friendly data input into an object that can be passed to compiled code.</p>
+<p>Then, the <cite>RATMain</cite> function redirects the control flow based on what procedure is selected in <cite>controlsClass</cite>.</p>
 <dl class="mat function">
 <dt class="sig sig-object mat" id="API.RAT">
 <span class="sig-prename descclassname"><span class="pre">API.</span></span><span class="sig-name descname"><span class="pre">RAT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">project</span></em>, <em class="sig-param"><span class="pre">controls</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.RAT" title="Link to this definition">#</a></dt>

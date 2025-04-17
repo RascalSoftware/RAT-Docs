@@ -369,13 +369,21 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="controlClass.html">Controls Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="entryFunctions.html">RAT Entry Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="targetFunctions.html">Target Functions (Low Level API)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="minimisers/index.html">Minimisers</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/simplex.html">Simplex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/de.html">Differential Evolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/ns.html">Nested Sampling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/dream.html">DREAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/generalUtils.html">General Minimiser Utilities</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="plotting.html">Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="utilities.html">Utilities</a></li>
 </ul>
 </li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../python/index.html">Python API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/index.html">Python API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../python/run.html">Run</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python/project.html">Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python/controls.html">Controls</a></li>
@@ -459,7 +467,7 @@ document.write(`
   <section id="custom-file-class">
 <h1>Custom File Class<a class="headerlink" href="#custom-file-class" title="Link to this heading">#</a></h1>
 <p>RAT enables users to define their own custom files. They can be linked to RAT through Custom File class. Like other classes, the inputs are checked for
-the right order and type. Also, it uses <a class="reference external" href="https://uk.mathworks.com/help/matlab/tables.html">table</a> data type to store the custom files. Custom files can be added or removed using the methods this class provides.</p>
+the right order and type.</p>
 <p>The custom file table has the following columns:</p>
 <ol class="arabic simple">
 <li><p>Name of the row in the Custom File table</p></li>
@@ -468,26 +476,10 @@ the right order and type. Also, it uses <a class="reference external" href="http
 <li><p>Path of the custom file</p></li>
 </ol>
 <p>If the 4 columns are supplied, a new row (cell array of strings) is made using the supplied inputs. Then, <cite>addCustomFile</cite> method is used to append the row to the object.
-This method takes care of the error checking and incrementing the count of the custom files. It also makes a table of the row supplied. This table helps with displaying it
-properly on terminal.</p>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">Adding MATLAB custom file.</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="c">%                       Row Name   Custom File Name  Language   Path</span>
-<span class="w">    </span><span class="n">problem</span><span class="p">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s">&#39;DSPC Model&#39;</span><span class="p">,</span><span class="s">&#39;customBilayer.m&#39;</span><span class="p">,</span><span class="s">&#39;matlab&#39;</span><span class="p">,</span><span class="nb">pwd</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">Adding C++ custom file.</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">        </span><span class="c">% For C++, function name of the cpp file is supplied</span>
-<span class="w">        </span><span class="c">%                       Row Name        DLL/function Name  Language   Path</span>
-<span class="w">        </span><span class="n">problem</span><span class="p">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s">&#39;DSPC CPP Model&#39;</span><span class="p">,</span><span class="s">&#39;customBilayer&#39;</span><span class="p">,</span><span class="s">&#39;c++&#39;</span><span class="p">,</span><span class="nb">pwd</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
+This method takes care of the error checking and incrementing the count of the custom files. The contents of the class are displayed as a table.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>RAT only supports C++ (via dynamic library), MATLAB, and Python.</p>
+<p>RAT supports custom files in C++ (compiled to dynamic library), MATLAB, and Python.</p>
 </div>
 <section id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>

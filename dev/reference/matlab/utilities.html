@@ -263,6 +263,10 @@ document.write(`
   
 
   
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
 </div>
 
     </header>
@@ -365,13 +369,21 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="controlClass.html">Controls Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="entryFunctions.html">RAT Entry Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="targetFunctions.html">Target Functions (Low Level API)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="minimisers/index.html">Minimisers</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/simplex.html">Simplex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/de.html">Differential Evolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/ns.html">Nested Sampling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/dream.html">DREAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/generalUtils.html">General Minimiser Utilities</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="plotting.html">Plotting</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Utilities</a></li>
 </ul>
 </li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../python/index.html">Python API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/index.html">Python API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../python/run.html">Run</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python/project.html">Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python/controls.html">Controls</a></li>
@@ -449,6 +461,26 @@ document.write(`
                   
   <section id="utilities">
 <h1>Utilities<a class="headerlink" href="#utilities" title="Link to this heading">#</a></h1>
+<p>RAT contains a variety of utility functions, mostly for development but some are for file reading and conversion.</p>
+<section id="file-reading-and-conversion">
+<h2>File reading and conversion<a class="headerlink" href="#file-reading-and-conversion" title="Link to this heading">#</a></h2>
+<dl class="mat function">
+<dt class="sig sig-object mat" id="utilities.readOrso">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">readOrso</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.readOrso" title="Link to this definition">#</a></dt>
+<dd><p>Read data from an .ort file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – The path to the .ort file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>output_data</strong> – The data array from the .ort file.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="mat function">
 <dt class="sig sig-object mat" id="utilities.misc.projectClassToR1">
 <span class="sig-prename descclassname"><span class="pre">utilities.misc.</span></span><span class="sig-name descname"><span class="pre">projectClassToR1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">project</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.misc.projectClassToR1" title="Link to this definition">#</a></dt>
@@ -508,6 +540,347 @@ r1 struct .mat file.</p>
 </dd></dl>
 
 </section>
+<section id="developer-utilities">
+<h2>Developer utilities<a class="headerlink" href="#developer-utilities" title="Link to this heading">#</a></h2>
+<dl class="mat function">
+<dt class="sig sig-object mat" id="utilities.copyProperties">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">copyProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">oldObj</span></em>, <em class="sig-param"><span class="pre">newObj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.copyProperties" title="Link to this definition">#</a></dt>
+<dd><p>Copy public, non-dependent property values between two instances of a class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>oldObj</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">object</span></code></span>) – The object to copy from.</p></li>
+<li><p><strong>newObj</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">object</span></code></span>) – The object to copy to.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="utilities.isFigure">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">isFigure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">figure</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.isFigure" title="Link to this definition">#</a></dt>
+<dd><p>Checks whether input is either a figure object or a figure number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>figure</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">Any</span></code></span>) – The input to check if it is a figure.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref mat mat-exc docutils literal notranslate"><span class="pre">Generic</span> <span class="pre">Error</span></code></span> – if input is not a figure or a figure number.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="utilities.isText">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">isText</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.isText" title="Link to this definition">#</a></dt>
+<dd><p>Checks whether input is either a character array or a string.</p>
+<p>isText(‘char array’);</p>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="utilities.mustBeScalarOrEmptyLogical">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">mustBeScalarOrEmptyLogical</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">input</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.mustBeScalarOrEmptyLogical" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="utilities.textProgressBar">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">textProgressBar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">curm</span></em>, <em class="sig-param"><span class="pre">pct</span></em>, <em class="sig-param"><span class="pre">varargin</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.textProgressBar" title="Link to this definition">#</a></dt>
+<dd><p>Draws a progress bar in the console. The inputs are the message (char array) and
+percentage progress expressed as a decimal (i.e., between 0 and 1).
+Optionally a boolean value can be provided to disable the progress
+bar.</p>
+<p>textProgressBar(“DREAM”, 0.5, false)</p>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="utilities.validateLimits">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">validateLimits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">min</span></em>, <em class="sig-param"><span class="pre">value</span></em>, <em class="sig-param"><span class="pre">max</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.validateLimits" title="Link to this definition">#</a></dt>
+<dd><p>Validates the value, minimum and maximum limit variables.</p>
+<p class="rubric">Examples</p>
+<p>Incorrect bounds throws exception.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">validateLimits</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>  <span class="o">%</span> <span class="n">throws</span> <span class="n">exception</span> <span class="k">as</span> <span class="nb">max</span> <span class="ow">is</span> <span class="n">less</span> <span class="n">than</span> <span class="nb">min</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double</span></code></span>) – The minimum value to validate.</p></li>
+<li><p><strong>value</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double</span></code></span>) – The value to validate.</p></li>
+<li><p><strong>max</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double</span></code></span>) – The maximum value to validate.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>index</strong> – A valid row index.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>whole number</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref mat mat-exc docutils literal notranslate"><span class="pre">invalidValue</span></code></span> – If <code class="docutils literal notranslate"><span class="pre">min</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">max</span></code> or <code class="docutils literal notranslate"><span class="pre">value</span></code> is outside the limits.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="utilities.validateLogical">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">validateLogical</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">input</span></em>, <em class="sig-param"><span class="pre">message</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.validateLogical" title="Link to this definition">#</a></dt>
+<dd><p>Checks input is logical and throws an exception with given message.</p>
+<p>validateLogical(2, ‘Input must be logical’);</p>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="utilities.validateNumber">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">validateNumber</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">input</span></em>, <em class="sig-param"><span class="pre">message</span></em>, <em class="sig-param"><span class="pre">validateInt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.validateNumber" title="Link to this definition">#</a></dt>
+<dd><p>Checks input is a number and throws an exception with given message.</p>
+<p>If validateInt is true, also check that input is a whole number.</p>
+<p>validateNumber(2, ‘This is not a number’);
+validateNumber(2.5, ‘This is not a whole number’, true);</p>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="utilities.validateOption">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">validateOption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">input</span></em>, <em class="sig-param"><span class="pre">enum</span></em>, <em class="sig-param"><span class="pre">message</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.validateOption" title="Link to this definition">#</a></dt>
+<dd><p>Checks input is a valid member of enum and throws an exception with given message.
+Returns the enum as a char array</p>
+<p>validateOption(‘uniform’, ‘priorTypes’, ‘This is not a valid PriorType’);</p>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="utilities.validateParameter">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">validateParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">param</span></em>, <em class="sig-param"><span class="pre">paramList</span></em>, <em class="sig-param"><span class="pre">paramDesc</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.validateParameter" title="Link to this definition">#</a></dt>
+<dd><p>Checks that the given parameter index or name is valid in the given list of parameters, then returns the
+parameter name from the list.</p>
+<p class="rubric">Examples</p>
+<p>&gt;&gt; param = validateParameter(‘d2o’, {‘D2O’, ‘SMW’});
+This should return D2O as name check is case insensitive.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>param</strong> – The parameter name or index to validate.</p></li>
+<li><p><strong>paramList</strong> – The list of parameter to check for param.</p></li>
+<li><p><strong>paramDesc</strong> – The description or type of the parameter to find in the list.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="utilities.validatePriors">
+<span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">validatePriors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">priorType</span></em>, <em class="sig-param"><span class="pre">mu</span></em>, <em class="sig-param"><span class="pre">sigma</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.validatePriors" title="Link to this definition">#</a></dt>
+<dd><p>Validates the prior types, mu and sigma variables. If mu and sigma are set on a uniform prior,
+they would be changed to 0 and Inf respectively and a warning issued.</p>
+<p class="rubric">Examples</p>
+<p>To validate a uniform prior.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prior</span> <span class="o">=</span> <span class="n">validatePriors</span><span class="p">(</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prior</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>ans =</dt><dd><dl class="simple">
+<dt>1×3 cell array</dt><dd><p>{‘uniform’}    {[0]}    {[Inf]}</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>priorType</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">PriorTypes</span></code></span>) – The prior type to validate.</p></li>
+<li><p><strong>mu</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">[]</span></code></span>) – The Gaussian mean value to validate.</p></li>
+<li><p><strong>sigma</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">double,</span> <span class="pre">default:</span> <span class="pre">[]</span></code></span>) – The Gaussian standard deviation value to validate.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>priors</strong> – A cell array containing the valid prior type, mu and sigma.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>cell</p>
+</dd>
+<dt class="field-even">Warns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>generic warning</strong> – If <code class="docutils literal notranslate"><span class="pre">mu</span></code> or <code class="docutils literal notranslate"><span class="pre">sigma</span></code> is set on a uniform prior.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat class">
+<dt class="sig sig-object mat" id="utilities.pythonWrapper">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">pythonWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">libPath</span></em>, <em class="sig-param"><span class="pre">functionName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.pythonWrapper" title="Link to this definition">#</a></dt>
+<dd><p>A custom function wrapper for a python file.</p>
+<dl class="mat method">
+<dt class="sig sig-object mat" id="utilities.pythonWrapper.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utilities.pythonWrapper.delete" title="Link to this definition">#</a></dt>
+<dd><p>Removes the temporary runner file</p>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="utilities.pythonWrapper.disp">
+<span class="sig-name descname"><span class="pre">disp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utilities.pythonWrapper.disp" title="Link to this definition">#</a></dt>
+<dd><p>Displays library path and function name</p>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="utilities.pythonWrapper.getHandle">
+<span class="sig-name descname"><span class="pre">getHandle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utilities.pythonWrapper.getHandle" title="Link to this definition">#</a></dt>
+<dd><p>Gets the name of the temporary runner file</p>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="utilities.pythonWrapper.pythonWrapper">
+<span class="sig-name descname"><span class="pre">pythonWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">libPath</span></em>, <em class="sig-param"><span class="pre">functionName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.pythonWrapper.pythonWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Creates a pythonWrapper object. It creates a temporary function which runs
+the python code using the python executable connected to MATLAB pyenv. The
+arguments should be full or relative path of the python file with extension and
+the name of the function to call in the python file</p>
+<p>wrapper = pythonWrapper(‘customBilayer.py’, ‘customBilayer’);
+wrapper = pythonWrapper(‘D:/MATLAB/customBilayer.py’, ‘customDomains’);</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="mat class">
+<dt class="sig sig-object mat" id="utilities.customEnum">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">customEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.customEnum" title="Link to this definition">#</a></dt>
+<dd><dl class="mat method">
+<dt class="sig sig-object mat" id="utilities.customEnum.customEnum">
+<span class="sig-name descname"><span class="pre">customEnum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.customEnum.customEnum" title="Link to this definition">#</a></dt>
+<dd><p>Creates a customEnum object. This is a base class used to
+associate separate values to an enumeration.</p>
+<p>enum = customEnum();</p>
+</dd></dl>
+
+<dl class="mat staticmethod">
+<dt class="sig sig-object mat" id="utilities.customEnum.fromValue">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">fromValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name</span></em>, <em class="sig-param"><span class="pre">value</span></em>, <em class="sig-param"><span class="pre">acceptIndex</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.customEnum.fromValue" title="Link to this definition">#</a></dt>
+<dd><p>Gets the enumeration with the given value. An empty value is
+returned if value is not found. Expects the name of the
+enumeration class and the value of an enumeration. If acceptIndex
+is true the function will accept an index in place of the value (it will not
+work if enum values are numeric)</p>
+<p>bulkInEnum = enum.fromValue(‘hydrationTypes’, ‘bulk in’);</p>
+</dd></dl>
+
+<dl class="mat staticmethod">
+<dt class="sig sig-object mat" id="utilities.customEnum.toStruct">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">toStruct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name</span></em>, <em class="sig-param"><span class="pre">useIndexAsValue</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.customEnum.toStruct" title="Link to this definition">#</a></dt>
+<dd><p>Returns a structure containing all the enumeration names and
+values. Expects the name of the enumeration class</p>
+<p>structure = enum.toStruct(‘priorTypes’)</p>
+</dd></dl>
+
+<dl class="mat staticmethod">
+<dt class="sig sig-object mat" id="utilities.customEnum.values">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.customEnum.values" title="Link to this definition">#</a></dt>
+<dd><p>Returns a cell array containing all the values of the
+given enumeration class. Expects the name of the
+enumeration class</p>
+<p>array = enum.values(‘priorTypes’);</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="mat class">
+<dt class="sig sig-object mat" id="utilities.dyLibWrapper">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">utilities.</span></span><span class="sig-name descname"><span class="pre">dyLibWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">libPath</span></em>, <em class="sig-param"><span class="pre">functionName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.dyLibWrapper" title="Link to this definition">#</a></dt>
+<dd><p>A custom function wrapper for c++ dynamic library. The library should be a .dll
+(Windows), .so (Linux), or .dylib (MacOS).</p>
+<dl class="mat method">
+<dt class="sig sig-object mat" id="utilities.dyLibWrapper.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utilities.dyLibWrapper.delete" title="Link to this definition">#</a></dt>
+<dd><p>Destroys the callback class instance in wrapperMex</p>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="utilities.dyLibWrapper.disp">
+<span class="sig-name descname"><span class="pre">disp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utilities.dyLibWrapper.disp" title="Link to this definition">#</a></dt>
+<dd><p>Displays libarary path and function name</p>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="utilities.dyLibWrapper.dyLibWrapper">
+<span class="sig-name descname"><span class="pre">dyLibWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">libPath</span></em>, <em class="sig-param"><span class="pre">functionName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.dyLibWrapper.dyLibWrapper" title="Link to this definition">#</a></dt>
+<dd><p>Creates a dyLibWrapper object. It creates a callback interface for the
+library via wrapperMex.The arguments should be full or relative path of
+the library with extension and the name of the function to call in the dynamic library</p>
+<p>wrapper = dyLibWrapper(‘customBilayer.so’, ‘customBilayer’);
+wrapper = dyLibWrapper(‘D:/MATLAB/customBilayer.dll’, ‘customDomains’);</p>
+</dd></dl>
+
+<dl class="mat method">
+<dt class="sig sig-object mat" id="utilities.dyLibWrapper.getHandle">
+<span class="sig-name descname"><span class="pre">getHandle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#utilities.dyLibWrapper.getHandle" title="Link to this definition">#</a></dt>
+<dd><p>Gets the wrapper object handle</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="utilities.misc.randSample">
+<span class="sig-prename descclassname"><span class="pre">utilities.misc.</span></span><span class="sig-name descname"><span class="pre">randSample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">population</span></em>, <em class="sig-param"><span class="pre">numItems</span></em>, <em class="sig-param"><span class="pre">weights</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.misc.randSample" title="Link to this definition">#</a></dt>
+<dd><p>Take a random sample of values.
+GPL-licensed replacement for <cite>randsample</cite> from Statistics and Machine
+Learning Toolbox.</p>
+<p>Note that unweighted sampling is <em>without</em> replacement, and weighted
+sampling is <em>with</em> replacement!</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>population</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">vector</span> <span class="pre">or</span> <span class="pre">a</span> <span class="pre">whole</span> <span class="pre">number</span></code></span>) – if a vector, sample k values from the vector.
+if an whole number, sample k values from 1:n.</p></li>
+<li><p><strong>numItems</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">whole</span> <span class="pre">number</span></code></span>) – the number of items to sample.</p></li>
+<li><p><strong>weights</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">vector,</span> <span class="pre">optional</span></code></span>) – a weight vector, where the i’th index of <code class="docutils literal notranslate"><span class="pre">weights</span></code> is the
+weight for the i’th member of the population.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>outputSample</strong> – The resulting sample of values.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>vector</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
+<dt class="sig sig-object mat" id="utilities.misc.kde">
+<span class="sig-prename descclassname"><span class="pre">utilities.misc.</span></span><span class="sig-name descname"><span class="pre">kde</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">data</span></em>, <em class="sig-param"><span class="pre">n</span></em>, <em class="sig-param"><span class="pre">MIN</span></em>, <em class="sig-param"><span class="pre">MAX</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.misc.kde" title="Link to this definition">#</a></dt>
+<dd><p>Estimate kernel density for one-dimensional data.</p>
+<p>Reliable and extremely fast kernel density estimator for one-dimensional data;
+Gaussian kernel is assumed and the bandwidth is chosen automatically;
+Unlike many other implementations, this one is immune to problems
+caused by multimodal densities with widely separated modes (see example). The
+estimation does not deteriorate for multimodal densities, because we never assume
+a parametric model for the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">vector</span></code></span>) – The vector of data from which the density estimate is constructed.</p></li>
+<li><p><strong>n</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – The number of mesh points used in the discretisation of the interval.
+Must be a power of two; if not, then it is rounded up (to <code class="docutils literal notranslate"><span class="pre">n=2^ceil(log2(n))</span></code>)</p></li>
+<li><p><strong>MIN</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float,</span> <span class="pre">optional</span></code></span>) – The minimum for the interval over which the estimate is constructed.
+Defaults to <code class="docutils literal notranslate"><span class="pre">min(data)</span> <span class="pre">-</span> <span class="pre">range</span> <span class="pre">/</span> <span class="pre">10</span></code>, where range is the data range.</p></li>
+<li><p><strong>MAX</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float,</span> <span class="pre">optional</span></code></span>) – The maximum for the interval over which the estimate is constructed.
+Defaults to <code class="docutils literal notranslate"><span class="pre">max(data)</span> <span class="pre">+</span> <span class="pre">range</span> <span class="pre">/</span> <span class="pre">10</span></code>, where range is the data range.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>bandwidth</strong> (<em>float</em>) – The optimal bandwidth for a Gaussian kernel over the data.</p></li>
+<li><p><strong>density</strong> (<em>vector</em>) – Column vector with the values of the density estimate at the grid points.</p></li>
+<li><p><strong>xmesh</strong> (<em>vector</em>) – The grid over which the density estimate is coputed.</p></li>
+<li><p><strong>cdf</strong> (<em>vector</em>) – Column vector with the values of the CDF.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">35</span> <span class="p">;</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mi">55</span><span class="p">];</span>
+<span class="go">    kde(data,2^14,min(data)-5,max(data)+5);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<span class="target" id="module-utilities.+exceptions"></span></section>
+</section>
 
 
                 </article>
@@ -520,7 +893,23 @@ r1 struct .mat file.</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-reading-and-conversion">File reading and conversion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developer-utilities">Developer utilities</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

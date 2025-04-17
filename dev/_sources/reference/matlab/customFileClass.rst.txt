@@ -5,7 +5,7 @@ Custom File Class
 =================
 
 RAT enables users to define their own custom files. They can be linked to RAT through Custom File class. Like other classes, the inputs are checked for
-the right order and type. Also, it uses `table`_ data type to store the custom files. Custom files can be added or removed using the methods this class provides. 
+the right order and type.
 
 The custom file table has the following columns:
 
@@ -15,25 +15,11 @@ The custom file table has the following columns:
 4. Path of the custom file
 
 If the 4 columns are supplied, a new row (cell array of strings) is made using the supplied inputs. Then, `addCustomFile` method is used to append the row to the object.
-This method takes care of the error checking and incrementing the count of the custom files. It also makes a table of the row supplied. This table helps with displaying it 
-properly on terminal.
-
-.. code-block:: MATLAB
-    :caption: Adding MATLAB custom file.
-
-        %                       Row Name   Custom File Name  Language   Path
-        problem.addCustomFile('DSPC Model','customBilayer.m','matlab',pwd);
-
-.. code-block:: MATLAB
-    :caption: Adding C++ custom file.
-
-            % For C++, function name of the cpp file is supplied
-            %                       Row Name        DLL/function Name  Language   Path
-            problem.addCustomFile('DSPC CPP Model','customBilayer','c++',pwd);
+This method takes care of the error checking and incrementing the count of the custom files. The contents of the class are displayed as a table.
 
 
 .. note::
-    RAT only supports C++ (via dynamic library), MATLAB, and Python.
+    RAT supports custom files in C++ (compiled to dynamic library), MATLAB, and Python.
 
 
 *********

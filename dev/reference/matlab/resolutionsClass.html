@@ -263,10 +263,6 @@ document.write(`
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
-      <span class="fa-solid fa-outdent"></span>
-    </label>
-  
 </div>
 
     </header>
@@ -369,13 +365,21 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="controlClass.html">Controls Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="entryFunctions.html">RAT Entry Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="targetFunctions.html">Target Functions (Low Level API)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="minimisers/index.html">Minimisers</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/simplex.html">Simplex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/de.html">Differential Evolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/ns.html">Nested Sampling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/dream.html">DREAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="minimisers/generalUtils.html">General Minimiser Utilities</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="plotting.html">Plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="utilities.html">Utilities</a></li>
 </ul>
 </li>
 </ul>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../python/index.html">Python API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/index.html">Python API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../python/run.html">Run</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python/project.html">Project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python/controls.html">Controls</a></li>
@@ -458,22 +462,9 @@ document.write(`
                   
   <section id="resolutions-class">
 <h1>Resolutions Class<a class="headerlink" href="#resolutions-class" title="Link to this heading">#</a></h1>
-<p>Resolutions are defined in a two stage process. Firstly, actual fitted parameters are defined. These are held in a ‘Parameter Class’ table (referring to data type).
-Then, these are grouped into the resolutions themselves using a multi-type table. Then the resolution parameters can be used to either define resolution as
-constant, data, or a function.</p>
-<p>The constructor is called with the parameters and resolutions as input. The parameters are stored in the resolPars table whereas the resolutions are stored in
-the resolutions table and the allowed types are defined in the allowedTypes variable.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ol class="arabic simple">
-<li><p>For constant only one parameter is supplied to multi-type table.</p></li>
-<li><p>For data, the name is supplied, along with name of the data in the data table.</p></li>
-<li><p>For function, the function name is supplied, along with up to three parameters (from the parameters table) which are then supplied to the function to calculate the resolution.</p></li>
-</ol>
-</div>
-<p>In each case, the Resolutions can either be added to or subtracted from the data.</p>
-<section id="reference">
-<h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
+<p>The <cite>resolutionsClass</cite> holds data describing how instrument resolution should be accounted for in the experiment. This data is the type of resolution (which can
+be either constant or from data) and the source of the resolution; for a constant resolution, this is the name of a resolution parameter (added via <cite>projectClass.addResolutionParam</cite>);
+for data, this will be taken from the fourth column of the data array used by the contrast.</p>
 <dl class="mat class">
 <dt class="sig sig-object mat" id="API.projectClass.resolutionsClass">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">API.projectClass.</span></span><span class="sig-name descname"><span class="pre">resolutionsClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">parameters</span></em>, <em class="sig-param"><span class="pre">startResolution</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.resolutionsClass" title="Link to this definition">#</a></dt>
@@ -688,7 +679,6 @@ it is the name of the resolution to update.</p></li>
 </dd></dl>
 
 </section>
-</section>
 
 
                 </article>
@@ -701,22 +691,7 @@ it is the name of the resolution to update.</p></li>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
+                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>
