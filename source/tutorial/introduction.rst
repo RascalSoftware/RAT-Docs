@@ -44,22 +44,22 @@ The code block below shows how to set up each object for each language, as well 
 .. tab-set-code::
     .. code-block:: Matlab
 
-        % to create a project and controls:
+        % Create project and controls objects
         project = projectClass();
         controls = controlsClass();
         
-        % to run:
+        % Run after populating the project
         [project, results] = RAT(project, controls);
 
     .. code-block:: Python
 
         import RATapi as RAT
 
-        # to create a project and controls:
+        # Create project and controls objects
         project = RAT.Project()
         controls = RAT.Controls()
 
-        # to run:
+        # Run after populating the project
         project, results = RAT.run(project, controls)
 
 

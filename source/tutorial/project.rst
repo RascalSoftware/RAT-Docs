@@ -11,111 +11,8 @@ once our model is defined, we can interact with it in various ways without needi
 So we can try out different types of analysis and explore the landscape of solutions 
 by simply modifying the **Controls** object, leaving the **Project** object alone.
 
-As well as having two inputs, RAT always provides two outputs, so the call to the toolbox is always of this form:
-
-.. tab-set-code::
-    .. code-block:: Matlab
-
-        [problem, results] = RAT(problem, controls)
-    
-    .. code-block:: Python
-
-        problem, results = RAT.run(problem, controls)
-
-
-In this case we have called our inputs ``problem`` and ``controls``, and we have called our outputs ``problem`` and ``results``, 
-but we are free to call them anything we like. We will look at the outputs in more detail in the next section.
-
-The first input, ``problem``, is an instance of the **Project** class:
-
-.. tab-set-code::
-    .. code-block:: Matlab
-
-        >> empty_problem = createProject(name='my project');
-        >> class(empty_problem)
-
-        ans =
-            'projectClass'
-    
-    .. code-block:: Python
-        :force:
-
-        >>> empty_problem = RAT.Project(name='my project')
-        >>> type(empty_problem)
-
-        <class 'RAT.project.Project'>
-
-The structure of the class is a collection of settings and tables defining things like calculation type,
-model type, parameters, data, contrasts, and so on. These define all we need for our analysis.
-
-.. tab-set::
-    :class: tab-label-hidden
-    :sync-group: code
-
-    .. tab-item:: Matlab
-        :sync: Matlab
-
-        .. output:: Matlab
-
-            empty_problem = createProject(name='my project');
-            disp(empty_problem)
-
-    .. tab-item:: Python 
-        :sync: Python
-        
-        .. output:: Python
-
-            empty_problem = RAT.Project(name='my project')
-            print(empty_problem)
-
-In the following sections, we will look at how to build a standard layer slab model with this class. It is also
+In the following sections, we will look at how to build a standard layer slab model with the **Project** class. It is also
 possible to define a custom model using a function; this is seen in the :ref:`customModels` tutorial. 
-
-.. note:: 
-   If you have a model from RasCAL-1, this model can be imported as a RAT project. See the following example
-   pages for how to do this in :ref:`MATLAB<convertR1Matlab>` and :ref:`Python<convert_rascalIPYNB>`.
-
-
-When we run RAT, the first of the two outputs is another **Project**, but updated with the results of the calculation.
-So, if we run a fit, the fitted parameters will be updated with the best fit values of our procedure. 
-
-.. tab-set-code::
-    .. code-block:: Matlab
-
-        [outputProblem, results] = RAT(problem, controls);
-    
-    .. code-block:: Python
-
-        output_problem, results = RAT.run(problem, controls)
-
-The second output is a class containing the simulated reflectivities, SLDs and so on 
-using the parameters from the procedure given in the **Controls** object: 
-
-.. tab-set::
-    :class: tab-label-hidden
-    :sync-group: code
-
-    .. tab-item:: Matlab
-        :sync: Matlab
-
-        .. output:: Matlab
-
-            controls = controlsClass;
-            controls.display = 'off';
-            [~, ~, results] = evalc('RAT(load("source/tutorial/data/twoContrastExample.mat").problem, controls);');
-            disp(results)
-
-    .. tab-item:: Python 
-        :sync: Python
-
-        .. output:: Python
-
-            controls = RAT.Controls(display='off')
-            problem = RAT.Project.load("source/tutorial/data/two_contrast_example.json")
-            p, results = RAT.run(problem, controls)
-            print(results)
-
-In the following sections, we will discuss the methods of the **Project** class, and see how they allow us to build up a model by populating the various sections.
 
 ***********************************
 The Components of the Project Class
@@ -1314,14 +1211,15 @@ Now we'll calculate this to check the agreement with the data. We need an instan
 
         .. output:: Matlab
 
-            controls.display = 'iter';
+            controls = controlsClass();
             disp(controls)
 
     .. tab-item:: Python 
         :sync: Python
         
         .. output:: Python
-
+            
+            controls = RAT.Controls()
             print(controls)
 
 We then send all of this to RAT, and plot the output:
