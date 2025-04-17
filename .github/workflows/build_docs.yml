@@ -5,12 +5,17 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to build (default: dev)'
+        default: 'dev'
 
 jobs: 
   build:
     env:
       RAT_URL: "https://rascalsoftware.github.io/RAT-Docs/"
-      RAT_VERSION: "dev"
+      RAT_VERSION: "${{ github.event.inputs.version }}"
     runs-on: Linux
 
     steps:
@@ -26,14 +31,23 @@ jobs:
         export DISPLAY=':99.0'
         Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
 
-        wget https://github.com/RascalSoftware/RAT/releases/download/nightly/Linux.zip
+        VERSION=${RAT_VERSION:-"dev"}
+
+        python -m pip install --upgrade pip
+        if [ ${VERSION} == 'dev' ]; then
+          wget https://github.com/RascalSoftware/RAT/releases/download/nightly/Linux.zip
+          pip install RATapi
+        else
+          wget "https://github.com/RascalSoftware/RAT/releases/download/${VERSION}/Linux.zip"
+          pip install RATapi==${VERSION} || pip install RATapi
+        fi
         unzip Linux.zip -d API/
         rm API/utilities/mockFunction.m  # as otherwise the MATLAB reference fails to parse it
 
         # we get pandoc from web as apt version is outdated
         wget https://github.com/jgm/pandoc/releases/download/3.6.2/pandoc-3.6.2-1-amd64.deb
         sudo apt install -y ./pandoc-3.6.2-1-amd64.deb
-        python -m pip install --upgrade pip
+        
         pip install matlabengine==24.1.*
         pip install -r requirements.txt
         python build_docs.py
