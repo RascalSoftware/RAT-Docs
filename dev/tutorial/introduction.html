@@ -506,11 +506,11 @@ we have chosen to optimise. The second is a results object which contains the re
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
 MATLAB</label><div class="sd-tab-content docutils">
-<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% to create a project and controls:</span>
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Create project and controls objects</span>
 <span class="n">project</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">projectClass</span><span class="p">();</span>
 <span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">();</span>
 
-<span class="c">% to run:</span>
+<span class="c">% Run after populating the project</span>
 <span class="p">[</span><span class="n">project</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RAT</span><span class="p">(</span><span class="n">project</span><span class="p">,</span><span class="w"> </span><span class="n">controls</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -520,11 +520,11 @@ MATLAB</label><div class="sd-tab-content docutils">
 PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">RATapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">RAT</span>
 
-<span class="c1"># to create a project and controls:</span>
+<span class="c1"># Create project and controls objects</span>
 <span class="n">project</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Project</span><span class="p">()</span>
 <span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">()</span>
 
-<span class="c1"># to run:</span>
+<span class="c1"># Run after populating the project</span>
 <span class="n">project</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">controls</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1102,7 +1102,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ______________________________________________________________________________________________
 
-Elapsed time is 0.536122 seconds.
+Elapsed time is 0.495167 seconds.
 
 Finished RAT ______________________________________________________________________________________________
 </pre></div>
