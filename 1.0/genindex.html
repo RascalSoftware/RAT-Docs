@@ -1,0 +1,1807 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; RAT  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/autodoc_pydantic.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=9deae167" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=881e7dcd"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://rascalsoftware.github.io/RAT-Docs/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="icon" href="_static/logo.png"/>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="RAT  documentation - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="RAT  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+      <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Home
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="guide.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="reference/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Home
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="guide.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="reference/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#J"><strong>J</strong></a>
+ | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#X"><strong>X</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/python/project.html#RATapi.Project.absorption">absorption (RATapi.Project attribute)</a>
+</li>
+      <li><a href="reference/python/examples.html#RATapi.examples.absorption">absorption() (in module RATapi.examples)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.adaptPCR">adaptPCR (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.adaptPCR">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/minimisers/dream.html#minimisers.DREAM.functions.adaptPCR">adaptPCR() (in module minimisers.DREAM.functions)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.BackgroundActions.Add">Add (RATapi.utils.enums.BackgroundActions attribute)</a>
+</li>
+      <li><a href="reference/matlab/backgroundsClass.html#API.projectClass.backgroundsClass.addBackground">addBackground() (API.projectClass.backgroundsClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.addBackground">(API.projectClass.projectClass method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.addBackgroundParam">addBackgroundParam() (API.projectClass.projectClass method)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.domainsClass.addContrast">addContrast() (API.projectClass.domainsClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.addContrast">(API.projectClass.projectClass method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/customFileClass.html#API.projectClass.customFileClass.addCustomFile">addCustomFile() (API.projectClass.customFileClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.addCustomFile">(API.projectClass.projectClass method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/dataClass.html#API.projectClass.dataClass.addData">addData() (API.projectClass.dataClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.addData">(API.projectClass.projectClass method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.domainsClass.addDomainContrast">addDomainContrast() (API.projectClass.domainsClass method)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.domainsClass.addDomainRatio">addDomainRatio() (API.projectClass.domainsClass method)</a>
+</li>
+      <li><a href="reference/matlab/layersClass.html#API.projectClass.layersClass.addLayer">addLayer() (API.projectClass.layersClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.addLayer">(API.projectClass.projectClass method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.addLayerGroup">addLayerGroup() (API.projectClass.projectClass method)</a>
+</li>
+      <li><a href="reference/matlab/parametersClass.html#API.projectClass.parametersClass.addParameter">addParameter() (API.projectClass.parametersClass method)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.addResolution">addResolution() (API.projectClass.projectClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/resolutionsClass.html#API.projectClass.resolutionsClass.addResolution">(API.projectClass.resolutionsClass method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.addResolutionParam">addResolutionParam() (API.projectClass.projectClass method)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Geometries.AirSubstrate">AirSubstrate (RATapi.utils.enums.Geometries attribute)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#targetFunctions.common.groupLayers.allocateLayersForContrast">allocateLayersForContrast() (in module targetFunctions.common.groupLayers)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#targetFunctions.common.groupLayers.allocateParamsToLayers">allocateParamsToLayers() (in module targetFunctions.common.groupLayers)</a>
+</li>
+      <li><a href="reference/python/inputs.html#RATapi.inputs.append_data_background">append_data_background() (in module RATapi.inputs)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#targetFunctions.+domainsTF.averageReflectivity">averageReflectivity() (in module targetFunctions.domainsTF)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.background">background (API.projectClass.projectClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#domainsClass.background">(domainsClass attribute)</a>
+</li>
+        <li><a href="reference/matlab/projectClass.html#projectClass.background">(projectClass attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/project.html#RATapi.Project.background_parameters">background_parameters (RATapi.Project attribute)</a>
+</li>
+      <li><a href="reference/matlab/backgroundsClass.html#backgroundsClass.backgroundParams">backgroundParams (backgroundsClass attribute)</a>
+</li>
+      <li><a href="reference/matlab/backgroundsClass.html#backgroundsClass.backgrounds">backgrounds (backgroundsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/project.html#RATapi.Project.backgrounds">(RATapi.Project attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/backgroundsClass.html#API.projectClass.backgroundsClass">backgroundsClass (class in API.projectClass)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#targetFunctions.common.backSort">backSort() (in module targetFunctions.common)</a>
+</li>
+      <li><a href="reference/python/outputs.html#RATapi.outputs.BayesResults">BayesResults (class in RATapi.outputs)</a>
+</li>
+      <li><a href="reference/matlab/plotting.html#utilities.plotting.bayesShadedPlot">bayesShadedPlot() (in module utilities.plotting)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Strategies.BestWithJitter">BestWithJitter (RATapi.utils.enums.Strategies attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.BoundHandling.Bound">Bound (RATapi.utils.enums.BoundHandling attribute)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/dream.html#minimisers.DREAM.postprocessing.boundaryHandling">boundaryHandling() (in module minimisers.DREAM.postprocessing)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.boundHandling">boundHandling (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.boundHandling">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/project.html#RATapi.Project.bulk_in">bulk_in (RATapi.Project attribute)</a>
+</li>
+      <li><a href="reference/python/project.html#RATapi.Project.bulk_out">bulk_out (RATapi.Project attribute)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#domainsClass.bulkIn">bulkIn (domainsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#projectClass.bulkIn">(projectClass attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Hydration.BulkIn">BulkIn (RATapi.utils.enums.Hydration attribute)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#domainsClass.bulkOut">bulkOut (domainsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#projectClass.bulkOut">(projectClass attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Hydration.BulkOut">BulkOut (RATapi.utils.enums.Hydration attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/minimisers/dream.html#minimisers.DREAM.postprocessing.calcDelta">calcDelta() (in module minimisers.DREAM.postprocessing)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/ns.html#minimisers.NS.calcEllipsoid">calcEllipsoid() (in module minimisers.NS)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/dream.html#minimisers.DREAM.functions.calcLogLikelihood">calcLogLikelihood() (in module minimisers.DREAM.functions)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/dream.html#minimisers.DREAM.functions.calcLogPrior">calcLogPrior() (in module minimisers.DREAM.functions)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/dream.html#minimisers.DREAM.functions.calcProposal">calcProposal() (in module minimisers.DREAM.functions)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.calcSldDuringFit">calcSldDuringFit (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.calcSldDuringFit">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Procedures.Calculate">Calculate (RATapi.utils.enums.Procedures attribute)</a>
+</li>
+      <li><a href="reference/python/project.html#RATapi.Project.calculation">calculation (RATapi.Project attribute)</a>
+</li>
+      <li><a href="reference/python/outputs.html#RATapi.outputs.CalculationResults">CalculationResults (class in RATapi.outputs)</a>
+</li>
+      <li><a href="reference/python/project.html#RATapi.Project.check_allowed_source">check_allowed_source() (RATapi.Project method)</a>
+</li>
+      <li><a href="reference/python/project.html#RATapi.Project.check_allowed_values">check_allowed_values() (RATapi.Project method)</a>
+</li>
+      <li><a href="reference/python/project.html#RATapi.Project.check_contrast_model_allowed_values">check_contrast_model_allowed_values() (RATapi.Project method)</a>
+</li>
+      <li><a href="reference/python/inputs.html#RATapi.inputs.check_indices">check_indices() (in module RATapi.inputs)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#targetFunctions.common.costFunctions.chiSquared">chiSquared() (in module targetFunctions.common.costFunctions)</a>
+</li>
+      <li><a href="reference/python/classlist.html#RATapi.ClassList">ClassList (class in RATapi)</a>
+</li>
+      <li><a href="reference/python/events.html#RATapi.events.clear">clear() (in module RATapi.events)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.clone">clone() (API.projectClass.projectClass method)</a>
+</li>
+      <li><a href="reference/python/outputs.html#RATapi.outputs.ConfidenceIntervals">ConfidenceIntervals (class in RATapi.outputs)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.TypeOptions.Constant">Constant (RATapi.utils.enums.TypeOptions attribute)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#targetFunctions.common.constructBackground">constructBackground() (in module targetFunctions.common)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#targetFunctions.common.constructResolution">constructResolution() (in module targetFunctions.common)</a>
+</li>
+      <li><a href="reference/python/outputs.html#RATapi.outputs.ContrastParams">ContrastParams (class in RATapi.outputs)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.contrasts">contrasts (API.projectClass.projectClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/matlab/contrastsClass.html#contrastsClass.contrasts">(contrastsClass attribute)</a>
+</li>
+        <li><a href="reference/matlab/projectClass.html#domainsClass.contrasts">(domainsClass attribute)</a>
+</li>
+        <li><a href="reference/matlab/projectClass.html#projectClass.contrasts">(projectClass attribute)</a>
+</li>
+        <li><a href="reference/python/project.html#RATapi.Project.contrasts">(RATapi.Project attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Parallel.Contrasts">Contrasts (RATapi.utils.enums.Parallel attribute)</a>
+</li>
+      <li><a href="reference/matlab/contrastsClass.html#API.projectClass.contrastsClass">contrastsClass (class in API.projectClass)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#API.controlsClass">controlsClass (class in API)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#utilities.copyProperties">copyProperties() (in module utilities)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#targetFunctions.+normalTF.coreLayersCalculation">coreLayersCalculation() (in module targetFunctions.normalTF)</a>
+</li>
+      <li><a href="reference/matlab/plotting.html#utilities.plotting.cornerPlot">cornerPlot() (in module utilities.plotting)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Languages.Cpp">Cpp (RATapi.utils.enums.Languages attribute)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.createProject">createProject() (in module API)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.crossoverProbability">crossoverProbability (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.crossoverProbability">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/project.html#RATapi.Project.custom_files">custom_files (RATapi.Project attribute)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#utilities.customEnum">customEnum (class in utilities)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#utilities.customEnum.customEnum">customEnum() (utilities.customEnum method)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.customFile">customFile (API.projectClass.projectClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#domainsClass.customFile">(domainsClass attribute)</a>
+</li>
+        <li><a href="reference/matlab/projectClass.html#projectClass.customFile">(projectClass attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/customFileClass.html#API.projectClass.customFileClass">customFileClass (class in API.projectClass)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.LayerModels.CustomLayers">CustomLayers (RATapi.utils.enums.LayerModels attribute)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#targetFunctions.+domainsTF.customLayers">customLayers() (in module targetFunctions.domainsTF)</a>
+
+      <ul>
+        <li><a href="reference/matlab/targetFunctions.html#targetFunctions.+normalTF.customLayers">(in module targetFunctions.normalTF)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.LayerModels.CustomXY">CustomXY (RATapi.utils.enums.LayerModels attribute)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#targetFunctions.+domainsTF.customXY">customXY() (in module targetFunctions.domainsTF)</a>
+
+      <ul>
+        <li><a href="reference/matlab/targetFunctions.html#targetFunctions.+normalTF.customXY">(in module targetFunctions.normalTF)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.data">data (API.projectClass.projectClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#domainsClass.data">(domainsClass attribute)</a>
+</li>
+        <li><a href="reference/matlab/projectClass.html#projectClass.data">(projectClass attribute)</a>
+</li>
+        <li><a href="reference/python/project.html#RATapi.Project.data">(RATapi.Project attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.TypeOptions.Data">Data (RATapi.utils.enums.TypeOptions attribute)</a>
+</li>
+      <li><a href="reference/matlab/dataClass.html#API.projectClass.dataClass">dataClass (class in API.projectClass)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Procedures.DE">DE (RATapi.utils.enums.Procedures attribute)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.delete">delete() (API.projectClass.projectClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/utilities.html#utilities.dyLibWrapper.delete">(utilities.dyLibWrapper method)</a>
+</li>
+        <li><a href="reference/matlab/utilities.html#utilities.pythonWrapper.delete">(utilities.pythonWrapper method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/controls.html#RATapi.Controls.delete_IPC">delete_IPC() (RATapi.Controls method)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/de.html#minimisers.DE.deopt">deopt() (in module minimisers.DE)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#utilities.dyLibWrapper.disp">disp() (utilities.dyLibWrapper method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/utilities.html#utilities.pythonWrapper.disp">(utilities.pythonWrapper method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.display">display (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.display">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/backgroundsClass.html#API.projectClass.backgroundsClass.displayTable">displayTable() (API.projectClass.backgroundsClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/customFileClass.html#API.projectClass.customFileClass.displayTable">(API.projectClass.customFileClass method)</a>
+</li>
+        <li><a href="reference/matlab/dataClass.html#API.projectClass.dataClass.displayTable">(API.projectClass.dataClass method)</a>
+</li>
+        <li><a href="reference/matlab/parametersClass.html#API.projectClass.parametersClass.displayTable">(API.projectClass.parametersClass method)</a>
+</li>
+        <li><a href="reference/matlab/resolutionsClass.html#API.projectClass.resolutionsClass.displayTable">(API.projectClass.resolutionsClass method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/project.html#RATapi.Project.domain_contrasts">domain_contrasts (RATapi.Project attribute)</a>
+</li>
+      <li><a href="reference/python/project.html#RATapi.Project.domain_ratios">domain_ratios (RATapi.Project attribute)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.domainsClass.domainContrasts">domainContrasts (API.projectClass.domainsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#domainsClass.domainContrasts">(domainsClass attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/contrastsClass.html#API.projectClass.domainContrastsClass">domainContrastsClass (class in API.projectClass)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.domainsClass.domainRatio">domainRatio (API.projectClass.domainsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#domainsClass.domainRatio">(domainsClass attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Calculations.Domains">Domains (RATapi.utils.enums.Calculations attribute)</a>
+</li>
+      <li><a href="reference/python/examples.html#RATapi.examples.domains_custom_layers">domains_custom_layers() (in module RATapi.examples)</a>
+</li>
+      <li><a href="reference/python/examples.html#RATapi.examples.domains_custom_XY">domains_custom_XY() (in module RATapi.examples)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.domainsClass">domainsClass (class in API.projectClass)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/dream.html#minimisers.DREAM.functions.drawCR">drawCR() (in module minimisers.DREAM.functions)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/ns.html#minimisers.NS.drawEllipsoidPoints">drawEllipsoidPoints() (in module minimisers.NS)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/ns.html#minimisers.NS.drawMCMC">drawMCMC() (in module minimisers.NS)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/ns.html#minimisers.NS.drawMultiNest">drawMultiNest() (in module minimisers.NS)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Procedures.DREAM">DREAM (RATapi.utils.enums.Procedures attribute)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/dream.html#minimisers.DREAM.functions.DREAM">DREAM() (in module minimisers.DREAM.functions)</a>
+</li>
+      <li><a href="reference/python/outputs.html#RATapi.outputs.DreamOutput">DreamOutput (class in RATapi.outputs)</a>
+</li>
+      <li><a href="reference/python/outputs.html#RATapi.outputs.DreamParams">DreamParams (class in RATapi.outputs)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/dream.html#minimisers.DREAM.DREAMWrapper">DREAMWrapper() (in module minimisers.DREAM)</a>
+</li>
+      <li><a href="reference/python/examples.html#RATapi.examples.DSPC_custom_layers">DSPC_custom_layers() (in module RATapi.examples)</a>
+</li>
+      <li><a href="reference/python/examples.html#RATapi.examples.DSPC_custom_XY">DSPC_custom_XY() (in module RATapi.examples)</a>
+</li>
+      <li><a href="reference/python/examples.html#RATapi.examples.DSPC_data_background">DSPC_data_background() (in module RATapi.examples)</a>
+</li>
+      <li><a href="reference/python/examples.html#RATapi.examples.DSPC_function_background">DSPC_function_background() (in module RATapi.examples)</a>
+</li>
+      <li><a href="reference/python/examples.html#RATapi.examples.DSPC_standard_layers">DSPC_standard_layers() (in module RATapi.examples)</a>
+</li>
+      <li><a href="reference/python/wrappers.html#RATapi.wrappers.DylibWrapper">DylibWrapper (class in RATapi.wrappers)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#utilities.dyLibWrapper">dyLibWrapper (class in utilities)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#utilities.dyLibWrapper.dyLibWrapper">dyLibWrapper() (utilities.dyLibWrapper method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/python/core.html#RATapi.rat_core.EventTypes">EventTypes (class in RATapi.rat_core)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/python/inputs.html#RATapi.inputs.FileHandles">FileHandles (class in RATapi.inputs)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Display.Final">Final (RATapi.utils.enums.Display attribute)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/simplex.html#minimisers.simplex.fMinSearch">fMinSearch() (in module minimisers.simplex)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.BoundHandling.Fold">Fold (RATapi.utils.enums.BoundHandling attribute)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#utilities.customEnum.fromValue">fromValue() (utilities.customEnum static method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.TypeOptions.Function">Function (RATapi.utils.enums.TypeOptions attribute)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.funcTolerance">funcTolerance (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.funcTolerance">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.fWeight">fWeight (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.fWeight">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Priors.Gaussian">Gaussian (RATapi.utils.enums.Priors attribute)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/dream.html#minimisers.DREAM.functions.gelman">gelman() (in module minimisers.DREAM.functions)</a>
+</li>
+      <li><a href="reference/python/project.html#RATapi.Project.geometry">geometry (RATapi.Project attribute)</a>
+</li>
+      <li><a href="reference/python/project.html#RATapi.Project.get_all_names">get_all_names() (RATapi.Project method)</a>
+</li>
+      <li><a href="reference/python/project.html#RATapi.Project.get_all_protected_parameters">get_all_protected_parameters() (RATapi.Project method)</a>
+</li>
+      <li><a href="reference/python/project.html#RATapi.Project.get_contrast_model_field">get_contrast_model_field() (RATapi.Project method)</a>
+</li>
+      <li><a href="reference/python/events.html#RATapi.events.get_event_callback">get_event_callback() (in module RATapi.events)</a>
+</li>
+      <li><a href="reference/python/outputs.html#RATapi.outputs.get_field_string">get_field_string() (in module RATapi.outputs)</a>
+</li>
+      <li><a href="reference/python/inputs.html#RATapi.inputs.FileHandles.get_handle">get_handle() (RATapi.inputs.FileHandles method)</a>
+</li>
+      <li><a href="reference/python/inputs.html#RATapi.inputs.get_python_handle">get_python_handle() (in module RATapi.inputs)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.domainsClass.getAllAllowedNames">getAllAllowedNames() (API.projectClass.domainsClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.getAllAllowedNames">(API.projectClass.projectClass method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/targetFunctions.html#targetFunctions.common.getFitNames">getFitNames() (in module targetFunctions.common)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/generalUtils.html#minimisers.generalUtils.getFittedPriors">getFittedPriors() (in module minimisers.generalUtils)</a>
+</li>
+      <li><a href="reference/python/wrappers.html#RATapi.wrappers.DylibWrapper.getHandle">getHandle() (RATapi.wrappers.DylibWrapper method)</a>
+
+      <ul>
+        <li><a href="reference/python/wrappers.html#RATapi.wrappers.MatlabWrapper.getHandle">(RATapi.wrappers.MatlabWrapper method)</a>
+</li>
+        <li><a href="reference/matlab/utilities.html#utilities.dyLibWrapper.getHandle">(utilities.dyLibWrapper method)</a>
+</li>
+        <li><a href="reference/matlab/utilities.html#utilities.pythonWrapper.getHandle">(utilities.pythonWrapper method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/controlClass.html#API.controlsClass.getIPCFilePath">getIPCFilePath() (API.controlsClass method)</a>
+</li>
+      <li><a href="reference/matlab/backgroundsClass.html#API.projectClass.backgroundsClass.getNames">getNames() (API.projectClass.backgroundsClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/resolutionsClass.html#API.projectClass.resolutionsClass.getNames">(API.projectClass.resolutionsClass method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/targetFunctions.html#targetFunctions.common.groupLayers.groupLayersMod">groupLayersMod() (in module targetFunctions.common.groupLayers)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/python/project.html#RATapi.Project.hide_priors">hide_priors() (RATapi.Project method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/minimisers/ns.html#minimisers.NS.inEllipsoids">inEllipsoids() (in module minimisers.NS)</a>
+</li>
+      <li><a href="reference/python/controls.html#RATapi.Controls.initialise_IPC">initialise_IPC() (RATapi.Controls method)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#API.controlsClass.initialiseIPC">initialiseIPC() (API.controlsClass method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/minimisers/dream.html#minimisers.DREAM.functions.initializeDREAM">initializeDREAM() (in module minimisers.DREAM.functions)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#utilities.isFigure">isFigure() (in module utilities)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#utilities.isText">isText() (in module utilities)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Display.Iter">Iter (RATapi.utils.enums.Display attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="J">J</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.jumpProbability">jumpProbability (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.jumpProbability">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/utilities.html#utilities.misc.kde">kde() (in module utilities.misc)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/minimisers/ns.html#minimisers.NS.kmeans">kmeans() (in module minimisers.NS)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.layers">layers (API.projectClass.projectClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#domainsClass.layers">(domainsClass attribute)</a>
+</li>
+        <li><a href="reference/matlab/projectClass.html#projectClass.layers">(projectClass attribute)</a>
+</li>
+        <li><a href="reference/python/project.html#RATapi.Project.layers">(RATapi.Project attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/layersClass.html#API.projectClass.layersClass">layersClass (class in API.projectClass)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/minimisers/de.html#minimisers.DE.leftWin">leftWin() (in module minimisers.DE)</a>
+</li>
+      <li><a href="reference/python/plotting.html#RATapi.utils.plotting.LivePlot">LivePlot (class in RATapi.utils.plotting)</a>
+</li>
+      <li><a href="reference/python/controls.html#RATapi.Controls.load">load() (RATapi.Controls class method)</a>
+
+      <ul>
+        <li><a href="reference/python/project.html#RATapi.Project.load">(RATapi.Project class method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Strategies.LocalToBest">LocalToBest (RATapi.utils.enums.Strategies attribute)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/ns.html#minimisers.NS.logPlus">logPlus() (in module minimisers.NS)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/python/inputs.html#RATapi.inputs.make_controls">make_controls() (in module RATapi.inputs)</a>
+</li>
+      <li><a href="reference/python/inputs.html#RATapi.inputs.make_data_present">make_data_present() (in module RATapi.inputs)</a>
+</li>
+      <li><a href="reference/python/inputs.html#RATapi.inputs.make_input">make_input() (in module RATapi.inputs)</a>
+</li>
+      <li><a href="reference/python/inputs.html#RATapi.inputs.make_problem">make_problem() (in module RATapi.inputs)</a>
+</li>
+      <li><a href="reference/python/inputs.html#RATapi.inputs.make_resample">make_resample() (in module RATapi.inputs)</a>
+</li>
+      <li><a href="reference/python/outputs.html#RATapi.outputs.make_results">make_results() (in module RATapi.outputs)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/generalUtils.html#minimisers.generalUtils.makeCell">makeCell() (in module minimisers.generalUtils)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/generalUtils.html#minimisers.generalUtils.makeEmptyBayesResultsStruct">makeEmptyBayesResultsStruct() (in module minimisers.generalUtils)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#targetFunctions.common.makeSimulationRange">makeSimulationRange() (in module targetFunctions.common)</a>
+</li>
+      <li><a href="reference/python/core.html#RATapi.rat_core.makeSLDProfileXY">makeSLDProfileXY() (in module RATapi.rat_core)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Languages.Matlab">Matlab (RATapi.utils.enums.Languages attribute)</a>
+</li>
+      <li><a href="reference/python/wrappers.html#RATapi.wrappers.MatlabWrapper">MatlabWrapper (class in RATapi.wrappers)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.maxFuncEvals">maxFuncEvals (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.maxFuncEvals">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.maxIterations">maxIterations (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.maxIterations">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/minimisers/ns.html#minimisers.NS.mchol">mchol() (in module minimisers.NS)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/dream.html#minimisers.DREAM.functions.metropolisRule">metropolisRule() (in module minimisers.DREAM.functions)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/de.html#module-minimisers.DE">minimisers.DE (module)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/dream.html#module-minimisers.DREAM">minimisers.DREAM (module)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/minimisers/dream.html#module-minimisers.DREAM.functions">minimisers.DREAM.functions (module)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/dream.html#module-minimisers.DREAM.postprocessing">minimisers.DREAM.postprocessing (module)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/generalUtils.html#module-minimisers.generalUtils">minimisers.generalUtils (module)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/generalUtils.html#module-minimisers.generalUtils.bayesStats">minimisers.generalUtils.bayesStats (module)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/ns.html#module-minimisers.NS">minimisers.NS (module)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/simplex.html#module-minimisers.simplex">minimisers.simplex (module)</a>
+</li>
+      <li><a href="reference/python/project.html#RATapi.Project.model">model (RATapi.Project attribute)</a>
+</li>
+      <li><a href="reference/python/controls.html#RATapi.Controls.model_post_init">model_post_init() (RATapi.Controls method)</a>
+
+      <ul>
+        <li><a href="reference/python/project.html#RATapi.Project.model_post_init">(RATapi.Project method)</a>
+</li>
+      </ul></li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="reference/python/events.html#module-RATapi.events">RATapi.events</a>
+</li>
+        <li><a href="reference/python/examples.html#module-RATapi.examples">RATapi.examples</a>
+</li>
+        <li><a href="reference/python/inputs.html#module-RATapi.inputs">RATapi.inputs</a>
+</li>
+        <li><a href="reference/python/models.html#module-RATapi.models">RATapi.models</a>
+</li>
+        <li><a href="reference/python/outputs.html#module-RATapi.outputs">RATapi.outputs</a>
+</li>
+        <li><a href="reference/python/core.html#module-RATapi.rat_core">RATapi.rat_core</a>
+</li>
+        <li><a href="reference/python/enums.html#module-RATapi.utils.enums">RATapi.utils.enums</a>
+</li>
+        <li><a href="reference/python/plotting.html#module-RATapi.utils.plotting">RATapi.utils.plotting</a>
+</li>
+        <li><a href="reference/python/wrappers.html#module-RATapi.wrappers">RATapi.wrappers</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/minimisers/dream.html#minimisers.DREAM.functions.multrnd">multrnd() (in module minimisers.DREAM.functions)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#utilities.mustBeScalarOrEmptyLogical">mustBeScalarOrEmptyLogical() (in module utilities)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/python/project.html#RATapi.Project.name">name (RATapi.Project attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/core.html#RATapi.rat_core.EventTypes.name">(RATapi.rat_core.EventTypes property)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.nChains">nChains (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.nChains">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/minimisers/ns.html#minimisers.NS.nest2pos">nest2pos() (in module minimisers.NS)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/ns.html#minimisers.NS.nestedSampler">nestedSampler() (in module minimisers.NS)</a>
+</li>
+      <li><a href="reference/python/outputs.html#RATapi.outputs.NestedSamplerOutput">NestedSamplerOutput (class in RATapi.outputs)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.nLive">nLive (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.nLive">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.nMCMC">nMCMC (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.nMCMC">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Hydration.None_">None_ (RATapi.utils.enums.Hydration attribute)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Calculations.Normal">Normal (RATapi.utils.enums.Calculations attribute)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Display.Notify">Notify (RATapi.utils.enums.Display attribute)</a>
+</li>
+      <li><a href="reference/python/events.html#RATapi.events.notify">notify() (in module RATapi.events)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Procedures.NS">NS (RATapi.utils.enums.Procedures attribute)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.nSamples">nSamples (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.nSamples">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/minimisers/ns.html#minimisers.NS.nsIntraFun">nsIntraFun() (in module minimisers.NS)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.nsTolerance">nsTolerance (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.nsTolerance">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.numGenerations">numGenerations (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.numGenerations">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.BoundHandling.Off">Off (RATapi.utils.enums.BoundHandling attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/enums.html#RATapi.utils.enums.Display.Off">(RATapi.utils.enums.Display attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/minimisers/ns.html#minimisers.NS.optimalEllipsoids">optimalEllipsoids() (in module minimisers.NS)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/minimisers/generalUtils.html#minimisers.generalUtils.packParams">packParams() (in module minimisers.generalUtils)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/generalUtils.html#minimisers.generalUtils.packParamsPriors">packParamsPriors() (in module minimisers.generalUtils)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.parallel">parallel (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.parallel">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/projectClass.html#domainsClass.parameters">parameters (domainsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#projectClass.parameters">(projectClass attribute)</a>
+</li>
+        <li><a href="reference/python/project.html#RATapi.Project.parameters">(RATapi.Project attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/parametersClass.html#API.projectClass.parametersClass">parametersClass (class in API.projectClass)</a>
+</li>
+      <li><a href="reference/matlab/entryFunctions.html#API.parseClassToStructs">parseClassToStructs() (in module API)</a>
+</li>
+      <li><a href="reference/matlab/contrastsClass.html#API.projectClass.contrastsClass.parseContrastInput">parseContrastInput() (API.projectClass.contrastsClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/contrastsClass.html#API.projectClass.domainContrastsClass.parseContrastInput">(API.projectClass.domainContrastsClass method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/minimisers/generalUtils.html#minimisers.generalUtils.bayesStats.percentileConfidenceIntervals">percentileConfidenceIntervals() (in module minimisers.generalUtils.bayesStats)</a>
+</li>
+      <li><a href="reference/python/plotting.html#RATapi.utils.plotting.plot_chain">plot_chain() (in module RATapi.utils.plotting)</a>
+</li>
+      <li><a href="reference/python/plotting.html#RATapi.utils.plotting.plot_contour">plot_contour() (in module RATapi.utils.plotting)</a>
+</li>
+      <li><a href="reference/python/plotting.html#RATapi.utils.plotting.plot_corner">plot_corner() (in module RATapi.utils.plotting)</a>
+</li>
+      <li><a href="reference/python/plotting.html#RATapi.utils.plotting.plot_hists">plot_hists() (in module RATapi.utils.plotting)</a>
+</li>
+      <li><a href="reference/python/plotting.html#RATapi.utils.plotting.plot_one_hist">plot_one_hist() (in module RATapi.utils.plotting)</a>
+</li>
+      <li><a href="reference/python/plotting.html#RATapi.utils.plotting.plot_ref_sld">plot_ref_sld() (in module RATapi.utils.plotting)</a>
+</li>
+      <li><a href="reference/matlab/plotting.html#utilities.plotting.plotChain">plotChain() (in module utilities.plotting)</a>
+</li>
+      <li><a href="reference/matlab/plotting.html#utilities.plotting.plotContours">plotContours() (in module utilities.plotting)</a>
+</li>
+      <li><a href="reference/python/plotting.html#RATapi.utils.plotting.LivePlot.plotEvent">plotEvent() (RATapi.utils.plotting.LivePlot method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/plotting.html#utilities.plotting.plotHists">plotHists() (in module utilities.plotting)</a>
+</li>
+      <li><a href="reference/matlab/plotting.html#utilities.plotting.plotRefSLD">plotRefSLD() (in module utilities.plotting)</a>
+</li>
+      <li><a href="reference/matlab/plotting.html#utilities.plotting.plotRefSLDHelper">plotRefSLDHelper() (in module utilities.plotting)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Parallel.Points">Points (RATapi.utils.enums.Parallel attribute)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.populationSize">populationSize (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.populationSize">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/outputs.html#RATapi.outputs.PredictionIntervals">PredictionIntervals (class in RATapi.outputs)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.procedure">procedure (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.procedure">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/minimisers/generalUtils.html#minimisers.generalUtils.bayesStats.processBayes">processBayes() (in module minimisers.generalUtils.bayesStats)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#targetFunctions.+domainsTF.processCustomFunction">processCustomFunction() (in module targetFunctions.domainsTF)</a>
+
+      <ul>
+        <li><a href="reference/matlab/targetFunctions.html#targetFunctions.+normalTF.processCustomFunction">(in module targetFunctions.normalTF)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass">projectClass (class in API.projectClass)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#utilities.misc.projectClassToR1">projectClassToR1() (in module utilities.misc)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.propScale">propScale (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.propScale">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.pUnitGamma">pUnitGamma (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.pUnitGamma">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Languages.Python">Python (RATapi.utils.enums.Languages attribute)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#utilities.pythonWrapper">pythonWrapper (class in utilities)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#utilities.pythonWrapper.pythonWrapper">pythonWrapper() (utilities.pythonWrapper method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/utilities.html#utilities.misc.r1ToProjectClass">r1ToProjectClass() (in module utilities.misc)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Strategies.Random">Random (RATapi.utils.enums.Strategies attribute)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Strategies.RandomEitherOrAlgorithm">RandomEitherOrAlgorithm (RATapi.utils.enums.Strategies attribute)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Strategies.RandomWithPerGenerationDither">RandomWithPerGenerationDither (RATapi.utils.enums.Strategies attribute)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Strategies.RandomWithPerVectorDither">RandomWithPerVectorDither (RATapi.utils.enums.Strategies attribute)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#utilities.misc.randSample">randSample() (in module utilities.misc)</a>
+</li>
+      <li><a href="reference/matlab/entryFunctions.html#API.RAT">RAT() (in module API)</a>
+</li>
+      <li>
+    RATapi.events
+
+      <ul>
+        <li><a href="reference/python/events.html#module-RATapi.events">module</a>
+</li>
+      </ul></li>
+      <li>
+    RATapi.examples
+
+      <ul>
+        <li><a href="reference/python/examples.html#module-RATapi.examples">module</a>
+</li>
+      </ul></li>
+      <li>
+    RATapi.inputs
+
+      <ul>
+        <li><a href="reference/python/inputs.html#module-RATapi.inputs">module</a>
+</li>
+      </ul></li>
+      <li>
+    RATapi.models
+
+      <ul>
+        <li><a href="reference/python/models.html#module-RATapi.models">module</a>
+</li>
+      </ul></li>
+      <li>
+    RATapi.outputs
+
+      <ul>
+        <li><a href="reference/python/outputs.html#module-RATapi.outputs">module</a>
+</li>
+      </ul></li>
+      <li>
+    RATapi.rat_core
+
+      <ul>
+        <li><a href="reference/python/core.html#module-RATapi.rat_core">module</a>
+</li>
+      </ul></li>
+      <li>
+    RATapi.utils.enums
+
+      <ul>
+        <li><a href="reference/python/enums.html#module-RATapi.utils.enums">module</a>
+</li>
+      </ul></li>
+      <li>
+    RATapi.utils.plotting
+
+      <ul>
+        <li><a href="reference/python/plotting.html#module-RATapi.utils.plotting">module</a>
+</li>
+      </ul></li>
+      <li>
+    RATapi.wrappers
+
+      <ul>
+        <li><a href="reference/python/wrappers.html#module-RATapi.wrappers">module</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/entryFunctions.html#API.RATMain">RATMain() (in module API)</a>
+
+      <ul>
+        <li><a href="reference/python/core.html#RATapi.rat_core.RATMain">(in module RATapi.rat_core)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/utilities.html#utilities.readOrso">readOrso() (in module utilities)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.BoundHandling.Reflect">Reflect (RATapi.utils.enums.BoundHandling attribute)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#targetFunctions.reflectivityCalculation">reflectivityCalculation() (in module targetFunctions)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/generalUtils.html#minimisers.generalUtils.bayesStats.refPercentileConfidenceIntervals">refPercentileConfidenceIntervals() (in module minimisers.generalUtils.bayesStats)</a>
+</li>
+      <li><a href="reference/python/events.html#RATapi.events.register">register() (in module RATapi.events)</a>
+</li>
+      <li><a href="reference/matlab/backgroundsClass.html#API.projectClass.backgroundsClass.removeBackground">removeBackground() (API.projectClass.backgroundsClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.removeBackground">(API.projectClass.projectClass method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.removeBackgroundParam">removeBackgroundParam() (API.projectClass.projectClass method)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.removeContrast">removeContrast() (API.projectClass.projectClass method)</a>
+</li>
+      <li><a href="reference/matlab/customFileClass.html#API.projectClass.customFileClass.removeCustomFile">removeCustomFile() (API.projectClass.customFileClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.removeCustomFile">(API.projectClass.projectClass method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/dataClass.html#API.projectClass.dataClass.removeData">removeData() (API.projectClass.dataClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.removeData">(API.projectClass.projectClass method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.domainsClass.removeDomainContrast">removeDomainContrast() (API.projectClass.domainsClass method)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.domainsClass.removeDomainRatio">removeDomainRatio() (API.projectClass.domainsClass method)</a>
+</li>
+      <li><a href="reference/matlab/layersClass.html#API.projectClass.layersClass.removeLayer">removeLayer() (API.projectClass.layersClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.removeLayer">(API.projectClass.projectClass method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/minimisers/dream.html#minimisers.DREAM.functions.removeOutlier">removeOutlier() (in module minimisers.DREAM.functions)</a>
+</li>
+      <li><a href="reference/matlab/parametersClass.html#API.projectClass.parametersClass.removeParameter">removeParameter() (API.projectClass.parametersClass method)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.removeResolution">removeResolution() (API.projectClass.projectClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/resolutionsClass.html#API.projectClass.resolutionsClass.removeResolution">(API.projectClass.resolutionsClass method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.removeResolutionParam">removeResolutionParam() (API.projectClass.projectClass method)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.resampleMinAngle">resampleMinAngle (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.resampleMinAngle">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.resampleNPoints">resampleNPoints (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.resampleNPoints">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/minimisers/ns.html#minimisers.NS.rescaleParameters">rescaleParameters() (in module minimisers.NS)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.resolution">resolution (API.projectClass.projectClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#domainsClass.resolution">(domainsClass attribute)</a>
+</li>
+        <li><a href="reference/matlab/projectClass.html#projectClass.resolution">(projectClass attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/project.html#RATapi.Project.resolution_parameters">resolution_parameters (RATapi.Project attribute)</a>
+</li>
+      <li><a href="reference/matlab/resolutionsClass.html#resolutionsClass.resolutionParams">resolutionParams (resolutionsClass attribute)</a>
+</li>
+      <li><a href="reference/python/project.html#RATapi.Project.resolutions">resolutions (RATapi.Project attribute)</a>
+
+      <ul>
+        <li><a href="reference/matlab/resolutionsClass.html#resolutionsClass.resolutions">(resolutionsClass attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/resolutionsClass.html#API.projectClass.resolutionsClass">resolutionsClass (class in API.projectClass)</a>
+</li>
+      <li><a href="reference/python/outputs.html#RATapi.outputs.Results">Results (class in RATapi.outputs)</a>
+</li>
+      <li><a href="reference/python/run.html#RATapi.run">run() (in module RATapi)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/de.html#minimisers.DE.runDE">runDE() (in module minimisers.DE)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/dream.html#minimisers.DREAM.runDREAM">runDREAM() (in module minimisers.DREAM)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/ns.html#minimisers.NS.runNestedSampler">runNestedSampler() (in module minimisers.NS)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/simplex.html#minimisers.simplex.runSimplex">runSimplex() (in module minimisers.simplex)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/python/controls.html#RATapi.Controls.save">save() (RATapi.Controls method)</a>
+
+      <ul>
+        <li><a href="reference/python/project.html#RATapi.Project.save">(RATapi.Project method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/projectClass.html#domainsClass.scalefactors">scalefactors (domainsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#projectClass.scalefactors">(projectClass attribute)</a>
+</li>
+        <li><a href="reference/python/project.html#RATapi.Project.scalefactors">(RATapi.Project attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/controlClass.html#API.controlsClass.sendStopEvent">sendStopEvent() (API.controlsClass method)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.sendStopEvent">(RATapi.Controls method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/controls.html#RATapi.Controls.serialize">serialize() (RATapi.Controls method)</a>
+</li>
+      <li><a href="reference/python/project.html#RATapi.Project.set_prior_visibility">set_prior_visibility() (RATapi.Project method)</a>
+</li>
+      <li><a href="reference/matlab/backgroundsClass.html#API.projectClass.backgroundsClass.setBackground">setBackground() (API.projectClass.backgroundsClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.setBackground">(API.projectClass.projectClass method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/backgroundsClass.html#API.projectClass.backgroundsClass.setBackgroundName">setBackgroundName() (API.projectClass.backgroundsClass method)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.setBackgroundParam">setBackgroundParam() (API.projectClass.projectClass method)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.domainsClass.setContrast">setContrast() (API.projectClass.domainsClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.setContrast">(API.projectClass.projectClass method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.domainsClass.setContrastModel">setContrastModel() (API.projectClass.domainsClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.setContrastModel">(API.projectClass.projectClass method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/customFileClass.html#API.projectClass.customFileClass.setCustomFile">setCustomFile() (API.projectClass.customFileClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.setCustomFile">(API.projectClass.projectClass method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/dataClass.html#API.projectClass.dataClass.setData">setData() (API.projectClass.dataClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.setData">(API.projectClass.projectClass method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/contrastsClass.html#API.projectClass.contrastsClass.setDefaultValues">setDefaultValues() (API.projectClass.contrastsClass method)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.domainsClass.setDomainContrast">setDomainContrast() (API.projectClass.domainsClass method)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.domainsClass.setDomainContrastModel">setDomainContrastModel() (API.projectClass.domainsClass method)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.domainsClass.setDomainRatio">setDomainRatio() (API.projectClass.domainsClass method)</a>
+</li>
+      <li><a href="reference/matlab/parametersClass.html#API.projectClass.parametersClass.setFit">setFit() (API.projectClass.parametersClass method)</a>
+</li>
+      <li><a href="reference/matlab/layersClass.html#API.projectClass.layersClass.setLayer">setLayer() (API.projectClass.layersClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.setLayer">(API.projectClass.projectClass method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/parametersClass.html#API.projectClass.parametersClass.setLimits">setLimits() (API.projectClass.parametersClass method)</a>
+</li>
+      <li><a href="reference/matlab/parametersClass.html#API.projectClass.parametersClass.setName">setName() (API.projectClass.parametersClass method)</a>
+</li>
+      <li><a href="reference/matlab/parametersClass.html#API.projectClass.parametersClass.setParameter">setParameter() (API.projectClass.parametersClass method)</a>
+</li>
+      <li><a href="reference/matlab/parametersClass.html#API.projectClass.parametersClass.setPrior">setPrior() (API.projectClass.parametersClass method)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#API.controlsClass.setProcedure">setProcedure() (API.controlsClass method)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.setResolution">setResolution() (API.projectClass.projectClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/resolutionsClass.html#API.projectClass.resolutionsClass.setResolution">(API.projectClass.resolutionsClass method)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/resolutionsClass.html#API.projectClass.resolutionsClass.setResolutionName">setResolutionName() (API.projectClass.resolutionsClass method)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.setResolutionParam">setResolutionParam() (API.projectClass.projectClass method)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/dream.html#minimisers.DREAM.functions.setupDREAM">setupDREAM() (in module minimisers.DREAM.functions)</a>
+</li>
+      <li><a href="reference/matlab/parametersClass.html#API.projectClass.parametersClass.setValue">setValue() (API.projectClass.parametersClass method)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#targetFunctions.common.shiftData">shiftData() (in module targetFunctions.common)</a>
+</li>
+      <li><a href="reference/python/project.html#RATapi.Project.show_priors">show_priors() (RATapi.Project method)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Procedures.Simplex">Simplex (RATapi.utils.enums.Procedures attribute)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/simplex.html#minimisers.simplex.simplexIntrafun">simplexIntrafun() (in module minimisers.simplex)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/simplex.html#minimisers.simplex.simplexXTransform">simplexXTransform() (in module minimisers.simplex)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Parallel.Single">Single (RATapi.utils.enums.Parallel attribute)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/ns.html#minimisers.NS.splitEllipsoid">splitEllipsoid() (in module minimisers.NS)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.LayerModels.StandardLayers">StandardLayers (RATapi.utils.enums.LayerModels attribute)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#targetFunctions.+domainsTF.standardLayers">standardLayers() (in module targetFunctions.domainsTF)</a>
+
+      <ul>
+        <li><a href="reference/matlab/targetFunctions.html#targetFunctions.+normalTF.standardLayers">(in module targetFunctions.normalTF)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/wrappers.html#RATapi.wrappers.start_matlab">start_matlab() (in module RATapi.wrappers)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.strategy">strategy (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.strategy">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Geometries.SubstrateLiquid">SubstrateLiquid (RATapi.utils.enums.Geometries attribute)</a>
+</li>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.BackgroundActions.Subtract">Subtract (RATapi.utils.enums.BackgroundActions attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/targetFunctions.html#module-targetFunctions">targetFunctions (module)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#module-targetFunctions.common">targetFunctions.common (module)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#module-targetFunctions.common.costFunctions">targetFunctions.common.costFunctions (module)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#module-targetFunctions.common.groupLayers">targetFunctions.common.groupLayers (module)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#module-targetFunctions.+domainsTF">targetFunctions.domainsTF (module)</a>
+</li>
+      <li><a href="reference/matlab/targetFunctions.html#module-targetFunctions.+normalTF">targetFunctions.normalTF (module)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.targetValue">targetValue (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.targetValue">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/utilities.html#utilities.textProgressBar">textProgressBar() (in module utilities)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.toDomainsClass">toDomainsClass() (API.projectClass.projectClass method)</a>
+</li>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.domainsClass.toProjectClass">toProjectClass() (API.projectClass.domainsClass method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/backgroundsClass.html#API.projectClass.backgroundsClass.toStruct">toStruct() (API.projectClass.backgroundsClass method)</a>
+
+      <ul>
+        <li><a href="reference/matlab/contrastsClass.html#API.projectClass.contrastsClass.toStruct">(API.projectClass.contrastsClass method)</a>
+</li>
+        <li><a href="reference/matlab/customFileClass.html#API.projectClass.customFileClass.toStruct">(API.projectClass.customFileClass method)</a>
+</li>
+        <li><a href="reference/matlab/dataClass.html#API.projectClass.dataClass.toStruct">(API.projectClass.dataClass method)</a>
+</li>
+        <li><a href="reference/matlab/contrastsClass.html#API.projectClass.domainContrastsClass.toStruct">(API.projectClass.domainContrastsClass method)</a>
+</li>
+        <li><a href="reference/matlab/projectClass.html#API.projectClass.domainsClass.toStruct">(API.projectClass.domainsClass method)</a>
+</li>
+        <li><a href="reference/matlab/layersClass.html#API.projectClass.layersClass.toStruct">(API.projectClass.layersClass method)</a>
+</li>
+        <li><a href="reference/matlab/parametersClass.html#API.projectClass.parametersClass.toStruct">(API.projectClass.parametersClass method)</a>
+</li>
+        <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.toStruct">(API.projectClass.projectClass method)</a>
+</li>
+        <li><a href="reference/matlab/resolutionsClass.html#API.projectClass.resolutionsClass.toStruct">(API.projectClass.resolutionsClass method)</a>
+</li>
+        <li><a href="reference/matlab/utilities.html#utilities.customEnum.toStruct">(utilities.customEnum static method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/python/enums.html#RATapi.utils.enums.Priors.Uniform">Uniform (RATapi.utils.enums.Priors attribute)</a>
+</li>
+      <li><a href="reference/matlab/minimisers/generalUtils.html#minimisers.generalUtils.unpackParams">unpackParams() (in module minimisers.generalUtils)</a>
+</li>
+      <li><a href="reference/matlab/contrastsClass.html#API.projectClass.contrastsClass.updateDataName">updateDataName() (API.projectClass.contrastsClass method)</a>
+</li>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.updateFreq">updateFreq (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.updateFreq">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.updatePlotFreq">updatePlotFreq (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.updatePlotFreq">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="reference/matlab/plotting.html#utilities.plotting.useLivePlot">useLivePlot (class in utilities.plotting)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#module-utilities.+exceptions">utilities.exceptions (module)</a>
+</li>
+      <li><a href="reference/matlab/plotting.html#module-utilities.plotting">utilities.plotting (module)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/utilities.html#utilities.validateLimits">validateLimits() (in module utilities)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#utilities.validateLogical">validateLogical() (in module utilities)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#utilities.validateNumber">validateNumber() (in module utilities)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#utilities.validateOption">validateOption() (in module utilities)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#utilities.validateParameter">validateParameter() (in module utilities)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/utilities.html#utilities.validatePriors">validatePriors() (in module utilities)</a>
+</li>
+      <li><a href="reference/matlab/utilities.html#utilities.customEnum.values">values() (utilities.customEnum static method)</a>
+</li>
+      <li><a href="reference/matlab/customFileClass.html#customFileClass.varTable">varTable (customFileClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/matlab/dataClass.html#dataClass.varTable">(dataClass attribute)</a>
+</li>
+        <li><a href="reference/matlab/layersClass.html#layersClass.varTable">(layersClass attribute)</a>
+</li>
+        <li><a href="reference/matlab/parametersClass.html#parametersClass.varTable">(parametersClass attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/python/project.html#RATapi.Project.write_script">write_script() (RATapi.Project method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/projectClass.html#API.projectClass.projectClass.writeScript">writeScript() (API.projectClass.projectClass method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="X">X</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/matlab/controlClass.html#controlsClass.xTolerance">xTolerance (controlsClass attribute)</a>
+
+      <ul>
+        <li><a href="reference/python/controls.html#RATapi.Controls.xTolerance">(RATapi.Controls attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2022-2025, ISIS Neutron and Muon Source.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

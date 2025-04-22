@@ -1,0 +1,774 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Outputs &#8212; RAT  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=881e7dcd"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'reference/python/outputs';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://rascalsoftware.github.io/RAT-Docs/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="icon" href="../../_static/logo.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Wrappers" href="wrappers.html" />
+    <link rel="prev" title="Inputs" href="inputs.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="RAT  documentation - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="RAT  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+      <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        Home
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../guide.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        Home
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../guide.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../matlab/index.html">MATLAB API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../matlab/projectClass.html">Project Class</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../matlab/parametersClass.html">Parameters Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matlab/resolutionsClass.html">Resolutions Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matlab/backgroundsClass.html">Backgrounds Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matlab/dataClass.html">Data Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matlab/layersClass.html">Layers Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matlab/customFileClass.html">Custom File Class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matlab/contrastsClass.html">Contrasts Class</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../matlab/controlClass.html">Controls Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matlab/entryFunctions.html">RAT Entry Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matlab/targetFunctions.html">Target Functions (Low Level API)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../matlab/minimisers/index.html">Minimisers</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../matlab/minimisers/simplex.html">Simplex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matlab/minimisers/de.html">Differential Evolution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matlab/minimisers/ns.html">Nested Sampling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matlab/minimisers/dream.html">DREAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../matlab/minimisers/generalUtils.html">General Minimiser Utilities</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../matlab/plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matlab/utilities.html">Utilities</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Python API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="run.html">Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project.html">Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controls.html">Controls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="classlist.html">ClassList</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html">Enums</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.html">RAT Core</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputs.html">Inputs</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrappers.html">Wrappers</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Python API Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Outputs</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="outputs">
+<h1>Outputs<a class="headerlink" href="#outputs" title="Link to this heading">#</a></h1>
+<p>This module contains the Results objects and the relevant objects to retrieve
+results data from the C++ module.</p>
+<p id="module-RATapi.outputs">Converts outputs from the compiled RAT code to python dataclasses</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="RATapi.outputs.BayesResults">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">BayesResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reflectivity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shiftedData</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backgrounds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolutions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layerSlds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sldProfiles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resampledLayers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculationResults</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#RATapi.outputs.CalculationResults" title="RATapi.outputs.CalculationResults"><span class="pre">RATapi.outputs.CalculationResults</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrastParams</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#RATapi.outputs.ContrastParams" title="RATapi.outputs.ContrastParams"><span class="pre">RATapi.outputs.ContrastParams</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitParams</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitNames</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictionIntervals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#RATapi.outputs.PredictionIntervals" title="RATapi.outputs.PredictionIntervals"><span class="pre">RATapi.outputs.PredictionIntervals</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidenceIntervals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#RATapi.outputs.ConfidenceIntervals" title="RATapi.outputs.ConfidenceIntervals"><span class="pre">RATapi.outputs.ConfidenceIntervals</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dreamParams</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#RATapi.outputs.DreamParams" title="RATapi.outputs.DreamParams"><span class="pre">RATapi.outputs.DreamParams</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dreamOutput</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#RATapi.outputs.DreamOutput" title="RATapi.outputs.DreamOutput"><span class="pre">RATapi.outputs.DreamOutput</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">nestedSamplerOutput</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#RATapi.outputs.NestedSamplerOutput" title="RATapi.outputs.NestedSamplerOutput"><span class="pre">RATapi.outputs.NestedSamplerOutput</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.BayesResults" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reflectivity</strong> (<em>list</em>)</p></li>
+<li><p><strong>simulation</strong> (<em>list</em>)</p></li>
+<li><p><strong>shiftedData</strong> (<em>list</em>)</p></li>
+<li><p><strong>backgrounds</strong> (<em>list</em>)</p></li>
+<li><p><strong>resolutions</strong> (<em>list</em>)</p></li>
+<li><p><strong>layerSlds</strong> (<em>list</em>)</p></li>
+<li><p><strong>sldProfiles</strong> (<em>list</em>)</p></li>
+<li><p><strong>resampledLayers</strong> (<em>list</em>)</p></li>
+<li><p><strong>calculationResults</strong> (<a class="reference internal" href="#RATapi.outputs.CalculationResults" title="RATapi.outputs.CalculationResults"><em>CalculationResults</em></a>)</p></li>
+<li><p><strong>contrastParams</strong> (<a class="reference internal" href="#RATapi.outputs.ContrastParams" title="RATapi.outputs.ContrastParams"><em>ContrastParams</em></a>)</p></li>
+<li><p><strong>fitParams</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>fitNames</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>)</p></li>
+<li><p><strong>predictionIntervals</strong> (<a class="reference internal" href="#RATapi.outputs.PredictionIntervals" title="RATapi.outputs.PredictionIntervals"><em>PredictionIntervals</em></a>)</p></li>
+<li><p><strong>confidenceIntervals</strong> (<a class="reference internal" href="#RATapi.outputs.ConfidenceIntervals" title="RATapi.outputs.ConfidenceIntervals"><em>ConfidenceIntervals</em></a>)</p></li>
+<li><p><strong>dreamParams</strong> (<a class="reference internal" href="#RATapi.outputs.DreamParams" title="RATapi.outputs.DreamParams"><em>DreamParams</em></a>)</p></li>
+<li><p><strong>dreamOutput</strong> (<a class="reference internal" href="#RATapi.outputs.DreamOutput" title="RATapi.outputs.DreamOutput"><em>DreamOutput</em></a>)</p></li>
+<li><p><strong>nestedSamplerOutput</strong> (<a class="reference internal" href="#RATapi.outputs.NestedSamplerOutput" title="RATapi.outputs.NestedSamplerOutput"><em>NestedSamplerOutput</em></a>)</p></li>
+<li><p><strong>chain</strong> (<em>ndarray</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="RATapi.outputs.CalculationResults">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">CalculationResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chiValues</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sumChi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.CalculationResults" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chiValues</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>sumChi</strong> (<em>float</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="RATapi.outputs.ConfidenceIntervals">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">ConfidenceIntervals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">percentile95</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile65</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.ConfidenceIntervals" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>percentile95</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>percentile65</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>mean</strong> (<em>ndarray</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="RATapi.outputs.ContrastParams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">ContrastParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalefactors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bulkIn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bulkOut</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subRoughs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resample</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.ContrastParams" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scalefactors</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>bulkIn</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>bulkOut</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>subRoughs</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>resample</strong> (<em>ndarray</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="RATapi.outputs.DreamOutput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">DreamOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allChains</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlierChains</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modelOutput</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AR</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_stat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CR</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.DreamOutput" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>allChains</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>outlierChains</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>runtime</strong> (<em>float</em>)</p></li>
+<li><p><strong>iteration</strong> (<em>float</em>)</p></li>
+<li><p><strong>modelOutput</strong> (<em>float</em>)</p></li>
+<li><p><strong>AR</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>R_stat</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>CR</strong> (<em>ndarray</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="RATapi.outputs.DreamParams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">DreamParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nParams</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nChains</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nGenerations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parallel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CPU</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jumpProbability</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pUnitGamma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nCR</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zeta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adaptPCR</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thinning</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ABC</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">IO</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storeOutput</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.DreamParams" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nParams</strong> (<em>float</em>)</p></li>
+<li><p><strong>nChains</strong> (<em>float</em>)</p></li>
+<li><p><strong>nGenerations</strong> (<em>float</em>)</p></li>
+<li><p><strong>parallel</strong> (<em>bool</em>)</p></li>
+<li><p><strong>CPU</strong> (<em>float</em>)</p></li>
+<li><p><strong>jumpProbability</strong> (<em>float</em>)</p></li>
+<li><p><strong>pUnitGamma</strong> (<em>float</em>)</p></li>
+<li><p><strong>nCR</strong> (<em>float</em>)</p></li>
+<li><p><strong>delta</strong> (<em>float</em>)</p></li>
+<li><p><strong>steps</strong> (<em>float</em>)</p></li>
+<li><p><strong>zeta</strong> (<em>float</em>)</p></li>
+<li><p><strong>outlier</strong> (<em>str</em>)</p></li>
+<li><p><strong>adaptPCR</strong> (<em>bool</em>)</p></li>
+<li><p><strong>thinning</strong> (<em>float</em>)</p></li>
+<li><p><strong>epsilon</strong> (<em>float</em>)</p></li>
+<li><p><strong>ABC</strong> (<em>bool</em>)</p></li>
+<li><p><strong>IO</strong> (<em>bool</em>)</p></li>
+<li><p><strong>storeOutput</strong> (<em>bool</em>)</p></li>
+<li><p><strong>R</strong> (<em>ndarray</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="RATapi.outputs.NestedSamplerOutput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">NestedSamplerOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logZ</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logZErr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nestSamples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">postSamples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.NestedSamplerOutput" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>logZ</strong> (<em>float</em>)</p></li>
+<li><p><strong>logZErr</strong> (<em>float</em>)</p></li>
+<li><p><strong>nestSamples</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>postSamples</strong> (<em>ndarray</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="RATapi.outputs.PredictionIntervals">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">PredictionIntervals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reflectivity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sld</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampleChi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.PredictionIntervals" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reflectivity</strong> (<em>list</em>)</p></li>
+<li><p><strong>sld</strong> (<em>list</em>)</p></li>
+<li><p><strong>sampleChi</strong> (<em>ndarray</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="RATapi.outputs.Results">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">Results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reflectivity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shiftedData</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backgrounds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolutions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layerSlds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sldProfiles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resampledLayers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculationResults</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#RATapi.outputs.CalculationResults" title="RATapi.outputs.CalculationResults"><span class="pre">RATapi.outputs.CalculationResults</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrastParams</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#RATapi.outputs.ContrastParams" title="RATapi.outputs.ContrastParams"><span class="pre">RATapi.outputs.ContrastParams</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitParams</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitNames</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.Results" title="Link to this definition">#</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reflectivity</strong> (<em>list</em>)</p></li>
+<li><p><strong>simulation</strong> (<em>list</em>)</p></li>
+<li><p><strong>shiftedData</strong> (<em>list</em>)</p></li>
+<li><p><strong>backgrounds</strong> (<em>list</em>)</p></li>
+<li><p><strong>resolutions</strong> (<em>list</em>)</p></li>
+<li><p><strong>layerSlds</strong> (<em>list</em>)</p></li>
+<li><p><strong>sldProfiles</strong> (<em>list</em>)</p></li>
+<li><p><strong>resampledLayers</strong> (<em>list</em>)</p></li>
+<li><p><strong>calculationResults</strong> (<a class="reference internal" href="#RATapi.outputs.CalculationResults" title="RATapi.outputs.CalculationResults"><em>CalculationResults</em></a>)</p></li>
+<li><p><strong>contrastParams</strong> (<a class="reference internal" href="#RATapi.outputs.ContrastParams" title="RATapi.outputs.ContrastParams"><em>ContrastParams</em></a>)</p></li>
+<li><p><strong>fitParams</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>fitNames</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RATapi.outputs.get_field_string">
+<span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">get_field_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array_limit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.get_field_string" title="Link to this definition">#</a></dt>
+<dd><p>Returns a string representation of class fields where large and multidimensional arrays are represented by their
+shape.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>field</strong> (<em>str</em>) – The name of the field in the RAT output class.</p></li>
+<li><p><strong>value</strong> (<em>Any</em>) – The value of the given field in the RAT output class.</p></li>
+<li><p><strong>array_limit</strong> (<em>int</em>) – The maximum length of 1D arrays which will be fully displayed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>field_string</strong> – The string representation of the field in the RAT output class.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="RATapi.outputs.make_results">
+<span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">make_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">procedure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bayes_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.make_results" title="Link to this definition">#</a></dt>
+<dd><p>Initialise a python Results or BayesResults object using the outputs from a RAT calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>procedure</strong> (<a class="reference internal" href="enums.html#RATapi.utils.enums.Procedures" title="RATapi.utils.enums.Procedures"><em>Procedures</em></a>)</p></li>
+<li><p><strong>output_results</strong> (<em>OutputResult</em>)</p></li>
+<li><p><strong>bayes_results</strong> (<em>BayesResults</em><em> | </em><em>None</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#RATapi.outputs.Results" title="RATapi.outputs.Results"><em>Results</em></a> | <a class="reference internal" href="#RATapi.outputs.BayesResults" title="RATapi.outputs.BayesResults"><em>BayesResults</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.BayesResults"><code class="docutils literal notranslate"><span class="pre">BayesResults</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.CalculationResults"><code class="docutils literal notranslate"><span class="pre">CalculationResults</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.ConfidenceIntervals"><code class="docutils literal notranslate"><span class="pre">ConfidenceIntervals</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.ContrastParams"><code class="docutils literal notranslate"><span class="pre">ContrastParams</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.DreamOutput"><code class="docutils literal notranslate"><span class="pre">DreamOutput</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.DreamParams"><code class="docutils literal notranslate"><span class="pre">DreamParams</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.NestedSamplerOutput"><code class="docutils literal notranslate"><span class="pre">NestedSamplerOutput</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.PredictionIntervals"><code class="docutils literal notranslate"><span class="pre">PredictionIntervals</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.Results"><code class="docutils literal notranslate"><span class="pre">Results</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.get_field_string"><code class="docutils literal notranslate"><span class="pre">get_field_string()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.make_results"><code class="docutils literal notranslate"><span class="pre">make_results()</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2022-2025, ISIS Neutron and Muon Source.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

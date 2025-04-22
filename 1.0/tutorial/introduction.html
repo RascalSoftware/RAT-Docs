@@ -1,0 +1,1295 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction &#8212; RAT  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9deae167" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=881e7dcd"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorial/introduction';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.2';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://rascalsoftware.github.io/RAT-Docs/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The Project Class" href="project.html" />
+    <link rel="prev" title="Tutorial" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="RAT  documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="RAT  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+      <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Home
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../guide.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../reference/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Home
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../guide.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../examples.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../reference/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Tutorial</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project.html">The Project Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controls.html">A Closer Look at the Controls Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bayes.html">Bayesian Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="customModels.html">Custom Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="savingOutputs.html">Copying and Saving Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../matlab_examples/index.html">MATLAB Examples</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../matlab_examples/DSPC_standard_layers.html">DSPC Standard Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matlab_examples/DSPC_custom_layers.html">DSPC Custom Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matlab_examples/DSPC_custom_XY.html">DSPC Custom XY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matlab_examples/domains_standard_layers.html">Incoherent Summing with Standard Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matlab_examples/domains_custom_layers.html">Incoherent Summing with Custom Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matlab_examples/domains_custom_XY.html">Incoherent Summing with Custom XY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matlab_examples/imaginary.html">Absorption (Imaginary SLD) Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matlab_examples/convert_r1_project.html">Converting a RasCAL-1 Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../matlab_examples/custom_model_languages.html">Alternative Custom Model Languages</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python_examples/index.html">Python Examples</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/DSPC_standard_layers.html">Standard Layers Analysis of a DSPC Floating Bilayer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/DSPC_custom_layers.html">Custom Layers Example for Supported DSPC layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/DSPC_custom_xy.html">Custom XY Example for Supported DSPC layer.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/domains_standard_layers.html">Domains Samples Using Standard Layers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/domains_custom_layers.html">Analysing Domains Samples Using Custom Layers Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/domains_custom_XY.html">Simple example of a layer containing domains using a custom XY model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/absorption.html">Absorption (imaginary SLD) - effect below the critical edge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_examples/notebooks/convert_rascal.html">RasCAL-1 to RAT</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../algorithms/index.html">Algorithms</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algorithms/simplex.html">Nelder-Mead Simplex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algorithms/DE.html">Differential Evolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algorithms/DREAM.html">Bayesian Analysis - DREAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algorithms/nestedSampling.html">Bayesian Model Selection - Nested Sampling</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../advanced/index.html">Advanced Topics</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/resampling.html">Profile Resampling (‘microslicing’)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/parallelisation.html">Parallelising Calculations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/customLanguages.html">Custom Models in Python or C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/events.html">Handling Events During Calculations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../calcTypes/index.html">Different Calculation Types</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../calcTypes/imaginary.html">Adding the Imaginary Refractive Index</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../calcTypes/domains.html">Incoherent Summing (Domains)</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsStandardLayers.html">Standard Layers Domains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../calcTypes/domainsCustomModels.html">Custom Models with Domains</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../utilities/index.html">Utility Functions</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/plotFuncs.html">Basic Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/bayesPlot.html">Plotting Bayesian Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/livePlot.html">Live Updating Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utilities/conversionFuncs.html">Convert between RAT and RasCAL-1</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../guide.html" class="nav-link">User Guide</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Tutorial</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Introduction</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="introduction">
+<span id="id1"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h1>
+<p>RAT is used to analyse reduced data; after an experiment has been performed and the raw data simplified into a more usable format
+(using a data reduction software such as <a class="reference external" href="https://docs.mantidproject.org/v4.2.0/techniques/ISIS_Reflectometry.html">Mantid</a>),
+we can use RAT for the calculation, estimation, and fitting of quantities of interest.</p>
+<p>The central RAT workflow centres around two objects:</p>
+<ul class="simple">
+<li><p>A <strong>Project</strong> object, which
+describes our data, our models, the various parameters we may have along with their limits or priors,
+and other quantities such as bulk SLDs or backgrounds.</p></li>
+<li><p>A <strong>Controls</strong> object, which
+summarises the actions which we want to do with our model. It specifies which algorithm we
+want to apply to improve our model fit, along with algorithm parameters such as maximum function evaluations, gradients, and parallelism options.</p></li>
+</ul>
+<p>This decoupling is useful as it keeps the experimental model separate from the data analysis being performed upon it. Generally,
+one will define a single model and then run it with several different controls objects. For example, we may want to first optimise
+our parameter values for our model using a genetic algorithm, and then run a Bayesian analysis to obtain the posterior distributions
+for each parameter.</p>
+<p>These inputs are passed into RAT to produce
+two outputs. The first is another model definition, which describes the same experiment as the input definition but with updated best-fit parameter values for parameters which
+we have chosen to optimise. The second is a results object which contains the results of the calculations, such as simulated reflectivities, SLD profiles or parameter distributions.</p>
+<p>We will discuss these further in <a class="reference internal" href="project.html#project"><span class="std std-ref">the next chapter</span></a>, where we look at the inputs and outputs in more detail.</p>
+<img alt="A flowchart depicting the RAT workflow model described above. On the left, we have two boxes labelled Problem (Input) and Controls, representing the required inputs used by RAT. An arrow points from each of these boxes to a central box labelled 'RAT', which represents passing these input objects into the main RAT program. Two arrows point from this central RAT box to a pair of boxes on the right labelled Problem (Output) and Results, indicating the output produced by RAT after the program runs." src="../_images/ratInput.png" />
+<p>The code block below shows how to set up each object for each language, as well as how to run a calculation.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Create project and controls objects</span>
+<span class="n">project</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">projectClass</span><span class="p">();</span>
+<span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">();</span>
+
+<span class="c">% Run after populating the project</span>
+<span class="p">[</span><span class="n">project</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RAT</span><span class="p">(</span><span class="n">project</span><span class="p">,</span><span class="w"> </span><span class="n">controls</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-1">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">RATapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">RAT</span>
+
+<span class="c1"># Create project and controls objects</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Project</span><span class="p">()</span>
+<span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">()</span>
+
+<span class="c1"># Run after populating the project</span>
+<span class="n">project</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">controls</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are a RasCAL-1 user, you probably have existing RasCAL models that you would like to analyse using RAT. If so, there is no need to re-make the model from scratch. Instead, there are
+conversion utilities (<a class="reference internal" href="../utilities/conversionFuncs.html#conversionfuncs"><span class="std std-ref">Convert between RAT and RasCAL-1</span></a>). In fact, for those who prefer a graphical model builder, using the RasCAL-1 GUI to build a basic model and then converting to RAT is a viable workflow.</p>
+</div>
+<section id="an-example-a-simple-model-of-a-lipid-layer">
+<h2>An example - A simple model of a lipid layer<a class="headerlink" href="#an-example-a-simple-model-of-a-lipid-layer" title="Link to this heading">#</a></h2>
+<section id="specifying-the-model">
+<h3>Specifying the Model<a class="headerlink" href="#specifying-the-model" title="Link to this heading">#</a></h3>
+<p>In <a class="reference internal" href="project.html#project"><span class="std std-ref">the next chapter</span></a>, we’ll look in detail how to set up the problem definition for a given situation.
+Here we will just use an existing example model to introduce how these objects are used in RAT.
+Our example data is neutron reflectivity data for a lipid monolayer (see image below), collected at various deuterations,
+which we want to analyse simultaneously.</p>
+<p>In terms of reflectivity, the interface we want to model (i.e. a monolayer at an air-water interface) is usually well modelled
+by two layers: the hydrophobic tail regions of the lipids, which are outside the bulk water interface, and the hydrophilic
+heads which are adjacent (or embedded) in the bulk aqueous phase.</p>
+<p>In our example, the layers can be either deuterated or hydrogenated, and the bulk water can either be D2O or ACMW.</p>
+<a class="reference internal image-reference" href="../_images/lipidMonolayer.png"><img alt="The lipid monolayer example" src="../_images/lipidMonolayer.png" style="width: 300px;" />
+</a>
+<p>We are going to analyze our monolayer data using a standard <a class="reference external" href="https://www.reflectometry.org/learn/3_reflectometry_slab_models/the_slab_model.html">slab model</a>.
+In this model, we approximate our experimental model as a series of layers with a known thickness, roughness, SLD and hydration.
+The way that this is represented in the RAT model definition is by a list of <strong>Parameter</strong> objects which represent a given quantity (such as a thickness or SLD),
+and then a list of <strong>Layer</strong> objects which group together these parameters to describe each layer. Layers are then grouped together in a <strong>Contrast</strong> object which
+describes the slab model and matches it up to the experimental data to which the model will be compared. In this project we have two contrasts representing
+two slab models (one for our deuterated experiment, one for our hydrogenated experiment).</p>
+<p>The code output below gives the full contents of a model definition for our experiment. After seeing it in full, we will break down each section of this
+definition and explain what it describes.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Load in a pre-made problem Definition class</span>
+<span class="n">root</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">getappdata</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;root&#39;</span><span class="p">);</span>
+<span class="n">problem</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="nb">load</span><span class="p">(</span><span class="nb">fullfile</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;/examples/tutorialFiles/twoContrastExample.mat&#39;</span><span class="p">));</span>
+<span class="n">problem</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">problem</span><span class="p">.</span><span class="n">problem</span><span class="p">;</span>
+
+<span class="c">% Have a look at what we have</span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">problem</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Project</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;source/tutorial/data/two_contrast_example.json&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">problem</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="sd-tab-set tab-label-hidden docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
+Matlab</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>         modelType: &#39;standard layers&#39;
+    experimentName: &#39;DSPC monolayers&#39;
+          geometry: &#39;air/substrate&#39;
+
+
+    Parameters: ---------------------------------------------------------------------------------------------- 
+
+    p               Name               Min       Value      Max     Fit? 
+    __    ________________________    ______    _______    _____    _____
+
+     1    &quot;Substrate Roughness&quot;            1          3        5    true 
+     2    &quot;Tails Thickness&quot;               10         20       30    true 
+     3    &quot;Heads Thickness&quot;                3         11       16    true 
+     4    &quot;Tails Roughness&quot;                2          5        9    true 
+     5    &quot;Heads Roughness&quot;                2          5        9    true 
+     6    &quot;Deuterated Tails SLD&quot;       4e-06      6e-06    2e-05    true 
+     7    &quot;Hydrogenated Tails SLD&quot;    -6e-07     -4e-07        0    true 
+     8    &quot;Deuterated Heads SLD&quot;       1e-06      3e-06    8e-06    true 
+     9    &quot;Hydrogenated Heads SLD&quot;     1e-07    1.4e-06    3e-06    true 
+    10    &quot;Heads Hydration&quot;                0        0.3      0.5    true 
+
+
+    Bulk In: -------------------------------------------------------------------------------------------------- 
+
+    p      Name       Min    Value    Max    Fit? 
+    _    _________    ___    _____    ___    _____
+
+    1    &quot;SLD Air&quot;     0       0       0     false
+
+
+    Bulk Out: ------------------------------------------------------------------------------------------------- 
+
+    p       Name         Min       Value        Max       Fit? 
+    _    __________    _______    ________    ________    _____
+
+    1    &quot;SLD D2O&quot;     6.2e-06    6.35e-06    6.35e-06    true 
+    2    &quot;SLD ACMW&quot;     -1e-06           0       1e-06    true 
+
+
+    Scalefactors: ------------------------------------------------------------------------------------------------- 
+
+    p         Name          Min     Value    Max     Fit? 
+    _    _______________    ____    _____    ____    _____
+
+    1    &quot;Scalefactor 1&quot;    0.02    0.23     0.25    true 
+
+
+    Backgrounds: ----------------------------------------------------------------------------------------------- 
+
+    (a) Background Parameters: 
+
+    p           Name            Min      Value      Max     Fit? 
+    _    __________________    _____    _______    _____    _____
+
+    1    &quot;Backs Value ACMW&quot;    1e-07    5.5e-06    1e-05    true 
+    2    &quot;Backs Value D2O&quot;     1e-08    2.8e-06    1e-05    true 
+
+    (b) Backgrounds:  
+
+    p          Name              Type             Source          Value 1    Value 2    Value 3    Value 4    Value 5
+    _    _________________    __________    __________________    _______    _______    _______    _______    _______
+
+    1    &quot;Background ACMW&quot;    &quot;constant&quot;    &quot;Backs Value ACMW&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
+    2    &quot;Background D2O&quot;     &quot;constant&quot;    &quot;Backs Value D2O&quot;       &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
+
+
+    Resolutions: --------------------------------------------------------------------------------------------- 
+
+    (a) Resolutions Parameters: 
+
+    p           Name           Min     Value    Max     Fit? 
+    _    __________________    ____    _____    ____    _____
+
+    1    &quot;Resolution par 1&quot;    0.01    0.03     0.05    false
+
+    (b) Resolutions:  
+
+    p         Name            Type             Source          Value 1    Value 2    Value 3    Value 4    Value 5
+    _    ______________    __________    __________________    _______    _______    _______    _______    _______
+
+    1    &quot;Resolution 1&quot;    &quot;constant&quot;    &quot;Resolution par 1&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
+
+
+    Layers: -------------------------------------------------------------------------------------------------- 
+
+    p            Name                Thickness                  SLD                   Roughness            Hydration        Hydrate with
+    _    ____________________    _________________    ________________________    _________________    _________________    ____________
+
+    1    &quot;Hydrogenated Heads&quot;    &quot;Heads Thickness&quot;    &quot;Hydrogenated Heads SLD&quot;    &quot;Heads Roughness&quot;    &quot;Heads Hydration&quot;     &quot;bulk out&quot; 
+    2    &quot;Deuterated Heads&quot;      &quot;Heads Thickness&quot;    &quot;Deuterated Heads SLD&quot;      &quot;Heads Roughness&quot;    &quot;Heads Hydration&quot;     &quot;bulk out&quot; 
+    3    &quot;Hydrogenated Tails&quot;    &quot;Tails Thickness&quot;    &quot;Hydrogenated Tails SLD&quot;    &quot;Tails Roughness&quot;    &quot;&quot;                    &quot;bulk out&quot; 
+    4    &quot;Deuterated Tails&quot;      &quot;Tails Thickness&quot;    &quot;Deuterated Tails SLD&quot;      &quot;Tails Roughness&quot;    &quot;&quot;                    &quot;bulk out&quot; 
+
+
+    Custom Files: ------------------------------------------------------------------------------------------------------ 
+
+    Name    Filename    Function Name    Language    Path
+    ____    ________    _____________    ________    ____
+
+     &quot;&quot;        &quot;&quot;            &quot;&quot;             &quot;&quot;        &quot;&quot; 
+
+
+    Data: ------------------------------------------------------------------------------------------------------ 
+
+              Name                       Data                  Data Range            Simulation Range   
+    ________________________    ______________________    _____________________    _____________________
+
+    &quot;Simulation&quot;                &quot;No Data&quot;                 &quot;-&quot;                      &quot;[ 0.0050 , 0.7000 ]&quot;
+    &quot;H-tail / D-head / ACMW&quot;    &quot;Data array: [51 x 3]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;
+    &quot;D-tail / H-head / D2O&quot;     &quot;Data array: [51 x 3]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;
+
+
+   Contrasts: ----------------------------------------------------------------------------------------------- 
+
+             p                        1                          2            
+    ___________________    _______________________    ________________________
+
+    &quot;Name&quot;                 &quot;D-tail/H-Head/D2O&quot;        &quot;H-tail/D-Head/ACMW&quot;    
+    &quot;Data&quot;                 &quot;D-tail / H-head / D2O&quot;    &quot;H-tail / D-head / ACMW&quot;
+    &quot;Background&quot;           &quot;Background D2O&quot;           &quot;Background ACMW&quot;       
+    &quot;Background Action&quot;    &quot;add&quot;                      &quot;add&quot;                   
+    &quot;Bulk in&quot;              &quot;SLD Air&quot;                  &quot;SLD Air&quot;               
+    &quot;Bulk out&quot;             &quot;SLD D2O&quot;                  &quot;SLD ACMW&quot;              
+    &quot;Scalefactor&quot;          &quot;Scalefactor 1&quot;            &quot;Scalefactor 1&quot;         
+    &quot;Resolution&quot;           &quot;Resolution 1&quot;             &quot;Resolution 1&quot;          
+    &quot;Resample&quot;             &quot;false&quot;                    &quot;false&quot;                 
+    &quot;Repeat Layers&quot;        &quot;1&quot;                        &quot;1&quot;                     
+    &quot;Model&quot;                &quot;Deuterated Tails&quot;         &quot;Hydrogenated Tails&quot;    
+    &quot;&quot;                     &quot;Hydrogenated Heads&quot;       &quot;Deuterated Heads&quot;      
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-5">
+Python</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Name: ----------------------------------------------------------------------------------------------
+
+DSPC monolayers
+
+Calculation: ---------------------------------------------------------------------------------------
+
+normal
+
+Model: ---------------------------------------------------------------------------------------------
+
+standard layers
+
+Geometry: ------------------------------------------------------------------------------------------
+
+air/substrate
+
+Parameters: ----------------------------------------------------------------------------------------
+
++-------+------------------------+--------+---------+-------+------+
+| index |          name          |  min   |  value  |  max  | fit  |
++-------+------------------------+--------+---------+-------+------+
+|   0   |  Substrate Roughness   |  1.0   |   3.0   |  5.0  | True |
+|   1   |    Tails Thickness     |  10.0  |   20.0  |  30.0 | True |
+|   2   |    Heads Thickness     |  3.0   |   11.0  |  16.0 | True |
+|   3   |    Tails Roughness     |  2.0   |   5.0   |  9.0  | True |
+|   4   |    Heads Roughness     |  2.0   |   5.0   |  9.0  | True |
+|   5   |  Deuterated Tails SLD  | 4e-06  |  6e-06  | 2e-05 | True |
+|   6   | Hydrogenated Tails SLD | -6e-07 |  -4e-07 |  0.0  | True |
+|   7   |  Deuterated Heads SLD  | 1e-06  |  3e-06  | 8e-06 | True |
+|   8   | Hydrogenated Heads SLD | 1e-07  | 1.4e-06 | 3e-06 | True |
+|   9   |    Heads Hydration     |  0.0   |   0.3   |  0.5  | True |
++-------+------------------------+--------+---------+-------+------+
+
+Bulk In: -------------------------------------------------------------------------------------------
+
++-------+---------+-----+-------+-----+-------+
+| index |   name  | min | value | max |  fit  |
++-------+---------+-----+-------+-----+-------+
+|   0   | SLD Air | 0.0 |  0.0  | 0.0 | False |
++-------+---------+-----+-------+-----+-------+
+
+Bulk Out: ------------------------------------------------------------------------------------------
+
++-------+----------+---------+----------+----------+------+
+| index |   name   |   min   |  value   |   max    | fit  |
++-------+----------+---------+----------+----------+------+
+|   0   | SLD D2O  | 6.2e-06 | 6.35e-06 | 6.35e-06 | True |
+|   1   | SLD ACMW |  -6e-07 | -5.6e-07 |  -3e-07  | True |
++-------+----------+---------+----------+----------+------+
+
+Scalefactors: --------------------------------------------------------------------------------------
+
++-------+---------------+------+-------+------+------+
+| index |      name     | min  | value | max  | fit  |
++-------+---------------+------+-------+------+------+
+|   0   | Scalefactor 1 | 0.02 |  0.23 | 0.25 | True |
++-------+---------------+------+-------+------+------+
+
+Background Parameters: -----------------------------------------------------------------------------
+
++-------+------------------+-------+---------+-------+------+
+| index |       name       |  min  |  value  |  max  | fit  |
++-------+------------------+-------+---------+-------+------+
+|   0   | Backs Value ACMW | 1e-07 | 5.5e-06 | 1e-05 | True |
+|   1   | Backs Value D2O  | 1e-08 | 2.8e-06 | 1e-05 | True |
++-------+------------------+-------+---------+-------+------+
+
+Backgrounds: ---------------------------------------------------------------------------------------
+
++-------+-----------------+----------+------------------+
+| index |       name      |   type   |      source      |
++-------+-----------------+----------+------------------+
+|   0   | Background ACMW | constant | Backs Value ACMW |
+|   1   |  Background D2O | constant | Backs Value D2O  |
++-------+-----------------+----------+------------------+
+
+Resolution Parameters: -----------------------------------------------------------------------------
+
++-------+--------------------+------+-------+------+-------+
+| index |        name        | min  | value | max  |  fit  |
++-------+--------------------+------+-------+------+-------+
+|   0   | Resolution Param 1 | 0.01 |  0.03 | 0.05 | False |
++-------+--------------------+------+-------+------+-------+
+
+Resolutions: ---------------------------------------------------------------------------------------
+
++-------+--------------+----------+--------------------+
+| index |     name     |   type   |       source       |
++-------+--------------+----------+--------------------+
+|   0   | Resolution 1 | constant | Resolution Param 1 |
++-------+--------------+----------+--------------------+
+
+Data: ----------------------------------------------------------------------------------------------
+
++-------+------------------------+----------------------+---------------------+---------------------+
+| index |          name          |         data         |      data range     |   simulation range  |
++-------+------------------------+----------------------+---------------------+---------------------+
+|   0   |       Simulation       |          []          |          []         |     [0.005, 0.7]    |
+|   1   | H-tail / D-head / ACMW | Data array: [51 x 3] | [0.051793, 0.58877] | [0.051793, 0.58877] |
+|   2   | D-tail / H-head / D2O  | Data array: [51 x 3] | [0.051793, 0.58877] | [0.051793, 0.58877] |
++-------+------------------------+----------------------+---------------------+---------------------+
+
+Layers: --------------------------------------------------------------------------------------------
+
++-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
+| index |        name        |    thickness    |          SLD           |    roughness    |    hydration    | hydrate with |
++-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
+|   0   | Hydrogenated Heads | Heads Thickness | Hydrogenated Heads SLD | Heads Roughness | Heads Hydration |   bulk out   |
+|   1   |  Deuterated Heads  | Heads Thickness |  Deuterated Heads SLD  | Heads Roughness | Heads Hydration |   bulk out   |
+|   2   | Hydrogenated Tails | Tails Thickness | Hydrogenated Tails SLD | Tails Roughness |                 |   bulk out   |
+|   3   |  Deuterated Tails  | Tails Thickness |  Deuterated Tails SLD  | Tails Roughness |                 |   bulk out   |
++-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
+
+Contrasts: -----------------------------------------------------------------------------------------
+
++-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------+
+| index |        name        |          data         |    background   | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample |       model        |
++-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------+
+|   0   | D-tail/H-Head/D2O  | D-tail / H-head / D2O |  Background D2O |        add        | SLD Air | SLD D2O  | Scalefactor 1 | Resolution 1 |  False   |  Deuterated Tails  |
+|       |                    |                       |                 |                   |         |          |               |              |          | Hydrogenated Heads |
+|   1   | H-tail/D-Head/ACMW | D-tail / H-head / D2O | Background ACMW |        add        | SLD Air | SLD ACMW | Scalefactor 1 | Resolution 1 |  False   | Hydrogenated Tails |
+|       |                    |                       |                 |                   |         |          |               |              |          |  Deuterated Heads  |
++-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------+
+</pre></div>
+</div>
+</div>
+</div>
+<section id="the-parameters-group">
+<h4>1. The Parameters Group<a class="headerlink" href="#the-parameters-group" title="Link to this heading">#</a></h4>
+<div class="sd-tab-set tab-label-hidden docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-6">
+Matlab</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    p               Name               Min       Value      Max     Fit? 
+    __    ________________________    ______    _______    _____    _____
+
+     1    &quot;Substrate Roughness&quot;            1          3        5    true 
+     2    &quot;Tails Thickness&quot;               10         20       30    true 
+     3    &quot;Heads Thickness&quot;                3         11       16    true 
+     4    &quot;Tails Roughness&quot;                2          5        9    true 
+     5    &quot;Heads Roughness&quot;                2          5        9    true 
+     6    &quot;Deuterated Tails SLD&quot;       4e-06      6e-06    2e-05    true 
+     7    &quot;Hydrogenated Tails SLD&quot;    -6e-07     -4e-07        0    true 
+     8    &quot;Deuterated Heads SLD&quot;       1e-06      3e-06    8e-06    true 
+     9    &quot;Hydrogenated Heads SLD&quot;     1e-07    1.4e-06    3e-06    true 
+    10    &quot;Heads Hydration&quot;                0        0.3      0.5    true 
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-7">
+Python</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+------------------------+--------+---------+-------+------+
+| index |          name          |  min   |  value  |  max  | fit  |
++-------+------------------------+--------+---------+-------+------+
+|   0   |  Substrate Roughness   |  1.0   |   3.0   |  5.0  | True |
+|   1   |    Tails Thickness     |  10.0  |   20.0  |  30.0 | True |
+|   2   |    Heads Thickness     |  3.0   |   11.0  |  16.0 | True |
+|   3   |    Tails Roughness     |  2.0   |   5.0   |  9.0  | True |
+|   4   |    Heads Roughness     |  2.0   |   5.0   |  9.0  | True |
+|   5   |  Deuterated Tails SLD  | 4e-06  |  6e-06  | 2e-05 | True |
+|   6   | Hydrogenated Tails SLD | -6e-07 |  -4e-07 |  0.0  | True |
+|   7   |  Deuterated Heads SLD  | 1e-06  |  3e-06  | 8e-06 | True |
+|   8   | Hydrogenated Heads SLD | 1e-07  | 1.4e-06 | 3e-06 | True |
+|   9   |    Heads Hydration     |  0.0   |   0.3   |  0.5  | True |
++-------+------------------------+--------+---------+-------+------+
+</pre></div>
+</div>
+</div>
+</div>
+<p>This block defines all the parameters that we need to specify our slab models. In our layers case, we
+need 10 parameters to define our system: A bulk interface roughness, thickness and roughness for the headgroups and tails, and
+SLD values for the layers, depending on whether they are deuterated or not. Each parameter has a given <code class="docutils literal notranslate"><span class="pre">value</span></code>, a <code class="docutils literal notranslate"><span class="pre">fit</span></code> field
+which specifies whether they are included in the fitting algorithm, and <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> values indicating the minimum and maximum
+value they can take in a fit respectively. There are also <strong>prior type</strong> fields which are used in Bayesian algorithms
+to leverage prior knowledge about the model, but for non-Bayesian algorithms these fields are ignored. We will not use them here.
+More information on Bayesian algorithms is available in the <a class="reference internal" href="bayes.html#bayestutorial"><span class="std std-ref">Bayes tutorial</span></a>.</p>
+</section>
+<section id="the-layers-group">
+<h4>2. The Layers Group<a class="headerlink" href="#the-layers-group" title="Link to this heading">#</a></h4>
+<div class="sd-tab-set tab-label-hidden docutils">
+<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-8">
+Matlab</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    p            Name                Thickness                  SLD                   Roughness            Hydration        Hydrate with
+    _    ____________________    _________________    ________________________    _________________    _________________    ____________
+
+    1    &quot;Hydrogenated Heads&quot;    &quot;Heads Thickness&quot;    &quot;Hydrogenated Heads SLD&quot;    &quot;Heads Roughness&quot;    &quot;Heads Hydration&quot;     &quot;bulk out&quot; 
+    2    &quot;Deuterated Heads&quot;      &quot;Heads Thickness&quot;    &quot;Deuterated Heads SLD&quot;      &quot;Heads Roughness&quot;    &quot;Heads Hydration&quot;     &quot;bulk out&quot; 
+    3    &quot;Hydrogenated Tails&quot;    &quot;Tails Thickness&quot;    &quot;Hydrogenated Tails SLD&quot;    &quot;Tails Roughness&quot;    &quot;&quot;                    &quot;bulk out&quot; 
+    4    &quot;Deuterated Tails&quot;      &quot;Tails Thickness&quot;    &quot;Deuterated Tails SLD&quot;      &quot;Tails Roughness&quot;    &quot;&quot;                    &quot;bulk out&quot; 
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-9">
+Python</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
+| index |        name        |    thickness    |          SLD           |    roughness    |    hydration    | hydrate with |
++-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
+|   0   | Hydrogenated Heads | Heads Thickness | Hydrogenated Heads SLD | Heads Roughness | Heads Hydration |   bulk out   |
+|   1   |  Deuterated Heads  | Heads Thickness |  Deuterated Heads SLD  | Heads Roughness | Heads Hydration |   bulk out   |
+|   2   | Hydrogenated Tails | Tails Thickness | Hydrogenated Tails SLD | Tails Roughness |                 |   bulk out   |
+|   3   |  Deuterated Tails  | Tails Thickness |  Deuterated Tails SLD  | Tails Roughness |                 |   bulk out   |
++-------+--------------------+-----------------+------------------------+-----------------+-----------------+--------------+
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once we have our parameters, we then need to group these into layers. We have two slab models, each of which consists of a head
+and a tail at different deuteration levels. This means we require 4 layers total.</p>
+</section>
+<section id="instrument-parameters-backgrounds-resolutions-and-scalefactors">
+<h4>3. ‘Instrument’ Parameters: (Backgrounds, Resolutions and Scalefactors)<a class="headerlink" href="#instrument-parameters-backgrounds-resolutions-and-scalefactors" title="Link to this heading">#</a></h4>
+<p>There are tables for backgrounds and background parameters, resolutions and resolution parameters; alongside the scalefactors table.
+These describe parameters which are not directly part of our model, but part of our experiment, such as
+the background or resolution of the instrument, or scale factors to fix systemic errors in scaling
+(with respect to absolute reflectivity). We will not discuss these in detail here, but we will note
+that background parameters, resolution parameters and scalefactors are parameters just like the ones above,
+and can be fitted in the same way as part of our analysis (e.g. if the scalefactor is unknown and we would like to optimise it)!</p>
+</section>
+<section id="data">
+<h4>4. Data<a class="headerlink" href="#data" title="Link to this heading">#</a></h4>
+<div class="sd-tab-set tab-label-hidden docutils">
+<input checked="checked" id="sd-tab-item-10" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-10">
+Matlab</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>              Name                       Data                  Data Range            Simulation Range   
+    ________________________    ______________________    _____________________    _____________________
+
+    &quot;Simulation&quot;                &quot;No Data&quot;                 &quot;-&quot;                      &quot;[ 0.0050 , 0.7000 ]&quot;
+    &quot;H-tail / D-head / ACMW&quot;    &quot;Data array: [51 x 3]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;
+    &quot;D-tail / H-head / D2O&quot;     &quot;Data array: [51 x 3]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-11" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-11">
+Python</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+------------------------+----------------------+---------------------+---------------------+
+| index |          name          |         data         |      data range     |   simulation range  |
++-------+------------------------+----------------------+---------------------+---------------------+
+|   0   |       Simulation       |          []          |          []         |     [0.005, 0.7]    |
+|   1   | H-tail / D-head / ACMW | Data array: [51 x 3] | [0.051793, 0.58877] | [0.051793, 0.58877] |
+|   2   | D-tail / H-head / D2O  | Data array: [51 x 3] | [0.051793, 0.58877] | [0.051793, 0.58877] |
++-------+------------------------+----------------------+---------------------+---------------------+
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each contrast must have a dataset associated with it, whether or not it contains data. An empty data object
+(i.e. containing no data and just a simulation range) means RAT will calculate the reflectivity only. When data is present, chi-squared goodness of fit
+will also be calculated. For our problem, we have two datasets and these are passed to the data block ready to be incorporated into contrasts.</p>
+</section>
+<section id="contrasts">
+<h4>5. Contrasts<a class="headerlink" href="#contrasts" title="Link to this heading">#</a></h4>
+<p>Once we have defined all the components of our model, we need to group them together into contrasts. We have two datasets
+we want to consider, so two contrasts. We have the relevant instrument parameters, and also we specify which layers are included in each contrast (in the <code class="docutils literal notranslate"><span class="pre">model</span></code>).</p>
+<div class="sd-tab-set tab-label-hidden docutils">
+<input checked="checked" id="sd-tab-item-12" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-12">
+Matlab</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>             p                        1                          2            
+    ___________________    _______________________    ________________________
+
+    &quot;Name&quot;                 &quot;D-tail/H-Head/D2O&quot;        &quot;H-tail/D-Head/ACMW&quot;    
+    &quot;Data&quot;                 &quot;D-tail / H-head / D2O&quot;    &quot;H-tail / D-head / ACMW&quot;
+    &quot;Background&quot;           &quot;Background D2O&quot;           &quot;Background ACMW&quot;       
+    &quot;Background Action&quot;    &quot;add&quot;                      &quot;add&quot;                   
+    &quot;Bulk in&quot;              &quot;SLD Air&quot;                  &quot;SLD Air&quot;               
+    &quot;Bulk out&quot;             &quot;SLD D2O&quot;                  &quot;SLD ACMW&quot;              
+    &quot;Scalefactor&quot;          &quot;Scalefactor 1&quot;            &quot;Scalefactor 1&quot;         
+    &quot;Resolution&quot;           &quot;Resolution 1&quot;             &quot;Resolution 1&quot;          
+    &quot;Resample&quot;             &quot;false&quot;                    &quot;false&quot;                 
+    &quot;Repeat Layers&quot;        &quot;1&quot;                        &quot;1&quot;                     
+    &quot;Model&quot;                &quot;Deuterated Tails&quot;         &quot;Hydrogenated Tails&quot;    
+    &quot;&quot;                     &quot;Hydrogenated Heads&quot;       &quot;Deuterated Heads&quot;      
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-13" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-13">
+Python</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------+
+| index |        name        |          data         |    background   | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample |       model        |
++-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------+
+|   0   | D-tail/H-Head/D2O  | D-tail / H-head / D2O |  Background D2O |        add        | SLD Air | SLD D2O  | Scalefactor 1 | Resolution 1 |  False   |  Deuterated Tails  |
+|       |                    |                       |                 |                   |         |          |               |              |          | Hydrogenated Heads |
+|   1   | H-tail/D-Head/ACMW | D-tail / H-head / D2O | Background ACMW |        add        | SLD Air | SLD ACMW | Scalefactor 1 | Resolution 1 |  False   | Hydrogenated Tails |
+|       |                    |                       |                 |                   |         |          |               |              |          |  Deuterated Heads  |
++-------+--------------------+-----------------------+-----------------+-------------------+---------+----------+---------------+--------------+----------+--------------------+
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="running-the-model">
+<h3>Running the Model<a class="headerlink" href="#running-the-model" title="Link to this heading">#</a></h3>
+<p>As we discussed at the beginning of the chapter, the other input to RAT is a controls object,
+which describes the data analysis operation to use and any relevant settings such as
+algorithm-specific parameters, parallelism, and display settings.
+More detail on the controls object is available at <a class="reference internal" href="controls.html#controls"><span class="std std-ref">A Closer Look at the Controls Class</span></a>,
+but for this demo we will just make an instance of the default controls object:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-14" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-14">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Make an instance of controls class</span>
+<span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">();</span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">controls</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-15" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-15">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make an instance of controls class</span>
+<span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">controls</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="sd-tab-set tab-label-hidden docutils">
+<input checked="checked" id="sd-tab-item-16" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-16">
+Matlab</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  controlsClass with properties:
+
+            parallel: &#39;single&#39;
+           procedure: &#39;calculate&#39;
+    calcSldDuringFit: 0
+             display: &#39;iter&#39;
+    resampleMinAngle: 0.9000
+     resampleNPoints: 50
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-17" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-17">
+Python</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------+-----------+
+|     Property     |   Value   |
++------------------+-----------+
+|    procedure     | calculate |
+|     parallel     |   single  |
+| calcSldDuringFit |   False   |
+| resampleMinAngle |    0.9    |
+| resampleNPoints  |     50    |
+|     display      |    iter   |
++------------------+-----------+
+</pre></div>
+</div>
+</div>
+</div>
+<p>By default, the Controls object specifies to run an <a class="reference external" href="https://www.reflectometry.org/learn/3_reflectometry_slab_models/how_we_calculate_the_reflectivity_of_a_slab_model.html">Abelès calculation</a>
+of the reflectivity for the model, and then uses that to calculate SLD profiles. In other words we are not asking RAT to do any kind of fit with our parameters.
+We can now pass our problem definition and controls classes to RAT to run the calculation:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-18" name="sd-tab-set-9" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-18">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RAT</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">controls</span><span class="p">);</span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-19" name="sd-tab-set-9" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-19">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">controls</span><span class="p">);</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="sd-tab-set tab-label-hidden docutils">
+<input checked="checked" id="sd-tab-item-20" name="sd-tab-set-10" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-20">
+Matlab</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ______________________________________________________________________________________________
+
+Elapsed time is 0.380518 seconds.
+
+Finished RAT ______________________________________________________________________________________________
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-21" name="sd-tab-set-10" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-21">
+Python</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+Elapsed time is 0.001 seconds
+
+Finished RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, we overwrite our original input class with the output by using the same variable name (<code class="docutils literal notranslate"><span class="pre">problem</span></code>) as an input and an output,
+but you don’t have to do it this way.</p>
+<p>As discussed above, the output of this run is an updated model definition (which in this case is completely identical to the input
+definition as we did not perform any fitting) as well as the results from our calculation. The results contain various output arrays:</p>
+<div class="sd-tab-set tab-label-hidden docutils">
+<input checked="checked" id="sd-tab-item-22" name="sd-tab-set-11" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-22">
+Matlab</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>          reflectivity: {2x1 cell}
+            simulation: {2x1 cell}
+           shiftedData: {2x1 cell}
+           backgrounds: {2x1 cell}
+           resolutions: {2x1 cell}
+           sldProfiles: {2x1 cell}
+                layers: {2x1 cell}
+       resampledLayers: {2x1 cell}
+    calculationResults: [1x1 struct]
+        contrastParams: [1x1 struct]
+             fitParams: [3 20 11 5 5 6.0000e-06 -4.0000e-07 ... ] (1x15 double)
+              fitNames: {15x1 cell}
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-23" name="sd-tab-set-11" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-23">
+Python</label><div class="sd-tab-content docutils">
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>reflectivity = [Data array: [51 x 2], Data array: [51 x 2]],
+simulation = [Data array: [51 x 2], Data array: [51 x 2]],
+shiftedData = [Data array: [51 x 3], Data array: [51 x 3]],
+backgrounds = [Data array: [51 x 3], Data array: [51 x 3]],
+resolutions = [Data array: [51 x 2], Data array: [51 x 2]],
+layerSlds = [[Data array: [2 x 3]], [Data array: [2 x 3]]],
+sldProfiles = [[Data array: [182 x 2]], [Data array: [182 x 2]]],
+resampledLayers = [[Data array: [1 x 3]], [Data array: [1 x 3]]],
+calculationResults = CalculationResults(
+	chiValues = [278.33456632 463.11454139],
+	sumChi = 741.4491077056697,
+),
+contrastParams = ContrastParams(
+	scalefactors = [0.23 0.23],
+	bulkIn = [0. 0.],
+	bulkOut = [ 6.35e-06 -5.60e-07],
+	subRoughs = [3. 3.],
+	resample = [0. 0.],
+),
+fitParams = [ 3.00e+00  2.00e+01  1.10e+01  5.00e+00  5.00e+00  6.00e-06 -4.00e-07
+  3.00e-06  1.40e-06  3.00e-01  5.50e-06  2.80e-06  2.30e-01  6.35e-06
+ -5.60e-07],
+fitNames = [&#39;Substrate Roughness&#39;, &#39;Tails Thickness&#39;, &#39;Heads Thickness&#39;, &#39;Tails Roughness&#39;, &#39;Heads Roughness&#39;, &#39;Deuterated Tails SLD&#39;, &#39;Hydrogenated Tails SLD&#39;, &#39;Deuterated Heads SLD&#39;, &#39;Hydrogenated Heads SLD&#39;, &#39;Heads Hydration&#39;, &#39;Backs Value ACMW&#39;, &#39;Backs Value D2O&#39;, &#39;Scalefactor 1&#39;, &#39;SLD D2O&#39;, &#39;SLD ACMW&#39;],
+</pre></div>
+</div>
+</div>
+</div>
+<p>This contains the results of our calculations, including the SLD profiles and reflectivities calculated from our problem class.
+We can now plot the output, either manually (by taking the relevant parts from the <code class="docutils literal notranslate"><span class="pre">results</span></code> array), or using one of the supplied plotting utilities:</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-24" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-24">
+MATLAB</label><div class="sd-tab-content docutils">
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="nb">clf</span><span class="p">;</span>
+<span class="n">plotRefSLD</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="sd-tab-item-25" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-25">
+PYTHON</label><div class="sd-tab-content docutils">
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">RAT</span><span class="o">.</span><span class="n">plotting</span><span class="o">.</span><span class="n">plot_ref_sld</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<img alt="reflectivity and SLD plots" src="../_images/plotBeforeOptimization.png" />
+<p>We can see that our model is looking fairly sensible, but that our guess values for the parameters are pretty wide of the mark. Further analysis
+might include running a fit over some of our parameters using one of the other procedures available in the controls object.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-a-simple-model-of-a-lipid-layer">An example - A simple model of a lipid layer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-the-model">Specifying the Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-parameters-group">1. The Parameters Group</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-layers-group">2. The Layers Group</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instrument-parameters-backgrounds-resolutions-and-scalefactors">3. ‘Instrument’ Parameters: (Backgrounds, Resolutions and Scalefactors)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data">4. Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#contrasts">5. Contrasts</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-the-model">Running the Model</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2022-2025, ISIS Neutron and Muon Source.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
