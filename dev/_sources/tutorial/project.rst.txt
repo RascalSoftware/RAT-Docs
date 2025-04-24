@@ -33,7 +33,7 @@ This is always done by calling the project creation routine and assigning it to 
     
     .. code-block:: Python
     
-        problem = RAT.Project('My Problem')
+        problem = RAT.Project(name='My Problem')
     
 This creates an instance of **Project**, assigns it to the variable ``problem``, and gives it the title 'My Problem'.
 
