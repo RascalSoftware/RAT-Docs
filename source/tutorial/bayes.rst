@@ -81,7 +81,7 @@ You can give the prior (alongside :math:`mu`, and :math:`sigma` if relevant) whe
 
     .. code-block:: Python
 
-        problem.parameters.append(name='My new param', min=1, value=2, max=3, prior_type="gaussian", mu=0, sigma=1)
+        problem.parameters.append(name='My new param', min=1, value=2, max=3, fit=True, prior_type="gaussian", mu=0, sigma=1)
         problem.parameters.append(name='My scale param', min=10, value=20, max=30, fit=True, prior_type="jeffreys")
 
 
