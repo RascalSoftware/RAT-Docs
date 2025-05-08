@@ -144,13 +144,17 @@ First, we add our seven parameters (remember that Substrate Roughness is always 
     
     .. code-block:: Python
 
-        problem.parameters.append(name='Oxide thick', min=5.0, value=20.0, max=60.0, fit=True)
-        problem.parameters.append(name='Oxide Hydration', min=0, value=0.2, max=0.5, fit=True)
-        problem.parameters.append(name='Lipid APM', min=45.0, value=55.0, max=65.0, fit=True)
-        problem.parameters.append(name='Head Hydration', min=0, value=0.2, max=0.5, fit=True)
-        problem.parameters.append(name='Bilayer Hydration', min=0, value=0.1, max=0.2, fit=True)
-        problem.parameters.append(name='Bilayer Roughness', min=2.0, value=4.0, max=8.0, fit=True)
-        problem.parameters.append(name='Water Thickness', min=0, value=2.0, max=10.0, fit=True)
+        parameters = [['Oxide thick', 5.0, 20.0, 60.0, True],
+                      ['Oxide Hydration', 0, 0.2, 0.5, True],
+                      ['Lipid APM', 45.0, 55.0, 65.0, True],
+                      ['Head Hydration', 0, 0.2, 0.5, True],
+                      ['Bilayer Hydration', 0, 0.1, 0.2, True],
+                      ['Bilayer Roughness', 2.0, 4.0, 8.0, True],
+                      ['Water Thickness', 0, 2.0, 10.0, True]]
+
+        for param in pGroup:
+            problem.parameters.append(name=param[0], min=param[1], value=param[2], max=param[3], fit=param[4])
+
 
 
 For this tutorial, we will show our custom model both in MATLAB and Python. You may run custom models
