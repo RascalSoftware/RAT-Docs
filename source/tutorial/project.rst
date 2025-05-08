@@ -151,11 +151,12 @@ To avoid having to make a whole load of statements for large projects with many 
     
     .. code-block:: Python
         
-        pGroup = [RAT.models.Parameter(name='Layer thick', min=10, value=20, max=30, fit=True),
-                  RAT.models.Parameter(name='Layer SLD', min=1e-6, value=3e-6, max=5e-6, fit=True),
-                  RAT.models.Parameter(name='Layer rough', min=5, value=7, max=10, fit=True)] 
- 
-        problem.parameters.extend(pGroup)
+        pGroup = [['Layer thick', 10, 20, 30, True,],
+                  ['Layer SLD', 1e-6, 3e-6, 5e-6, True,],
+                  ['Layer rough', 5, 7, 10, True]]
+
+        for param in pGroup:
+            problem.parameters.append(name=param[0], min=param[1], value=param[2], max=param[3], fit=param[4])
 
 The resulting parameters block looks like this:
 
@@ -185,8 +186,8 @@ The resulting parameters block looks like this:
             problem.parameters.append(name='My new param', min=1, value=2, max=3)
             problem.parameters.append(name='My other new param', min=10, value=20, max=30, fit=False)
             pGroup = [RAT.models.Parameter(name='Layer thick', min=10, value=20, max=30, fit=True),
-                    RAT.models.Parameter(name='Layer SLD', min=1e-6, value=3e-6, max=5e-6, fit=True),
-                    RAT.models.Parameter(name='Layer rough', min=5, value=7, max=10, fit=True)] 
+                      RAT.models.Parameter(name='Layer SLD', min=1e-6, value=3e-6, max=5e-6, fit=True),
+                      RAT.models.Parameter(name='Layer rough', min=5, value=7, max=10, fit=True)] 
     
             problem.parameters.extend(pGroup)
             print(problem.parameters)
@@ -379,13 +380,15 @@ Start by making a new project, and adding the parameters we will need:
 
         problem = RAT.Project(name='Layers Example')
         
-        params = [RAT.models.Parameter(name='Layer Thickness', min=10, value=20, max=30, fit=False),
-                  RAT.models.Parameter(name='H SLD', min=-6e-6, value=-4e-6, max=-1e-6, fit=False),
-                  RAT.models.Parameter(name='D SLD', min=5e-6, value=7e-6, max=9e-6, fit=True),
-                  RAT.models.Parameter(name='Layer rough', min=3, value=5, max=7, fit=True),
-                  RAT.models.Parameter(name='Layer hydr', min=0, value=10, max=20, fit=True)] 
+        params = [['Layer Thickness', 10, 20, 30, False],
+                  ['H SLD', -6e-6, -4e-6, -1e-6, False],
+                  ['D SLD', 5e-6, 7e-6, 9e-6, True],
+                  ['Layer rough', 3, 5, 7, True],
+                  ['Layer hydr', 0, 10, 20, True]]
  
-        problem.parameters.extend(params)
+        for param in params:
+            problem.parameters.append(name=param[0], min=param[1], value=param[2], max=param[3], fit=param[4])
+
 
 A layer is defined in terms of a name, thickness, SLD, roughness and (optional) hydration, along with details of which bulk phase is hydrating the layer.
 The easiest way to define these is to group the parameters into cell arrays, and then add them to the project as a layers group:
@@ -441,10 +444,10 @@ Our two layers now appear in the ``layers`` block of the project:
 
             problem = RAT.Project(name='Layers Example')
             params = [RAT.models.Parameter(name='Layer Thickness', min=10, value=20, max=30, fit=False),
-                    RAT.models.Parameter(name='H SLD', min=-6e-6, value=-4e-6, max=-1e-6, fit=False),
-                    RAT.models.Parameter(name='D SLD', min=5e-6, value=7e-6, max=9e-6, fit=True),
-                    RAT.models.Parameter(name='Layer rough', min=3, value=5, max=7, fit=True),
-                    RAT.models.Parameter(name='Layer hydr', min=0, value=10, max=20, fit=True)]
+                      RAT.models.Parameter(name='H SLD', min=-6e-6, value=-4e-6, max=-1e-6, fit=False),
+                      RAT.models.Parameter(name='D SLD', min=5e-6, value=7e-6, max=9e-6, fit=True),
+                      RAT.models.Parameter(name='Layer rough', min=3, value=5, max=7, fit=True),
+                      RAT.models.Parameter(name='Layer hydr', min=0, value=10, max=20, fit=True)]
             problem.parameters.extend(params)
 
             problem.layers.append(name='H Layer', thickness='Layer Thickness', SLD='H SLD',
@@ -977,18 +980,20 @@ Then we need to define the parameters we need. We'll do this by making a paramet
     .. code-block:: Python
         
         parameters = [
-            RAT.models.Parameter(name='Tails Thickness', min=10, value=20, max=30, fit=True),
-            RAT.models.Parameter(name='Heads Thickness', min=3, value=11, max=16, fit=True),
-            RAT.models.Parameter(name='Tails Roughness', min=2, value=5, max=9, fit=True),
-            RAT.models.Parameter(name='Heads Roughness', min=2, value=5, max=9, fit=True),
-            RAT.models.Parameter(name='Deuterated Tails SLD', min=4e-6, value=6e-6, max=2e-5, fit=True),
-            RAT.models.Parameter(name='Hydrogenated Tails SLD', min=-0.6e-6, value=-0.4e-6, max=0, fit=True),
-            RAT.models.Parameter(name='Deuterated Heads SLD', min=1e-6, value=3e-6, max=8e-6, fit=True),
-            RAT.models.Parameter(name='Hydrogenated Heads SLD', min=0.1e-6, value=1.4e-6, max=3e-6, fit=True),
-            RAT.models.Parameter(name='Heads Hydration', min=0, value=0.3, max=0.5, fit=True)
+            ['Tails Thickness', 10, 20, 30, True],
+            ['Heads Thickness', 3, 11, 16, True],
+            ['Tails Roughness', 2, 5, 9, True],
+            ['Heads Roughness', 2, 5, 9, True],
+            ['Deuterated Tails SLD', 4e-6, 6e-6, 2e-5, True],
+            ['Hydrogenated Tails SLD', -0.6e-6, -0.4e-6, 0, True],
+            ['Deuterated Heads SLD', 1e-6, 3e-6, 8e-6, True],
+            ['Hydrogenated Heads SLD', 0.1e-6, 1.4e-6, 3e-6, True],
+            ['Heads Hydration', 0, 0.3, 0.5, True]
             ]
  
-        problem.parameters.extend(parameters)
+        for param in params:
+            problem.parameters.append(name=param[0], min=param[1], value=param[2], max=param[3], fit=param[4])
+
 
 Next we need to group the parameters into our layers. We need four layers in all, representing deuterated and hydrogenated versions of the heads and tails:
 
