@@ -459,49 +459,18 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="module-RATapi.events">
-<span id="events"></span><h1>Events<a class="headerlink" href="#module-RATapi.events" title="Link to this heading">#</a></h1>
+  <section id="module-ratapi.events">
+<span id="events"></span><h1>Events<a class="headerlink" href="#module-ratapi.events" title="Link to this heading">#</a></h1>
+<p>Hooks for connecting to run callback events.</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.events.clear">
-<span class="sig-prename descclassname"><span class="pre">RATapi.events.</span></span><span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.events.clear" title="Link to this definition">#</a></dt>
-<dd><p>Clears all event callbacks or specific callback.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>callback</strong> (<em>Callable</em><em>[</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><em>PlotEventData</em><em>, </em><em>ProgressEventData</em><em>]</em><em>]</em><em>, </em><em>None</em><em>]</em>) – The callback for when the event is triggered.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="RATapi.events.get_event_callback">
-<span class="sig-prename descclassname"><span class="pre">RATapi.events.</span></span><span class="sig-name descname"><span class="pre">get_event_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.events.get_event_callback" title="Link to this definition">#</a></dt>
-<dd><p>Returns all callbacks registered for the given event type.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>event_type</strong> (<a class="reference internal" href="core.html#RATapi.rat_core.EventTypes" title="RATapi.rat_core.EventTypes"><em>EventTypes</em></a>) – The event type.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>callback</strong> – The callback for the event type.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Callable[[Union[str, PlotEventData, ProgressEventData]], None]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="RATapi.events.notify">
-<span class="sig-prename descclassname"><span class="pre">RATapi.events.</span></span><span class="sig-name descname"><span class="pre">notify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.events.notify" title="Link to this definition">#</a></dt>
-<dd><p>Calls registered callbacks with the data when event type has
-been triggered.</p>
+<dt class="sig sig-object py" id="ratapi.events.clear">
+<span class="sig-prename descclassname"><span class="pre">ratapi.events.</span></span><span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.events.clear" title="Link to this definition">#</a></dt>
+<dd><p>Clear all event callbacks or specific callback.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>event_type</strong> (<a class="reference internal" href="core.html#RATapi.rat_core.EventTypes" title="RATapi.rat_core.EventTypes"><em>EventTypes</em></a>) – The event type that was triggered.</p></li>
-<li><p><strong>data</strong> (<em>str</em><em> or </em><em>PlotEventData</em><em> or </em><em>ProgressEventData</em>) – The data sent by the event. The message event data is a string.</p></li>
+<li><p><strong>key</strong> (<a class="reference internal" href="core.html#ratapi.rat_core.EventTypes" title="ratapi.rat_core.EventTypes"><em>EventTypes</em></a><em>, </em><em>optional</em>) – The event type of the callback to clear if given.</p></li>
+<li><p><strong>callback</strong> (<em>Callable</em><em>[</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="core.html#ratapi.rat_core.PlotEventData" title="ratapi.rat_core.PlotEventData"><em>PlotEventData</em></a><em>, </em><a class="reference internal" href="core.html#ratapi.rat_core.ProgressEventData" title="ratapi.rat_core.ProgressEventData"><em>ProgressEventData</em></a><em>]</em><em>]</em><em>, </em><em>None</em><em>]</em><em>, </em><em>optional</em>) – A callback for an event which will be cleared if given.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -511,14 +480,48 @@ been triggered.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.events.register">
-<span class="sig-prename descclassname"><span class="pre">RATapi.events.</span></span><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.events.register" title="Link to this definition">#</a></dt>
-<dd><p>Registers a new callback for the event type.</p>
+<dt class="sig sig-object py" id="ratapi.events.get_event_callback">
+<span class="sig-prename descclassname"><span class="pre">ratapi.events.</span></span><span class="sig-name descname"><span class="pre">get_event_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.events.get_event_callback" title="Link to this definition">#</a></dt>
+<dd><p>Return all callbacks registered for the given event type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event_type</strong> (<a class="reference internal" href="core.html#ratapi.rat_core.EventTypes" title="ratapi.rat_core.EventTypes"><em>EventTypes</em></a>) – The event type.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>callback</strong> – The callback for the event type.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Callable[[Union[str, <a class="reference internal" href="core.html#ratapi.rat_core.PlotEventData" title="ratapi.rat_core.PlotEventData">PlotEventData</a>, <a class="reference internal" href="core.html#ratapi.rat_core.ProgressEventData" title="ratapi.rat_core.ProgressEventData">ProgressEventData</a>]], None]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ratapi.events.notify">
+<span class="sig-prename descclassname"><span class="pre">ratapi.events.</span></span><span class="sig-name descname"><span class="pre">notify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.events.notify" title="Link to this definition">#</a></dt>
+<dd><p>Call registered callbacks with data when event type has been triggered.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>event_type</strong> (<a class="reference internal" href="core.html#RATapi.rat_core.EventTypes" title="RATapi.rat_core.EventTypes"><em>EventTypes</em></a>) – The event type to register.</p></li>
-<li><p><strong>callback</strong> (<em>Callable</em><em>[</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><em>PlotEventData</em><em>, </em><em>ProgressEventData</em><em>]</em><em>]</em><em>, </em><em>None</em><em>]</em>) – The callback for when the event is triggered.</p></li>
+<li><p><strong>event_type</strong> (<a class="reference internal" href="core.html#ratapi.rat_core.EventTypes" title="ratapi.rat_core.EventTypes"><em>EventTypes</em></a>) – The event type that was triggered.</p></li>
+<li><p><strong>data</strong> (<em>str</em><em> or </em><a class="reference internal" href="core.html#ratapi.rat_core.PlotEventData" title="ratapi.rat_core.PlotEventData"><em>PlotEventData</em></a><em> or </em><a class="reference internal" href="core.html#ratapi.rat_core.ProgressEventData" title="ratapi.rat_core.ProgressEventData"><em>ProgressEventData</em></a>) – The data sent by the event. The message event data is a string.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ratapi.events.register">
+<span class="sig-prename descclassname"><span class="pre">ratapi.events.</span></span><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.events.register" title="Link to this definition">#</a></dt>
+<dd><p>Register a new callback for the event type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event_type</strong> (<a class="reference internal" href="core.html#ratapi.rat_core.EventTypes" title="ratapi.rat_core.EventTypes"><em>EventTypes</em></a>) – The event type to register.</p></li>
+<li><p><strong>callback</strong> (<em>Callable</em><em>[</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><a class="reference internal" href="core.html#ratapi.rat_core.PlotEventData" title="ratapi.rat_core.PlotEventData"><em>PlotEventData</em></a><em>, </em><a class="reference internal" href="core.html#ratapi.rat_core.ProgressEventData" title="ratapi.rat_core.ProgressEventData"><em>ProgressEventData</em></a><em>]</em><em>]</em><em>, </em><em>None</em><em>]</em>) – The callback for when the event is triggered.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -551,10 +554,10 @@ been triggered.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.events.clear"><code class="docutils literal notranslate"><span class="pre">clear()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.events.get_event_callback"><code class="docutils literal notranslate"><span class="pre">get_event_callback()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.events.notify"><code class="docutils literal notranslate"><span class="pre">notify()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.events.register"><code class="docutils literal notranslate"><span class="pre">register()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.events.clear"><code class="docutils literal notranslate"><span class="pre">clear()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.events.get_event_callback"><code class="docutils literal notranslate"><span class="pre">get_event_callback()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.events.notify"><code class="docutils literal notranslate"><span class="pre">notify()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.events.register"><code class="docutils literal notranslate"><span class="pre">register()</span></code></a></li>
 </ul>
   </nav></div>
 

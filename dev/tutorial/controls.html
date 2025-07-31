@@ -508,28 +508,30 @@ PYTHON</label><div class="sd-tab-content docutils">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  controlsClass with properties:
 
-            parallel: &#39;single&#39;
-           procedure: &#39;calculate&#39;
-    calcSldDuringFit: 0
-             display: &#39;iter&#39;
-    resampleMinAngle: 0.9000
-     resampleNPoints: 50
+               parallel: &#39;single&#39;
+              procedure: &#39;calculate&#39;
+       calcSldDuringFit: 0
+                display: &#39;iter&#39;
+    numSimulationPoints: 500
+       resampleMinAngle: 0.9000
+        resampleNPoints: 50
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
 Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------+-----------+
-|     Property     |   Value   |
-+------------------+-----------+
-|    procedure     | calculate |
-|     parallel     |   single  |
-| calcSldDuringFit |   False   |
-| resampleMinAngle |    0.9    |
-| resampleNPoints  |     50    |
-|     display      |    iter   |
-+------------------+-----------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+---------------------+-----------+
+|       Property      |   Value   |
++---------------------+-----------+
+|      procedure      | calculate |
+|       parallel      |   single  |
+|   calcSldDuringFit  |   False   |
+| numSimulationPoints |    500    |
+|   resampleMinAngle  |    0.9    |
+|   resampleNPoints   |     50    |
+|       display       |    iter   |
++---------------------+-----------+
 </pre></div>
 </div>
 </div>
@@ -559,40 +561,42 @@ PYTHON</label><div class="sd-tab-content docutils">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  controlsClass with properties:
 
-            parallel: &#39;single&#39;
-           procedure: &#39;simplex&#39;
-    calcSldDuringFit: 0
-             display: &#39;iter&#39;
-          xTolerance: 1.0000e-06
-       funcTolerance: 1.0000e-06
-        maxFuncEvals: 10000
-       maxIterations: 1000
-          updateFreq: 1
-      updatePlotFreq: 20
-    resampleMinAngle: 0.9000
-     resampleNPoints: 50
+               parallel: &#39;single&#39;
+              procedure: &#39;simplex&#39;
+       calcSldDuringFit: 0
+                display: &#39;iter&#39;
+             xTolerance: 1.0000e-06
+          funcTolerance: 1.0000e-06
+           maxFuncEvals: 10000
+          maxIterations: 1000
+             updateFreq: 1
+         updatePlotFreq: 20
+    numSimulationPoints: 500
+       resampleMinAngle: 0.9000
+        resampleNPoints: 50
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-7">
 Python</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+------------------+---------+
-|     Property     |  Value  |
-+------------------+---------+
-|    procedure     | simplex |
-|     parallel     |  single |
-| calcSldDuringFit |  False  |
-| resampleMinAngle |   0.9   |
-| resampleNPoints  |    50   |
-|     display      |   iter  |
-|    xTolerance    |  1e-06  |
-|  funcTolerance   |  1e-06  |
-|   maxFuncEvals   |  10000  |
-|  maxIterations   |   1000  |
-|    updateFreq    |    1    |
-|  updatePlotFreq  |    20   |
-+------------------+---------+
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+---------------------+---------+
+|       Property      |  Value  |
++---------------------+---------+
+|      procedure      | simplex |
+|       parallel      |  single |
+|   calcSldDuringFit  |  False  |
+| numSimulationPoints |   500   |
+|   resampleMinAngle  |   0.9   |
+|   resampleNPoints   |    50   |
+|       display       |   iter  |
+|      xTolerance     |  1e-06  |
+|    funcTolerance    |  1e-06  |
+|     maxFuncEvals    |  10000  |
+|    maxIterations    |   1000  |
+|      updateFreq     |    1    |
+|    updatePlotFreq   |    20   |
++---------------------+---------+
 </pre></div>
 </div>
 </div>
@@ -656,6 +660,10 @@ and <code class="docutils literal notranslate"><span class="pre">resampleMinAngl
 <li><p><code class="docutils literal notranslate"><span class="pre">resampleNPoints</span></code>: The initial number of domain points (layers) sampled by the algorithm at the start.</p></li>
 </ul>
 </section>
+<section id="numsimulationpoints">
+<h3><code class="docutils literal notranslate"><span class="pre">numSimulationPoints</span></code><a class="headerlink" href="#numsimulationpoints" title="Link to this heading">#</a></h3>
+<p>The number of points used for a reflectivity simulation where no data is present.</p>
+</section>
 </section>
 </section>
 
@@ -687,6 +695,7 @@ and <code class="docutils literal notranslate"><span class="pre">resampleMinAngl
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calcsldduringfit"><code class="docutils literal notranslate"><span class="pre">calcSldDuringFit</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display"><code class="docutils literal notranslate"><span class="pre">display</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resampling-parameters-resampleminangle-and-resamplenpoints">Resampling parameters (<code class="docutils literal notranslate"><span class="pre">resampleMinAngle</span></code> and <code class="docutils literal notranslate"><span class="pre">resampleNPoints</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numsimulationpoints"><code class="docutils literal notranslate"><span class="pre">numSimulationPoints</span></code></a></li>
 </ul>
 </li>
 </ul>

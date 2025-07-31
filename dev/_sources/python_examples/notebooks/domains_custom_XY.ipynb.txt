@@ -9,8 +9,8 @@
     "import pathlib\n",
     "from IPython.display import Code\n",
     "\n",
-    "import RATapi as RAT\n",
-    "from RATapi.models import Parameter"
+    "import ratapi as RAT\n",
+    "from ratapi.models import Parameter"
    ]
   },
   {

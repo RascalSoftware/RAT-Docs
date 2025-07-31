@@ -483,12 +483,12 @@ document.write(`
                   
   <div class="admonition note">
   This page was generated from the notebook convert_rascal.ipynb found in
-  <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/0.0.0.dev4/RATapi/examples/">the Python-RAT repository</a>.
+  <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/0.0.0.dev7/ratapi/examples/">the Python-RAT repository</a>.
   <a href="convert_rascal.ipynb" class="reference download internal" download>Download notebook</a>.
 </div><div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To get the output project and results from this example in your Python session, run:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">RATapi.examples</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_rascal</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ratapi.examples</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_rascal</span>
 <span class="n">project</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">convert_rascal</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -496,16 +496,16 @@ document.write(`
 <hr class="docutils" />
 <section id="RasCAL-1-to-RAT">
 <h1>RasCAL-1 to RAT<a class="headerlink" href="#RasCAL-1-to-RAT" title="Link to this heading">#</a></h1>
-<p>RasCAL-1 (R1) project structs can be converted to RAT Project classes, and vice versa. This is done via the functions <code class="docutils literal notranslate"><span class="pre">r1_to_project_class</span></code> and <code class="docutils literal notranslate"><span class="pre">project_class_to_r1</span></code>.</p>
+<p>RasCAL-1 (R1) project structs can be converted to RAT Projects, and vice versa. This is done via the functions <code class="docutils literal notranslate"><span class="pre">r1_to_project</span></code> and <code class="docutils literal notranslate"><span class="pre">project_to_r1</span></code>.</p>
 <p>Converting from R1 to a <code class="docutils literal notranslate"><span class="pre">Project</span></code> is very simple. We use the example R1 project in the file <code class="docutils literal notranslate"><span class="pre">R1monolayerVolumeModel.mat</span></code>, which is a project for analysing a monolayer of DSPC with various deuterations (tail-deuterated, head-deuterated, fully deuterated, hydrogenated)</p>
-<p>Simply give the file path to the function <code class="docutils literal notranslate"><span class="pre">r1_to_project_class</span></code>, and it returns a RAT <code class="docutils literal notranslate"><span class="pre">Project</span></code> that you can use exactly like any other.</p>
+<p>Simply give the file path to the function <code class="docutils literal notranslate"><span class="pre">r1_to_project</span></code>, and it returns a RAT <code class="docutils literal notranslate"><span class="pre">Project</span></code> that you can use exactly like any other.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">RATapi.utils.convert</span><span class="w"> </span><span class="kn">import</span> <span class="n">r1_to_project_class</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ratapi.utils.convert</span><span class="w"> </span><span class="kn">import</span> <span class="n">r1_to_project</span>
 
-<span class="n">project</span> <span class="o">=</span> <span class="n">r1_to_project_class</span><span class="p">(</span><span class="s2">&quot;R1monolayerVolumeModel.mat&quot;</span><span class="p">)</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">r1_to_project</span><span class="p">(</span><span class="s2">&quot;R1monolayerVolumeModel.mat&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -603,11 +603,11 @@ Resolutions: -------------------------------------------------------------------
 
 Custom Files: --------------------------------------------------------------------------------------
 
-+-------+-----------+-------------+---------------+----------+------+
-| index |    name   |   filename  | function name | language | path |
-+-------+-----------+-------------+---------------+----------+------+
-|   0   | Model_IIb | Model_IIb.m |   Model_IIb   |  matlab  |  .   |
-+-------+-----------+-------------+---------------+----------+------+
++-------+-----------+-------------+---------------+----------+------------------------------------------------------------------------------+
+| index |    name   |   filename  | function name | language |                                     path                                     |
++-------+-----------+-------------+---------------+----------+------------------------------------------------------------------------------+
+|   0   | Model_IIb | Model_IIb.m |   Model_IIb   |  matlab  | /opt/actions-runner/_work/RAT-Docs/RAT-Docs/source/python_examples/notebooks |
++-------+-----------+-------------+---------------+----------+------------------------------------------------------------------------------+
 
 Data: ----------------------------------------------------------------------------------------------
 
@@ -697,7 +697,7 @@ Contrasts: ---------------------------------------------------------------------
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">RATapi.examples</span><span class="w"> </span><span class="kn">import</span> <span class="n">DSPC_standard_layers</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ratapi.examples</span><span class="w"> </span><span class="kn">import</span> <span class="n">DSPC_standard_layers</span>
 <span class="n">lipid_bilayer_project</span> <span class="o">=</span> <span class="n">DSPC_standard_layers</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lipid_bilayer_project</span><span class="p">)</span>
 </pre></div>
@@ -867,21 +867,21 @@ Contrasts: ---------------------------------------------------------------------
 
 </pre></div></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">project_class_to_r1</span></code> takes parameters <code class="docutils literal notranslate"><span class="pre">project</span></code> and <code class="docutils literal notranslate"><span class="pre">filename</span></code>, which are the <code class="docutils literal notranslate"><span class="pre">Project</span></code> object and filename for the produced .mat file respectively. This .mat file can then be loaded into RasCAL-1.</p>
+<p><code class="docutils literal notranslate"><span class="pre">project_to_r1</span></code> takes parameters <code class="docutils literal notranslate"><span class="pre">project</span></code> and <code class="docutils literal notranslate"><span class="pre">filename</span></code>, which are the <code class="docutils literal notranslate"><span class="pre">Project</span></code> object and filename for the produced .mat file respectively. This .mat file can then be loaded into RasCAL-1.</p>
 <p>Alternatively, if one sets <code class="docutils literal notranslate"><span class="pre">return_struct=True</span></code>, the struct is returned as a Python dictionary instead of being saved.</p>
 <p>Note that a MATLAB engine is used to save the project to a .mat file, so the Python library <code class="docutils literal notranslate"><span class="pre">matlabengine</span></code> must be installed.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">RATapi.utils.convert</span><span class="w"> </span><span class="kn">import</span> <span class="n">project_class_to_r1</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ratapi.utils.convert</span><span class="w"> </span><span class="kn">import</span> <span class="n">project_to_r1</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">pp</span>  <span class="c1"># for printing the struct</span>
 
 <span class="c1"># save to a file called lipid_bilayer.mat</span>
-<span class="n">project_class_to_r1</span><span class="p">(</span><span class="n">lipid_bilayer_project</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lipid_bilayer.mat&quot;</span><span class="p">)</span>
+<span class="n">project_to_r1</span><span class="p">(</span><span class="n">lipid_bilayer_project</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lipid_bilayer.mat&quot;</span><span class="p">)</span>
 
 <span class="c1"># return as a Python dictionary</span>
-<span class="n">struct</span> <span class="o">=</span> <span class="n">project_class_to_r1</span><span class="p">(</span><span class="n">lipid_bilayer_project</span><span class="p">,</span> <span class="n">return_struct</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">struct</span> <span class="o">=</span> <span class="n">project_to_r1</span><span class="p">(</span><span class="n">lipid_bilayer_project</span><span class="p">,</span> <span class="n">return_struct</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">pp</span><span class="p">(</span><span class="n">struct</span><span class="p">)</span>
 </pre></div>
 </div>

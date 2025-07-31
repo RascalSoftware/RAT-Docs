@@ -459,12 +459,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="module-RATapi.models">
-<span id="models"></span><h1>Models<a class="headerlink" href="#module-RATapi.models" title="Link to this heading">#</a></h1>
+  <section id="module-ratapi.models">
+<span id="models"></span><h1>Models<a class="headerlink" href="#module-ratapi.models" title="Link to this heading">#</a></h1>
 <p>The models module. Contains the pydantic models used by RAT to store project parameters.</p>
 <dl class="py class pydantic_model">
-<dt class="sig sig-object py" id="RATapi.models.AbsorptionLayer">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.models.</span></span><span class="sig-name descname"><span class="pre">AbsorptionLayer</span></span><a class="headerlink" href="#RATapi.models.AbsorptionLayer" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ratapi.models.AbsorptionLayer">
+<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.models.</span></span><span class="sig-name descname"><span class="pre">AbsorptionLayer</span></span><a class="headerlink" href="#ratapi.models.AbsorptionLayer" title="Link to this definition">#</a></dt>
 <dd><p>A slab model layer with a non-negligible absorption term.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -484,7 +484,7 @@ for the scattering length density of this layer.</p></li>
 <dd class="field-even"><ul class="simple">
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SLD_imaginary</span> <span class="pre">(str)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SLD_real</span> <span class="pre">(str)</span></code></p></li>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hydrate_with</span> <span class="pre">(RATapi.utils.enums.Hydration)</span></code></p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hydrate_with</span> <span class="pre">(ratapi.utils.enums.Hydration)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hydration</span> <span class="pre">(str)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span> <span class="pre">(str)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">roughness</span> <span class="pre">(str)</span></code></p></li>
@@ -495,14 +495,14 @@ for the scattering length density of this layer.</p></li>
 </dd></dl>
 
 <dl class="py class pydantic_model">
-<dt class="sig sig-object py" id="RATapi.models.Background">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.models.</span></span><span class="sig-name descname"><span class="pre">Background</span></span><a class="headerlink" href="#RATapi.models.Background" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ratapi.models.Background">
+<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.models.</span></span><span class="sig-name descname"><span class="pre">Background</span></span><a class="headerlink" href="#ratapi.models.Background" title="Link to this definition">#</a></dt>
 <dd><p>A background signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>) – The name of the background.</p></li>
-<li><p><strong>type</strong> (<a class="reference internal" href="enums.html#RATapi.utils.enums.TypeOptions" title="RATapi.utils.enums.TypeOptions"><em>TypeOptions</em></a>) – The type of background (constant, function or data)</p></li>
+<li><p><strong>type</strong> (<a class="reference internal" href="enums.html#ratapi.utils.enums.TypeOptions" title="ratapi.utils.enums.TypeOptions"><em>TypeOptions</em></a>) – The type of background (constant, function or data)</p></li>
 <li><p><strong>source</strong> (<em>str</em>) – <p>The source of the background;</p>
 <ul>
 <li><p>if type is ‘constant’, this should be the name of a background parameter.</p></li>
@@ -551,7 +551,7 @@ for the scattering length density of this layer.</p></li>
 <dd class="field-even"><ul class="simple">
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span> <span class="pre">(str)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">source</span> <span class="pre">(str)</span></code></p></li>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span> <span class="pre">(RATapi.utils.enums.TypeOptions)</span></code></p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span> <span class="pre">(ratapi.utils.enums.TypeOptions)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">value_1</span> <span class="pre">(str)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">value_2</span> <span class="pre">(str)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">value_3</span> <span class="pre">(str)</span></code></p></li>
@@ -563,8 +563,8 @@ for the scattering length density of this layer.</p></li>
 </dd></dl>
 
 <dl class="py class pydantic_model">
-<dt class="sig sig-object py" id="RATapi.models.Contrast">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.models.</span></span><span class="sig-name descname"><span class="pre">Contrast</span></span><a class="headerlink" href="#RATapi.models.Contrast" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ratapi.models.Contrast">
+<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.models.</span></span><span class="sig-name descname"><span class="pre">Contrast</span></span><a class="headerlink" href="#ratapi.models.Contrast" title="Link to this definition">#</a></dt>
 <dd><p>A group of all of the components of a model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -572,7 +572,7 @@ for the scattering length density of this layer.</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – The name of the contrast.</p></li>
 <li><p><strong>data</strong> (<em>str</em>) – The name of the dataset used by the contrast.</p></li>
 <li><p><strong>background</strong> (<em>str</em>) – The name of the background for the contrast.</p></li>
-<li><p><strong>background_action</strong> (<a class="reference internal" href="enums.html#RATapi.utils.enums.BackgroundActions" title="RATapi.utils.enums.BackgroundActions"><em>BackgroundActions</em></a>) – Whether the background should be added (‘add’) or subtracted (‘subtract’) from the data.</p></li>
+<li><p><strong>background_action</strong> (<a class="reference internal" href="enums.html#ratapi.utils.enums.BackgroundActions" title="ratapi.utils.enums.BackgroundActions"><em>BackgroundActions</em></a>) – Whether the background should be added (‘add’) or subtracted (‘subtract’) from the data.</p></li>
 <li><p><strong>bulk_in</strong> (<em>str</em>) – The name of the bulk-in parameter which defines the SLD of the interface between the
 first layer and the environment.</p></li>
 <li><p><strong>bulk_out</strong> (<em>str</em>) – The name of the bulk-out parameter which defines the SLD of the interface between the last
@@ -589,7 +589,7 @@ custom model function.</p></li>
 <dt class="field-even">Fields<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">background</span> <span class="pre">(str)</span></code></p></li>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">background_action</span> <span class="pre">(RATapi.utils.enums.BackgroundActions)</span></code></p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">background_action</span> <span class="pre">(ratapi.utils.enums.BackgroundActions)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">bulk_in</span> <span class="pre">(str)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">bulk_out</span> <span class="pre">(str)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">data</span> <span class="pre">(str)</span></code></p></li>
@@ -604,8 +604,8 @@ custom model function.</p></li>
 </dd></dl>
 
 <dl class="py class pydantic_model">
-<dt class="sig sig-object py" id="RATapi.models.ContrastWithRatio">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.models.</span></span><span class="sig-name descname"><span class="pre">ContrastWithRatio</span></span><a class="headerlink" href="#RATapi.models.ContrastWithRatio" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ratapi.models.ContrastWithRatio">
+<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.models.</span></span><span class="sig-name descname"><span class="pre">ContrastWithRatio</span></span><a class="headerlink" href="#ratapi.models.ContrastWithRatio" title="Link to this definition">#</a></dt>
 <dd><p>A group of all of the components of a model, including domain terms.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -613,7 +613,7 @@ custom model function.</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – The name of the contrast.</p></li>
 <li><p><strong>data</strong> (<em>str</em>) – The name of the dataset used by the contrast.</p></li>
 <li><p><strong>background</strong> (<em>str</em>) – The name of the background for the contrast.</p></li>
-<li><p><strong>background_action</strong> (<a class="reference internal" href="enums.html#RATapi.utils.enums.BackgroundActions" title="RATapi.utils.enums.BackgroundActions"><em>BackgroundActions</em></a>) – Whether the background should be added (‘add’) or subtracted (‘subtract’) from the data.</p></li>
+<li><p><strong>background_action</strong> (<a class="reference internal" href="enums.html#ratapi.utils.enums.BackgroundActions" title="ratapi.utils.enums.BackgroundActions"><em>BackgroundActions</em></a>) – Whether the background should be added (‘add’) or subtracted (‘subtract’) from the data.</p></li>
 <li><p><strong>bulk_in</strong> (<em>str</em>) – The name of the bulk-in parameter which defines the SLD of the interface between the
 first layer and the environment.</p></li>
 <li><p><strong>bulk_out</strong> (<em>str</em>) – The name of the bulk-out parameter which defines the SLD of the interface between the last
@@ -632,7 +632,7 @@ custom model function.</p></li>
 <dt class="field-even">Fields<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">background</span> <span class="pre">(str)</span></code></p></li>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">background_action</span> <span class="pre">(RATapi.utils.enums.BackgroundActions)</span></code></p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">background_action</span> <span class="pre">(ratapi.utils.enums.BackgroundActions)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">bulk_in</span> <span class="pre">(str)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">bulk_out</span> <span class="pre">(str)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">data</span> <span class="pre">(str)</span></code></p></li>
@@ -648,8 +648,8 @@ custom model function.</p></li>
 </dd></dl>
 
 <dl class="py class pydantic_model">
-<dt class="sig sig-object py" id="RATapi.models.CustomFile">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.models.</span></span><span class="sig-name descname"><span class="pre">CustomFile</span></span><a class="headerlink" href="#RATapi.models.CustomFile" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ratapi.models.CustomFile">
+<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.models.</span></span><span class="sig-name descname"><span class="pre">CustomFile</span></span><a class="headerlink" href="#ratapi.models.CustomFile" title="Link to this definition">#</a></dt>
 <dd><p>A file containing functions to use for a custom model or function background.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -657,7 +657,7 @@ custom model function.</p></li>
 <li><p><strong>name</strong> (<em>str</em>) – The name of this custom file object.</p></li>
 <li><p><strong>filename</strong> (<em>str</em>) – The name of the file containing the custom function.</p></li>
 <li><p><strong>function_name</strong> (<em>str</em>) – The name of the custom function within the file.</p></li>
-<li><p><strong>language</strong> (<a class="reference internal" href="enums.html#RATapi.utils.enums.Languages" title="RATapi.utils.enums.Languages"><em>Languages</em></a>) – What language the custom function is written in: ‘matlab’, ‘python’, or ‘cpp’ (C++)</p></li>
+<li><p><strong>language</strong> (<a class="reference internal" href="enums.html#ratapi.utils.enums.Languages" title="ratapi.utils.enums.Languages"><em>Languages</em></a>) – What language the custom function is written in: ‘matlab’, ‘python’, or ‘cpp’ (C++)</p></li>
 <li><p><strong>path</strong> (<em>pathlib.Path</em>) – The path to the custom file.</p></li>
 </ul>
 </dd>
@@ -665,7 +665,7 @@ custom model function.</p></li>
 <dd class="field-even"><ul class="simple">
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">filename</span> <span class="pre">(str)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">function_name</span> <span class="pre">(str)</span></code></p></li>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">language</span> <span class="pre">(RATapi.utils.enums.Languages)</span></code></p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">language</span> <span class="pre">(ratapi.utils.enums.Languages)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span> <span class="pre">(str)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">path</span> <span class="pre">(pathlib.Path)</span></code></p></li>
 </ul>
@@ -674,8 +674,8 @@ custom model function.</p></li>
 </dd></dl>
 
 <dl class="py class pydantic_model">
-<dt class="sig sig-object py" id="RATapi.models.Data">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.models.</span></span><span class="sig-name descname"><span class="pre">Data</span></span><a class="headerlink" href="#RATapi.models.Data" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ratapi.models.Data">
+<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.models.</span></span><span class="sig-name descname"><span class="pre">Data</span></span><a class="headerlink" href="#ratapi.models.Data" title="Link to this definition">#</a></dt>
 <dd><p>A dataset required for a contrast.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -688,7 +688,7 @@ custom model function.</p></li>
 </dd>
 <dt class="field-even">Fields<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">data</span> <span class="pre">(numpy.ndarray[numpy.float64])</span></code></p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">data</span> <span class="pre">(numpy.ndarray)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">data_range</span> <span class="pre">(list[float])</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span> <span class="pre">(str)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">simulation_range</span> <span class="pre">(list[float])</span></code></p></li>
@@ -698,8 +698,8 @@ custom model function.</p></li>
 </dd></dl>
 
 <dl class="py class pydantic_model">
-<dt class="sig sig-object py" id="RATapi.models.DomainContrast">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.models.</span></span><span class="sig-name descname"><span class="pre">DomainContrast</span></span><a class="headerlink" href="#RATapi.models.DomainContrast" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ratapi.models.DomainContrast">
+<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.models.</span></span><span class="sig-name descname"><span class="pre">DomainContrast</span></span><a class="headerlink" href="#ratapi.models.DomainContrast" title="Link to this definition">#</a></dt>
 <dd><p>A group of layers required for a domain.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -718,8 +718,8 @@ custom model function.</p></li>
 </dd></dl>
 
 <dl class="py class pydantic_model">
-<dt class="sig sig-object py" id="RATapi.models.Layer">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.models.</span></span><span class="sig-name descname"><span class="pre">Layer</span></span><a class="headerlink" href="#RATapi.models.Layer" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ratapi.models.Layer">
+<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.models.</span></span><span class="sig-name descname"><span class="pre">Layer</span></span><a class="headerlink" href="#ratapi.models.Layer" title="Link to this definition">#</a></dt>
 <dd><p>A slab model layer with given physical properties.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -736,7 +736,7 @@ of this layer.</p></li>
 <dt class="field-even">Fields<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">SLD</span> <span class="pre">(str)</span></code></p></li>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hydrate_with</span> <span class="pre">(RATapi.utils.enums.Hydration)</span></code></p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hydrate_with</span> <span class="pre">(ratapi.utils.enums.Hydration)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">hydration</span> <span class="pre">(str)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span> <span class="pre">(str)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">roughness</span> <span class="pre">(str)</span></code></p></li>
@@ -747,8 +747,8 @@ of this layer.</p></li>
 </dd></dl>
 
 <dl class="py class pydantic_model">
-<dt class="sig sig-object py" id="RATapi.models.Parameter">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.models.</span></span><span class="sig-name descname"><span class="pre">Parameter</span></span><a class="headerlink" href="#RATapi.models.Parameter" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ratapi.models.Parameter">
+<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.models.</span></span><span class="sig-name descname"><span class="pre">Parameter</span></span><a class="headerlink" href="#ratapi.models.Parameter" title="Link to this definition">#</a></dt>
 <dd><p>A parameter needed to specify the model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -758,7 +758,7 @@ of this layer.</p></li>
 <li><p><strong>value</strong> (<em>float</em>) – The value of this parameter.</p></li>
 <li><p><strong>max</strong> (<em>float</em>) – The maximum value that this parameter could take when fitted.</p></li>
 <li><p><strong>fit</strong> (<em>bool</em>) – Whether this parameter should be fitted in a calculation.</p></li>
-<li><p><strong>prior_type</strong> (<a class="reference internal" href="enums.html#RATapi.utils.enums.Priors" title="RATapi.utils.enums.Priors"><em>Priors</em></a>) – For Bayesian calculations, whether the prior likelihood
+<li><p><strong>prior_type</strong> (<a class="reference internal" href="enums.html#ratapi.utils.enums.Priors" title="ratapi.utils.enums.Priors"><em>Priors</em></a>) – For Bayesian calculations, whether the prior likelihood
 is assumed to be ‘uniform’ or ‘gaussian’.</p></li>
 <li><p><strong>mu</strong> (<em>float</em>) – If the prior type is Gaussian, the mu and sigma values describing
 the Gaussian function for the prior likelihood.</p></li>
@@ -773,7 +773,7 @@ the Gaussian function for the prior likelihood.</p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span> <span class="pre">(float)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">mu</span> <span class="pre">(float)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span> <span class="pre">(str)</span></code></p></li>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prior_type</span> <span class="pre">(RATapi.utils.enums.Priors)</span></code></p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prior_type</span> <span class="pre">(ratapi.utils.enums.Priors)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">show_priors</span> <span class="pre">(bool)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">sigma</span> <span class="pre">(float)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span> <span class="pre">(float)</span></code></p></li>
@@ -783,8 +783,8 @@ the Gaussian function for the prior likelihood.</p></li>
 </dd></dl>
 
 <dl class="py class pydantic_model">
-<dt class="sig sig-object py" id="RATapi.models.ProtectedParameter">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.models.</span></span><span class="sig-name descname"><span class="pre">ProtectedParameter</span></span><a class="headerlink" href="#RATapi.models.ProtectedParameter" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ratapi.models.ProtectedParameter">
+<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.models.</span></span><span class="sig-name descname"><span class="pre">ProtectedParameter</span></span><a class="headerlink" href="#ratapi.models.ProtectedParameter" title="Link to this definition">#</a></dt>
 <dd><p>A Parameter with a fixed name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Fields<span class="colon">:</span></dt>
@@ -794,7 +794,7 @@ the Gaussian function for the prior likelihood.</p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span> <span class="pre">(float)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">mu</span> <span class="pre">(float)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span> <span class="pre">(str)</span></code></p></li>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prior_type</span> <span class="pre">(RATapi.utils.enums.Priors)</span></code></p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">prior_type</span> <span class="pre">(ratapi.utils.enums.Priors)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">show_priors</span> <span class="pre">(bool)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">sigma</span> <span class="pre">(float)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">value</span> <span class="pre">(float)</span></code></p></li>
@@ -804,14 +804,14 @@ the Gaussian function for the prior likelihood.</p></li>
 </dd></dl>
 
 <dl class="py class pydantic_model">
-<dt class="sig sig-object py" id="RATapi.models.Resolution">
-<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.models.</span></span><span class="sig-name descname"><span class="pre">Resolution</span></span><a class="headerlink" href="#RATapi.models.Resolution" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ratapi.models.Resolution">
+<em class="property"><span class="pre">pydantic</span> <span class="pre">model</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.models.</span></span><span class="sig-name descname"><span class="pre">Resolution</span></span><a class="headerlink" href="#ratapi.models.Resolution" title="Link to this definition">#</a></dt>
 <dd><p>An instrument resolution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>) – The name of the resolution.</p></li>
-<li><p><strong>type</strong> (<a class="reference internal" href="enums.html#RATapi.utils.enums.TypeOptions" title="RATapi.utils.enums.TypeOptions"><em>TypeOptions</em></a>) – The type of resolution: ‘constant’, ‘data’, or (NOT YET IMPLEMENTED) ‘function’.</p></li>
+<li><p><strong>type</strong> (<a class="reference internal" href="enums.html#ratapi.utils.enums.TypeOptions" title="ratapi.utils.enums.TypeOptions"><em>TypeOptions</em></a>) – The type of resolution: ‘constant’, ‘data’, or (NOT YET IMPLEMENTED) ‘function’.</p></li>
 <li><p><strong>source</strong> (<em>str</em>) – <p>The source data for the resolution;</p>
 <ul>
 <li><p>if type is ‘constant’, this should be the name of a background parameter.</p></li>
@@ -861,7 +861,7 @@ these values may be the names of up to 5 parameters which are passed to the func
 <dd class="field-even"><ul class="simple">
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">name</span> <span class="pre">(str)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">source</span> <span class="pre">(str)</span></code></p></li>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span> <span class="pre">(RATapi.utils.enums.TypeOptions)</span></code></p></li>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span> <span class="pre">(ratapi.utils.enums.TypeOptions)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">value_1</span> <span class="pre">(str)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">value_2</span> <span class="pre">(str)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">value_3</span> <span class="pre">(str)</span></code></p></li>
@@ -896,17 +896,17 @@ these values may be the names of up to 5 parameters which are passed to the func
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.models.AbsorptionLayer"><code class="docutils literal notranslate"><span class="pre">AbsorptionLayer</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.models.Background"><code class="docutils literal notranslate"><span class="pre">Background</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.models.Contrast"><code class="docutils literal notranslate"><span class="pre">Contrast</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.models.ContrastWithRatio"><code class="docutils literal notranslate"><span class="pre">ContrastWithRatio</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.models.CustomFile"><code class="docutils literal notranslate"><span class="pre">CustomFile</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.models.Data"><code class="docutils literal notranslate"><span class="pre">Data</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.models.DomainContrast"><code class="docutils literal notranslate"><span class="pre">DomainContrast</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.models.Layer"><code class="docutils literal notranslate"><span class="pre">Layer</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.models.Parameter"><code class="docutils literal notranslate"><span class="pre">Parameter</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.models.ProtectedParameter"><code class="docutils literal notranslate"><span class="pre">ProtectedParameter</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.models.Resolution"><code class="docutils literal notranslate"><span class="pre">Resolution</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.models.AbsorptionLayer"><code class="docutils literal notranslate"><span class="pre">AbsorptionLayer</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.models.Background"><code class="docutils literal notranslate"><span class="pre">Background</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.models.Contrast"><code class="docutils literal notranslate"><span class="pre">Contrast</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.models.ContrastWithRatio"><code class="docutils literal notranslate"><span class="pre">ContrastWithRatio</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.models.CustomFile"><code class="docutils literal notranslate"><span class="pre">CustomFile</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.models.Data"><code class="docutils literal notranslate"><span class="pre">Data</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.models.DomainContrast"><code class="docutils literal notranslate"><span class="pre">DomainContrast</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.models.Layer"><code class="docutils literal notranslate"><span class="pre">Layer</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.models.Parameter"><code class="docutils literal notranslate"><span class="pre">Parameter</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.models.ProtectedParameter"><code class="docutils literal notranslate"><span class="pre">ProtectedParameter</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.models.Resolution"><code class="docutils literal notranslate"><span class="pre">Resolution</span></code></a></li>
 </ul>
   </nav></div>
 

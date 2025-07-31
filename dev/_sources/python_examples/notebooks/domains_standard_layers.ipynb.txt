@@ -6,8 +6,8 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "import RATapi as RAT\n",
-    "from RATapi.models import Layer, Parameter"
+    "import ratapi as RAT\n",
+    "from ratapi.models import Layer, Parameter"
    ]
   },
   {

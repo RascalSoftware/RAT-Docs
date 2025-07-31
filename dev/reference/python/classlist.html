@@ -462,8 +462,8 @@ document.write(`
   <section id="classlist">
 <h1>ClassList<a class="headerlink" href="#classlist" title="Link to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="RATapi.ClassList">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.</span></span><span class="sig-name descname"><span class="pre">ClassList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name_field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'name'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.ClassList" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ratapi.ClassList">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.</span></span><span class="sig-name descname"><span class="pre">ClassList</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name_field</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'name'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.ClassList" title="Link to this definition">#</a></dt>
 <dd><p>List of instances of a particular class.</p>
 <p>This class subclasses collections.UserList to construct a list intended to store ONLY instances of a particular
 class, given on initialisation. Any attempt to introduce an object of a different type will raise a ValueError.
@@ -471,11 +471,11 @@ The class must be able to accept attribute values using keyword arguments. In ad
 attribute given in the ClassList’s “name_field” attribute (the default is “name”), the ClassList will ensure that
 all objects within the ClassList have unique values for that attribute. It is then possible to use this attribute
 of an object in the .remove(), .count(), and .index() routines in place of the full object. Due to the requirement
-of unique values of the name_field attribute, the multiplication operators __mul__, __rmul__, and __imul__ have
+of unique values of the <code class="docutils literal notranslate"><span class="pre">name_field</span></code> attribute, the multiplication operators __mul__, __rmul__, and __imul__ have
 been disabled, since they cannot allow for unique attribute values by definition.</p>
 <p>We extend the UserList class to enable objects to be added and modified using just the keyword arguments, enable
-the object name_field attribute to be used in place of the full object, and ensure all elements are of the
-specified type, with unique name_field attributes defined.</p>
+the object <code class="docutils literal notranslate"><span class="pre">name_field</span></code> attribute to be used in place of the full object, and ensure all elements are of the
+specified type, with unique <code class="docutils literal notranslate"><span class="pre">name_field</span></code> attributes defined.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -510,7 +510,7 @@ specified type, with unique name_field attributes defined.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.ClassList"><code class="docutils literal notranslate"><span class="pre">ClassList</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.ClassList"><code class="docutils literal notranslate"><span class="pre">ClassList</span></code></a></li>
 </ul>
   </nav></div>
 

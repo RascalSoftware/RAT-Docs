@@ -463,30 +463,420 @@ document.write(`
 <h1>RAT Core<a class="headerlink" href="#rat-core" title="Link to this heading">#</a></h1>
 <p>This module contains the <a class="reference external" href="https://pybind11.readthedocs.io/en/stable/index.html">Pybind11</a> objects
 which are used to interface with RAT’s C++ code.</p>
-<dl class="py class" id="module-RATapi.rat_core">
-<dt class="sig sig-object py" id="RATapi.rat_core.EventTypes">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">EventTypes</span></span><a class="headerlink" href="#RATapi.rat_core.EventTypes" title="Link to this definition">#</a></dt>
+<dl class="py class" id="module-ratapi.rat_core">
+<dt class="sig sig-object py" id="ratapi.rat_core.Calculation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">Calculation</span></span><a class="headerlink" href="#ratapi.rat_core.Calculation" title="Link to this definition">#</a></dt>
+<dd><p>The Python binding for the C++ calculationResult struct.
+The goodness of fit from the Abeles calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chiValues</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – The chi-squared value for each contrast.</p></li>
+<li><p><strong>sumChi</strong> (<em>float</em>) – The sum of the chiValues array.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ratapi.rat_core.Checks">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">Checks</span></span><a class="headerlink" href="#ratapi.rat_core.Checks" title="Link to this definition">#</a></dt>
+<dd><p>The Python binding for the C++ checks struct which contains
+flags indicating which parameters should be fitted in the project.</p>
+<p>For each attribute, if index <code class="docutils literal notranslate"><span class="pre">i</span></code> is non-zero, then parameter <code class="docutils literal notranslate"><span class="pre">i</span></code> in that attribute is fitted, e.g. if <code class="docutils literal notranslate"><span class="pre">Checks.scalefactors</span> <span class="pre">=</span> <span class="pre">[0.0,</span> <span class="pre">1.0,</span> <span class="pre">1.0]</span></code>, then the second and third scalefactors are fitted and the first is not.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Non-zero values indicates which params is fitted.</p></li>
+<li><p><strong>backgroundParams</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Non-zero values indicates which backgroundParams is fitted.</p></li>
+<li><p><strong>scalefactors</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Non-zero values indicates which scalefactors is fitted.</p></li>
+<li><p><strong>bulkIns</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Non-zero values indicates which bulkIns is fitted.</p></li>
+<li><p><strong>bulkOuts</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Non-zero values indicates which bulkOuts is fitted.</p></li>
+<li><p><strong>resolutionParams</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Non-zero values indicates which resolutionParams is fitted.</p></li>
+<li><p><strong>domainRatios</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Non-zero values indicates which domainRatios is fitted.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ratapi.rat_core.ConfidenceIntervals">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">ConfidenceIntervals</span></span><a class="headerlink" href="#ratapi.rat_core.ConfidenceIntervals" title="Link to this definition">#</a></dt>
+<dd><p>The Python binding for the C++ confidenceIntervals struct.
+The 65% and 95% confidence intervals for the best fit results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>percentile95</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – The 95% confidence intervals for each fit parameter.</p></li>
+<li><p><strong>percentile65</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – The 65% confidence intervals for each fit parameter.</p></li>
+<li><p><strong>mean</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – The mean values for each fit parameter.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ratapi.rat_core.ContrastParams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">ContrastParams</span></span><a class="headerlink" href="#ratapi.rat_core.ContrastParams" title="Link to this definition">#</a></dt>
+<dd><p>The Python binding for the C++ contrastParams struct.
+The experimental parameters for each contrast.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>scalefactors</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – The scalefactor values for each contrast.</p></li>
+<li><p><strong>bulkIn</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – The bulk in values for each contrast.</p></li>
+<li><p><strong>bulkOut</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – The bulk out values for each contrast.</p></li>
+<li><p><strong>subRoughs</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – The substrate roughness values for each contrast.</p></li>
+<li><p><strong>resample</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – An array containing whether each contrast was resampled.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ratapi.rat_core.Control">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">Control</span></span><a class="headerlink" href="#ratapi.rat_core.Control" title="Link to this definition">#</a></dt>
+<dd><p>The Python binding for the C++ controls struct.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>parallel</strong> (<em>str</em>) – How the calculation should be parallelised (This uses the Parallel Computing Toolbox). Can be ‘single’, ‘contrasts’ or ‘points’.</p></li>
+<li><p><strong>procedure</strong> (<em>str</em>) – Which procedure RAT should execute. Can be ‘calculate’, ‘simplex’, ‘de’, ‘ns’, or ‘dream’.</p></li>
+<li><p><strong>calcSldDuringFit</strong> (<em>bool</em>) – Whether SLD will be calculated during fit (for live plotting etc.)</p></li>
+<li><p><strong>numSimulationPoints</strong> (<em>int</em>) – The number of points used for a reflectivity simulation where no data is present.</p></li>
+<li><p><strong>resampleMinAngle</strong> (<em>float</em>) – The upper threshold on the angle between three sampled points for resampling, in units of radians over pi.</p></li>
+<li><p><strong>resampleNPoints</strong> (<em>int</em>) – The number of initial points to use for resampling.</p></li>
+<li><p><strong>display</strong> (<em>str</em>) – How much RAT should print to the terminal. Can be ‘off’, ‘iter’, ‘notify’, or ‘final’.</p></li>
+<li><p><strong>IPCFilePath</strong> (<em>str</em>) – The path of the inter process communication file.</p></li>
+<li><p><strong>updateFreq</strong> (<em>int</em>) – [SIMPLEX, DE] Number of iterations between printing progress updates to the terminal.</p></li>
+<li><p><strong>updatePlotFreq</strong> (<em>int</em>) – [SIMPLEX, DE] Number of iterations between updates to live plots.</p></li>
+<li><p><strong>xTolerance</strong> (<em>float</em>) – [SIMPLEX] The termination tolerance for step size.</p></li>
+<li><p><strong>funcTolerance</strong> (<em>float</em>) – [SIMPLEX] The termination tolerance for change in chi-squared.</p></li>
+<li><p><strong>maxFuncEvals</strong> (<em>int</em>) – [SIMPLEX] The maximum number of function evaluations before the algorithm terminates.</p></li>
+<li><p><strong>maxIterations</strong> (<em>int</em>) – [SIMPLEX] The maximum number of iterations before the algorithm terminates.</p></li>
+<li><p><strong>populationSize</strong> (<em>int</em>) – [DE] The number of candidate solutions that exist at any time.</p></li>
+<li><p><strong>fWeight</strong> (<em>float</em>) – [DE] The step size for how different mutations are to their parents.</p></li>
+<li><p><strong>crossoverProbability</strong> (<em>float</em>) – [DE] The probability of exchange of parameters between individuals at any iteration.</p></li>
+<li><p><strong>strategy</strong> (<em>int</em>) – [DE] The algorithm used to generate new candidates.</p></li>
+<li><p><strong>targetValue</strong> (<em>float</em>) – [DE] The value of chi-squared at which the algorithm will terminate.</p></li>
+<li><p><strong>numGenerations</strong> (<em>int</em>) – [DE] The maximum number of iterations before the algorithm terminates.</p></li>
+<li><p><strong>nLive</strong> (<em>int</em>) – [NS] The number of points to sample.</p></li>
+<li><p><strong>nMCMC</strong> (<em>int</em>) – [NS] If non-zero, an MCMC process with <code class="docutils literal notranslate"><span class="pre">nMCMC</span></code> chains will be used instead of MultiNest.</p></li>
+<li><p><strong>propScale</strong> (<em>float</em>) – [NS] A scaling factor for the ellipsoid generated by MultiNest.</p></li>
+<li><p><strong>nsTolerance</strong> (<em>float</em>) – [NS] The tolerance threshold for when the algorithm should terminate.</p></li>
+<li><p><strong>nSamples</strong> (<em>int</em>) – [DREAM] The number of samples in the initial population for each chain.</p></li>
+<li><p><strong>nChains</strong> (<em>int</em>) – [DREAM] The number of Markov chains to use in the algorithm.</p></li>
+<li><p><strong>jumpProbability</strong> (<em>float</em>) – [DREAM] The probability range for the size of jumps in sampling. Larger values mean more variable jumps.</p></li>
+<li><p><strong>pUnitGamma</strong> (<em>float</em>) – [DREAM] The probability that the scaling-down factor of jumps will be ignored and a larger jump will be taken.</p></li>
+<li><p><strong>boundHandling</strong> (<em>str</em>) – [DREAM] How steps past the space boundaries should be handled. Can be ‘off’, ‘reflect’, ‘bound’, or ‘fold’.</p></li>
+<li><p><strong>adaptPCR</strong> (<em>bool</em>) – [DREAM] Whether the crossover probability for differential evolution should be adapted during the run.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ratapi.rat_core.DreamOutput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">DreamOutput</span></span><a class="headerlink" href="#ratapi.rat_core.DreamOutput" title="Link to this definition">#</a></dt>
+<dd><p>The Python binding for the C++ DreamOutput struct.
+The diagnostic output information from DREAM.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>allChains</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – <p>An <code class="docutils literal notranslate"><span class="pre">nGenerations</span></code> x <code class="docutils literal notranslate"><span class="pre">nParams</span> <span class="pre">+</span> <span class="pre">2</span></code> x <code class="docutils literal notranslate"><span class="pre">nChains</span></code> size array,
+where <code class="docutils literal notranslate"><span class="pre">chain_k</span> <span class="pre">=</span> <span class="pre">DreamOutput.allChains[:,</span> <span class="pre">:,</span> <span class="pre">k]</span></code>
+is the data of chain <code class="docutils literal notranslate"><span class="pre">k</span></code> in the final iteration;
+for generation i of the final iteration, <code class="docutils literal notranslate"><span class="pre">chain_k[i,</span> <span class="pre">j]</span></code> represents:</p>
+<ul>
+<li><p>the sampled value of parameter <code class="docutils literal notranslate"><span class="pre">j</span></code> for <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">in</span> <span class="pre">0:nParams</span></code>;</p></li>
+<li><p>the associated log-prior for those sampled values for <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">=</span> <span class="pre">nParams</span> <span class="pre">+</span> <span class="pre">1</span></code>;</p></li>
+<li><p>the associated log-likelihood for those sampled values for <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">=</span> <span class="pre">nParams</span> <span class="pre">+</span> <span class="pre">2</span></code>.</p></li>
+</ul>
+</p></li>
+<li><p><strong>outlierChains</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – A two-column array where <code class="docutils literal notranslate"><span class="pre">DreamOutput.AR[i,</span> <span class="pre">1]</span></code> is the index of a chain
+and <code class="docutils literal notranslate"><span class="pre">DreamOutput.AR[i,</span> <span class="pre">0]</span></code> is the length of that chain when it was removed
+for being an outlier.</p></li>
+<li><p><strong>runtime</strong> (<em>float</em>) – The runtime of the DREAM algorithm in seconds.</p></li>
+<li><p><strong>iteration</strong> (<em>float</em>) – The number of iterations performed.</p></li>
+<li><p><strong>AR</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – A two-column array where <code class="docutils literal notranslate"><span class="pre">DreamOutput.AR[i,</span> <span class="pre">0]</span></code> is an iteration number
+and <code class="docutils literal notranslate"><span class="pre">DreamOutput.AR[i,</span> <span class="pre">1]</span></code> is the average acceptance rate of chain step
+proposals for that iteration.</p></li>
+<li><p><strong>R_stat</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – An array where <code class="docutils literal notranslate"><span class="pre">DreamOutput.R_stat[i,</span> <span class="pre">0]</span></code> is an iteration number and
+<code class="docutils literal notranslate"><span class="pre">DreamOutput.R_stat[i,</span> <span class="pre">j]</span></code> is the convergence statistic for parameter <code class="docutils literal notranslate"><span class="pre">j</span></code>
+at that iteration (where chains are indexed 1 to <code class="docutils literal notranslate"><span class="pre">nParams</span></code> inclusive).</p></li>
+<li><p><strong>CR</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – A four-column array where <code class="docutils literal notranslate"><span class="pre">DreamOutput.CR[i,</span> <span class="pre">0]</span></code> is an iteration number,
+<code class="docutils literal notranslate"><span class="pre">and</span> <span class="pre">DreamOutput.CR[i,</span> <span class="pre">j]</span></code> is the selection probability of the <code class="docutils literal notranslate"><span class="pre">j</span></code>’th crossover
+value for that iteration.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ratapi.rat_core.EventTypes">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">EventTypes</span></span><a class="headerlink" href="#ratapi.rat_core.EventTypes" title="Link to this definition">#</a></dt>
 <dd><p>Members:</p>
 <p>Message</p>
 <p>Plot</p>
 <p>Progress</p>
 <dl class="py property">
-<dt class="sig sig-object py" id="RATapi.rat_core.EventTypes.name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#RATapi.rat_core.EventTypes.name" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ratapi.rat_core.EventTypes.name">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#ratapi.rat_core.EventTypes.name" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="RATapi.rat_core.RATMain">
-<span class="sig-prename descclassname"><span class="pre">RATapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">RATMain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">RATapi.rat_core.ProblemDefinition</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">RATapi.rat_core.Limits</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">RATapi.rat_core.Control</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">RATapi.rat_core.Priors</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#RATapi.rat_core.RATMain" title="Link to this definition">#</a></dt>
-<dd><p>Entry point for the main reflectivity computation.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ratapi.rat_core.NameStore">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">NameStore</span></span><a class="headerlink" href="#ratapi.rat_core.NameStore" title="Link to this definition">#</a></dt>
+<dd><p>The Python binding for the C++ names struct which
+contains names of all parameters in the project.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> (<em>list</em>) – Names of params in the problem definition.</p></li>
+<li><p><strong>backgroundParams</strong> (<em>list</em>) – Names of backgroundParams in the problem definition.</p></li>
+<li><p><strong>scalefactors</strong> (<em>list</em>) – Names of scalefactors in the problem definition.</p></li>
+<li><p><strong>bulkIns</strong> (<em>list</em>) – Names of bulkIns in the problem definition.</p></li>
+<li><p><strong>bulkName</strong> (<em>list</em>) – Names of bulkOuts in the problem definition.</p></li>
+<li><p><strong>resolutionParams</strong> (<em>list</em>) – Names of resolutionParams in the problem definition.</p></li>
+<li><p><strong>domainRatios</strong> (<em>list</em>) – Names of domainRatios in the problem definition.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ratapi.rat_core.NestedSamplerOutput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">NestedSamplerOutput</span></span><a class="headerlink" href="#ratapi.rat_core.NestedSamplerOutput" title="Link to this definition">#</a></dt>
+<dd><p>The Python binding for the C++ nestedSamplerOutput struct.
+The output information from the Nested Sampler (ns).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>logZ</strong> (<em>float</em>) – The natural logarithm of the evidence Z for the parameter values.</p></li>
+<li><p><strong>logZErr</strong> (<em>float</em>) – The estimated uncertainty in the final value of logZ.</p></li>
+<li><p><strong>nestSamples</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – <p><code class="docutils literal notranslate"><span class="pre">NestedSamplerOutput.nestSamples[i,</span> <span class="pre">j]</span></code> represents the values
+sampled at iteration <code class="docutils literal notranslate"><span class="pre">i</span></code>, where this value is:</p>
+<ul>
+<li><p>the value sampled for parameter <code class="docutils literal notranslate"><span class="pre">j</span></code>, for <code class="docutils literal notranslate"><span class="pre">j</span></code> in <code class="docutils literal notranslate"><span class="pre">0:nParams</span></code>,</p></li>
+<li><p>the minimum log-likelihood for <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">=</span> <span class="pre">nParams</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p></li>
+</ul>
+</p></li>
+<li><p><strong>postSamples</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – The posterior values at the points sampled in <code class="docutils literal notranslate"><span class="pre">NestedSamplerOutput.nestSamples</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ratapi.rat_core.OutputBayesResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">OutputBayesResult</span></span><a class="headerlink" href="#ratapi.rat_core.OutputBayesResult" title="Link to this definition">#</a></dt>
+<dd><p>The Python binding for the C++ bayesResults struct.
+The results of a Bayesian RAT calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predictionIntervals</strong> (<em>RATapi.rat_core.PredictionIntervals</em>) – The prediction intervals.</p></li>
+<li><p><strong>confidenceIntervals</strong> (<em>RATapi.rat_core.ConfidenceIntervals</em>) – The 65% and 95% confidence intervals for the best fit results.</p></li>
+<li><p><strong>dreamParams</strong> (<em>RATapi.rat_core.DreamParams</em>) – The parameters used by DREAM, if relevant.</p></li>
+<li><p><strong>dreamOutput</strong> (<em>RATapi.rat_core.DreamOutput</em>) – The output from DREAM if DREAM was used.</p></li>
+<li><p><strong>nestedSamplerOutput</strong> (<em>RATapi.rat_core.NestedSamplerOutput</em>) – The output from nested sampling if ns was used.</p></li>
+<li><p><strong>chain</strong> (<em>np.ndarray</em>) – The MCMC chains for each parameter.
+The <code class="docutils literal notranslate"><span class="pre">i</span></code>’th column of the array contains the chain for parameter <code class="docutils literal notranslate"><span class="pre">fitNames[i]</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ratapi.rat_core.OutputResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">OutputResult</span></span><a class="headerlink" href="#ratapi.rat_core.OutputResult" title="Link to this definition">#</a></dt>
+<dd><p>The C++ result struct of a RAT calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reflectivity</strong> (<em>list</em>) – The reflectivity curves for each contrast, with the same range as the data
+(<code class="docutils literal notranslate"><span class="pre">data_range</span></code> in the contrast’s <code class="docutils literal notranslate"><span class="pre">Data</span></code> object)</p></li>
+<li><p><strong>simulation</strong> (<em>list</em>) – The reflectivity curves for each contrast, which can be a wider range to allow extrapolation
+(<code class="docutils literal notranslate"><span class="pre">simulation_range</span></code> in the contrast’s <code class="docutils literal notranslate"><span class="pre">Data</span></code> object).</p></li>
+<li><p><strong>shiftedData</strong> (<em>list</em>) – The data with scalefactors and background corrections applied.</p></li>
+<li><p><strong>backgrounds</strong> (<em>list</em>) – The background for each contrast defined over the simulation range.</p></li>
+<li><p><strong>resolutions</strong> (<em>list</em>) – The resolution for each contrast defined over the simulation range.</p></li>
+<li><p><strong>sldProfiles</strong> (<em>list</em>) – The SLD profiles for each contrast.</p></li>
+<li><p><strong>layers</strong> (<em>list</em>) – The array of layer parameter values for each contrast.</p></li>
+<li><p><strong>resampledLayers</strong> (<em>list</em>) – If resampling is used, the array of layer parameter values for each contrast after resampling has been performed.</p></li>
+<li><p><strong>calculationResults</strong> (<em>RATapi.rat_core.Calculation</em>) – The chi-squared fit results from the final calculation and fit.</p></li>
+<li><p><strong>contrastParams</strong> (<em>RATapi.rat_core.ContrastParams</em>) – The experimental parameters for the contrasts.</p></li>
+<li><p><strong>fitParams</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – The best fit value of the parameter with name <code class="docutils literal notranslate"><span class="pre">fitNames[i]</span></code>.</p></li>
+<li><p><strong>fitNames</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – The names of the fit parameters, where <code class="docutils literal notranslate"><span class="pre">fitNames[i]</span></code> is the name
+of the parameter with value given in <code class="docutils literal notranslate"><span class="pre">fitParams[i]</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ratapi.rat_core.PlotEventData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">PlotEventData</span></span><a class="headerlink" href="#ratapi.rat_core.PlotEventData" title="Link to this definition">#</a></dt>
+<dd><p>The Python binding for the C++ plotEventData struct.
+The plot event data contains intermediate results from the calculation. This can be emitted
+by the Simplex and DE algorithms only.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reflectivity</strong> (<em>list</em>) – The reflectivity curves for each contrast, with the same range as the data
+(<code class="docutils literal notranslate"><span class="pre">data_range</span></code> in the contrast’s <code class="docutils literal notranslate"><span class="pre">Data</span></code> object)</p></li>
+<li><p><strong>shiftedData</strong> (<em>list</em>) – The data with scalefactors and background corrections applied.</p></li>
+<li><p><strong>sldProfiles</strong> (<em>list</em>) – The SLD profiles for each contrast.</p></li>
+<li><p><strong>resampledLayers</strong> (<em>list</em>) – If resampling is used, the SLD for each contrast after resampling has been performed.</p></li>
+<li><p><strong>subRoughs</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – The substrate roughness values for each contrast.</p></li>
+<li><p><strong>resample</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – An array containing whether each contrast was resampled.</p></li>
+<li><p><strong>dataPresent</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Non-zero values indicates if data is present for the contrast.</p></li>
+<li><p><strong>modelType</strong> (<em>str</em>) – The model type for the project.</p></li>
+<li><p><strong>contrastNames</strong> (<em>list</em>) – The names of all contrasts in the project.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ratapi.rat_core.PredictionIntervals">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">PredictionIntervals</span></span><a class="headerlink" href="#ratapi.rat_core.PredictionIntervals" title="Link to this definition">#</a></dt>
+<dd><p>The Python binding for the C++ predictionIntervals struct.
+The Bayesian prediction intervals for 95% and 65% confidence.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">reflectivity</span></code> and <code class="docutils literal notranslate"><span class="pre">sld</span></code>, each list item is an array
+with five rows. The rows represent:</p>
+<ul class="simple">
+<li><p>0: the 5th percentile;</p></li>
+<li><p>1: the 35th percentile;</p></li>
+<li><p>2: the mean value of the interval;</p></li>
+<li><p>3: the 65th percentile;</p></li>
+<li><p>4: the 95th percentile.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reflectivity</strong> (<em>list</em>) – The prediction interval data for reflectivity of each contrast.</p></li>
+<li><p><strong>sld</strong> (<em>list</em>) – The prediction interval data for SLD of each contrast.</p></li>
+<li><p><strong>sampleChi</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – The value of sumChi at each point of the Markov chain.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ratapi.rat_core.ProblemDefinition">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">ProblemDefinition</span></span><a class="headerlink" href="#ratapi.rat_core.ProblemDefinition" title="Link to this definition">#</a></dt>
+<dd><p>The Python binding for the C++ problem struct.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>TF</strong> (<em>str</em>) – The target function for the calculation which can be ‘normal’ or ‘domains’.</p></li>
+<li><p><strong>resample</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – If <code class="docutils literal notranslate"><span class="pre">resample[i]</span></code> is non-zero, then contrast <code class="docutils literal notranslate"><span class="pre">i</span></code> will be resampled.</p></li>
+<li><p><strong>data</strong> (<em>list</em>) – Data for each contrast.</p></li>
+<li><p><strong>dataPresent</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – If <code class="docutils literal notranslate"><span class="pre">dataPresent[i]</span></code> is non-zero, then contrast <code class="docutils literal notranslate"><span class="pre">i</span></code> has experimental data.</p></li>
+<li><p><strong>dataLimits</strong> (<em>list</em>) – Data limits for each contrast.</p></li>
+<li><p><strong>simulationLimits</strong> (<em>list;</em>) – Simulation for each contrast.</p></li>
+<li><p><strong>numberOfContrasts</strong> (<em>int</em>) – Number of contrasts.</p></li>
+<li><p><strong>geometry</strong> (<em>str</em>) – The geometry to use which can be ‘air/substrate’ or ‘substrate/liquid’</p></li>
+<li><p><strong>useImaginary</strong> (<em>bool</em>) – Indicates whether imaginary component is used for the SLD value in layers, i.e.
+absorption is set to True for the project.</p></li>
+<li><p><strong>repeatLayers</strong> (<em>list</em>) – Information about repeating layers for each contrast. This is currently not being used.</p></li>
+<li><p><strong>contrastBackgroundParams</strong> (<em>list</em>) – Indices of backgroundParams used for each contrast</p></li>
+<li><p><strong>contrastBackgroundTypes</strong> (<em>list</em>) – Background type for each contrast.</p></li>
+<li><p><strong>contrastBackgroundActions</strong> (<em>list</em>) – Background action for each contrast.</p></li>
+<li><p><strong>contrastScalefactors</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Indices of scalefactors used for each contrast.</p></li>
+<li><p><strong>contrastBulkIns</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Indices of BulkIns used for each contrast.</p></li>
+<li><p><strong>contrastBulkOuts</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Indices of BulkIns used for each contrast.</p></li>
+<li><p><strong>contrastResolutionParams</strong> (<em>list</em>) – Indices of resolutionParams used for each contrast</p></li>
+<li><p><strong>contrastResolutionTypes</strong> (<em>list</em>) – Resolution type for each contrast.</p></li>
+<li><p><strong>backgroundParams</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Background parameter values.</p></li>
+<li><p><strong>scalefactors</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Scalefactors values.</p></li>
+<li><p><strong>bulkIns</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – BulkIn values.</p></li>
+<li><p><strong>bulkOuts</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – BulkOut values.</p></li>
+<li><p><strong>resolutionParams</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Resolution parameter values.</p></li>
+<li><p><strong>params</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Parameter values.</p></li>
+<li><p><strong>numberOfLayers</strong> (<em>int</em>) – Number of layers.</p></li>
+<li><p><strong>contrastLayers</strong> (<em>list</em>) – Indices of layers added to the model of each contrast.</p></li>
+<li><p><strong>layersDetails</strong> (<em>list</em>) – Indices of parameters in each layer.</p></li>
+<li><p><strong>customFiles</strong> (<em>object</em>) – Iterable with custom file functions</p></li>
+<li><p><strong>modelType</strong> (<em>str</em>) – The layer model type which can be ‘standard layers’, ‘custom layers’, or ‘custom xy’.</p></li>
+<li><p><strong>contrastCustomFiles</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Indices of CustomFiles used for each  domain contrast</p></li>
+<li><p><strong>contrastDomainRatios</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Indices of DomainRatios used for each  domain contrast</p></li>
+<li><p><strong>domainRatios</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Domain ratio values</p></li>
+<li><p><strong>numberOfDomainContrasts</strong> (<em>int</em>) – Number of domain contrasts.</p></li>
+<li><p><strong>domainContrastLayers</strong> (<em>list</em>) – Indices of layers added to the model of each domain contrast.</p></li>
+<li><p><strong>fitParams</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Values of fitted parameters.</p></li>
+<li><p><strong>fitLimits</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Limits of fitted parameters.</p></li>
+<li><p><strong>priorNames</strong> (<em>list</em>) – Parameter names for for all parameters in the problem definition.</p></li>
+<li><p><strong>priorValues</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Prior type, mu, and sigma for all parameters in the problem definition.</p></li>
+<li><p><strong>names</strong> (<em>RATapi.rat_core.NameStore</em>) – Names of all parameters.</p></li>
+<li><p><strong>checks</strong> (<em>RATapi.rat_core.Checks</em>) – Flags indicating which parameters should be fitted.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ratapi.rat_core.ProgressEventData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">ProgressEventData</span></span><a class="headerlink" href="#ratapi.rat_core.ProgressEventData" title="Link to this definition">#</a></dt>
+<dd><p>The Python binding for the C++ progressEventData struct.
+The progress event shows the percentage completion for the calculation. This can be emitted by
+the DREAM algorithm only.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> (<em>str</em>) – The title text for the event.</p></li>
+<li><p><strong>percent</strong> (<em>float</em>) – The percentage of the calculation completed (as a number between 0 and 1)</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.rat_core.makeSLDProfileXY">
-<span class="sig-prename descclassname"><span class="pre">RATapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">makeSLDProfileXY</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arg0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg4</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg5</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#RATapi.rat_core.makeSLDProfileXY" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ratapi.rat_core.RATMain">
+<span class="sig-prename descclassname"><span class="pre">ratapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">RATMain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">problem_def</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#ratapi.rat_core.ProblemDefinition" title="ratapi.rat_core.ProblemDefinition"><span class="pre">ratapi.rat_core.ProblemDefinition</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">control</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#ratapi.rat_core.Control" title="ratapi.rat_core.Control"><span class="pre">ratapi.rat_core.Control</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span></span></span><a class="headerlink" href="#ratapi.rat_core.RATMain" title="Link to this definition">#</a></dt>
+<dd><p>Entry point for the main reflectivity computation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>problem_def</strong> (<em>Rat.rat_core.ProblemDefinition</em>) – The project input for the RAT calculation.</p></li>
+<li><p><strong>control</strong> (<em>RATapi.rat_core.Control</em>) – The controls object for the RAT calculation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>out_problem_def</strong> (<em>Rat.rat_core.ProblemDefinition</em>) – The project input with the updated fit values.</p></li>
+<li><p><strong>results</strong> (<em>Rat.rat_core.OutputResult</em>) – The results from a RAT calculation.</p></li>
+<li><p><strong>bayes_result</strong> (<em>Rat.rat_core.OutputBayesResult</em>) – The extra results if RAT calculation is Bayesian.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ratapi.rat_core.makeSLDProfile">
+<span class="sig-prename descclassname"><span class="pre">ratapi.rat_core.</span></span><span class="sig-name descname"><span class="pre">makeSLDProfile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bulk_in</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SupportsFloat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bulk_out</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SupportsFloat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Annotated</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.typing.ArrayLike</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.float64</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ssub</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SupportsFloat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_repeats</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SupportsInt</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.typing.NDArray</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.float64</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#ratapi.rat_core.makeSLDProfile" title="Link to this definition">#</a></dt>
 <dd><p>Creates the profiles for the SLD plots</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bulk_in</strong> (<em>float</em>) – Bulk in value for contrast.</p></li>
+<li><p><strong>bulk_out</strong> (<em>float</em>) – Bulk out value for contrast.</p></li>
+<li><p><strong>layers</strong> (<em>np.ndarray</em><em>[</em><em>np.float</em><em>]</em>) – Array of parameters for each layer in the contrast.</p></li>
+<li><p><strong>ssub</strong> (<em>float</em>) – Substrate roughness.</p></li>
+<li><p><strong>number_of_repeats</strong> (<em>int</em><em>, </em><em>default: 1</em>) – Number of times the layers are repeated.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>sld_profile</strong> – Computed SLD profile</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.ndarray[np.float]</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -513,12 +903,26 @@ which are used to interface with RAT’s C++ code.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.rat_core.EventTypes"><code class="docutils literal notranslate"><span class="pre">EventTypes</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.rat_core.EventTypes.name"><code class="docutils literal notranslate"><span class="pre">EventTypes.name</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.rat_core.Calculation"><code class="docutils literal notranslate"><span class="pre">Calculation</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.rat_core.Checks"><code class="docutils literal notranslate"><span class="pre">Checks</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.rat_core.ConfidenceIntervals"><code class="docutils literal notranslate"><span class="pre">ConfidenceIntervals</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.rat_core.ContrastParams"><code class="docutils literal notranslate"><span class="pre">ContrastParams</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.rat_core.Control"><code class="docutils literal notranslate"><span class="pre">Control</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.rat_core.DreamOutput"><code class="docutils literal notranslate"><span class="pre">DreamOutput</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.rat_core.EventTypes"><code class="docutils literal notranslate"><span class="pre">EventTypes</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.rat_core.EventTypes.name"><code class="docutils literal notranslate"><span class="pre">EventTypes.name</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.rat_core.RATMain"><code class="docutils literal notranslate"><span class="pre">RATMain()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.rat_core.makeSLDProfileXY"><code class="docutils literal notranslate"><span class="pre">makeSLDProfileXY()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.rat_core.NameStore"><code class="docutils literal notranslate"><span class="pre">NameStore</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.rat_core.NestedSamplerOutput"><code class="docutils literal notranslate"><span class="pre">NestedSamplerOutput</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.rat_core.OutputBayesResult"><code class="docutils literal notranslate"><span class="pre">OutputBayesResult</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.rat_core.OutputResult"><code class="docutils literal notranslate"><span class="pre">OutputResult</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.rat_core.PlotEventData"><code class="docutils literal notranslate"><span class="pre">PlotEventData</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.rat_core.PredictionIntervals"><code class="docutils literal notranslate"><span class="pre">PredictionIntervals</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.rat_core.ProblemDefinition"><code class="docutils literal notranslate"><span class="pre">ProblemDefinition</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.rat_core.ProgressEventData"><code class="docutils literal notranslate"><span class="pre">ProgressEventData</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.rat_core.RATMain"><code class="docutils literal notranslate"><span class="pre">RATMain()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.rat_core.makeSLDProfile"><code class="docutils literal notranslate"><span class="pre">makeSLDProfile()</span></code></a></li>
 </ul>
   </nav></div>
 

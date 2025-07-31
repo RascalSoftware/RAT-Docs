@@ -479,12 +479,12 @@ document.write(`
                   
   <div class="admonition note">
   This page was generated from the notebook absorption.ipynb found in
-  <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/0.0.0.dev4/RATapi/examples/">the Python-RAT repository</a>.
+  <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/0.0.0.dev7/ratapi/examples/">the Python-RAT repository</a>.
   <a href="absorption.ipynb" class="reference download internal" download>Download notebook</a>.
 </div><div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To get the output project and results from this example in your Python session, run:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">RATapi.examples</span><span class="w"> </span><span class="kn">import</span> <span class="n">absorption</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ratapi.examples</span><span class="w"> </span><span class="kn">import</span> <span class="n">absorption</span>
 <span class="n">project</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">absorption</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -499,8 +499,8 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Code</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">RATapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">RAT</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">RATapi.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Parameter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ratapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">RAT</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ratapi.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Parameter</span>
 </pre></div>
 </div>
 </div>
@@ -715,7 +715,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .output_html .vg { color: #19177C } /* Name.Variable.Global */
 .output_html .vi { color: #19177C } /* Name.Variable.Instance */
 .output_html .vm { color: #19177C } /* Name.Variable.Magic */
-.output_html .il { color: #666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">volume_thiol_bilayer</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">bulk_in</span><span class="p">,</span> <span class="n">bulk_out</span><span class="p">,</span> <span class="n">contrast</span><span class="p">):</span>
+.output_html .il { color: #666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Custom layer model file for the absorption example.&quot;&quot;&quot;</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">volume_thiol_bilayer</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">bulk_in</span><span class="p">,</span> <span class="n">bulk_out</span><span class="p">,</span> <span class="n">contrast</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;VolumeThiolBilayer  RAT Custom Layer Model File.</span>
 
 <span class="sd">    This file accepts 3 vectors containing the values for params, bulk in and bulk out.</span>
@@ -847,7 +850,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
     <span class="n">CW</span> <span class="o">=</span> <span class="p">[</span><span class="n">cwThick</span><span class="p">,</span> <span class="n">bulk_out</span><span class="p">[</span><span class="n">contrast</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="n">bilayerRough</span><span class="p">]</span>
 
-    <span class="k">if</span> <span class="n">contrast</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">contrast</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">contrast</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">contrast</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
         <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">alloyUp</span><span class="p">,</span> <span class="n">gold</span><span class="p">,</span> <span class="n">SAMTAILS</span><span class="p">,</span> <span class="n">SAMHEAD</span><span class="p">,</span> <span class="n">CW</span><span class="p">,</span> <span class="o">*</span><span class="n">BILAYER</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">alloyDown</span><span class="p">,</span> <span class="n">gold</span><span class="p">,</span> <span class="n">SAMTAILS</span><span class="p">,</span> <span class="n">SAMHEAD</span><span class="p">,</span> <span class="n">CW</span><span class="p">,</span> <span class="o">*</span><span class="n">BILAYER</span><span class="p">]</span>
@@ -929,7 +932,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="highlight"><pre>
 Starting RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 
-Elapsed time is 0.066 seconds
+Elapsed time is 0.055 seconds
 
 Finished RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 

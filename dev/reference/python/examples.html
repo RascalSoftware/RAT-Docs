@@ -461,12 +461,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="module-RATapi.examples">
-<span id="examples"></span><h1>Examples<a class="headerlink" href="#module-RATapi.examples" title="Link to this heading">#</a></h1>
+  <section id="module-ratapi.examples">
+<span id="examples"></span><h1>Examples<a class="headerlink" href="#module-ratapi.examples" title="Link to this heading">#</a></h1>
+<p>Usage examples for the Python RAT API.</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.examples.DSPC_custom_XY">
-<span class="sig-prename descclassname"><span class="pre">RATapi.examples.</span></span><span class="sig-name descname"><span class="pre">DSPC_custom_XY</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.examples.DSPC_custom_XY" title="Link to this definition">#</a></dt>
-<dd><p>Custom XY Example for Supported DSPC layer.</p>
+<dt class="sig sig-object py" id="ratapi.examples.DSPC_custom_XY">
+<span class="sig-prename descclassname"><span class="pre">ratapi.examples.</span></span><span class="sig-name descname"><span class="pre">DSPC_custom_XY</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.examples.DSPC_custom_XY" title="Link to this definition">#</a></dt>
+<dd><p>Calculate a Custom XY Example for Supported DSPC layer.</p>
 <p>In this example, we model the same data (DSPC supported bilayer) as the Custom Layers example, but this time we will
 use continuous distributions of the volume fractions of each component to build up the SLD profiles (as described in
 Shekhar et al, J. Appl. Phys., 110, 102216 (2011).)</p>
@@ -488,46 +489,95 @@ distribution as:</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.examples.DSPC_custom_layers">
-<span class="sig-prename descclassname"><span class="pre">RATapi.examples.</span></span><span class="sig-name descname"><span class="pre">DSPC_custom_layers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.examples.DSPC_custom_layers" title="Link to this definition">#</a></dt>
-<dd><p>Custom Layers example for Supported DSPC layer.</p>
-<p>Example of using custom layers to model a DSPC supported bilayer.</p>
+<dt class="sig sig-object py" id="ratapi.examples.DSPC_custom_layers">
+<span class="sig-prename descclassname"><span class="pre">ratapi.examples.</span></span><span class="sig-name descname"><span class="pre">DSPC_custom_layers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.examples.DSPC_custom_layers" title="Link to this definition">#</a></dt>
+<dd><p>Calculate a Custom Layers example for a supported DSPC layer.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.examples.DSPC_data_background">
-<span class="sig-prename descclassname"><span class="pre">RATapi.examples.</span></span><span class="sig-name descname"><span class="pre">DSPC_data_background</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.examples.DSPC_data_background" title="Link to this definition">#</a></dt>
-<dd><p>Standard Layers fit of a DSPC floating bilayer</p>
+<dt class="sig sig-object py" id="ratapi.examples.DSPC_data_background">
+<span class="sig-prename descclassname"><span class="pre">ratapi.examples.</span></span><span class="sig-name descname"><span class="pre">DSPC_data_background</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.examples.DSPC_data_background" title="Link to this definition">#</a></dt>
+<dd><p>Calculate a Standard Layers fit of a DSPC floating bilayer with a data background.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.examples.DSPC_function_background">
-<span class="sig-prename descclassname"><span class="pre">RATapi.examples.</span></span><span class="sig-name descname"><span class="pre">DSPC_function_background</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.examples.DSPC_function_background" title="Link to this definition">#</a></dt>
-<dd><p>Standard Layers fit of a DSPC floating bilayer</p>
+<dt class="sig sig-object py" id="ratapi.examples.DSPC_function_background">
+<span class="sig-prename descclassname"><span class="pre">ratapi.examples.</span></span><span class="sig-name descname"><span class="pre">DSPC_function_background</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.examples.DSPC_function_background" title="Link to this definition">#</a></dt>
+<dd><p>Calculate a standard Layers fit of a DSPC floating bilayer with a function background.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.examples.DSPC_standard_layers">
-<span class="sig-prename descclassname"><span class="pre">RATapi.examples.</span></span><span class="sig-name descname"><span class="pre">DSPC_standard_layers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.examples.DSPC_standard_layers" title="Link to this definition">#</a></dt>
-<dd><p>Standard Layers fit of a DSPC floating bilayer</p>
+<dt class="sig sig-object py" id="ratapi.examples.DSPC_standard_layers">
+<span class="sig-prename descclassname"><span class="pre">ratapi.examples.</span></span><span class="sig-name descname"><span class="pre">DSPC_standard_layers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.examples.DSPC_standard_layers" title="Link to this definition">#</a></dt>
+<dd><p>Calculate a standard Layers fit of a DSPC floating bilayer.</p>
+<p>The sample consists of a DSPC bilayer, on a silane SAM on Silicon.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.examples.absorption">
-<span class="sig-prename descclassname"><span class="pre">RATapi.examples.</span></span><span class="sig-name descname"><span class="pre">absorption</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.examples.absorption" title="Link to this definition">#</a></dt>
-<dd><p>Custom layers model including absorption</p>
+<dt class="sig sig-object py" id="ratapi.examples.absorption">
+<span class="sig-prename descclassname"><span class="pre">ratapi.examples.</span></span><span class="sig-name descname"><span class="pre">absorption</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.examples.absorption" title="Link to this definition">#</a></dt>
+<dd><p>Run a custom layers model including absorption.</p>
+<p>RAT allows the use of an imaginary, as well as real part of the SLD.
+The effect of this is usually seen below the critical edge, and must sometimes be accounted for.</p>
+<p>This is an example of a Custom Layers project using absorption. used here is Custom Layers.
+It analyses a bilayer sample on a permalloy / gold substrate,
+measured using polarised neutrons, against D2O and H2O, leading to 4 contrasts in total.
+Absorption (i.e. imaginary SLD) is defined for Gold and the Permalloy,
+to account for non-flat data below the critical edge.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.examples.domains_custom_XY">
-<span class="sig-prename descclassname"><span class="pre">RATapi.examples.</span></span><span class="sig-name descname"><span class="pre">domains_custom_XY</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.examples.domains_custom_XY" title="Link to this definition">#</a></dt>
-<dd><p>Simple example of a layer containing domains using a custom XY model</p>
+<dt class="sig sig-object py" id="ratapi.examples.convert_rascal">
+<span class="sig-prename descclassname"><span class="pre">ratapi.examples.</span></span><span class="sig-name descname"><span class="pre">convert_rascal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mat_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lipid_bilayer.mat'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.examples.convert_rascal" title="Link to this definition">#</a></dt>
+<dd><p>Convert a project from RasCAL-1 and a project to RasCAL-1.</p>
+<p>We convert a RasCAL-1 monolayer volume model to RAT, and the DSPC Standard Layers
+example to RasCAL-1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mat_filename</strong> (<em>str</em>) – The filename of the output of the RAT project converted to RasCAL-2.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A RasCAL-1 monolayer volume model converted to a RAT project, and the
+struct of the DSPC standard layers example converted to a RasCAL-1 struct.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>project, struct</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.examples.domains_custom_layers">
-<span class="sig-prename descclassname"><span class="pre">RATapi.examples.</span></span><span class="sig-name descname"><span class="pre">domains_custom_layers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.examples.domains_custom_layers" title="Link to this definition">#</a></dt>
-<dd><p>An example custom layers domains project involving incoherent summing on a permalloy layer</p>
+<dt class="sig sig-object py" id="ratapi.examples.domains_custom_XY">
+<span class="sig-prename descclassname"><span class="pre">ratapi.examples.</span></span><span class="sig-name descname"><span class="pre">domains_custom_XY</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.examples.domains_custom_XY" title="Link to this definition">#</a></dt>
+<dd><p>Calculate an example of a layer containing domains using a custom XY model.</p>
+<p>Domains custom XY models operate in the same way as domains custom layer models,
+in that there is an additional input to the custom model
+specifying the domain to be calculated.</p>
+<p>This is then used within the function to calculate the correct SLD profile
+for each contrast and domain. In this example, we simulate a hydrogenated layer
+on a silicon substrate, containing domains of a larger SLD, against D2O, SMW and water.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ratapi.examples.domains_custom_layers">
+<span class="sig-prename descclassname"><span class="pre">ratapi.examples.</span></span><span class="sig-name descname"><span class="pre">domains_custom_layers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.examples.domains_custom_layers" title="Link to this definition">#</a></dt>
+<dd><p>Calculate an example custom layers domains project involving incoherent summing on a permalloy layer.</p>
+<p>For a custom layers model, rather than being forced to define our layers as [Thick SLD Rough…. etc],
+we can parameterise however we like and then use a function to calculate the parameters for each layer.
+So for example, if the volume of lipid tails are known (from the literature),
+then all we need is the Area per molecule to calculate the layers.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ratapi.examples.domains_standard_layers">
+<span class="sig-prename descclassname"><span class="pre">ratapi.examples.</span></span><span class="sig-name descname"><span class="pre">domains_standard_layers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.examples.domains_standard_layers" title="Link to this definition">#</a></dt>
+<dd><p>Calculate an example for using standard layers with domains.</p>
+<p>Domains standard layers projects proceed in much the same way as a normal standard layers problem,
+except that there is an additional grouping step between layers and contrasts.</p>
+<p>Layers are grouped into ‘Domain Contrasts’. The model for the actual experimental contrast
+is built from these domain contrasts rather than from layers. There are exactly
+two domains for each contrast, with the the ratio of them controlled by
+a fittable ‘domain ratio’ parameter.</p>
 </dd></dl>
 
 </section>
@@ -554,14 +604,16 @@ distribution as:</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.examples.DSPC_custom_XY"><code class="docutils literal notranslate"><span class="pre">DSPC_custom_XY()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.examples.DSPC_custom_layers"><code class="docutils literal notranslate"><span class="pre">DSPC_custom_layers()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.examples.DSPC_data_background"><code class="docutils literal notranslate"><span class="pre">DSPC_data_background()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.examples.DSPC_function_background"><code class="docutils literal notranslate"><span class="pre">DSPC_function_background()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.examples.DSPC_standard_layers"><code class="docutils literal notranslate"><span class="pre">DSPC_standard_layers()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.examples.absorption"><code class="docutils literal notranslate"><span class="pre">absorption()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.examples.domains_custom_XY"><code class="docutils literal notranslate"><span class="pre">domains_custom_XY()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.examples.domains_custom_layers"><code class="docutils literal notranslate"><span class="pre">domains_custom_layers()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.examples.DSPC_custom_XY"><code class="docutils literal notranslate"><span class="pre">DSPC_custom_XY()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.examples.DSPC_custom_layers"><code class="docutils literal notranslate"><span class="pre">DSPC_custom_layers()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.examples.DSPC_data_background"><code class="docutils literal notranslate"><span class="pre">DSPC_data_background()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.examples.DSPC_function_background"><code class="docutils literal notranslate"><span class="pre">DSPC_function_background()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.examples.DSPC_standard_layers"><code class="docutils literal notranslate"><span class="pre">DSPC_standard_layers()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.examples.absorption"><code class="docutils literal notranslate"><span class="pre">absorption()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.examples.convert_rascal"><code class="docutils literal notranslate"><span class="pre">convert_rascal()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.examples.domains_custom_XY"><code class="docutils literal notranslate"><span class="pre">domains_custom_XY()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.examples.domains_custom_layers"><code class="docutils literal notranslate"><span class="pre">domains_custom_layers()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.examples.domains_standard_layers"><code class="docutils literal notranslate"><span class="pre">domains_standard_layers()</span></code></a></li>
 </ul>
   </nav></div>
 

@@ -479,12 +479,12 @@ document.write(`
                   
   <div class="admonition note">
   This page was generated from the notebook domains_custom_XY.ipynb found in
-  <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/0.0.0.dev4/RATapi/examples/">the Python-RAT repository</a>.
+  <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/0.0.0.dev7/ratapi/examples/">the Python-RAT repository</a>.
   <a href="domains_custom_XY.ipynb" class="reference download internal" download>Download notebook</a>.
 </div><div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To get the output project and results from this example in your Python session, run:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">RATapi.examples</span><span class="w"> </span><span class="kn">import</span> <span class="n">domains_custom_XY</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ratapi.examples</span><span class="w"> </span><span class="kn">import</span> <span class="n">domains_custom_XY</span>
 <span class="n">project</span><span class="p">,</span> <span class="n">results</span> <span class="o">=</span> <span class="n">domains_custom_XY</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -497,8 +497,8 @@ document.write(`
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Code</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">RATapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">RAT</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">RATapi.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Parameter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ratapi</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">RAT</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ratapi.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Parameter</span>
 </pre></div>
 </div>
 </div>
@@ -627,12 +627,15 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .output_html .vg { color: #19177C } /* Name.Variable.Global */
 .output_html .vi { color: #19177C } /* Name.Variable.Instance */
 .output_html .vm { color: #19177C } /* Name.Variable.Magic */
-.output_html .il { color: #666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+.output_html .il { color: #666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Custom model file for the domains custom XY example.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">domains_XY_model</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">bulk_in</span><span class="p">,</span> <span class="n">bulk_out</span><span class="p">,</span> <span class="n">contrast</span><span class="p">,</span> <span class="n">domain</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the SLD profile for a domains custom XY model.&quot;&quot;&quot;</span>
     <span class="c1"># Split up the parameters for convenience</span>
     <span class="n">subRough</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">oxideThick</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -680,7 +683,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">makeLayer</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">prevLaySurf</span><span class="p">,</span> <span class="n">thickness</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">Sigma_L</span><span class="p">,</span> <span class="n">Sigma_R</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;This produces a layer, with a defined thickness, height and roughness.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Produce a layer, with a defined thickness, height and roughness.</span>
+
 <span class="sd">    Each side of the layer has its own roughness value.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Find the edges</span>
@@ -764,7 +768,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="highlight"><pre>
 Starting RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 
-Elapsed time is 0.144 seconds
+Elapsed time is 0.080 seconds
 
 Finished RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 

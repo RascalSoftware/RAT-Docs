@@ -587,6 +587,7 @@ If selected, smoothing is via a moving average algorithm.</p>
 <li><p>showErrorBar (logical, default: true) indicates if the error bar should be shown.</p></li>
 <li><p>showGrid (logical, default: false) indicates if the grid should be shown.</p></li>
 <li><p>showLegend (logical, default: true) indicates if the legend should be shown.</p></li>
+<li><p>shiftValue (float, default: 100) A value between 1 and 100 that controls the spacing between the reflectivity plots for each of the contrasts.</p></li>
 </ul>
 </dd>
 </dl>
@@ -598,7 +599,7 @@ If selected, smoothing is via a moving average algorithm.</p>
 
 <dl class="mat function">
 <dt class="sig sig-object mat" id="utilities.plotting.plotRefSLDHelper">
-<span class="sig-prename descclassname"><span class="pre">utilities.plotting.</span></span><span class="sig-name descname"><span class="pre">plotRefSLDHelper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">data</span></em>, <em class="sig-param"><span class="pre">noDelay</span></em>, <em class="sig-param"><span class="pre">linearX</span></em>, <em class="sig-param"><span class="pre">q4</span></em>, <em class="sig-param"><span class="pre">showErrorBar</span></em>, <em class="sig-param"><span class="pre">showGrid</span></em>, <em class="sig-param"><span class="pre">showLegend</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotting.plotRefSLDHelper" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">utilities.plotting.</span></span><span class="sig-name descname"><span class="pre">plotRefSLDHelper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">data</span></em>, <em class="sig-param"><span class="pre">noDelay</span></em>, <em class="sig-param"><span class="pre">linearX</span></em>, <em class="sig-param"><span class="pre">q4</span></em>, <em class="sig-param"><span class="pre">showErrorBar</span></em>, <em class="sig-param"><span class="pre">showGrid</span></em>, <em class="sig-param"><span class="pre">showLegend</span></em>, <em class="sig-param"><span class="pre">shiftValue</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotting.plotRefSLDHelper" title="Link to this definition">#</a></dt>
 <dd><p>Helper function to plot the reflectivity and SLD profiles from plot event struct.
 Most users never need to use this function, rather use <code class="docutils literal notranslate"><span class="pre">useLivePlot</span></code> for live
 plotting or <code class="docutils literal notranslate"><span class="pre">plotRefSLD</span></code> for simple SLD plots.</p>
@@ -632,6 +633,7 @@ the result struct from the RAT calculation.</p>
 <li><p><strong>showErrorBar</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">true</span></code></span>) – Indicates if the error bar should be shown.</p></li>
 <li><p><strong>showGrid</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">false</span></code></span>) – Indicates if the grid should be shown.</p></li>
 <li><p><strong>showLegend</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">true</span></code></span>) – Indicates if the legend should be shown.</p></li>
+<li><p><strong>shiftValue</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float,</span> <span class="pre">default:</span> <span class="pre">100</span></code></span>) – A value between 1 and 100 that controls the spacing between the reflectivity plots for each of the contrasts.</p></li>
 </ul>
 </dd>
 </dl>

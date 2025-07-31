@@ -462,9 +462,10 @@ document.write(`
 <h1>Wrappers<a class="headerlink" href="#wrappers" title="Link to this heading">#</a></h1>
 <p>This module contains the wrappers for interfacing with MATLAB custom functions,
 such as those for custom layers models or function backgrounds.</p>
-<dl class="py class" id="module-RATapi.wrappers">
-<dt class="sig sig-object py" id="RATapi.wrappers.DylibWrapper">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.wrappers.</span></span><span class="sig-name descname"><span class="pre">DylibWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.wrappers.DylibWrapper" title="Link to this definition">#</a></dt>
+<p id="module-ratapi.wrappers">Wrappers for the interface between ratapi and MATLAB custom files.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="ratapi.wrappers.DylibWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.wrappers.</span></span><span class="sig-name descname"><span class="pre">DylibWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.wrappers.DylibWrapper" title="Link to this definition">#</a></dt>
 <dd><p>Creates a python callback for a function in dynamic library.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -475,9 +476,9 @@ such as those for custom layers models or function backgrounds.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="RATapi.wrappers.DylibWrapper.getHandle">
-<span class="sig-name descname"><span class="pre">getHandle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.wrappers.DylibWrapper.getHandle" title="Link to this definition">#</a></dt>
-<dd><p>Returns a wrapper for the custom dynamic library function</p>
+<dt class="sig sig-object py" id="ratapi.wrappers.DylibWrapper.getHandle">
+<span class="sig-name descname"><span class="pre">getHandle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.wrappers.DylibWrapper.getHandle" title="Link to this definition">#</a></dt>
+<dd><p>Return a wrapper for the custom dynamic library function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>wrapper</strong> – The wrapper function for the dynamic library callback</p>
@@ -491,8 +492,8 @@ such as those for custom layers models or function backgrounds.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="RATapi.wrappers.MatlabWrapper">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.wrappers.</span></span><span class="sig-name descname"><span class="pre">MatlabWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.wrappers.MatlabWrapper" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ratapi.wrappers.MatlabWrapper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.wrappers.</span></span><span class="sig-name descname"><span class="pre">MatlabWrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.wrappers.MatlabWrapper" title="Link to this definition">#</a></dt>
 <dd><p>Creates a python callback for a MATLAB function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -500,9 +501,9 @@ such as those for custom layers models or function backgrounds.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="RATapi.wrappers.MatlabWrapper.getHandle">
-<span class="sig-name descname"><span class="pre">getHandle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.wrappers.MatlabWrapper.getHandle" title="Link to this definition">#</a></dt>
-<dd><p>Returns a wrapper for the custom MATLAB function</p>
+<dt class="sig sig-object py" id="ratapi.wrappers.MatlabWrapper.getHandle">
+<span class="sig-name descname"><span class="pre">getHandle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.wrappers.MatlabWrapper.getHandle" title="Link to this definition">#</a></dt>
+<dd><p>Return a wrapper for the custom MATLAB function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>wrapper</strong> – The wrapper function for the MATLAB callback</p>
@@ -516,15 +517,35 @@ such as those for custom layers models or function backgrounds.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.wrappers.start_matlab">
-<span class="sig-prename descclassname"><span class="pre">RATapi.wrappers.</span></span><span class="sig-name descname"><span class="pre">start_matlab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.wrappers.start_matlab" title="Link to this definition">#</a></dt>
-<dd><p>Starts MATLAB asynchronously and returns a future to retrieve the engine later</p>
+<dt class="sig sig-object py" id="ratapi.wrappers.start_matlab">
+<span class="sig-prename descclassname"><span class="pre">ratapi.wrappers.</span></span><span class="sig-name descname"><span class="pre">start_matlab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.wrappers.start_matlab" title="Link to this definition">#</a></dt>
+<dd><p>Start MATLAB asynchronously and returns a future to retrieve the engine later.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>future</strong> – A future used to get the actual matlab engine</p>
+<dd class="field-odd"><p><strong>future</strong> – A future used to get the actual matlab engine.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>matlab.engine.futureresult.FutureResult</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ratapi.wrappers.use_shared_matlab">
+<span class="sig-prename descclassname"><span class="pre">ratapi.wrappers.</span></span><span class="sig-name descname"><span class="pre">use_shared_matlab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">custom_error_message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.wrappers.use_shared_matlab" title="Link to this definition">#</a></dt>
+<dd><p>Connect asynchronously to shared MATLAB engine instance with the given name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name of shared MATLAB engine instance</p></li>
+<li><p><strong>custom_error_message</strong> (<em>str</em>) – The custom error message in case of failed connection</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>future</strong> – A future used to get the actual matlab engine.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>matlab.engine.futureresult.FutureResult</p>
 </dd>
 </dl>
 </dd></dl>
@@ -553,15 +574,16 @@ such as those for custom layers models or function backgrounds.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.wrappers.DylibWrapper"><code class="docutils literal notranslate"><span class="pre">DylibWrapper</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.wrappers.DylibWrapper.getHandle"><code class="docutils literal notranslate"><span class="pre">DylibWrapper.getHandle()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.wrappers.DylibWrapper"><code class="docutils literal notranslate"><span class="pre">DylibWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.wrappers.DylibWrapper.getHandle"><code class="docutils literal notranslate"><span class="pre">DylibWrapper.getHandle()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.wrappers.MatlabWrapper"><code class="docutils literal notranslate"><span class="pre">MatlabWrapper</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.wrappers.MatlabWrapper.getHandle"><code class="docutils literal notranslate"><span class="pre">MatlabWrapper.getHandle()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.wrappers.MatlabWrapper"><code class="docutils literal notranslate"><span class="pre">MatlabWrapper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.wrappers.MatlabWrapper.getHandle"><code class="docutils literal notranslate"><span class="pre">MatlabWrapper.getHandle()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.wrappers.start_matlab"><code class="docutils literal notranslate"><span class="pre">start_matlab()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.wrappers.start_matlab"><code class="docutils literal notranslate"><span class="pre">start_matlab()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.wrappers.use_shared_matlab"><code class="docutils literal notranslate"><span class="pre">use_shared_matlab()</span></code></a></li>
 </ul>
   </nav></div>
 

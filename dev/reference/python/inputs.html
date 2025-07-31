@@ -463,20 +463,34 @@ document.write(`
 <h1>Inputs<a class="headerlink" href="#inputs" title="Link to this heading">#</a></h1>
 <p>This module contains the objects used to organise input data to RAT to be fed
 into the C++ module.</p>
-<p id="module-RATapi.inputs">Converts python models to the necessary inputs for the compiled RAT code</p>
+<p id="module-ratapi.inputs">Converts python models to the necessary inputs for the compiled RAT code.</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="RATapi.inputs.FileHandles">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.inputs.</span></span><span class="sig-name descname"><span class="pre">FileHandles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.inputs.FileHandles" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ratapi.inputs.FileHandles">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.inputs.</span></span><span class="sig-name descname"><span class="pre">FileHandles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.inputs.FileHandles" title="Link to this definition">#</a></dt>
 <dd><p>Class to defer creation of custom file handles.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>files</strong> (<a class="reference internal" href="classlist.html#RATapi.ClassList" title="RATapi.ClassList"><em>ClassList</em></a><em>[</em><a class="reference internal" href="models.html#RATapi.models.CustomFile" title="RATapi.models.CustomFile"><em>CustomFile</em></a><em>]</em>) – A list of custom file models.</p>
+<dd class="field-odd"><p><strong>files</strong> (<a class="reference internal" href="classlist.html#ratapi.ClassList" title="ratapi.ClassList"><em>ClassList</em></a><em>[</em><a class="reference internal" href="models.html#ratapi.models.CustomFile" title="ratapi.models.CustomFile"><em>CustomFile</em></a><em>]</em>) – A list of custom file models.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="RATapi.inputs.FileHandles.get_handle">
-<span class="sig-name descname"><span class="pre">get_handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.inputs.FileHandles.get_handle" title="Link to this definition">#</a></dt>
-<dd><p>Returns file handle for a given custom file.</p>
+<dt class="sig sig-object py" id="ratapi.inputs.FileHandles.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.inputs.FileHandles.copy" title="Link to this definition">#</a></dt>
+<dd><p>Create a copy of the FileHandles object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The copy of this FileHandles object.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#ratapi.inputs.FileHandles" title="ratapi.inputs.FileHandles">FileHandles</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ratapi.inputs.FileHandles.get_handle">
+<span class="sig-name descname"><span class="pre">get_handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.inputs.FileHandles.get_handle" title="Link to this definition">#</a></dt>
+<dd><p>Return file handle for a given custom file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>index</strong> (<em>int</em>) – The index of the custom file.</p>
@@ -487,8 +501,8 @@ into the C++ module.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.inputs.append_data_background">
-<span class="sig-prename descclassname"><span class="pre">RATapi.inputs.</span></span><span class="sig-name descname"><span class="pre">append_data_background</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.inputs.append_data_background" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ratapi.inputs.append_data_background">
+<span class="sig-prename descclassname"><span class="pre">ratapi.inputs.</span></span><span class="sig-name descname"><span class="pre">append_data_background</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.inputs.append_data_background" title="Link to this definition">#</a></dt>
 <dd><p>Append background data to contrast data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -507,10 +521,9 @@ into the C++ module.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.inputs.check_indices">
-<span class="sig-prename descclassname"><span class="pre">RATapi.inputs.</span></span><span class="sig-name descname"><span class="pre">check_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">problem</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.inputs.check_indices" title="Link to this definition">#</a></dt>
-<dd><p>Checks the indices in contrast lists in a ProblemDefinition object lie within the range of the corresponding
-parameter lists.</p>
+<dt class="sig sig-object py" id="ratapi.inputs.check_indices">
+<span class="sig-prename descclassname"><span class="pre">ratapi.inputs.</span></span><span class="sig-name descname"><span class="pre">check_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">problem</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.inputs.check_indices" title="Link to this definition">#</a></dt>
+<dd><p>Check the indices given in a problem’s contrasts lie within the range of the corresponding parameter lists.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>problem</strong> (<em>RAT.rat_core.ProblemDefinition</em>) – The problem input used in the compiled RAT code.</p>
@@ -522,8 +535,22 @@ parameter lists.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.inputs.get_python_handle">
-<span class="sig-prename descclassname"><span class="pre">RATapi.inputs.</span></span><span class="sig-name descname"><span class="pre">get_python_handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.inputs.get_python_handle" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ratapi.inputs.get_layer_details">
+<span class="sig-prename descclassname"><span class="pre">ratapi.inputs.</span></span><span class="sig-name descname"><span class="pre">get_layer_details</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.inputs.get_layer_details" title="Link to this definition">#</a></dt>
+<dd><p>Get parameter indices for all layers defined in the project.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>project</strong> (<a class="reference internal" href="project.html#ratapi.Project" title="ratapi.project.Project"><em>Project</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list[int]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ratapi.inputs.get_python_handle">
+<span class="sig-prename descclassname"><span class="pre">ratapi.inputs.</span></span><span class="sig-name descname"><span class="pre">get_python_handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.inputs.get_python_handle" title="Link to this definition">#</a></dt>
 <dd><p>Get the function handle from a function defined in a python module located anywhere within the filesystem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -543,15 +570,12 @@ parameter lists.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.inputs.make_controls">
-<span class="sig-prename descclassname"><span class="pre">RATapi.inputs.</span></span><span class="sig-name descname"><span class="pre">make_controls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_controls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.inputs.make_controls" title="Link to this definition">#</a></dt>
-<dd><p>Converts the controls object to the format required by the compiled RAT code.</p>
+<dt class="sig sig-object py" id="ratapi.inputs.make_controls">
+<span class="sig-prename descclassname"><span class="pre">ratapi.inputs.</span></span><span class="sig-name descname"><span class="pre">make_controls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_controls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.inputs.make_controls" title="Link to this definition">#</a></dt>
+<dd><p>Convert the controls object to the format required by the compiled RAT code.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>input_controls</strong> (<em>RAT.Controls</em>) – The controls model, which defines algorithmic properties.</p></li>
-<li><p><strong>checks</strong> (<em>Rat.rat_core.Checks</em>) – States whether or not to fit each parameter defined in the project.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>input_controls</strong> (<em>RAT.Controls</em>) – The controls model, which defines algorithmic properties.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>controls</strong> – The controls object used in the compiled RAT code.</p>
@@ -563,9 +587,9 @@ parameter lists.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.inputs.make_data_present">
-<span class="sig-prename descclassname"><span class="pre">RATapi.inputs.</span></span><span class="sig-name descname"><span class="pre">make_data_present</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.inputs.make_data_present" title="Link to this definition">#</a></dt>
-<dd><p>Constructs the “dataPresent” field of the problem input required for the compiled RAT code.</p>
+<dt class="sig sig-object py" id="ratapi.inputs.make_data_present">
+<span class="sig-prename descclassname"><span class="pre">ratapi.inputs.</span></span><span class="sig-name descname"><span class="pre">make_data_present</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.inputs.make_data_present" title="Link to this definition">#</a></dt>
+<dd><p>Construct the “dataPresent” field of the problem input required for the compiled RAT code.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>project</strong> (<em>RAT.Project</em>) – The project model, which defines the physical system under study.</p>
@@ -580,10 +604,9 @@ parameter lists.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.inputs.make_input">
-<span class="sig-prename descclassname"><span class="pre">RATapi.inputs.</span></span><span class="sig-name descname"><span class="pre">make_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">controls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.inputs.make_input" title="Link to this definition">#</a></dt>
-<dd><p>Constructs the inputs required for the compiled RAT code using the data defined in the input project and
-controls.</p>
+<dt class="sig sig-object py" id="ratapi.inputs.make_input">
+<span class="sig-prename descclassname"><span class="pre">ratapi.inputs.</span></span><span class="sig-name descname"><span class="pre">make_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">controls</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.inputs.make_input" title="Link to this definition">#</a></dt>
+<dd><p>Construct the inputs required for the compiled RAT code using the data defined in the input project and controls.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -594,28 +617,23 @@ controls.</p>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>problem</strong> (<em>RAT.rat_core.ProblemDefinition</em>) – The problem input used in the compiled RAT code.</p></li>
-<li><p><strong>limits</strong> (<em>RAT.rat_core.Limits</em>) – A list of min/max values for each parameter defined in the project.</p></li>
-<li><p><strong>priors</strong> (<em>RAT.rat_core.Priors</em>) – The priors defined for each parameter in the project.</p></li>
 <li><p><strong>cpp_controls</strong> (<em>RAT.rat_core.Control</em>) – The controls object used in the compiled RAT code.</p></li>
 </ul>
 </p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple[<em>ProblemDefinition</em>, <em>Limits</em>, <em>Priors</em>, <em>Control</em>]</p>
+<dd class="field-odd"><p>tuple[<a class="reference internal" href="core.html#ratapi.rat_core.ProblemDefinition" title="ratapi.rat_core.ProblemDefinition"><em>ProblemDefinition</em></a>, <a class="reference internal" href="core.html#ratapi.rat_core.Control" title="ratapi.rat_core.Control"><em>Control</em></a>]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.inputs.make_problem">
-<span class="sig-prename descclassname"><span class="pre">RATapi.inputs.</span></span><span class="sig-name descname"><span class="pre">make_problem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">checks</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.inputs.make_problem" title="Link to this definition">#</a></dt>
-<dd><p>Constructs the problem input required for the compiled RAT code.</p>
+<dt class="sig sig-object py" id="ratapi.inputs.make_problem">
+<span class="sig-prename descclassname"><span class="pre">ratapi.inputs.</span></span><span class="sig-name descname"><span class="pre">make_problem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.inputs.make_problem" title="Link to this definition">#</a></dt>
+<dd><p>Construct the problem input required for the compiled RAT code.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>project</strong> (<em>RAT.Project</em>) – The project model, which defines the physical system under study.</p></li>
-<li><p><strong>checks</strong> (<em>Checks</em>)</p></li>
-</ul>
+<dd class="field-odd"><p><strong>project</strong> (<em>RAT.Project</em>) – The project model, which defines the physical system under study.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>problem</strong> – The problem input used in the compiled RAT code.</p>
@@ -627,9 +645,9 @@ controls.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.inputs.make_resample">
-<span class="sig-prename descclassname"><span class="pre">RATapi.inputs.</span></span><span class="sig-name descname"><span class="pre">make_resample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.inputs.make_resample" title="Link to this definition">#</a></dt>
-<dd><p>Constructs the “resample” field of the problem input required for the compiled RAT code.</p>
+<dt class="sig sig-object py" id="ratapi.inputs.make_resample">
+<span class="sig-prename descclassname"><span class="pre">ratapi.inputs.</span></span><span class="sig-name descname"><span class="pre">make_resample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.inputs.make_resample" title="Link to this definition">#</a></dt>
+<dd><p>Construct the “resample” field of the problem input required for the compiled RAT code.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>project</strong> (<em>RAT.Project</em>) – The project model, which defines the physical system under study.</p>
@@ -667,18 +685,20 @@ controls.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.inputs.FileHandles"><code class="docutils literal notranslate"><span class="pre">FileHandles</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.inputs.FileHandles.get_handle"><code class="docutils literal notranslate"><span class="pre">FileHandles.get_handle()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.inputs.FileHandles"><code class="docutils literal notranslate"><span class="pre">FileHandles</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.inputs.FileHandles.copy"><code class="docutils literal notranslate"><span class="pre">FileHandles.copy()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.inputs.FileHandles.get_handle"><code class="docutils literal notranslate"><span class="pre">FileHandles.get_handle()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.inputs.append_data_background"><code class="docutils literal notranslate"><span class="pre">append_data_background()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.inputs.check_indices"><code class="docutils literal notranslate"><span class="pre">check_indices()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.inputs.get_python_handle"><code class="docutils literal notranslate"><span class="pre">get_python_handle()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.inputs.make_controls"><code class="docutils literal notranslate"><span class="pre">make_controls()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.inputs.make_data_present"><code class="docutils literal notranslate"><span class="pre">make_data_present()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.inputs.make_input"><code class="docutils literal notranslate"><span class="pre">make_input()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.inputs.make_problem"><code class="docutils literal notranslate"><span class="pre">make_problem()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.inputs.make_resample"><code class="docutils literal notranslate"><span class="pre">make_resample()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.inputs.append_data_background"><code class="docutils literal notranslate"><span class="pre">append_data_background()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.inputs.check_indices"><code class="docutils literal notranslate"><span class="pre">check_indices()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.inputs.get_layer_details"><code class="docutils literal notranslate"><span class="pre">get_layer_details()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.inputs.get_python_handle"><code class="docutils literal notranslate"><span class="pre">get_python_handle()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.inputs.make_controls"><code class="docutils literal notranslate"><span class="pre">make_controls()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.inputs.make_data_present"><code class="docutils literal notranslate"><span class="pre">make_data_present()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.inputs.make_input"><code class="docutils literal notranslate"><span class="pre">make_input()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.inputs.make_problem"><code class="docutils literal notranslate"><span class="pre">make_problem()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.inputs.make_resample"><code class="docutils literal notranslate"><span class="pre">make_resample()</span></code></a></li>
 </ul>
   </nav></div>
 

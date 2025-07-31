@@ -495,83 +495,10 @@ The types of available target functions are:</p>
 <section id="common-functions">
 <span id="commonfunctions"></span><h2>Common Functions<a class="headerlink" href="#common-functions" title="Link to this heading">#</a></h2>
 <dl class="mat function" id="module-targetFunctions.common">
-<dt class="sig sig-object mat" id="targetFunctions.common.backSort">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">backSort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">qzshiftIndex</span></em>, <em class="sig-param"><span class="pre">scalefactorIndex</span></em>, <em class="sig-param"><span class="pre">bulkInIndex</span></em>, <em class="sig-param"><span class="pre">bulkOutIndex</span></em>, <em class="sig-param"><span class="pre">qzshiftValues</span></em>, <em class="sig-param"><span class="pre">scalefactorValues</span></em>, <em class="sig-param"><span class="pre">bulkInValues</span></em>, <em class="sig-param"><span class="pre">bulkOutValues</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.backSort" title="Link to this definition">#</a></dt>
-<dd><p>Distributes the background and shift values among the different contrasts</p>
-<dl class="simple">
-<dt>INPUTS:</dt><dd><ul class="simple">
-<li><p>qzshiftIndex: Index of the qzshift value associated with this contrast</p></li>
-<li><p>scalefactorIndex: Index of the scalefactor value  associated with this contrast</p></li>
-<li><p>bulkInIndex: Index of the BulkIn value associated with this contrast</p></li>
-<li><p>bulkOutIndex: Index of the BulkOut value associated with this contrast</p></li>
-<li><p>qzshiftValues: List of all qzshift values</p></li>
-<li><p>scalefactorValues: List of all scalefactor values</p></li>
-<li><p>bulkInValues: List of all bulk In values</p></li>
-<li><p>bulkOutValues: List of all bulk Out values</p></li>
-</ul>
-</dd>
-<dt>OUTPUTS:</dt><dd><ul class="simple">
-<li><p>qzshift: qzshift value for this contrast</p></li>
-<li><p>scalefactor: scalefactor value for this contrast</p></li>
-<li><p>bulkIn: bulk In value for this contrast</p></li>
-<li><p>bulkOut: bulk Out value for this contrast</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="mat function">
-<dt class="sig sig-object mat" id="targetFunctions.common.constructBackground">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">constructBackground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">backgroundType</span></em>, <em class="sig-param"><span class="pre">backgroundParamIndices</span></em>, <em class="sig-param"><span class="pre">shiftedData</span></em>, <em class="sig-param"><span class="pre">customFiles</span></em>, <em class="sig-param"><span class="pre">backgroundParamValues</span></em>, <em class="sig-param"><span class="pre">simulationXData</span></em>, <em class="sig-param"><span class="pre">dataIndices</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.constructBackground" title="Link to this definition">#</a></dt>
-<dd><p>Apply background parameters to the background.</p>
-<p>For function backgrounds, this means running the function using the
-defined parameters. For data and constant backgrounds, this means taking
-any predefined background data and adding any supplied parameters.</p>
-</dd></dl>
-
-<dl class="mat function">
-<dt class="sig sig-object mat" id="targetFunctions.common.constructResolution">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">constructResolution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">resolutionType</span></em>, <em class="sig-param"><span class="pre">resolutionParamIndex</span></em>, <em class="sig-param"><span class="pre">shiftedData</span></em>, <em class="sig-param"><span class="pre">customFiles</span></em>, <em class="sig-param"><span class="pre">resolutionParamValues</span></em>, <em class="sig-param"><span class="pre">simulationXData</span></em>, <em class="sig-param"><span class="pre">dataIndices</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.constructResolution" title="Link to this definition">#</a></dt>
-<dd><p>Apply resolution parameters to the resolution.</p>
-<p>For data and constant resolutions, this means taking any predefined
-resolution data and adding any supplied parameters.</p>
-</dd></dl>
-
-<dl class="mat function">
 <dt class="sig sig-object mat" id="targetFunctions.common.getFitNames">
 <span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">getFitNames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">problemStruct</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.getFitNames" title="Link to this definition">#</a></dt>
 <dd><p>Note that this order of parameters fields is hard-coded by this
 routine, packParams, packParamsPriors, and unpackParams</p>
-</dd></dl>
-
-<dl class="mat function">
-<dt class="sig sig-object mat" id="targetFunctions.common.makeSimulationRange">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">makeSimulationRange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">data</span></em>, <em class="sig-param"><span class="pre">simulationLimits</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.makeSimulationRange" title="Link to this definition">#</a></dt>
-<dd><p>Construct the x data for the simulation. This consists of the x data from
-the supplied data, plus additional points above and below the data range
-as necessary.</p>
-</dd></dl>
-
-<dl class="mat function">
-<dt class="sig sig-object mat" id="targetFunctions.common.shiftData">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.common.</span></span><span class="sig-name descname"><span class="pre">shiftData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">scalefactor</span></em>, <em class="sig-param"><span class="pre">qzshift</span></em>, <em class="sig-param"><span class="pre">dataPresent</span></em>, <em class="sig-param"><span class="pre">data</span></em>, <em class="sig-param"><span class="pre">dataLimits</span></em>, <em class="sig-param"><span class="pre">simulationLimits</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.common.shiftData" title="Link to this definition">#</a></dt>
-<dd><p>Shifts the data according to scale factor. If there is no data, makes
-x-data over the simulation range.</p>
-<dl class="simple">
-<dt>INPUTS:</dt><dd><ul class="simple">
-<li><p>scalefactor: problemStruct.scalefactors</p></li>
-<li><p>qzshift: problemStruct.qzshifts</p></li>
-<li><p>dataPresent: problemStruct.dataPresent</p></li>
-<li><p>data: problemStruct.data</p></li>
-<li><p>dataLimits: problemStruct.dataLimits</p></li>
-<li><p>simulationLimits: problemStruct.simulationLimits</p></li>
-</ul>
-</dd>
-<dt>OUTPUTS:</dt><dd><ul class="simple">
-<li><p>shiftedData: Data shifted using given scale factor</p></li>
-</ul>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="mat function" id="module-targetFunctions.common.costFunctions">
@@ -640,54 +567,20 @@ encountered, and ‘ssub’ is then the roughness of the outermost layer.</p></l
 <section id="normal-target-functions-normaltf">
 <h2>Normal Target Functions (normalTF)<a class="headerlink" href="#normal-target-functions-normaltf" title="Link to this heading">#</a></h2>
 <dl class="mat function" id="module-targetFunctions.+normalTF">
-<dt class="sig sig-object mat" id="targetFunctions.+normalTF.coreLayersCalculation">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.normalTF.</span></span><span class="sig-name descname"><span class="pre">coreLayersCalculation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrastLayers</span></em>, <em class="sig-param"><span class="pre">roughness</span></em>, <em class="sig-param"><span class="pre">geometry</span></em>, <em class="sig-param"><span class="pre">bulkIn</span></em>, <em class="sig-param"><span class="pre">bulkOut</span></em>, <em class="sig-param"><span class="pre">resample</span></em>, <em class="sig-param"><span class="pre">calcSld</span></em>, <em class="sig-param"><span class="pre">shiftedData</span></em>, <em class="sig-param"><span class="pre">simulationXData</span></em>, <em class="sig-param"><span class="pre">dataIndices</span></em>, <em class="sig-param"><span class="pre">repeatLayers</span></em>, <em class="sig-param"><span class="pre">resolution</span></em>, <em class="sig-param"><span class="pre">background</span></em>, <em class="sig-param"><span class="pre">backgroundAction</span></em>, <em class="sig-param"><span class="pre">parallelPoints</span></em>, <em class="sig-param"><span class="pre">resampleMinAngle</span></em>, <em class="sig-param"><span class="pre">resampleNPoints</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.+normalTF.coreLayersCalculation" title="Link to this definition">#</a></dt>
-<dd><p>This is the main reflectivity calculation for all layers models in the
-normal target function.</p>
-<p>The function first arranges the roughness’ in the correct order
-according to geometry. Then, if required it calculates the SLD profile
-and if requested resamples this into a number of zero-roughness layers
-(roughness resampling). It the applies any scalefactors and qz shifts
-the data requires. This is done before calculating the reflectivity to
-ensure that the reflectivity is calculated over the same range in qz as
-the shifted datapoints. The main reflectivity calculation is then
-called, including the resolution function. The calculation outputs two
-profiles - ‘reflect’ which is the same range as the points, and
-‘simulation’ which can be a different range to allow extrapolation.
-Finally, the background correction is applied.</p>
-</dd></dl>
-
-<dl class="mat function">
-<dt class="sig sig-object mat" id="targetFunctions.+normalTF.customLayers">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.normalTF.</span></span><span class="sig-name descname"><span class="pre">customLayers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">problemStruct</span></em>, <em class="sig-param"><span class="pre">controls</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.+normalTF.customLayers" title="Link to this definition">#</a></dt>
-<dd><p>The custom layers, normalTF reflectivity calculation.
-The function extracts the relevant parameters from the input arrays,
-allocates these on a pre-contrast basis, then calls the
-‘coreLayersCalculation’ (the core layers normalTF calc is
-shared between multiple calculation types).</p>
-</dd></dl>
-
-<dl class="mat function">
-<dt class="sig sig-object mat" id="targetFunctions.+normalTF.customXY">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.normalTF.</span></span><span class="sig-name descname"><span class="pre">customXY</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">problemStruct</span></em>, <em class="sig-param"><span class="pre">controls</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.+normalTF.customXY" title="Link to this definition">#</a></dt>
-<dd><p>Extract parameters from problemStruct</p>
+<dt class="sig sig-object mat" id="targetFunctions.+normalTF.normalReflectivity">
+<span class="sig-prename descclassname"><span class="pre">targetFunctions.normalTF.</span></span><span class="sig-name descname"><span class="pre">normalReflectivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">problemStruct</span></em>, <em class="sig-param"><span class="pre">controls</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.+normalTF.normalReflectivity" title="Link to this definition">#</a></dt>
+<dd><p>This is the main normal reflectivity calculation.
+It extracts the required parameters for the contrasts
+from the input arrays, then passes the main calculation to
+the appropriate core calculation, which carries out the calculation
+itself. The core layers calculation is common for both standard and
+custom layers, with an additional core custom XY calculation.</p>
 </dd></dl>
 
 <dl class="mat function">
 <dt class="sig sig-object mat" id="targetFunctions.+normalTF.processCustomFunction">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.normalTF.</span></span><span class="sig-name descname"><span class="pre">processCustomFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrastBulkIns</span></em>, <em class="sig-param"><span class="pre">contrastBulkOuts</span></em>, <em class="sig-param"><span class="pre">bulkInValues</span></em>, <em class="sig-param"><span class="pre">bulkOutValues</span></em>, <em class="sig-param"><span class="pre">contrastCustomFiles</span></em>, <em class="sig-param"><span class="pre">numberOfContrasts</span></em>, <em class="sig-param"><span class="pre">numberOfOutputColumns</span></em>, <em class="sig-param"><span class="pre">customFiles</span></em>, <em class="sig-param"><span class="pre">paramValues</span></em>, <em class="sig-param"><span class="pre">useImaginary</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.+normalTF.processCustomFunction" title="Link to this definition">#</a></dt>
-<dd><p>Top-level function for processing custom layers for all the
-contrasts.</p>
-</dd></dl>
-
-<dl class="mat function">
-<dt class="sig sig-object mat" id="targetFunctions.+normalTF.standardLayers">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.normalTF.</span></span><span class="sig-name descname"><span class="pre">standardLayers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">problemStruct</span></em>, <em class="sig-param"><span class="pre">controls</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.+normalTF.standardLayers" title="Link to this definition">#</a></dt>
-<dd><p>This is the main reflectivity calculation of the standard layers
-calculation type. It extracts the required parameters for the contrasts
-from the input arrays, then passes the main calculation to
-‘coreLayersCalculation’, which carries out the calculation itself.
-The core calculation is common for both standard and custom layers.</p>
+<span class="sig-prename descclassname"><span class="pre">targetFunctions.normalTF.</span></span><span class="sig-name descname"><span class="pre">processCustomFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">bulkIns</span></em>, <em class="sig-param"><span class="pre">bulkOuts</span></em>, <em class="sig-param"><span class="pre">contrastCustomFiles</span></em>, <em class="sig-param"><span class="pre">numberOfContrasts</span></em>, <em class="sig-param"><span class="pre">numberOfOutputColumns</span></em>, <em class="sig-param"><span class="pre">customFiles</span></em>, <em class="sig-param"><span class="pre">paramValues</span></em>, <em class="sig-param"><span class="pre">useImaginary</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.+normalTF.processCustomFunction" title="Link to this definition">#</a></dt>
+<dd><p>Top-level function for processing custom layers for all the contrasts</p>
 </dd></dl>
 
 </section>
@@ -701,36 +594,20 @@ sum)</p>
 </dd></dl>
 
 <dl class="mat function">
-<dt class="sig sig-object mat" id="targetFunctions.+domainsTF.customLayers">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.domainsTF.</span></span><span class="sig-name descname"><span class="pre">customLayers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">problemStruct</span></em>, <em class="sig-param"><span class="pre">controls</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.+domainsTF.customLayers" title="Link to this definition">#</a></dt>
-<dd><p>The custom layers, domainsTF reflectivity calculation.
-The function extracts the relevant parameters from the input arrays,
-allocates these on a pre-contrast basis, then calls the
-‘coreLayersCalculation’ (the core layers domainsTF calc is shared
-between multiple calculation types).</p>
-</dd></dl>
-
-<dl class="mat function">
-<dt class="sig sig-object mat" id="targetFunctions.+domainsTF.customXY">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.domainsTF.</span></span><span class="sig-name descname"><span class="pre">customXY</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">problemStruct</span></em>, <em class="sig-param"><span class="pre">controls</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.+domainsTF.customXY" title="Link to this definition">#</a></dt>
-<dd><p>Extract parameters from problemStruct</p>
+<dt class="sig sig-object mat" id="targetFunctions.+domainsTF.domainsReflectivity">
+<span class="sig-prename descclassname"><span class="pre">targetFunctions.domainsTF.</span></span><span class="sig-name descname"><span class="pre">domainsReflectivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">problemStruct</span></em>, <em class="sig-param"><span class="pre">controls</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.+domainsTF.domainsReflectivity" title="Link to this definition">#</a></dt>
+<dd><p>This is the main domains reflectivity calculation.
+It extracts the required parameters for the contrasts
+from the input arrays, then passes the main calculation to
+the appropriate core calculation, which carries out the calculation
+itself. The core layers calculation is common for both standard and
+custom layers, with an additional core custom XY calculation.</p>
 </dd></dl>
 
 <dl class="mat function">
 <dt class="sig sig-object mat" id="targetFunctions.+domainsTF.processCustomFunction">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.domainsTF.</span></span><span class="sig-name descname"><span class="pre">processCustomFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">contrastBulkIns</span></em>, <em class="sig-param"><span class="pre">contrastBulkOuts</span></em>, <em class="sig-param"><span class="pre">bulkInValues</span></em>, <em class="sig-param"><span class="pre">bulkOutValues</span></em>, <em class="sig-param"><span class="pre">contrastCustomFiles</span></em>, <em class="sig-param"><span class="pre">numberOfContrasts</span></em>, <em class="sig-param"><span class="pre">numberOfOutputColumns</span></em>, <em class="sig-param"><span class="pre">customFiles</span></em>, <em class="sig-param"><span class="pre">paramValues</span></em>, <em class="sig-param"><span class="pre">useImaginary</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.+domainsTF.processCustomFunction" title="Link to this definition">#</a></dt>
-<dd><p>Top-level function for processing custom layers for all the
-contrasts.</p>
-</dd></dl>
-
-<dl class="mat function">
-<dt class="sig sig-object mat" id="targetFunctions.+domainsTF.standardLayers">
-<span class="sig-prename descclassname"><span class="pre">targetFunctions.domainsTF.</span></span><span class="sig-name descname"><span class="pre">standardLayers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">problemStruct</span></em>, <em class="sig-param"><span class="pre">controls</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.+domainsTF.standardLayers" title="Link to this definition">#</a></dt>
-<dd><p>This is the main reflectivity calculation of the standard layers
-calculation type. It extracts the required parameters for the contrasts
-from the input arrays, then passes the main calculation to
-‘coreLayersCalculation’, which carries out the calculation itself.
-The core calculation is common for both standard and custom layers.</p>
+<span class="sig-prename descclassname"><span class="pre">targetFunctions.domainsTF.</span></span><span class="sig-name descname"><span class="pre">processCustomFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">bulkIns</span></em>, <em class="sig-param"><span class="pre">bulkOuts</span></em>, <em class="sig-param"><span class="pre">contrastCustomFiles</span></em>, <em class="sig-param"><span class="pre">numberOfContrasts</span></em>, <em class="sig-param"><span class="pre">numberOfOutputColumns</span></em>, <em class="sig-param"><span class="pre">customFiles</span></em>, <em class="sig-param"><span class="pre">paramValues</span></em>, <em class="sig-param"><span class="pre">useImaginary</span></em><span class="sig-paren">)</span><a class="headerlink" href="#targetFunctions.+domainsTF.processCustomFunction" title="Link to this definition">#</a></dt>
+<dd><p>Top-level function for processing custom layers for all the contrasts</p>
 </dd></dl>
 
 </section>

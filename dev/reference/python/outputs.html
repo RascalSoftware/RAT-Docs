@@ -463,185 +463,278 @@ document.write(`
 <h1>Outputs<a class="headerlink" href="#outputs" title="Link to this heading">#</a></h1>
 <p>This module contains the Results objects and the relevant objects to retrieve
 results data from the C++ module.</p>
-<p id="module-RATapi.outputs">Converts outputs from the compiled RAT code to python dataclasses</p>
+<p id="module-ratapi.outputs">Converts results from the compiled RAT code to python dataclasses.</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="RATapi.outputs.BayesResults">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">BayesResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reflectivity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shiftedData</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backgrounds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolutions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layerSlds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sldProfiles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resampledLayers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculationResults</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#RATapi.outputs.CalculationResults" title="RATapi.outputs.CalculationResults"><span class="pre">RATapi.outputs.CalculationResults</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrastParams</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#RATapi.outputs.ContrastParams" title="RATapi.outputs.ContrastParams"><span class="pre">RATapi.outputs.ContrastParams</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitParams</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitNames</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictionIntervals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#RATapi.outputs.PredictionIntervals" title="RATapi.outputs.PredictionIntervals"><span class="pre">RATapi.outputs.PredictionIntervals</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidenceIntervals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#RATapi.outputs.ConfidenceIntervals" title="RATapi.outputs.ConfidenceIntervals"><span class="pre">RATapi.outputs.ConfidenceIntervals</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dreamParams</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#RATapi.outputs.DreamParams" title="RATapi.outputs.DreamParams"><span class="pre">RATapi.outputs.DreamParams</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">dreamOutput</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#RATapi.outputs.DreamOutput" title="RATapi.outputs.DreamOutput"><span class="pre">RATapi.outputs.DreamOutput</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">nestedSamplerOutput</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#RATapi.outputs.NestedSamplerOutput" title="RATapi.outputs.NestedSamplerOutput"><span class="pre">RATapi.outputs.NestedSamplerOutput</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.BayesResults" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
+<dt class="sig sig-object py" id="ratapi.outputs.BayesResults">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.outputs.</span></span><span class="sig-name descname"><span class="pre">BayesResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reflectivity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shiftedData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backgrounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolutions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sldProfiles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resampledLayers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculationResults</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrastParams</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitParams</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitNames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">predictionIntervals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidenceIntervals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dreamParams</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dreamOutput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nestedSamplerOutput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.outputs.BayesResults" title="Link to this definition">#</a></dt>
+<dd><p>The results of a Bayesian RAT calculation.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>predictionIntervals</strong> (<a class="reference internal" href="#ratapi.outputs.PredictionIntervals" title="ratapi.outputs.PredictionIntervals"><em>PredictionIntervals</em></a>) – The prediction intervals.</p></li>
+<li><p><strong>confidenceIntervals</strong> (<a class="reference internal" href="#ratapi.outputs.ConfidenceIntervals" title="ratapi.outputs.ConfidenceIntervals"><em>ConfidenceIntervals</em></a>) – The 65% and 95% confidence intervals for the best fit results.</p></li>
+<li><p><strong>dreamParams</strong> (<a class="reference internal" href="#ratapi.outputs.DreamParams" title="ratapi.outputs.DreamParams"><em>DreamParams</em></a>) – The parameters used by DREAM, if relevant.</p></li>
+<li><p><strong>dreamOutput</strong> (<a class="reference internal" href="#ratapi.outputs.DreamOutput" title="ratapi.outputs.DreamOutput"><em>DreamOutput</em></a>) – The output from DREAM if DREAM was used.</p></li>
+<li><p><strong>nestedSamplerOutput</strong> (<a class="reference internal" href="#ratapi.outputs.NestedSamplerOutput" title="ratapi.outputs.NestedSamplerOutput"><em>NestedSamplerOutput</em></a>) – The output from nested sampling if ns was used.</p></li>
+<li><p><strong>chain</strong> (<em>np.ndarray</em>) – The MCMC chains for each parameter.
+The <code class="docutils literal notranslate"><span class="pre">i</span></code>’th column of the array contains the chain for parameter <code class="docutils literal notranslate"><span class="pre">fitNames[i]</span></code>.</p></li>
 <li><p><strong>reflectivity</strong> (<em>list</em>)</p></li>
 <li><p><strong>simulation</strong> (<em>list</em>)</p></li>
 <li><p><strong>shiftedData</strong> (<em>list</em>)</p></li>
 <li><p><strong>backgrounds</strong> (<em>list</em>)</p></li>
 <li><p><strong>resolutions</strong> (<em>list</em>)</p></li>
-<li><p><strong>layerSlds</strong> (<em>list</em>)</p></li>
 <li><p><strong>sldProfiles</strong> (<em>list</em>)</p></li>
+<li><p><strong>layers</strong> (<em>list</em>)</p></li>
 <li><p><strong>resampledLayers</strong> (<em>list</em>)</p></li>
-<li><p><strong>calculationResults</strong> (<a class="reference internal" href="#RATapi.outputs.CalculationResults" title="RATapi.outputs.CalculationResults"><em>CalculationResults</em></a>)</p></li>
-<li><p><strong>contrastParams</strong> (<a class="reference internal" href="#RATapi.outputs.ContrastParams" title="RATapi.outputs.ContrastParams"><em>ContrastParams</em></a>)</p></li>
+<li><p><strong>calculationResults</strong> (<a class="reference internal" href="#ratapi.outputs.CalculationResults" title="ratapi.outputs.CalculationResults"><em>CalculationResults</em></a>)</p></li>
+<li><p><strong>contrastParams</strong> (<a class="reference internal" href="#ratapi.outputs.ContrastParams" title="ratapi.outputs.ContrastParams"><em>ContrastParams</em></a>)</p></li>
 <li><p><strong>fitParams</strong> (<em>ndarray</em>)</p></li>
 <li><p><strong>fitNames</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>)</p></li>
-<li><p><strong>predictionIntervals</strong> (<a class="reference internal" href="#RATapi.outputs.PredictionIntervals" title="RATapi.outputs.PredictionIntervals"><em>PredictionIntervals</em></a>)</p></li>
-<li><p><strong>confidenceIntervals</strong> (<a class="reference internal" href="#RATapi.outputs.ConfidenceIntervals" title="RATapi.outputs.ConfidenceIntervals"><em>ConfidenceIntervals</em></a>)</p></li>
-<li><p><strong>dreamParams</strong> (<a class="reference internal" href="#RATapi.outputs.DreamParams" title="RATapi.outputs.DreamParams"><em>DreamParams</em></a>)</p></li>
-<li><p><strong>dreamOutput</strong> (<a class="reference internal" href="#RATapi.outputs.DreamOutput" title="RATapi.outputs.DreamOutput"><em>DreamOutput</em></a>)</p></li>
-<li><p><strong>nestedSamplerOutput</strong> (<a class="reference internal" href="#RATapi.outputs.NestedSamplerOutput" title="RATapi.outputs.NestedSamplerOutput"><em>NestedSamplerOutput</em></a>)</p></li>
-<li><p><strong>chain</strong> (<em>ndarray</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ratapi.outputs.BayesResults.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./results.json'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.outputs.BayesResults.save" title="Link to this definition">#</a></dt>
+<dd><p>Save the BayesResults object to a JSON file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filepath</strong> (<em>str</em><em> or </em><em>Path</em>) – The path to where the results file will be written.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ratapi.outputs.CalculationResults">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.outputs.</span></span><span class="sig-name descname"><span class="pre">CalculationResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chiValues</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sumChi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.outputs.CalculationResults" title="Link to this definition">#</a></dt>
+<dd><p>The goodness of fit from the Abeles calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chiValues</strong> (<em>np.ndarray</em>) – The chi-squared value for each contrast.</p></li>
+<li><p><strong>sumChi</strong> (<em>float</em>) – The sum of the chiValues array.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="RATapi.outputs.CalculationResults">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">CalculationResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chiValues</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sumChi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.CalculationResults" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
+<dt class="sig sig-object py" id="ratapi.outputs.ConfidenceIntervals">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.outputs.</span></span><span class="sig-name descname"><span class="pre">ConfidenceIntervals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">percentile95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile65</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.outputs.ConfidenceIntervals" title="Link to this definition">#</a></dt>
+<dd><p>The 65% and 95% confidence intervals for the best fit results.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>chiValues</strong> (<em>ndarray</em>)</p></li>
-<li><p><strong>sumChi</strong> (<em>float</em>)</p></li>
+<li><p><strong>percentile95</strong> (<em>np.ndarray</em>) – The 95% confidence intervals for each fit parameter.</p></li>
+<li><p><strong>percentile65</strong> (<em>np.ndarray</em>) – The 65% confidence intervals for each fit parameter.</p></li>
+<li><p><strong>mean</strong> (<em>np.ndarray</em>) – The mean values for each fit parameter.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="RATapi.outputs.ConfidenceIntervals">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">ConfidenceIntervals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">percentile95</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentile65</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.ConfidenceIntervals" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
+<dt class="sig sig-object py" id="ratapi.outputs.ContrastParams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.outputs.</span></span><span class="sig-name descname"><span class="pre">ContrastParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalefactors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bulkIn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bulkOut</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subRoughs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resample</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.outputs.ContrastParams" title="Link to this definition">#</a></dt>
+<dd><p>The experimental parameters for each contrast.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>percentile95</strong> (<em>ndarray</em>)</p></li>
-<li><p><strong>percentile65</strong> (<em>ndarray</em>)</p></li>
-<li><p><strong>mean</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>scalefactors</strong> (<em>np.ndarray</em>) – The scalefactor values for each contrast.</p></li>
+<li><p><strong>bulkIn</strong> (<em>np.ndarray</em>) – The bulk in values for each contrast.</p></li>
+<li><p><strong>bulkOut</strong> (<em>np.ndarray</em>) – The bulk out values for each contrast.</p></li>
+<li><p><strong>subRoughs</strong> (<em>np.ndarray</em>) – The substrate roughness values for each contrast.</p></li>
+<li><p><strong>resample</strong> (<em>np.ndarray</em>) – An array containing whether each contrast was resampled.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="RATapi.outputs.ContrastParams">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">ContrastParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalefactors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bulkIn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bulkOut</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subRoughs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resample</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.ContrastParams" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
+<dt class="sig sig-object py" id="ratapi.outputs.DreamOutput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.outputs.</span></span><span class="sig-name descname"><span class="pre">DreamOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allChains</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlierChains</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_stat</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CR</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.outputs.DreamOutput" title="Link to this definition">#</a></dt>
+<dd><p>The diagnostic output information from DREAM.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>scalefactors</strong> (<em>ndarray</em>)</p></li>
-<li><p><strong>bulkIn</strong> (<em>ndarray</em>)</p></li>
-<li><p><strong>bulkOut</strong> (<em>ndarray</em>)</p></li>
-<li><p><strong>subRoughs</strong> (<em>ndarray</em>)</p></li>
-<li><p><strong>resample</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>allChains</strong> (<em>np.ndarray</em>) – <p>An <code class="docutils literal notranslate"><span class="pre">nGenerations</span></code> x <code class="docutils literal notranslate"><span class="pre">nParams</span> <span class="pre">+</span> <span class="pre">2</span></code> x <code class="docutils literal notranslate"><span class="pre">nChains</span></code> size array,
+where <code class="docutils literal notranslate"><span class="pre">chain_k</span> <span class="pre">=</span> <span class="pre">DreamOutput.allChains[:,</span> <span class="pre">:,</span> <span class="pre">k]</span></code>
+is the data of chain <code class="docutils literal notranslate"><span class="pre">k</span></code> in the final iteration;
+for generation i of the final iteration, <code class="docutils literal notranslate"><span class="pre">chain_k[i,</span> <span class="pre">j]</span></code> represents:</p>
+<ul>
+<li><p>the sampled value of parameter <code class="docutils literal notranslate"><span class="pre">j</span></code> for <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">in</span> <span class="pre">0:nParams</span></code>;</p></li>
+<li><p>the associated log-prior for those sampled values for <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">=</span> <span class="pre">nParams</span> <span class="pre">+</span> <span class="pre">1</span></code>;</p></li>
+<li><p>the associated log-likelihood for those sampled values for <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">=</span> <span class="pre">nParams</span> <span class="pre">+</span> <span class="pre">2</span></code>.</p></li>
+</ul>
+</p></li>
+<li><p><strong>outlierChains</strong> (<em>np.ndarray</em>) – A two-column array where <code class="docutils literal notranslate"><span class="pre">DreamOutput.AR[i,</span> <span class="pre">1]</span></code> is the index of a chain
+and <code class="docutils literal notranslate"><span class="pre">DreamOutput.AR[i,</span> <span class="pre">0]</span></code> is the length of that chain when it was removed
+for being an outlier.</p></li>
+<li><p><strong>runtime</strong> (<em>float</em>) – The runtime of the DREAM algorithm in seconds.</p></li>
+<li><p><strong>iteration</strong> (<em>float</em>) – The number of iterations performed.</p></li>
+<li><p><strong>AR</strong> (<em>np.ndarray</em>) – A two-column array where <code class="docutils literal notranslate"><span class="pre">DreamOutput.AR[i,</span> <span class="pre">0]</span></code> is an iteration number
+and <code class="docutils literal notranslate"><span class="pre">DreamOutput.AR[i,</span> <span class="pre">1]</span></code> is the average acceptance rate of chain step
+proposals for that iteration.</p></li>
+<li><p><strong>R_stat</strong> (<em>np.ndarray</em>) – An array where <code class="docutils literal notranslate"><span class="pre">DreamOutput.R_stat[i,</span> <span class="pre">0]</span></code> is an iteration number and
+<code class="docutils literal notranslate"><span class="pre">DreamOutput.R_stat[i,</span> <span class="pre">j]</span></code> is the convergence statistic for parameter <code class="docutils literal notranslate"><span class="pre">j</span></code>
+at that iteration (where chains are indexed 1 to <code class="docutils literal notranslate"><span class="pre">nParams</span></code> inclusive).</p></li>
+<li><p><strong>CR</strong> (<em>np.ndarray</em>) – A four-column array where <code class="docutils literal notranslate"><span class="pre">DreamOutput.CR[i,</span> <span class="pre">0]</span></code> is an iteration number,
+<code class="docutils literal notranslate"><span class="pre">and</span> <span class="pre">DreamOutput.CR[i,</span> <span class="pre">j]</span></code> is the selection probability of the <code class="docutils literal notranslate"><span class="pre">j</span></code>’th crossover
+value for that iteration.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="RATapi.outputs.DreamOutput">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">DreamOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allChains</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlierChains</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">runtime</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">modelOutput</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AR</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R_stat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CR</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.DreamOutput" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
+<dt class="sig sig-object py" id="ratapi.outputs.DreamParams">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.outputs.</span></span><span class="sig-name descname"><span class="pre">DreamParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nParams</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nChains</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nGenerations</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parallel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CPU</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jumpProbability</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pUnitGamma</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nCR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zeta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlier</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adaptPCR</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thinning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ABC</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">IO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storeOutput</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.outputs.DreamParams" title="Link to this definition">#</a></dt>
+<dd><p>The parameters used by the inner DREAM algorithm.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>allChains</strong> (<em>ndarray</em>)</p></li>
-<li><p><strong>outlierChains</strong> (<em>ndarray</em>)</p></li>
-<li><p><strong>runtime</strong> (<em>float</em>)</p></li>
-<li><p><strong>iteration</strong> (<em>float</em>)</p></li>
-<li><p><strong>modelOutput</strong> (<em>float</em>)</p></li>
-<li><p><strong>AR</strong> (<em>ndarray</em>)</p></li>
-<li><p><strong>R_stat</strong> (<em>ndarray</em>)</p></li>
-<li><p><strong>CR</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>nParams</strong> (<em>float</em>) – The number of parameters used by the algorithm.</p></li>
+<li><p><strong>nChains</strong> (<em>float</em>) – The number of MCMC chains used by the algorithm.</p></li>
+<li><p><strong>nGenerations</strong> (<em>float</em>) – The number of DE generations calculated per iteration.</p></li>
+<li><p><strong>parallel</strong> (<em>bool</em>) – Whether the algorithm should run chains in parallel.</p></li>
+<li><p><strong>CPU</strong> (<em>float</em>) – The number of processor cores used for parallel chains.</p></li>
+<li><p><strong>jumpProbability</strong> (<em>float</em>) – A probability range for the size of jumps when performing subspace sampling.</p></li>
+<li><p><strong>pUnitGamma</strong> (<em>float</em>) – The probability that the scaling-down factor of jumps will be ignored
+and a larger jump will be taken for one iteration.</p></li>
+<li><p><strong>nCR</strong> (<em>float</em>) – The number of crossovers performed each iteration.</p></li>
+<li><p><strong>delta</strong> (<em>float</em>) – The number of chain mutation pairs proposed each iteration.</p></li>
+<li><p><strong>steps</strong> (<em>float</em>) – The number of MCMC steps to perform between conversion checks.</p></li>
+<li><p><strong>zeta</strong> (<em>float</em>) – The ergodicity of the algorithm.</p></li>
+<li><p><strong>outlier</strong> (<em>str</em>) – What test should be used to detect outliers.</p></li>
+<li><p><strong>adaptPCR</strong> (<em>bool</em>) – Whether the crossover probability for differential evolution should be
+adapted by the algorithm as it runs.</p></li>
+<li><p><strong>thinning</strong> (<em>float</em>) – The thinning rate of each Markov chain (to reduce memory intensity)</p></li>
+<li><p><strong>epsilon</strong> (<em>float</em>) – The cutoff threshold for Approximate Bayesian Computation (if used)</p></li>
+<li><p><strong>ABC</strong> (<em>bool</em>) – Whether Approximate Bayesian Computation is used.</p></li>
+<li><p><strong>IO</strong> (<em>bool</em>) – Whether the algorithm should perform IO writes of the model in parallel.</p></li>
+<li><p><strong>storeOutput</strong> (<em>bool</em>) – Whether output model simulations are performed.</p></li>
+<li><p><strong>R</strong> (<em>np.ndarray</em>) – An array where row <code class="docutils literal notranslate"><span class="pre">i</span></code> is the list of chains
+with which chain <code class="docutils literal notranslate"><span class="pre">i</span></code> can mutate.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="RATapi.outputs.DreamParams">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">DreamParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nParams</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nChains</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nGenerations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parallel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CPU</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jumpProbability</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pUnitGamma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nCR</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">steps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zeta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outlier</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adaptPCR</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thinning</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ABC</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">IO</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">storeOutput</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.DreamParams" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
+<dt class="sig sig-object py" id="ratapi.outputs.NestedSamplerOutput">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.outputs.</span></span><span class="sig-name descname"><span class="pre">NestedSamplerOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logZ</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logZErr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nestSamples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">postSamples</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.outputs.NestedSamplerOutput" title="Link to this definition">#</a></dt>
+<dd><p>The output information from the Nested Sampler (ns).</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>nParams</strong> (<em>float</em>)</p></li>
-<li><p><strong>nChains</strong> (<em>float</em>)</p></li>
-<li><p><strong>nGenerations</strong> (<em>float</em>)</p></li>
-<li><p><strong>parallel</strong> (<em>bool</em>)</p></li>
-<li><p><strong>CPU</strong> (<em>float</em>)</p></li>
-<li><p><strong>jumpProbability</strong> (<em>float</em>)</p></li>
-<li><p><strong>pUnitGamma</strong> (<em>float</em>)</p></li>
-<li><p><strong>nCR</strong> (<em>float</em>)</p></li>
-<li><p><strong>delta</strong> (<em>float</em>)</p></li>
-<li><p><strong>steps</strong> (<em>float</em>)</p></li>
-<li><p><strong>zeta</strong> (<em>float</em>)</p></li>
-<li><p><strong>outlier</strong> (<em>str</em>)</p></li>
-<li><p><strong>adaptPCR</strong> (<em>bool</em>)</p></li>
-<li><p><strong>thinning</strong> (<em>float</em>)</p></li>
-<li><p><strong>epsilon</strong> (<em>float</em>)</p></li>
-<li><p><strong>ABC</strong> (<em>bool</em>)</p></li>
-<li><p><strong>IO</strong> (<em>bool</em>)</p></li>
-<li><p><strong>storeOutput</strong> (<em>bool</em>)</p></li>
-<li><p><strong>R</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>logZ</strong> (<em>float</em>) – The natural logarithm of the evidence Z for the parameter values.</p></li>
+<li><p><strong>logZErr</strong> (<em>float</em>) – The estimated uncertainty in the final value of logZ.</p></li>
+<li><p><strong>nestSamples</strong> (<em>np.ndarray</em>) – <p><code class="docutils literal notranslate"><span class="pre">NestedSamplerOutput.nestSamples[i,</span> <span class="pre">j]</span></code> represents the values
+sampled at iteration <code class="docutils literal notranslate"><span class="pre">i</span></code>, where this value is:</p>
+<ul>
+<li><p>the value sampled for parameter <code class="docutils literal notranslate"><span class="pre">j</span></code>, for <code class="docutils literal notranslate"><span class="pre">j</span></code> in <code class="docutils literal notranslate"><span class="pre">0:nParams</span></code>,</p></li>
+<li><p>the minimum log-likelihood for <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">=</span> <span class="pre">nParams</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p></li>
+</ul>
+</p></li>
+<li><p><strong>postSamples</strong> (<em>np.ndarray</em>) – The posterior values at the points sampled in <code class="docutils literal notranslate"><span class="pre">NestedSamplerOutput.nestSamples</span></code>.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="RATapi.outputs.NestedSamplerOutput">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">NestedSamplerOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logZ</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logZErr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nestSamples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">postSamples</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.NestedSamplerOutput" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>logZ</strong> (<em>float</em>)</p></li>
-<li><p><strong>logZErr</strong> (<em>float</em>)</p></li>
-<li><p><strong>nestSamples</strong> (<em>ndarray</em>)</p></li>
-<li><p><strong>postSamples</strong> (<em>ndarray</em>)</p></li>
+<dt class="sig sig-object py" id="ratapi.outputs.PredictionIntervals">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.outputs.</span></span><span class="sig-name descname"><span class="pre">PredictionIntervals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reflectivity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sld</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampleChi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.outputs.PredictionIntervals" title="Link to this definition">#</a></dt>
+<dd><p>The Bayesian prediction intervals for 95% and 65% confidence.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">reflectivity</span></code> and <code class="docutils literal notranslate"><span class="pre">sld</span></code>, each list item is an array
+with five rows. The rows represent:</p>
+<ul class="simple">
+<li><p>0: the 5th percentile;</p></li>
+<li><p>1: the 35th percentile;</p></li>
+<li><p>2: the mean value of the interval;</p></li>
+<li><p>3: the 65th percentile;</p></li>
+<li><p>4: the 95th percentile.</p></li>
 </ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="RATapi.outputs.PredictionIntervals">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">PredictionIntervals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reflectivity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sld</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampleChi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.PredictionIntervals" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>reflectivity</strong> (<em>list</em>)</p></li>
+<li><p><strong>reflectivity</strong> (<em>list</em>) – The prediction interval data for reflectivity of each contrast.</p></li>
+<li><p><strong>SLD</strong> (<em>list</em>) – The prediction interval data for SLD of each contrast.</p></li>
+<li><p><strong>sampleChi</strong> (<em>np.ndarray</em>) – The value of sumChi at each point of the Markov chain.</p></li>
 <li><p><strong>sld</strong> (<em>list</em>)</p></li>
-<li><p><strong>sampleChi</strong> (<em>ndarray</em>)</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="RATapi.outputs.Results">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">Results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reflectivity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shiftedData</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backgrounds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolutions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layerSlds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sldProfiles</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resampledLayers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculationResults</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#RATapi.outputs.CalculationResults" title="RATapi.outputs.CalculationResults"><span class="pre">RATapi.outputs.CalculationResults</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrastParams</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#RATapi.outputs.ContrastParams" title="RATapi.outputs.ContrastParams"><span class="pre">RATapi.outputs.ContrastParams</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitParams</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitNames</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.Results" title="Link to this definition">#</a></dt>
-<dd><dl class="field-list simple">
+<dt class="sig sig-object py" id="ratapi.outputs.RATResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.outputs.</span></span><span class="sig-name descname"><span class="pre">RATResult</span></span><a class="headerlink" href="#ratapi.outputs.RATResult" title="Link to this definition">#</a></dt>
+<dd><p>A mixin class which truncates arrays when the class is displayed.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ratapi.outputs.Results">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.outputs.</span></span><span class="sig-name descname"><span class="pre">Results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reflectivity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">simulation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shiftedData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backgrounds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resolutions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sldProfiles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resampledLayers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calculationResults</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrastParams</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitParams</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitNames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.outputs.Results" title="Link to this definition">#</a></dt>
+<dd><p>The results of a RAT calculation.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>reflectivity</strong> (<em>list</em>)</p></li>
-<li><p><strong>simulation</strong> (<em>list</em>)</p></li>
-<li><p><strong>shiftedData</strong> (<em>list</em>)</p></li>
-<li><p><strong>backgrounds</strong> (<em>list</em>)</p></li>
-<li><p><strong>resolutions</strong> (<em>list</em>)</p></li>
-<li><p><strong>layerSlds</strong> (<em>list</em>)</p></li>
-<li><p><strong>sldProfiles</strong> (<em>list</em>)</p></li>
-<li><p><strong>resampledLayers</strong> (<em>list</em>)</p></li>
-<li><p><strong>calculationResults</strong> (<a class="reference internal" href="#RATapi.outputs.CalculationResults" title="RATapi.outputs.CalculationResults"><em>CalculationResults</em></a>)</p></li>
-<li><p><strong>contrastParams</strong> (<a class="reference internal" href="#RATapi.outputs.ContrastParams" title="RATapi.outputs.ContrastParams"><em>ContrastParams</em></a>)</p></li>
-<li><p><strong>fitParams</strong> (<em>ndarray</em>)</p></li>
-<li><p><strong>fitNames</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>)</p></li>
+<li><p><strong>reflectivity</strong> (<em>list</em>) – The reflectivity curves for each contrast,
+with the same range as the data
+(<code class="docutils literal notranslate"><span class="pre">data_range</span></code> in the contrast’s <code class="docutils literal notranslate"><span class="pre">Data</span></code> object)</p></li>
+<li><p><strong>simulation</strong> (<em>list</em>) – The reflectivity curves for each contrast,
+which can be a wider range to allow extrapolation
+(<code class="docutils literal notranslate"><span class="pre">simulation_range</span></code> in the contrast’s <code class="docutils literal notranslate"><span class="pre">Data</span></code> object).</p></li>
+<li><p><strong>shiftedData</strong> (<em>list</em>) – The data with scalefactors and background corrections applied.</p></li>
+<li><p><strong>backgrounds</strong> (<em>list</em>) – The background for each contrast defined over the simulation range.</p></li>
+<li><p><strong>resolutions</strong> (<em>list</em>) – The resolution for each contrast defined over the simulation range.</p></li>
+<li><p><strong>sldProfiles</strong> (<em>list</em>) – The SLD profiles for each contrast.</p></li>
+<li><p><strong>layers</strong> (<em>list</em>) – The array of layer parameter values for each contrast.</p></li>
+<li><p><strong>resampledLayers</strong> (<em>list</em>) – If resampling is used, the array of layer parameter values for each contrast after resampling has been
+performed.</p></li>
+<li><p><strong>calculationResults</strong> (<a class="reference internal" href="#ratapi.outputs.CalculationResults" title="ratapi.outputs.CalculationResults"><em>CalculationResults</em></a>) – The chi-squared fit results from the final calculation and fit.</p></li>
+<li><p><strong>contrastParams</strong> (<a class="reference internal" href="#ratapi.outputs.ContrastParams" title="ratapi.outputs.ContrastParams"><em>ContrastParams</em></a>) – The experimental parameters for the contrasts.</p></li>
+<li><p><strong>fitParams</strong> (<em>np.ndarray</em>) – The best fit value of the parameter with name <code class="docutils literal notranslate"><span class="pre">fitNames[i]</span></code>.</p></li>
+<li><p><strong>fitNames</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – The names of the fit parameters, where <code class="docutils literal notranslate"><span class="pre">fitNames[i]</span></code> is the name
+of the parameter with value given in <code class="docutils literal notranslate"><span class="pre">fitParams[i]</span></code>.</p></li>
 </ul>
 </dd>
 </dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ratapi.outputs.Results.load">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.outputs.Results.load" title="Link to this definition">#</a></dt>
+<dd><p>Load a Results object from file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>str</em><em> or </em><em>Path</em>) – The path to the results json file.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#ratapi.outputs.Results" title="ratapi.outputs.Results"><em>Results</em></a> | <a class="reference internal" href="#ratapi.outputs.BayesResults" title="ratapi.outputs.BayesResults"><em>BayesResults</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ratapi.outputs.Results.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./results.json'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.outputs.Results.save" title="Link to this definition">#</a></dt>
+<dd><p>Save the Results object to a JSON file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filepath</strong> (<em>str</em><em> or </em><em>Path</em>) – The path to where the results file will be written.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.outputs.get_field_string">
-<span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">get_field_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array_limit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.get_field_string" title="Link to this definition">#</a></dt>
-<dd><p>Returns a string representation of class fields where large and multidimensional arrays are represented by their
-shape.</p>
+<dt class="sig sig-object py" id="ratapi.outputs.get_field_string">
+<span class="sig-prename descclassname"><span class="pre">ratapi.outputs.</span></span><span class="sig-name descname"><span class="pre">get_field_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array_limit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.outputs.get_field_string" title="Link to this definition">#</a></dt>
+<dd><p>Return a string representation of class fields where large arrays are represented by their shape.</p>
+<p>An array will be displayed as just its shape if it is multidimensional or 1D and longer than <code class="docutils literal notranslate"><span class="pre">array_limit</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -657,22 +750,99 @@ shape.</p>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_field_string</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">&quot;data = 130&quot;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_field_string</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]),</span> <span class="mi">10</span><span class="p">)</span>
+<span class="go">&quot;data = [1 2 3 4 5]&quot;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_field_string</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">&quot;data = Data array: [5],&quot;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_field_string</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]),</span> <span class="mi">10</span><span class="p">)</span>
+<span class="go">&quot;data = Data array: [2 x 3],&quot;</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="RATapi.outputs.make_results">
-<span class="sig-prename descclassname"><span class="pre">RATapi.outputs.</span></span><span class="sig-name descname"><span class="pre">make_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">procedure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bayes_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#RATapi.outputs.make_results" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="ratapi.outputs.make_results">
+<span class="sig-prename descclassname"><span class="pre">ratapi.outputs.</span></span><span class="sig-name descname"><span class="pre">make_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">procedure</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bayes_results</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.outputs.make_results" title="Link to this definition">#</a></dt>
 <dd><p>Initialise a python Results or BayesResults object using the outputs from a RAT calculation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>procedure</strong> (<a class="reference internal" href="enums.html#RATapi.utils.enums.Procedures" title="RATapi.utils.enums.Procedures"><em>Procedures</em></a>)</p></li>
-<li><p><strong>output_results</strong> (<em>OutputResult</em>)</p></li>
-<li><p><strong>bayes_results</strong> (<em>BayesResults</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>procedure</strong> (<a class="reference internal" href="enums.html#ratapi.utils.enums.Procedures" title="ratapi.utils.enums.Procedures"><em>Procedures</em></a>) – The procedure used by the calculation.</p></li>
+<li><p><strong>output_results</strong> (<a class="reference internal" href="core.html#ratapi.rat_core.OutputResult" title="ratapi.rat_core.OutputResult"><em>ratapi.rat_core.OutputResult</em></a>) – The C++ output results from the calculation.</p></li>
+<li><p><strong>bayes_results</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="core.html#ratapi.rat_core.OutputBayesResult" title="ratapi.rat_core.OutputBayesResult"><em>ratapi.rat_core.OutputBayesResult</em></a><em>]</em>) – The optional extra C++ Bayesian output results from a Bayesian calculation.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#RATapi.outputs.Results" title="RATapi.outputs.Results"><em>Results</em></a> | <a class="reference internal" href="#RATapi.outputs.BayesResults" title="RATapi.outputs.BayesResults"><em>BayesResults</em></a></p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A result object containing the results of the calculation, of type
+Results for non-Bayesian procedures and BayesResults for Bayesian procedures.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#ratapi.outputs.Results" title="ratapi.outputs.Results">Results</a> or <a class="reference internal" href="#ratapi.outputs.BayesResults" title="ratapi.outputs.BayesResults">BayesResults</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ratapi.outputs.read_bayes_results_fields">
+<span class="sig-prename descclassname"><span class="pre">ratapi.outputs.</span></span><span class="sig-name descname"><span class="pre">read_bayes_results_fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.outputs.read_bayes_results_fields" title="Link to this definition">#</a></dt>
+<dd><p>Modify the values of the fields that appear only in BayesResults when loading a json file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>results_dict</strong> (<em>Optional</em><em>[</em><em>dict</em><em>]</em>) – The dictionary containing the json input.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>results_dict</strong> – The input json dict with the fields that appear in both Results and BayesResults converted to numpy arrays
+where necessary.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ratapi.outputs.read_core_results_fields">
+<span class="sig-prename descclassname"><span class="pre">ratapi.outputs.</span></span><span class="sig-name descname"><span class="pre">read_core_results_fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.outputs.read_core_results_fields" title="Link to this definition">#</a></dt>
+<dd><p>Modify the values of the fields that appear in both Results and BayesResults when loading a json file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>results_dict</strong> (<em>Optional</em><em>[</em><em>dict</em><em>]</em>) – The dictionary containing the json input.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>results_dict</strong> – The input json dict with the fields that appear in both Results and BayesResults converted to numpy arrays
+where necessary.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ratapi.outputs.write_core_results_fields">
+<span class="sig-prename descclassname"><span class="pre">ratapi.outputs.</span></span><span class="sig-name descname"><span class="pre">write_core_results_fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">json_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.outputs.write_core_results_fields" title="Link to this definition">#</a></dt>
+<dd><p>Modify the values of the fields that appear in both Results and BayesResults when saving to a json file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>results</strong> (<em>Union</em><em>[</em><a class="reference internal" href="#ratapi.outputs.Results" title="ratapi.outputs.Results"><em>Results</em></a><em>, </em><a class="reference internal" href="#ratapi.outputs.BayesResults" title="ratapi.outputs.BayesResults"><em>BayesResults</em></a><em>]</em>) – The results or BayesResults object we are writing to json.</p></li>
+<li><p><strong>json_dict</strong> (<em>Optional</em><em>[</em><em>dict</em><em>]</em>) – The dictionary containing the json output.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>json_dict</strong> – The output json dict updated with the fields that appear in both Results and BayesResults.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -701,17 +871,28 @@ shape.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.BayesResults"><code class="docutils literal notranslate"><span class="pre">BayesResults</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.CalculationResults"><code class="docutils literal notranslate"><span class="pre">CalculationResults</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.ConfidenceIntervals"><code class="docutils literal notranslate"><span class="pre">ConfidenceIntervals</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.ContrastParams"><code class="docutils literal notranslate"><span class="pre">ContrastParams</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.DreamOutput"><code class="docutils literal notranslate"><span class="pre">DreamOutput</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.DreamParams"><code class="docutils literal notranslate"><span class="pre">DreamParams</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.NestedSamplerOutput"><code class="docutils literal notranslate"><span class="pre">NestedSamplerOutput</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.PredictionIntervals"><code class="docutils literal notranslate"><span class="pre">PredictionIntervals</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.Results"><code class="docutils literal notranslate"><span class="pre">Results</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.get_field_string"><code class="docutils literal notranslate"><span class="pre">get_field_string()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#RATapi.outputs.make_results"><code class="docutils literal notranslate"><span class="pre">make_results()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.outputs.BayesResults"><code class="docutils literal notranslate"><span class="pre">BayesResults</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.outputs.BayesResults.save"><code class="docutils literal notranslate"><span class="pre">BayesResults.save()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.outputs.CalculationResults"><code class="docutils literal notranslate"><span class="pre">CalculationResults</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.outputs.ConfidenceIntervals"><code class="docutils literal notranslate"><span class="pre">ConfidenceIntervals</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.outputs.ContrastParams"><code class="docutils literal notranslate"><span class="pre">ContrastParams</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.outputs.DreamOutput"><code class="docutils literal notranslate"><span class="pre">DreamOutput</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.outputs.DreamParams"><code class="docutils literal notranslate"><span class="pre">DreamParams</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.outputs.NestedSamplerOutput"><code class="docutils literal notranslate"><span class="pre">NestedSamplerOutput</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.outputs.PredictionIntervals"><code class="docutils literal notranslate"><span class="pre">PredictionIntervals</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.outputs.RATResult"><code class="docutils literal notranslate"><span class="pre">RATResult</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.outputs.Results"><code class="docutils literal notranslate"><span class="pre">Results</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.outputs.Results.load"><code class="docutils literal notranslate"><span class="pre">Results.load()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.outputs.Results.save"><code class="docutils literal notranslate"><span class="pre">Results.save()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.outputs.get_field_string"><code class="docutils literal notranslate"><span class="pre">get_field_string()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.outputs.make_results"><code class="docutils literal notranslate"><span class="pre">make_results()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.outputs.read_bayes_results_fields"><code class="docutils literal notranslate"><span class="pre">read_bayes_results_fields()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.outputs.read_core_results_fields"><code class="docutils literal notranslate"><span class="pre">read_core_results_fields()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.outputs.write_core_results_fields"><code class="docutils literal notranslate"><span class="pre">write_core_results_fields()</span></code></a></li>
 </ul>
   </nav></div>
 
