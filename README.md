@@ -28,16 +28,16 @@ If not installed before, download the appropriate version of RAT from the GitHub
     >>unzip Linux.zip -d API/
 
 If RAT is installed, you may create symbolic link to the existing installation directory. E.g.,
-if  MATLAB RAT software is installed in `[Users,home]/myFedID/RAT` folder, run:
+if  MATLAB RAT software is installed in `[Users,home]/myUsername/RAT` folder and RAT documentation repository is cloned into `[Users,home]/myUsername/RAT-doc`, run:
 
     for Windows:
-    >>cd c:\users\myFedID\Rat-doc
-    >>mklink /j API c:\Users\myFedID\RAT 
+    >>cd c:\users\myUsername\Rat-doc
+    >>mklink /j API c:\Users\myUsername\RAT 
     for linux/macOS;
-    >>cd /home/myFedID/RAT-doc
-    >>ln -s /home/myFedID/RAT  API
+    >>cd /home/myUsername/RAT-doc
+    >>ln -s /home/myUsername/RAT  API
     
-You also need [Python RAT API](https://github.com/RascalSoftware/python-RAT) to be build and available in your local RAT `conda` session. Build process will add modules necessary for generate python documentation to the python modules search path. Look [there](https://github.com/RascalSoftware/python-RAT/blob/main/README.md) on more information how to build python API.
+You also need [Python RAT API](https://github.com/RascalSoftware/python-RAT) to be build and available for your local RAT `conda` session. Build process will add modules necessary for generating python documentation to the python modules search path. Look at [Python RAT repository](https://github.com/RascalSoftware/python-RAT/blob/main/README.md) for more information how to build python API.
 
 To build the HTML docs, type the following into a terminal with access to the Python executable:  
 
