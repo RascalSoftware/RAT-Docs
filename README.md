@@ -24,7 +24,7 @@ If you do not have RAT code on your machine, download the appropriate version of
     unzip Linux.zip -d API/
 ```
 
-If RAT is already present, you may create symbolic link to the existing` RAT` directory. E.g.:
+If RAT is already present, you may create symbolic link to the existing` RAT` directory, e.g.:
 
 for Windows:
     cd path_to_rat_docs_folder  
