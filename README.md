@@ -27,10 +27,12 @@ If you do not have RAT code on your machine, download the appropriate version of
 If RAT is already present, you may create symbolic link to the existing` RAT` directory, e.g.:
 
 for Windows:
+
     cd path_to_rat_docs_folder  
     mklink /j API paht_to_matlap_rat_folder
     
 for linux/macOS:
+
     cd path_to_rat_docs_folder
     ln -s /home/myUsername/RAT  API
 
