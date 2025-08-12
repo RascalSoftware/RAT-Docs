@@ -29,14 +29,16 @@ If RAT is already present, you may create symbolic link to the existing` RAT` di
 for Windows:
 
     cd path_to_rat_docs_folder  
-    mklink /j API paht_to_matlap_rat_folder
+    mklink /j API path_to_matlap_rat_folder
     
 for linux/macOS:
 
+```bash
     cd path_to_rat_docs_folder
-    ln -s /home/myUsername/RAT  API
+    ln -s path_to_matlap_rat_folder  API
+```
 
-Where `path_to_rat_docs_folder` is the path to the RAT documentation repository and `paht_to_matlap_rat_folder` is the path to the downloaded MATLAB RAT release
+Where `path_to_rat_docs_folder` is the path to the RAT documentation repository and `path_to_matlap_rat_folder` is the path to the downloaded MATLAB RAT release
     
 [Python RAT API](https://github.com/RascalSoftware/python-RAT)  should be installed on the same python virtual environment created earlier. Build process adds modules necessary for generating python documentation to the python modules search path. Look at [Python RAT repository](https://github.com/RascalSoftware/python-RAT/blob/main/README.md) for more information on how to build python API.
 
