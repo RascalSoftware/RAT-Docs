@@ -17,7 +17,7 @@ in the requirements.txt. You need MATLAB version and python version or RAT softw
 You also must have `pandoc` installed to build the Python example Jupiter notebooks. See the installation instructions [here](https://pandoc.org/installing.html). If not previously installed system-wide, install [pandoc](https://pandoc.org/) using [conda](https://docs.conda.io/) as described in their [installation manual](https://pandoc.org/installing.html#conda-forge)
 depending on [conda](https://docs.conda.io/) flavour you are using.
 
-If you do not have RAT code on your machine, download the appropriate version of RAT from the GitHub [release](https://github.com/RascalSoftware/RAT/releases) page, and unzip the contents into a folder called API (This folder should be located within RAT-doc directory, alongside the **source** folder and main `make.bat` file (see below)). For example on a Linux machine, the nightly can be downloaded as shown:
+If you do not have RAT code on your machine, download the appropriate version of RAT from the GitHub [release](https://github.com/RascalSoftware/RAT/releases) page, and unzip the contents into a folder called API (This folder should be located within RAT-documentation directory, alongside the **source** folder and main `make.bat` file (see below)). For example on a Linux machine, the nightly can be downloaded as shown:
 
 ```bash
     cd path_to_rat_docs_folder
