@@ -86,9 +86,11 @@ heads which are adjacent (or embedded) in the bulk aqueous phase.
 
 In our example, the layers can be either deuterated or hydrogenated, and the bulk water can either be D2O or ACMW.
 
-.. image:: ../images/tutorial/LipidMonolayerAndParameters.png
-    :width: 1000
-    :alt: The lipid monolayer example with parameters
+.. figure:: ../images/tutorial/LipidMonolayerAndParameters.png
+   :width: 1000
+   :align: center
+    
+  Lipid Monolayer with attached `RAT` model parameters used in reflectivity calculations. 
 
 We are going to analyze our monolayer data using a standard `slab model <https://www.reflectometry.org/learn/3_reflectometry_slab_models/the_slab_model.html>`_.
 In this model, we approximate our experimental model as a series of layers with a known thickness, roughness, SLD and hydration.
