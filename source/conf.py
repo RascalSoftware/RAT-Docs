@@ -110,6 +110,9 @@ matlab_keep_package_prefix = False
 html_theme = 'pydata_sphinx_theme'
 bgcolor = 'white'
 
+# Add switch which numerates figures and allows numeric references to them
+numfig = True
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
