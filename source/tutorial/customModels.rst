@@ -144,7 +144,7 @@ First, we add our seven parameters (remember that Substrate Roughness is always 
     
     .. code-block:: Python
 
-        parameters = [['Oxide thick', 5.0, 20.0, 60.0, True],
+        pGroup = [['Oxide thick', 5.0, 20.0, 60.0, True],
                       ['Oxide Hydration', 0, 0.2, 0.5, True],
                       ['Lipid APM', 45.0, 55.0, 65.0, True],
                       ['Head Hydration', 0, 0.2, 0.5, True],
