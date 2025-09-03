@@ -537,13 +537,11 @@ and another b = [b1, b2, b3], then [a ; b] produces an array that looks like thi
 
    \begin{bmatrix} a_\mathrm{1} & a_\mathrm{2} & a_\mathrm{3} \\ b_\mathrm{1} & b_\mathrm{2} & b_\mathrm{3} \end{bmatrix}
 
-.. _Nevot-Croce:
-
 In other words, the entire purpose of our custom layer file is to take our parameters in a scientifically useful form 
 (e.g. Area per Lipid in our case), and to translate these into a list of :math:`[d, \rho, \sigma]` layers for the whole interface. 
 You have complete freedom in how you do this, which means that you can make any kind of layer model you can think of using a custom layers file, 
 including layers that are mixtures of adjoining layers and so on. As long as you can describe your 
-system as layers with an error function (i.e. `Nevot-Croce <https://en.wikipedia.org/wiki/Transfer-matrix_method_(optics)>`_) roughness you can describe them using custom layer modelling.
+system as layers with an error function (i.e. `Nevot-Croce <https://www.reflectometry.org/learn/3_reflectometry_slab_models/roughness_and_microslicing.html>`_) roughness you can describe them using custom layer modelling.
 
 The rest of the custom model is defined similar to the standard layers model shown in :ref:`project`. 
 So, since we want to analyse three contrasts simultaneously, we need the following:
