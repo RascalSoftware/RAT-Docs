@@ -18,7 +18,7 @@ This problem of finding the lowest number of individual points that will complet
 borrowed from signal processing called Adaptive Resampling (AR).
 
 AR is an interactive process which aims to find the lowest number of points that will best describe a curve. It does this by adding points where the angle between neighbouring
-points becomes smaller than a threshold value. So, it adds more points where the signal's gradient is changing most strongly (in order to capture all details of the curvature). So, for a
+points becomes smaller than a threshold value. So, it adds more points where the signal is changing most strongly (in order to capture all details of the curvature). So, for a
 cosine wave, the resampled points cluster at the regions of the largest curvature:
 
 .. image:: ../images/advanced/adaptiveSpPic.png
