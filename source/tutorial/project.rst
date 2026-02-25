@@ -61,7 +61,6 @@ then for the ``"substrate/liquid"`` geometry the substrate roughness is placed a
 and the layer roughness values refer to the interface after the particular layer.
 But in the ``"air/substrate"`` case, the opposite is true, 
 and the substrate roughness is the last roughness in the stack, with the layer roughness referring to the interface before each layer.
-This is the case, represented on the :numref:`LipidMonolayerWithPar`.
 
 * **Model Type**: There are three ways of defining models in RAT:
 
