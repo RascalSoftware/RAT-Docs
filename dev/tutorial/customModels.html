@@ -630,7 +630,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-5">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Oxide thick&#39;</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">60.0</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">pGroup</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Oxide thick&#39;</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">60.0</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span>
               <span class="p">[</span><span class="s1">&#39;Oxide Hydration&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span>
               <span class="p">[</span><span class="s1">&#39;Lipid APM&#39;</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">,</span> <span class="mf">55.0</span><span class="p">,</span> <span class="mf">65.0</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span>
               <span class="p">[</span><span class="s1">&#39;Head Hydration&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span>
@@ -1064,7 +1064,7 @@ and another b = [b1, b2, b3], then [a ; b] produces an array that looks like thi
 (e.g. Area per Lipid in our case), and to translate these into a list of <span class="math notranslate nohighlight">\([d, \rho, \sigma]\)</span> layers for the whole interface.
 You have complete freedom in how you do this, which means that you can make any kind of layer model you can think of using a custom layers file,
 including layers that are mixtures of adjoining layers and so on. As long as you can describe your
-system as layers with an error function (i.e. Nevot-Croce) roughness you can describe them using custom layer modelling.</p>
+system as layers with an error function (i.e. <a class="reference external" href="https://www.reflectometry.org/learn/3_reflectometry_slab_models/roughness_and_microslicing.html">Nevot-Croce</a>) roughness you can describe them using custom layer modelling.</p>
 <p>The rest of the custom model is defined similar to the standard layers model shown in <a class="reference internal" href="project.html#project"><span class="std std-ref">The Project Class</span></a>.
 So, since we want to analyse three contrasts simultaneously, we need the following:</p>
 <div class="sd-tab-set docutils">
@@ -1267,7 +1267,7 @@ For example, we may want to incorporate SLD profiles from molecular simulations,
 In these cases, a second type of custom model can be used, where instead of the custom model function outputting a list of layers,
 it builds a continuous SLD profile, which is then automatically microsliced by RAT to calculate the reflectivity.
 This gives a high degree of flexibility for the type of model that can be generated.</p>
-<p>As before, the custom model can be defined in MATLAB, Python, or C++; for the purpose of this tutorial we will just use MATLAB.</p>
+<p>As before, the custom model can be defined in MATLAB, Python, or C++; for the purpose of this tutorial we will just use MATLAB and Python.</p>
 <p>The inputs into custom XY are the same as for Custom Layers, but the output is now always an [n x 2] array defining a continuous SLD:</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-28" name="sd-tab-set-14" type="radio">
@@ -1623,7 +1623,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 
   <p class="copyright">
     
-      © Copyright 2022-2025, ISIS Neutron and Muon Source.
+      © Copyright 2022-2026, ISIS Neutron and Muon Source.
       <br/>
     
   </p>

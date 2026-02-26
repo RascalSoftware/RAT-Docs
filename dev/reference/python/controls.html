@@ -473,7 +473,6 @@ field description.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">adaptPCR</span> <span class="pre">(bool)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">boundHandling</span> <span class="pre">(ratapi.utils.enums.BoundHandling)</span></code></p></li>
-<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">calcSldDuringFit</span> <span class="pre">(bool)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">crossoverProbability</span> <span class="pre">(float)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">display</span> <span class="pre">(ratapi.utils.enums.Display)</span></code></p></li>
 <li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fWeight</span> <span class="pre">(float)</span></code></p></li>
@@ -513,12 +512,6 @@ field description.</p>
 <dt class="sig sig-object py" id="ratapi.Controls.boundHandling">
 <em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">boundHandling</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="enums.html#ratapi.utils.enums.BoundHandling" title="ratapi.utils.enums.BoundHandling"><span class="pre">BoundHandling</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">BoundHandling.Reflect</span></em><a class="headerlink" href="#ratapi.Controls.boundHandling" title="Link to this definition">#</a></dt>
 <dd><p>[DREAM] How steps past the space boundaries should be handled. Can be ‘off’, ‘reflect’, ‘bound’, or ‘fold’.</p>
-</dd></dl>
-
-<dl class="py attribute pydantic_field">
-<dt class="sig sig-object py" id="ratapi.Controls.calcSldDuringFit">
-<em class="property"><span class="pre">field</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calcSldDuringFit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#ratapi.Controls.calcSldDuringFit" title="Link to this definition">#</a></dt>
-<dd><p>Whether SLD will be calculated during fit (for live plotting etc.)</p>
 </dd></dl>
 
 <dl class="py attribute pydantic_field">
@@ -868,14 +861,11 @@ field description.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ratapi.Controls.save">
-<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'controls'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.Controls.save" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'./controls.json'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.Controls.save" title="Link to this definition">#</a></dt>
 <dd><p>Save a controls object to a JSON file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>path</strong> (<em>str</em><em> or </em><em>Path</em>) – The directory in which the controls object will be written.</p></li>
-<li><p><strong>filename</strong> (<em>str</em>) – The name for the JSON file containing the controls object.</p></li>
-</ul>
+<dd class="field-odd"><p><strong>filepath</strong> (<em>str</em><em> or </em><em>Path</em>) – The path to where the controls file will be written.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -928,7 +918,6 @@ field description.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.Controls"><code class="docutils literal notranslate"><span class="pre">Controls</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.Controls.adaptPCR"><code class="docutils literal notranslate"><span class="pre">Controls.adaptPCR</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.Controls.boundHandling"><code class="docutils literal notranslate"><span class="pre">Controls.boundHandling</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.Controls.calcSldDuringFit"><code class="docutils literal notranslate"><span class="pre">Controls.calcSldDuringFit</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.Controls.crossoverProbability"><code class="docutils literal notranslate"><span class="pre">Controls.crossoverProbability</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.Controls.display"><code class="docutils literal notranslate"><span class="pre">Controls.display</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.Controls.fWeight"><code class="docutils literal notranslate"><span class="pre">Controls.fWeight</span></code></a></li>
@@ -992,7 +981,7 @@ field description.</p>
 
   <p class="copyright">
     
-      © Copyright 2022-2025, ISIS Neutron and Muon Source.
+      © Copyright 2022-2026, ISIS Neutron and Muon Source.
       <br/>
     
   </p>

@@ -4,7 +4,7 @@
 Profile Resampling ('microslicing')
 ===================================
 
-The Nevot-Croce roughness approximation only strictly holds for cases where the interface roughness is much less than the layer thickness. The usual way
+The `Nevot-Croce roughness approximation <https://www.reflectometry.org/learn/3_reflectometry_slab_models/roughness_and_microslicing.html>`_ only strictly holds for cases where the interface roughness is much less than the layer thickness. The usual way
 of handling cases where this approximation does not hold is to split the interfaces into a large number of layers of zero roughness, so that the roughness problem
 is circumvented:
 

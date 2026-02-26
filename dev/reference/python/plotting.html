@@ -464,6 +464,98 @@ document.write(`
 <p>Plotting functionality for RAT results objects is available through the <code class="docutils literal notranslate"><span class="pre">ratapi.utils.plotting</span></code> module.</p>
 <p id="module-ratapi.utils.plotting">Plot results using the matplotlib library.</p>
 <dl class="py class">
+<dt class="sig sig-object py" id="ratapi.utils.plotting.BlittingSupport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">BlittingSupport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q4</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_error_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.BlittingSupport" title="Link to this definition">#</a></dt>
+<dd><p>Create a SLD plot that uses blitting to get faster draws.</p>
+<p>The blit plot stores the background from an
+initial draw then updates the foreground (lines and error bars) if the background is not changed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<a class="reference internal" href="core.html#ratapi.rat_core.PlotEventData" title="ratapi.rat_core.PlotEventData"><em>PlotEventData</em></a>) – The plot event data that contains all the information
+to generate the ref and sld plots</p></li>
+<li><p><strong>fig</strong> (<em>matplotlib.figure.Figure</em><em>, </em><em>optional</em>) – The figure class that has two subplots</p></li>
+<li><p><strong>linear_x</strong> (<em>bool</em><em>, </em><em>default: False</em>) – Controls whether the x-axis on reflectivity plot uses the linear scale</p></li>
+<li><p><strong>q4</strong> (<em>bool</em><em>, </em><em>default: False</em>) – Controls whether Q^4 is plotted on the reflectivity plot</p></li>
+<li><p><strong>show_error_bar</strong> (<em>bool</em><em>, </em><em>default: True</em>) – Controls whether the error bars are shown</p></li>
+<li><p><strong>show_grid</strong> (<em>bool</em><em>, </em><em>default: False</em>) – Controls whether the grid is shown</p></li>
+<li><p><strong>show_legend</strong> (<em>bool</em><em>, </em><em>default: True</em>) – Controls whether the legend is shown</p></li>
+<li><p><strong>shift_value</strong> (<em>float</em><em>, </em><em>default: 100</em>) – A value between 1 and 100 that controls the spacing between the reflectivity plots for each of the contrasts</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="ratapi.utils.plotting.BlittingSupport.adjust_error_bar">
+<span class="sig-name descname"><span class="pre">adjust_error_bar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_bar_container</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_error</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.BlittingSupport.adjust_error_bar" title="Link to this definition">#</a></dt>
+<dd><p>Adjust the error bar data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>error_bar_container</strong> (<em>Tuple</em>) – Tuple containing the artist of the errorbar i.e. (data line, cap lines, bar lines)</p></li>
+<li><p><strong>x</strong> (<em>np.ndarray</em>) – The shifted data x axis data</p></li>
+<li><p><strong>y</strong> (<em>np.ndarray</em>) – The shifted data y axis data</p></li>
+<li><p><strong>y_error</strong> (<em>np.ndarray</em>) – The shifted data y axis error data</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ratapi.utils.plotting.BlittingSupport.resizeEvent">
+<span class="sig-name descname"><span class="pre">resizeEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.BlittingSupport.resizeEvent" title="Link to this definition">#</a></dt>
+<dd><p>Ensure the background is updated after a resize event.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ratapi.utils.plotting.BlittingSupport.set_animated">
+<span class="sig-name descname"><span class="pre">set_animated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_animated</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.BlittingSupport.set_animated" title="Link to this definition">#</a></dt>
+<dd><p>Set the animated property of foreground plot elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>is_animated</strong> (<em>bool</em>) – Indicates if the animated property should be set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ratapi.utils.plotting.BlittingSupport.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.BlittingSupport.update" title="Link to this definition">#</a></dt>
+<dd><p>Update the foreground, if background has not changed otherwise it updates full plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<a class="reference internal" href="core.html#ratapi.rat_core.PlotEventData" title="ratapi.rat_core.PlotEventData"><em>PlotEventData</em></a>) – The plot event data that contains all the information
+to generate the ref and sld plots</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ratapi.utils.plotting.BlittingSupport.update_foreground">
+<span class="sig-name descname"><span class="pre">update_foreground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.BlittingSupport.update_foreground" title="Link to this definition">#</a></dt>
+<dd><p>Update the plot foreground only.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<a class="reference internal" href="core.html#ratapi.rat_core.PlotEventData" title="ratapi.rat_core.PlotEventData"><em>PlotEventData</em></a>) – The plot event data that contains all the information
+to generate the ref and sld plots</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ratapi.utils.plotting.BlittingSupport.update_plot">
+<span class="sig-name descname"><span class="pre">update_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.BlittingSupport.update_plot" title="Link to this definition">#</a></dt>
+<dd><p>Update the full plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<a class="reference internal" href="core.html#ratapi.rat_core.PlotEventData" title="ratapi.rat_core.PlotEventData"><em>PlotEventData</em></a>) – The plot event data that contains all the information
+to generate the ref and sld plots</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="ratapi.utils.plotting.LivePlot">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">LivePlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.LivePlot" title="Link to this definition">#</a></dt>
 <dd><p>Create a plot that gets updates from the plot event during a calculation.</p>
@@ -486,100 +578,9 @@ document.write(`
 
 </dd></dl>
 
-<dl class="py class">
-<dt class="sig sig-object py" id="ratapi.utils.plotting.PlotSLDWithBlitting">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ratapi.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">PlotSLDWithBlitting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q4</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_error_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.PlotSLDWithBlitting" title="Link to this definition">#</a></dt>
-<dd><p>Create a SLD plot that uses blitting to get faster draws.</p>
-<p>The blit plot stores the background from an
-initial draw then updates the foreground (lines and error bars) if the background is not changed.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<a class="reference internal" href="core.html#ratapi.rat_core.PlotEventData" title="ratapi.rat_core.PlotEventData"><em>PlotEventData</em></a>) – The plot event data that contains all the information
-to generate the ref and sld plots</p></li>
-<li><p><strong>fig</strong> (<em>matplotlib.pyplot.figure</em><em>, </em><em>optional</em>) – The figure class that has two subplots</p></li>
-<li><p><strong>linear_x</strong> (<em>bool</em><em>, </em><em>default: False</em>) – Controls whether the x-axis on reflectivity plot uses the linear scale</p></li>
-<li><p><strong>q4</strong> (<em>bool</em><em>, </em><em>default: False</em>) – Controls whether Q^4 is plotted on the reflectivity plot</p></li>
-<li><p><strong>show_error_bar</strong> (<em>bool</em><em>, </em><em>default: True</em>) – Controls whether the error bars are shown</p></li>
-<li><p><strong>show_grid</strong> (<em>bool</em><em>, </em><em>default: False</em>) – Controls whether the grid is shown</p></li>
-<li><p><strong>show_legend</strong> (<em>bool</em><em>, </em><em>default: True</em>) – Controls whether the legend is shown</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="ratapi.utils.plotting.PlotSLDWithBlitting.adjustErrorBar">
-<span class="sig-name descname"><span class="pre">adjustErrorBar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error_bar_container</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_error</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.PlotSLDWithBlitting.adjustErrorBar" title="Link to this definition">#</a></dt>
-<dd><p>Adjust the error bar data.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>error_bar_container</strong> (<em>Tuple</em>) – Tuple containing the artist of the errorbar i.e. (data line, cap lines, bar lines)</p></li>
-<li><p><strong>x</strong> (<em>np.ndarray</em>) – The shifted data x axis data</p></li>
-<li><p><strong>y</strong> (<em>np.ndarray</em>) – The shifted data y axis data</p></li>
-<li><p><strong>y_error</strong> (<em>np.ndarray</em>) – The shifted data y axis error data</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ratapi.utils.plotting.PlotSLDWithBlitting.resizeEvent">
-<span class="sig-name descname"><span class="pre">resizeEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.PlotSLDWithBlitting.resizeEvent" title="Link to this definition">#</a></dt>
-<dd><p>Ensure the background is updated after a resize event.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ratapi.utils.plotting.PlotSLDWithBlitting.setAnimated">
-<span class="sig-name descname"><span class="pre">setAnimated</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_animated</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.PlotSLDWithBlitting.setAnimated" title="Link to this definition">#</a></dt>
-<dd><p>Set the animated property of foreground plot elements.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>is_animated</strong> (<em>bool</em>) – Indicates if the animated property should been set.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ratapi.utils.plotting.PlotSLDWithBlitting.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.PlotSLDWithBlitting.update" title="Link to this definition">#</a></dt>
-<dd><p>Update the foreground, if background has not changed otherwise it updates full plot.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<a class="reference internal" href="core.html#ratapi.rat_core.PlotEventData" title="ratapi.rat_core.PlotEventData"><em>PlotEventData</em></a>) – The plot event data that contains all the information
-to generate the ref and sld plots</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ratapi.utils.plotting.PlotSLDWithBlitting.updateForeground">
-<span class="sig-name descname"><span class="pre">updateForeground</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.PlotSLDWithBlitting.updateForeground" title="Link to this definition">#</a></dt>
-<dd><p>Update the plot foreground only.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<a class="reference internal" href="core.html#ratapi.rat_core.PlotEventData" title="ratapi.rat_core.PlotEventData"><em>PlotEventData</em></a>) – The plot event data that contains all the information
-to generate the ref and sld plots</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ratapi.utils.plotting.PlotSLDWithBlitting.updatePlot">
-<span class="sig-name descname"><span class="pre">updatePlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.PlotSLDWithBlitting.updatePlot" title="Link to this definition">#</a></dt>
-<dd><p>Update the full plot.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<a class="reference internal" href="core.html#ratapi.rat_core.PlotEventData" title="ratapi.rat_core.PlotEventData"><em>PlotEventData</em></a>) – The plot event data that contains all the information
-to generate the ref and sld plots</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="ratapi.utils.plotting.plot_chain">
-<span class="sig-prename descclassname"><span class="pre">ratapi.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_chain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.plot_chain" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ratapi.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_chain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxpoints</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.plot_chain" title="Link to this definition">#</a></dt>
 <dd><p>Plot the MCMC chain for each parameter of a Bayesian analysis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -589,7 +590,10 @@ to generate the ref and sld plots</p>
 If None, uses all indices.</p></li>
 <li><p><strong>maxpoints</strong> (<em>int</em>) – The maximum number of points to plot for each parameter.</p></li>
 <li><p><strong>block</strong> (<em>bool</em><em>, </em><em>default False</em>) – Whether Python should block until the plot is closed.</p></li>
+<li><p><strong>fig</strong> (<em>matplotlib.figure.Figure</em><em>, </em><em>optional</em>) – The figure object to use for plot.</p></li>
 <li><p><strong>return_fig</strong> (<em>bool</em><em>, </em><em>default False</em>) – If True, return the figure as an object instead of showing it.</p></li>
+<li><p><strong>progress_callback</strong> (<em>Union</em><em>[</em><em>Callable</em><em>[</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em><em>, </em><em>None</em><em>]</em><em>, </em><em>None</em><em>]</em>) – Callback function for providing progress during plot creation
+First argument is current completed sub plot and second is total number of sub plots</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -632,7 +636,7 @@ Default settings are <cite>bins = 25</cite> and <cite>density = True</cite>.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ratapi.utils.plotting.plot_corner">
-<span class="sig-prename descclassname"><span class="pre">ratapi.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_corner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hist_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hist2d_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.plot_corner" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ratapi.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_corner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hist_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hist2d_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.plot_corner" title="Link to this definition">#</a></dt>
 <dd><p>Create a corner plot from a Bayesian analysis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -642,11 +646,14 @@ Default settings are <cite>bins = 25</cite> and <cite>density = True</cite>.</p>
 If None, uses all indices.</p></li>
 <li><p><strong>smooth</strong> (<em>bool</em><em>, </em><em>default True</em>) – Whether to apply Gaussian smoothing to the corner plot.</p></li>
 <li><p><strong>block</strong> (<em>bool</em><em>, </em><em>default False</em>) – Whether Python should block until the plot is closed.</p></li>
+<li><p><strong>fig</strong> (<em>matplotlib.figure.Figure</em><em>, </em><em>optional</em>) – The figure object to use for plot.</p></li>
 <li><p><strong>return_fig</strong> (<em>bool</em><em>, </em><em>default False</em>) – If True, return the figure as an object instead of showing it.</p></li>
 <li><p><strong>hist_kwargs</strong> (<em>dict</em>) – Extra keyword arguments to pass to the 1d histograms.
 Default is {‘density’: True, ‘bins’: 25}</p></li>
 <li><p><strong>hist2d_kwargs</strong> (<em>dict</em>) – Extra keyword arguments to pass to the 2d histograms.
 Default is {‘density’: True, ‘bins’: 25}</p></li>
+<li><p><strong>progress_callback</strong> (<em>Union</em><em>[</em><em>Callable</em><em>[</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em><em>, </em><em>None</em><em>]</em><em>, </em><em>None</em><em>]</em>) – Callback function for providing progress during plot creation
+First argument is current completed sub plot and second is total number of sub plots</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -660,7 +667,7 @@ Default is {‘density’: True, ‘bins’: 25}</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ratapi.utils.plotting.plot_hists">
-<span class="sig-prename descclassname"><span class="pre">ratapi.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_hists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimated_density</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">hist_settings</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.plot_hists" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ratapi.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_hists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimated_density</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">hist_settings</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.plot_hists" title="Link to this definition">#</a></dt>
 <dd><p>Plot marginalised posteriors for several parameters from a Bayesian analysis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -685,7 +692,10 @@ To provide a default estimated density function to all parameters that haven’t
 pass the ‘default’ key,
 e.g. to apply ‘normal’ to all unset parameters, set <cite>estimated_density = {‘default’: ‘normal’}</cite>.</p></li>
 <li><p><strong>block</strong> (<em>bool</em><em>, </em><em>default False</em>) – Whether Python should block until the plot is closed.</p></li>
+<li><p><strong>fig</strong> (<em>matplotlib.figure.Figure</em><em>, </em><em>optional</em>) – The figure object to use for plot.</p></li>
 <li><p><strong>return_fig</strong> (<em>bool</em><em>, </em><em>default False</em>) – If True, return the figure as an object instead of showing it.</p></li>
+<li><p><strong>progress_callback</strong> (<em>Union</em><em>[</em><em>Callable</em><em>[</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em><em>, </em><em>None</em><em>]</em><em>, </em><em>None</em><em>]</em>) – Callback function for providing progress during plot creation
+First argument is current completed sub plot and second is total number of sub plots</p></li>
 <li><p><strong>hist_settings</strong> – Settings passed to <cite>np.histogram</cite>. By default, the settings
 passed are <cite>bins = 25</cite> and <cite>density = True</cite>.</p></li>
 </ul>
@@ -736,7 +746,7 @@ passed are <cite>bins = 25</cite> and <cite>density = True</cite>.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ratapi.utils.plotting.plot_ref_sld">
-<span class="sig-prename descclassname"><span class="pre">ratapi.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_ref_sld</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bayes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q4</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_error_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.plot_ref_sld" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ratapi.utils.plotting.</span></span><span class="sig-name descname"><span class="pre">plot_ref_sld</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">project</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bayes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linear_x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q4</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_error_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_legend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.utils.plotting.plot_ref_sld" title="Link to this definition">#</a></dt>
 <dd><p>Plot the reflectivity and SLD profiles.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -744,6 +754,7 @@ passed are <cite>bins = 25</cite> and <cite>density = True</cite>.</p></li>
 <li><p><strong>project</strong> (<a class="reference internal" href="project.html#ratapi.Project" title="ratapi.Project"><em>Project</em></a>) – An instance of the Project class</p></li>
 <li><p><strong>results</strong> (<em>Union</em><em>[</em><a class="reference internal" href="outputs.html#ratapi.outputs.Results" title="ratapi.outputs.Results"><em>Results</em></a><em>, </em><a class="reference internal" href="outputs.html#ratapi.outputs.BayesResults" title="ratapi.outputs.BayesResults"><em>BayesResults</em></a><em>]</em>) – The result from the calculation</p></li>
 <li><p><strong>block</strong> (<em>bool</em><em>, </em><em>default: False</em>) – Indicates the plot should block until it is closed</p></li>
+<li><p><strong>fig</strong> (<em>matplotlib.figure.Figure</em><em>, </em><em>optional</em>) – The figure object that has two subplots</p></li>
 <li><p><strong>return_fig</strong> (<em>bool</em><em>, </em><em>default False</em>) – If True, return the figure instead of displaying it.</p></li>
 <li><p><strong>bayes</strong> (<em>65</em><em>, </em><em>95</em><em> or </em><em>None</em><em>, </em><em>default None</em>) – Whether to shade Bayesian confidence intervals. Can be <cite>None</cite>
 (if no intervals), <cite>65</cite> to show 65% confidence intervals,
@@ -753,6 +764,7 @@ and <cite>95</cite> to show 95% confidence intervals.</p></li>
 <li><p><strong>show_error_bar</strong> (<em>bool</em><em>, </em><em>default: True</em>) – Controls whether the error bars are shown</p></li>
 <li><p><strong>show_grid</strong> (<em>bool</em><em>, </em><em>default: False</em>) – Controls whether the grid is shown</p></li>
 <li><p><strong>show_legend</strong> (<em>bool</em><em>, </em><em>default: True</em>) – Controls whether the legend is shown</p></li>
+<li><p><strong>shift_value</strong> (<em>float</em><em>, </em><em>default: 100</em>) – A value between 1 and 100 that controls the spacing between the reflectivity plots for each of the contrasts</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -788,17 +800,17 @@ and <cite>95</cite> to show 95% confidence intervals.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.utils.plotting.LivePlot"><code class="docutils literal notranslate"><span class="pre">LivePlot</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.utils.plotting.LivePlot.plotEvent"><code class="docutils literal notranslate"><span class="pre">LivePlot.plotEvent()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.utils.plotting.BlittingSupport"><code class="docutils literal notranslate"><span class="pre">BlittingSupport</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.utils.plotting.BlittingSupport.adjust_error_bar"><code class="docutils literal notranslate"><span class="pre">BlittingSupport.adjust_error_bar()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.utils.plotting.BlittingSupport.resizeEvent"><code class="docutils literal notranslate"><span class="pre">BlittingSupport.resizeEvent()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.utils.plotting.BlittingSupport.set_animated"><code class="docutils literal notranslate"><span class="pre">BlittingSupport.set_animated()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.utils.plotting.BlittingSupport.update"><code class="docutils literal notranslate"><span class="pre">BlittingSupport.update()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.utils.plotting.BlittingSupport.update_foreground"><code class="docutils literal notranslate"><span class="pre">BlittingSupport.update_foreground()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.utils.plotting.BlittingSupport.update_plot"><code class="docutils literal notranslate"><span class="pre">BlittingSupport.update_plot()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.utils.plotting.PlotSLDWithBlitting"><code class="docutils literal notranslate"><span class="pre">PlotSLDWithBlitting</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.utils.plotting.PlotSLDWithBlitting.adjustErrorBar"><code class="docutils literal notranslate"><span class="pre">PlotSLDWithBlitting.adjustErrorBar()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.utils.plotting.PlotSLDWithBlitting.resizeEvent"><code class="docutils literal notranslate"><span class="pre">PlotSLDWithBlitting.resizeEvent()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.utils.plotting.PlotSLDWithBlitting.setAnimated"><code class="docutils literal notranslate"><span class="pre">PlotSLDWithBlitting.setAnimated()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.utils.plotting.PlotSLDWithBlitting.update"><code class="docutils literal notranslate"><span class="pre">PlotSLDWithBlitting.update()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.utils.plotting.PlotSLDWithBlitting.updateForeground"><code class="docutils literal notranslate"><span class="pre">PlotSLDWithBlitting.updateForeground()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.utils.plotting.PlotSLDWithBlitting.updatePlot"><code class="docutils literal notranslate"><span class="pre">PlotSLDWithBlitting.updatePlot()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.utils.plotting.LivePlot"><code class="docutils literal notranslate"><span class="pre">LivePlot</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.utils.plotting.LivePlot.plotEvent"><code class="docutils literal notranslate"><span class="pre">LivePlot.plotEvent()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.utils.plotting.plot_chain"><code class="docutils literal notranslate"><span class="pre">plot_chain()</span></code></a></li>
@@ -835,7 +847,7 @@ and <cite>95</cite> to show 95% confidence intervals.</p></li>
 
   <p class="copyright">
     
-      © Copyright 2022-2025, ISIS Neutron and Muon Source.
+      © Copyright 2022-2026, ISIS Neutron and Muon Source.
       <br/>
     
   </p>

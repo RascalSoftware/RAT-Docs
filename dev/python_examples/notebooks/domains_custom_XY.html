@@ -479,7 +479,7 @@ document.write(`
                   
   <div class="admonition note">
   This page was generated from the notebook domains_custom_XY.ipynb found in
-  <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/0.0.0.dev7/ratapi/examples/">the Python-RAT repository</a>.
+  <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/0.0.0.dev12/ratapi/examples/">the Python-RAT repository</a>.
   <a href="domains_custom_XY.ipynb" class="reference download internal" download>Download notebook</a>.
 </div><div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -629,13 +629,17 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .output_html .vm { color: #19177C } /* Name.Variable.Magic */
 .output_html .il { color: #666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Custom model file for the domains custom XY example.&quot;&quot;&quot;</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.special</span><span class="w"> </span><span class="kn">import</span> <span class="n">erf</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">domains_XY_model</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">bulk_in</span><span class="p">,</span> <span class="n">bulk_out</span><span class="p">,</span> <span class="n">contrast</span><span class="p">,</span> <span class="n">domain</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the SLD profile for a domains custom XY model.&quot;&quot;&quot;</span>
+    <span class="c1"># Note - The first contrast number is 1 (not 0) so be careful if you use</span>
+    <span class="c1"># this variable for array indexing. Same applies to the domain number.</span>
+
     <span class="c1"># Split up the parameters for convenience</span>
     <span class="n">subRough</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">oxideThick</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -648,13 +652,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">141</span><span class="p">)</span>
 
     <span class="c1"># Make the volume fraction distribution for our Silicon substrate</span>
-    <span class="p">[</span><span class="n">vfSilicon</span><span class="p">,</span> <span class="n">siSurf</span><span class="p">]</span> <span class="o">=</span> <span class="n">makeLayer</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">subRough</span><span class="p">,</span> <span class="n">subRough</span><span class="p">)</span>
+    <span class="p">[</span><span class="n">vfSilicon</span><span class="p">,</span> <span class="n">siSurf</span><span class="p">]</span> <span class="o">=</span> <span class="n">make_layer</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">subRough</span><span class="p">,</span> <span class="n">subRough</span><span class="p">)</span>
 
     <span class="c1"># ... and the Oxide ...</span>
-    <span class="p">[</span><span class="n">vfOxide</span><span class="p">,</span> <span class="n">oxSurface</span><span class="p">]</span> <span class="o">=</span> <span class="n">makeLayer</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">siSurf</span><span class="p">,</span> <span class="n">oxideThick</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">subRough</span><span class="p">,</span> <span class="n">subRough</span><span class="p">)</span>
+    <span class="p">[</span><span class="n">vfOxide</span><span class="p">,</span> <span class="n">oxSurface</span><span class="p">]</span> <span class="o">=</span> <span class="n">make_layer</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">siSurf</span><span class="p">,</span> <span class="n">oxideThick</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">subRough</span><span class="p">,</span> <span class="n">subRough</span><span class="p">)</span>
 
     <span class="c1"># ... and also our layer.</span>
-    <span class="p">[</span><span class="n">vfLayer</span><span class="p">,</span> <span class="n">laySurface</span><span class="p">]</span> <span class="o">=</span> <span class="n">makeLayer</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">oxSurface</span><span class="p">,</span> <span class="n">layerThick</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">subRough</span><span class="p">,</span> <span class="n">layerRough</span><span class="p">)</span>
+    <span class="p">[</span><span class="n">vfLayer</span><span class="p">,</span> <span class="n">laySurface</span><span class="p">]</span> <span class="o">=</span> <span class="n">make_layer</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">oxSurface</span><span class="p">,</span> <span class="n">layerThick</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">subRough</span><span class="p">,</span> <span class="n">layerRough</span><span class="p">)</span>
 
     <span class="c1"># Everything that is not already occupied will be filled will water</span>
     <span class="n">totalVF</span> <span class="o">=</span> <span class="n">vfSilicon</span> <span class="o">+</span> <span class="n">vfOxide</span> <span class="o">+</span> <span class="n">vfLayer</span>
@@ -665,13 +669,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     <span class="n">oxSLD</span> <span class="o">=</span> <span class="n">vfOxide</span> <span class="o">*</span> <span class="mf">3.41e-6</span>
 
     <span class="c1"># Layer SLD depends on whether we are calculating the domain or not</span>
-    <span class="k">if</span> <span class="n">domain</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">domain</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">laySLD</span> <span class="o">=</span> <span class="n">vfLayer</span> <span class="o">*</span> <span class="n">layerSLD</span>
-    <span class="k">else</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">domain</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         <span class="n">laySLD</span> <span class="o">=</span> <span class="n">vfLayer</span> <span class="o">*</span> <span class="n">domainSLD</span>
 
     <span class="c1"># ... and finally the water SLD.</span>
-    <span class="n">waterSLD</span> <span class="o">=</span> <span class="n">vfWater</span> <span class="o">*</span> <span class="n">bulk_out</span><span class="p">[</span><span class="n">contrast</span><span class="p">]</span>
+    <span class="n">waterSLD</span> <span class="o">=</span> <span class="n">vfWater</span> <span class="o">*</span> <span class="n">bulk_out</span><span class="p">[</span><span class="n">contrast</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
 
     <span class="c1"># Make the total SLD by just adding them all up</span>
     <span class="n">totalSLD</span> <span class="o">=</span> <span class="n">siSLD</span> <span class="o">+</span> <span class="n">oxSLD</span> <span class="o">+</span> <span class="n">laySLD</span> <span class="o">+</span> <span class="n">waterSLD</span>
@@ -682,7 +686,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     <span class="k">return</span> <span class="n">SLD</span><span class="p">,</span> <span class="n">subRough</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">makeLayer</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">prevLaySurf</span><span class="p">,</span> <span class="n">thickness</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">Sigma_L</span><span class="p">,</span> <span class="n">Sigma_R</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_layer</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">prevLaySurf</span><span class="p">,</span> <span class="n">thickness</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">Sigma_L</span><span class="p">,</span> <span class="n">Sigma_R</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Produce a layer, with a defined thickness, height and roughness.</span>
 
 <span class="sd">    Each side of the layer has its own roughness value.</span>
@@ -692,13 +696,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     <span class="n">right</span> <span class="o">=</span> <span class="n">prevLaySurf</span> <span class="o">+</span> <span class="n">thickness</span>
 
     <span class="c1"># Make our heaviside</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="n">left</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="mi">2</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">Sigma_L</span><span class="p">)</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="n">right</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="mi">2</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">Sigma_R</span><span class="p">)</span>
+    <span class="n">erf_left</span> <span class="o">=</span> <span class="n">erf</span><span class="p">((</span><span class="n">z</span> <span class="o">-</span> <span class="n">left</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">Sigma_L</span><span class="p">))</span>
+    <span class="n">erf_right</span> <span class="o">=</span> <span class="n">erf</span><span class="p">((</span><span class="n">z</span> <span class="o">-</span> <span class="n">right</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">Sigma_R</span><span class="p">))</span>
 
-    <span class="n">erf_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">math</span><span class="o">.</span><span class="n">erf</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">a</span><span class="p">])</span>
-    <span class="n">erf_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">math</span><span class="o">.</span><span class="n">erf</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">b</span><span class="p">])</span>
-
-    <span class="n">VF</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">erf_a</span> <span class="o">-</span> <span class="n">erf_b</span><span class="p">))</span>
+    <span class="n">VF</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">height</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">erf_left</span> <span class="o">-</span> <span class="n">erf_right</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="n">VF</span><span class="p">,</span> <span class="n">right</span>
 </pre></div></div>
@@ -768,7 +769,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="highlight"><pre>
 Starting RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 
-Elapsed time is 0.185 seconds
+Elapsed time is 0.180 seconds
 
 Finished RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -819,7 +820,7 @@ Finished RAT ──────────────────────�
 
   <p class="copyright">
     
-      © Copyright 2022-2025, ISIS Neutron and Muon Source.
+      © Copyright 2022-2026, ISIS Neutron and Muon Source.
       <br/>
     
   </p>

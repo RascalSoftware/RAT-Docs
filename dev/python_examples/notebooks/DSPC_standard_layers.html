@@ -483,7 +483,7 @@ document.write(`
                   
   <div class="admonition note">
   This page was generated from the notebook DSPC_standard_layers.ipynb found in
-  <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/0.0.0.dev7/ratapi/examples/">the Python-RAT repository</a>.
+  <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/0.0.0.dev12/ratapi/examples/">the Python-RAT repository</a>.
   <a href="DSPC_standard_layers.ipynb" class="reference download internal" download>Download notebook</a>.
 </div><div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -811,26 +811,26 @@ Layers: ------------------------------------------------------------------------
 
 Contrasts: -----------------------------------------------------------------------------------------
 
-+-------+------+--------------+----------------+-------------------+---------+----------+---------------+--------------+----------+---------------+
-| index | name |     data     |   background   | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample |     model     |
-+-------+------+--------------+----------------+-------------------+---------+----------+---------------+--------------+----------+---------------+
-|   0   | D2O  | dspc_bil_D2O | D2O Background |        add        | Silicon |   D2O    | Scalefactor 1 | Resolution 1 |  False   |     Oxide     |
-|       |      |              |                |                   |         |          |               |              |          |   SAM Tails   |
-|       |      |              |                |                   |         |          |               |              |          |   SAM Heads   |
-|       |      |              |                |                   |         |          |               |              |          | Central Water |
-|       |      |              |                |                   |         |          |               |              |          | Bilayer Heads |
-|       |      |              |                |                   |         |          |               |              |          | Bilayer Tails |
-|       |      |              |                |                   |         |          |               |              |          | Bilayer Tails |
-|       |      |              |                |                   |         |          |               |              |          | Bilayer Heads |
-|   1   | SMW  | dspc_bil_smw | SMW Background |        add        | Silicon |   SMW    | Scalefactor 2 | Resolution 1 |  False   |     Oxide     |
-|       |      |              |                |                   |         |          |               |              |          |   SAM Tails   |
-|       |      |              |                |                   |         |          |               |              |          |   SAM Heads   |
-|       |      |              |                |                   |         |          |               |              |          | Central Water |
-|       |      |              |                |                   |         |          |               |              |          | Bilayer Heads |
-|       |      |              |                |                   |         |          |               |              |          | Bilayer Tails |
-|       |      |              |                |                   |         |          |               |              |          | Bilayer Tails |
-|       |      |              |                |                   |         |          |               |              |          | Bilayer Heads |
-+-------+------+--------------+----------------+-------------------+---------+----------+---------------+--------------+----------+---------------+
++-------+------+--------------+----------------+-------------------+---------+----------+---------------+--------------+----------+---------------+---------------+
+| index | name |     data     |   background   | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample | repeat layers |     model     |
++-------+------+--------------+----------------+-------------------+---------+----------+---------------+--------------+----------+---------------+---------------+
+|   0   | D2O  | dspc_bil_D2O | D2O Background |        add        | Silicon |   D2O    | Scalefactor 1 | Resolution 1 |  False   |       1       |     Oxide     |
+|       |      |              |                |                   |         |          |               |              |          |               |   SAM Tails   |
+|       |      |              |                |                   |         |          |               |              |          |               |   SAM Heads   |
+|       |      |              |                |                   |         |          |               |              |          |               | Central Water |
+|       |      |              |                |                   |         |          |               |              |          |               | Bilayer Heads |
+|       |      |              |                |                   |         |          |               |              |          |               | Bilayer Tails |
+|       |      |              |                |                   |         |          |               |              |          |               | Bilayer Tails |
+|       |      |              |                |                   |         |          |               |              |          |               | Bilayer Heads |
+|   1   | SMW  | dspc_bil_smw | SMW Background |        add        | Silicon |   SMW    | Scalefactor 2 | Resolution 1 |  False   |       1       |     Oxide     |
+|       |      |              |                |                   |         |          |               |              |          |               |   SAM Tails   |
+|       |      |              |                |                   |         |          |               |              |          |               |   SAM Heads   |
+|       |      |              |                |                   |         |          |               |              |          |               | Central Water |
+|       |      |              |                |                   |         |          |               |              |          |               | Bilayer Heads |
+|       |      |              |                |                   |         |          |               |              |          |               | Bilayer Tails |
+|       |      |              |                |                   |         |          |               |              |          |               | Bilayer Tails |
+|       |      |              |                |                   |         |          |               |              |          |               | Bilayer Heads |
++-------+------+--------------+----------------+-------------------+---------+----------+---------------+--------------+----------+---------------+---------------+
 
 
 </pre></div></div>
@@ -858,7 +858,6 @@ Contrasts: ---------------------------------------------------------------------
 +---------------------+-----------+
 |      procedure      | calculate |
 |       parallel      |   single  |
-|   calcSldDuringFit  |   False   |
 | numSimulationPoints |    500    |
 |   resampleMinAngle  |    0.9    |
 |   resampleNPoints   |     50    |
@@ -883,7 +882,7 @@ Contrasts: ---------------------------------------------------------------------
 <div class="highlight"><pre>
 Starting RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 
-Elapsed time is 0.002 seconds
+Elapsed time is 0.004 seconds
 
 Finished RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -951,7 +950,7 @@ Finished RAT ──────────────────────�
 
   <p class="copyright">
     
-      © Copyright 2022-2025, ISIS Neutron and Muon Source.
+      © Copyright 2022-2026, ISIS Neutron and Muon Source.
       <br/>
     
   </p>

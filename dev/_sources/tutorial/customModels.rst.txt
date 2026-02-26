@@ -144,7 +144,7 @@ First, we add our seven parameters (remember that Substrate Roughness is always 
     
     .. code-block:: Python
 
-        parameters = [['Oxide thick', 5.0, 20.0, 60.0, True],
+        pGroup = [['Oxide thick', 5.0, 20.0, 60.0, True],
                       ['Oxide Hydration', 0, 0.2, 0.5, True],
                       ['Lipid APM', 45.0, 55.0, 65.0, True],
                       ['Head Hydration', 0, 0.2, 0.5, True],
@@ -541,7 +541,7 @@ In other words, the entire purpose of our custom layer file is to take our param
 (e.g. Area per Lipid in our case), and to translate these into a list of :math:`[d, \rho, \sigma]` layers for the whole interface. 
 You have complete freedom in how you do this, which means that you can make any kind of layer model you can think of using a custom layers file, 
 including layers that are mixtures of adjoining layers and so on. As long as you can describe your 
-system as layers with an error function (i.e. Nevot-Croce) roughness you can describe them using custom layer modelling.
+system as layers with an error function (i.e. `Nevot-Croce <https://www.reflectometry.org/learn/3_reflectometry_slab_models/roughness_and_microslicing.html>`_) roughness you can describe them using custom layer modelling.
 
 The rest of the custom model is defined similar to the standard layers model shown in :ref:`project`. 
 So, since we want to analyse three contrasts simultaneously, we need the following:
@@ -741,7 +741,7 @@ In these cases, a second type of custom model can be used, where instead of the 
 it builds a continuous SLD profile, which is then automatically microsliced by RAT to calculate the reflectivity. 
 This gives a high degree of flexibility for the type of model that can be generated.
 
-As before, the custom model can be defined in MATLAB, Python, or C++; for the purpose of this tutorial we will just use MATLAB.
+As before, the custom model can be defined in MATLAB, Python, or C++; for the purpose of this tutorial we will just use MATLAB and Python.
 
 The inputs into custom XY are the same as for Custom Layers, but the output is now always an [n x 2] array defining a continuous SLD:
 

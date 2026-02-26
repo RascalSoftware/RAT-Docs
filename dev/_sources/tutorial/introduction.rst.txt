@@ -89,10 +89,12 @@ In our example, the layers can be either deuterated or hydrogenated, and the bul
 .. image:: ../images/tutorial/lipidMonolayer.png
     :width: 300
     :alt: The lipid monolayer example
+    
 
-We are going to analyze our monolayer data using a standard `slab model <https://www.reflectometry.org/learn/3_reflectometry_slab_models/the_slab_model.html>`_.
-In this model, we approximate our experimental model as a series of layers with a known thickness, roughness, SLD and hydration.
-The way that this is represented in the RAT model definition is by a list of **Parameter** objects which represent a given quantity (such as a thickness or SLD),
+
+We are going to analyse our monolayer data using a standard `slab model <https://www.reflectometry.org/learn/3_reflectometry_slab_models/the_slab_model.html>`_.
+In this model, we approximate our experimental model as a series of layers with a known thickness, roughness, SLD and hydration which modifies SLD.
+The way that this is represented in the RAT model definition is by a list of **Parameter** objects which represent a given quantity (such as a thickness or hydration or SLD directly),
 and then a list of **Layer** objects which group together these parameters to describe each layer. Layers are then grouped together in a **Contrast** object which
 describes the slab model and matches it up to the experimental data to which the model will be compared. In this project we have two contrasts representing
 two slab models (one for our deuterated experiment, one for our hydrogenated experiment).

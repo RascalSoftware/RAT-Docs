@@ -483,7 +483,7 @@ document.write(`
                   
   <div class="admonition note">
   This page was generated from the notebook convert_rascal.ipynb found in
-  <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/0.0.0.dev7/ratapi/examples/">the Python-RAT repository</a>.
+  <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/0.0.0.dev12/ratapi/examples/">the Python-RAT repository</a>.
   <a href="convert_rascal.ipynb" class="reference download internal" download>Download notebook</a>.
 </div><div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -603,11 +603,11 @@ Resolutions: -------------------------------------------------------------------
 
 Custom Files: --------------------------------------------------------------------------------------
 
-+-------+-----------+-------------+---------------+----------+------------------------------------------------------------------------------+
-| index |    name   |   filename  | function name | language |                                     path                                     |
-+-------+-----------+-------------+---------------+----------+------------------------------------------------------------------------------+
-|   0   | Model_IIb | Model_IIb.m |   Model_IIb   |  matlab  | /opt/actions-runner/_work/RAT-Docs/RAT-Docs/source/python_examples/notebooks |
-+-------+-----------+-------------+---------------+----------+------------------------------------------------------------------------------+
++-------+-----------+-------------+---------------+----------+------+
+| index |    name   |   filename  | function name | language | path |
++-------+-----------+-------------+---------------+----------+------+
+|   0   | Model_IIb | Model_IIb.m |   Model_IIb   |  matlab  |  .   |
++-------+-----------+-------------+---------------+----------+------+
 
 Data: ----------------------------------------------------------------------------------------------
 
@@ -626,17 +626,17 @@ Data: --------------------------------------------------------------------------
 
 Contrasts: -----------------------------------------------------------------------------------------
 
-+-------+--------------+-----------+-----------------+-------------------+---------+----------+---------------+--------------+----------+-----------+
-| index |     name     |    data   |    background   | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample |   model   |
-+-------+--------------+-----------+-----------------+-------------------+---------+----------+---------------+--------------+----------+-----------+
-|   0   |  d70, acmw   | d70acmw20 | Background ACMW |        add        |   Air   |   ACMW   | Scalefactor 1 | Resolution 1 |  False   | Model_IIb |
-|   1   |   d70 d2o    |  d70d2o20 | Background  D2O |        add        |   Air   |   D2O    | Scalefactor 1 | Resolution 1 |  False   | Model_IIb |
-|   2   |   d13 acmw   | d13acmw20 | Background ACMW |        add        |   Air   |   ACMW   | Scalefactor 1 | Resolution 1 |  False   | Model_IIb |
-|   3   |   d13 d2o    |  d13d2o20 | Background  D2O |        add        |   Air   |   D2O    | Scalefactor 1 | Resolution 1 |  False   | Model_IIb |
-|   4   |   d83 acmw   | d83acmw20 | Background ACMW |        add        |   Air   |   ACMW   | Scalefactor 1 | Resolution 1 |  False   | Model_IIb |
-|   5   |   d83 d2o    |  d83d2o20 | Background  D2O |        add        |   Air   |   D2O    | Scalefactor 1 | Resolution 1 |  False   | Model_IIb |
-|   6   | fully h, D2O |   hd2o20  | Background  D2O |        add        |   Air   |   D2O    | Scalefactor 1 | Resolution 1 |  False   | Model_IIb |
-+-------+--------------+-----------+-----------------+-------------------+---------+----------+---------------+--------------+----------+-----------+
++-------+--------------+-----------+-----------------+-------------------+---------+----------+---------------+--------------+----------+---------------+-----------+
+| index |     name     |    data   |    background   | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample | repeat layers |   model   |
++-------+--------------+-----------+-----------------+-------------------+---------+----------+---------------+--------------+----------+---------------+-----------+
+|   0   |  d70, acmw   | d70acmw20 | Background ACMW |        add        |   Air   |   ACMW   | Scalefactor 1 | Resolution 1 |  False   |       1       | Model_IIb |
+|   1   |   d70 d2o    |  d70d2o20 | Background  D2O |        add        |   Air   |   D2O    | Scalefactor 1 | Resolution 1 |  False   |       1       | Model_IIb |
+|   2   |   d13 acmw   | d13acmw20 | Background ACMW |        add        |   Air   |   ACMW   | Scalefactor 1 | Resolution 1 |  False   |       1       | Model_IIb |
+|   3   |   d13 d2o    |  d13d2o20 | Background  D2O |        add        |   Air   |   D2O    | Scalefactor 1 | Resolution 1 |  False   |       1       | Model_IIb |
+|   4   |   d83 acmw   | d83acmw20 | Background ACMW |        add        |   Air   |   ACMW   | Scalefactor 1 | Resolution 1 |  False   |       1       | Model_IIb |
+|   5   |   d83 d2o    |  d83d2o20 | Background  D2O |        add        |   Air   |   D2O    | Scalefactor 1 | Resolution 1 |  False   |       1       | Model_IIb |
+|   6   | fully h, D2O |   hd2o20  | Background  D2O |        add        |   Air   |   D2O    | Scalefactor 1 | Resolution 1 |  False   |       1       | Model_IIb |
++-------+--------------+-----------+-----------------+-------------------+---------+----------+---------------+--------------+----------+---------------+-----------+
 
 
 </pre></div></div>
@@ -843,26 +843,26 @@ Layers: ------------------------------------------------------------------------
 
 Contrasts: -----------------------------------------------------------------------------------------
 
-+-------+------+--------------+----------------+-------------------+---------+----------+---------------+--------------+----------+---------------+
-| index | name |     data     |   background   | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample |     model     |
-+-------+------+--------------+----------------+-------------------+---------+----------+---------------+--------------+----------+---------------+
-|   0   | D2O  | dspc_bil_D2O | D2O Background |        add        | Silicon |   D2O    | Scalefactor 1 | Resolution 1 |  False   |     Oxide     |
-|       |      |              |                |                   |         |          |               |              |          |   SAM Tails   |
-|       |      |              |                |                   |         |          |               |              |          |   SAM Heads   |
-|       |      |              |                |                   |         |          |               |              |          | Central Water |
-|       |      |              |                |                   |         |          |               |              |          | Bilayer Heads |
-|       |      |              |                |                   |         |          |               |              |          | Bilayer Tails |
-|       |      |              |                |                   |         |          |               |              |          | Bilayer Tails |
-|       |      |              |                |                   |         |          |               |              |          | Bilayer Heads |
-|   1   | SMW  | dspc_bil_smw | SMW Background |        add        | Silicon |   SMW    | Scalefactor 2 | Resolution 1 |  False   |     Oxide     |
-|       |      |              |                |                   |         |          |               |              |          |   SAM Tails   |
-|       |      |              |                |                   |         |          |               |              |          |   SAM Heads   |
-|       |      |              |                |                   |         |          |               |              |          | Central Water |
-|       |      |              |                |                   |         |          |               |              |          | Bilayer Heads |
-|       |      |              |                |                   |         |          |               |              |          | Bilayer Tails |
-|       |      |              |                |                   |         |          |               |              |          | Bilayer Tails |
-|       |      |              |                |                   |         |          |               |              |          | Bilayer Heads |
-+-------+------+--------------+----------------+-------------------+---------+----------+---------------+--------------+----------+---------------+
++-------+------+--------------+----------------+-------------------+---------+----------+---------------+--------------+----------+---------------+---------------+
+| index | name |     data     |   background   | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample | repeat layers |     model     |
++-------+------+--------------+----------------+-------------------+---------+----------+---------------+--------------+----------+---------------+---------------+
+|   0   | D2O  | dspc_bil_D2O | D2O Background |        add        | Silicon |   D2O    | Scalefactor 1 | Resolution 1 |  False   |       1       |     Oxide     |
+|       |      |              |                |                   |         |          |               |              |          |               |   SAM Tails   |
+|       |      |              |                |                   |         |          |               |              |          |               |   SAM Heads   |
+|       |      |              |                |                   |         |          |               |              |          |               | Central Water |
+|       |      |              |                |                   |         |          |               |              |          |               | Bilayer Heads |
+|       |      |              |                |                   |         |          |               |              |          |               | Bilayer Tails |
+|       |      |              |                |                   |         |          |               |              |          |               | Bilayer Tails |
+|       |      |              |                |                   |         |          |               |              |          |               | Bilayer Heads |
+|   1   | SMW  | dspc_bil_smw | SMW Background |        add        | Silicon |   SMW    | Scalefactor 2 | Resolution 1 |  False   |       1       |     Oxide     |
+|       |      |              |                |                   |         |          |               |              |          |               |   SAM Tails   |
+|       |      |              |                |                   |         |          |               |              |          |               |   SAM Heads   |
+|       |      |              |                |                   |         |          |               |              |          |               | Central Water |
+|       |      |              |                |                   |         |          |               |              |          |               | Bilayer Heads |
+|       |      |              |                |                   |         |          |               |              |          |               | Bilayer Tails |
+|       |      |              |                |                   |         |          |               |              |          |               | Bilayer Tails |
+|       |      |              |                |                   |         |          |               |              |          |               | Bilayer Heads |
++-------+------+--------------+----------------+-------------------+---------+----------+---------------+--------------+----------+---------------+---------------+
 
 
 </pre></div></div>
@@ -1234,7 +1234,7 @@ Contrasts: ---------------------------------------------------------------------
 
   <p class="copyright">
     
-      © Copyright 2022-2025, ISIS Neutron and Muon Source.
+      © Copyright 2022-2026, ISIS Neutron and Muon Source.
       <br/>
     
   </p>

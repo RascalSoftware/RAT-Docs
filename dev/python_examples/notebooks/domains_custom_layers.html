@@ -479,7 +479,7 @@ document.write(`
                   
   <div class="admonition note">
   This page was generated from the notebook domains_custom_layers.ipynb found in
-  <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/0.0.0.dev7/ratapi/examples/">the Python-RAT repository</a>.
+  <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/0.0.0.dev12/ratapi/examples/">the Python-RAT repository</a>.
   <a href="domains_custom_layers.ipynb" class="reference download internal" download>Download notebook</a>.
 </div><div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -666,11 +666,11 @@ Data: --------------------------------------------------------------------------
 
 Contrasts: -----------------------------------------------------------------------------------------
 
-+-------+--------------+------------+--------------+-------------------+---------+----------+---------------+--------------+----------+----------------+---------------+
-| index |     name     |    data    |  background  | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample |  domain ratio  |     model     |
-+-------+--------------+------------+--------------+-------------------+---------+----------+---------------+--------------+----------+----------------+---------------+
-|   0   | D2O Contrast | Simulation | Background 1 |        add        | Silicon | SLD D2O  | Scalefactor 1 | Resolution 1 |  False   | Domain Ratio 1 | Alloy domains |
-+-------+--------------+------------+--------------+-------------------+---------+----------+---------------+--------------+----------+----------------+---------------+
++-------+--------------+------------+--------------+-------------------+---------+----------+---------------+--------------+----------+---------------+----------------+---------------+
+| index |     name     |    data    |  background  | background action | bulk in | bulk out |  scalefactor  |  resolution  | resample | repeat layers |  domain ratio  |     model     |
++-------+--------------+------------+--------------+-------------------+---------+----------+---------------+--------------+----------+---------------+----------------+---------------+
+|   0   | D2O Contrast | Simulation | Background 1 |        add        | Silicon | SLD D2O  | Scalefactor 1 | Resolution 1 |  False   |       1       | Domain Ratio 1 | Alloy domains |
++-------+--------------+------------+--------------+-------------------+---------+----------+---------------+--------------+----------+---------------+----------------+---------------+
 
 
 </pre></div></div>
@@ -772,6 +772,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <span class="sd">    Simple custom model for testing incoherent summing.</span>
 <span class="sd">    Simple two layer of permalloy / gold, with up/down domains.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Note - The first contrast number is 1 (not 0) so be careful if you use</span>
+    <span class="c1"># this variable for array indexing. Same applies to the domain number.</span>
+
     <span class="c1"># Split up the parameters</span>
     <span class="n">subRough</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">alloyThick</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -788,9 +791,9 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     <span class="n">gold</span> <span class="o">=</span> <span class="p">[</span><span class="n">goldThick</span><span class="p">,</span> <span class="n">goldSLD</span><span class="p">,</span> <span class="n">goldRough</span><span class="p">]</span>
 
     <span class="c1"># Make the model depending on which domain we are looking at</span>
-    <span class="k">if</span> <span class="n">domain</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">domain</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">alloyUp</span><span class="p">,</span> <span class="n">gold</span><span class="p">]</span>
-    <span class="k">else</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">domain</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
         <span class="n">output</span> <span class="o">=</span> <span class="p">[</span><span class="n">alloyDn</span><span class="p">,</span> <span class="n">gold</span><span class="p">]</span>
 
     <span class="k">return</span> <span class="n">output</span><span class="p">,</span> <span class="n">subRough</span>
@@ -816,7 +819,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="highlight"><pre>
 Starting RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 
-Elapsed time is 0.005 seconds
+Elapsed time is 0.003 seconds
 
 Finished RAT ───────────────────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -867,7 +870,7 @@ Finished RAT ──────────────────────�
 
   <p class="copyright">
     
-      © Copyright 2022-2025, ISIS Neutron and Muon Source.
+      © Copyright 2022-2026, ISIS Neutron and Muon Source.
       <br/>
     
   </p>
