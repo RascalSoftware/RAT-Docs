@@ -341,13 +341,13 @@ At this point it is useful to look at our custom function and then go through it
 
             # Manually deal with hydration for layers in
             # this example.
-            oxSLD = (oxide_hydration * bulk_out[contrast]) + ((1 - oxide_hydration) * oxide_SLD)
-            headSLD = (headHydration * bulk_out[contrast]) + ((1 - headHydration) * SLDhead)
-            tailSLD = (bilayerHydration * bulk_out[contrast]) + ((1 - bilayerHydration) * SLDtail)   
+            oxSLD = (oxide_hydration * bulk_out[contrast-1]) + ((1 - oxide_hydration) * oxide_SLD)
+            headSLD = (headHydration * bulk_out[contrast-1]) + ((1 - headHydration) * SLDhead)
+            tailSLD = (bilayerHydration * bulk_out[contrast-1]) + ((1 - bilayerHydration) * SLDtail)   
 
             # Make the layers
             oxide = [oxide_thick, oxSLD, sub_rough]
-            water = [waterThick, bulk_out[contrast], bilayerRough]
+            water = [waterThick, bulk_out[contrast-1], bilayerRough]
             head = [headThick, headSLD, bilayerRough]
             tail = [tailThick, tailSLD, bilayerRough]
             
@@ -408,7 +408,7 @@ Therefore, the effective SLD of the oxide layer at a particular contrast is give
     .. code-block:: Python
 
         oxide_SLD = 3.41e-6
-        oxSLD = (oxide_hydration * bulk_out[contrast]) + ((1 - oxide_hydration) * oxide_SLD)
+        oxSLD = (oxide_hydration * bulk_out[contrast-1]) + ((1 - oxide_hydration) * oxide_SLD)
 
 To work out the thickness of the lipid layers, we use literature values for the head and tails volumes, 
 and divide these by the APM (the fourth input parameter in ``params``):
@@ -503,8 +503,8 @@ We also do the coverage correction as we did for the Oxide:
 
     .. code-block:: Python
     
-        headSLD = (headHydration * bulk_out[contrast]) + ((1 - headHydration) * SLDhead)
-        tailSLD = (bilayerHydration * bulk_out[contrast]) + ((1 - bilayerHydration) * SLDtail)   
+        headSLD = (headHydration * bulk_out[contrast-1]) + ((1 - headHydration) * SLDhead)
+        tailSLD = (bilayerHydration * bulk_out[contrast-1]) + ((1 - bilayerHydration) * SLDtail)   
 
 This gives us all the parameters we need to define our layers. 
 In other words, we have a thickness, SLD and roughness for each layer then put these together to make our stack:
@@ -524,7 +524,7 @@ In other words, we have a thickness, SLD and roughness for each layer then put t
         
         # Make the layers
         oxide = [oxide_thick, oxSLD, sub_rough]
-        water = [waterThick, bulk_out[contrast], bilayerRough]
+        water = [waterThick, bulk_out[contrast-1], bilayerRough]
         head = [headThick, headSLD, bilayerRough]
         tail = [tailThick, tailSLD, bilayerRough]
             

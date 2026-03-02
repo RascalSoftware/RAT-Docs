@@ -19,6 +19,9 @@ Python Custom Models
 .. note::
     Before you use Python from your MATLAB session, please ensure that Python is `configured correctly on your system. <https://uk.mathworks.com/help/matlab/matlab_external/create-object-from-python-class.html>`_
 
+.. warning::
+    The value of contrast and domain number will always start from 1 (not 0) so be careful if contrast/domain number is used for array indexing. 
+    You will need to subtract one from contrast e.g :code:`bulk_in[contrast - 1]` to avoid code failure. 
 
 Custom models in Python and MATLAB are very similar in structure as shown below:
 
@@ -156,13 +159,13 @@ Custom models in Python and MATLAB are very similar in structure as shown below:
 
             # Manually deal with hydration for layers in
             # this example.
-            oxSLD = (oxide_hydration * bulk_out[contrast]) + ((1 - oxide_hydration) * oxide_SLD)
-            headSLD = (headHydration * bulk_out[contrast]) + ((1 - headHydration) * SLDhead)
-            tailSLD = (bilayerHydration * bulk_out[contrast]) + ((1 - bilayerHydration) * SLDtail)
+            oxSLD = (oxide_hydration * bulk_out[contrast-1]) + ((1 - oxide_hydration) * oxide_SLD)
+            headSLD = (headHydration * bulk_out[contrast-1]) + ((1 - headHydration) * SLDhead)
+            tailSLD = (bilayerHydration * bulk_out[contrast-1]) + ((1 - bilayerHydration) * SLDtail)
 
             # Make the layers
             oxide = [oxide_thick, oxSLD, sub_rough]
-            water = [waterThick, bulk_out[contrast], bilayerRough]
+            water = [waterThick, bulk_out[contrast-1], bilayerRough]
             head = [headThick, headSLD, bilayerRough]
             tail = [tailThick, tailSLD, bilayerRough]
 
@@ -259,9 +262,9 @@ Following on from our custom bilayer examples, the equivalent C++ custom model s
 
             // Manually deal with hydration for layers in
             // this example.
-            double oxSLD = (oxideHydration * bulkOut[contrast]) + ((1 - oxideHydration) * oxideSLD);
-            double headSLD = (headHydration * bulkOut[contrast]) + ((1 - headHydration) * SLDhead);
-            double tailSLD = (bilayerHydration * bulkOut[contrast]) + ((1 - bilayerHydration) * SLDtail);
+            double oxSLD = (oxideHydration * bulkOut[contrast-1]) + ((1 - oxideHydration) * oxideSLD);
+            double headSLD = (headHydration * bulkOut[contrast-1]) + ((1 - headHydration) * SLDhead);
+            double tailSLD = (bilayerHydration * bulkOut[contrast-1]) + ((1 - bilayerHydration) * SLDtail);
 
             // Make the layers
             // oxide...
@@ -271,7 +274,7 @@ Following on from our custom bilayer examples, the equivalent C++ custom model s
 
             // Water...
             output.push_back(waterThick);
-            output.push_back(bulkOut[contrast]);
+            output.push_back(bulkOut[contrast-1]);
             output.push_back(bilayerRough);
 
             // Heads...

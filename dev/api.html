@@ -798,7 +798,7 @@ the resolutions table and the allowed types are defined in the allowedTypes vari
 <section id="controls-class">
 <span id="controlsclass"></span><h2>Controls Class<a class="headerlink" href="#controls-class" title="Link to this heading">#</a></h2>
 <p>ControlsClass is all about control. It is necessary in determine the way RAT works. It deals with how the user interacts with the software. From type of parallelization
-to whether the users wants to calculate SLD during fit and even how many iteration an algorithm should do ..etc.</p>
+to how many iterations an algorithm should do etc.</p>
 <p>There are 5 different <cite>controlsClass.procedures</cite> that can be used with RAT. They are:</p>
 <ol class="arabic simple">
 <li><p><strong>Simplex</strong></p></li>
@@ -814,9 +814,9 @@ if yes, what to parallelize on. (Points or Contrasts or all)</p>
 <div class="literal-block-wrapper docutils container" id="id18">
 <div class="code-block-caption"><span class="caption-text">Sample usage of controlsClass.</span><a class="headerlink" href="#id18" title="Link to this code">#</a></div>
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">();</span>
-<span class="w">    </span><span class="n">controls</span><span class="p">.</span><span class="n">calcSldDuringFit</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
-<span class="w">    </span><span class="n">controls</span><span class="p">.</span><span class="n">nsimu</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">7000</span><span class="p">;</span>
-<span class="w">    </span><span class="n">controls</span><span class="p">.</span><span class="n">repeats</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">    </span><span class="n">controls</span><span class="p">.</span><span class="n">procedure</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;dream&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">controls</span><span class="p">.</span><span class="n">nSamples</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">6000</span><span class="p">;</span>
+<span class="w">    </span><span class="n">controls</span><span class="p">.</span><span class="n">nChains</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 <span class="w">    </span><span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;contrasts&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -848,12 +848,12 @@ if yes, what to parallelize on. (Points or Contrasts or all)</p>
 </pre></div>
 </div>
 </div>
-<p>When the RAT function is called, the classes are passed into internal functions like <cite>RatParseClassToStructs_new</cite> which takes the classes and breaks them down into cells,
+<p>When the RAT function is called, the classes are passed into internal functions like <cite>parseClassToStructs</cite> which takes the classes and breaks them down into cells,
 limits,prior and more importantly converts the project class to struct.</p>
 <p>Then, the <cite>RATMain</cite> function redirects the control flow based on what procedure is selected in controlsClass. One of the redirecting functions will call the reflectivityCalculation
 which starts the reflectivity calculation.</p>
 <p>Some interesting data type changes are needed because of how things work with coder. Coder wont accept variable sized cell arrays contains variable sized arrays (strings for eg)
-in a field of a struct. So, look at <cite>RatParseClassToStructs_new</cite> function to understand how the data is converted.</p>
+in a field of a struct. So, look at <cite>parseClassToStructs</cite> function to understand how the data is converted.</p>
 </section>
 </section>
 

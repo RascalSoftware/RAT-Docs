@@ -376,7 +376,7 @@ Controls Class
 ==============
 
 ControlsClass is all about control. It is necessary in determine the way RAT works. It deals with how the user interacts with the software. From type of parallelization
-to whether the users wants to calculate SLD during fit and even how many iteration an algorithm should do ..etc.
+to how many iterations an algorithm should do etc.
 
 
 There are 5 different `controlsClass.procedures` that can be used with RAT. They are:
@@ -397,9 +397,9 @@ if yes, what to parallelize on. (Points or Contrasts or all)
     :caption: Sample usage of controlsClass.
 
         controls = controlsClass();
-        controls.calcSldDuringFit = false;
-        controls.nsimu = 7000;
-        controls.repeats = 3;
+        controls.procedure = 'dream';
+        controls.nSamples = 6000;
+        controls.nChains = 10;
         controls.parallel = 'contrasts';
 
 .. code-block:: MATLAB
@@ -429,7 +429,7 @@ After the user has defined the projectClass and controlsClass, the user can run 
         [problem,results] = RAT(problem,controls);
 
 
-When the RAT function is called, the classes are passed into internal functions like `RatParseClassToStructs_new` which takes the classes and breaks them down into cells, 
+When the RAT function is called, the classes are passed into internal functions like `parseClassToStructs` which takes the classes and breaks them down into cells, 
 limits,prior and more importantly converts the project class to struct. 
 
 Then, the `RATMain` function redirects the control flow based on what procedure is selected in controlsClass. One of the redirecting functions will call the reflectivityCalculation
@@ -437,4 +437,4 @@ which starts the reflectivity calculation.
 
 
 Some interesting data type changes are needed because of how things work with coder. Coder wont accept variable sized cell arrays contains variable sized arrays (strings for eg) 
-in a field of a struct. So, look at `RatParseClassToStructs_new` function to understand how the data is converted.
+in a field of a struct. So, look at `parseClassToStructs` function to understand how the data is converted.

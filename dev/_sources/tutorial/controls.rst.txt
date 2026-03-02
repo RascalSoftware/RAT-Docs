@@ -106,11 +106,6 @@ How the calculation should be :ref:`parallelised<parallelisation>`. Currently th
 
 Which option is more efficient will depend on the number of contrasts and the size of your data.
 
-``calcSldDuringFit``
-^^^^^^^^^^^^^^^^^^^^
-A boolean (true or false) value which determines whether SLD will be calculated during the fit
-(for :ref:`live plotting<livePlot>` etc.)
-
 ``display``
 ^^^^^^^^^^^
 How much RAT should print to the terminal. The current options are:
