@@ -2,12 +2,12 @@
 Function Backgrounds
 ====================
 
-RAT supports function backgrounds which use a custom function to describe the background for the experiment. 
+RAT supports function backgrounds, which use a custom function to describe the background for the experiment. 
 
 
 The signature for background functions is shown in the code snippet below. The first argument `xdata` is a vector containing the q points over the simulation range, 
-which should incorporate the q values of the supplied data and the second argument `params` is a vector containing the background parameters associated with the background
-up to 5 can be related to a specific functoin background. The function should return an array with the background value for each of the input simulation points.
+which should incorporate the q values of the supplied data and the second argument `params` is a vector containing the background parameters associated with the background, 
+up to 5 can be related to a specific function background. The function should return an array with the background value for each of the input simulation points.
 
 .. tab-set-code::
     .. code-block:: MATLAB
