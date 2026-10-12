@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3f9e4f21" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -495,7 +495,7 @@ file, the path where the file is located, and the name of the function in the fi
 </pre></div>
 </div>
 <p>Otherwise, the arguments are used to create the first custom file.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span> <span class="o">=</span> <span class="n">customFileClass</span><span class="p">(</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">,</span> <span class="s1">&#39;customBilayer.m&#39;</span><span class="p">,</span> <span class="s1">&#39;matlab&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span> <span class="o">=</span> <span class="n">customFileClass</span><span class="p">(</span><span class="s1">'custom file 1'</span><span class="p">,</span> <span class="s1">'customBilayer.m'</span><span class="p">,</span> <span class="s1">'matlab'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -527,15 +527,15 @@ file, the path where the file is located, and the name of the function in the fi
 be in the matlab path when running.</p>
 <p class="rubric">Examples</p>
 <p>To add a new custom file entry with name only.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s1">'custom file 1'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add custom file with name, and filename.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">,</span> <span class="s1">&#39;customBilayer.m&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s1">'custom file 1'</span><span class="p">,</span> <span class="s1">'customBilayer.m'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add a Python custom files.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">,</span> <span class="s1">&#39;customBilayer.py&#39;</span><span class="p">,</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;C:/stuff&#39;</span><span class="p">,</span> <span class="s1">&#39;custom_bilayer);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s1">'custom file 1'</span><span class="p">,</span> <span class="s1">'customBilayer.py'</span><span class="p">,</span> <span class="s1">'python'</span><span class="p">,</span> <span class="s1">'C:/stuff'</span><span class="p">,</span> <span class="s1">'custom_bilayer);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -567,7 +567,7 @@ be in the matlab path when running.</p>
 </pre></div>
 </div>
 <p>To remove custom file with a specific name.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">removeCustomFile</span><span class="p">(</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">removeCustomFile</span><span class="p">(</span><span class="s1">'custom file 1'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -584,11 +584,11 @@ it is the name of the custom file to remove.</p>
 <dd><p>General purpose method for updating properties of an existing custom file.</p>
 <p class="rubric">Examples</p>
 <p>To change the name and filename of the second custom file in the table (custom file in row 2).</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">setCustomFile</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;customFunction.m&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">setCustomFile</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'custom file 1'</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">'customFunction.m'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To change the properties of a custom file called ‘custom file 1’.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">setCustomFile</span><span class="p">(</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;new custom file&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;customFunction.py&#39;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">setCustomFile</span><span class="p">(</span><span class="s1">'custom file 1'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'new custom file'</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">'customFunction.py'</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">'python'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">

@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
     <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3f9e4f21" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -402,6 +402,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../../advanced/resampling.html">Profile Resampling (‘microslicing’)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../advanced/parallelisation.html">Parallelising Calculations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../advanced/customLanguages.html">Custom Models in Python or C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../advanced/backgroundFunctions.html">Function Backgrounds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../advanced/events.html">Handling Events During Calculations</a></li>
 </ul>
 </li>
@@ -483,7 +484,7 @@ document.write(`
                   
   <div class="admonition note">
   This page was generated from the notebook convert_rascal.ipynb found in
-  <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/0.0.0.dev12/ratapi/examples/">the Python-RAT repository</a>.
+  <a class="reference external" href="https://github.com/RascalSoftware/python-RAT/blob/1.0.0/ratapi/examples/">the Python-RAT repository</a>.
   <a href="convert_rascal.ipynb" class="reference download internal" download>Download notebook</a>.
 </div><div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -505,7 +506,7 @@ document.write(`
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ratapi.utils.convert</span><span class="w"> </span><span class="kn">import</span> <span class="n">r1_to_project</span>
 
-<span class="n">project</span> <span class="o">=</span> <span class="n">r1_to_project</span><span class="p">(</span><span class="s2">&quot;R1monolayerVolumeModel.mat&quot;</span><span class="p">)</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">r1_to_project</span><span class="p">(</span><span class="s2">"R1monolayerVolumeModel.mat"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -646,9 +647,9 @@ Contrasts: ---------------------------------------------------------------------
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">project</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;Head Thickness&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">prior_type</span> <span class="o">=</span> <span class="s1">&#39;gaussian&#39;</span>
-<span class="n">project</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;Theta&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mu</span> <span class="o">=</span> <span class="mf">2.0</span>
-<span class="n">project</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">&quot;Area per molecule&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sigma</span> <span class="o">=</span> <span class="mf">50.0</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">project</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">"Head Thickness"</span><span class="p">]</span><span class="o">.</span><span class="n">prior_type</span> <span class="o">=</span> <span class="s1">'gaussian'</span>
+<span class="n">project</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">"Theta"</span><span class="p">]</span><span class="o">.</span><span class="n">mu</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="n">project</span><span class="o">.</span><span class="n">parameters</span><span class="p">[</span><span class="s2">"Area per molecule"</span><span class="p">]</span><span class="o">.</span><span class="n">sigma</span> <span class="o">=</span> <span class="mf">50.0</span>
 <span class="c1"># etc...</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">project</span><span class="o">.</span><span class="n">parameters</span><span class="p">)</span>
 </pre></div>
@@ -675,7 +676,7 @@ Contrasts: ---------------------------------------------------------------------
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># e.g. if our model is in the directory `my_models/`</span>
-<span class="n">project</span><span class="o">.</span><span class="n">custom_files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;my_models/Model_IIb.m&quot;</span>
+<span class="n">project</span><span class="o">.</span><span class="n">custom_files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="s2">"my_models/Model_IIb.m"</span>
 </pre></div>
 </div>
 </div>
@@ -684,8 +685,8 @@ Contrasts: ---------------------------------------------------------------------
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">project</span><span class="o">.</span><span class="n">custom_files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;Model_IIb.py&quot;</span>
-<span class="n">project</span><span class="o">.</span><span class="n">custom_files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">language</span> <span class="o">=</span> <span class="s1">&#39;python&#39;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">project</span><span class="o">.</span><span class="n">custom_files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="s2">"Model_IIb.py"</span>
+<span class="n">project</span><span class="o">.</span><span class="n">custom_files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">language</span> <span class="o">=</span> <span class="s1">'python'</span>
 </pre></div>
 </div>
 </div>
@@ -743,7 +744,7 @@ Parameters: --------------------------------------------------------------------
 |   5   |   SAM Tails Hydration   |   1.0    |   5.252   |   50.0   |  True |
 |   6   |      SAM Roughness      |   1.0    |    5.64   |   15.0   |  True |
 |   7   |       CW Thickness      |   10.0   |   17.12   |   28.0   |  True |
-|   8   |          CW SLD         |   0.0    |    0.0    |  1e-09   | False |
+|   8   |          CW SLD         |   0.0    |    0.0    |   0.0    | False |
 |   9   |   SAM Heads Thickness   |   5.0    |    8.56   |   17.0   |  True |
 |   10  |      SAM Heads SLD      |  1e-07   |  1.75e-06 |  2e-06   | False |
 |   11  |   SAM Heads Hydration   |   10.0   |   45.45   |   50.0   |  True |
@@ -777,12 +778,12 @@ Bulk Out: ----------------------------------------------------------------------
 
 Scalefactors: --------------------------------------------------------------------------------------
 
-+-------+---------------+------+-------+-----+-------+
-| index |      name     | min  | value | max |  fit  |
-+-------+---------------+------+-------+-----+-------+
-|   0   | Scalefactor 1 | 0.05 |  0.1  | 0.2 | False |
-|   1   | Scalefactor 2 | 0.05 |  0.15 | 0.2 | False |
-+-------+---------------+------+-------+-----+-------+
++-------+---------------+------+-------+-----+------+
+| index |      name     | min  | value | max | fit  |
++-------+---------------+------+-------+-----+------+
+|   0   | Scalefactor 1 | 0.05 |  0.1  | 0.2 | True |
+|   1   | Scalefactor 2 | 0.05 |  0.15 | 0.2 | True |
++-------+---------------+------+-------+-----+------+
 
 Background Parameters: -----------------------------------------------------------------------------
 
@@ -878,7 +879,7 @@ Contrasts: ---------------------------------------------------------------------
 <span class="kn">from</span><span class="w"> </span><span class="nn">pprint</span><span class="w"> </span><span class="kn">import</span> <span class="n">pp</span>  <span class="c1"># for printing the struct</span>
 
 <span class="c1"># save to a file called lipid_bilayer.mat</span>
-<span class="n">project_to_r1</span><span class="p">(</span><span class="n">lipid_bilayer_project</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lipid_bilayer.mat&quot;</span><span class="p">)</span>
+<span class="n">project_to_r1</span><span class="p">(</span><span class="n">lipid_bilayer_project</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">"lipid_bilayer.mat"</span><span class="p">)</span>
 
 <span class="c1"># return as a Python dictionary</span>
 <span class="n">struct</span> <span class="o">=</span> <span class="n">project_to_r1</span><span class="p">(</span><span class="n">lipid_bilayer_project</span><span class="p">,</span> <span class="n">return_struct</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -945,7 +946,7 @@ Contrasts: ---------------------------------------------------------------------
             [1.0, 50.0],
             [1.0, 15.0],
             [10.0, 28.0],
-            [0.0, 1e-09],
+            [0.0, 0.0],
             [5.0, 17.0],
             [1e-07, 2e-06],
             [10.0, 50.0],
@@ -962,7 +963,7 @@ Contrasts: ---------------------------------------------------------------------
  &#39;scalesNames&#39;: [&#39;Scalefactor 1&#39;, &#39;Scalefactor 2&#39;],
  &#39;scalefac&#39;: [0.1, 0.15],
  &#39;scale_constr&#39;: [[0.05, 0.2], [0.05, 0.2]],
- &#39;scalefac_fityesno&#39;: [0, 0],
+ &#39;scalefac_fityesno&#39;: [1, 1],
  &#39;numberOfScales&#39;: 2,
  &#39;nbaNames&#39;: &#39;Silicon&#39;,
  &#39;nba&#39;: 2.073e-06,

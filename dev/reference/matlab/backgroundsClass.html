@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3f9e4f21" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -486,8 +486,8 @@ passed to the function to calculate the background.</p>
 subtracted from the data.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">allowedNames</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">getAllAllowedNames</span><span class="p">();</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">backgroundParams</span> <span class="o">=</span> <span class="n">parametersClass</span><span class="p">(</span><span class="s1">&#39;Background Parameter SMW&#39;</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">background</span> <span class="o">=</span> <span class="n">backgroundClass</span><span class="p">(</span><span class="n">backgroundParams</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Background SMW&#39;</span><span class="p">,</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span><span class="s1">&#39;Background Parameter SMW&#39;</span><span class="p">},</span> <span class="n">allowedNames</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">backgroundParams</span> <span class="o">=</span> <span class="n">parametersClass</span><span class="p">(</span><span class="s1">'Background Parameter SMW'</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">background</span> <span class="o">=</span> <span class="n">backgroundClass</span><span class="p">(</span><span class="n">backgroundParams</span><span class="p">,</span> <span class="p">{</span><span class="s1">'Background SMW'</span><span class="p">,</span><span class="s1">'constant'</span><span class="p">,</span><span class="s1">'Background Parameter SMW'</span><span class="p">},</span> <span class="n">allowedNames</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -528,19 +528,19 @@ subtracted from the data.</p>
 <p class="rubric">Examples</p>
 <p>To add a new constant background with name only.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">allowedNames</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">getAllAllowedNames</span><span class="p">();</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">background</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="n">allowedNames</span><span class="p">,</span> <span class="s1">&#39;New Background&#39;</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">background</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="n">allowedNames</span><span class="p">,</span> <span class="s1">'New Background'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add a constant background.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">background</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="n">allowedNames</span><span class="p">,</span> <span class="s1">&#39;New Background&#39;</span><span class="p">,</span> <span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="s1">&#39;param name&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">background</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="n">allowedNames</span><span class="p">,</span> <span class="s1">'New Background'</span><span class="p">,</span> <span class="s1">'constant'</span><span class="p">,</span> <span class="s1">'param name'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add a function background with 2 parameters.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">background</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="n">allowedNames</span><span class="p">,</span> <span class="s1">&#39;New Background&#39;</span><span class="p">,</span> <span class="s1">&#39;function&#39;</span><span class="p">,</span> <span class="s1">&#39;function name&#39;</span><span class="p">,</span> <span class="s1">&#39;param name&#39;</span><span class="p">,</span> <span class="s1">&#39;param name 2&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">background</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="n">allowedNames</span><span class="p">,</span> <span class="s1">'New Background'</span><span class="p">,</span> <span class="s1">'function'</span><span class="p">,</span> <span class="s1">'function name'</span><span class="p">,</span> <span class="s1">'param name'</span><span class="p">,</span> <span class="s1">'param name 2'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add a data background with an offset.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">background</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="n">allowedNames</span><span class="p">,</span> <span class="s1">&#39;New Background&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;data name&#39;</span><span class="p">,</span> <span class="s1">&#39;offset param name&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">background</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="n">allowedNames</span><span class="p">,</span> <span class="s1">'New Background'</span><span class="p">,</span> <span class="s1">'data'</span><span class="p">,</span> <span class="s1">'data name'</span><span class="p">,</span> <span class="s1">'offset param name'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -618,7 +618,7 @@ if type is ‘function’, these values may be the names (or the row index) of u
 </pre></div>
 </div>
 <p>To remove background with a specific name.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">backgrounds</span><span class="o">.</span><span class="n">removeBackground</span><span class="p">(</span><span class="s1">&#39;Background 1&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">backgrounds</span><span class="o">.</span><span class="n">removeBackground</span><span class="p">(</span><span class="s1">'Background 1'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -636,11 +636,11 @@ it is the name of the background to remove.</p>
 <p class="rubric">Examples</p>
 <p>To change the name and value of the second background in the table (background in row 2).</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">allowedNames</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">getAllAllowedNames</span><span class="p">();</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">backgrounds</span><span class="o">.</span><span class="n">setBackground</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">allowedNames</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Background 1&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;param name&#39;</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">backgrounds</span><span class="o">.</span><span class="n">setBackground</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">allowedNames</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Background 1'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">'constant'</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">'param name'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To change the properties of a background called ‘Background 1’.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">backgrounds</span><span class="o">.</span><span class="n">setBackground</span><span class="p">(</span><span class="s1">&#39;Background 1&#39;</span><span class="p">,</span> <span class="n">allowedNames</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;New Background&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;function&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;custom file name&#39;</span><span class="p">,</span> <span class="n">value1</span><span class="o">=</span><span class="s1">&#39;param name&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">backgrounds</span><span class="o">.</span><span class="n">setBackground</span><span class="p">(</span><span class="s1">'Background 1'</span><span class="p">,</span> <span class="n">allowedNames</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'New Background'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">'function'</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">'custom file name'</span><span class="p">,</span> <span class="n">value1</span><span class="o">=</span><span class="s1">'param name'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -670,11 +670,11 @@ it is the name of the background to update.</p></li>
 <dd><p>Sets the name of a given background in the table.</p>
 <p class="rubric">Examples</p>
 <p>To change the name of the second background in the table (background in row 2)</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">backgrounds</span><span class="o">.</span><span class="n">setBackgroundName</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;new name&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">backgrounds</span><span class="o">.</span><span class="n">setBackgroundName</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'new name'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To change the name of a background called ‘old name’ to ‘new name’</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">backgrounds</span><span class="o">.</span><span class="n">setBackgroundName</span><span class="p">(</span><span class="s1">&#39;old name&#39;</span><span class="p">,</span> <span class="s1">&#39;new name&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">backgrounds</span><span class="o">.</span><span class="n">setBackgroundName</span><span class="p">(</span><span class="s1">'old name'</span><span class="p">,</span> <span class="s1">'new name'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">

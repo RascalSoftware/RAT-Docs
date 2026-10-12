@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3f9e4f21" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -481,7 +481,7 @@ whether to calculate the SLD during a fit, how many iterations an algorithm shou
 </div>
 <p>Alternatively use the <code class="docutils literal notranslate"><span class="pre">setProcedure</span></code> method</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span> <span class="o">=</span> <span class="n">controlsClass</span><span class="p">();</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span><span class="o">.</span><span class="n">setProcedure</span><span class="p">(</span><span class="s1">&#39;dream&#39;</span><span class="p">,</span> <span class="s1">&#39;nSamples&#39;</span><span class="p">,</span> <span class="mi">6000</span><span class="p">,</span> <span class="s1">&#39;nChains&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;parallel&#39;</span><span class="p">,</span> <span class="s1">&#39;contrasts&#39;</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span><span class="o">.</span><span class="n">setProcedure</span><span class="p">(</span><span class="s1">'dream'</span><span class="p">,</span> <span class="s1">'nSamples'</span><span class="p">,</span> <span class="mi">6000</span><span class="p">,</span> <span class="s1">'nChains'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">'parallel'</span><span class="p">,</span> <span class="s1">'contrasts'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="mat attribute">
@@ -542,7 +542,7 @@ whether to calculate the SLD during a fit, how many iterations an algorithm shou
 <dl class="mat attribute">
 <dt class="sig sig-object mat" id="controlsClass.display">
 <span class="sig-name descname"><span class="pre">display</span></span><a class="headerlink" href="#controlsClass.display" title="Link to this definition">#</a></dt>
-<dd><p>How much RAT should print to the terminal. Can be ‘off’, ‘iter’, ‘notify’, or ‘final’.</p>
+<dd><p>How much RAT should print to the terminal. Can be ‘off’, ‘iter’, or ‘final’.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>displayOptions, default: displayOptions.Iter</p>
@@ -839,9 +839,9 @@ whether to calculate the SLD during a fit, how many iterations an algorithm shou
 <dd><p>Sets the properties of the controls object based on the selected procedures</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span> <span class="o">=</span> <span class="n">controlsClass</span><span class="p">();</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span><span class="o">.</span><span class="n">setProcedure</span><span class="p">(</span><span class="s1">&#39;simplex&#39;</span><span class="p">,</span> <span class="s1">&#39;xTolerance&#39;</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="s1">&#39;funcTolerance&#39;</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxFuncEvals&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span><span class="o">.</span><span class="n">setProcedure</span><span class="p">(</span><span class="s1">&#39;dream&#39;</span><span class="p">);</span>  <span class="o">%</span> <span class="n">This</span> <span class="n">will</span> <span class="n">use</span> <span class="n">default</span> <span class="n">DREAM</span> <span class="n">options</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span><span class="o">.</span><span class="n">setProcedure</span><span class="p">(</span><span class="s1">&#39;ns&#39;</span><span class="p">,</span> <span class="s1">&#39;nLive&#39;</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span><span class="s1">&#39;nMCMC&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;propScale&#39;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;nsTolerance&#39;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span><span class="o">.</span><span class="n">setProcedure</span><span class="p">(</span><span class="s1">'simplex'</span><span class="p">,</span> <span class="s1">'xTolerance'</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="s1">'funcTolerance'</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">,</span><span class="s1">'maxFuncEvals'</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span><span class="o">.</span><span class="n">setProcedure</span><span class="p">(</span><span class="s1">'dream'</span><span class="p">);</span>  <span class="o">%</span> <span class="n">This</span> <span class="n">will</span> <span class="n">use</span> <span class="n">default</span> <span class="n">DREAM</span> <span class="n">options</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">controls</span><span class="o">.</span><span class="n">setProcedure</span><span class="p">(</span><span class="s1">'ns'</span><span class="p">,</span> <span class="s1">'nLive'</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span><span class="s1">'nMCMC'</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">'propScale'</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">'nsTolerance'</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">

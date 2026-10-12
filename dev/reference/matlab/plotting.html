@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3f9e4f21" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -458,11 +458,38 @@ document.write(`
   <section id="plotting">
 <h1>Plotting<a class="headerlink" href="#plotting" title="Link to this heading">#</a></h1>
 <dl class="mat function" id="module-utilities.plotting">
+<dt class="sig sig-object mat" id="utilities.plotting.alignALProfiles">
+<span class="sig-prename descclassname"><span class="pre">utilities.plotting.</span></span><span class="sig-name descname"><span class="pre">alignALProfiles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">geometry</span></em>, <em class="sig-param"><span class="pre">modelType</span></em>, <em class="sig-param"><span class="pre">sldProfiles</span></em>, <em class="sig-param"><span class="pre">resampledLayers</span></em>, <em class="sig-param"><span class="pre">pIntervals</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotting.alignALProfiles" title="Link to this definition">#</a></dt>
+<dd><p>Aligns the A/L SLD profiles so that the substrates line up by padding the
+start of any shorter than the longest profile. Also adjusts resampled
+layers and prediction interval slds as necessary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>geometry</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">geometryOptions</span></code></span>) – The geometry.</p></li>
+<li><p><strong>modelType</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">modelTypes</span></code></span>) – The model type.</p></li>
+<li><p><strong>sldProfiles</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">cell</span></code></span>) – The sld profiles.</p></li>
+<li><p><strong>resampledLayers</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">cell</span></code></span>) – The resampled layers.</p></li>
+<li><p><strong>pIntervals</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">cell</span></code></span>) – The slds in the prediction intervals.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>sldProfiles</strong> (<em>cell</em>) – The sld profiles, adjusted if necessary.</p></li>
+<li><p><strong>resampledLayers</strong> (<em>cell</em>) – The resampled layers, adjusted if necessary.</p></li>
+<li><p><strong>pIntervals</strong> (<em>cell</em>) – The slds in the prediction intervals, adjusted if necessary.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="mat function">
 <dt class="sig sig-object mat" id="utilities.plotting.bayesShadedPlot">
 <span class="sig-prename descclassname"><span class="pre">utilities.plotting.</span></span><span class="sig-name descname"><span class="pre">bayesShadedPlot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">project</span></em>, <em class="sig-param"><span class="pre">result</span></em>, <em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotting.bayesShadedPlot" title="Link to this definition">#</a></dt>
 <dd><p>Plots the shaded reflectivities from Bayes output from RAT</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bayesShadedPlot</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="s1">&#39;interval&#39;</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="s1">&#39;q4&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bayesShadedPlot</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="s1">'interval'</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="s1">'q4'</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -492,8 +519,8 @@ document.write(`
 If selected, smoothing is via kernel density estimation.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cornerPlot</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">cornerPlot</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s1">&#39;smooth&#39;</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">cornerPlot</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s1">&#39;smooth&#39;</span><span class="p">,</span> <span class="n">false</span><span class="p">,</span> <span class="s1">&#39;params&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>  <span class="o">%</span> <span class="n">should</span> <span class="n">plot</span> <span class="mi">1</span><span class="n">st</span> <span class="ow">and</span> <span class="mi">3</span><span class="n">rd</span> <span class="n">fitted</span> <span class="n">parameters</span> <span class="n">only</span><span class="o">.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cornerPlot</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s1">'smooth'</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cornerPlot</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s1">'smooth'</span><span class="p">,</span> <span class="n">false</span><span class="p">,</span> <span class="s1">'params'</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>  <span class="o">%</span> <span class="n">should</span> <span class="n">plot</span> <span class="mi">1</span><span class="n">st</span> <span class="ow">and</span> <span class="mi">3</span><span class="n">rd</span> <span class="n">fitted</span> <span class="n">parameters</span> <span class="n">only</span><span class="o">.</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -547,7 +574,7 @@ If selected, smoothing is via kernel density estimation.</p>
 <dd><p>Plots the Bayes histogram plot from the chain, with or without smoothing.
 If selected, smoothing is via a moving average algorithm.</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plotHists</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s1">&#39;smooth&#39;</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plotHists</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s1">'smooth'</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -572,7 +599,7 @@ If selected, smoothing is via a moving average algorithm.</p>
 <span class="sig-prename descclassname"><span class="pre">utilities.plotting.</span></span><span class="sig-name descname"><span class="pre">plotRefSLD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">project</span></em>, <em class="sig-param"><span class="pre">result</span></em>, <em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#utilities.plotting.plotRefSLD" title="Link to this definition">#</a></dt>
 <dd><p>Plots the reflectivity and SLD profiles</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plotRefSLD</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="s1">&#39;showGrid&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s1">&#39;q4&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plotRefSLD</span><span class="p">(</span><span class="n">problem</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="s1">'showGrid'</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s1">'q4'</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -633,7 +660,7 @@ the result struct from the RAT calculation.</p>
 <li><p><strong>showErrorBar</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">true</span></code></span>) – Indicates if the error bar should be shown.</p></li>
 <li><p><strong>showGrid</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">false</span></code></span>) – Indicates if the grid should be shown.</p></li>
 <li><p><strong>showLegend</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">logical,</span> <span class="pre">default:</span> <span class="pre">true</span></code></span>) – Indicates if the legend should be shown.</p></li>
-<li><p><strong>shiftValue</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float,</span> <span class="pre">default:</span> <span class="pre">100</span></code></span>) – A value between 1 and 100 that controls the spacing between the reflectivity plots for each of the contrasts.</p></li>
+<li><p><strong>shiftValue</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">float,</span> <span class="pre">default:</span> <span class="pre">100</span></code></span>) – A value between 0 and 100 that controls the spacing between the reflectivity plots for each of the contrasts.</p></li>
 </ul>
 </dd>
 </dl>

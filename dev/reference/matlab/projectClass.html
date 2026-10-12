@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3f9e4f21" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -485,11 +485,11 @@ input arguments and allow the creation of both types of project from the same en
 recommended way to create a RAT project not via the <code class="docutils literal notranslate"><span class="pre">projectClass</span></code> or <code class="docutils literal notranslate"><span class="pre">domainsClass</span></code>.</p>
 <p class="rubric">Examples</p>
 <p>To create a normal, standard layers project.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">createProject</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;New experiment&#39;</span><span class="p">,</span> <span class="n">calcType</span><span class="o">=</span><span class="s1">&#39;normal&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">createProject</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'New experiment'</span><span class="p">,</span> <span class="n">calcType</span><span class="o">=</span><span class="s1">'normal'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To create a domains, custom layers project with absorption.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">createProject</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Domains experiment&#39;</span><span class="p">,</span> <span class="n">calcType</span><span class="o">=</span><span class="s1">&#39;domains&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;custom layers&#39;</span><span class="p">,</span> <span class="n">absorption</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">createProject</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'Domains experiment'</span><span class="p">,</span> <span class="n">calcType</span><span class="o">=</span><span class="s1">'domains'</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">'custom layers'</span><span class="p">,</span> <span class="n">absorption</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -520,8 +520,8 @@ and update these components. For example, for parameters, the <code class="docut
 and updating parameters.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">projectClass</span><span class="p">();</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">projectClass</span><span class="p">(</span><span class="s2">&quot;Example Project&quot;</span><span class="p">);</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">projectClass</span><span class="p">(</span><span class="s2">&quot;Example Project&quot;</span><span class="p">,</span> <span class="s1">&#39;custom layers&#39;</span><span class="p">,</span> <span class="s1">&#39;substrate/liquid&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">projectClass</span><span class="p">(</span><span class="s2">"Example Project"</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">projectClass</span><span class="p">(</span><span class="s2">"Example Project"</span><span class="p">,</span> <span class="s1">'custom layers'</span><span class="p">,</span> <span class="s1">'substrate/liquid'</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -650,19 +650,19 @@ and updating parameters.</p>
 <dd><p>Adds a new background to the project.</p>
 <p class="rubric">Examples</p>
 <p>To add a new constant background with name only.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="s1">&#39;New Background&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="s1">'New Background'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add a constant background.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="s1">&#39;New Background&#39;</span><span class="p">,</span> <span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="s1">&#39;param name&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="s1">'New Background'</span><span class="p">,</span> <span class="s1">'constant'</span><span class="p">,</span> <span class="s1">'param name'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add a function background with 2 parameters.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="s1">&#39;New Background&#39;</span><span class="p">,</span> <span class="s1">&#39;function&#39;</span><span class="p">,</span> <span class="s1">&#39;function name&#39;</span><span class="p">,</span> <span class="s1">&#39;param name&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="n">param</span> <span class="n">name</span> <span class="mi">2</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="s1">'New Background'</span><span class="p">,</span> <span class="s1">'function'</span><span class="p">,</span> <span class="s1">'function name'</span><span class="p">,</span> <span class="s1">'param name'</span><span class="p">,</span> <span class="s1">''</span><span class="n">param</span> <span class="n">name</span> <span class="mi">2</span><span class="s1">''</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add a data background with an offset.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="s1">&#39;New Background&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;data name&#39;</span><span class="p">,</span> <span class="s1">&#39;offset param name&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackground</span><span class="p">(</span><span class="s1">'New Background'</span><span class="p">,</span> <span class="s1">'data'</span><span class="p">,</span> <span class="s1">'data name'</span><span class="p">,</span> <span class="s1">'offset param name'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -709,13 +709,13 @@ if type is ‘function’, these values may be the names (or the row index) of u
 </pre></div>
 </div>
 <p>To add a background parameter with all available properties.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackgroundParam</span><span class="p">(</span><span class="s1">&#39;Background Value D2O&#39;&#39;, 1e-8, 2.8e-6, 1e-5, true, &#39;</span><span class="n">gaussian</span><span class="s1">&#39;, 1, 5);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackgroundParam</span><span class="p">(</span><span class="s1">'Background Value D2O'', 1e-8, 2.8e-6, 1e-5, true, '</span><span class="n">gaussian</span><span class="s1">', 1, 5);</span>
 </pre></div>
 </div>
 <p>Other examples of adding background parameters with a subset of properties.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackgroundParam</span><span class="p">(</span><span class="s1">&#39;Background Value D2O&#39;</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Background</span> <span class="n">parameter</span> <span class="n">name</span> <span class="n">only</span> <span class="k">with</span> <span class="n">others</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">default</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackgroundParam</span><span class="p">(</span><span class="s1">&#39;Background Value D2O&#39;</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Background</span> <span class="n">parameter</span> <span class="n">name</span> <span class="ow">and</span> <span class="nb">min</span> <span class="n">only</span><span class="o">.</span> <span class="n">Value</span> <span class="ow">and</span> <span class="nb">max</span> <span class="n">will</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">to</span> <span class="mf">1e-8</span> <span class="n">to</span> <span class="n">keep</span> <span class="n">limits</span> <span class="n">valid</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackgroundParam</span><span class="p">(</span><span class="s1">&#39;Background Value D2O&#39;</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mf">2.8e-6</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>  <span class="o">%</span> <span class="n">priors</span> <span class="n">will</span> <span class="n">be</span> <span class="n">default</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackgroundParam</span><span class="p">(</span><span class="s1">'Background Value D2O'</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Background</span> <span class="n">parameter</span> <span class="n">name</span> <span class="n">only</span> <span class="k">with</span> <span class="n">others</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">default</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackgroundParam</span><span class="p">(</span><span class="s1">'Background Value D2O'</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Background</span> <span class="n">parameter</span> <span class="n">name</span> <span class="ow">and</span> <span class="nb">min</span> <span class="n">only</span><span class="o">.</span> <span class="n">Value</span> <span class="ow">and</span> <span class="nb">max</span> <span class="n">will</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">to</span> <span class="mf">1e-8</span> <span class="n">to</span> <span class="n">keep</span> <span class="n">limits</span> <span class="n">valid</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addBackgroundParam</span><span class="p">(</span><span class="s1">'Background Value D2O'</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mf">2.8e-6</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>  <span class="o">%</span> <span class="n">priors</span> <span class="n">will</span> <span class="n">be</span> <span class="n">default</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -740,12 +740,12 @@ if type is ‘function’, these values may be the names (or the row index) of u
 <dd><p>Add a new contrast to the project.</p>
 <p class="rubric">Examples</p>
 <p>To add a new contrast with name only.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addContrast</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;new contrast&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addContrast</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'new contrast'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add a new contrast with other properties.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addContrast</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;new contrast&#39;</span><span class="p">,</span> <span class="n">bulkIn</span><span class="o">=</span><span class="s1">&#39;Silicon&#39;</span><span class="p">,</span> <span class="n">bulkOut</span><span class="o">=</span><span class="s1">&#39;D2O&#39;</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">&#39;D2O Background&#39;</span><span class="p">,</span> <span class="o">...</span>
-<span class="go">                        resolution=&#39;Resolution 1&#39;, scalefactor=&#39;Scalefactor 1&#39;, data=&#39;DSPC Bilayer D2O&#39;, model={&#39;Oxide&#39;, &#39;Bilayer tails&#39;});</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addContrast</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'new contrast'</span><span class="p">,</span> <span class="n">bulkIn</span><span class="o">=</span><span class="s1">'Silicon'</span><span class="p">,</span> <span class="n">bulkOut</span><span class="o">=</span><span class="s1">'D2O'</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">'D2O Background'</span><span class="p">,</span> <span class="o">...</span>
+<span class="go">                        resolution='Resolution 1', scalefactor='Scalefactor 1', data='DSPC Bilayer D2O', model={'Oxide', 'Bilayer tails'});</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -782,15 +782,15 @@ if type is ‘function’, these values may be the names (or the row index) of u
 be in the matlab path when running.</p>
 <p class="rubric">Examples</p>
 <p>To add a new custom file entry with name only.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s1">'custom file 1'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add custom file with name, and filename.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">,</span> <span class="s1">&#39;customBilayer.m&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s1">'custom file 1'</span><span class="p">,</span> <span class="s1">'customBilayer.m'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add a Python custom files.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">,</span> <span class="s1">&#39;customBilayer.py&#39;</span><span class="p">,</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;C:/stuff&#39;</span><span class="p">,</span> <span class="s1">&#39;custom_bilayer);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s1">'custom file 1'</span><span class="p">,</span> <span class="s1">'customBilayer.py'</span><span class="p">,</span> <span class="s1">'python'</span><span class="p">,</span> <span class="s1">'C:/stuff'</span><span class="p">,</span> <span class="s1">'custom_bilayer);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -812,15 +812,15 @@ be in the matlab path when running.</p>
 <dd><p>Adds a new dataset to the project.</p>
 <p class="rubric">Examples</p>
 <p>To add a new dataset with name only.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="s1">&#39;Data 1&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="s1">'Data 1'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add dataset with name and data.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="s1">&#39;Data 1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="s1">'Data 1'</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]);</span>
 </pre></div>
 </div>
 <p>To add dataset with name, data and the ranges.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="s1">&#39;Data 1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="s1">'Data 1'</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -844,15 +844,15 @@ be in the matlab path when running.</p>
 <p><code class="docutils literal notranslate"><span class="pre">addLayer(name,</span> <span class="pre">thickness,</span> <span class="pre">realSLD,</span> <span class="pre">imaginarySLD,</span> <span class="pre">roughness,</span> <span class="pre">hydration,</span> <span class="pre">hydrateWith)</span></code></p>
 <p class="rubric">Examples</p>
 <p>To add a new layer with name only.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(,</span> <span class="s1">&#39;New layer&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(,</span> <span class="s1">'New layer'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add a new layer when <code class="docutils literal notranslate"><span class="pre">absorption</span></code> is false.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="s1">&#39;Water Layer&#39;</span><span class="p">,</span> <span class="s1">&#39;Water thickness&#39;</span><span class="p">,</span> <span class="s1">&#39;Water SLD&#39;</span><span class="p">,</span> <span class="s1">&#39;Bilayer heads roughness&#39;</span><span class="p">,</span> <span class="s1">&#39;Water hydration&#39;</span><span class="p">,</span> <span class="s1">&#39;Bulk out&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="s1">'Water Layer'</span><span class="p">,</span> <span class="s1">'Water thickness'</span><span class="p">,</span> <span class="s1">'Water SLD'</span><span class="p">,</span> <span class="s1">'Bilayer heads roughness'</span><span class="p">,</span> <span class="s1">'Water hydration'</span><span class="p">,</span> <span class="s1">'Bulk out'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add a new layer when <code class="docutils literal notranslate"><span class="pre">absorption</span></code> is true.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="s1">&#39;Layer 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Layer thickness&#39;</span><span class="p">,</span> <span class="s1">&#39;Layer Real SLD&#39;</span><span class="p">,</span> <span class="s1">&#39;Layer Imaginary SLD&#39;</span><span class="p">,</span> <span class="s1">&#39;Layers roughness, &#39;</span><span class="n">Layer</span> <span class="n">hydration</span><span class="s1">&#39;, &#39;</span><span class="n">Bulk</span> <span class="ow">in</span><span class="s1">&#39;);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="s1">'Layer 1'</span><span class="p">,</span> <span class="s1">'Layer thickness'</span><span class="p">,</span> <span class="s1">'Layer Real SLD'</span><span class="p">,</span> <span class="s1">'Layer Imaginary SLD'</span><span class="p">,</span> <span class="s1">'Layers roughness, '</span><span class="n">Layer</span> <span class="n">hydration</span><span class="s1">', '</span><span class="n">Bulk</span> <span class="ow">in</span><span class="s1">');</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -877,8 +877,8 @@ for the scattering length density of this layer.</p></li>
 <span class="sig-name descname"><span class="pre">addLayerGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">layerGroup</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.addLayerGroup" title="Link to this definition">#</a></dt>
 <dd><p>Adds a group of layers to the project.</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firstLayer</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Water Layer&#39;</span><span class="p">,</span> <span class="s1">&#39;Water thickness&#39;</span><span class="p">,</span> <span class="s1">&#39;Water SLD&#39;</span><span class="p">,</span> <span class="s1">&#39;Bilayer heads roughness&#39;</span><span class="p">,</span> <span class="s1">&#39;Water hydration&#39;</span><span class="p">,</span> <span class="s1">&#39;Bulk out&#39;</span><span class="p">};</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">secondLayer</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Layer 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Layer thickness&#39;</span><span class="p">,</span> <span class="s1">&#39;Layer Real SLD&#39;</span><span class="p">,</span> <span class="s1">&#39;Layer Imaginary SLD&#39;</span><span class="p">,</span> <span class="s1">&#39;Layers roughness, &#39;</span><span class="n">Layer</span> <span class="n">hydration</span><span class="s1">&#39;, &#39;</span><span class="n">Bulk</span> <span class="ow">in</span><span class="s1">&#39;};</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">firstLayer</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Water Layer'</span><span class="p">,</span> <span class="s1">'Water thickness'</span><span class="p">,</span> <span class="s1">'Water SLD'</span><span class="p">,</span> <span class="s1">'Bilayer heads roughness'</span><span class="p">,</span> <span class="s1">'Water hydration'</span><span class="p">,</span> <span class="s1">'Bulk out'</span><span class="p">};</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">secondLayer</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Layer 1'</span><span class="p">,</span> <span class="s1">'Layer thickness'</span><span class="p">,</span> <span class="s1">'Layer Real SLD'</span><span class="p">,</span> <span class="s1">'Layer Imaginary SLD'</span><span class="p">,</span> <span class="s1">'Layers roughness, '</span><span class="n">Layer</span> <span class="n">hydration</span><span class="s1">', '</span><span class="n">Bulk</span> <span class="ow">in</span><span class="s1">'};</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addLayerGroup</span><span class="p">({</span><span class="n">firstLayer</span><span class="p">,</span> <span class="n">secondLayer</span><span class="p">});</span>
 </pre></div>
 </div>
@@ -899,15 +899,15 @@ for the scattering length density of this layer.</p></li>
 <dd><p>Adds a new resolution to the project.</p>
 <p class="rubric">Examples</p>
 <p>To add a new constant resolution with name only.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolution</span><span class="p">(</span><span class="s1">&#39;New Resolution&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolution</span><span class="p">(</span><span class="s1">'New Resolution'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add a constant resolution.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolution</span><span class="p">(</span><span class="n">New</span> <span class="n">Resolution</span><span class="s1">&#39;, &#39;</span><span class="n">constant</span><span class="s1">&#39;, &#39;</span><span class="n">param</span> <span class="n">name</span><span class="s1">&#39;);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolution</span><span class="p">(</span><span class="n">New</span> <span class="n">Resolution</span><span class="s1">', '</span><span class="n">constant</span><span class="s1">', '</span><span class="n">param</span> <span class="n">name</span><span class="s1">');</span>
 </pre></div>
 </div>
 <p>To add a data resolution.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolution</span><span class="p">(</span><span class="s1">&#39;New Resolution&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolution</span><span class="p">(</span><span class="s1">'New Resolution'</span><span class="p">,</span> <span class="s1">'data'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -948,13 +948,13 @@ if type is ‘data’, all values will be ignored.</p></li>
 </pre></div>
 </div>
 <p>To add a resolution parameter with all available properties.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolutionParam</span><span class="p">(</span><span class="s1">&#39;Resolution Param 1&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolutionParam</span><span class="p">(</span><span class="s1">'Resolution Param 1'</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s1">'gaussian'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Other examples of adding resolution parameters with a subset of properties.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolutionParam</span><span class="p">(</span><span class="s1">&#39;Resolution Param 1&#39;</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Resolution</span> <span class="n">parameter</span> <span class="n">name</span> <span class="n">only</span> <span class="k">with</span> <span class="n">others</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">default</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolutionParam</span><span class="p">(</span><span class="s1">&#39;Resolution Param 1&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Resolution</span> <span class="n">parameter</span> <span class="n">name</span> <span class="ow">and</span> <span class="nb">min</span> <span class="n">only</span><span class="o">.</span> <span class="n">Value</span> <span class="ow">and</span> <span class="nb">max</span> <span class="n">will</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">to</span> <span class="mi">23</span> <span class="n">to</span> <span class="n">keep</span> <span class="n">limits</span> <span class="n">valid</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolutionParam</span><span class="p">(</span><span class="s1">&#39;Resolution Param 1&#39;</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>  <span class="o">%</span> <span class="n">priors</span> <span class="n">will</span> <span class="n">be</span> <span class="n">default</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolutionParam</span><span class="p">(</span><span class="s1">'Resolution Param 1'</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Resolution</span> <span class="n">parameter</span> <span class="n">name</span> <span class="n">only</span> <span class="k">with</span> <span class="n">others</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">default</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolutionParam</span><span class="p">(</span><span class="s1">'Resolution Param 1'</span><span class="p">,</span> <span class="mi">23</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Resolution</span> <span class="n">parameter</span> <span class="n">name</span> <span class="ow">and</span> <span class="nb">min</span> <span class="n">only</span><span class="o">.</span> <span class="n">Value</span> <span class="ow">and</span> <span class="nb">max</span> <span class="n">will</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">to</span> <span class="mi">23</span> <span class="n">to</span> <span class="n">keep</span> <span class="n">limits</span> <span class="n">valid</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">addResolutionParam</span><span class="p">(</span><span class="s1">'Resolution Param 1'</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>  <span class="o">%</span> <span class="n">priors</span> <span class="n">will</span> <span class="n">be</span> <span class="n">default</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1055,7 +1055,7 @@ contrast model entries in the project.</p>
 </pre></div>
 </div>
 <p>To remove background with a specific name.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeBackground</span><span class="p">(</span><span class="s1">&#39;Background 1&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeBackground</span><span class="p">(</span><span class="s1">'Background 1'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1076,7 +1076,7 @@ it is the name of the background to remove.</p>
 </pre></div>
 </div>
 <p>To remove background parameter with a specific name.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeBackgroundParam</span><span class="p">(</span><span class="s1">&#39;Background Value D2O&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeBackgroundParam</span><span class="p">(</span><span class="s1">'Background Value D2O'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1097,7 +1097,7 @@ it is the name of the background parameter to remove.</p>
 </pre></div>
 </div>
 <p>To remove contrast with a specific name.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeContrast</span><span class="p">(</span><span class="s1">&#39;contrast 1&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeContrast</span><span class="p">(</span><span class="s1">'contrast 1'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1118,7 +1118,7 @@ it is the name of the contrast to remove.</p>
 </pre></div>
 </div>
 <p>To remove custom file with a specific name.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeCustomFile</span><span class="p">(</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeCustomFile</span><span class="p">(</span><span class="s1">'custom file 1'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1139,7 +1139,7 @@ it is the name of the custom file to remove.</p>
 </pre></div>
 </div>
 <p>To remove dataset with a specific name.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeData</span><span class="p">(</span><span class="s1">&#39;D2O&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeData</span><span class="p">(</span><span class="s1">'D2O'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1160,7 +1160,7 @@ it is the name of the dataset to remove.</p>
 </pre></div>
 </div>
 <p>To remove layer with a specific name.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeLayer</span><span class="p">(</span><span class="s1">&#39;D2O&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeLayer</span><span class="p">(</span><span class="s1">'D2O'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1181,7 +1181,7 @@ it is the name of the layer to remove.</p>
 </pre></div>
 </div>
 <p>To remove resolution with a specific name.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeResolution</span><span class="p">(</span><span class="s1">&#39;Resolution 1&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeResolution</span><span class="p">(</span><span class="s1">'Resolution 1'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1202,7 +1202,7 @@ it is the name of the resolution to remove.</p>
 </pre></div>
 </div>
 <p>To remove resolution parameter with a specific name.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeResolutionParam</span><span class="p">(</span><span class="s1">&#39;Resolution Param 1&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">removeResolutionParam</span><span class="p">(</span><span class="s1">'Resolution Param 1'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1225,11 +1225,11 @@ it is the name of the resolution parameter to remove.</p>
 <dd><p>General purpose method for updating properties of an existing background.</p>
 <p class="rubric">Examples</p>
 <p>To change the name and value of the second background in the table (background in row 2).</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">backgrounds</span><span class="o">.</span><span class="n">setBackground</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Background 1&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;param name&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">backgrounds</span><span class="o">.</span><span class="n">setBackground</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Background 1'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">'constant'</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">'param name'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To change the properties of a background called ‘Background 1’.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">backgrounds</span><span class="o">.</span><span class="n">setBackground</span><span class="p">(</span><span class="s1">&#39;Background 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;New Background&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;function&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;custom file name&#39;</span><span class="p">,</span> <span class="n">value1</span><span class="o">=</span><span class="s1">&#39;param name&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">backgrounds</span><span class="o">.</span><span class="n">setBackground</span><span class="p">(</span><span class="s1">'Background 1'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'New Background'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">'function'</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">'custom file name'</span><span class="p">,</span> <span class="n">value1</span><span class="o">=</span><span class="s1">'param name'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1259,12 +1259,12 @@ it is the name of the background to update.</p></li>
 Any unset property will remain unchanged.</p>
 <p class="rubric">Examples</p>
 <p>To change the name and value of the second background parameter in the table (parameter in row 2).</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setBackgroundParam</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Background 2&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setBackgroundParam</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'Background 2'</span><span class="p">,</span> <span class="s1">'value'</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To change the all properties of a background parameter called ‘Background Value D2O’.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setBackgroundParam</span><span class="p">(</span><span class="s1">&#39;Background Value D2O&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Background 2&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="o">...</span>
-<span class="gp">&gt;&gt;&gt; </span>                           <span class="s1">&#39;fit&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s1">&#39;priorType&#39;</span><span class="p">,</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="s1">&#39;mu&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;sigma&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setBackgroundParam</span><span class="p">(</span><span class="s1">'Background Value D2O'</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'Background 2'</span><span class="p">,</span> <span class="s1">'min'</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">'value'</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">'max'</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="o">...</span>
+<span class="gp">&gt;&gt;&gt; </span>                           <span class="s1">'fit'</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s1">'priorType'</span><span class="p">,</span> <span class="s1">'gaussian'</span><span class="p">,</span> <span class="s1">'mu'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'sigma'</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1297,12 +1297,12 @@ it is the name of the background parameter to update.</p></li>
 <dd><p>General purpose method for updating properties of an existing contrast.</p>
 <p class="rubric">Examples</p>
 <p>To change the properties of the second contrast in the object.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setContrast</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;new contrast&#39;</span><span class="p">,</span> <span class="n">bulkIn</span><span class="o">=</span><span class="s1">&#39;Silicon&#39;</span><span class="p">,</span> <span class="n">bulkOut</span><span class="o">=</span><span class="s1">&#39;D2O&#39;</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">&#39;D2O Background&#39;</span><span class="p">,</span> <span class="o">...</span>
-<span class="go">                        resolution=&#39;Resolution 1&#39;, scalefactor=&#39;Scalefactor 1&#39;, data=&#39;DSPC Bilayer D2O&#39;, model=&#39;Oxide Model&#39;});</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setContrast</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'new contrast'</span><span class="p">,</span> <span class="n">bulkIn</span><span class="o">=</span><span class="s1">'Silicon'</span><span class="p">,</span> <span class="n">bulkOut</span><span class="o">=</span><span class="s1">'D2O'</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">'D2O Background'</span><span class="p">,</span> <span class="o">...</span>
+<span class="go">                        resolution='Resolution 1', scalefactor='Scalefactor 1', data='DSPC Bilayer D2O', model='Oxide Model'});</span>
 </pre></div>
 </div>
 <p>To change the properties of a contrast called ‘Contrast 1’.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setContrast</span><span class="p">(</span><span class="s1">&#39;Contrast 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;new contrast&#39;</span><span class="p">,</span> <span class="n">scalefactor</span><span class="o">=</span><span class="s1">&#39;Scalefactor 1&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s1">&#39;DSPC Bilayer D2O&#39;</span><span class="p">});</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setContrast</span><span class="p">(</span><span class="s1">'Contrast 1'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'new contrast'</span><span class="p">,</span> <span class="n">scalefactor</span><span class="o">=</span><span class="s1">'Scalefactor 1'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s1">'DSPC Bilayer D2O'</span><span class="p">});</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1342,15 +1342,15 @@ it is the name of the contrast to update.</p></li>
 <dd><p>Updates the model of an existing contrast.</p>
 <p class="rubric">Examples</p>
 <p>To change the model of the second contrast in the project.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setContrastModel</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Oxide Model&#39;</span><span class="p">});</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setContrastModel</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'Oxide Model'</span><span class="p">});</span>
 </pre></div>
 </div>
 <p>To change the properties of a contrast called ‘Contrast 1’.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setContrastModel</span><span class="p">(</span><span class="s1">&#39;Contrast 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Oxide Model&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setContrastModel</span><span class="p">(</span><span class="s1">'Contrast 1'</span><span class="p">,</span> <span class="s1">'Oxide Model'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To change multiple contrasts at once. The snippet below will change 1, 2, and 3.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setContrastModel</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Layer 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Layer 2&#39;</span><span class="p">});</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setContrastModel</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="s1">'Layer 1'</span><span class="p">,</span> <span class="s1">'Layer 2'</span><span class="p">});</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1371,11 +1371,11 @@ For custom models, this should be a single custom file name for the custom model
 <dd><p>General purpose method for updating properties of an existing custom file.</p>
 <p class="rubric">Examples</p>
 <p>To change the name and filename of the second custom file in the table (custom file in row 2).</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">setCustomFile</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;customFunction.m&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">setCustomFile</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'custom file 1'</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">'customFunction.m'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To change the properties of a custom file called ‘custom file 1’.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">setCustomFile</span><span class="p">(</span><span class="s1">&#39;custom file 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;new custom file&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;customFunction.py&#39;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span><span class="o">.</span><span class="n">setCustomFile</span><span class="p">(</span><span class="s1">'custom file 1'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'new custom file'</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">'customFunction.py'</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">'python'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1405,11 +1405,11 @@ it is the name of the custom file to update.</p></li>
 <dd><p>General purpose method for updating properties of an existing dataset.</p>
 <p class="rubric">Examples</p>
 <p>To change the name and data of the second dataset in the table (dataset in row 2).</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setData</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Data 1&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setData</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Data 1'</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">;</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]);</span>
 </pre></div>
 </div>
 <p>To change the properties of a dataset called ‘Data 1’.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setData</span><span class="p">(</span><span class="s1">&#39;Data 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Data H2O&#39;</span><span class="p">,</span> <span class="n">dataRange</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setData</span><span class="p">(</span><span class="s1">'Data 1'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Data H2O'</span><span class="p">,</span> <span class="n">dataRange</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1439,15 +1439,15 @@ it is the name of the dataset to update.</p></li>
 Any unset property will remain unchanged.</p>
 <p class="rubric">Examples</p>
 <p>To update the thickness of the second layer in the table (layer in row 2).</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setLayer</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="s1">&#39;New thickness&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setLayer</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="s1">'New thickness'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To change the properties of a layer called ‘Layer 1’.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setLayer</span><span class="p">(</span><span class="s1">&#39;Layer 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;new layer&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="s1">&#39;New thickness&#39;</span><span class="p">,</span> <span class="n">sld</span><span class="o">=</span><span class="s1">&#39;Layer SLD&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setLayer</span><span class="p">(</span><span class="s1">'Layer 1'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'new layer'</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="s1">'New thickness'</span><span class="p">,</span> <span class="n">sld</span><span class="o">=</span><span class="s1">'Layer SLD'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To change the imaginary SLD when absorption is true.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setLayer</span><span class="p">(</span><span class="s1">&#39;Layer 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;new layer&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="s1">&#39;New thickness&#39;</span><span class="p">,</span> <span class="n">realSLD</span><span class="o">=</span><span class="s1">&#39;Layer SLD&#39;</span><span class="p">,</span> <span class="n">imaginarySLD</span><span class="o">=</span><span class="s1">&#39;Layer Imaginary SLD&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setLayer</span><span class="p">(</span><span class="s1">'Layer 1'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'new layer'</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="s1">'New thickness'</span><span class="p">,</span> <span class="n">realSLD</span><span class="o">=</span><span class="s1">'Layer SLD'</span><span class="p">,</span> <span class="n">imaginarySLD</span><span class="o">=</span><span class="s1">'Layer Imaginary SLD'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1479,11 +1479,11 @@ it is the name of the layer to update.</p></li>
 <dd><p>General purpose method for updating properties of an existing resolution.</p>
 <p class="rubric">Examples</p>
 <p>To change the name and value of the second resolution in the table (resolution in row 2).</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setResolution</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Resolution 1&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;param name&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setResolution</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Resolution 1'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">'constant'</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">'param name'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To change the properties of a resolution called ‘Resolution 1’.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setResolution</span><span class="p">(</span><span class="s1">&#39;Resolution 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;New Resolution 1&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setResolution</span><span class="p">(</span><span class="s1">'Resolution 1'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'New Resolution 1'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">'data'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1513,12 +1513,12 @@ it is the name of the resolution to update.</p></li>
 Any unset property will remain unchanged.</p>
 <p class="rubric">Examples</p>
 <p>To change the name and value of the second resolution parameter in the table (parameter in row 2).</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setResolutionParam</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Resolution Param 1&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setResolutionParam</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'Resolution Param 1'</span><span class="p">,</span> <span class="s1">'value'</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To change the all properties of a resolution parameter called ‘Resolution Param 2’.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setResolutionParam</span><span class="p">(</span><span class="s1">&#39;Resolution Param 2&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Resolution Param 1&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="o">...</span>
-<span class="gp">&gt;&gt;&gt; </span>                           <span class="s1">&#39;fit&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s1">&#39;priorType&#39;</span><span class="p">,</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="s1">&#39;mu&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;sigma&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">setResolutionParam</span><span class="p">(</span><span class="s1">'Resolution Param 2'</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'Resolution Param 1'</span><span class="p">,</span> <span class="s1">'min'</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">'value'</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">'max'</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="o">...</span>
+<span class="gp">&gt;&gt;&gt; </span>                           <span class="s1">'fit'</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s1">'priorType'</span><span class="p">,</span> <span class="s1">'gaussian'</span><span class="p">,</span> <span class="s1">'mu'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'sigma'</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1582,7 +1582,7 @@ it is the name of the resolution parameter to update.</p></li>
 <span class="sig-name descname"><span class="pre">writeScript</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">options</span></em><span class="sig-paren">)</span><a class="headerlink" href="#API.projectClass.projectClass.writeScript" title="Link to this definition">#</a></dt>
 <dd><p>Writes a MATLAB script to a given file path. This script can be run to reproduce the current projectClass object.</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">writeScript</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;newScript.m&quot;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span><span class="o">.</span><span class="n">writeScript</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">"newScript.m"</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1590,6 +1590,7 @@ it is the name of the resolution parameter to update.</p></li>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>objName</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">'project'</span></code></span>) – The name to use for the project object in the script.</p></li>
 <li><p><strong>path</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">or</span> <span class="pre">char</span> <span class="pre">array,</span> <span class="pre">default:</span> <span class="pre">'projectScript.m'</span></code></span>) – The relative or absolute file path where the script should be written to.</p></li>
+<li><p><strong>precision</strong> (<span><code class="xref mat mat-obj docutils literal notranslate"><span class="pre">whole</span> <span class="pre">number,</span> <span class="pre">default:</span> <span class="pre">4</span></code></span>) – The number of significant figures written into the script.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1607,8 +1608,8 @@ data, contrast etc, but also stores the domains ratio and domains contrast which
 <code class="docutils literal notranslate"><span class="pre">addDomainsRatio</span></code>, <code class="docutils literal notranslate"><span class="pre">removeDomainsRatio</span></code>, and <code class="docutils literal notranslate"><span class="pre">setDomainsRatio</span></code> methods are available for adding, removing, and updating parameters.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span> <span class="o">=</span> <span class="n">domainsClass</span><span class="p">();</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span> <span class="o">=</span> <span class="n">domainsClass</span><span class="p">(</span><span class="s2">&quot;Example Project&quot;</span><span class="p">);</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span> <span class="o">=</span> <span class="n">domainsClass</span><span class="p">(</span><span class="s2">&quot;Example Project&quot;</span><span class="p">,</span> <span class="s1">&#39;custom layers&#39;</span><span class="p">,</span> <span class="s1">&#39;substrate/liquid&#39;</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span> <span class="o">=</span> <span class="n">domainsClass</span><span class="p">(</span><span class="s2">"Example Project"</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span> <span class="o">=</span> <span class="n">domainsClass</span><span class="p">(</span><span class="s2">"Example Project"</span><span class="p">,</span> <span class="s1">'custom layers'</span><span class="p">,</span> <span class="s1">'substrate/liquid'</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1759,13 +1760,13 @@ data, contrast etc, but also stores the domains ratio and domains contrast which
 <dd><p>Add a new contrast to the project.</p>
 <p class="rubric">Examples</p>
 <p>To add a new contrast with name only.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">addContrast</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;new contrast&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">addContrast</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'new contrast'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add a new contrast with other properties.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">addContrast</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;new contrast&#39;</span><span class="p">,</span> <span class="n">bulkIn</span><span class="o">=</span><span class="s1">&#39;Silicon&#39;</span><span class="p">,</span> <span class="n">bulkOut</span><span class="o">=</span><span class="s1">&#39;D2O&#39;</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">&#39;D2O Background&#39;</span><span class="p">,</span> <span class="o">...</span>
-<span class="go">                        resolution=&#39;Resolution 1&#39;, scalefactor=&#39;Scalefactor 1&#39;, data=&#39;DSPC Bilayer D2O&#39;, ...</span>
-<span class="go">                        domainRatio=&#39;Domain Ratio 1&#39;, model={&#39;Domains 1&#39;, &#39;Domains 2&#39;});</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">addContrast</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'new contrast'</span><span class="p">,</span> <span class="n">bulkIn</span><span class="o">=</span><span class="s1">'Silicon'</span><span class="p">,</span> <span class="n">bulkOut</span><span class="o">=</span><span class="s1">'D2O'</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">'D2O Background'</span><span class="p">,</span> <span class="o">...</span>
+<span class="go">                        resolution='Resolution 1', scalefactor='Scalefactor 1', data='DSPC Bilayer D2O', ...</span>
+<span class="go">                        domainRatio='Domain Ratio 1', model={'Domains 1', 'Domains 2'});</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1802,12 +1803,12 @@ data, contrast etc, but also stores the domains ratio and domains contrast which
 <dd><p>Add a new domain contrast to the project.</p>
 <p class="rubric">Examples</p>
 <p>To add a new domain contrast with name only.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">addDomainContrast</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;new domain contrast&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">addDomainContrast</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'new domain contrast'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add a new domain contrast with model.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">addDomainContrast</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;new domain contrast&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;Oxide&#39;</span><span class="p">);</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">addDomainContrast</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;new domain contrast&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Oxide&#39;</span><span class="p">,</span> <span class="s1">&#39;Bilayer tails&#39;</span><span class="p">});</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">addDomainContrast</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'new domain contrast'</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">'Oxide'</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">addDomainContrast</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'new domain contrast'</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="p">{</span><span class="s1">'Oxide'</span><span class="p">,</span> <span class="s1">'Bilayer tails'</span><span class="p">});</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1837,13 +1838,13 @@ Adds an new domain ratio to the project.</p>
 </pre></div>
 </div>
 <p>To add a domain ratio with all available properties.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">addDomainRatio</span><span class="p">(</span><span class="s1">&#39;New Domain Ratio&#39;</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">addDomainRatio</span><span class="p">(</span><span class="s1">'New Domain Ratio'</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="n">true</span><span class="p">,</span> <span class="s1">'gaussian'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Other examples of adding domain ratios with a subset of properties.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">addDomainRatio</span><span class="p">(</span><span class="s1">&#39;New Domain Ratio&#39;</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Domain</span> <span class="n">ratio</span> <span class="n">name</span> <span class="n">only</span> <span class="k">with</span> <span class="n">others</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">default</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">addDomainRatio</span><span class="p">(</span><span class="s1">&#39;New Domain Ratio&#39;</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Domain</span> <span class="n">ratio</span> <span class="n">name</span> <span class="ow">and</span> <span class="nb">min</span> <span class="n">only</span><span class="o">.</span> <span class="n">Value</span> <span class="ow">and</span> <span class="nb">max</span> <span class="n">will</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">to</span> <span class="mf">0.4</span> <span class="n">to</span> <span class="n">keep</span> <span class="n">limits</span> <span class="n">valid</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">addDomainRatio</span><span class="p">(</span><span class="s1">&#39;New Domain Ratio&#39;</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>  <span class="o">%</span> <span class="n">priors</span> <span class="n">will</span> <span class="n">be</span> <span class="n">default</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">addDomainRatio</span><span class="p">(</span><span class="s1">'New Domain Ratio'</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Domain</span> <span class="n">ratio</span> <span class="n">name</span> <span class="n">only</span> <span class="k">with</span> <span class="n">others</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">default</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">addDomainRatio</span><span class="p">(</span><span class="s1">'New Domain Ratio'</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Domain</span> <span class="n">ratio</span> <span class="n">name</span> <span class="ow">and</span> <span class="nb">min</span> <span class="n">only</span><span class="o">.</span> <span class="n">Value</span> <span class="ow">and</span> <span class="nb">max</span> <span class="n">will</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">to</span> <span class="mf">0.4</span> <span class="n">to</span> <span class="n">keep</span> <span class="n">limits</span> <span class="n">valid</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">addDomainRatio</span><span class="p">(</span><span class="s1">'New Domain Ratio'</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>  <span class="o">%</span> <span class="n">priors</span> <span class="n">will</span> <span class="n">be</span> <span class="n">default</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1902,7 +1903,7 @@ contrast model, domain ratios, and domain contrasts entries in the project.</p>
 </pre></div>
 </div>
 <p>To remove domain contrast with a specific name.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">removeDomainContrast</span><span class="p">(</span><span class="s1">&#39;domain contrast 1&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">removeDomainContrast</span><span class="p">(</span><span class="s1">'domain contrast 1'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1923,7 +1924,7 @@ it is the name of the domain contrast to remove.</p>
 </pre></div>
 </div>
 <p>To remove domain ratio with a specific name.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">removeDomainRatio</span><span class="p">(</span><span class="s1">&#39;Domain Ratio 2&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">removeDomainRatio</span><span class="p">(</span><span class="s1">'Domain Ratio 2'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1940,12 +1941,12 @@ it is the name of the domain ratio to remove.</p>
 <dd><p>General purpose method for updating properties of an existing contrast.</p>
 <p class="rubric">Examples</p>
 <p>To change the properties of the second contrast in the object.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setContrast</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;new contrast&#39;</span><span class="p">,</span> <span class="n">bulkIn</span><span class="o">=</span><span class="s1">&#39;Silicon&#39;</span><span class="p">,</span> <span class="n">bulkOut</span><span class="o">=</span><span class="s1">&#39;D2O&#39;</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">&#39;D2O Background&#39;</span><span class="p">,</span> <span class="o">...</span>
-<span class="go">                        resolution=&#39;Resolution 1&#39;, scalefactor=&#39;Scalefactor 1&#39;, data=&#39;DSPC Bilayer D2O&#39;, model={&#39;Domains 1&#39;, &#39;Domains 2&#39;}});</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setContrast</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'new contrast'</span><span class="p">,</span> <span class="n">bulkIn</span><span class="o">=</span><span class="s1">'Silicon'</span><span class="p">,</span> <span class="n">bulkOut</span><span class="o">=</span><span class="s1">'D2O'</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">'D2O Background'</span><span class="p">,</span> <span class="o">...</span>
+<span class="go">                        resolution='Resolution 1', scalefactor='Scalefactor 1', data='DSPC Bilayer D2O', model={'Domains 1', 'Domains 2'}});</span>
 </pre></div>
 </div>
 <p>To change the properties of a contrast called ‘Contrast 1’.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setContrast</span><span class="p">(</span><span class="s1">&#39;Contrast 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;new contrast&#39;</span><span class="p">,</span> <span class="n">domainRatio</span><span class="o">=</span><span class="s1">&#39;Domain Ratio 1&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Domains 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Domains 2&#39;</span><span class="p">});</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setContrast</span><span class="p">(</span><span class="s1">'Contrast 1'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'new contrast'</span><span class="p">,</span> <span class="n">domainRatio</span><span class="o">=</span><span class="s1">'Domain Ratio 1'</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="p">{</span><span class="s1">'Domains 1'</span><span class="p">,</span> <span class="s1">'Domains 2'</span><span class="p">});</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -1986,15 +1987,15 @@ it is the name of the contrast to update.</p></li>
 <dd><p>Updates the model of an existing contrast.</p>
 <p class="rubric">Examples</p>
 <p>To change the model of the second contrast in the project.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setContrastModel</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Domains 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Domains 2&#39;</span><span class="p">});</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setContrastModel</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="p">{</span><span class="s1">'Domains 1'</span><span class="p">,</span> <span class="s1">'Domains 2'</span><span class="p">});</span>
 </pre></div>
 </div>
 <p>To change the properties of a contrast called ‘Contrast 1’.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setContrastModel</span><span class="p">(</span><span class="s1">&#39;Contrast 1&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Domains 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Domains 2&#39;</span><span class="p">});</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setContrastModel</span><span class="p">(</span><span class="s1">'Contrast 1'</span><span class="p">,</span> <span class="p">{</span><span class="s1">'Domains 1'</span><span class="p">,</span> <span class="s1">'Domains 2'</span><span class="p">});</span>
 </pre></div>
 </div>
 <p>To change multiple contrasts at once. The snippet below will change 1, 2, and 3.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setContrastModel</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Domains 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Domains 2&#39;</span><span class="p">});</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setContrastModel</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="s1">'Domains 1'</span><span class="p">,</span> <span class="s1">'Domains 2'</span><span class="p">});</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2015,11 +2016,11 @@ For custom models, this should be a single custom file name for the custom model
 <dd><p>General purpose method for updating properties of an existing domain contrast.</p>
 <p class="rubric">Examples</p>
 <p>To change the properties of the second domain contrast in the object.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setDomainContrast</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;new domain contrast&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;Oxide Model&#39;</span><span class="p">});</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setDomainContrast</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'new domain contrast'</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">'Oxide Model'</span><span class="p">});</span>
 </pre></div>
 </div>
 <p>To change the properties of a domain contrast called ‘Domain Contrast 1’.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setDomainContrast</span><span class="p">(</span><span class="s1">&#39;Domain Contrast 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;new domain contrast&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Oxide&#39;</span><span class="p">,</span> <span class="s1">&#39;Bilayer tails&#39;</span><span class="p">});</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setDomainContrast</span><span class="p">(</span><span class="s1">'Domain Contrast 1'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'new domain contrast'</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="p">{</span><span class="s1">'Oxide'</span><span class="p">,</span> <span class="s1">'Bilayer tails'</span><span class="p">});</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2046,15 +2047,15 @@ it is the name of the domain contrast to update.</p></li>
 <dd><p>Updates the model of an existing domain contrast.</p>
 <p class="rubric">Examples</p>
 <p>To change the model of the second domain contrast in the project.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setDomainContrastModel</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Oxide Model&#39;</span><span class="p">});</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setDomainContrastModel</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'Oxide Model'</span><span class="p">});</span>
 </pre></div>
 </div>
 <p>To change the properties of a domain contrast called ‘Contrast 1’.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setDomainContrastModel</span><span class="p">(</span><span class="s1">&#39;Contrast 1&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Domains 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Domains 2&#39;</span><span class="p">});</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setDomainContrastModel</span><span class="p">(</span><span class="s1">'Contrast 1'</span><span class="p">,</span> <span class="p">{</span><span class="s1">'Domains 1'</span><span class="p">,</span> <span class="s1">'Domains 2'</span><span class="p">});</span>
 </pre></div>
 </div>
 <p>To change multiple domain contrasts at once. The snippet below will change 1, 2, and 3.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setDomainContrastModel</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Layer 1&#39;</span><span class="p">});</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setDomainContrastModel</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">{</span><span class="s1">'Layer 1'</span><span class="p">});</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -2075,11 +2076,11 @@ it is the name of the domain contrast to update.</p></li>
 Any unset property will remain unchanged.</p>
 <p class="rubric">Examples</p>
 <p>To change the name and value of the second domain ratio in the table (domain ratio in row 2).</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setDomainRatio</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Domain Ratio 1&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.55</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setDomainRatio</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Domain Ratio 1'</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.55</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To change the all properties of a domain ratio called ‘Domain Ratio 1’.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setDomainRatio</span><span class="p">(</span><span class="s1">&#39;Domain Ratio 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;New Domain Ratio&#39;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="o">...</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">domains</span><span class="o">.</span><span class="n">setDomainRatio</span><span class="p">(</span><span class="s1">'Domain Ratio 1'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'New Domain Ratio'</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="o">...</span>
 <span class="gp">&gt;&gt;&gt; </span>                       <span class="n">fit</span><span class="o">=</span><span class="n">true</span><span class="p">,</span> <span class="n">priorType</span><span class="o">=</span><span class="n">gaussian</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">5</span><span class="p">);</span>
 </pre></div>
 </div>

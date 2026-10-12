@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3f9e4f21" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -487,7 +487,7 @@ document.write(`
 <dd><p>Converts <code class="docutils literal notranslate"><span class="pre">projectClass</span></code> instance to RasCAL1 (r1) struct. Also creates the datafiles directory and saves the
 data if asked. The functions takes in a <code class="docutils literal notranslate"><span class="pre">projectClass</span></code> instance and other optional arguments then outputs r1 struct.</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r1Struct</span> <span class="o">=</span> <span class="n">projectClassToR1</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="s1">&#39;saveProject&#39;</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">r1Struct</span> <span class="o">=</span> <span class="n">projectClassToR1</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="s1">'saveProject'</span><span class="p">,</span> <span class="n">false</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -522,8 +522,8 @@ data if asked. The functions takes in a <code class="docutils literal notranslat
 <dd><p>Converts RasCAL1 (r1) struct to an equivalent <code class="docutils literal notranslate"><span class="pre">projectClass</span></code> instance. The function takes the path of the
 r1 struct .mat file.</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">r1ToProjectClass</span><span class="p">(</span><span class="s1">&#39;DSPCBilayerStructInput.mat&#39;</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Load</span> <span class="kn">from</span><span class="w"> </span><span class="nn">current</span> <span class="n">directory</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">r1ToProjectClass</span><span class="p">(</span><span class="s1">&#39;examples/DSPCBilayerStructInput.mat&#39;</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Load</span> <span class="kn">from</span><span class="w"> </span><span class="nn">the</span> <span class="n">example</span> <span class="n">subdirectory</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">r1ToProjectClass</span><span class="p">(</span><span class="s1">'DSPCBilayerStructInput.mat'</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Load</span> <span class="kn">from</span><span class="w"> </span><span class="nn">current</span> <span class="n">directory</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">project</span> <span class="o">=</span> <span class="n">r1ToProjectClass</span><span class="p">(</span><span class="s1">'examples/DSPCBilayerStructInput.mat'</span><span class="p">);</span>  <span class="o">%</span> <span class="n">Load</span> <span class="kn">from</span><span class="w"> </span><span class="nn">the</span> <span class="n">example</span> <span class="n">subdirectory</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -671,7 +671,7 @@ This should return D2O as name check is case insensitive.</p>
 they would be changed to 0 and Inf respectively and a warning issued.</p>
 <p class="rubric">Examples</p>
 <p>To validate a uniform prior.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prior</span> <span class="o">=</span> <span class="n">validatePriors</span><span class="p">(</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prior</span> <span class="o">=</span> <span class="n">validatePriors</span><span class="p">(</span><span class="s1">'uniform'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">prior</span>
 </pre></div>
 </div>

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3f9e4f21" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -722,15 +722,14 @@ inputs required for a reflectivity calculation.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ratapi.Project.model_post_init">
-<span class="sig-name descname"><span class="pre">model_post_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.Project.model_post_init" title="Link to this definition">#</a></dt>
-<dd><p>We need to both initialize private attributes and call the user-defined model_post_init
-method.</p>
+<span class="sig-name descname"><span class="pre">model_post_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_Project__context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.Project.model_post_init" title="Link to this definition">#</a></dt>
+<dd><p>Set up the Class to protect against disallowed modification.</p>
+<p>We initialise the class handle in the ClassLists for empty data fields, set protected parameters, get names of
+all defined parameters, determine the contents of the “model” field in contrasts, and wrap ClassList routines
+to control revalidation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> (<em>BaseModel</em>)</p></li>
-<li><p><strong>context</strong> (<em>Any</em>)</p></li>
-</ul>
+<dd class="field-odd"><p><strong>_Project__context</strong> (<em>Any</em>)</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>None</p>
@@ -764,6 +763,20 @@ method.</p>
 <dt class="sig sig-object py" id="ratapi.Project.show_priors">
 <span class="sig-name descname"><span class="pre">show_priors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.Project.show_priors" title="Link to this definition">#</a></dt>
 <dd><p>Show priors for all parameters in the model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ratapi.Project.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ratapi.Project.to_dict" title="Link to this definition">#</a></dt>
+<dd><p>Generate a dictionary representation of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>model_dict</strong> – A dict containing the model information.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -838,6 +851,7 @@ method.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.Project.save"><code class="docutils literal notranslate"><span class="pre">Project.save()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.Project.set_prior_visibility"><code class="docutils literal notranslate"><span class="pre">Project.set_prior_visibility()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.Project.show_priors"><code class="docutils literal notranslate"><span class="pre">Project.show_priors()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.Project.to_dict"><code class="docutils literal notranslate"><span class="pre">Project.to_dict()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ratapi.Project.write_script"><code class="docutils literal notranslate"><span class="pre">Project.write_script()</span></code></a></li>
 </ul>
 </li>

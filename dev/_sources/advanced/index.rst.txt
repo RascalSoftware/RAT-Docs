@@ -12,6 +12,7 @@ In this section we discuss some advanced features of the toolbox:-
    resampling
    parallelisation
    customLanguages
+   backgroundFunctions
    events
 
 

@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9deae167" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=3f9e4f21" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -57,7 +57,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Different Calculation Types" href="../calcTypes/index.html" />
-    <link rel="prev" title="Custom Models in Python or C++" href="customLanguages.html" />
+    <link rel="prev" title="Function Backgrounds" href="backgroundFunctions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -399,6 +399,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="resampling.html">Profile Resampling (‘microslicing’)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parallelisation.html">Parallelising Calculations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="customLanguages.html">Custom Models in Python or C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backgroundFunctions.html">Function Backgrounds</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Handling Events During Calculations</a></li>
 </ul>
 </li>
@@ -490,7 +491,7 @@ The example below registers a function to listen for the <code class="docutils l
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
 MATLAB</label><div class="sd-tab-content docutils">
-<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">eventManager</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="n">eventTypes</span><span class="p">.</span><span class="n">Plot</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;updatePlot&#39;</span><span class="p">);</span>
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">eventManager</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="n">eventTypes</span><span class="p">.</span><span class="n">Plot</span><span class="p">,</span><span class="w"> </span><span class="s">'updatePlot'</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>

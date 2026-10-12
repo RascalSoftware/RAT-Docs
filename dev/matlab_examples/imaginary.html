@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9deae167" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=3f9e4f21" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -395,6 +395,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../advanced/resampling.html">Profile Resampling (‘microslicing’)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced/parallelisation.html">Parallelising Calculations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced/customLanguages.html">Custom Models in Python or C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/backgroundFunctions.html">Function Backgrounds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced/events.html">Handling Events During Calculations</a></li>
 </ul>
 </li>
@@ -487,8 +488,8 @@ document.write(`
 <p>The custom model used is a MATLAB model - <strong>examples/miscellaneous/absorption/volumeThiolBilayer.m</strong>.</p>
 </div>
 <p><strong>Run Script</strong>:</p>
-<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">getappdata</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;root&#39;</span><span class="p">);</span>
-<span class="nb">cd</span><span class="p">(</span><span class="nb">fullfile</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;examples&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;miscellaneous&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;absorption&#39;</span><span class="p">));</span>
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">root</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">getappdata</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">'root'</span><span class="p">);</span>
+<span class="nb">cd</span><span class="p">(</span><span class="nb">fullfile</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="s">'examples'</span><span class="p">,</span><span class="w"> </span><span class="s">'miscellaneous'</span><span class="p">,</span><span class="w"> </span><span class="s">'absorption'</span><span class="p">));</span>
 <span class="n">absorptionDPPC50</span>
 </pre></div>
 </div>

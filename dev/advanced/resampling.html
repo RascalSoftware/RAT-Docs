@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9deae167" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=3f9e4f21" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -401,6 +401,7 @@ document.write(`
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Profile Resampling (‘microslicing’)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parallelisation.html">Parallelising Calculations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="customLanguages.html">Custom Models in Python or C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backgroundFunctions.html">Function Backgrounds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="events.html">Handling Events During Calculations</a></li>
 </ul>
 </li>
@@ -513,7 +514,7 @@ distance between neighbouring points. So, for an SLD profile of a floating bilay
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-0">
 MATLAB</label><div class="sd-tab-content docutils">
-<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">setContrast</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;resample&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">setContrast</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">'resample'</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -532,18 +533,18 @@ Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>             p                        1                          2            
     ___________________    _______________________    ________________________
 
-    &quot;Name&quot;                 &quot;D-tail/H-Head/D2O&quot;        &quot;H-tail/D-Head/ACMW&quot;    
-    &quot;Data&quot;                 &quot;D-tail / H-head / D2O&quot;    &quot;H-tail / D-head / ACMW&quot;
-    &quot;Background&quot;           &quot;Background D2O&quot;           &quot;Background ACMW&quot;       
-    &quot;Background Action&quot;    &quot;add&quot;                      &quot;add&quot;                   
-    &quot;Bulk in&quot;              &quot;SLD Air&quot;                  &quot;SLD Air&quot;               
-    &quot;Bulk out&quot;             &quot;SLD D2O&quot;                  &quot;SLD ACMW&quot;              
-    &quot;Scalefactor&quot;          &quot;Scalefactor 1&quot;            &quot;Scalefactor 1&quot;         
-    &quot;Resolution&quot;           &quot;Resolution 1&quot;             &quot;Resolution 1&quot;          
-    &quot;Resample&quot;             &quot;true&quot;                     &quot;false&quot;                 
-    &quot;Repeat Layers&quot;        &quot;1&quot;                        &quot;1&quot;                     
-    &quot;Model&quot;                &quot;Deuterated Tails&quot;         &quot;Hydrogenated Tails&quot;    
-    &quot;&quot;                     &quot;Hydrogenated Heads&quot;       &quot;Deuterated Heads&quot;      
+    "Name"                 "D-tail/H-Head/D2O"        "H-tail/D-Head/ACMW"    
+    "Data"                 "D-tail / H-head / D2O"    "H-tail / D-head / ACMW"
+    "Background"           "Background D2O"           "Background ACMW"       
+    "Background Action"    "add"                      "add"                   
+    "Bulk in"              "SLD Air"                  "SLD Air"               
+    "Bulk out"             "SLD D2O"                  "SLD ACMW"              
+    "Scalefactor"          "Scalefactor 1"            "Scalefactor 1"         
+    "Resolution"           "Resolution 1"             "Resolution 1"          
+    "Resample"             "true"                     "false"                 
+    "Repeat Layers"        "1"                        "1"                     
+    "Model"                "Deuterated Tails"         "Hydrogenated Tails"    
+    ""                     "Hydrogenated Heads"       "Deuterated Heads"      
 </pre></div>
 </div>
 </div>
@@ -569,9 +570,9 @@ Python</label><div class="sd-tab-content docutils">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  controlsClass with properties:
 
-               parallel: &#39;single&#39;
-              procedure: &#39;calculate&#39;
-                display: &#39;iter&#39;
+               parallel: 'single'
+              procedure: 'calculate'
+                display: 'iter'
     numSimulationPoints: 500
        resampleMinAngle: 0.9000
         resampleNPoints: 50

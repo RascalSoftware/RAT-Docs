@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9deae167" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=3f9e4f21" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -399,6 +399,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="resampling.html">Profile Resampling (‘microslicing’)</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Parallelising Calculations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="customLanguages.html">Custom Models in Python or C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backgroundFunctions.html">Function Backgrounds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="events.html">Handling Events During Calculations</a></li>
 </ul>
 </li>
@@ -496,13 +497,13 @@ MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">controlsClass</span><span class="p">()</span>
 
 <span class="c">% Choose no parallelisation</span>
-<span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;single&#39;</span><span class="p">;</span>
+<span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'single'</span><span class="p">;</span>
 
 <span class="c">% Parallelise over points</span>
-<span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;points&#39;</span><span class="p">;</span>
+<span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'points'</span><span class="p">;</span>
 
 <span class="c">% Parallelise over contrasts</span>
-<span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;contrasts&#39;</span><span class="p">;</span>
+<span class="n">controls</span><span class="p">.</span><span class="n">parallel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'contrasts'</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -512,13 +513,13 @@ PYTHON</label><div class="sd-tab-content docutils">
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">controls</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Controls</span><span class="p">()</span>
 
 <span class="c1"># Choose no parallelisation</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">parallel</span> <span class="o">=</span> <span class="s1">&#39;single&#39;</span>
+<span class="n">controls</span><span class="o">.</span><span class="n">parallel</span> <span class="o">=</span> <span class="s1">'single'</span>
 
 <span class="c1"># Parallelise over points</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">parallel</span> <span class="o">=</span> <span class="s1">&#39;points&#39;</span>
+<span class="n">controls</span><span class="o">.</span><span class="n">parallel</span> <span class="o">=</span> <span class="s1">'points'</span>
 
 <span class="c1"># Parallelise over contrasts</span>
-<span class="n">controls</span><span class="o">.</span><span class="n">parallel</span> <span class="o">=</span> <span class="s1">&#39;contrasts&#39;</span>
+<span class="n">controls</span><span class="o">.</span><span class="n">parallel</span> <span class="o">=</span> <span class="s1">'contrasts'</span>
 </pre></div>
 </div>
 </div>

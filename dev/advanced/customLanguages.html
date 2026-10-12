@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9deae167" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=3f9e4f21" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -56,7 +56,7 @@
     <link rel="icon" href="../_static/logo.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Handling Events During Calculations" href="events.html" />
+    <link rel="next" title="Function Backgrounds" href="backgroundFunctions.html" />
     <link rel="prev" title="Parallelising Calculations" href="parallelisation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -399,6 +399,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="resampling.html">Profile Resampling (‘microslicing’)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parallelisation.html">Parallelising Calculations</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Custom Models in Python or C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="backgroundFunctions.html">Function Backgrounds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="events.html">Handling Events During Calculations</a></li>
 </ul>
 </li>
@@ -505,7 +506,7 @@ You will need to subtract one from contrast e.g <code class="code docutils liter
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="MATLAB" for="sd-tab-item-0">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="c">% customBilayer.m</span>
-<span class="k">function</span><span class="w"> </span>[output,sub_rough]<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">customBilayer</span><span class="p">(</span>params,bulk_in,bulk_out,contrast<span class="p">)</span>
+<span class="k">function</span><span class="w"> </span><span class="p">[</span>output,sub_rough<span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">customBilayer</span><span class="p">(</span>params,bulk_in,bulk_out,contrast<span class="p">)</span>
 
 <span class="w">    </span><span class="n">sub_rough</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">params</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="w">    </span><span class="n">oxide_thick</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">params</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
@@ -524,7 +525,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="c">% Use known lipid volume and compositions</span>
 <span class="w">    </span><span class="c">% to make the layers</span>
 
-<span class="w">    </span><span class="c">% define all the neutron b&#39;s.</span>
+<span class="w">    </span><span class="c">% define all the neutron b's.</span>
 <span class="w">    </span><span class="n">bc</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.6646e-4</span><span class="p">;</span><span class="w">     </span><span class="c">%Carbon</span>
 <span class="w">    </span><span class="n">bo</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.5843e-4</span><span class="p">;</span><span class="w">     </span><span class="c">%Oxygen</span>
 <span class="w">    </span><span class="n">bh</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="mf">0.3739e-4</span><span class="p">;</span><span class="w">    </span><span class="c">%Hydrogen</span>
@@ -553,7 +554,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <span class="w">    </span><span class="n">SLDhead</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Head</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">vHead</span><span class="p">;</span>
 <span class="w">    </span><span class="n">SLDtail</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Tails</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">vTail</span><span class="p">;</span>
 
-<span class="w">    </span><span class="c">% We calculate the layer thickness&#39; from</span>
+<span class="w">    </span><span class="c">% We calculate the layer thickness' from</span>
 <span class="w">    </span><span class="c">% the volumes and the APM...</span>
 <span class="w">    </span><span class="n">headThick</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vHead</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">lipidAPM</span><span class="p">;</span>
 <span class="w">    </span><span class="n">tailThick</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vTail</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">lipidAPM</span><span class="p">;</span>
@@ -602,7 +603,7 @@ PYTHON</label><div class="sd-tab-content docutils">
     <span class="c1"># Use known lipid volume and compositions</span>
     <span class="c1"># to make the layers</span>
 
-    <span class="c1"># define all the neutron b&#39;s.</span>
+    <span class="c1"># define all the neutron b's.</span>
     <span class="n">bc</span> <span class="o">=</span> <span class="mf">0.6646e-4</span>     <span class="c1"># Carbon</span>
     <span class="n">bo</span> <span class="o">=</span> <span class="mf">0.5843e-4</span>     <span class="c1"># Oxygen</span>
     <span class="n">bh</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.3739e-4</span>    <span class="c1"># Hydrogen</span>
@@ -631,7 +632,7 @@ PYTHON</label><div class="sd-tab-content docutils">
     <span class="n">SLDhead</span> <span class="o">=</span> <span class="n">Head</span> <span class="o">/</span> <span class="n">vHead</span>
     <span class="n">SLDtail</span> <span class="o">=</span> <span class="n">Tails</span> <span class="o">/</span> <span class="n">vTail</span>
 
-    <span class="c1"># We calculate the layer thickness&#39; from</span>
+    <span class="c1"># We calculate the layer thickness' from</span>
     <span class="c1"># the volumes and the APM...</span>
     <span class="n">headThick</span> <span class="o">=</span> <span class="n">vHead</span> <span class="o">/</span> <span class="n">lipidAPM</span>
     <span class="n">tailThick</span> <span class="o">=</span> <span class="n">vTail</span> <span class="o">/</span> <span class="n">lipidAPM</span>
@@ -660,14 +661,14 @@ PYTHON</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="MATLAB" for="sd-tab-item-2">
 MATLAB</label><div class="sd-tab-content docutils">
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s">&#39;myModel&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;customBilayer.py&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;python&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">pwd</span><span class="p">);</span>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s">'myModel'</span><span class="p">,</span><span class="w"> </span><span class="s">'customBilayer.py'</span><span class="p">,</span><span class="w"> </span><span class="s">'python'</span><span class="p">,</span><span class="w"> </span><span class="nb">pwd</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">custom_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;myModel&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;customBilayer.py&#39;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">custom_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'myModel'</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">'customBilayer.py'</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">'python'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -688,8 +689,8 @@ PYTHON</label><div class="sd-tab-content docutils">
 <span class="cp">#define LIB_EXPORT</span>
 <span class="cp">#endif</span>
 
-<span class="c1">// We user extern &quot;C&quot; decorator to avoid name mangling....</span>
-<span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="c1">// We user extern "C" decorator to avoid name mangling....</span>
+<span class="k">extern</span><span class="w"> </span><span class="s">"C"</span><span class="w"> </span><span class="p">{</span>
 
 <span class="w">    </span><span class="n">LIB_EXPORT</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">customBilayer</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">bulkIn</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">bulkOut</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">contrast</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">outputSize</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">rough</span><span class="p">)</span>
 <span class="w">    </span><span class="p">{</span>
@@ -709,7 +710,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 <span class="w">        </span><span class="c1">// Use known lipid volume and compositions</span>
 <span class="w">        </span><span class="c1">// to make the layers</span>
 
-<span class="w">        </span><span class="c1">// define all the neutron b&#39;s.</span>
+<span class="w">        </span><span class="c1">// define all the neutron b's.</span>
 <span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">bc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.6646e-4</span><span class="p">;</span><span class="w">     </span><span class="c1">//Carbon</span>
 <span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">bo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5843e-4</span><span class="p">;</span><span class="w">     </span><span class="c1">//Oxygen</span>
 <span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">bh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">-0.3739e-4</span><span class="p">;</span><span class="w">        </span><span class="c1">//Hydrogen</span>
@@ -738,7 +739,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 <span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">SLDhead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Head</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">vHead</span><span class="p">;</span>
 <span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">SLDtail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Tails</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">vTail</span><span class="p">;</span>
 
-<span class="w">        </span><span class="c1">// We calculate the layer thickness&#39; from</span>
+<span class="w">        </span><span class="c1">// We calculate the layer thickness' from</span>
 <span class="w">        </span><span class="c1">// the volumes and the APM...</span>
 <span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">headThick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vHead</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">lipidAPM</span><span class="p">;</span>
 <span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">tailThick</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vTail</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">lipidAPM</span><span class="p">;</span>
@@ -785,7 +786,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 <span class="w">        </span><span class="n">outputSize</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span><span class="w">     </span><span class="c1">// row - Necessary to output how many layers in stack</span>
 <span class="w">        </span><span class="n">outputSize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="p">}</span><span class="w"> </span><span class="c1">// extern &quot;C&quot;</span>
+<span class="p">}</span><span class="w"> </span><span class="c1">// extern "C"</span>
 </pre></div>
 </div>
 <p>Before you can use this file, you need to compile and build it into a shared library. The details will vary according to you system, for example</p>
@@ -820,14 +821,14 @@ PYTHON</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="MATLAB" for="sd-tab-item-4">
 MATLAB</label><div class="sd-tab-content docutils">
-<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s">&#39;DSPC Model&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;customBilayer.dylib&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;cpp&#39;</span><span class="p">,</span><span class="w"> </span><span class="nb">pwd</span><span class="p">);</span>
+<div class="highlight-MATLAB notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="p">.</span><span class="n">addCustomFile</span><span class="p">(</span><span class="s">'DSPC Model'</span><span class="p">,</span><span class="w"> </span><span class="s">'customBilayer.dylib'</span><span class="p">,</span><span class="w"> </span><span class="s">'cpp'</span><span class="p">,</span><span class="w"> </span><span class="nb">pwd</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-5">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">custom_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;DSPC Model&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;customBilayer.dylib&#39;</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">&#39;cpp&#39;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span><span class="o">.</span><span class="n">custom_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'DSPC Model'</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">'customBilayer.dylib'</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">'cpp'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

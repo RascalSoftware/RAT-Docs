@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3f9e4f21" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -475,8 +475,8 @@ and can be used define resolutions.</p>
 <p>For data resolutions, there are no parameters supplied, but it informs RAT to expect a fourth
 column in the datafile.</p>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutionParams</span> <span class="o">=</span> <span class="n">parametersClass</span><span class="p">(</span><span class="s1">&#39;Resolution Parameter 1&#39;</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">resolution</span> <span class="o">=</span> <span class="n">resolutionClass</span><span class="p">(</span><span class="n">resolutionParams</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Resolution 1&#39;</span><span class="p">,</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span><span class="s1">&#39;Resolution Parameter 1&#39;</span><span class="p">});</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutionParams</span> <span class="o">=</span> <span class="n">parametersClass</span><span class="p">(</span><span class="s1">'Resolution Parameter 1'</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="n">true</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">resolution</span> <span class="o">=</span> <span class="n">resolutionClass</span><span class="p">(</span><span class="n">resolutionParams</span><span class="p">,</span> <span class="p">{</span><span class="s1">'Resolution 1'</span><span class="p">,</span><span class="s1">'constant'</span><span class="p">,</span><span class="s1">'Resolution Parameter 1'</span><span class="p">});</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -515,15 +515,15 @@ column in the datafile.</p>
 <dd><p>Adds a new resolution to the resolution table.</p>
 <p class="rubric">Examples</p>
 <p>To add a new constant resolution with name only.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolution</span><span class="o">.</span><span class="n">addResolution</span><span class="p">(</span><span class="s1">&#39;New Resolution&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolution</span><span class="o">.</span><span class="n">addResolution</span><span class="p">(</span><span class="s1">'New Resolution'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add a constant resolution.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolution</span><span class="o">.</span><span class="n">addResolution</span><span class="p">(</span><span class="n">New</span> <span class="n">Resolution</span><span class="s1">&#39;, &#39;</span><span class="n">constant</span><span class="s1">&#39;, &#39;</span><span class="n">param</span> <span class="n">name</span><span class="s1">&#39;);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolution</span><span class="o">.</span><span class="n">addResolution</span><span class="p">(</span><span class="n">New</span> <span class="n">Resolution</span><span class="s1">', '</span><span class="n">constant</span><span class="s1">', '</span><span class="n">param</span> <span class="n">name</span><span class="s1">');</span>
 </pre></div>
 </div>
 <p>To add a data resolution.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolution</span><span class="o">.</span><span class="n">addResolution</span><span class="p">(</span><span class="s1">&#39;New Resolution&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolution</span><span class="o">.</span><span class="n">addResolution</span><span class="p">(</span><span class="s1">'New Resolution'</span><span class="p">,</span> <span class="s1">'data'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -594,7 +594,7 @@ if type is ‘data’, all values will be ignored.</p></li>
 </pre></div>
 </div>
 <p>To remove resolution with a specific name.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutions</span><span class="o">.</span><span class="n">removeResolution</span><span class="p">(</span><span class="s1">&#39;Resolution 1&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutions</span><span class="o">.</span><span class="n">removeResolution</span><span class="p">(</span><span class="s1">'Resolution 1'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -611,11 +611,11 @@ it is the name of the resolution to remove.</p>
 <dd><p>General purpose method for updating properties of an existing resolution.</p>
 <p class="rubric">Examples</p>
 <p>To change the name and value of the second resolution in the table (resolution in row 2).</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutions</span><span class="o">.</span><span class="n">setResolution</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Resolution 1&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;constant&#39;</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">&#39;param name&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutions</span><span class="o">.</span><span class="n">setResolution</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Resolution 1'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">'constant'</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="s1">'param name'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To change the properties of a resolution called ‘Resolution 1’.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutions</span><span class="o">.</span><span class="n">setResolution</span><span class="p">(</span><span class="s1">&#39;Resolution 1&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;New Resolution&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutions</span><span class="o">.</span><span class="n">setResolution</span><span class="p">(</span><span class="s1">'Resolution 1'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'New Resolution'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">'data'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -644,11 +644,11 @@ it is the name of the resolution to update.</p></li>
 <dd><p>Sets the name of a given resolution in the table.</p>
 <p class="rubric">Examples</p>
 <p>To change the name of the second resolution in the table (resolution in row 2)</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutions</span><span class="o">.</span><span class="n">setResolutionName</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;new name&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutions</span><span class="o">.</span><span class="n">setResolutionName</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'new name'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To change the name of a resolution called ‘old name’ to ‘new name’</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutions</span><span class="o">.</span><span class="n">setResolutionName</span><span class="p">(</span><span class="s1">&#39;old name&#39;</span><span class="p">,</span> <span class="s1">&#39;new name&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">resolutions</span><span class="o">.</span><span class="n">setResolutionName</span><span class="p">(</span><span class="s1">'old name'</span><span class="p">,</span> <span class="s1">'new name'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">

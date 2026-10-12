@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=9deae167" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=3f9e4f21" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -399,6 +399,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../advanced/resampling.html">Profile Resampling (‘microslicing’)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced/parallelisation.html">Parallelising Calculations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced/customLanguages.html">Custom Models in Python or C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/backgroundFunctions.html">Function Backgrounds</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../advanced/events.html">Handling Events During Calculations</a></li>
 </ul>
 </li>
@@ -562,8 +563,8 @@ definition and explain what it describes.</p>
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-2">
 MATLAB</label><div class="sd-tab-content docutils">
 <div class="highlight-Matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Load in a pre-made problem Definition class</span>
-<span class="n">root</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">getappdata</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;root&#39;</span><span class="p">);</span>
-<span class="n">problem</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="nb">load</span><span class="p">(</span><span class="nb">fullfile</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;/examples/tutorialFiles/twoContrastExample.mat&#39;</span><span class="p">));</span>
+<span class="n">root</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">getappdata</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="s">'root'</span><span class="p">);</span>
+<span class="n">problem</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="nb">load</span><span class="p">(</span><span class="nb">fullfile</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="s">'/examples/tutorialFiles/twoContrastExample.mat'</span><span class="p">));</span>
 <span class="n">problem</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">problem</span><span class="p">.</span><span class="n">problem</span><span class="p">;</span>
 
 <span class="c">% Have a look at what we have</span>
@@ -574,7 +575,7 @@ MATLAB</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Python" for="sd-tab-item-3">
 PYTHON</label><div class="sd-tab-content docutils">
-<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Project</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;source/tutorial/data/two_contrast_example.json&quot;</span><span class="p">)</span>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">problem</span> <span class="o">=</span> <span class="n">RAT</span><span class="o">.</span><span class="n">Project</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"source/tutorial/data/two_contrast_example.json"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">problem</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -584,9 +585,9 @@ PYTHON</label><div class="sd-tab-content docutils">
 <input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" data-sync-group="code" data-sync-id="Matlab" for="sd-tab-item-4">
 Matlab</label><div class="sd-tab-content docutils">
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>         modelType: &#39;standard layers&#39;
-    experimentName: &#39;DSPC monolayers&#39;
-          geometry: &#39;air/substrate&#39;
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>         modelType: 'standard layers'
+    experimentName: 'DSPC monolayers'
+          geometry: 'air/substrate'
 
 
     Parameters: ---------------------------------------------------------------------------------------------- 
@@ -594,16 +595,16 @@ Matlab</label><div class="sd-tab-content docutils">
     p               Name               Min       Value      Max     Fit? 
     __    ________________________    ______    _______    _____    _____
 
-     1    &quot;Substrate Roughness&quot;            1          3        5    true 
-     2    &quot;Tails Thickness&quot;               10         20       30    true 
-     3    &quot;Heads Thickness&quot;                3         11       16    true 
-     4    &quot;Tails Roughness&quot;                2          5        9    true 
-     5    &quot;Heads Roughness&quot;                2          5        9    true 
-     6    &quot;Deuterated Tails SLD&quot;       4e-06      6e-06    2e-05    true 
-     7    &quot;Hydrogenated Tails SLD&quot;    -6e-07     -4e-07        0    true 
-     8    &quot;Deuterated Heads SLD&quot;       1e-06      3e-06    8e-06    true 
-     9    &quot;Hydrogenated Heads SLD&quot;     1e-07    1.4e-06    3e-06    true 
-    10    &quot;Heads Hydration&quot;                0        0.3      0.5    true 
+     1    "Substrate Roughness"            1          3        5    true 
+     2    "Tails Thickness"               10         20       30    true 
+     3    "Heads Thickness"                3         11       16    true 
+     4    "Tails Roughness"                2          5        9    true 
+     5    "Heads Roughness"                2          5        9    true 
+     6    "Deuterated Tails SLD"       4e-06      6e-06    2e-05    true 
+     7    "Hydrogenated Tails SLD"    -6e-07     -4e-07        0    true 
+     8    "Deuterated Heads SLD"       1e-06      3e-06    8e-06    true 
+     9    "Hydrogenated Heads SLD"     1e-07    1.4e-06    3e-06    true 
+    10    "Heads Hydration"                0        0.3      0.5    true 
 
 
     Bulk In: -------------------------------------------------------------------------------------------------- 
@@ -611,7 +612,7 @@ Matlab</label><div class="sd-tab-content docutils">
     p      Name       Min    Value    Max    Fit? 
     _    _________    ___    _____    ___    _____
 
-    1    &quot;SLD Air&quot;     0       0       0     false
+    1    "SLD Air"     0       0       0     false
 
 
     Bulk Out: ------------------------------------------------------------------------------------------------- 
@@ -619,8 +620,8 @@ Matlab</label><div class="sd-tab-content docutils">
     p       Name         Min       Value        Max       Fit? 
     _    __________    _______    ________    ________    _____
 
-    1    &quot;SLD D2O&quot;     6.2e-06    6.35e-06    6.35e-06    true 
-    2    &quot;SLD ACMW&quot;     -1e-06           0       1e-06    true 
+    1    "SLD D2O"     6.2e-06    6.35e-06    6.35e-06    true 
+    2    "SLD ACMW"     -1e-06           0       1e-06    true 
 
 
     Scalefactors: ------------------------------------------------------------------------------------------------- 
@@ -628,7 +629,7 @@ Matlab</label><div class="sd-tab-content docutils">
     p         Name          Min     Value    Max     Fit? 
     _    _______________    ____    _____    ____    _____
 
-    1    &quot;Scalefactor 1&quot;    0.02    0.23     0.25    true 
+    1    "Scalefactor 1"    0.02    0.23     0.25    true 
 
 
     Backgrounds: ----------------------------------------------------------------------------------------------- 
@@ -638,16 +639,16 @@ Matlab</label><div class="sd-tab-content docutils">
     p           Name            Min      Value      Max     Fit? 
     _    __________________    _____    _______    _____    _____
 
-    1    &quot;Backs Value ACMW&quot;    1e-07    5.5e-06    1e-05    true 
-    2    &quot;Backs Value D2O&quot;     1e-08    2.8e-06    1e-05    true 
+    1    "Backs Value ACMW"    1e-07    5.5e-06    1e-05    true 
+    2    "Backs Value D2O"     1e-08    2.8e-06    1e-05    true 
 
     (b) Backgrounds:  
 
     p          Name              Type             Source          Value 1    Value 2    Value 3    Value 4    Value 5
     _    _________________    __________    __________________    _______    _______    _______    _______    _______
 
-    1    &quot;Background ACMW&quot;    &quot;constant&quot;    &quot;Backs Value ACMW&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
-    2    &quot;Background D2O&quot;     &quot;constant&quot;    &quot;Backs Value D2O&quot;       &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
+    1    "Background ACMW"    "constant"    "Backs Value ACMW"      ""         ""         ""         ""         ""   
+    2    "Background D2O"     "constant"    "Backs Value D2O"       ""         ""         ""         ""         ""   
 
 
     Resolutions: --------------------------------------------------------------------------------------------- 
@@ -657,14 +658,14 @@ Matlab</label><div class="sd-tab-content docutils">
     p           Name           Min     Value    Max     Fit? 
     _    __________________    ____    _____    ____    _____
 
-    1    &quot;Resolution par 1&quot;    0.01    0.03     0.05    false
+    1    "Resolution par 1"    0.01    0.03     0.05    false
 
     (b) Resolutions:  
 
     p         Name            Type             Source          Value 1    Value 2    Value 3    Value 4    Value 5
     _    ______________    __________    __________________    _______    _______    _______    _______    _______
 
-    1    &quot;Resolution 1&quot;    &quot;constant&quot;    &quot;Resolution par 1&quot;      &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;         &quot;&quot;   
+    1    "Resolution 1"    "constant"    "Resolution par 1"      ""         ""         ""         ""         ""   
 
 
     Layers: -------------------------------------------------------------------------------------------------- 
@@ -672,10 +673,10 @@ Matlab</label><div class="sd-tab-content docutils">
     p            Name                Thickness                  SLD                   Roughness            Hydration        Hydrate with
     _    ____________________    _________________    ________________________    _________________    _________________    ____________
 
-    1    &quot;Hydrogenated Heads&quot;    &quot;Heads Thickness&quot;    &quot;Hydrogenated Heads SLD&quot;    &quot;Heads Roughness&quot;    &quot;Heads Hydration&quot;     &quot;bulk out&quot; 
-    2    &quot;Deuterated Heads&quot;      &quot;Heads Thickness&quot;    &quot;Deuterated Heads SLD&quot;      &quot;Heads Roughness&quot;    &quot;Heads Hydration&quot;     &quot;bulk out&quot; 
-    3    &quot;Hydrogenated Tails&quot;    &quot;Tails Thickness&quot;    &quot;Hydrogenated Tails SLD&quot;    &quot;Tails Roughness&quot;    &quot;&quot;                    &quot;bulk out&quot; 
-    4    &quot;Deuterated Tails&quot;      &quot;Tails Thickness&quot;    &quot;Deuterated Tails SLD&quot;      &quot;Tails Roughness&quot;    &quot;&quot;                    &quot;bulk out&quot; 
+    1    "Hydrogenated Heads"    "Heads Thickness"    "Hydrogenated Heads SLD"    "Heads Roughness"    "Heads Hydration"     "bulk out" 
+    2    "Deuterated Heads"      "Heads Thickness"    "Deuterated Heads SLD"      "Heads Roughness"    "Heads Hydration"     "bulk out" 
+    3    "Hydrogenated Tails"    "Tails Thickness"    "Hydrogenated Tails SLD"    "Tails Roughness"    ""                    "bulk out" 
+    4    "Deuterated Tails"      "Tails Thickness"    "Deuterated Tails SLD"      "Tails Roughness"    ""                    "bulk out" 
 
 
     Custom Files: ------------------------------------------------------------------------------------------------------ 
@@ -683,7 +684,7 @@ Matlab</label><div class="sd-tab-content docutils">
     Name    Filename    Function Name    Language    Path
     ____    ________    _____________    ________    ____
 
-     &quot;&quot;        &quot;&quot;            &quot;&quot;             &quot;&quot;        &quot;&quot; 
+     ""        ""            ""             ""        "" 
 
 
     Data: ------------------------------------------------------------------------------------------------------ 
@@ -691,9 +692,9 @@ Matlab</label><div class="sd-tab-content docutils">
               Name                       Data                  Data Range            Simulation Range   
     ________________________    ______________________    _____________________    _____________________
 
-    &quot;Simulation&quot;                &quot;No Data&quot;                 &quot;-&quot;                      &quot;[ 0.0050 , 0.7000 ]&quot;
-    &quot;H-tail / D-head / ACMW&quot;    &quot;Data array: [51 x 3]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;
-    &quot;D-tail / H-head / D2O&quot;     &quot;Data array: [51 x 3]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;
+    "Simulation"                "No Data"                 "-"                      "[ 0.0050 , 0.7000 ]"
+    "H-tail / D-head / ACMW"    "Data array: [51 x 3]"    "[ 0.0518 , 0.5888 ]"    "[ 0.0518 , 0.5888 ]"
+    "D-tail / H-head / D2O"     "Data array: [51 x 3]"    "[ 0.0518 , 0.5888 ]"    "[ 0.0518 , 0.5888 ]"
 
 
    Contrasts: ----------------------------------------------------------------------------------------------- 
@@ -701,18 +702,18 @@ Matlab</label><div class="sd-tab-content docutils">
              p                        1                          2            
     ___________________    _______________________    ________________________
 
-    &quot;Name&quot;                 &quot;D-tail/H-Head/D2O&quot;        &quot;H-tail/D-Head/ACMW&quot;    
-    &quot;Data&quot;                 &quot;D-tail / H-head / D2O&quot;    &quot;H-tail / D-head / ACMW&quot;
-    &quot;Background&quot;           &quot;Background D2O&quot;           &quot;Background ACMW&quot;       
-    &quot;Background Action&quot;    &quot;add&quot;                      &quot;add&quot;                   
-    &quot;Bulk in&quot;              &quot;SLD Air&quot;                  &quot;SLD Air&quot;               
-    &quot;Bulk out&quot;             &quot;SLD D2O&quot;                  &quot;SLD ACMW&quot;              
-    &quot;Scalefactor&quot;          &quot;Scalefactor 1&quot;            &quot;Scalefactor 1&quot;         
-    &quot;Resolution&quot;           &quot;Resolution 1&quot;             &quot;Resolution 1&quot;          
-    &quot;Resample&quot;             &quot;false&quot;                    &quot;false&quot;                 
-    &quot;Repeat Layers&quot;        &quot;1&quot;                        &quot;1&quot;                     
-    &quot;Model&quot;                &quot;Deuterated Tails&quot;         &quot;Hydrogenated Tails&quot;    
-    &quot;&quot;                     &quot;Hydrogenated Heads&quot;       &quot;Deuterated Heads&quot;      
+    "Name"                 "D-tail/H-Head/D2O"        "H-tail/D-Head/ACMW"    
+    "Data"                 "D-tail / H-head / D2O"    "H-tail / D-head / ACMW"
+    "Background"           "Background D2O"           "Background ACMW"       
+    "Background Action"    "add"                      "add"                   
+    "Bulk in"              "SLD Air"                  "SLD Air"               
+    "Bulk out"             "SLD D2O"                  "SLD ACMW"              
+    "Scalefactor"          "Scalefactor 1"            "Scalefactor 1"         
+    "Resolution"           "Resolution 1"             "Resolution 1"          
+    "Resample"             "false"                    "false"                 
+    "Repeat Layers"        "1"                        "1"                     
+    "Model"                "Deuterated Tails"         "Hydrogenated Tails"    
+    ""                     "Hydrogenated Heads"       "Deuterated Heads"      
 </pre></div>
 </div>
 </div>
@@ -855,16 +856,16 @@ Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    p               Name               Min       Value      Max     Fit? 
     __    ________________________    ______    _______    _____    _____
 
-     1    &quot;Substrate Roughness&quot;            1          3        5    true 
-     2    &quot;Tails Thickness&quot;               10         20       30    true 
-     3    &quot;Heads Thickness&quot;                3         11       16    true 
-     4    &quot;Tails Roughness&quot;                2          5        9    true 
-     5    &quot;Heads Roughness&quot;                2          5        9    true 
-     6    &quot;Deuterated Tails SLD&quot;       4e-06      6e-06    2e-05    true 
-     7    &quot;Hydrogenated Tails SLD&quot;    -6e-07     -4e-07        0    true 
-     8    &quot;Deuterated Heads SLD&quot;       1e-06      3e-06    8e-06    true 
-     9    &quot;Hydrogenated Heads SLD&quot;     1e-07    1.4e-06    3e-06    true 
-    10    &quot;Heads Hydration&quot;                0        0.3      0.5    true 
+     1    "Substrate Roughness"            1          3        5    true 
+     2    "Tails Thickness"               10         20       30    true 
+     3    "Heads Thickness"                3         11       16    true 
+     4    "Tails Roughness"                2          5        9    true 
+     5    "Heads Roughness"                2          5        9    true 
+     6    "Deuterated Tails SLD"       4e-06      6e-06    2e-05    true 
+     7    "Hydrogenated Tails SLD"    -6e-07     -4e-07        0    true 
+     8    "Deuterated Heads SLD"       1e-06      3e-06    8e-06    true 
+     9    "Hydrogenated Heads SLD"     1e-07    1.4e-06    3e-06    true 
+    10    "Heads Hydration"                0        0.3      0.5    true 
 </pre></div>
 </div>
 </div>
@@ -906,10 +907,10 @@ Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    p            Name                Thickness                  SLD                   Roughness            Hydration        Hydrate with
     _    ____________________    _________________    ________________________    _________________    _________________    ____________
 
-    1    &quot;Hydrogenated Heads&quot;    &quot;Heads Thickness&quot;    &quot;Hydrogenated Heads SLD&quot;    &quot;Heads Roughness&quot;    &quot;Heads Hydration&quot;     &quot;bulk out&quot; 
-    2    &quot;Deuterated Heads&quot;      &quot;Heads Thickness&quot;    &quot;Deuterated Heads SLD&quot;      &quot;Heads Roughness&quot;    &quot;Heads Hydration&quot;     &quot;bulk out&quot; 
-    3    &quot;Hydrogenated Tails&quot;    &quot;Tails Thickness&quot;    &quot;Hydrogenated Tails SLD&quot;    &quot;Tails Roughness&quot;    &quot;&quot;                    &quot;bulk out&quot; 
-    4    &quot;Deuterated Tails&quot;      &quot;Tails Thickness&quot;    &quot;Deuterated Tails SLD&quot;      &quot;Tails Roughness&quot;    &quot;&quot;                    &quot;bulk out&quot; 
+    1    "Hydrogenated Heads"    "Heads Thickness"    "Hydrogenated Heads SLD"    "Heads Roughness"    "Heads Hydration"     "bulk out" 
+    2    "Deuterated Heads"      "Heads Thickness"    "Deuterated Heads SLD"      "Heads Roughness"    "Heads Hydration"     "bulk out" 
+    3    "Hydrogenated Tails"    "Tails Thickness"    "Hydrogenated Tails SLD"    "Tails Roughness"    ""                    "bulk out" 
+    4    "Deuterated Tails"      "Tails Thickness"    "Deuterated Tails SLD"      "Tails Roughness"    ""                    "bulk out" 
 </pre></div>
 </div>
 </div>
@@ -949,9 +950,9 @@ Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>              Name                       Data                  Data Range            Simulation Range   
     ________________________    ______________________    _____________________    _____________________
 
-    &quot;Simulation&quot;                &quot;No Data&quot;                 &quot;-&quot;                      &quot;[ 0.0050 , 0.7000 ]&quot;
-    &quot;H-tail / D-head / ACMW&quot;    &quot;Data array: [51 x 3]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;
-    &quot;D-tail / H-head / D2O&quot;     &quot;Data array: [51 x 3]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;    &quot;[ 0.0518 , 0.5888 ]&quot;
+    "Simulation"                "No Data"                 "-"                      "[ 0.0050 , 0.7000 ]"
+    "H-tail / D-head / ACMW"    "Data array: [51 x 3]"    "[ 0.0518 , 0.5888 ]"    "[ 0.0518 , 0.5888 ]"
+    "D-tail / H-head / D2O"     "Data array: [51 x 3]"    "[ 0.0518 , 0.5888 ]"    "[ 0.0518 , 0.5888 ]"
 </pre></div>
 </div>
 </div>
@@ -984,18 +985,18 @@ Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>             p                        1                          2            
     ___________________    _______________________    ________________________
 
-    &quot;Name&quot;                 &quot;D-tail/H-Head/D2O&quot;        &quot;H-tail/D-Head/ACMW&quot;    
-    &quot;Data&quot;                 &quot;D-tail / H-head / D2O&quot;    &quot;H-tail / D-head / ACMW&quot;
-    &quot;Background&quot;           &quot;Background D2O&quot;           &quot;Background ACMW&quot;       
-    &quot;Background Action&quot;    &quot;add&quot;                      &quot;add&quot;                   
-    &quot;Bulk in&quot;              &quot;SLD Air&quot;                  &quot;SLD Air&quot;               
-    &quot;Bulk out&quot;             &quot;SLD D2O&quot;                  &quot;SLD ACMW&quot;              
-    &quot;Scalefactor&quot;          &quot;Scalefactor 1&quot;            &quot;Scalefactor 1&quot;         
-    &quot;Resolution&quot;           &quot;Resolution 1&quot;             &quot;Resolution 1&quot;          
-    &quot;Resample&quot;             &quot;false&quot;                    &quot;false&quot;                 
-    &quot;Repeat Layers&quot;        &quot;1&quot;                        &quot;1&quot;                     
-    &quot;Model&quot;                &quot;Deuterated Tails&quot;         &quot;Hydrogenated Tails&quot;    
-    &quot;&quot;                     &quot;Hydrogenated Heads&quot;       &quot;Deuterated Heads&quot;      
+    "Name"                 "D-tail/H-Head/D2O"        "H-tail/D-Head/ACMW"    
+    "Data"                 "D-tail / H-head / D2O"    "H-tail / D-head / ACMW"
+    "Background"           "Background D2O"           "Background ACMW"       
+    "Background Action"    "add"                      "add"                   
+    "Bulk in"              "SLD Air"                  "SLD Air"               
+    "Bulk out"             "SLD D2O"                  "SLD ACMW"              
+    "Scalefactor"          "Scalefactor 1"            "Scalefactor 1"         
+    "Resolution"           "Resolution 1"             "Resolution 1"          
+    "Resample"             "false"                    "false"                 
+    "Repeat Layers"        "1"                        "1"                     
+    "Model"                "Deuterated Tails"         "Hydrogenated Tails"    
+    ""                     "Hydrogenated Heads"       "Deuterated Heads"      
 </pre></div>
 </div>
 </div>
@@ -1049,9 +1050,9 @@ PYTHON</label><div class="sd-tab-content docutils">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>  controlsClass with properties:
 
-               parallel: &#39;single&#39;
-              procedure: &#39;calculate&#39;
-                display: &#39;iter&#39;
+               parallel: 'single'
+              procedure: 'calculate'
+                display: 'iter'
     numSimulationPoints: 500
        resampleMinAngle: 0.9000
         resampleNPoints: 50
@@ -1102,7 +1103,7 @@ PYTHON</label><div class="sd-tab-content docutils">
 Matlab</label><div class="sd-tab-content docutils">
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Starting RAT ______________________________________________________________________________________________
 
-Elapsed time is 0.685313 seconds.
+Elapsed time is 0.091454 seconds.
 
 Finished RAT ______________________________________________________________________________________________
 </pre></div>
@@ -1138,7 +1139,7 @@ Matlab</label><div class="sd-tab-content docutils">
        resampledLayers: {2x1 cell}
     calculationResults: [1x1 struct]
         contrastParams: [1x1 struct]
-             fitParams: [3 20 11 5 5 6.0000e-06 -4.0000e-07 ... ] (1x15 double)
+             fitParams: [3 20 11 5 5 6.0000e-06 -4.0000e-07 3.0000e-06 ... ]
               fitNames: {15x1 cell}
 </pre></div>
 </div>
@@ -1151,12 +1152,12 @@ simulation = [Data array: [51 x 2], Data array: [51 x 2]],
 shiftedData = [Data array: [51 x 3], Data array: [51 x 3]],
 backgrounds = [Data array: [51 x 3], Data array: [51 x 3]],
 resolutions = [Data array: [51 x 2], Data array: [51 x 2]],
-sldProfiles = [[Data array: [182 x 2]], [Data array: [182 x 2]]],
+sldProfiles = [[Data array: [144 x 2]], [Data array: [144 x 2]]],
 layers = [[Data array: [2 x 3]], [Data array: [2 x 3]]],
 resampledLayers = [[Data array: [1 x 3]], [Data array: [1 x 3]]],
 calculationResults = CalculationResults(
-	chiValues = [278.33456631 463.11454134],
-	sumChi = 741.4491076528798,
+	chiValues = [278.08808718 463.15977934],
+	sumChi = 741.2478665196433,
 ),
 contrastParams = ContrastParams(
 	scalefactors = [0.23 0.23],
@@ -1168,7 +1169,7 @@ contrastParams = ContrastParams(
 fitParams = [ 3.00e+00  2.00e+01  1.10e+01  5.00e+00  5.00e+00  6.00e-06 -4.00e-07
   3.00e-06  1.40e-06  3.00e-01  5.50e-06  2.80e-06  2.30e-01  6.35e-06
  -5.60e-07],
-fitNames = [&#39;Substrate Roughness&#39;, &#39;Tails Thickness&#39;, &#39;Heads Thickness&#39;, &#39;Tails Roughness&#39;, &#39;Heads Roughness&#39;, &#39;Deuterated Tails SLD&#39;, &#39;Hydrogenated Tails SLD&#39;, &#39;Deuterated Heads SLD&#39;, &#39;Hydrogenated Heads SLD&#39;, &#39;Heads Hydration&#39;, &#39;Backs Value ACMW&#39;, &#39;Backs Value D2O&#39;, &#39;Scalefactor 1&#39;, &#39;SLD D2O&#39;, &#39;SLD ACMW&#39;],
+fitNames = ['Substrate Roughness', 'Tails Thickness', 'Heads Thickness', 'Tails Roughness', 'Heads Roughness', 'Deuterated Tails SLD', 'Hydrogenated Tails SLD', 'Deuterated Heads SLD', 'Hydrogenated Heads SLD', 'Heads Hydration', 'Backs Value ACMW', 'Backs Value D2O', 'Scalefactor 1', 'SLD D2O', 'SLD ACMW'],
 </pre></div>
 </div>
 </div>

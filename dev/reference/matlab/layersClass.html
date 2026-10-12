@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/autodoc_pydantic.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=9deae167" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=3f9e4f21" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -498,15 +498,15 @@ absorption is set to true, the SLD column is split into ‘SLD Imaginary’, and
 <p class="rubric">Examples</p>
 <p>To add a new layer with name only.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parameterNames</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">getAllAllowedNames</span><span class="p">()</span><span class="o">.</span><span class="n">paramNames</span><span class="p">;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">parameterNames</span><span class="p">,</span> <span class="s1">&#39;New layer&#39;</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">parameterNames</span><span class="p">,</span> <span class="s1">'New layer'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add a new layer when <code class="docutils literal notranslate"><span class="pre">absorption</span></code> is false.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">parameterNames</span><span class="p">,</span> <span class="s1">&#39;Water Layer&#39;</span><span class="p">,</span> <span class="s1">&#39;Water thickness&#39;</span><span class="p">,</span> <span class="s1">&#39;Water SLD&#39;</span><span class="p">,</span> <span class="s1">&#39;Bilayer heads roughness&#39;</span><span class="p">,</span> <span class="s1">&#39;Water hydration&#39;</span><span class="p">,</span> <span class="s1">&#39;Bulk out&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">parameterNames</span><span class="p">,</span> <span class="s1">'Water Layer'</span><span class="p">,</span> <span class="s1">'Water thickness'</span><span class="p">,</span> <span class="s1">'Water SLD'</span><span class="p">,</span> <span class="s1">'Bilayer heads roughness'</span><span class="p">,</span> <span class="s1">'Water hydration'</span><span class="p">,</span> <span class="s1">'Bulk out'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To add a new layer when <code class="docutils literal notranslate"><span class="pre">absorption</span></code> is true.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">parameterNames</span><span class="p">,</span> <span class="s1">&#39;Layer 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Layer thickness&#39;</span><span class="p">,</span> <span class="s1">&#39;Layer Real SLD&#39;</span><span class="p">,</span> <span class="s1">&#39;Layer Imaginary SLD&#39;</span><span class="p">,</span> <span class="s1">&#39;Layers roughness, &#39;</span><span class="n">Layer</span> <span class="n">hydration</span><span class="s1">&#39;, &#39;</span><span class="n">Bulk</span> <span class="ow">in</span><span class="s1">&#39;);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">parameterNames</span><span class="p">,</span> <span class="s1">'Layer 1'</span><span class="p">,</span> <span class="s1">'Layer thickness'</span><span class="p">,</span> <span class="s1">'Layer Real SLD'</span><span class="p">,</span> <span class="s1">'Layer Imaginary SLD'</span><span class="p">,</span> <span class="s1">'Layers roughness, '</span><span class="n">Layer</span> <span class="n">hydration</span><span class="s1">', '</span><span class="n">Bulk</span> <span class="ow">in</span><span class="s1">');</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -537,7 +537,7 @@ for the scattering length density of this layer.</p></li>
 </pre></div>
 </div>
 <p>To remove layer with a specific name.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">removeLayer</span><span class="p">(</span><span class="s1">&#39;D2O&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">removeLayer</span><span class="p">(</span><span class="s1">'D2O'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -556,15 +556,15 @@ Any unset property will remain unchanged.</p>
 <p class="rubric">Examples</p>
 <p>To update the thickness of the second layer in the table (layer in row 2).</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parameterNames</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">getAllAllowedNames</span><span class="p">()</span><span class="o">.</span><span class="n">paramNames</span><span class="p">;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">setLayer</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">paramNames</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="s1">&#39;New thickness&#39;</span><span class="p">);</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">setLayer</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">paramNames</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="s1">'New thickness'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To change the properties of a layer called ‘Layer 1’.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">setLayer</span><span class="p">(</span><span class="s1">&#39;Layer 1&#39;</span><span class="p">,</span> <span class="n">paramNames</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;new layer&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="s1">&#39;New thickness&#39;</span><span class="p">,</span> <span class="n">sld</span><span class="o">=</span><span class="s1">&#39;Layer SLD&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">setLayer</span><span class="p">(</span><span class="s1">'Layer 1'</span><span class="p">,</span> <span class="n">paramNames</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'new layer'</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="s1">'New thickness'</span><span class="p">,</span> <span class="n">sld</span><span class="o">=</span><span class="s1">'Layer SLD'</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>To change the imaginary SLD when absorption is true.</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">setLayer</span><span class="p">(</span><span class="s1">&#39;Layer 1&#39;</span><span class="p">,</span> <span class="n">paramNames</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;new layer&#39;</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="s1">&#39;New thickness&#39;</span><span class="p">,</span> <span class="n">realSLD</span><span class="o">=</span><span class="s1">&#39;Layer SLD&#39;</span><span class="p">,</span> <span class="n">imaginarySLD</span><span class="o">=</span><span class="s1">&#39;Layer Imaginary SLD&#39;</span><span class="p">);</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">layers</span><span class="o">.</span><span class="n">setLayer</span><span class="p">(</span><span class="s1">'Layer 1'</span><span class="p">,</span> <span class="n">paramNames</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'new layer'</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="s1">'New thickness'</span><span class="p">,</span> <span class="n">realSLD</span><span class="o">=</span><span class="s1">'Layer SLD'</span><span class="p">,</span> <span class="n">imaginarySLD</span><span class="o">=</span><span class="s1">'Layer Imaginary SLD'</span><span class="p">);</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
